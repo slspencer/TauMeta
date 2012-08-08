@@ -271,6 +271,37 @@ def angleOfVectorP(p1, v, p2):
     #L3 = lineLengthP(p2, p3)
     #return math.acos((L1**2 + L2**2 - L3**2)/(2 * L1 * L2))
     return abs(angleOfLineP(v, p1) - angleOfLineP(v, p2))
+       
+def rightPointP(p1, n):
+    pnt = Pnt(p1.x + n, p1.y)
+    return pnt
+    
+def leftPointP(p1, n):
+    pnt = Pnt(p1.x - n, p1.y)
+    return pnt
+    
+def upPointP(p1, n):   
+    pnt = Pnt(p1.x, p1.y - n) 
+    return pnt
+    
+def downPointP(p1, n):
+    pnt = Pnt(p1.x, p1.y + n)
+    return pnt
+    
+def symmetricPointP(p1, p2, type):
+    ''' Accepts p1 point to copy, p2 as reference point, type {'vertical','horizontal'}
+    Copy p1 symmetrical to vertical line x = p2.x or horizontal line y = p2.y. 
+    Returns pnt which is mirror image of p1'''
+    pnt = Pnt()
+    dx = p2.x - p1.x
+    dy = p2.y - p1.y
+    if (type == 'vertical'):   
+        pnt.x = p2.x + dx
+        pnt.y = p1.y
+    elif (type == 'horizontal'):
+        pnt.x = p1.x
+        pnt.y = p2.y + dy
+    return pnt
 
 
 # ----------------...Calculate points with Angle and Slope..------------------------------
@@ -647,8 +678,8 @@ def pntIntersectLinesP(p1, p2, p3, p4):
 def pntIntersectLineCircleP(C, r, P1, P2):
     """
     Finds intersection of a line segment and a circle.
-    Accepts circle center point object C, radius r, and two points P1 & P2 on line
-    Returns an object P with number of intersection points, and up to two coordinate pairs.
+    Accepts circle center point object C, radius r, and two line point objects P1 & P2
+    Returns an object P with number of intersection points, and up to two coordinate pairs as P.intersections, P.p1, P.p2
     Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
     """
     #TODO - add test parameter to determine which intersection should be used
@@ -705,32 +736,42 @@ def intersectCircleCircle(x0, y0, r0, x1, y1, r1):
     Returns xi,yi,xi_prime,yi_prime pairs where circles intersect, and intersections = number of intersections
     example: returns ax,ay, bx,by, number of intersections {0|1|2} --> ax,ay and bx,by are empty when intersections=0, and  bx,by is empty when intersections=1
     """
-
+    print 'radius of 1st circle ro:', r0
+    print 'radius of 2nd circle r1:', r1
     d = lineLength(x0, y0, x1, y1) # distance b/w circle centers
+    print 'distance between circle centers:', d
     dx, dy = (x1 - x0), (y1 - y0) # negate y b/c canvas increases top to bottom
+    
     if (d == 0):
-        #center of both circles are the same
-        intersections = 0
-    elif (d > (r0 + r1)):
-        #circles do not intersect
-        intersections = 0
+            print 'center of both circles are the same...intersectCircleCircle()'
+            intersections = 0
     elif (d < abs(r0 - r1)):
-        #one circle is within the other
-        intersections = 0
+            print 'one circle is within the other ...intersectCircleCircle()'
+            print 'r0 - r1 =',  (r0 - r1), abs(r0 - r1)
+            print 'd < abs(r0 - r1)?',  (d<abs(r0 - r1))
+            intersections = 0
     else:
-        #'I' is the point where the line through the circle centers crosses the line between the intersection points, creating 2 right triangles
-          a = ((r0*r0) - (r1*r1) + (d*d)) / (2.0 * d)
-          intersections = 2
-    x2 = x0 + (dx * a/d)
-    y2 = y0 + (dy * a/d)
-    h = math.sqrt((r0*r0) - (a*a))
-    rx = -dy * (h/d)
-    ry = dx * (h/d)
-    xi = x2 + rx
-    xi_prime = x2 - rx
-    yi = y2 + ry
-    yi_prime = y2 - ry
-    return xi, yi, xi_prime, yi_prime, intersections
+        
+            if (d > (r0 + r1)):
+                    print 'circles do not intersect ...intersectCircleCircle()'
+                    #intersections = 0
+                    # kluge:
+                    r1 = d - r0  
+                    
+            #'I' is the point where the line through the circle centers crosses the line between the intersection points, creating 2 right triangles
+            a = ((r0*r0) - (r1*r1) + (d*d)) / (2.0 * d)
+            intersections = 2
+                  
+            x2 = x0 + (dx * a/d)
+            y2 = y0 + (dy * a/d)
+            h = math.sqrt((r0*r0) - (a*a))
+            rx = -dy * (h/d)
+            ry = dx * (h/d)
+            xi = x2 + rx
+            xi_prime = x2 - rx
+            yi = y2 + ry
+            yi_prime = y2 - ry
+            return xi, yi, xi_prime, yi_prime, intersections
 
 def xyIntersectCircleCircleP(C1, r1, C2, r2):
     """
@@ -746,6 +787,8 @@ def pntIntersectCircleCircleP(C1, r1, C2, r2):
     """
     P, p1, p2 = Pnt(),  Pnt(),  Pnt()
     intersections = 0
+    print 'C1.x, C1.y, r1 =', C1.x,  C1.y, r1
+    print 'C2.x, C2.y, r2 =',  C2.x, C2.y, r2
     x1, y1, x2, y2, intersections = intersectCircleCircle(C1.x, C1.y, r1, C2.x, C2.y, r2)
     p1 = Pnt(x1, y1)
     p2 = Pnt(x2, y2)
