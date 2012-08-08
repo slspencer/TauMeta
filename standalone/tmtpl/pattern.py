@@ -266,9 +266,9 @@ def angleOfLineP(p1, p2):
     return angleOfLine(p1.x, p1.y, p2.x, p2.y)
 
 def angleOfVectorP(p1, v, p2):
-    #L1 = lineLengthP(p1, p2)
-    #L2 = lineLengthP(p1, p3)
-    #L3 = lineLengthP(p2, p3)
+    #L1 = distanceP(p1, p2)
+    #L2 = distanceP(p1, p3)
+    #L3 = distanceP(p2, p3)
     #return math.acos((L1**2 + L2**2 - L3**2)/(2 * L1 * L2))
     return abs(angleOfLineP(v, p1) - angleOfLineP(v, p2))
        
@@ -497,14 +497,14 @@ def pntsOnCurveAtX(curveArray,  x):
 
 # ----------------...Calculate length..------------------------------
 
-def lineLength(xstart, ystart, xend, yend):
+def distance(xstart, ystart, xend, yend):
     """Accepts four values x1, y1, x2, y2 and returns distance"""
     #a^2 + b^2 = c^2
     return math.sqrt(((xend-xstart)**2)+((yend-ystart)**2))
 
-def lineLengthP(p1, p2):
+def distanceP(p1, p2):
     """Accepts two point objects and returns distance between the points"""
-    return lineLength(p1.x, p1.y, p2.x, p2.y)
+    return distance(p1.x, p1.y, p2.x, p2.y)
 
 def curveLength(curve, n=100):
     '''
@@ -522,7 +522,7 @@ def curveLength(curve, n=100):
         segmentLength = 0.0
         i = 1
         while (i <= n):
-                segmentLength = segmentLength + lineLengthP(interpolatedPoints[i-1], interpolatedPoints[i]) #length from previous point to current point
+                segmentLength = segmentLength + distanceP(interpolatedPoints[i-1], interpolatedPoints[i]) #length from previous point to current point
                 i = i + 1
         curveLength = curveLength + segmentLength
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
@@ -738,7 +738,7 @@ def intersectCircleCircle(x0, y0, r0, x1, y1, r1):
     """
     print 'radius of 1st circle ro:', r0
     print 'radius of 2nd circle r1:', r1
-    d = lineLength(x0, y0, x1, y1) # distance b/w circle centers
+    d = distance(x0, y0, x1, y1) # distance b/w circle centers
     print 'distance between circle centers:', d
     dx, dy = (x1 - x0), (y1 - y0) # negate y b/c canvas increases top to bottom
     
@@ -855,7 +855,7 @@ def controlPoints(name, knots):
 
         # process previous segment's c2
         angle = angleOfLineP(knots[next], knots[previous])
-        length = lineLengthP(knots[current], knots[previous])/3.0
+        length = distanceP(knots[current], knots[previous])/3.0
         pnt = pntFromDistanceAndAngleP(knots[current], length, angle)
         c2.append(pnt) # c2[previous]
 
@@ -867,7 +867,7 @@ def controlPoints(name, knots):
 
         # process current segment's c1
         angle = angleOfLineP(knots[previous], knots[next])
-        length = lineLengthP(knots[current], knots[next])/3.0
+        length = distanceP(knots[current], knots[next])/3.0
         pnt = pntFromDistanceAndAngleP(knots[current], length, angle)
         c1.append(pnt) # c1[current]
 
@@ -1150,7 +1150,7 @@ def connectObjects(connector_pnts, old_pnts):
         r_pnts.append(t_pnts[0])
         for t_pnt in t_pnts:
             if  (i != len(t_pnts)):
-                distance = lineLengthP(connector_pnts[0], t_pnts[i])
+                distance = distanceP(connector_pnts[0], t_pnts[i])
                 translated_angle = angleOfLineP(connector_pnts[0], t_pnts[i])
                 r_angle = translated_angle - rotation_angle
                 r_pnts.append(Pnt())
