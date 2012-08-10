@@ -740,32 +740,11 @@ def intersectCircles(x0, y0, r0, x1, y1, r1):
     """
     print 'radius of 1st circle ro:', r0
     print 'radius of 2nd circle r1:', r1
-<<<<<<< HEAD
-    d = lineLength(x0, y0, x1, y1) # distance b/w circle centers
-=======
     d = distance(x0, y0, x1, y1) # distance b/w circle centers
->>>>>>> susan
     print 'distance between circle centers:', d
     dx, dy = (x1 - x0), (y1 - y0) # negate y b/c canvas increases top to bottom
     
     if (d == 0):
-<<<<<<< HEAD
-            print 'center of both circles are the same...intersectCircleCircle()'
-            intersections = 0
-    elif (d < abs(r0 - r1)):
-            print 'one circle is within the other ...intersectCircleCircle()'
-            print 'r0 - r1 =',  (r0 - r1), abs(r0 - r1)
-            print 'd < abs(r0 - r1)?',  (d<abs(r0 - r1))
-            intersections = 0
-    else:
-        
-            if (d > (r0 + r1)):
-                    print 'circles do not intersect ...intersectCircleCircle()'
-                    #intersections = 0
-                    # kluge:
-                    r1 = d - r0  
-                    
-=======
             print 'center of both circles are the same...patternintersectCircles()'
             intersections = 0
     elif (d < abs(r0 - r1)):
@@ -779,7 +758,6 @@ def intersectCircles(x0, y0, r0, x1, y1, r1):
             # TODO: possible kluge  - check if this is acceptable using a small margin of error between r0 & r1 (2*CM)?:
             r1 = d - r0
     else:
->>>>>>> susan
             #'I' is the point where the line through the circle centers crosses the line between the intersection points, creating 2 right triangles
             a = ((r0*r0) - (r1*r1) + (d*d)) / (2.0 * d)
             intersections = 2
@@ -795,11 +773,7 @@ def intersectCircles(x0, y0, r0, x1, y1, r1):
             yi_prime = y2 - ry
             return xi, yi, xi_prime, yi_prime, intersections
 
-<<<<<<< HEAD
-def intersectCircleCircleP(C1, r1, C2, r2):
-=======
 def xyIntersectCirclesP(C1, r1, C2, r2):
->>>>>>> susan
     """
     Accepts C1,r1,C2,r2 where C1 & C2 are point objects
     Returns x1,y1,x2,y2 where the two circles intersect
@@ -815,11 +789,7 @@ def pntIntersectCirclesP(C1, r1, C2, r2):
     intersections = 0
     print 'C1.x, C1.y, r1 =', C1.x,  C1.y, r1
     print 'C2.x, C2.y, r2 =',  C2.x, C2.y, r2
-<<<<<<< HEAD
-    x1, y1, x2, y2, intersections = intersectCircleCircle(C1.x, C1.y, r1, C2.x, C2.y, r2)
-=======
     x1, y1, x2, y2, intersections = intersectCircles(C1.x, C1.y, r1, C2.x, C2.y, r2)
->>>>>>> susan
     p1 = Pnt(x1, y1)
     p2 = Pnt(x2, y2)
     P.intersections = intersections
