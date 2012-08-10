@@ -192,6 +192,8 @@ def addToPath(p, *args):
             pnt=tokens[i+3]
             cubicCurveP(p, c1, c2, pnt)
             i=i+4
+        else:
+            print 'Unknown command token'
     return
 
 def addGridLine(parent, path):
