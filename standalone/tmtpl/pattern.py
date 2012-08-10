@@ -319,12 +319,12 @@ def xyFromDistanceAndAngleP(pnt, distance, angle):
     x, y = xyFromDistanceAndAngle(pnt.x, pnt.y, distance, angle)
     return (x, y)
 
-def pntFromDistanceAndAngle(x1, y1, distance, angle):
+def polarPoint(x1, y1, distance, angle):
     pnt1 = Pnt()
     pnt1.x, pnt1.y = xyFromDistanceAndAngle(x1, y1, distance, angle)
     return pnt1
 
-def pntFromDistanceAndAngleP(pnt, distance, angle):
+def polarPointP(pnt, distance, angle):
     pnt1 = Pnt()
     pnt1.x, pnt1.y = xyFromDistanceAndAngle(pnt.x, pnt.y, distance, angle)
     return pnt1
@@ -858,25 +858,25 @@ def controlPoints(name, knots):
         # process previous segment's c2
         angle = angleOfLineP(knots[next], knots[previous])
         length = distanceP(knots[current], knots[previous])/3.0
-        pnt = pntFromDistanceAndAngleP(knots[current], length, angle)
+        pnt = polarPointP(knots[current], length, angle)
         c2.append(pnt) # c2[previous]
 
         if (current == 1):
             # process 1st segment's c1
             angle = angleOfLineP(knots[0], c2[0])
-            pnt = pntFromDistanceAndAngleP(knots[0], length, angle)
+            pnt = polarPointP(knots[0], length, angle)
             c1.append(pnt)
 
         # process current segment's c1
         angle = angleOfLineP(knots[previous], knots[next])
         length = distanceP(knots[current], knots[next])/3.0
-        pnt = pntFromDistanceAndAngleP(knots[current], length, angle)
+        pnt = polarPointP(knots[current], length, angle)
         c1.append(pnt) # c1[current]
 
         if (current == c_num):
             # process last segment's c2
             angle = angleOfLineP(knots[last_knot], c1[last_segment])
-            pnt = pntFromDistanceAndAngleP(knots[last_knot], length, angle)
+            pnt = polarPointP(knots[last_knot], length, angle)
             c2.append(pnt) # c2[last_segment]
 
         i = (i + 1)
@@ -1156,7 +1156,7 @@ def connectObjects(connector_pnts, old_pnts):
                 translated_angle = angleOfLineP(connector_pnts[0], t_pnts[i])
                 r_angle = translated_angle - rotation_angle
                 r_pnts.append(Pnt())
-                r_pnts[i] = pntFromDistanceAndAngleP(connector_pnts[0], distance, r_angle)
+                r_pnts[i] = polarPointP(connector_pnts[0], distance, r_angle)
                 i=i+1
 
         return r_pnts

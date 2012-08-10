@@ -91,7 +91,7 @@ class PatternDesign():
         k = rPoint(A, 'k', a.x + cd.front_bust_width/2.0, j.y) #k : 'side chest'
         l = rPoint(A, 'l', k.x, k.y + cd.side) #l : 'side waist'
         m = rPoint(A, 'm', d.x, k.y) #m : 'armscye corner'
-        pnt = pntFromDistanceAndAngleP(m, 1*IN, angleOfDegree(315.0))
+        pnt = polarPointP(m, 1*IN, angleOfDegree(315.0))
         n = rPointP(A, 'n', pnt) #n : armscye curve
         o = rPoint(A, 'o', 0., c.y + distanceP(c, b)/2.0) # o: dart apex height
         p = rPoint(A, 'p', a.x + distanceP(e, f)/2.0, o.y) # p: dart apex
@@ -109,14 +109,14 @@ class PatternDesign():
             print 'no intersection found'
         r = rPointP(A, 'r', pnt) #r : 'dart leg outside at waist'
         # neck control points
-        h_c1 = cPointP(A, 'h_c1', pntFromDistanceAndAngleP(a, distanceP(a, h)/3.0, angleOfDegree(0))) # control point is horizontal to a
-        h_c2 = cPointP(A, 'h_c2', pntFromDistanceAndAngleP(h, distanceP(a, h)/3.0, angleOfDegree(90))) # control point is vertical to h
+        h_c1 = cPointP(A, 'h_c1', polarPointP(a, distanceP(a, h)/3.0, angleOfDegree(0))) # control point is horizontal to a
+        h_c2 = cPointP(A, 'h_c2', polarPointP(h, distanceP(a, h)/3.0, angleOfDegree(90))) # control point is vertical to h
         # armscye control points
-        d_c2 = cPointP(A, 'd_c2', pntFromDistanceAndAngleP(d, distanceP(d, g)/3.0, angleOfLineP(n, g)))
-        d_c1 = cPointP(A, 'd_c1', pntFromDistanceAndAngleP(g, distanceP(d, g)/3.0, angleOfLineP(g, d_c2)))
-        n_c1 = cPointP(A, 'n_c1', pntFromDistanceAndAngleP(d, distanceP(d, n)/3.0, angleOfLineP(g, n)))
-        n_c2 = cPointP(A, 'n_c2', pntFromDistanceAndAngleP(n, distanceP(d, n)/3.0, angleOfLineP(k, d)))
-        k_c1 = cPointP(A, 'k_c1', pntFromDistanceAndAngleP(n, distanceP(n, k)/3.0, angleOfLineP(d, k)))
+        d_c2 = cPointP(A, 'd_c2', polarPointP(d, distanceP(d, g)/3.0, angleOfLineP(n, g)))
+        d_c1 = cPointP(A, 'd_c1', polarPointP(g, distanceP(d, g)/3.0, angleOfLineP(g, d_c2)))
+        n_c1 = cPointP(A, 'n_c1', polarPointP(d, distanceP(d, n)/3.0, angleOfLineP(g, n)))
+        n_c2 = cPointP(A, 'n_c2', polarPointP(n, distanceP(d, n)/3.0, angleOfLineP(k, d)))
+        k_c1 = cPointP(A, 'k_c1', polarPointP(n, distanceP(n, k)/3.0, angleOfLineP(d, k)))
         k_c2 = cPoint(A, 'k_c2', k.x - distanceP(n, k)/3.0, k.y) # b/w n & k, horizontal with k.y
         # grainline points
         Ag1 = rPoint(A,  'Ag1', a.x + 2*IN, a.y + 2*IN)
@@ -160,7 +160,7 @@ class PatternDesign():
         mm = rPoint(B, 'mm', ll.x + .75*IN, ll.y) #mm: side waist
         nn = rPoint(B, 'nn', aa.x - distanceP(jj, kk)/2.0, bb.y) #nn: dart legt outside
         oo = rPoint(B, 'oo', dd.x, jj.y) #oo: armscye corner
-        pp = rPointP(B, 'pp', pntFromDistanceAndAngleP(oo, (9/8.)*IN, angleOfDegree(225))) # #pp: armscye curve
+        pp = rPointP(B, 'pp', polarPointP(oo, (9/8.)*IN, angleOfDegree(225))) # #pp: armscye curve
         qq = rPoint(B, 'qq', aa.x - (cd.back_waist_width/2.0 - distanceP(mm, nn)), bb.y) #qq: dart leg inside,
         rr = rPoint(B, 'rr',  nn.x + distanceP(nn, qq)/2.0, jj.y) #rr: dart apex,
         length1 = distanceP(pp, qq) # dart leg
