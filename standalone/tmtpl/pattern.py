@@ -3,12 +3,12 @@
 # This file is part of the tmtp (Tau Meta Tau Physica) project.
 # For more information, see http://www.sew-brilliant.org/
 #
-# Copyright (C) 2010, 2011, 2012  Susan Spencer and Steve Conklin
+# Copyright (C) 2010, 2011, 2012 Susan Spencer and Steve Conklin
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version. Attribution must be given in 
+# (at your option) any later version. Attribution must be given in
 # all derived works.
 #
 # This program is distributed in the hope that it will be useful,
@@ -19,27 +19,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import sys
 import math
-import json
 import string
 import re
 import random
 from math import sin, cos, pi, sqrt
 
-from pysvg.filter import *
-from pysvg.gradient import *
-from pysvg.linking import *
-from pysvg.script import *
-from pysvg.shape import *
-from pysvg.structure import *
-from pysvg.style import *
-from pysvg.text import *
-from pysvg.builders import *
+import pysvg.builders as PYB
 
 from constants import *
 from utils import debug
-from patternbase import pBase
 from document import *
 
 # ---- Pattern methods ----------------------------------------
@@ -49,38 +38,39 @@ from document import *
 # ----------------...Create Points..------------------------------
 
 def pPoint(x, y):
-    '''Accepts x,y and returns an object of class Pnt - Does not create an SVG point'''
+    '''Undrawn point to use in pattern calculations.
+    Accepts x,y and returns an object of class Pnt. Does not create an SVG point'''
     pnt = Pnt(x, y)
     return pnt
 
 def pPointP(pnt1):
     '''Accepts an object of class Point or Pnt (can be from another calculation).
-    Returns an object of class Pnt - Does not create an SVG point'''
+    Returns an object of class Pnt - Does not create an SVG point.'''
     pnt = Pnt(pnt1.x, pnt1.y)
     return pnt
 
 def rPoint(parent, id, x, y, transform=''):
-    '''Accepts parent object, id, x, y, & optional transform.
-    Returns object of class Point. Creates SVG red dot on reference layer for pattern calculation point.'''
+    '''Accepts parent object, id, x, y, & optional transform. Returns object of class Point.
+    Creates SVG red dot in reference group for pattern calculation point.'''
     pnt = Point('reference', id, x, y, 'point_style', transform)
     parent.add(pnt)
     return pnt
 
 def rPointP(parent, id, pnt, transform=''):
     '''Accepts parent object, id, point object (can be from another calculation), and optional transform.
-    Returns object of class Point. Creates SVG red dot on reference layer for pattern calculation point.'''
+    Returns object of class Point. Creates SVG red dot in reference group for pattern calculation point.'''
     return rPoint(parent, id, pnt.x, pnt.y, transform='')
 
 def cPoint(parent, id, x, y, transform=''):
     '''Accepts parent object, id, x, y, and optional transform. Returns object of class Point.
-    Creates SVG blue open dot on reference layer to display control point in bezier curves.'''
+    Creates SVG blue open dot in reference group to display control point in bezier curves.'''
     pnt = Point('reference', id,  x,  y,  'controlpoint_style', transform)
     parent.add(pnt)
     return pnt
 
 def cPointP(parent, id, pnt, transform=''):
     '''Accepts parent object, id, point object (can be from another calculation), and optional transform.
-    Returns object of class Point. Creates SVG blue open dot on reference layer for control point in bezier curves.'''
+    Returns object of class Point. Creates SVG blue open dot in reference group for control point in bezier curves.'''
     return cPoint(parent, id, pnt.x, pnt.y, transform='')
 
 # ----------------...Add Points to Paths..------------------------------
@@ -127,44 +117,44 @@ def quadraticCurveP(pathSVG, control1, point, transform=''):
 
 def gridPath(name, label, pathSVG, transform = ''):
     """
-    Creates grid paths on reference layer
+    Creates grid paths in reference group
     """
     return Path('reference', name, label, pathSVG, 'gridline_style', transform)
 
 def cuttingLinePath(name, label, pathSVG, transform = ''):
     """
-    Creates Cuttingline path on pattern layer
+    Creates Cuttingline path in pattern group
     """
     return Path('pattern', name, label, pathSVG, 'cuttingline_style', transform)
 
 def seamLinePath(name, label, pathSVG, transform = ''):
     """
-    Creates Seamline path on pattern layer
+    Creates Seamline path in pattern group
     """
     return Path('pattern', name, label, pathSVG, 'seamline_style', transform)
 
 def patternLinePath(name, label, pathSVG, transform = ''):
     """
     Accepts name, label, svg path, transform. Returns path object using 'dartline_style'.
-    Creates pattern line path on pattern layer, other than cuttingline, seamline, or hemline - used for darts, etc.
+    Creates pattern line path in pattern group, other than cuttingline, seamline, or hemline - used for darts, etc.
     """
     return Path('pattern', name, label, pathSVG, 'dartline_style', transform)
 
 def stitchLinePath( name, label,  pathSVG, transform = '' ):
     """
-    Creates stitch line on pattern layer, other than cuttingline, seamline, or hemline
+    Creates stitch line in pattern group, other than cuttingline, seamline, or hemline
     """
     return Path('pattern', name, label, pathSVG, 'dartline_style',transform)
 
 def foldLinePath(name, label, pathSVG, transform='' ):
     """
-    Creates fold line on pattern layer, other than dartline, cuttingline, seamline, or hemline
+    Creates fold line in pattern group, other than dartline, cuttingline, seamline, or hemline
     """
     return Path('pattern', name, label, pathSVG, 'foldline_style', transform)
 
 def grainLinePath(name, label, pnt1, pnt2,  transform=''):
     """
-    Creates grain line on pattern layer
+    Creates grain line in pattern group
     """
     if (transform == '') :
         x1, y1 = pnt1.x,  pnt1.y
@@ -202,6 +192,8 @@ def addToPath(p, *args):
             pnt=tokens[i+3]
             cubicCurveP(p, c1, c2, pnt)
             i=i+4
+        else:
+            print 'Unknown command token'
     return
 
 def addGridLine(parent, path):
@@ -258,15 +250,17 @@ def degreeOfAngle(angle):
 def angleOfDegree(degree):
     return degree * math.pi/180.0
 
-def angleOfSlope(rise, run):
-    """Accepts rise, run inputs and returns angle in radians. Uses atan2.   """
+def angleOfSlope(x1, y1, x2, y2):
+    """Accepts two sets of coordinates x1, y1, x2, y2 inputs and returns angle in radians. Uses atan2.   """
+    rise = y2 - y1
+    run = x2 - x1
     return math.atan2(rise, run )
 
 def angleOfSlopeP(pnt1, pnt2):
-    return angleOfSlope(pnt2.y - pnt1.y, pnt2.x - pnt1.x)
+    return angleOfSlope(pnt1.x, pnt1.y, pnt2.x, pnt2.y)
 
 def angleOfLine(x1, y1, x2, y2):
-    """ Accepts two sets of coordinates and returns the angle of the vector between them. Uses atan2.   """
+    """ Accepts two sets of coordinates x1, y1, x2, y2 and returns the angle of the vector between them. Uses atan2.   """
     return math.atan2(y2 - y1, x2 - x1)
 
 def angleOfLineP(p1, p2):
@@ -274,9 +268,9 @@ def angleOfLineP(p1, p2):
     return angleOfLine(p1.x, p1.y, p2.x, p2.y)
 
 def angleOfVectorP(p1, v, p2):
-    #L1 = lineLengthP(p1, p2)
-    #L2 = lineLengthP(p1, p3)
-    #L3 = lineLengthP(p2, p3)
+    #L1 = distanceP(p1, p2)
+    #L2 = distanceP(p1, p3)
+    #L3 = distanceP(p2, p3)
     #return math.acos((L1**2 + L2**2 - L3**2)/(2 * L1 * L2))
     return abs(angleOfLineP(v, p1) - angleOfLineP(v, p2))
        
@@ -314,25 +308,25 @@ def symmetricPointP(p1, p2, type):
 
 # ----------------...Calculate points with Angle and Slope..------------------------------
 
-def xyFromDistanceAndAngle(x1, y1, distance, angle):
+def xyPolarPoint(x1, y1, distance, angle):
     # http://www.teacherschoice.com.au/maths_library/coordinates/polar_-_rectangular_conversion.htm
     r = distance
     x = x1 + (r * cos(angle))
     y = y1 + (r * sin(angle))
     return (x , y )
 
-def xyFromDistanceAndAngleP(pnt, distance, angle):
-    x, y = xyFromDistanceAndAngle(pnt.x, pnt.y, distance, angle)
+def xyPolarPointP(pnt, distance, angle):
+    x, y = xyPolarPoint(pnt.x, pnt.y, distance, angle)
     return (x, y)
 
-def pntFromDistanceAndAngle(x1, y1, distance, angle):
+def polarPoint(x1, y1, distance, angle):
     pnt1 = Pnt()
-    pnt1.x, pnt1.y = xyFromDistanceAndAngle(x1, y1, distance, angle)
+    pnt1.x, pnt1.y = xyPolarPoint(x1, y1, distance, angle)
     return pnt1
 
-def pntFromDistanceAndAngleP(pnt, distance, angle):
+def polarPointP(pnt, distance, angle):
     pnt1 = Pnt()
-    pnt1.x, pnt1.y = xyFromDistanceAndAngle(pnt.x, pnt.y, distance, angle)
+    pnt1.x, pnt1.y = xyPolarPoint(pnt.x, pnt.y, distance, angle)
     return pnt1
 
 def xyOnLine(x1, y1, x2, y2, distance, rotation = 0):
@@ -348,6 +342,15 @@ def xyOnLine(x1, y1, x2, y2, distance, rotation = 0):
     y = (distance * math.sin(angle)) + y1
     return (x, y)
 
+def xyOnLineP(p1, p2, distance, rotation = 0):
+    """
+    Accepts two points p1, p2 and an optional rotation angle
+    Returns x, y values on the line measured from p1
+    the point is optionally rotated about the first point by the rotation angle in degrees
+    """
+    x, y = xyOnLine(p1.x, p1.y, p2.x, p2.y, distance, rotation)
+    return (x, y)
+
 def pntOnLine(x1, y1, x2, y2, distance, rotation = 0):
     """
     Accepts x1,y1,x2,y2 and an optional rotation angle
@@ -357,15 +360,6 @@ def pntOnLine(x1, y1, x2, y2, distance, rotation = 0):
     pnt = Pnt()
     pnt.x, pnt.y = xyOnLine(x1, y1, x2, y2, distance, rotation)
     return pnt
-
-def xyOnLineP(p1, p2, distance, rotation = 0):
-    """
-    Accepts two points p1, p2 and an optional rotation angle
-    Returns x, y values on the line measured from p1
-    the point is optionally rotated about the first point by the rotation angle in degrees
-    """
-    x, y = xyOnLine(p1.x, p1.y, p2.x, p2.y, distance, rotation)
-    return (x, y)
 
 def pntOnLineP(p1, p2, distance, rotation = 0):
     """
@@ -385,6 +379,15 @@ def xyOffLine(x1, y1, x2, y2, distance, rotation = 0):
     (x, y) = xyOnLine(x1, y1, x2, y2, -distance, rotation)
     return (x, y)
 
+def xyOffLineP(p1, p2, distance, rotation = 0):
+    """
+    Accepts two point objects and an optional rotation angle, returns x, y
+    Returns x, y values away from the line, measured from p1, away from p2
+    the point is optionally rotated about the first point by the rotation angle in degrees
+    """
+    (x, y) = xyOffLine(p1.x, p1.y, p2.x, p2.y, distance, rotation)
+    return (x, y)
+
 def pntOffLine(x1, y1, x2, y2, distance, rotation = 0):
     """
     Accepts x1,y1,x2,y2 and an optional rotation angle
@@ -395,46 +398,37 @@ def pntOffLine(x1, y1, x2, y2, distance, rotation = 0):
     pnt.x, pnt.y = xyOffLine(x1, y1, x2, y2, distance, rotation)
     return pnt
 
-def xyOffLineP(p1, p2, distance, rotation = 0):
-    """
-    Accepts two point objects and an optional rotation angle, returns x, y
-    Returns x, y values away from the line, measured from p1, away from p2
-    the point is optionally rotated about the first point by the rotation angle in degrees
-    """
-    (x, y) = xyOffLine(p1.x, p1.y, p2.x, p2.y, distance, rotation)
-    return (x, y)
-
 def pntOffLineP(p1, p2, distance, rotation = 0):
     """
     Accepts two points and an optional rotation angle
     Returns a point object pnt, measured from p1, away from p2
     the point is optionally rotated about the first point by the rotation angle in degrees
     """
-    pnt=Pnt()
+    pnt = Pnt()
     pnt.x, pnt.y = xyOffLine(p1.x, p1.y, p2.x, p2.y, distance, rotation)
     return pnt
 
 # ----------------...Calculate Midpoints on line..------------------------------
 
-def midPoint(x1, y1, x2, y2, n=0.5):
+def xyMidPoint(x1, y1, x2, y2, n=0.5):
     '''Accepts x1,y1,x2,y2 and 0<n<1, returns x,y'''
     return (x1 + x2)*n,  (y1 + y2)*n
 
-def midPointP(p1, p2, n=0.5):
+def xyMidPointP(p1, p2, n=0.5):
     '''Accepts p1 & p2 and 0<n<1, returns x, y'''
-    return midPoint(p1.x,  p1.y,  p2.x,  p2.y, n)
+    return xyMidPoint(p1.x,  p1.y,  p2.x,  p2.y, n)
 
 def pntMidPoint(x1, y1, x2, y2, n=0.5):
     '''Accepts x1,y1,x2,y2 and 0<n<1, returns pnt'''
     #TODO - fix nomenclature of functions - pMidPointP should be pntMidpointP, etc...or pMidpointP - for all functions
-    pnt=Pnt()
-    pnt.x, pnt.y=midPoint(x1, y1, x2, y2, n)
+    pnt = Pnt()
+    pnt.x, pnt.y = xyMidPoint(x1, y1, x2, y2, n)
     return pnt
 
 def pntMidPointP( p1, p2, n=0.5):
     '''Accepts p1 & p2 and 0<n<1, returns p3'''
-    pnt=Pnt()
-    pnt.x,  pnt.y = midPoint(p1.x,  p1.y, p2.x,  p2.y, n)
+    pnt = Pnt()
+    pnt.x,  pnt.y = xyMidPointP(p1, p2, n)
     return pnt
 
 # ----------------...Calculate intercepts given x or y..------------------------------
@@ -467,17 +461,53 @@ def pntOnLineAtYP(p1, p2, y):
         pnt.x = p1.x
     return pnt
 
+def pntsOnCurveAtX(curveArray,  x):
+    '''
+    Accepts an array 'curveArray' of bezier curves. Each bezier curve consists of  P0, P1, P2, P3 [eg knot1, controlpoint1, controlpoint2, knot2].
+    P3 of one curve is P0 of the next curve. Minimum of one bezier curve in curveArray.
+    Accepts value of x to find on curve.
+    Returns array 'intersections' which contains y values of each intersection found in order from 1st to last bezier curve in curveArray.
+    '''
+    intersections = []
+    xlist, ylist = []
+    pnt = Pnt()
+    j = 0
+    while (j <= (len(curveArray)  - 4)):  # for each bezier curve in curveArray
+
+        interpolatedPoints = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #interpolate this bezier curve
+
+        # get min & max for x & y for this bezier curve from its interpolated points
+        i = 0
+        while (i < len(interpolatedPoints)):
+            xlist.append(interpolatedPoints[i].x)
+            ylist.append(interpolatedPoints[i].y)
+            i = i + 1
+        xmin, ymin, xmax, ymax = min(xlist),  min(ylist),  max(xlist),  max(ylist)
+
+        i = 0
+        if (x in range(xmin, xmax)):
+            while (i < (len(interpolatedPoints) - 1)):
+                if (x in range(interpolatedPoints[i].x, interpolatedPoints[i+1].x)):
+                    pnt = pntOnLineAtX(interpolatedPoints[i], interpolatedPoints[i+1], x)
+                    intersections.append(pnt)
+                i = i + 1
+
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+
+    return intersections
+
+
 # ----------------...Calculate length..------------------------------
 
-def lineLength(xstart, ystart, xend, yend):
+def distance(xstart, ystart, xend, yend):
     """Accepts four values x1, y1, x2, y2 and returns distance"""
     #a^2 + b^2 = c^2
     return math.sqrt(((xend-xstart)**2)+((yend-ystart)**2))
 
-def lineLengthP(p1, p2):
+def distanceP(p1, p2):
     """Accepts two point objects and returns distance between the points"""
-    return lineLength(p1.x, p1.y, p2.x, p2.y)
-    
+    return distance(p1.x, p1.y, p2.x, p2.y)
+
 def curveLength(curve, n=100):
     '''
     Accepts curve array with a minimum of four Pnt objects P0,P1,P2,P3 (knot1, controlpoint1,controlpoint2,knot2).
@@ -485,29 +515,29 @@ def curveLength(curve, n=100):
     n is the number to subdivide each curve for calculating the interpolated points and curve length.
     Adapted from http://www.planetclegg.com/projects/WarpingTextToSplines.html
     '''
-    
-    curveLength = 0.0     
+
+    curveLength = 0.0
     j = 0
     while (j <= (len(curve)  - 4)):  # for each curve, get segmentLength & add to curveLength
-        interpolatedPoints = interpolateCurveSegment(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #interpolate this curve
+        interpolatedPoints = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #interpolate this curve
         # add up lengths between the interpolated points
         segmentLength = 0.0
-        i = 1 
-        while (i <= n): 
-                segmentLength = segmentLength + lineLengthP(interpolatedPoints[i-1], interpolatedPoints[i]) #length from previous point to current point
+        i = 1
+        while (i <= n):
+                segmentLength = segmentLength + distanceP(interpolatedPoints[i-1], interpolatedPoints[i]) #length from previous point to current point
                 i = i + 1
         curveLength = curveLength + segmentLength
-        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve 
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return curveLength
 
-def interpolateCurveSegment(P0, P1, P2, P3, t):
-    ''' 
+def interpolateCurve(P0, P1, P2, P3, t):
+    '''
     Accepts curve points P0,P1,P2,P3 & number of interpolations t from curveLength()
     P0 - knot point 1, P1 - control point 1, P2 - control point 2, P3 - knot point 2
     Adapted from http://www.planetclegg.com/projects/WarpingTextToSplines.htm
     '''
-    
-    # calculate coefficients for two knot points P0 & P3 ;     P1 & P2 are the controlpoints. 
+
+    # calculate coefficients for two knot points P0 & P3 ;     P1 & P2 are the controlpoints.
     # x coefficients
     A = P3.x - (3*P2.x) + (3*P1.x) - P0.x
     B = (3*P2.x) - (6*P1.x) + (3*P0.x)
@@ -518,9 +548,9 @@ def interpolateCurveSegment(P0, P1, P2, P3, t):
     F = (3*P2.y) - (6*P1.y) + (3*P0.y)
     G = (3*P1.y) - (3*P0.y)
     H = P0.y
-    
+
     # calculate interpolated points
-    interpolatedPoints = []    
+    interpolatedPoints = []
     maxPoint = float(t)
     i = 0
     while ( i <= t):
@@ -531,84 +561,11 @@ def interpolateCurveSegment(P0, P1, P2, P3, t):
             i = i + 1
     return interpolatedPoints
 
-def interpolateBezierCurve(P0, P1, P2, P3, t=100):
-
-    '''
-    Accepts parameters for one bezier curve as P0, P1, P2, P3 where P0 & P3 are knot points, and P1 & P2 are control points
-    Returns curvePoints[] array of interpolated points along curve
-    based on work by Gernot Hoffmann - http://www.antigrain.com/research/bezier_interpolation/index.html
-    '''
-
-    curvePoints = []
-    NUM_STEPS = t - 1
-
-    x0, y0 = P0.x, P0.y
-    x1, y1 = P1.x, P1.y
-    x2, y2 = P2.x, P2.y
-    x3, y3 = P3.x, P3.y
-
-    dx0 = x1 - x0
-    dy0 = y1 - y0
-    dx1 = x2 - x1
-    dy1 = y2 - y1
-    dx2 = x3 - x2
-    dy2 = y3 - y2
-
-    subdiv_step  = 1.0 / (NUM_STEPS + 1)
-    subdiv_step2 = subdiv_step*subdiv_step
-    subdiv_step3 = subdiv_step*subdiv_step*subdiv_step
-
-    pre1 = 3.0 * subdiv_step
-    pre2 = 3.0 * subdiv_step2
-    pre4 = 6.0 * subdiv_step2
-    pre5 = 6.0 * subdiv_step3
-
-    tmp1x = x0 - x1 * 2.0 + x2
-    tmp1y = y0 - y1 * 2.0 + y2
-
-    tmp2x = (x1 - x2)*3.0 - x0 + x3
-    tmp2y = (y1 - y2)*3.0 - y0 + y3
-
-    fx = x0
-    fy = y0
-
-    dfx = (x1 - x0)*pre1 + tmp1x*pre2 + tmp2x*subdiv_step3
-    dfy = (y1 - y0)*pre1 + tmp1y*pre2 + tmp2y*subdiv_step3
-
-    ddfx = tmp1x*pre4 + tmp2x*pre5
-    ddfy = tmp1y*pre4 + tmp2y*pre5
-
-    dddfx = tmp2x*pre5
-    dddfy = tmp2y*pre5
-
-    pnt = Pnt(x0, y0)
-    curvePoints.append(pnt) # 1st point is 1st knot P0
-    print '0', curvePoints[0].x,  curvePoints[0].y
-    #step = NUM_STEPS
-    i = 1
-    while (i <= NUM_STEPS):
-        fx   = fx + dfx
-        fy   = fy + dfy
-        dfx  = dfx + ddfx
-        dfy  = dfy + ddfy
-        ddfx = ddfx + dddfx
-        ddfy = ddfy + dddfy
-        pnt = Pnt(fx, fy)
-        curvePoints.append(pnt)
-        print i, curvePoints[i].x,  curvePoints[i].y
-        i = i + 1
-
-
-    pnt = Pnt(x3, y3)
-    curvePoints.append(pnt) # Last point is 2nd knot P3
-    print i, curvePoints[i].x,  curvePoints[i].y
-
-
-    return curvePoints
 
 # ----------------...Calculate intersections...------------------------------
 
 def xyIntersectLines2(L1x1, L1y1, L1x2, L1y2, L2x1, L2y1, L2x2, L2y2):
+    """ Accepts coords for endpoints of 2 lines: L1x1,L1y1,L1x2,L1y2, L2x1,L2y1,L2x2,L2y2. Returns x,y of intersection"""
     L1startx = float(L1x1)
     L1starty = float(L1y1)
     L1endx = float(L1x2)
@@ -643,13 +600,12 @@ def xyIntersectLines2(L1x1, L1y1, L1x2, L1y2, L2x1, L2y1, L2x2, L2y2):
             y = (L1m * x) + L1b # arbitrary choice, could have used L2m & L2b
     return x, y
 
-def intersectLines(xstart1, ystart1, xend1, yend1, xstart2, ystart2, xend2, yend2):
+def xyIntersectLines_notinuse(xstart1, ystart1, xend1, yend1, xstart2, ystart2, xend2, yend2):
     """
     Find intersection between two lines. Accepts 8 values (begin & end for 2 lines), returns x & y values.
     Intersection does not have to be within the supplied line segments
+    Returns x,y
     """
-    # TODO this can be improved
-
     # Find point x,y where m1*x+b1=m2*x + b2
     # m = (ystart1-y2)/(xstart1-xend1) --> find slope for each line
     # y = mx + b --> b = y - mx  --> find b for each line
@@ -693,7 +649,7 @@ def intersectLines(xstart1, ystart1, xend1, yend1, xstart2, ystart2, xend2, yend
         y = (m1 * x) + b1 # arbitrary choice, could have used y = m2*x + b2
     return x, y
 
-def intersectLinesP(p1, p2, p3, p4):
+def xyIntersectLinesP(p1, p2, p3, p4):
     """
     Find intersection between two lines. Accepts 4 point objects, Returns x, y values
     Intersection does not have to be within the supplied line segments
@@ -728,7 +684,6 @@ def pntIntersectLineCircleP(C, r, P1, P2):
     Returns an object P with number of intersection points, and up to two coordinate pairs as P.intersections, P.p1, P.p2
     Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
     """
-    #TODO - switch order of parameters C,r,P1,P2 to P1,P2,C,r
     #TODO - add test parameter to determine which intersection should be used
     #TODO - doesn't work on P1-P2 vertical line - CRASHES!!!!!!
 
@@ -755,7 +710,6 @@ def pntIntersectLineCircleP(C, r, P1, P2):
     if i < 0.0:
         print 'no intersections'
     elif i == 0.0:
-        print 'one intersection'
         # one intersection
         intersections = 1
         mu = -b / (2.0 * a)
@@ -763,37 +717,39 @@ def pntIntersectLineCircleP(C, r, P1, P2):
 
     elif i > 0.0:
         # two intersections
-        print 'two intersections'
         intersections = 2
 
         # first intersection
         mu1 = (-b + math.sqrt(i)) / (2.0 * a)
         p1.x,  p1.y = P1.x + mu1 * (P2.x - P1.x), P1.y + mu1 * (P2.y - P1.y)
-        print 'mu1:', mu1
 
         # second intersection
         mu2 = (-b - math.sqrt(i)) / (2.0 * a)
         p2.x, p2.y = P1.x + mu2 * (P2.x - P1.x), P1.y + mu2 * (P2.y - P1.y)
-        print 'mu2:', mu2
 
     P.intersections = intersections
     P.p1 = p1
     P.p2 = p2
     return P
 
-def intersectCircleCircle(x0, y0, r0, x1, y1, r1):
+def intersectCircles(x0, y0, r0, x1, y1, r1):
     """
     Accepts data for two circles x1, y1, r1, x2, y2, r2
     Returns xi,yi,xi_prime,yi_prime pairs where circles intersect, and intersections = number of intersections
-    example: returns ax,ay,bx,by,intersections
+    example: returns ax,ay, bx,by, number of intersections {0|1|2} --> ax,ay and bx,by are empty when intersections=0, and  bx,by is empty when intersections=1
     """
     print 'radius of 1st circle ro:', r0
     print 'radius of 2nd circle r1:', r1
+<<<<<<< HEAD
     d = lineLength(x0, y0, x1, y1) # distance b/w circle centers
+=======
+    d = distance(x0, y0, x1, y1) # distance b/w circle centers
+>>>>>>> susan
     print 'distance between circle centers:', d
     dx, dy = (x1 - x0), (y1 - y0) # negate y b/c canvas increases top to bottom
     
     if (d == 0):
+<<<<<<< HEAD
             print 'center of both circles are the same...intersectCircleCircle()'
             intersections = 0
     elif (d < abs(r0 - r1)):
@@ -809,6 +765,21 @@ def intersectCircleCircle(x0, y0, r0, x1, y1, r1):
                     # kluge:
                     r1 = d - r0  
                     
+=======
+            print 'center of both circles are the same...patternintersectCircles()'
+            intersections = 0
+    elif (d < abs(r0 - r1)):
+            print 'one circle is within the other ...pattern.intersectCircles()'
+            print 'r0 - r1 =',  (r0 - r1), abs(r0 - r1)
+            print 'd < abs(r0 - r1)?',  (d<abs(r0 - r1))
+            intersections = 0
+    elif (d > (r0 + r1)):
+            print 'circles do not intersect ...pattern.intersectCircles()'
+            #intersections = 0
+            # TODO: possible kluge  - check if this is acceptable using a small margin of error between r0 & r1 (2*CM)?:
+            r1 = d - r0
+    else:
+>>>>>>> susan
             #'I' is the point where the line through the circle centers crosses the line between the intersection points, creating 2 right triangles
             a = ((r0*r0) - (r1*r1) + (d*d)) / (2.0 * d)
             intersections = 2
@@ -824,23 +795,31 @@ def intersectCircleCircle(x0, y0, r0, x1, y1, r1):
             yi_prime = y2 - ry
             return xi, yi, xi_prime, yi_prime, intersections
 
+<<<<<<< HEAD
 def intersectCircleCircleP(C1, r1, C2, r2):
+=======
+def xyIntersectCirclesP(C1, r1, C2, r2):
+>>>>>>> susan
     """
     Accepts C1,r1,C2,r2 where C1 & C2 are point objects
     Returns x1,y1,x2,y2 where the two circles intersect
     """
-    return intersectCircleCircle(C1.x, C1.y, r1, C2.x, C2.y, r2)
+    return intersectCircles(C1.x, C1.y, r1, C2.x, C2.y, r2)
 
-def pntIntersectCircleCircleP(C1, r1, C2, r2):
+def pntIntersectCirclesP(C1, r1, C2, r2):
     """
     Accepts C1,r1,C2,r2 where C1 & C2 are point objects
-    Returns an object P, where P.intersections = number of intersections, and P.p1 & P.p2are point objects where the two circles intersect
+    Returns an object P, where P.intersections = number of intersections, and P.p1 & P.p2 are point objects where the two circles intersect
     """
     P, p1, p2 = Pnt(),  Pnt(),  Pnt()
     intersections = 0
     print 'C1.x, C1.y, r1 =', C1.x,  C1.y, r1
     print 'C2.x, C2.y, r2 =',  C2.x, C2.y, r2
+<<<<<<< HEAD
     x1, y1, x2, y2, intersections = intersectCircleCircle(C1.x, C1.y, r1, C2.x, C2.y, r2)
+=======
+    x1, y1, x2, y2, intersections = intersectCircles(C1.x, C1.y, r1, C2.x, C2.y, r2)
+>>>>>>> susan
     p1 = Pnt(x1, y1)
     p2 = Pnt(x2, y2)
     P.intersections = intersections
@@ -848,7 +827,7 @@ def pntIntersectCircleCircleP(C1, r1, C2, r2):
     P.p2 = p2
     return P
 
-def pntOnCircleY(C, r, y):
+def pntOnCircleAtY(C, r, y):
     """
     Finds points one or two points on circle where P.y = y
     Accepts circle center point object C, radius r, and value y
@@ -862,7 +841,7 @@ def pntOnCircleY(C, r, y):
 
     return pntIntersectLineCircleP(C, r, P1, P2)
 
-def pntOnCircleX(C, r, x):
+def pntOnCircleAtX(C, r, x):
     """
     Finds points one or two points on circle where p.x = x
     Accepts circle center point object C, radius r, and value x
@@ -906,26 +885,26 @@ def controlPoints(name, knots):
 
         # process previous segment's c2
         angle = angleOfLineP(knots[next], knots[previous])
-        length = lineLengthP(knots[current], knots[previous])/3.0
-        pnt = pntFromDistanceAndAngleP(knots[current], length, angle)
+        length = distanceP(knots[current], knots[previous])/3.0
+        pnt = polarPointP(knots[current], length, angle)
         c2.append(pnt) # c2[previous]
 
         if (current == 1):
             # process 1st segment's c1
             angle = angleOfLineP(knots[0], c2[0])
-            pnt = pntFromDistanceAndAngleP(knots[0], length, angle)
+            pnt = polarPointP(knots[0], length, angle)
             c1.append(pnt)
 
         # process current segment's c1
         angle = angleOfLineP(knots[previous], knots[next])
-        length = lineLengthP(knots[current], knots[next])/3.0
-        pnt = pntFromDistanceAndAngleP(knots[current], length, angle)
+        length = distanceP(knots[current], knots[next])/3.0
+        pnt = polarPointP(knots[current], length, angle)
         c1.append(pnt) # c1[current]
 
         if (current == c_num):
             # process last segment's c2
             angle = angleOfLineP(knots[last_knot], c1[last_segment])
-            pnt = pntFromDistanceAndAngleP(knots[last_knot], length, angle)
+            pnt = polarPointP(knots[last_knot], length, angle)
             c2.append(pnt) # c2[last_segment]
 
         i = (i + 1)
@@ -981,13 +960,13 @@ def transformPoint(x, y, transform=''):
         elif trtype == 'skewX':
             sx = float(trparts[1].strip())
             # now do the thing
-            print 'skewX transform not handled yet'
+            #TODO: skewX transform not handled yet
             raise NotImplementedError
 
         elif trtype == 'skewY':
             sy = float(trparts[1].strip())
             # now do the thing
-            print 'skewY not handled yet'
+            #TODO: skewY not handled yet
             raise NotImplementedError
 
         elif trtype == 'rotate':
@@ -1002,7 +981,7 @@ def transformPoint(x, y, transform=''):
             except IndexError:
                 ry = 0
             # now do the thing
-            print 'rotate not handled yet'
+            #TODO: rotate not handled yet
             raise NotImplementedError
 
         elif trtype == 'matrix':
@@ -1013,17 +992,28 @@ def transformPoint(x, y, transform=''):
             me = float(trparts[3].strip())
             mf = float(trparts[3].strip())
             # now do the thing
-            print 'matrix not handled yet'
+            #TODO: matrix not handled yet
             raise NotImplementedError
         else:
-            print 'Unexpected transformation %s' % trtype
+            #TODO: Unexpected transformation %s' % trtype
             raise ValueError
 
     return x, y
 
+# ----------------...create a scaling transform..------------------------------
+
+def scaleAboutPointTransform(x, y, scale):
+    """
+    Return an SVG transform that scales about a specific x,y coordinate
+    """
+    sx = scale
+    sy = scale
+    return "matrix(%f, 0, 0, %f, %f, %f)" % (sx, sy, x-(sx*x), y-(sy*y))
+
 # ----------------...Calculate bounding box..------------------------------
 
 def boundingBox(path):
+    # TODO: only use information from paths - cuttinLine, seamLine, foldLine, dartLine
     xlist = []
     ylist = []
     #print '===== Entered boundingBox ====='
@@ -1143,7 +1133,6 @@ def boundingBox(path):
 
     return xmin, ymin, xmax, ymax
 
-
 def transformBoundingBox(xmin, ymin, xmax, ymax, transform):
     """
     Take a set of points representing a bounding box, and
@@ -1156,10 +1145,6 @@ def transformBoundingBox(xmin, ymin, xmax, ymax, transform):
     new_xmax, new_ymax = transformPoint(xmax, ymax, transform)
     return new_xmin, new_ymin, new_xmax, new_ymax
 
-
-
-
-
 def extractMarkerId(markertext):
     # Regex -
     # <marker id=\"grainline_mk\"\nviewBox=
@@ -1167,8 +1152,6 @@ def extractMarkerId(markertext):
     m = re.search('(\s+id\s*=\s*\"\w+\")', markertext, re.I)
     mid = m.group(0).split('"')[1]
     return mid
-
-
 
 # ----------------...Connect 2 objects together using 2 points each...------------------------------
 
@@ -1198,11 +1181,11 @@ def connectObjects(connector_pnts, old_pnts):
         r_pnts.append(t_pnts[0])
         for t_pnt in t_pnts:
             if  (i != len(t_pnts)):
-                distance = lineLengthP(connector_pnts[0], t_pnts[i])
+                distance = distanceP(connector_pnts[0], t_pnts[i])
                 translated_angle = angleOfLineP(connector_pnts[0], t_pnts[i])
                 r_angle = translated_angle - rotation_angle
                 r_pnts.append(Pnt())
-                r_pnts[i] = pntFromDistanceAndAngleP(connector_pnts[0], distance, r_angle)
+                r_pnts[i] = polarPointP(connector_pnts[0], distance, r_angle)
                 i=i+1
 
         return r_pnts
@@ -1211,8 +1194,8 @@ def connectObjects(connector_pnts, old_pnts):
 def setupPattern(pattern_design, clientData, printer, companyName, designerName, patternName, patternNumber):
         pattern_design.cfg['clientdata'] = clientData
         if (printer == '36" wide carriage plotter'):
-            pattern_design.cfg['paper_width'] = (36 * IN)
-        pattern_design.cfg['border'] = (5*CM)
+            pattern_design.cfg['paper_width'] = (36.0*IN)
+        pattern_design.cfg['border'] = (6.0*CM)
         BORDER = pattern_design.cfg['border']
         metainfo = {'companyName': companyName,  #mandatory
                     'designerName': designerName,#mandatory
@@ -1225,10 +1208,8 @@ def setupPattern(pattern_design, clientData, printer, companyName, designerName,
                     'preserveAspectRatio' : "xMidYMid meet",
                     }
         doc = Document(pattern_design.cfg, name = 'document', attributes = docattrs)
-        TB = TitleBlock('notes', 'titleblock', 0.0, 0.0, stylename = 'titleblock_text_style')
-        doc.add(TB)
-        TG = TestGrid('notes', 'testgrid', pattern_design.cfg['paper_width']/5.0, 0.0, stylename = 'cuttingline_style')
-        doc.add(TG)
+        doc.add(TitleBlock('notes', 'titleblock', 0.0, 0.0, stylename = 'titleblock_text_style'))
+        doc.add(TestGrid('notes', 'testgrid', pattern_design.cfg['paper_width']/3.0, 0.0, stylename = 'cuttingline_style'))
         return doc
 
 # ---- Pattern Classes ----------------------------------------
@@ -1259,9 +1240,9 @@ class Pattern(pBase):
         parts = {}
         for chld in self.children:
             if isinstance(chld, PatternPiece):
-                'Pattern.py calling ', chld.name, '.boundingBox()'
+                #print 'Pattern.py calling ', chld.name, '.boundingBox()'
                 xlo, ylo, xhi, yhi = chld.boundingBox()
-                'Pattern.py -', chld.name, '.boundingBox() returned info[xlo]:', xlo, 'info[ylo]:', ylo, 'info[xhi]:', xhi, 'info[yhi]:', yhi
+                #print 'Pattern.py -', chld.name, '.boundingBox() returned info[xlo]:', xlo, 'info[ylo]:', ylo, 'info[xhi]:', xhi, 'info[yhi]:', yhi
                 parts[chld] = {}
                 parts[chld]['xlo'] = xlo
                 parts[chld]['ylo'] = ylo
@@ -1269,6 +1250,7 @@ class Pattern(pBase):
                 parts[chld]['yhi'] = yhi
 
         # our available paper width is reduced by twice the border
+        #print self.cfg['paper_width']
         pg_width = self.cfg['paper_width'] - (2 * self.cfg['border'])
         if 'verbose' in self.cfg:
             print 'Autolayout:'
@@ -1288,7 +1270,7 @@ class Pattern(pBase):
         index_by_letter = {}
         letters = []
         for pp, info in parts.items():
-            letter = pp.letter
+            letter = pp.lettertext
             if letter in index_by_letter:
                 raise ValueError('The same Pattern Piece letter <%s> is used on more than one pattern piece' % letter)
             index_by_letter[letter] = pp
@@ -1312,7 +1294,7 @@ class Pattern(pBase):
 
             if pp_width > pg_width:
                 print 'Error: Pattern piece <%s> is too wide to print on page width' % pp.name
-                # TODO -figure out something smarter
+                # TODO: -figure out something smarter
                 ## raise
 
             if next_x + pp_width > pg_width:
@@ -1348,15 +1330,16 @@ class Pattern(pBase):
             print 'Autolayout END'
         return
 
-    def svg(self):
+    def getsvg(self):
+        # Automatically change pattern piece locations as needed
         self.autolayout()
-        return pBase.svg(self)
-
-
+        # Now call the base class method to assemble the SVG for all my children
+        return pBase.getsvg(self)
 
 class PatternPiece(pBase):
     """
-    Create an instance of the PatternPiece class, eg jacket.back, pants.frontPocket, corset.stayCover will contain the set of seams and all other pattern piece info,
+    Create an instance of the PatternPiece class, eg jacket.back, pants.frontPocket, corset.stayCover
+    which will contain the set of seams and all other pattern piece info,
     eg - jacket.back.seam.shoulder, jacket.back.grainline,  jacket.back.interfacing
     """
     def __init__(self, group, name, letter = '?', fabric = 0, interfacing = 0, lining = 0):
@@ -1366,7 +1349,7 @@ class PatternPiece(pBase):
         self.height = 0
         self.labelx = 0
         self.labely = 0
-        self.letter = letter
+        self.lettertext = letter
         self.fabric = fabric
         self.interfacing = interfacing
         self.lining = lining
@@ -1374,42 +1357,51 @@ class PatternPiece(pBase):
         self.attrs['transform'] = ''
         pBase.__init__(self)
 
-    def svg(self):
+    def getsvg(self):
         """
-        generate the svg for this item and return it as a pysvg object
+        generate the svg for this patternpiece and return it in a dictionary of groups which contain the svg objects
         """
         if self.debug:
-            print 'svg() called for PatternPiece ID ', self.id
+            print 'getsvg() called for PatternPiece ID ', self.id
 
+        # generate the label from information which is part of the pattern piece
         self.makeLabel()
 
-        # We pass back everything but our layer untouched
-        # For our layer, we bundle up all the children's SVG
-        # and place it within a group that has our id
+        child_group_dict = pBase.getsvg(self) # call the baseclass svg method on this pattern piece. Returns a dictionary of all groups to be drawn.
 
-        childlist = pBase.svg(self) # returns all children
+        for child_group_name, members in child_group_dict.items(): # for each group used in this pattern piece
+            if self.debug:
+                print '++ Group ==', child_group_name, ' in pattern.PatternPiece.getsvg()'
 
-        for child_group, members in childlist.items():
-            #print 'Group ', child_group, ' in PatternPiece->svg'
+            # create a temporary pySVG group object
+            temp_group = PYB.g()
+            # assign temp group a unique id
+            grpid = self.id + '.' + child_group_name
+            temp_group.set_id(grpid)
 
-            my_group = g()
-
-            grpid = self.id + '.' + child_group
-            my_group.set_id(grpid)
+            # temp group gets all patternpiece's attributes
             for attrname, attrvalue in self.attrs.items():
-                my_group.setAttribute(attrname, attrvalue)
+                temp_group.setAttribute(attrname, attrvalue)
+            # and all patternpiece's child elements
+            for cgitem in child_group_dict[child_group_name]:
+                temp_group.addElement(cgitem)
 
-            for cgitem in childlist[child_group]:
-                my_group.addElement(cgitem)
+            # Add temp group to a temp list (list will have only one item)
+            temp_group_list = []
+            temp_group_list.append(temp_group)
+            # Replace dictionary entry for this group with the temp list
+            child_group_dict[child_group_name] = temp_group_list
 
-            # now we replace the list of items in that group that we got
-            # from the children with our one svg item, which is a group
-            # that contains them all
-            my_group_list = []
-            my_group_list.append(my_group)
-            childlist[child_group] = my_group_list
+        return child_group_dict
 
-        return childlist
+    def setLetter(self, x=None, y=None, style='default_letter_text_style', text=None, scaleby=None):
+        # text=None is a flag to get the letter from the pattern piece at draw time
+        if scaleby is not None:
+            tform = scaleAboutPointTransform(x, y, scaleby)
+        else:
+            tform=''
+        tb = TextBlock('pattern', 'letter', None, x, y, text, textstyledef = style, transform=tform)
+        self.add(tb)
 
     def makeLabel(self):
         """
@@ -1424,12 +1416,13 @@ class PatternPiece(pBase):
         text.append('Designer: %s' % mi['designerName'])
         text.append('Client: %s' % self.cfg['clientdata'].customername)
         text.append(mi['patternNumber'])
-        text.append('Pattern Piece %s' % self.letter)
+        text.append('Pattern Piece %s' % self.lettertext)
         if self.fabric > 0:
             text.append('Cut %d Fabric' % self.fabric)
         if self.interfacing > 0:
             text.append('Cut %d Interfacing' % self.interfacing)
 
+        #def __init__(group, name, headline, x, y, text, textstyledef = 'default_textblock_text_style', boxstyledef = None, transform = ''):
         tb = TextBlock('pattern', 'info', 'Headline', self.label_x, self.label_y, text, 'default_textblock_text_style', 'textblock_box_style')
         self.add(tb)
 
@@ -1461,7 +1454,6 @@ class Point(pBase):
 
         self.groupname = group
         self.name = name
-        self.textid = False # for debugging TODO make this available
         self.sdef = styledef
         self.x       = x
         self.y       = y
@@ -1475,18 +1467,18 @@ class Point(pBase):
         # Points don't have children. If this changes, change the svg and boundingbox methods also.
         raise RuntimeError('The Point class can not have children')
 
-    def svg(self):
+    def getsvg(self):
         """
         generate the svg for this item and return it as a pysvg object
         """
         if self.debug:
-            print 'svg() called for Point ID ', self.id
+            print 'getsvg() called for Point ID ', self.id
 
         # an empty dict to hold our svg elements
         md = self.mkgroupdict()
 
-        pstyle = StyleBuilder(self.styledefs[self.sdef])
-        p = circle(self.x, self.y, self.size)
+        pstyle =  PYB.StyleBuilder(self.styledefs[self.sdef])
+        p = PYB.circle(self.x, self.y, self.size)
         p.set_style(pstyle.getStyle())
         p.set_id(self.id)
         if 'tooltips' in self.cfg:
@@ -1497,11 +1489,14 @@ class Point(pBase):
             p.setAttribute(attrname, attrvalue)
         md[self.groupname].append(p)
 
-        if self.textid:
-            txtlabel = self.id + '.text'
-            txttxt = self.name
-            txt = self.generateText(self.x+3, self.y, txtlabel, txttxt, 'point_text_style')
-            md[self.groupname].append(txt)
+        txtlabel = self.id + '.text'
+        txttxt = self.name
+        if '_c' in txttxt:
+            txtstyle = 'control_point_text_style'
+        else:
+            txtstyle = 'point_text_style'
+        txt = self.generateText(self.x, self.y - 25, txtlabel, txttxt, txtstyle)
+        md[self.groupname].append(txt)
 
         return md
 
@@ -1573,18 +1568,18 @@ class Line(pBase):
         # Lines don't have children. If this changes, change the svg method also.
         raise RuntimeError('The Line class can not have children')
 
-    def svg(self):
+    def getsvg(self):
         """
         generate the svg for this item and return it as a pysvg object
         """
         if self.debug:
-            print 'svg() called for Line ID ', self.id
+            print 'getsvg() called for Line ID ', self.id
 
         # an empty dict to hold our svg elements
         md = self.mkgroupdict()
 
-        pstyle = StyleBuilder(self.styledefs[self.sdef])
-        p = line(self.xstart, self.ystart, self.xend, self.yend)
+        pstyle =  PYB.StyleBuilder(self.styledefs[self.sdef])
+        p = PYB.line(self.xstart, self.ystart, self.xend, self.yend)
         p.set_style(pstyle.getStyle())
         p.set_id(self.id)
         for attrname, attrvalue in self.attrs.items():
@@ -1672,18 +1667,18 @@ class Path(pBase):
         # Paths don't have children. If this changes, change the svg method also.
         raise RuntimeError('The Path class can not have children')
 
-    def svg(self):
+    def getsvg(self):
         """
         generate the svg for this item and return it as a pysvg object
         """
         if self.debug:
-            print 'svg() called for Line ID ', self.id
+            print 'getsvg() called for Line ID ', self.id
 
         try:
             # an empty dict to hold our svg elements
             md = self.mkgroupdict()
 
-            pstyle = StyleBuilder(self.styledefs[self.sdef])
+            pstyle =  PYB.StyleBuilder(self.styledefs[self.sdef])
 
             self.pathSVG.set_id(self.id)
             self.pathSVG.set_style(pstyle.getStyle())
@@ -1734,29 +1729,41 @@ class TextBlock(pBase):
         # Text Blocks don't have children. If this changes, change the svg method also.
         raise RuntimeError('The TextBlock class can not have children')
 
-    def svg(self):
+    def getsvg(self):
         """
         generate the svg for this item and return it as a pysvg object
         """
         if self.debug:
-            print 'svg() called for TextBlock ID ', self.id
+            print 'getsvg() called for TextBlock ID ', self.id
 
         # an empty dict to hold our svg elements
         md = self.mkgroupdict()
 
         # create the text first
-        tg = g()
+        tg = PYB.g()
         tg.set_id(self.id)
         x = self.x
         y = self.y
-        # this is a bit cheesy
-        spacing  =  ( int(self.styledefs[self.textsdef]['font-size']) * 1.2 )
-        line = 1
-        for line in self.text:
-            label = self.id + '.line' + str(line)
-            txt = self.generateText(x, y, label, line, self.textsdef)
-            y = y + spacing
+
+        if self.text is None:
+            if self.debug:
+                print '  TextBlock special case for pattern letter, getting text from parent'
+            label = self.id + '.letterline'
+            # TODO possibly check type of parent object to make sure it's a PatternPiece
+            txt = self.generateText(x, y, label, self.parent.lettertext, self.textsdef)
             tg.addElement(txt)
+        else:
+            # this is a bit cheesy
+            spacing  =  ( int(self.styledefs[self.textsdef]['font-size']) * 1.2 )
+            line = 1
+            for line in self.text:
+                label = self.id + '.line' + str(line)
+                txt = self.generateText(x, y, label, line, self.textsdef)
+                y = y + spacing
+                tg.addElement(txt)
+
+        # if headline is None, then don't print it or space for it
+        # if boxstyledef is none, then no box
 
         # TODO getting element sizes is note yet supported in pySVG,
         # so we'll do the outline box and headline later

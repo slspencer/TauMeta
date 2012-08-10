@@ -25,7 +25,7 @@
 #import re
 
 import math
-from pattern import Point, lineLengthP, pntOnLine, pntFromDistanceAndAngle
+from pattern import Point, distanceP, pntOnLine, polarPoint
 from tmtpl.constants import *
 
 
@@ -169,15 +169,15 @@ def FudgeControlPoints(knots, fcp, scp, percentage):
     ll = []
     for i in range(len(knots)-1):
         # get the length between each knot
-        ll.append(lineLengthP(knots[i], knots[i+1]))
+        ll.append(distanceP(knots[i], knots[i+1]))
     minll = min(ll)
     maxll = max(ll)
 
     for i in range(len(knots)-1):
         # get the length between each knot, and save the max and min
         lll = ll[i]
-        fcpl = lineLengthP(knots[i], fcp[i])
-        scpl = lineLengthP(scp[i], knots[i+1])
+        fcpl = distanceP(knots[i], fcp[i])
+        scpl = distanceP(scp[i], knots[i+1])
 
         # Now calculate the desired length and change the control point locations
         dll = lll * percentage
@@ -190,8 +190,8 @@ def FudgeControlPoints(knots, fcp, scp, percentage):
         scp[i].x = x
         scp[i].y = y
 
-        fcpl = lineLengthP(knots[i], fcp[i])
-        scpl = lineLengthP(scp[i], knots[i+1])
+        fcpl = distanceP(knots[i], fcp[i])
+        scpl = distanceP(scp[i], knots[i+1])
 
     return (fcp, scp)
 

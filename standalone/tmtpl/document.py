@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# document.py
 #
 # This file is part of the tmtp (Tau Meta Tau Physica) project.
 # For more information, see http://www.sew-brilliant.org/
@@ -8,7 +9,7 @@
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version. Attribution must be given in 
+# (at your option) any later version. Attribution must be given in
 # all derived works.
 #
 # This program is distributed in the hope that it will be useful,
@@ -21,33 +22,16 @@
 
 import json
 
-from pysvg.filter import *
-from pysvg.gradient import *
-from pysvg.linking import *
-from pysvg.script import *
-from pysvg.shape import *
-from pysvg.structure import *
-from pysvg.style import *
-from pysvg.text import *
-from pysvg.builders import *
+import pysvg.builders as PYB
 
 from constants import *
 from patternbase import pBase
 
-class docInfo():
-    """
-    Holds document information such as Company name, design name and number, designer, etc
-    Formats the title block for the printed document
-    """
-    def __init__(self):
-
-        return
-
 class Document(pBase):
     """
-    This is the container that everything else goes into. The svg ir drawn by calling
+    This is the base container that everything else goes into. The svg is drawn by calling
     the draw() method on the document, which creates the svg document, then the groups
-    within that and calls the svg() methods on each item to be drawn
+    within that and calls the getsvg() methods on each item to be drawn
     """
     def __init__(self, prog_cfg, name = 'UnnamedDocument', attributes = None):
         self.name = name
@@ -63,12 +47,21 @@ class Document(pBase):
         # if any print groups specified, aset up the internal list
         if 'print_groups' in self.cfg:
             self.displayed_groups = self.cfg['print_groups'].split(',')
+
+        # if debug prints have been requested, enable them
+        if self.cfg.has_key('debug'):
+            debugstr = self.cfg['debug']
+            if "prints" in debugstr:
+                pBase.debug = True
+                print "Debug: prints enabled"
+
         pBase.__init__(self)
+
 
     def draw(self):
 
         # the user may have specified on the command line to draw groups that
-        # aren't present in the file. If so, print a warning and remove those.
+        # aren't present in the file. If not present, print a warning and remove those groups from the self.displayed_groups list.
         todelete = []
         for gpname in self.displayed_groups:
             if gpname not in self.groups:
@@ -79,27 +72,27 @@ class Document(pBase):
 
         # any sanity checks on configuration before drawing go here
         if 'border' not in self.cfg:
-            self.cfg['border'] = 0.0
+            self.cfg['border'] = 6.0*CM_TO_PX
 
         # if there are no groups in the list of ones to draw, then default to all of them
         if len(self.displayed_groups) == 0:
             for groupname in self.groups:
                 self.displayed_groups.append(groupname)
 
-        # create the base document
-        sz = svg()
+        # create the base pysvg object
+        sz = PYB.svg()
 
         if 'tooltips' in self.cfg:
-            # add the scripting we need to handle events
-            sc = script()
+            # If --tooltips specified in mkpattern command line options
+            # create pysvg script class object
+            sc = PYB.script()
             sc.set_xlink_href('tmtp_mouse.js')
             sc.set_xlink_type('text/ecmascript')
+            # Add script object elements to pysvg base object
             sz.addElement(sc)
             sz.set_onload('init(evt)')
 
-            #
-            # Add the tooltip text element
-            #
+            # Add the tooltip text element. Start it hidden at upper left with 'ToolTip' as it's displayable string.
             ttel = self.generateText(0, 0, 'tooltip', 'ToolTip', 'tooltip_text_style')
             ttel.setAttribute('visibility', 'hidden')
             sz.addElement(ttel)
@@ -108,11 +101,11 @@ class Document(pBase):
         mi = self.cfg['metainfo']
         for lbl in ['companyName', 'designerName', 'patternname', 'patternNumber']:
             if lbl in mi:
-                self.attrs[lbl] = mi[lbl]
+                self.attrs[lbl] = mi[lbl] # adds the self.cfg metainfo dictionary items to self.attrs so they will be written to the svg document.
 
-        self.attrs['client-name'] = self.cfg['clientdata'].customername
+        self.attrs['client-name'] = self.cfg['clientdata'].customername # Add customername to self.attrs so it can be written to the svg document.
 
-        # adjust any attributes in the list
+        # Writes border values to the svg document, in case they were adjusted in self.cfg[] in the design
         self.attrs['margin-bottom'] = str(self.cfg['border'])
         self.attrs['margin-left'] = str(self.cfg['border'])
         self.attrs['margin-right'] = str(self.cfg['border'])
@@ -171,26 +164,28 @@ class Document(pBase):
 #     inkscape:window-y="29"
 #     inkscape:window-maximized="0" />\n""")
 
-        # Add any markers that we will need later
+        # If any markers used, add marker definitions to the svg document so they can be referenced within the svg document
+        # two types of markers -- plain is a string, dictionary has more than one marker
+        # each marker has a start & end, with optional mid
         if len(self.markers):
-            pdefs = defs()
+            pdefs = PYB.defs() # Create pysvg builder defs class object
             for mname in self.markers:
                 #print 'Adding marker %s' % mname
                 if type(self.markerdefs[mname]) is str:
                     # this is just a plain marker, append it
-                    pdefs.appendTextContent(self.markerdefs[mname])
+                    pdefs.appendTextContent(self.markerdefs[mname]) # append marker def to pdfs[]
                 elif type(self.markerdefs[mname]) is dict:
                     # contains a dict of marks
-                    for submrk in self.markerdefs[mname]:
+                    for submrk in self.markerdefs[mname]: # append each marker in the marker dictionary to pdefs[]
                         # always has start and end, may also have mid
                         pdefs.appendTextContent(self.markerdefs[mname][submrk])
                 else:
                     print mname, 'marker is an unexpected type ***************'
 
-            sz.addElement(pdefs)
+            sz.addElement(pdefs) # write pdefs to pysvg base object
 
-        # Recursively get everything to draw
-        svgdict = self.svg()
+        # Recursively get everything to draw. svgdict[] will contain everything that will be written to the svg document.
+        svgdict = self.getsvg()
 
         # Add/modify the transform so that the whole pattern piece originates at 0,0 and is offset by border
         xlo, ylo, xhi, yhi = self.boundingBox()
@@ -203,8 +198,8 @@ class Document(pBase):
         ysize = (yhi - ylo) + (2.0 * self.cfg['border'])
         sz.set_height(ysize)
         sz.set_width(xsize)
-        print 'document height = ', ysize
-        print 'document width = ', xsize
+        #print 'document height = ', ysize
+        #print 'document width = ', xsize
 
         for dictname, dictelements in svgdict.items():
             if self.debug:
@@ -214,7 +209,7 @@ class Document(pBase):
                     print 'Group %s is not enabled for display' % dictname
                 continue
 
-            wg = g()
+            wg = PYB.g()
             self.groups[dictname] = wg
             # Set the ID to the group name
             wg.set_id(dictname)
@@ -251,15 +246,15 @@ class TitleBlock(pBase):
         # Title Blocks don't have children. If this changes, change the svg method also.
         raise RuntimeError('The TitleBlock class can not have children')
 
-    def svg(self):
+    def getsvg(self):
         if self.debug:
-            print 'svg() called for titleblock ID ', self.id
+            print 'getsvg() called for titleblock ID ', self.id
 
         # an empty dict to hold our svg elements
         md = self.mkgroupdict()
 
         # TODO make the text parts configurable
-        tbg = g()
+        tbg = PYB.g()
         tbg.set_id(self.id)
         # this is a bit cheesy
         text_space =  ( int(self.styledefs[self.stylename]['font-size']) * 1.1 )
@@ -296,39 +291,39 @@ class TestGrid(pBase):
         # Test Grids don't have children. If this changes, change the svg method also.
         raise RuntimeError('The TestGrid class can not have children')
 
-    def svg(self):
+    def getsvg(self):
         if self.debug:
-            print 'svg() called for TestGrid ID ', self.id
+            print 'getsvg() called for TestGrid ID ', self.id
 
         # an empty dict to hold our svg elements
         md = self.mkgroupdict()
 
         # TODO make the text parts configurable
-        tbg = g()
+        tbg = PYB.g()
         tbg.set_id(self.id)
 
         """
         Creates two TestGrids at top of pattern --> 20cm & 8in
         """
-    
+
         CMW = self.centimeters*CM_TO_PX
         INW = self.inches*IN_TO_PX
-        tgps=path()
-    
-        gstyle = StyleBuilder(self.styledefs[self.stylename])
+        tgps = PYB.path()
+
+        gstyle = PYB.StyleBuilder(self.styledefs[self.stylename])
         tgps.set_style(gstyle.getStyle())
         tgps.set_id(self.name)
         #t.setAttribute('transform', trans)
-    
-    
+
+
         tbg.addElement(tgps)
-    
+
         #Points
         start_x, start_y = self.x, self.y
         startcm_x, startcm_y = start_x,  start_y
         startin_x, startin_y = start_x + CMW + 5*CM_TO_PX,  start_y
         #self.attrs['transform']='translate(' + str(-x)+', '+ str(-y) + ')'
-    
+
         # centimeter grid
         i=0
         while (i<=self.centimeters): # vertical lines
@@ -342,7 +337,7 @@ class TestGrid(pBase):
             tgps.appendMoveToPath(startcm_x, y, relative=False)
             tgps.appendLineToPath(startcm_x + CMW, y, relative=False)
             i=i + 1
-    
+
         # inch grid
         i=0
         while (i<=self.inches): #vertical
@@ -356,6 +351,6 @@ class TestGrid(pBase):
             tgps.appendMoveToPath(startin_x, y, relative=False)
             tgps.appendLineToPath(startin_x + INW, y, relative=False)
             i=i + 1
-    
-            md[self.groupname].append(tbg)
+
+        md[self.groupname].append(tbg)
         return md
