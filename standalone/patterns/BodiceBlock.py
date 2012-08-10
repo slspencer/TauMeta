@@ -98,7 +98,7 @@ class PatternDesign():
         q = rPoint(A, 'q', p.x - 0.5*IN, b.y) # q: dart inside leg
         length1 = distanceP(p, q) # dart leg length
         length2 = cd.front_waist_width/2.0 - distanceP(b, q) # length of pattern between dart outside leg & side seam
-        Pnts = pntIntersectCircleCircleP(p, length1, l, length2)
+        Pnts = pntIntersectCirclesP(p, length1, l, length2)
         # Pnts.intersection is the number of intersections found (0, 1, or 2); Pnts.p1 is 1st intersection, Pnts.p2 is 2nd intersection.
         if (Pnts.intersections != 0):
             if (Pnts.p1.y > p.y): # choose the intersection below dart apex p
@@ -178,7 +178,7 @@ class PatternDesign():
         #adjustments for back neck dart
         bb2 = rPoint(B, 'bb2', bb.x - .5*IN,  bb.y)
         aa2 = rPoint(B, 'aa2', aa.x + .25*IN, aa.y)
-        Pnts = pntIntersectCircleCircleP(kk, cd.side, bb2, cd.back_waist_width*0.5)
+        Pnts = pntIntersectCirclesP(kk, cd.side, bb2, cd.back_waist_width*0.5)
         if (Pnts.intersections != 0):
             if (Pnts.p1.x < Pnts.p2.x):
                 pnt = Pnts.p1
