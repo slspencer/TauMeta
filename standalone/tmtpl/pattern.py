@@ -308,25 +308,25 @@ def symmetricPointP(p1, p2, type):
 
 # ----------------...Calculate points with Angle and Slope..------------------------------
 
-def xyFromDistanceAndAngle(x1, y1, distance, angle):
+def xyPolarPoint(x1, y1, distance, angle):
     # http://www.teacherschoice.com.au/maths_library/coordinates/polar_-_rectangular_conversion.htm
     r = distance
     x = x1 + (r * cos(angle))
     y = y1 + (r * sin(angle))
     return (x , y )
 
-def xyFromDistanceAndAngleP(pnt, distance, angle):
-    x, y = xyFromDistanceAndAngle(pnt.x, pnt.y, distance, angle)
+def xyPolarPointP(pnt, distance, angle):
+    x, y = xyPolarPoint(pnt.x, pnt.y, distance, angle)
     return (x, y)
 
 def polarPoint(x1, y1, distance, angle):
     pnt1 = Pnt()
-    pnt1.x, pnt1.y = xyFromDistanceAndAngle(x1, y1, distance, angle)
+    pnt1.x, pnt1.y = xyPolarPoint(x1, y1, distance, angle)
     return pnt1
 
 def polarPointP(pnt, distance, angle):
     pnt1 = Pnt()
-    pnt1.x, pnt1.y = xyFromDistanceAndAngle(pnt.x, pnt.y, distance, angle)
+    pnt1.x, pnt1.y = xyPolarPoint(pnt.x, pnt.y, distance, angle)
     return pnt1
 
 def xyOnLine(x1, y1, x2, y2, distance, rotation = 0):
