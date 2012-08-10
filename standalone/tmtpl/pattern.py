@@ -732,7 +732,7 @@ def pntIntersectLineCircleP(C, r, P1, P2):
     P.p2 = p2
     return P
 
-def intersectCircleCircle(x0, y0, r0, x1, y1, r1):
+def intersectCircles(x0, y0, r0, x1, y1, r1):
     """
     Accepts data for two circles x1, y1, r1, x2, y2, r2
     Returns xi,yi,xi_prime,yi_prime pairs where circles intersect, and intersections = number of intersections
@@ -745,21 +745,19 @@ def intersectCircleCircle(x0, y0, r0, x1, y1, r1):
     dx, dy = (x1 - x0), (y1 - y0) # negate y b/c canvas increases top to bottom
     
     if (d == 0):
-            print 'center of both circles are the same...intersectCircleCircle()'
+            print 'center of both circles are the same...patternintersectCircles()'
             intersections = 0
     elif (d < abs(r0 - r1)):
-            print 'one circle is within the other ...intersectCircleCircle()'
+            print 'one circle is within the other ...pattern.intersectCircles()'
             print 'r0 - r1 =',  (r0 - r1), abs(r0 - r1)
             print 'd < abs(r0 - r1)?',  (d<abs(r0 - r1))
             intersections = 0
+    elif (d > (r0 + r1)):
+            print 'circles do not intersect ...pattern.intersectCircles()'
+            #intersections = 0
+            # TODO: possible kluge  - check if this is acceptable using a small margin of error between r0 & r1 (2*CM)?:
+            r1 = d - r0
     else:
-        
-            if (d > (r0 + r1)):
-                    print 'circles do not intersect ...intersectCircleCircle()'
-                    #intersections = 0
-                    # kluge:
-                    r1 = d - r0  
-                    
             #'I' is the point where the line through the circle centers crosses the line between the intersection points, creating 2 right triangles
             a = ((r0*r0) - (r1*r1) + (d*d)) / (2.0 * d)
             intersections = 2
@@ -775,14 +773,14 @@ def intersectCircleCircle(x0, y0, r0, x1, y1, r1):
             yi_prime = y2 - ry
             return xi, yi, xi_prime, yi_prime, intersections
 
-def xyIntersectCircleCircleP(C1, r1, C2, r2):
+def xyIntersectCirclesP(C1, r1, C2, r2):
     """
     Accepts C1,r1,C2,r2 where C1 & C2 are point objects
     Returns x1,y1,x2,y2 where the two circles intersect
     """
-    return intersectCircleCircle(C1.x, C1.y, r1, C2.x, C2.y, r2)
+    return intersectCircles(C1.x, C1.y, r1, C2.x, C2.y, r2)
 
-def pntIntersectCircleCircleP(C1, r1, C2, r2):
+def pntIntersectCirclesP(C1, r1, C2, r2):
     """
     Accepts C1,r1,C2,r2 where C1 & C2 are point objects
     Returns an object P, where P.intersections = number of intersections, and P.p1 & P.p2 are point objects where the two circles intersect
@@ -791,7 +789,7 @@ def pntIntersectCircleCircleP(C1, r1, C2, r2):
     intersections = 0
     print 'C1.x, C1.y, r1 =', C1.x,  C1.y, r1
     print 'C2.x, C2.y, r2 =',  C2.x, C2.y, r2
-    x1, y1, x2, y2, intersections = intersectCircleCircle(C1.x, C1.y, r1, C2.x, C2.y, r2)
+    x1, y1, x2, y2, intersections = intersectCircles(C1.x, C1.y, r1, C2.x, C2.y, r2)
     p1 = Pnt(x1, y1)
     p2 = Pnt(x2, y2)
     P.intersections = intersections
@@ -985,6 +983,7 @@ def scaleAboutPointTransform(x, y, scale):
 # ----------------...Calculate bounding box..------------------------------
 
 def boundingBox(path):
+    # TODO: only use information from paths - cuttinLine, seamLine, foldLine, dartLine
     xlist = []
     ylist = []
     #print '===== Entered boundingBox ====='
