@@ -461,20 +461,20 @@ def pntOnLineAtYP(p1, p2, y):
         pnt.x = p1.x
     return pnt
 
-def pntsOnCurveAtX(curveArray,  x):
+def pntsOnCurveAtX(curve,  x):
     '''
-    Accepts an array 'curveArray' of bezier curves. Each bezier curve consists of  P0, P1, P2, P3 [eg knot1, controlpoint1, controlpoint2, knot2].
+    Accepts an array 'curve' of bezier curves, returns list of points. Each bezier curve consists of  P0, P1, P2, P3 [eg knot1, controlpoint1, controlpoint2, knot2].
     P3 of one curve is P0 of the next curve. Minimum of one bezier curve in curveArray.
     Accepts value of x to find on curve.
     Returns array 'intersections' which contains y values of each intersection found in order from 1st to last bezier curve in curveArray.
     '''
-    intersections = []
-    xlist, ylist = []
+    intersect_points = []
+    xlist, ylist = [], []
     pnt = Pnt()
     j = 0
-    while (j <= (len(curveArray)  - 4)):  # for each bezier curve in curveArray
+    while (j <= (len(curve)  - 4)):  # for each bezier curve in curveArray
 
-        interpolatedPoints = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #interpolate this bezier curve
+        interpolatedPoints = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], 100)  #interpolate this bezier curve, n=100
 
         # get min & max for x & y for this bezier curve from its interpolated points
         i = 0
@@ -483,18 +483,21 @@ def pntsOnCurveAtX(curveArray,  x):
             ylist.append(interpolatedPoints[i].y)
             i = i + 1
         xmin, ymin, xmax, ymax = min(xlist),  min(ylist),  max(xlist),  max(ylist)
+        print 'xmin,xmax =', xmin, xmax, '...pattern.pntsOnCurveAtX()'
+        print 'ymin,ymax =', ymin, ymax, '...pattern.pntsOnCurveAtX()'
+        print 'x =', x, '...pattern.pntsOnCurveAtX()' 
 
         i = 0
-        if (x in range(xmin, xmax)):
+        if ((x >= xmin) and (x <= xmax)):
             while (i < (len(interpolatedPoints) - 1)):
-                if (x in range(interpolatedPoints[i].x, interpolatedPoints[i+1].x)):
-                    pnt = pntOnLineAtX(interpolatedPoints[i], interpolatedPoints[i+1], x)
-                    intersections.append(pnt)
+                if (x >= interpolatedPoints[i].x) and (x <= interpolatedPoints[i+1].x):
+                    pnt = pntOnLineAtXP(interpolatedPoints[i], interpolatedPoints[i+1], x)
+                    intersect_points.append(pnt)
                 i = i + 1
 
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
 
-    return intersections
+    return intersect_points # return list of intersection points
 
 
 # ----------------...Calculate length..------------------------------
@@ -1159,6 +1162,19 @@ def connectObjects(connector_pnts, old_pnts):
                 i=i+1
 
         return r_pnts
+
+# ----Slash and spread with slash line, pivot point, and angle
+def slashAndSpread(pivot, angle, *args):
+        list = []
+        for arg in args:
+            list.append(arg)
+        i = 0
+        while (i < len(list)):
+            pnt = list[i]
+            distance = distanceP(pivot, pnt)
+            rotated_pnt = polarPointP(pivot, distance, angleOfLineP(pivot, pnt) + angle) # angle>0 = spread clockwise. angle<0 = spread counterclockwise.  
+            pnt.x,  pnt.y = rotated_pnt.x,  rotated_pnt.y 
+            i = i + 1
 
 # ---- Set up pattern document with design info ----------------------------------------
 def setupPattern(pattern_design, clientData, printer, companyName, designerName, patternName, patternNumber):
