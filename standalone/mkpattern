@@ -270,7 +270,7 @@ class AppTemplate(StdApp):
 
         # open the client file and read the data
         client = Client(self.cfg['client_file'])
-        cd = client.data
+        CD = client.data
 
         if dbgdump:
             print "========== Client Data Dump =========="
@@ -301,7 +301,7 @@ class AppTemplate(StdApp):
         design = designModule.PatternDesign()
 
         # set Client Data for the design object
-        design.cd = cd
+        design.CD = CD
         design.styledefs = self.styledefs
         design.markerdefs = self.markerdefs
         design.cfg = self.cfg
