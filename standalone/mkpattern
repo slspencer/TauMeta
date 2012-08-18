@@ -8,7 +8,7 @@
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version. Attribution must be given in 
+# (at your option) any later version. Attribution must be given in
 # all derived works.
 #
 # This program is distributed in the hope that it will be useful,
@@ -139,7 +139,7 @@ class Cmdline:
 
             if len(args) != 1:
                 raise CmdlineError('You must supply an output file name\n\n')
-                
+
             self.cfg['args'] = args
 
             for opt, val in opts:
@@ -270,7 +270,7 @@ class AppTemplate(StdApp):
 
         # open the client file and read the data
         client = Client(self.cfg['client_file'])
-        cd = client.data
+        CD = client.data
 
         if dbgdump:
             print "========== Client Data Dump =========="
@@ -301,7 +301,7 @@ class AppTemplate(StdApp):
         design = designModule.PatternDesign()
 
         # set Client Data for the design object
-        design.cd = cd
+        design.CD = CD
         design.styledefs = self.styledefs
         design.markerdefs = self.markerdefs
         design.cfg = self.cfg
