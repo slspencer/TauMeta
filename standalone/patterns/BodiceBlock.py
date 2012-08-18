@@ -52,7 +52,7 @@ class PatternDesign():
         # x increases towards right, y increases towards bottom of drawing - Quadrant is 'upside down'
         # All angles are in radians
         # angles start with 0 at '3:00', & move clockwise b/c quadrant is 'upside down'
-        cd = self.cd    #client data is prefaced with cd
+        CD = self.CD    #client data is prefaced with CD
         printer = '36" wide carriage plotter'
         companyName = 'Company Name'  # mandatory
         designerName = 'Designer Name' # mandatory
@@ -61,7 +61,7 @@ class PatternDesign():
         patternNumber = 'Pattern Number' # mandatory
 
         # create document
-        doc = setupPattern(self, cd, printer, companyName, designerName, patternName, patternNumber)
+        doc = setupPattern(self, CD, printer, companyName, designerName, patternName, patternNumber)
         # create pattern object, add to document
         # TODO: make update styledefs & markerdefs transparent
         bodice = Pattern('bodice')
@@ -77,19 +77,19 @@ class PatternDesign():
         # bodice Front A
         # pattern points
         a = rPoint(A, 'a', 0.0, 0.0) # center neck
-        b = rPoint(A, 'b', 0., cd.front_waist_length) # center waist
-        c = rPoint(A, 'c',  0., a.y + cd.front_waist_length/5.0) # center chest narrow
-        d = rPoint(A, 'd', a.x + cd.across_chest/2.0, c.y) # side chest narrow - armscye narrowest point
-        e = rPoint(A, 'e', 0., b.y - cd.front_shoulder_height) #e : 'front shoulder height'
-        f = rPoint(A, 'f', a.x + cd.front_shoulder_width/2.0, e.y) #f : 'front shoulder width'
-        h = rPoint(A, 'h', a.x + cd.neck_width/2.0, e.y) # side neck
+        b = rPoint(A, 'b', 0., CD.front_waist_length) # center waist
+        c = rPoint(A, 'c',  0., a.y + CD.front_waist_length/5.0) # center chest narrow
+        d = rPoint(A, 'd', a.x + CD.across_chest/2.0, c.y) # side chest narrow - armscye narrowest point
+        e = rPoint(A, 'e', 0., b.y - CD.front_shoulder_height) #e : 'front shoulder height'
+        f = rPoint(A, 'f', a.x + CD.front_shoulder_width/2.0, e.y) #f : 'front shoulder width'
+        h = rPoint(A, 'h', a.x + CD.neck_width/2.0, e.y) # side neck
         height = abs(distanceP(h, f))
-        hypoteneuse = cd.shoulder
+        hypoteneuse = CD.shoulder
         base = (abs(hypoteneuse**2.0 - height**2.0))**0.5
         g = rPoint(A, 'g', f.x, f.y + base) #g : 'shoulder tip'
-        j = rPoint(A, 'j', 0., b.y - cd.side - (11/8.0)*IN) #j : 'center chest'
-        k = rPoint(A, 'k', a.x + cd.front_bust_width/2.0, j.y) #k : 'side chest'
-        l = rPoint(A, 'l', k.x, k.y + cd.side) #l : 'side waist'
+        j = rPoint(A, 'j', 0., b.y - CD.side - (11/8.0)*IN) #j : 'center chest'
+        k = rPoint(A, 'k', a.x + CD.front_bust_width/2.0, j.y) #k : 'side chest'
+        l = rPoint(A, 'l', k.x, k.y + CD.side) #l : 'side waist'
         m = rPoint(A, 'm', d.x, k.y) #m : 'armscye corner'
         pnt = polarPointP(m, 1*IN, angleOfDegree(315.0))
         n = rPointP(A, 'n', pnt) #n : armscye curve
@@ -97,7 +97,7 @@ class PatternDesign():
         p = rPoint(A, 'p', a.x + distanceP(e, f)/2.0, o.y) # p: dart apex
         q = rPoint(A, 'q', p.x - 0.5*IN, b.y) # q: dart inside leg
         length1 = distanceP(p, q) # dart leg length
-        length2 = cd.front_waist_width/2.0 - distanceP(b, q) # length of pattern between dart outside leg & side seam
+        length2 = CD.front_waist_width/2.0 - distanceP(b, q) # length of pattern between dart outside leg & side seam
         Pnts = pntIntersectCirclesP(p, length1, l, length2)
         # Pnts.intersection is the number of intersections found (0, 1, or 2); Pnts.p1 is 1st intersection, Pnts.p2 is 2nd intersection.
         if (Pnts.intersections != 0):
@@ -144,27 +144,27 @@ class PatternDesign():
         # bodice Back B
         # pattern points
         aa = rPoint(B, 'aa', 0., 0.) #aa: nape
-        bb = rPoint(B, 'bb', 0., cd.back_waist_length) # bb: center waist
-        cc = rPoint(B, 'cc', 0., cd.back_waist_length/4.0) #cc: center across back
-        dd = rPoint(B, 'dd', aa.x - cd.across_back/2.0, cc.y) #dd: side across back
-        ee = rPoint(B, 'ee', 0.,  bb.y - cd.back_shoulder_height) #ee: center shoulder height,
-        ff = rPoint(B, 'ff', aa.x - cd.back_shoulder_width/2.0, ee.y) # #ff : side shoulder width
-        hh = rPoint(B, 'hh', aa.x - cd.neck_width/2.0, ee.y) #hh: side neck
+        bb = rPoint(B, 'bb', 0., CD.back_waist_length) # bb: center waist
+        cc = rPoint(B, 'cc', 0., CD.back_waist_length/4.0) #cc: center across back
+        dd = rPoint(B, 'dd', aa.x - CD.across_back/2.0, cc.y) #dd: side across back
+        ee = rPoint(B, 'ee', 0.,  bb.y - CD.back_shoulder_height) #ee: center shoulder height,
+        ff = rPoint(B, 'ff', aa.x - CD.back_shoulder_width/2.0, ee.y) # #ff : side shoulder width
+        hh = rPoint(B, 'hh', aa.x - CD.neck_width/2.0, ee.y) #hh: side neck
         height = abs(distanceP(hh, ff))
-        hypoteneuse = cd.shoulder
+        hypoteneuse = CD.shoulder
         base = (abs(hypoteneuse**2.0 - height**2.0))**0.5
         gg = rPoint(B, 'gg', ff.x, ff.y + base) #gg: shoulder tip
-        jj = rPoint(B, 'jj', 0., bb.y - cd.side + .25*IN) #jj: center chest
-        kk = rPoint(B, 'kk', aa.x - cd.back_underarm_width/2.0, jj.y) #kk: side chest
-        ll = rPoint(B, 'll', kk.x, kk.y + cd.side) #ll: side waist marker
+        jj = rPoint(B, 'jj', 0., bb.y - CD.side + .25*IN) #jj: center chest
+        kk = rPoint(B, 'kk', aa.x - CD.back_underarm_width/2.0, jj.y) #kk: side chest
+        ll = rPoint(B, 'll', kk.x, kk.y + CD.side) #ll: side waist marker
         mm = rPoint(B, 'mm', ll.x + .75*IN, ll.y) #mm: side waist
         nn = rPoint(B, 'nn', aa.x - distanceP(jj, kk)/2.0, bb.y) #nn: dart legt outside
         oo = rPoint(B, 'oo', dd.x, jj.y) #oo: armscye corner
         pp = rPointP(B, 'pp', polarPointP(oo, (9/8.)*IN, angleOfDegree(225))) # #pp: armscye curve
-        qq = rPoint(B, 'qq', aa.x - (cd.back_waist_width/2.0 - distanceP(mm, nn)), bb.y) #qq: dart leg inside,
+        qq = rPoint(B, 'qq', aa.x - (CD.back_waist_width/2.0 - distanceP(mm, nn)), bb.y) #qq: dart leg inside,
         rr = rPoint(B, 'rr',  nn.x + distanceP(nn, qq)/2.0, jj.y) #rr: dart apex,
         length1 = distanceP(pp, qq) # dart leg
-        length2 = cd.back_waist_width/2.0 - distanceP(bb, qq)
+        length2 = CD.back_waist_width/2.0 - distanceP(bb, qq)
         #neck control points
         hh_c1 =  cPoint(B, 'hh_c1', aa.x - distanceP(aa, hh)/2.0,  a.y) # divide by 2 to make this control point a bit stronger than the usual dividing by 3
         hh_c2 =  cPointP(B, 'hh_c2', pntOnLineP(hh, hh_c1, distanceP(hh, aa)/3.0)) # divide by 3
@@ -178,7 +178,7 @@ class PatternDesign():
         #adjustments for back neck dart
         bb2 = rPoint(B, 'bb2', bb.x - .5*IN,  bb.y)
         aa2 = rPoint(B, 'aa2', aa.x + .25*IN, aa.y)
-        Pnts = pntIntersectCirclesP(kk, cd.side, bb2, cd.back_waist_width*0.5)
+        Pnts = pntIntersectCirclesP(kk, CD.side, bb2, CD.back_waist_width*0.5)
         if (Pnts.intersections != 0):
             if (Pnts.p1.x < Pnts.p2.x):
                 pnt = Pnts.p1
