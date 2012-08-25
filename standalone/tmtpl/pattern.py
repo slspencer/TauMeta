@@ -273,31 +273,31 @@ def angleOfVectorP(p1, v, p2):
     #L3 = distanceP(p2, p3)
     #return math.acos((L1**2 + L2**2 - L3**2)/(2 * L1 * L2))
     return abs(angleOfLineP(v, p1) - angleOfLineP(v, p2))
-       
+
 def rightPointP(p1, n):
     pnt = Pnt(p1.x + n, p1.y)
     return pnt
-    
+
 def leftPointP(p1, n):
     pnt = Pnt(p1.x - n, p1.y)
     return pnt
-    
-def upPointP(p1, n):   
-    pnt = Pnt(p1.x, p1.y - n) 
+
+def upPointP(p1, n):
+    pnt = Pnt(p1.x, p1.y - n)
     return pnt
-    
+
 def downPointP(p1, n):
     pnt = Pnt(p1.x, p1.y + n)
     return pnt
-    
+
 def symmetricPointP(p1, p2, type):
     ''' Accepts p1 point to copy, p2 as reference point, type {'vertical','horizontal'}
-    Copy p1 symmetrical to vertical line x = p2.x or horizontal line y = p2.y. 
+    Copy p1 symmetrical to vertical line x = p2.x or horizontal line y = p2.y.
     Returns pnt which is mirror image of p1'''
     pnt = Pnt()
     dx = p2.x - p1.x
     dy = p2.y - p1.y
-    if (type == 'vertical'):   
+    if (type == 'vertical'):
         pnt.x = p2.x + dx
         pnt.y = p1.y
     elif (type == 'horizontal'):
@@ -485,7 +485,7 @@ def pntsOnCurveAtX(curve,  x):
         xmin, ymin, xmax, ymax = min(xlist),  min(ylist),  max(xlist),  max(ylist)
         print 'xmin,xmax =', xmin, xmax, '...pattern.pntsOnCurveAtX()'
         print 'ymin,ymax =', ymin, ymax, '...pattern.pntsOnCurveAtX()'
-        print 'x =', x, '...pattern.pntsOnCurveAtX()' 
+        print 'x =', x, '...pattern.pntsOnCurveAtX()'
 
         i = 0
         if ((x >= xmin) and (x <= xmax)):
@@ -746,7 +746,7 @@ def intersectCircles(x0, y0, r0, x1, y1, r1):
     d = distance(x0, y0, x1, y1) # distance b/w circle centers
     print 'distance between circle centers:', d
     dx, dy = (x1 - x0), (y1 - y0) # negate y b/c canvas increases top to bottom
-    
+
     if (d == 0):
             print 'center of both circles are the same...patternintersectCircles()'
             intersections = 0
@@ -764,7 +764,7 @@ def intersectCircles(x0, y0, r0, x1, y1, r1):
             #'I' is the point where the line through the circle centers crosses the line between the intersection points, creating 2 right triangles
             a = ((r0*r0) - (r1*r1) + (d*d)) / (2.0 * d)
             intersections = 2
-                  
+
             x2 = x0 + (dx * a/d)
             y2 = y0 + (dy * a/d)
             h = math.sqrt((r0*r0) - (a*a))
@@ -827,7 +827,22 @@ def pntOnCircleAtX(C, r, x):
     P2.x, P2.y = x, 1.0
 
     return pntIntersectLineCircleP(C, r, P1, P2)
+# __________...Create darts...________________________________
 
+
+def createCenterDartPoint(parent, dart_leg1, dart_apex, dart_leg2, next_pnt):
+        DART_LENGTH = distanceP(dart_apex, dart_leg1)
+        DART_HALF_ANGLE = abs(angleOfVectorP(dart_leg1, dart_apex, dart_leg2))/2.0
+        DART_LEG_ANGLE = angleOfLineP(dart_apex, dart_leg2)
+        DART_FOLD_ANGLE = DART_LEG_ANGLE - DART_HALF_ANGLE
+        midpnt = cPointP(parent, dart_apex.name+'M', pntMidPointP(dart_leg1, dart_leg2))
+        foldpnt = cPointP(parent, dart_apex.name+'F', polarPointP(dart_apex, DART_LENGTH, DART_FOLD_ANGLE))
+        intpnt = cPointP(parent, dart_apex.name+'I', pntIntersectLinesP(dart_leg2, next_pnt, dart_apex, foldpnt))
+        dart_apex.m = rPointP(parent, dart_apex.name + '.m', pntOnLineP(dart_apex, midpnt, distanceP(dart_apex, intpnt))) # dart midpoint at waist
+        dart_apex.l11 = rPointP(parent, dart_apex.name + '.l11', pntOnLineP(dart_leg1, dart_apex, -SEAM_ALLOWANCE)) # dart leg 1 at cuttingline
+        dart_apex.l21 = rPointP(parent, dart_apex.name + '.l21', pntOnLineP(dart_leg2, dart_apex, -SEAM_ALLOWANCE))# dart outside leg at cuttingline
+
+        return
 
 # ----------------...Calculate control points..------------------------------
 
@@ -1172,8 +1187,8 @@ def slashAndSpread(pivot, angle, *args):
         while (i < len(list)):
             pnt = list[i]
             distance = distanceP(pivot, pnt)
-            rotated_pnt = polarPointP(pivot, distance, angleOfLineP(pivot, pnt) + angle) # angle>0 = spread clockwise. angle<0 = spread counterclockwise.  
-            pnt.x,  pnt.y = rotated_pnt.x,  rotated_pnt.y 
+            rotated_pnt = polarPointP(pivot, distance, angleOfLineP(pivot, pnt) + angle) # angle>0 = spread clockwise. angle<0 = spread counterclockwise.
+            pnt.x,  pnt.y = rotated_pnt.x,  rotated_pnt.y
             i = i + 1
 
 # ---- Set up pattern document with design info ----------------------------------------
