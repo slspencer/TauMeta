@@ -828,20 +828,25 @@ def pntOnCircleAtX(C, r, x):
     P2.x, P2.y = x, 1.0
 
     return pntIntersectLineCircleP(C, r, P1, P2)
+
 # __________...Create darts...________________________________
 
-
-def addCenterDartPoint(parent, dart_leg1, dart_apex, dart_leg2, next_pnt):
+def addDartMidPoint(parent, dart_leg1, dart_apex, dart_leg2, next_pnt):
         DART_LENGTH = distanceP(dart_apex, dart_leg1)
         DART_HALF_ANGLE = abs(angleOfVectorP(dart_leg1, dart_apex, dart_leg2))/2.0
-        DART_LEG_ANGLE = angleOfLineP(dart_apex, dart_leg2)
-        DART_FOLD_ANGLE = DART_LEG_ANGLE - DART_HALF_ANGLE
+        DART_LEG1_ANGLE = angleOfLineP(dart_apex, dart_leg1)
+        DART_LEG2_ANGLE = angleOfLineP(dart_apex, dart_leg2)
+        # determine which direction the dart will be folded
+        if DART_LEG2_ANGLE <= DART_LEG1_ANGLE:
+            DART_FOLD_ANGLE = DART_LEG2_ANGLE - DART_HALF_ANGLE
+        else:
+            DART_FOLD_ANGLE = DART_LEG2_ANGLE + DART_HALF_ANGLE
         midpnt = pntMidPointP(dart_leg1, dart_leg2)
         foldpnt = polarPointP(dart_apex, DART_LENGTH, DART_FOLD_ANGLE)
         intpnt = pntIntersectLinesP(dart_leg2, next_pnt, dart_apex, foldpnt)
         dart_apex.m = rPointP(parent, dart_apex.name + '.m', pntOnLineP(dart_apex, midpnt, distanceP(dart_apex, intpnt))) # dart midpoint at waist
-        dart_apex.l11 = rPointP(parent, dart_apex.name + '.l11', pntOnLineP(dart_leg1, dart_apex, -SEAM_ALLOWANCE)) # dart leg 1 at cuttingline
-        dart_apex.l21 = rPointP(parent, dart_apex.name + '.l21', pntOnLineP(dart_leg2, dart_apex, -SEAM_ALLOWANCE))# dart outside leg at cuttingline
+        dart_apex.l11 = rPointP(parent, dart_apex.name + '.l11', pntOnLineP(dart_leg1, dart_apex, -SEAM_ALLOWANCE)) # dart leg1 at cuttingline
+        dart_apex.l21 = rPointP(parent, dart_apex.name + '.l21', pntOnLineP(dart_leg2, dart_apex, -SEAM_ALLOWANCE))# dart leg2 at cuttingline
 
         return
 
