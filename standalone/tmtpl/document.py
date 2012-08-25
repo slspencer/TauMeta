@@ -72,7 +72,7 @@ class Document(pBase):
 
         # any sanity checks on configuration before drawing go here
         if 'border' not in self.cfg:
-            self.cfg['border'] = 6.0*CM_TO_PX
+            self.cfg['border'] = 2.54*CM_TO_PX
 
         # if there are no groups in the list of ones to draw, then default to all of them
         if len(self.displayed_groups) == 0:
@@ -134,35 +134,35 @@ class Document(pBase):
         sz.setAttribute('xmlns:sodipodi', 'http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd')
         # //svg:svg/sodipodi:namedspace/inkscape:document-units
         sz.appendTextContent("""<sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:document-units="pt"
-     showgrid="false"
-     inkscape:window-maximized="1" />\n""")
-# Original taken from an empty inkscape test file
-#        sz.appendTextContent("""<sodipodi:namedview
-#     id="base"
-#     pagecolor="#ffffff"
-#     bordercolor="#666666"
-#     borderopacity="1.0"
-#     inkscape:pageopacity="0.0"
-#     inkscape:pageshadow="2"
-#     inkscape:zoom="0.35"
-#     inkscape:cx="375"
-#     inkscape:cy="520"
-#     inkscape:document-units="px"
-#     inkscape:current-layer="layer1"
-#     showgrid="false"
-#     inkscape:window-width="613"
-#     inkscape:window-height="504"
-#     inkscape:window-x="1349"
-#     inkscape:window-y="29"
-#     inkscape:window-maximized="0" />\n""")
+             id="base"
+             pagecolor="#ffffff"
+             bordercolor="#666666"
+             borderopacity="1.0"
+             inkscape:pageopacity="0.0"
+             inkscape:pageshadow="2"
+             inkscape:zoom="0.5"
+             inkscape:document-units="pt"
+             showgrid="false"
+             inkscape:window-maximized="1" />\n""")
+        # Original taken from an empty inkscape test file
+        #        sz.appendTextContent("""<sodipodi:namedview
+        #     id="base"
+        #     pagecolor="#ffffff"
+        #     bordercolor="#666666"
+        #     borderopacity="1.0"
+        #     inkscape:pageopacity="0.0"
+        #     inkscape:pageshadow="2"
+        #     inkscape:zoom="0.35"
+        #     inkscape:cx="375"
+        #     inkscape:cy="520"
+        #     inkscape:document-units="px"
+        #     inkscape:current-layer="layer1"
+        #     showgrid="false"
+        #     inkscape:window-width="613"
+        #     inkscape:window-height="504"
+        #     inkscape:window-x="1349"
+        #     inkscape:window-y="29"
+        #     inkscape:window-maximized="0" />\n""")
 
         # If any markers used, add marker definitions to the svg document so they can be referenced within the svg document
         # two types of markers -- plain is a string, dictionary has more than one marker
