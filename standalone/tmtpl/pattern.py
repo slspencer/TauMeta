@@ -76,6 +76,11 @@ def cPointP(parent, id, pnt, transform=''):
     Returns object of class Point. Creates SVG blue open dot in reference group for control point in bezier curves.'''
     return cPoint(parent, id, pnt.x, pnt.y, transform='')
 
+def updatePoint(pnt, new_pnt):
+    '''Accepts two point objects.  The 1st point's .x & .y is updated with 2nd point's x & y values.'''
+    pnt.x, pnt.y, pnt.coords = new_pnt.x, new_pnt.y, str(new_pnt.x) + ', '+str(new_pnt.y)
+    return
+
 # ----------------...Add Points to Paths..------------------------------
 
 def moveP(pathSVG, point, transform = ''):
