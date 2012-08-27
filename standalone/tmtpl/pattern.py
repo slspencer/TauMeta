@@ -19,14 +19,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+#python libs
 import math
 import string
 import re
 import random
+import inspect
 from math import sin, cos, pi, sqrt
-
+#pysvg libs
 import pysvg.builders as PYB
-
+# tmtp libs
 from constants import *
 from utils import debug
 from document import *
@@ -844,9 +846,27 @@ def addDartMidPoint(parent, dart_leg1, dart_apex, dart_leg2, next_pnt):
         midpnt = pntMidPointP(dart_leg1, dart_leg2)
         foldpnt = polarPointP(dart_apex, DART_LENGTH, DART_FOLD_ANGLE)
         intpnt = pntIntersectLinesP(dart_leg2, next_pnt, dart_apex, foldpnt)
-        dart_apex.m = rPointP(parent, dart_apex.name + '.m', pntOnLineP(dart_apex, midpnt, distanceP(dart_apex, intpnt))) # dart midpoint at waist
-        dart_apex.l11 = rPointP(parent, dart_apex.name + '.l11', pntOnLineP(dart_leg1, dart_apex, -SEAM_ALLOWANCE)) # dart leg1 at cuttingline
-        dart_apex.l21 = rPointP(parent, dart_apex.name + '.l21', pntOnLineP(dart_leg2, dart_apex, -SEAM_ALLOWANCE))# dart leg2 at cuttingline
+        # dart midpoint at waist
+        pnt = pntOnLineP(dart_apex, midpnt, distanceP(dart_apex, intpnt))
+        if hasattr(dart_apex, 'm'):
+            dart_apex.m.x,  dart_apex.m.y = pnt.x, pnt.y
+            dart_apex.m.coords   = str(pnt.x) + "," + str(pnt.y)
+        else:
+            dart_apex.m = rPointP(parent, dart_apex.name + '.m', pnt)
+        # dart outside leg at cuttingline
+        pnt = pntOnLineP(dart_leg1, dart_apex, -SEAM_ALLOWANCE)
+        if hasattr(dart_apex, 'l11'):
+            dart_apex.l11.x, dart_apex.l11.y = pnt.x, pnt.y
+            dart_apex.l11.coords   = str(pnt.x) + "," + str(pnt.y)
+        else:
+            dart_apex.l11 = rPointP(parent, dart_apex.name + '.l11', pnt)
+        # dart inside leg at cuttingline
+        pnt = pntOnLineP(dart_leg2, dart_apex, -SEAM_ALLOWANCE)
+        if hasattr(dart_apex, 'l21'):
+            dart_apex.l21.x, dart_apex.l21.y = pnt.x, pnt.y
+            dart_apex.l21.coords   = str(pnt.x) + "," + str(pnt.y)
+        else:
+            dart_apex.l21 = rPointP(parent, dart_apex.name + '.l21', pnt)
 
         return
 
@@ -1202,7 +1222,7 @@ def setupPattern(pattern_design, clientData, printer, companyName, designerName,
         pattern_design.cfg['clientdata'] = clientData
         if (printer == '36" wide carriage plotter'):
             pattern_design.cfg['paper_width'] = (36.0*IN)
-        pattern_design.cfg['border'] = (6.0*CM)
+        pattern_design.cfg['border'] = (2.54*CM)
         BORDER = pattern_design.cfg['border']
         metainfo = {'companyName': companyName,  #mandatory
                     'designerName': designerName,#mandatory
@@ -1333,6 +1353,7 @@ class Pattern(pBase):
                 print '     Transform = translate(xtrans:',xtrans,', ytrans:',ytrans,')<-- (next_x:',next_x,'- info[xlo]:',info['xlo'], '),next_y:',next_y,'- info[ylo]:',info['ylo'], ')'
                 print '     New x is next_x:', next_x + pp_width + PATTERN_OFFSET, '<--(next_x:', next_x, '+ppwidth:', pp_width, '+PATTERN_OFFSET:', PATTERN_OFFSET, ')'
             next_x = next_x + pp_width + PATTERN_OFFSET
+
         if 'verbose' in self.cfg:
             print 'Autolayout END'
         return
