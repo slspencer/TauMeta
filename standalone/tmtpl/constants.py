@@ -8,7 +8,7 @@
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version. Attribution must be given in 
+# (at your option) any later version. Attribution must be given in
 # all derived works.
 #
 # This program is distributed in the hope that it will be useful,
@@ -40,7 +40,7 @@ PX_TO_CM = (1/CM_TO_PX) # convert pixels to centimeters - Inkscape
 PX_TO_MM = (1/MM_TO_PX) # convert pixels to millimeters - inkscape
 
 # sewing constants
-QUARTER_SEAM_ALLOWANCE=(IN_TO_PX*1/4.0) #1/4" seam allowance
-SEAM_ALLOWANCE=(IN_TO_PX*5/8.0) #5/8" seam allowance
-HEM_ALLOWANCE=(IN_TO_PX*2.0) #2" seam allowance
-PATTERN_OFFSET=(IN_TO_PX*3.0) #3" between patterns
+QUARTER_SEAM_ALLOWANCE = (IN_TO_PX*1/4.0) #1/4" seam allowance
+SEAM_ALLOWANCE = (IN_TO_PX*5/8.0) #5/8" seam allowance
+HEM_ALLOWANCE = (IN_TO_PX*2.0) #2" seam allowance
+PATTERN_OFFSET = (SEAM_ALLOWANCE*3.0) #1-7/8" between patterns
