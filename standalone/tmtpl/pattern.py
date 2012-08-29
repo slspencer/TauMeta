@@ -836,8 +836,39 @@ def pntIntersectCirclesP(C1, r1, C2, r2):
     P.p2 = p2
     return P
 
+def intersectLineCurve(P1, P2, curve):
+    '''Accepts two points of a line P1 & P2, and an array of connected bezier curves [P11, C11, C12, P12, C21, C22, P22, C31, C32, P32, ...]
+    Returns an array intersections[] of point objects where line intersected with the curve'''
 
+    # get polar equation for line for P1-P2
+    # point furthest away from 1st point in curve[] is the fixed point & sets the direction of the angle towards the curve
+    if distanceP(P1, curve[0]) >= distanceP(P2, curve[0] ):
+        fixed_pnt = P1
+        angle = angleOfLineP(P1, P2)
+    else:
+        fixed_pnt = P2
+        angle = angleOfLineP(P2, P1)
 
+    intersect_points = []
+    xlist, ylist = [], []
+    pnt = Pnt()
+    j = 0
+    while (j <= (len(curve)  - 4)):  # for each bezier curve in curveArray
+
+        intersection_estimate = intersectLines(L1, L2, curve[j], curve[j+3]) # is there an intersection?
+        if intersection_estimate != None or intersection_estimate != '':
+            interpolatedPoints = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
+            k = 0
+            while k < len(interpolatedPoints) - 1:
+                pnt_on_line = polarPoint(fixed_pnt, distanceP(fixed_pnt, interpolatedPoints[k]), angle)
+                if (distanceP(pnt_on_line, interpolatedPoints[k]) <= distanceP(interpolatedPoints[k], interpolatedPoints[k+1])):
+                    # its close enough!
+                    intersections.append(interpolatedPoints[k])
+                k = k + 1
+
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+
+    return intersections
 # __________...Create darts...________________________________
 
 def addDartMidPoint(parent, dart_leg1, dart_apex, dart_leg2, next_pnt):
