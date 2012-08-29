@@ -849,27 +849,32 @@ def intersectLineCurve(P1, P2, curve):
         fixed_pnt = P2
         angle = angleOfLineP(P2, P1)
 
-    intersect_points = []
-    xlist, ylist = [], []
+    intersections = []
     pnt = Pnt()
+
     j = 0
     while (j <= (len(curve)  - 4)):  # for each bezier curve in curveArray
-
-        intersection_estimate = intersectLines(L1, L2, curve[j], curve[j+3]) # is there an intersection?
+        intersection_estimate = pntIntersectLinesP(P1, P2, curve[j], curve[j+3]) # is there an intersection?
         if intersection_estimate != None or intersection_estimate != '':
             interpolatedPoints = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
+
             k = 0
             while k < len(interpolatedPoints) - 1:
-                pnt_on_line = polarPoint(fixed_pnt, distanceP(fixed_pnt, interpolatedPoints[k]), angle)
-                range = distanceP(interpolatedPoints[k], interpolatedPoints[k+1]) # TODO: margin of error
+                pnt_on_line = polarPointP(fixed_pnt, distanceP(fixed_pnt, interpolatedPoints[k]), angle)
+                range = distanceP(interpolatedPoints[k], interpolatedPoints[k+1]) # TODO: improve margin of error
                 if (distanceP(pnt_on_line, interpolatedPoints[k]) < range):
                     # its close enough!
-                    if k > 0:
-                        if interpolatedPoints[k - 1] not in intersections:
+                    if k > 1:
+                        if (interpolatedPoints[k - 1] not in intersections) and (interpolatedPoints[k-2] not in intersections):
                             intersections.append(interpolatedPoints[k])
-            k = k + 1
+                    elif k == 1:
+                        if (interpolatedPoints[k - 1] not in intersections):
+                            intersections.append(interpolatedPoints[k])
+                    else:
+                        intersections.append(interpolatedPoints[k])
+                k = k + 1
 
-    j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
 
     return intersections
 # __________...Create darts...________________________________
@@ -920,6 +925,7 @@ def pointList(*args):
     return points
 
 def controlPoints(name, knots):
+    #TODO: remove name from args
     k_num = len(knots) - 1 # last iterator for n knots 0..n-1
     c_num = k_num - 1 # last iterator for n-1 curve segments 0..n-2
     c1=[] # first control points c1[0..c_num]
@@ -1255,8 +1261,10 @@ def slashAndSpread(pivot, angle, *args):
             pnt = list[i]
             distance = distanceP(pivot, pnt)
             rotated_pnt = polarPointP(pivot, distance, angleOfLineP(pivot, pnt) + angle) # angle>0 = spread clockwise. angle<0 = spread counterclockwise.
-            pnt.x,  pnt.y = rotated_pnt.x,  rotated_pnt.y
+            #pnt.x,  pnt.y = rotated_pnt.x,  rotated_pnt.y
+            updatePoint(pnt, rotated_pnt)
             i = i + 1
+        return
 
 # ---- Set up pattern document with design info ----------------------------------------
 def setupPattern(pattern_design, clientData, printer, companyName, designerName, patternName, patternNumber):
