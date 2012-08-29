@@ -861,12 +861,15 @@ def intersectLineCurve(P1, P2, curve):
             k = 0
             while k < len(interpolatedPoints) - 1:
                 pnt_on_line = polarPoint(fixed_pnt, distanceP(fixed_pnt, interpolatedPoints[k]), angle)
-                if (distanceP(pnt_on_line, interpolatedPoints[k]) <= distanceP(interpolatedPoints[k], interpolatedPoints[k+1])):
+                range = distanceP(interpolatedPoints[k], interpolatedPoints[k+1]) # TODO: margin of error
+                if (distanceP(pnt_on_line, interpolatedPoints[k]) < range):
                     # its close enough!
-                    intersections.append(interpolatedPoints[k])
-                k = k + 1
+                    if k > 0:
+                        if interpolatedPoints[k - 1] not in intersections:
+                            intersections.append(interpolatedPoints[k])
+            k = k + 1
 
-        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+    j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
 
     return intersections
 # __________...Create darts...________________________________
