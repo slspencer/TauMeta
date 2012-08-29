@@ -469,6 +469,34 @@ def pntOnLineAtYP(p1, p2, y):
         pnt.x = p1.x
     return pnt
 
+def pntOnCircleAtY(C, r, y):
+    """
+    Finds points one or two points on circle where P.y = y
+    Accepts circle center point object C, radius r, and value y
+    Returns an object P with number of intersection points, and up to two coordinate pairs.
+    Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
+    """
+
+    P1, P2 = Pnt(), Pnt()
+    P1.x, P1.y = 0.0, y
+    P2.x, P2.y = 1.0, y
+
+    return pntIntersectLineCircleP(C, r, P1, P2)
+
+def pntOnCircleAtX(C, r, x):
+    """
+    Finds points one or two points on circle where p.x = x
+    Accepts circle center point object C, radius r, and value x
+    Returns an object P with number of intersection points, and up to two coordinate pairs.
+    Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
+    """
+
+    P1, P2 = Pnt(), Pnt()
+    P1.x, P1.y = x, 0.0
+    P2.x, P2.y = x, 1.0
+
+    return pntIntersectLineCircleP(C, r, P1, P2)
+
 def pntsOnCurveAtX(curve,  x):
     '''
     Accepts an array 'curve' of bezier curves, returns list of points. Each bezier curve consists of  P0, P1, P2, P3 [eg knot1, controlpoint1, controlpoint2, knot2].
@@ -808,33 +836,7 @@ def pntIntersectCirclesP(C1, r1, C2, r2):
     P.p2 = p2
     return P
 
-def pntOnCircleAtY(C, r, y):
-    """
-    Finds points one or two points on circle where P.y = y
-    Accepts circle center point object C, radius r, and value y
-    Returns an object P with number of intersection points, and up to two coordinate pairs.
-    Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
-    """
 
-    P1, P2 = Pnt(), Pnt()
-    P1.x, P1.y = 0.0, y
-    P2.x, P2.y = 1.0, y
-
-    return pntIntersectLineCircleP(C, r, P1, P2)
-
-def pntOnCircleAtX(C, r, x):
-    """
-    Finds points one or two points on circle where p.x = x
-    Accepts circle center point object C, radius r, and value x
-    Returns an object P with number of intersection points, and up to two coordinate pairs.
-    Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
-    """
-
-    P1, P2 = Pnt(), Pnt()
-    P1.x, P1.y = x, 0.0
-    P2.x, P2.y = x, 1.0
-
-    return pntIntersectLineCircleP(C, r, P1, P2)
 
 # __________...Create darts...________________________________
 
