@@ -547,6 +547,59 @@ def distanceP(p1, p2):
     """Accepts two point objects and returns distance between the points"""
     return distance(p1.x, p1.y, p2.x, p2.y)
 
+def curveTangentAtLine(P1, P2, curve):
+    '''
+    Accepts two points objects and an array of point objects.  The two points describe a line that intersects the curve P0 C1 C2 P1 contained in the array.
+    This function returns the first found intersection point of the line and curve, and also returns the angle of the tangent ray at that point, directionally down the path '''
+
+    # determine whether P1 or P2 is the  furthest away from 1st point in curve[].
+    # The point further away is considered the 'fixed point' & use this point to derive the angle of the line towards the curve
+    if distanceP(P1, curve[0]) >= distanceP(P2, curve[0] ):
+        fixed_pnt = P1
+        angle = angleOfLineP(P1, P2)
+    else:
+        fixed_pnt = P2
+        angle = angleOfLineP(P2, P1)
+
+    intersections = []
+    pnt = Pnt()
+
+    found = 'false'
+    j = 0
+    while (j <= (len(curve)  - 4)) and (found != 'true'):  # for each bezier curve in curveArray until a point is found
+        intersection_estimate = pntIntersectLinesP(P1, P2, curve[j], curve[j+3]) # is there an intersection?
+        if intersection_estimate != None or intersection_estimate != '':
+            interpolated_points = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
+
+            k = 0
+            while (k < len(interpolated_points) - 1) and (found != 'true'):
+                pnt_on_line = polarPointP(fixed_pnt, distanceP(fixed_pnt, interpolated_points[k]), angle)
+                range = distanceP(interpolated_points[k], interpolated_points[k+1]) # TODO: improve margin of error
+                if (distanceP(pnt_on_line, interpolated_points[k]) < range):
+                    # its close enough!
+                    num = k
+                    found = 'true'
+                    if k > 1:
+                        if (interpolated_points[k - 1] not in intersections) and (interpolated_points[k-2] not in intersections):
+                            intersections.append(interpolated_points[k])
+                    elif k == 1:
+                        if (interpolated_points[k - 1] not in intersections):
+                            intersections.append(interpolated_points[k])
+                    else:
+                        intersections.append(interpolated_points[k])
+                k = k + 1
+
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+
+    if (found == 'true'):
+        tangent_angle = angleOfLineP(interpolated_points[num - 1], interpolated_points[num + 1])
+    else:
+        tangent_angle = None
+
+    return interpolated_points[num], tangent_angle
+
+
+
 def curveLength(curve, n=100):
     '''
     Accepts curve array with a minimum of four Pnt objects P0,P1,P2,P3 (knot1, controlpoint1,controlpoint2,knot2).
