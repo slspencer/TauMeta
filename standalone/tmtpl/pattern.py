@@ -76,6 +76,11 @@ def cPointP(parent, id, pnt, transform=''):
     Returns object of class Point. Creates SVG blue open dot in reference group for control point in bezier curves.'''
     return cPoint(parent, id, pnt.x, pnt.y, transform='')
 
+def updatePoint(pnt, new_pnt):
+    '''Accepts two point objects.  The 1st point's .x & .y is updated with 2nd point's x & y values.'''
+    pnt.x, pnt.y, pnt.coords = new_pnt.x, new_pnt.y, str(new_pnt.x) + ', '+str(new_pnt.y)
+    return
+
 # ----------------...Add Points to Paths..------------------------------
 
 def moveP(pathSVG, point, transform = ''):
@@ -464,6 +469,34 @@ def pntOnLineAtYP(p1, p2, y):
         pnt.x = p1.x
     return pnt
 
+def pntOnCircleAtY(C, r, y):
+    """
+    Finds points one or two points on circle where P.y = y
+    Accepts circle center point object C, radius r, and value y
+    Returns an object P with number of intersection points, and up to two coordinate pairs.
+    Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
+    """
+
+    P1, P2 = Pnt(), Pnt()
+    P1.x, P1.y = 0.0, y
+    P2.x, P2.y = 1.0, y
+
+    return pntIntersectLineCircleP(C, r, P1, P2)
+
+def pntOnCircleAtX(C, r, x):
+    """
+    Finds points one or two points on circle where p.x = x
+    Accepts circle center point object C, radius r, and value x
+    Returns an object P with number of intersection points, and up to two coordinate pairs.
+    Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
+    """
+
+    P1, P2 = Pnt(), Pnt()
+    P1.x, P1.y = x, 0.0
+    P2.x, P2.y = x, 1.0
+
+    return pntIntersectLineCircleP(C, r, P1, P2)
+
 def pntsOnCurveAtX(curve,  x):
     '''
     Accepts an array 'curve' of bezier curves, returns list of points. Each bezier curve consists of  P0, P1, P2, P3 [eg knot1, controlpoint1, controlpoint2, knot2].
@@ -513,6 +546,59 @@ def distance(xstart, ystart, xend, yend):
 def distanceP(p1, p2):
     """Accepts two point objects and returns distance between the points"""
     return distance(p1.x, p1.y, p2.x, p2.y)
+
+def curveTangentAtLine(P1, P2, curve):
+    '''
+    Accepts two points objects and an array of point objects.  The two points describe a line that intersects the curve P0 C1 C2 P1 contained in the array.
+    This function returns the first found intersection point of the line and curve, and also returns the angle of the tangent ray at that point, directionally down the path '''
+
+    # determine whether P1 or P2 is the  furthest away from 1st point in curve[].
+    # The point further away is considered the 'fixed point' & use this point to derive the angle of the line towards the curve
+    if distanceP(P1, curve[0]) >= distanceP(P2, curve[0] ):
+        fixed_pnt = P1
+        angle = angleOfLineP(P1, P2)
+    else:
+        fixed_pnt = P2
+        angle = angleOfLineP(P2, P1)
+
+    intersections = []
+    pnt = Pnt()
+
+    found = 'false'
+    j = 0
+    while (j <= (len(curve)  - 4)) and (found != 'true'):  # for each bezier curve in curveArray until a point is found
+        intersection_estimate = pntIntersectLinesP(P1, P2, curve[j], curve[j+3]) # is there an intersection?
+        if intersection_estimate != None or intersection_estimate != '':
+            interpolated_points = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
+
+            k = 0
+            while (k < len(interpolated_points) - 1) and (found != 'true'):
+                pnt_on_line = polarPointP(fixed_pnt, distanceP(fixed_pnt, interpolated_points[k]), angle)
+                range = distanceP(interpolated_points[k], interpolated_points[k+1]) # TODO: improve margin of error
+                if (distanceP(pnt_on_line, interpolated_points[k]) < range):
+                    # its close enough!
+                    num = k
+                    found = 'true'
+                    if k > 1:
+                        if (interpolated_points[k - 1] not in intersections) and (interpolated_points[k-2] not in intersections):
+                            intersections.append(interpolated_points[k])
+                    elif k == 1:
+                        if (interpolated_points[k - 1] not in intersections):
+                            intersections.append(interpolated_points[k])
+                    else:
+                        intersections.append(interpolated_points[k])
+                k = k + 1
+
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+
+    if (found == 'true'):
+        tangent_angle = angleOfLineP(interpolated_points[num - 1], interpolated_points[num + 1])
+    else:
+        tangent_angle = None
+
+    return interpolated_points[num], tangent_angle
+
+
 
 def curveLength(curve, n=100):
     '''
@@ -803,34 +889,47 @@ def pntIntersectCirclesP(C1, r1, C2, r2):
     P.p2 = p2
     return P
 
-def pntOnCircleAtY(C, r, y):
-    """
-    Finds points one or two points on circle where P.y = y
-    Accepts circle center point object C, radius r, and value y
-    Returns an object P with number of intersection points, and up to two coordinate pairs.
-    Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
-    """
+def intersectLineCurve(P1, P2, curve):
+    '''Accepts two points of a line P1 & P2, and an array of connected bezier curves [P11, C11, C12, P12, C21, C22, P22, C31, C32, P32, ...]
+    Returns an array intersections[] of point objects where line intersected with the curve'''
 
-    P1, P2 = Pnt(), Pnt()
-    P1.x, P1.y = 0.0, y
-    P2.x, P2.y = 1.0, y
+    # get polar equation for line for P1-P2
+    # point furthest away from 1st point in curve[] is the fixed point & sets the direction of the angle towards the curve
+    if distanceP(P1, curve[0]) >= distanceP(P2, curve[0] ):
+        fixed_pnt = P1
+        angle = angleOfLineP(P1, P2)
+    else:
+        fixed_pnt = P2
+        angle = angleOfLineP(P2, P1)
 
-    return pntIntersectLineCircleP(C, r, P1, P2)
+    intersections = []
+    pnt = Pnt()
 
-def pntOnCircleAtX(C, r, x):
-    """
-    Finds points one or two points on circle where p.x = x
-    Accepts circle center point object C, radius r, and value x
-    Returns an object P with number of intersection points, and up to two coordinate pairs.
-    Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
-    """
+    j = 0
+    while (j <= (len(curve)  - 4)):  # for each bezier curve in curveArray
+        intersection_estimate = pntIntersectLinesP(P1, P2, curve[j], curve[j+3]) # is there an intersection?
+        if intersection_estimate != None or intersection_estimate != '':
+            interpolatedPoints = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
 
-    P1, P2 = Pnt(), Pnt()
-    P1.x, P1.y = x, 0.0
-    P2.x, P2.y = x, 1.0
+            k = 0
+            while k < len(interpolatedPoints) - 1:
+                pnt_on_line = polarPointP(fixed_pnt, distanceP(fixed_pnt, interpolatedPoints[k]), angle)
+                range = distanceP(interpolatedPoints[k], interpolatedPoints[k+1]) # TODO: improve margin of error
+                if (distanceP(pnt_on_line, interpolatedPoints[k]) < range):
+                    # its close enough!
+                    if k > 1:
+                        if (interpolatedPoints[k - 1] not in intersections) and (interpolatedPoints[k-2] not in intersections):
+                            intersections.append(interpolatedPoints[k])
+                    elif k == 1:
+                        if (interpolatedPoints[k - 1] not in intersections):
+                            intersections.append(interpolatedPoints[k])
+                    else:
+                        intersections.append(interpolatedPoints[k])
+                k = k + 1
 
-    return pntIntersectLineCircleP(C, r, P1, P2)
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
 
+    return intersections
 # __________...Create darts...________________________________
 
 def addDartMidPoint(parent, dart_leg1, dart_apex, dart_leg2, next_pnt):
@@ -879,6 +978,7 @@ def pointList(*args):
     return points
 
 def controlPoints(name, knots):
+    #TODO: remove name from args
     k_num = len(knots) - 1 # last iterator for n knots 0..n-1
     c_num = k_num - 1 # last iterator for n-1 curve segments 0..n-2
     c1=[] # first control points c1[0..c_num]
@@ -1214,8 +1314,10 @@ def slashAndSpread(pivot, angle, *args):
             pnt = list[i]
             distance = distanceP(pivot, pnt)
             rotated_pnt = polarPointP(pivot, distance, angleOfLineP(pivot, pnt) + angle) # angle>0 = spread clockwise. angle<0 = spread counterclockwise.
-            pnt.x,  pnt.y = rotated_pnt.x,  rotated_pnt.y
+            #pnt.x,  pnt.y = rotated_pnt.x,  rotated_pnt.y
+            updatePoint(pnt, rotated_pnt)
             i = i + 1
+        return
 
 # ---- Set up pattern document with design info ----------------------------------------
 def setupPattern(pattern_design, clientData, printer, companyName, designerName, patternName, patternNumber):

@@ -45,11 +45,9 @@
         "hand_circumference": { "value":"21", "type":"float", "gui_text":"Hand Circumference" },
 
         "waist_circumference": { "value":"88.5", "type":"float", "gui_text":"Waist Circumference" },
-        "front_waist": {  "value":"47.5", "type":"float", "gui_text":"Front Waist, Side-to-Side" },
-        "front_waist_width": { "value":"47.5", "type":"float", "gui_text":"Front Waist Arc, Center-to-Side" },
+        "front_waist_width": { "value":"47.5", "type":"float", "gui_text":"Front Waist, Side-to-Side" },
         "front_waist_length": {  "value":"42.5", "type":"float", "gui_text":"Front Waist Length" },     
-        "back_waist": {  "value":"41.0", "type":"float", "gui_text":"Front Waist, Side-to-Side" },
-        "back_waist_width": {  "value":"41.0", "type":"float", "gui_text":"Back Waist Arc, Center-to-Side" },
+        "back_waist_width": {  "value":"41.0", "type":"float", "gui_text":"Front Waist, Side-to-Side" },
         "back_waist_length": {  "value":"41.5", "type":"float", "gui_text":"Center Back Length" },
                
         "hip_circumference": { "value":"113", "type":"float", "gui_text":"Hip Circumference" },
