@@ -228,8 +228,16 @@ def addDartLine(parent, path):
     parent.add(Path('pattern', 'dartline', parent.name + ' Dartline', path, 'dartline_style'))
     return
 
+def addCenterLine(parent, path):
+    parent.add(Path('pattern', 'centerline', parent.name + ' Centerline', path, 'dartline_style'))
+    return
+
 def addMarkingLine(parent, path):
     parent.add(Path('pattern', 'markingline', parent.name + ' Markingline', path, 'markingline_style'))
+    return
+
+def addFacingLine(parent, path):
+    parent.add(Path('pattern', 'facingline', parent.name + ' Facingline', path, 'dartline_style'))
     return
 
 # ----------------...Calculate Angle and Slope..------------------------------
