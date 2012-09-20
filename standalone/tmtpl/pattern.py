@@ -630,11 +630,80 @@ def curveLength(curve, n=100):
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return curveLength
 
-def interpolateCurve(P0, P1, P2, P3, t):
+def curveLengthAtPoint(pnt, curve, n=100):
+    print 'find curve at point', pnt.x, ',', pnt.y
+    found = 0
+    curveLength = 0.0
+    j = 0
+    while (j <= (len(curve)  - 4)) and (found == 0):  # for each curve, get segmentLength & add to curveLength
+
+        interpolatedPoints = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #interpolate this curve
+
+        # add up lengths between the interpolated points
+        segmentLength = 0.0
+        i = 1
+        while (i <= n) and (found == 0):
+                segmentLength = segmentLength + distanceP(interpolatedPoints[i-1], interpolatedPoints[i]) #length from previous point to current point
+                try:
+                    if pnt == interpolatedPoints[i] or distanceP(pnt, interpolatedPoints[i]) <= 0.01:
+                        found = 1
+                except:
+                    print 'out of bounds i = ', i
+                i = i + 1
+
+        curveLength = curveLength + segmentLength
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+
+    return curveLength
+
+def interpolatedCurveLengthAtPoint(pnt, interpolatedPoints):
+    # add up lengths between the interpolated points
+    segmentLength = 0.0
+    found = 0
+    i = 1
+    while (i < len(interpolatedPoints)) and (found == 0):
+            segmentLength = segmentLength + distanceP(interpolatedPoints[i-1], interpolatedPoints[i]) #length from previous point to current point
+            try:
+                if pnt == interpolatedPoints[i] or distanceP(pnt, interpolatedPoints[i]) <= 1.0: # 1 pixel
+                    found = 1
+            except:
+                print 'out of bounds i = ', i
+            i = i + 1
+
+    return segmentLength
+
+def interpolatedCurvePointAtLength(length, interpolatedPoints):
+    # add up lengths between the interpolated points
+    pnt = Pnt()
+    segmentLength = 0.0
+    found = 0
+    i = 1
+    while (i < len(interpolatedPoints)) and (found == 0):
+            segmentLength = segmentLength + distanceP(interpolatedPoints[i-1], interpolatedPoints[i]) #length from previous point to current point
+            if segmentLength >= length: # 1 pixel - err on the side of too much rather than too little length
+                    found = 1
+                    pnt = interpolatedPoints[i]
+            i = i + 1
+
+    return pnt
+
+def interpolateCurveList(curve, t=100):
+    '''curve can be multiple cubic curves in an array ' P0 C1a C2a P1 C1b C2b P2...'''
+    interpolatedPoints = []
+    j = 0
+    while j < len(curve) - 4: # interpolate each curve segment
+        temp_list = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], t)
+        for pnt in temp_list:
+            interpolatedPoints.append(pnt)
+        j = j + 3
+    return interpolatedPoints
+
+def interpolateCurve(P0, P1, P2, P3, t=100):
     '''
     Accepts curve points P0,P1,P2,P3 & number of interpolations t from curveLength()
     P0 - knot point 1, P1 - control point 1, P2 - control point 2, P3 - knot point 2
     Adapted from http://www.planetclegg.com/projects/WarpingTextToSplines.htm
+    Using P0 P1 P2 P3 not P0 C1 C2 P1 to make the formulas easier
     '''
 
     # calculate coefficients for two knot points P0 & P3 ;     P1 & P2 are the controlpoints.
@@ -903,12 +972,19 @@ def intersectLineCurve(P1, P2, curve):
 
     # get polar equation for line for P1-P2
     # point furthest away from 1st point in curve[] is the fixed point & sets the direction of the angle towards the curve
-    if distanceP(P1, curve[0]) >= distanceP(P2, curve[0] ):
-        fixed_pnt = P1
-        angle = angleOfLineP(P1, P2)
-    else:
-        fixed_pnt = P2
-        angle = angleOfLineP(P2, P1)
+    #if distanceP(P1, curve[0]) >= distanceP(P2, curve[0] ):
+    #   fixed_pnt = P1
+    #   angle = angleOfLineP(P1, P2)
+    #else:
+    #   fixed_pnt = P2
+    #  angle = angleOfLineP(P2, P1)
+    fixed_pnt = P1
+    angle = angleOfLineP(P1, P2)
+
+    print 'P1 =', P1.x, P1.y
+    print 'P2 =', P2.x, P2.y
+    for pnt in curve:
+        print 'curve =', pnt.x, pnt.y
 
     intersections = []
     pnt = Pnt()
@@ -923,8 +999,11 @@ def intersectLineCurve(P1, P2, curve):
             while k < len(interpolatedPoints) - 1:
                 pnt_on_line = polarPointP(fixed_pnt, distanceP(fixed_pnt, interpolatedPoints[k]), angle)
                 range = distanceP(interpolatedPoints[k], interpolatedPoints[k+1]) # TODO: improve margin of error
-                if (distanceP(pnt_on_line, interpolatedPoints[k]) < range):
+                distance = distanceP(pnt_on_line, interpolatedPoints[k])
+                print k, 'pntOnCurve', interpolatedPoints[k].x, interpolatedPoints[k].y, 'pntOnLine', pnt_on_line.x, pnt_on_line.y, distance, range
+                if ( distance < range):
                     # its close enough!
+                    print 'its close enough!'
                     if k > 1:
                         if (interpolatedPoints[k - 1] not in intersections) and (interpolatedPoints[k-2] not in intersections):
                             intersections.append(interpolatedPoints[k])
@@ -1570,6 +1649,9 @@ class PatternPiece(pBase):
         """
         Return two points which define a bounding box around the object
         """
+        print '******'
+        print 'letter = ', self.lettertext
+        print '******'
         # get all the children
         xmin, ymin, xmax, ymax =  pBase.boundingBox(self, grouplist)
         xmin, ymin, xmax, ymax =  transformBoundingBox(xmin, ymin, xmax, ymax, self.attrs['transform'])
