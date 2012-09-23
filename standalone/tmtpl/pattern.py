@@ -516,7 +516,7 @@ def pntsOnCurveAtX(curve,  x):
     xlist, ylist = [], []
     pnt = Pnt()
     j = 0
-    while (j <= (len(curve)  - 4)):  # for each bezier curve in curveArray
+    while j <= len(curve)  - 4:  # for each bezier curve in curveArray
 
         interpolatedPoints = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], 100)  #interpolate this bezier curve, n=100
 
@@ -574,7 +574,7 @@ def curveTangentAtLine(P1, P2, curve):
 
     found = 'false'
     j = 0
-    while (j <= (len(curve)  - 4)) and (found != 'true'):  # for each bezier curve in curveArray until a point is found
+    while j <= len(curve)  - 4 and found != 'true':  # for each bezier curve in curveArray until a point is found
         intersection_estimate = pntIntersectLinesP(P1, P2, curve[j], curve[j+3]) # is there an intersection?
         if intersection_estimate != None or intersection_estimate != '':
             interpolated_points = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
@@ -618,7 +618,7 @@ def curveLength(curve, n=100):
 
     curveLength = 0.0
     j = 0
-    while (j <= (len(curve)  - 4)):  # for each curve, get segmentLength & add to curveLength
+    while j <= len(curve)  - 4:  # for each curve, get segmentLength & add to curveLength
         interpolatedPoints = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #interpolate this curve
         # add up lengths between the interpolated points
         segmentLength = 0.0
@@ -635,7 +635,7 @@ def curveLengthAtPoint(pnt, curve, n=100):
     found = 0
     curveLength = 0.0
     j = 0
-    while (j <= (len(curve)  - 4)) and (found == 0):  # for each curve, get segmentLength & add to curveLength
+    while j <= len(curve)  - 4 and found == 0:  # for each curve, get segmentLength & add to curveLength
 
         interpolatedPoints = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #interpolate this curve
 
@@ -675,6 +675,7 @@ def interpolatedCurveLengthAtPoint(pnt, interpolatedPoints):
 def interpolatedCurvePointAtLength(length, interpolatedPoints):
     # add up lengths between the interpolated points
     pnt = Pnt()
+    curveLength = 0.0
     segmentLength = 0.0
     found = 0
     i = 1
@@ -691,7 +692,7 @@ def interpolateCurveList(curve, t=100):
     '''curve can be multiple cubic curves in an array ' P0 C1a C2a P1 C1b C2b P2...'''
     interpolatedPoints = []
     j = 0
-    while j < len(curve) - 4: # interpolate each curve segment
+    while j <= len(curve) - 4: # interpolate each curve segment
         temp_list = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], t)
         for pnt in temp_list:
             interpolatedPoints.append(pnt)
@@ -990,7 +991,7 @@ def intersectLineCurve(P1, P2, curve):
     pnt = Pnt()
 
     j = 0
-    while (j <= (len(curve)  - 4)):  # for each bezier curve in curveArray
+    while j <= len(curve)  - 4:  # for each bezier curve in curveArray
         intersection_estimate = pntIntersectLinesP(P1, P2, curve[j], curve[j+3]) # is there an intersection?
         if intersection_estimate != None or intersection_estimate != '':
             interpolatedPoints = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
