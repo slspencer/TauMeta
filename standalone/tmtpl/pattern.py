@@ -910,10 +910,10 @@ def intersectCircles(x0, y0, r0, x1, y1, r1):
     Returns xi,yi,xi_prime,yi_prime pairs where circles intersect, and intersections = number of intersections
     example: returns ax,ay, bx,by, number of intersections {0|1|2} --> ax,ay and bx,by are empty when intersections=0, and  bx,by is empty when intersections=1
     """
-    print 'radius of 1st circle ro:', r0
-    print 'radius of 2nd circle r1:', r1
+    #print 'radius of 1st circle ro:', r0
+    #print 'radius of 2nd circle r1:', r1
     d = distance(x0, y0, x1, y1) # distance b/w circle centers
-    print 'distance between circle centers:', d
+    #print 'distance between circle centers:', d
     dx, dy = (x1 - x0), (y1 - y0) # negate y b/c canvas increases top to bottom
 
     if (d == 0):
@@ -959,8 +959,8 @@ def pntIntersectCirclesP(C1, r1, C2, r2):
     """
     P, p1, p2 = Pnt(),  Pnt(),  Pnt()
     intersections = 0
-    print 'C1.x, C1.y, r1 =', C1.x,  C1.y, r1
-    print 'C2.x, C2.y, r2 =',  C2.x, C2.y, r2
+    #print 'C1.x, C1.y, r1 =', C1.x,  C1.y, r1
+    #print 'C2.x, C2.y, r2 =',  C2.x, C2.y, r2
     x1, y1, x2, y2, intersections = intersectCircles(C1.x, C1.y, r1, C2.x, C2.y, r2)
     p1 = Pnt(x1, y1)
     p2 = Pnt(x2, y2)
@@ -1659,9 +1659,6 @@ class PatternPiece(pBase):
         """
         Return two points which define a bounding box around the object
         """
-        print '******'
-        print 'letter = ', self.lettertext
-        print '******'
         # get all the children
         xmin, ymin, xmax, ymax =  pBase.boundingBox(self, grouplist)
         xmin, ymin, xmax, ymax =  transformBoundingBox(xmin, ymin, xmax, ymax, self.attrs['transform'])
