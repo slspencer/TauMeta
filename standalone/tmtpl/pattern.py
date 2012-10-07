@@ -26,8 +26,10 @@ import re
 import random
 import inspect
 from math import sin, cos, pi, sqrt
+
 #pysvg libs
 import pysvg.builders as PYB
+
 # tmtp libs
 from constants import *
 from utils import debug
@@ -1437,6 +1439,13 @@ class Pnt():
         self.x = x
         self.y = y
         self.name = ''
+
+class PntP():
+    '''Accepts a point object. Returns a point object with .x, .y, and .name children.  Does not create point in SVG document'''
+    def __init__(self, pnt):
+        self.x = pnt.x
+        self.y = pnt.y
+        self.name = ""
 
 class Pattern(pBase):
     """
