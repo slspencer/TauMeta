@@ -1003,10 +1003,10 @@ def intersectLineCurve(P1, P2, curve):
                 pnt_on_line = polarPointP(fixed_pnt, distanceP(fixed_pnt, interpolatedPoints[k]), angle)
                 range = distanceP(interpolatedPoints[k], interpolatedPoints[k+1]) # TODO: improve margin of error
                 distance = distanceP(pnt_on_line, interpolatedPoints[k])
-                print k, 'pntOnCurve', interpolatedPoints[k].x, interpolatedPoints[k].y, 'pntOnLine', pnt_on_line.x, pnt_on_line.y, distance, range
+                #print k, 'pntOnCurve', interpolatedPoints[k].x, interpolatedPoints[k].y, 'pntOnLine', pnt_on_line.x, pnt_on_line.y, distance, range
                 if ( distance < range):
                     # its close enough!
-                    print 'its close enough!'
+                    #print 'its close enough!'
                     if k > 1:
                         if (interpolatedPoints[k - 1] not in intersections) and (interpolatedPoints[k-2] not in intersections):
                             intersections.append(interpolatedPoints[k])

@@ -1,7 +1,7 @@
 #!/bin/bash
+# tmtp.sh
 #
-# This file is part of the tmtp (Tau Meta Tau Physica) project.
-# For more information, see http://www.sew-brilliant.org/
+# This file is part of the tmtp open source project
 #
 # Copyright (C) 2010, 2011, 2012 Susan Spencer, Steve Conklin
 #
@@ -16,13 +16,12 @@
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
 #  You should have received a copy of the GNU General Public License
-#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#  along with this program.  If not, see <http://www.gnu.org/licenses>.
 #
-
-
-TMTP_BASE=$PWD
-PATTERN_BASE=$TMTP_BASE/patterns
-CUSTOMER_BASE=$TMTP_BASE/customer
+cd /home/susan/src/tmtp/standalone
+TMTP_BASE=/home/susan/src/tmtp/standalone/
+PATTERN_BASE=$TMTP_BASE/patterns/
+CUSTOMER_BASE=$TMTP_BASE/customer/
 PYTHONPATH=$PYTHONPATH:$TMTP_BASE:$PATTERN_BASE:$CUSTOMER_BASE
 export PYTHONPATH
 export TMTP_BASE
@@ -40,23 +39,16 @@ function FileName () {
 
 function Tmtp () {
 
+    #$TMTP_BASE/mkpattern --verbose  --client=$CUSTOMER_NAME --pattern=$PATTERN --styles=$TMTP_BASE/tmtp_styles.json --debug=prints $FILE.svg
+
     $TMTP_BASE/mkpattern --client=$CUSTOMER_NAME --pattern=$PATTERN --styles=$TMTP_BASE/tmtp_styles.json $FILE.svg
-    # Uncomment the following line for debugging, comment out the above line.
-    # $TMTP_BASE/mkpattern --verbose  --client=$CUSTOMER_NAME --pattern=$PATTERN --styles=$TMTP_BASE/tmtp_styles.json --debug=prints $FILE.svg
+    
+    inkscape --file=$FILE.svg --verb=ZoomPage --select=A.cuttingline --select=B.cuttingline --select=C.cuttingline\
+    --select=D.cuttingline --select=E.cuttingline --select=F.cuttingline --select=G.cuttingline --select=S.cuttingline\
+    --verb=SelectionOffset --verb=FileSave
+    
+    #--verb=EditDeselect 
 
-    # At this time the TMTP program does not generate seam allowances and it does not display the output file.
-    # Set seam allowance width: set 'outstep' in Inkscape Preferences to ????px for 5/8" or ????px for 1cm, whichever you prefer. All seam allowances will have this width.
-
-
-    # Create cuttinglines through Inkscape outset command line option
-    # If any of your patterns have more than 7 (A thru G) pattern pieces in them, add more cuttinglines in command below (e.g. --select=H.cuttingline --select I.cuttingline).  When outset function is added into TMTP code then this kluge can be removed
-    # While in Inkscape you can hide the reference layer, save the file as PDF, then print PDF file to a wide-format plotter.
-    inkscape --file=$FILE.svg --verb=ZoomPage --select=A.cuttingline --select=B.cuttingline --select=C.cuttingline  --select=D.cuttingline --select=E.cuttingline --select=F.cuttingline --select=G.cuttingline --verb=SelectionOffset --verb=EditDeselect --verb=FileSave
-
-    #Uncomment the following line to automatically remove the reference layer (all the items that aren't normally in a printed pattern):
-    #inkscape --file=$FILE.svg --verb=ZoomPage --select=reference --verb=SelectionDelete --verb=FileSave
-
-    #Uncomment the following line to automatically save output file to a PDF file in the customer directory. Print the PDF file to a wide format plotter for best results.
     #inkscape --file=$FILE.svg --export-area-snap -A $FILE.pdf
 
     return;
@@ -65,28 +57,44 @@ function Tmtp () {
 function CustomerMenu () {
 
     # Display menu and interact based on the user's input
-    CUSTOMER_NAME="$(kdialog --title "Select A Customer Directory, Then Select Their Measurement File:" --getopenfilename $CUSTOMER_BASE '*.json')"
+
+    CUSTOMER_NAME="$(zenity  --file-selection\
+ --title '*        Select A Customer:                     *'\
+ --filename=$CUSTOMER_BASE\
+ --file-filter='*.json')"
+
     CUSTOMER_DIR=${CUSTOMER_NAME%/*}
-    # The output file will be saved into $CUSTOMER_DIR with date & time, etc.
 
     return;
     }
 
 function PatternMenu () {
 
-    # Select Pattern File
-    PATTERN="$(kdialog --title "Select A Pattern:" --getopenfilename $PATTERN_BASE '*.py')"
+    # Display menu and interact based on the user's input
+    #Display menu and interact based on the user's input
+
+
+    PATTERN="$(zenity  --file-selection\
+ --title '*        Select A Pattern:                       *'\
+ --filename=$PATTERN_BASE\
+ --file-filter='*.py')"
 
     return;
     }
 
 function MainMenu () {
     # Loop until user selects EXIT
-    var1="$(kdialog --menu "Welcome to TMTP - Tau Meta Tau Physica!" 1 'Select a Pattern' 2 'Exit TMTP' )"
-    case $var1 in
-        1)
+
+    var1="$(zenity --list --radiolist\
+ --text '*        Welcome to Tau Meta Tau Physica                               *'\
+ --column='' --column='What do you want to do?'\
+ FALSE 'Create a Pattern'\
+ FALSE 'Exit TMTP' )"
+
+    case $var1 in 
+        "Create a Pattern")
           GETPATTERN="1";;
-        2)
+        *)
           GETPATTERN="0";;
     esac
 
@@ -100,6 +108,7 @@ GETPATTERN="1"
 while true; do
 
     MainMenu
+
     if [ $GETPATTERN == '0' ]; then
         break
     else
@@ -110,3 +119,4 @@ while true; do
     fi
 
 done
+

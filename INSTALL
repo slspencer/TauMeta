@@ -22,15 +22,49 @@ $ unzip pysvg-0.2.1.zip
 $ cd pysvg-0.2.1/
 $ sudo python setup.py install
 
-3. == Test it ==
+3. == download zenity ===
+
+$ sudo apt-get install zenity
+
+4. == Test it ==
 
 $ cd ../tmtp/standalone
-$ ./mkpattern --verbose --client=pdata-pants1.json --pattern=SamplePattern_Pants1.py --styles=tmtp_styles.json foo.svg
+$ ./mkpattern --verbose --client=customer/SampleClient/SampleClient.json --pattern=patterns/BodiceBlock.py --styles=tmtp_styles.json foo.svg
+
 
 If this completes without error, everything is probably good.
-You can look at the output file, foo.svg to see what it
-looks like
+You can look at the output file, foo.svg to see what it looks like
+
+$ inkscape --file=foo.svg --select=A.cuttingline --select=B.cuttingline --verb=SelectionOffset --verb=FileSave
+While in inkscape, hide the reference layer, arrange pattern pieces for best use of space,
+for your plotter/printer width. Resize document to fit, save as PDF and print.
+
+5. == Update the tmtp.sh script ==
+
+$ gedit tmtp.sh
+change TMTP_BASE to your tmtp/standalone directory, example:
+	TMTP_BASE=/home/susan/src/tmtp/standalone/
+
+test it:
+$ ./tmtp.sh
+
+6. == Add icon to desktop Launcher bar ==
+
+$ sudo gedit tmtp.desktop
+Edit directories for icon and executable to your tmtp/standalone directory
+
+$ sudo mv tmtp.destop /usr/share/applications
+$ sudo chmod +x /usr/share/applications/tmtp.desktop
+$ sudo update-desktop-database
+
+Click on Ubuntu logo at top of desktop Launcher bar
+type in tmtp.desktop to find file icon
+drag file icon to Launcher bar
+
+The scissors icon should appear in Launcher
+
+
 
 ***** For Windows *****
 
-Need this
+...Need this...
