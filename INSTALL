@@ -1,14 +1,14 @@
 This application is not packaged and must be run from this source tree.
+Requires Inkscape & zenity applications and pySVG python library
 
 ***** For Linux *****
 
-1. == Get the tmtp source code ==
+1. Get packaged software dependencies:
 
-To get the source, do the following:
+sudo apt-get install inkscape
+sudo apt-get install zenity
 
-$ git clone git@github.com:sconklin/tmtp.git
-
-2. == Get the required pySVG python library ==
+2. == Get unpackaged pySVG python library ==
 
 From this page:
 
@@ -22,20 +22,21 @@ $ unzip pysvg-0.2.1.zip
 $ cd pysvg-0.2.1/
 $ sudo python setup.py install
 
-3. == download zenity ===
+3. == Get the tmtp source code ==
 
-$ sudo apt-get install zenity
+To get the source, do the following:
+
+$ git clone git@github.com:sconklin/tmtp.git
 
 4. == Test it ==
 
 $ cd ../tmtp/standalone
-$ ./mkpattern --verbose --client=customer/SampleClient/SampleClient.json --pattern=patterns/BodiceBlock.py --styles=tmtp_styles.json foo.svg
-
+$ ./mkpattern --verbose --client=customer/SampleClient/SampleClient.json --pattern=patterns/SamplePattern.py --styles=tmtp_styles.json foo.svg
 
 If this completes without error, everything is probably good.
 You can look at the output file, foo.svg to see what it looks like
 
-$ inkscape --file=foo.svg --select=A.cuttingline --select=B.cuttingline --verb=SelectionOffset --verb=FileSave
+$ inkscape --file=foo.svg --verb=ZoomPage --select=A.cuttingline --select=B.cuttingline --verb=SelectionOffset --verb=FileSave
 
 NOTE: To print: In inkscape, hide the reference layer, arrange pattern pieces for best use of space
 for plotter/printer size. Resize document to fit using appropriate border size, save as PDF, and print.
@@ -43,17 +44,21 @@ for plotter/printer size. Resize document to fit using appropriate border size, 
 5. == Update the tmtp.sh script ==
 
 $ gedit tmtp.sh
+
 change TMTP_BASE to your tmtp/standalone directory, example:
 	TMTP_BASE=/home/susan/src/tmtp/standalone/
 
-test it:
+6. == Test the script ==
+
 $ ./tmtp.sh
 
-6. == Add TMTP script to desktop Launcher bar ==
+7. == Update launcher desktop file ==
 
 $ sudo gedit tmtp.desktop
 
 Edit directories for icon and executable to your tmtp/standalone directory
+
+8. == Add TMTP script to desktop Launcher bar ==
 
 $ sudo cp tmtp.destop /usr/share/applications
 $ sudo chmod +x /usr/share/applications/tmtp.desktop
