@@ -18,8 +18,14 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses>.
 #
+
+# 
+
+# change the following two lines to match your ../tmtp/standalone installation
 cd /home/susan/src/tmtp/standalone
 TMTP_BASE=/home/susan/src/tmtp/standalone/
+
+# do not change any remaining lines in script
 PATTERN_BASE=$TMTP_BASE/patterns/
 CUSTOMER_BASE=$TMTP_BASE/customer/
 PYTHONPATH=$PYTHONPATH:$TMTP_BASE:$PATTERN_BASE:$CUSTOMER_BASE
@@ -41,14 +47,15 @@ function Tmtp () {
 
     #$TMTP_BASE/mkpattern --verbose  --client=$CUSTOMER_NAME --pattern=$PATTERN --styles=$TMTP_BASE/tmtp_styles.json --debug=prints $FILE.svg
 
+	
+    # run mkpattern script to generate the pattern
     $TMTP_BASE/mkpattern --client=$CUSTOMER_NAME --pattern=$PATTERN --styles=$TMTP_BASE/tmtp_styles.json $FILE.svg
-    
+ 
+    # run inkscape to outset the pattern pieces and view. 
     inkscape --file=$FILE.svg --verb=ZoomPage --select=A.cuttingline --select=B.cuttingline --select=C.cuttingline\
     --select=D.cuttingline --select=E.cuttingline --select=F.cuttingline --select=G.cuttingline --select=S.cuttingline\
-    --verb=SelectionOffset --verb=FileSave
+    --verb=SelectionOffset --verb=EditDeselect --verb=FileSave
     
-    #--verb=EditDeselect 
-
     #inkscape --file=$FILE.svg --export-area-snap -A $FILE.pdf
 
     return;
