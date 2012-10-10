@@ -25,7 +25,7 @@ import string
 import re
 import random
 import inspect
-from math import sin, cos, pi, sqrt
+from math import sin, cos, pi, sqrt, asin
 
 #pysvg libs
 import pysvg.builders as PYB
@@ -969,6 +969,88 @@ def pntIntersectCirclesP(C1, r1, C2, r2):
     P.p2 = p2
     return P
 
+def pntsOnCircleFromChordLength(C, P, r, chord_length):
+    ''' Accepts center of circle, a point on the circle, radius of circle, and chord length.  Returns a list of two points on the circle at chord_length distance away from original point'''
+    d = chord_length
+    # point on circle given chordlength & starting point = 2 * asin(d/2r)
+    d_div_2r = d/(2.0*r)
+    angle = 2*asin(d_div_2r)
+    pnts = []
+    pnts.append(polarPointP(C, r, angle))
+    pnts.append(polarPointP(C, r, - angle))
+    return pnts
+
+def splitCurveAtLength(length, curve):
+    '''Accepts a point on a curve, and a curve list with points P0 C1 C2 P1. Returns curve list with P0, split_c1, split_c2, split_pnt, new_c11, new_c12, P1'''
+
+    #TODO: use lib2geom to split a curve - this function is temporary
+
+    # find split point
+    interpolated_points = interpolateCurve(curve[0], curve[1], curve[2], curve[3])
+    split_pnt = interpolatedCurvePointAtLength(length, interpolated_points) # split neck curve at this point
+
+    # find tangent at split point
+    pnt1 = interpolatedCurvePointAtLength(length - .1*IN, interpolated_points) # arbitrary 1/10th of an inch - good enough for this application?
+    pnt2 = interpolatedCurvePointAtLength(length + .1*IN, interpolated_points) # arbitrary 1/10th of an inch - good enough for this application?
+    forward_tangent_angle = angleOfLineP(pnt1, pnt2)
+    backward_tangent_angle = angleOfLineP(pnt2, pnt1)
+
+    # neck control points
+    #b/w curve[0] and split_pnt
+    length = distanceP(curve[0], split_pnt)/3.0
+    split_c1 = polarPointP(curve[0], length, angleOfLineP(curve[0], curve[1])) # preserve angle b/w P0 & original 1st control point
+    split_c2 = polarPointP(split_pnt, length, backward_tangent_angle)
+    # b/w split_pnt and curve[3]
+    length = distanceP(split_pnt, curve[3])/3.0
+    curve3_c1 = polarPointP(split_pnt, length, forward_tangent_angle)
+    curve3_c2 = polarPointP(curve[3], length, angleOfLineP(curve[3], curve[2])) # preserve angle b/w original 2nd control point & P1
+
+    new_curve = []
+    new_curve.append(curve[0])
+    new_curve.append(split_c1)
+    new_curve.append(split_c2)
+    new_curve.append(split_pnt)
+    new_curve.append(curve3_c1)
+    new_curve.append(curve3_c2)
+    new_curve.append(curve[3])
+
+    return new_curve
+
+def neckDart(parent, dart_width, dart_length, length, neck_curve):
+    '''Accepts dart_width, dart_length, length, and curve  list with points P0 C1 C2 P1. Returns dart_apex, curve1 list with points P0 C11 C12 P1, curve2 with points P3 C41 C42 P4'''
+
+    # split neck curve at length
+    split_curve = splitCurveAtLength(length, neck_curve)
+
+    # see http://math.stackexchange.com/questions/164541/finding-a-point-having-the-radius-chord-length-and-another-point
+    # find the angle between two points given center, radius, chordlength & starting point = 2 * asin(d/2r)
+    d = dart_width # chord length
+    r = dart_length # radius
+    d_div_2r = d/(2.0*r)
+    rotation_angle = 2*asin(d_div_2r)
+
+    dart_apex = rPointP(parent, 'dart_apex', polarPointP(split_curve[3], dart_length, angleOfLineP(split_curve[3], split_curve[2]) + ANGLE90))
+
+    # separate split_curve into curve1 & curve2
+    curve1 = []
+    i = 0
+    while i <= 3:
+        curve1.append(PntP(split_curve[i]))
+        i = i + 1
+
+    curve2 = []
+
+    i = 3
+    while i <= 6:
+        curve2.append(PntP(split_curve[i ]))
+        i = i + 1
+
+    # rotate curve1 relative to the dart_apex, creating the dart
+    slashAndSpread(dart_apex, rotation_angle, curve1[0], curve1[1], curve1[2], curve1[3])
+
+    return dart_apex,  curve1,  curve2
+
+
 def intersectLineCurve(P1, P2, curve):
     '''Accepts two points of a line P1 & P2, and an array of connected bezier curves [P11, C11, C12, P12, C21, C22, P22, C31, C32, P32, ...]
     Returns an array intersections[] of point objects where line intersected with the curve'''
@@ -984,10 +1066,11 @@ def intersectLineCurve(P1, P2, curve):
     fixed_pnt = P1
     angle = angleOfLineP(P1, P2)
 
-    print 'P1 =', P1.x, P1.y
-    print 'P2 =', P2.x, P2.y
-    for pnt in curve:
-        print 'curve =', pnt.x, pnt.y
+
+    #print 'P1 =', P1.x, P1.y
+    #print 'P2 =', P2.x, P2.y
+    #for pnt in curve:
+        #print 'curve =', pnt.x, pnt.y
 
     intersections = []
     pnt = Pnt()
@@ -1396,6 +1479,7 @@ def connectObjects(connector_pnts, old_pnts):
 
 # ----Slash and spread with slash line, pivot point, and angle
 def slashAndSpread(pivot, angle, *args):
+
         list = []
         for arg in args:
             list.append(arg)
@@ -1404,7 +1488,6 @@ def slashAndSpread(pivot, angle, *args):
             pnt = list[i]
             distance = distanceP(pivot, pnt)
             rotated_pnt = polarPointP(pivot, distance, angleOfLineP(pivot, pnt) + angle) # angle>0 = spread clockwise. angle<0 = spread counterclockwise.
-            #pnt.x,  pnt.y = rotated_pnt.x,  rotated_pnt.y
             updatePoint(pnt, rotated_pnt)
             i = i + 1
         return
