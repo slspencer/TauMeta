@@ -1105,6 +1105,48 @@ def intersectLineCurve(P1, P2, curve):
     return intersections
 # __________...Create darts...________________________________
 
+def addDartFold(parent, dart, inside_pnt):
+
+        DART_LENGTH = distanceP(dart.a, dart.o)
+        DART_HALF_ANGLE = abs(angleOfVectorP(dart.o, dart.a, dart.i))/2.0
+        O_ANGLE = angleOfLineP(dart.a, dart.o)
+        I_ANGLE = angleOfLineP(dart.a, dart.i)
+
+        # determine which direction the dart will be folded
+        if I_ANGLE <= O_ANGLE:
+            FOLD_ANGLE = I_ANGLE - DART_HALF_ANGLE
+        else:
+            FOLD_ANGLE = I_ANGLE + DART_HALF_ANGLE
+
+        # find intersection of fold & armscye b/w bd2.i & inside_pnt
+        # TODO: use intersectLineCurve()
+        temp_pnt = polarPointP(dart.a, DART_LENGTH, FOLD_ANGLE)
+        fold_pnt = pntIntersectLinesP(dart.i, inside_pnt, dart.a, temp_pnt)
+
+        # dart midpoint at seamline
+        temp_pnt = pntMidPointP(dart.i, dart.o)
+        mid_pnt = pntOnLineP(dart.a, temp_pnt, distanceP(dart.a, fold_pnt))
+        if hasattr(dart, 'm'):
+            updatePoint(dart.m, mid_pnt)
+        else:
+            dart.m = rPointP(parent, dart.name + 'm', mid_pnt) # adds '.' automatically - why?
+
+        # dart outside leg at cuttingline
+        temp_pnt = pntOnLineP(dart.o, dart.a, -SEAM_ALLOWANCE)
+        if hasattr(dart, 'oc'):
+            updatePoint(dart.oc,  temp_pnt)
+        else:
+            dart.oc = rPointP(parent, dart.name + 'oc', temp_pnt) # adds '.' automatically - why?
+
+        # dart inside leg at cuttingline
+        temp_pnt = pntOnLineP(dart.i, dart.a, -SEAM_ALLOWANCE)
+        if hasattr(dart, 'ic'):
+            update(dart.ic, temp_pnt)
+        else:
+            dart.ic = rPointP(parent, dart.name + 'ic', temp_pnt) # adds '.' automatically - why?
+
+        return
+
 def addDartMidPoint(parent, dart_leg1, dart_apex, dart_leg2, next_pnt):
         DART_LENGTH = distanceP(dart_apex, dart_leg1)
         DART_HALF_ANGLE = abs(angleOfVectorP(dart_leg1, dart_apex, dart_leg2))/2.0
