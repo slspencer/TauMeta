@@ -36,8 +36,9 @@ If this completes without error, everything is probably good.
 You can look at the output file, foo.svg to see what it looks like
 
 $ inkscape --file=foo.svg --select=A.cuttingline --select=B.cuttingline --verb=SelectionOffset --verb=FileSave
-While in inkscape, hide the reference layer, arrange pattern pieces for best use of space,
-for your plotter/printer width. Resize document to fit, save as PDF and print.
+
+NOTE: To print: In inkscape, hide the reference layer, arrange pattern pieces for best use of space
+for plotter/printer size. Resize document to fit using appropriate border size, save as PDF, and print.
 
 5. == Update the tmtp.sh script ==
 
@@ -48,12 +49,13 @@ change TMTP_BASE to your tmtp/standalone directory, example:
 test it:
 $ ./tmtp.sh
 
-6. == Add icon to desktop Launcher bar ==
+6. == Add TMTP script to desktop Launcher bar ==
 
 $ sudo gedit tmtp.desktop
+
 Edit directories for icon and executable to your tmtp/standalone directory
 
-$ sudo mv tmtp.destop /usr/share/applications
+$ sudo cp tmtp.destop /usr/share/applications
 $ sudo chmod +x /usr/share/applications/tmtp.desktop
 $ sudo update-desktop-database
 
@@ -61,7 +63,7 @@ Click on Ubuntu logo at top of desktop Launcher bar
 type in tmtp.desktop to find file icon
 drag file icon to Launcher bar
 
-The scissors icon should appear in Launcher
+The Scissors icon should appear in Launcher
 
 
 
