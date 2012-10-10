@@ -131,26 +131,23 @@ class PatternDesign():
         # front armscye control points
         # b/w g & d
         length1 =  distanceP(d, g)/3.0
-        angle11 = angleOfLineP(h, g) + ANGLE90
-        d_c1 = cPointP(A, 'd_c1', polarPointP(g, length1, angle11))
-        angle12 = angleOfLineP(d, d_c1)
-        d_c2 = cPointP(A, 'd_c2', polarPointP(d, length1, angle12 ))
+        d_c1 = cPointP(A, 'd_c1', polarPointP(g, length1, angleOfLineP(h, g) + ANGLE90))
+        d_c2 = cPointP(A, 'd_c2', upPointP(d, length1))
         # b/w d & n - 1st control point
         length2 = distanceP(d, n)/3.0
-        angle21 = angleOfLineP(d_c1, d)
-        n_c1 = cPointP(A, 'n_c1', polarPointP(d, length2, angle21))
+        n_c1 = cPointP(A, 'n_c1', downPointP(d, length2))
         # b/w n & k - 2nd control point
         length3 = distanceP(n, k)/3.0
-        angle32 = angleOfLineP(k, l) + ANGLE90
-        k_c2 = cPointP(A, 'k_c2', polarPointP(k, length3, angle32))
+        k_c2 = cPointP(A, 'k_c2', polarPointP(k, length3, angleOfLineP(k, l) + ANGLE90))
         # b/w d & n - 2nd control point
         angleD = angleOfLineP(n, n_c1)
         angleK = angleOfLineP(k, n)
-        angle22 = (angleD + angleK)/2.0
-        n_c2 = cPointP(A, 'n_c2', polarPointP(n, length2, angle22)) # unknown 1st pass
+        angle = (angleD + angleK)/2.0
+        pnt = polarPointP(n, length2, angle)
+        n_c2 = cPointP(A, 'n_c2', pntIntersectLinesP(n, pnt, d, n_c1))
         # b/w n & k - 1st control point
-        angle31 = angleOfLineP(n_c2, n)
-        k_c1 = cPointP(A, 'k_c1', polarPointP(n, length3, angle31))
+        pnt = polarPointP(n, length3, angleOfLineP(n_c2, n))
+        k_c1 = cPointP(A, 'k_c1', pntIntersectLinesP(n, pnt, k, k_c2))
 
         # generate front pattern svg info
         # TODO: make diamond markers to place along cuttingLine - single, double and triple
@@ -204,27 +201,12 @@ class PatternDesign():
         length1 = distanceP(pp, qq) # dart leg
         length2 = CD.back_waist_width/2.0 - distanceP(bb, qq)
 
-        # back neck control points
-        # b/w hh & aa
-        angle = angleOfLineP(hh, gg) - ANGLE90
-        length = distanceP(aa, hh)/3.0
-        hh_c2 =  cPointP(B, 'hh_c2', polarPointP(hh, length,  angle) )
-        pnt1 = leftPointP(aa, 1*IN) # arbitrary point left of nape
-        hh_c1 =  cPointP(B, 'hh_c1', pntIntersectLinesP(aa, pnt1, hh, hh_c2))
-
-        # back armscye control points
-        pnts = pointList(gg, dd, pp, kk)
-        c1, c2 = controlPoints('BackArmscye', pnts)
-        dd_c1, dd_c2 = cPointP(B, 'dd_c1', c1[0]), cPointP(B, 'dd_c2', c2[0])
-        pp_c1, pp_c2 = cPointP(B, 'pp_c1', c1[1]), cPointP(B, 'pp_c2', c2[1])
-        kk_c1, kk_c2 = cPointP(B, 'kk_c1', c1[2]), cPointP(B, 'kk_c2', c2[2])
-
         # back neck dart
         # TODO: use lib2geom python bindings to find accurate intersection between line & curve
         bb2 = rPoint(B, 'bb2', bb.x - .5*IN,  bb.y)
         aa2 = rPoint(B, 'aa2', aa.x + .25*IN, aa.y)
         Pnts = pntIntersectCirclesP(kk, CD.side, bb2, CD.back_waist_width*0.5)
-        if (Pnts.intersections != 0):
+        if (Pnts.intersections > 0):
             if (Pnts.p1.x < Pnts.p2.x):
                 pnt = Pnts.p1
             else:
@@ -236,6 +218,37 @@ class PatternDesign():
         dart1.i = rPoint(B, 'dart1.i', aa2.x - 1.25*IN, aa2.y)
         dart1.o = rPoint(B, 'dart1.o', dart1.i.x - .25*IN, aa2.y )
         dart1.a = rPoint(B, 'dart1.a', dart1.i.x - .25/2.*IN, dart1.i.y + 3*IN)
+
+        # back neck control points
+        # b/w hh & aa
+        angle = angleOfLineP(hh, gg) - ANGLE90
+        length = distanceP(aa, hh)/3.0
+        hh_c2 =  cPointP(B, 'hh_c2', polarPointP(hh, length,  angle) )
+        pnt1 = leftPointP(aa, 1*IN) # arbitrary point left of nape
+        hh_c1 =  cPointP(B, 'hh_c1', pntIntersectLinesP(aa, pnt1, hh, hh_c2))
+
+        # back armscye control points
+        # b/w gg & dd
+        length1 =  distanceP(gg, dd)/3.0
+        dd_c1 = cPointP(B, 'dd_c1', polarPointP(gg, length1, angleOfLineP(hh, gg) - ANGLE90))
+        dd_c2 = cPointP(B, 'dd_c2', upPointP(dd, length1))
+        # b/w dd & pp - 1st control point
+        length2 = distanceP(dd, pp)/3.0
+        pp_c1 = cPointP(B, 'pp_c1', downPointP(dd, length2))
+        # b/w pp & kk - 2nd control point
+        length3 = distanceP(pp, kk)/3.0
+        kk_c2 = cPointP(B,  'kk_c2', polarPointP(kk, length3, angleOfLineP(kk, mm2) - ANGLE90))
+        # b/w dd & pp - 2nd control point
+        angleDD = angleOfLineP(pp, pp_c1)
+        angleKK = angleOfLineP(kk, pp)
+        angle = (angleDD + angleKK)/2.0
+        pnt = polarPointP(pp, length2, angle)
+        pp_c2 = cPointP(B, 'pp_c2', pntIntersectLinesP(pp, pnt, dd, pp_c1))
+        # b/w pp & kk - 1st control point
+        pnt = polarPointP(pp, length3, angleOfLineP(pp_c2, pp))
+        kk_c1 = cPointP(B, 'kk_c1', pntIntersectLinesP(pp, pnt, kk, kk_c2))
+
+
 
         # generate back pattern svg info
         #grainline points
