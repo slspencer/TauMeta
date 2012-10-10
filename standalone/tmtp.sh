@@ -19,7 +19,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses>.
 #
 
-# 
+#
 
 # change the following two lines to match your ../tmtp/standalone installation
 cd /home/susan/src/tmtp/standalone
@@ -47,16 +47,17 @@ function Tmtp () {
 
     #$TMTP_BASE/mkpattern --verbose  --client=$CUSTOMER_NAME --pattern=$PATTERN --styles=$TMTP_BASE/tmtp_styles.json --debug=prints $FILE.svg
 
-	
+    # TODO: add 'please wait' or 'creating pattern' message
     # run mkpattern script to generate the pattern
     $TMTP_BASE/mkpattern --client=$CUSTOMER_NAME --pattern=$PATTERN --styles=$TMTP_BASE/tmtp_styles.json $FILE.svg
- 
-    # run inkscape to outset the pattern pieces and view. 
+
+    # run inkscape to outset the pattern pieces and view.
     inkscape --file=$FILE.svg --verb=ZoomPage --select=A.cuttingline --select=B.cuttingline --select=C.cuttingline\
     --select=D.cuttingline --select=E.cuttingline --select=F.cuttingline --select=G.cuttingline --select=S.cuttingline\
     --verb=SelectionOffset --verb=EditDeselect --verb=FileSave
-    
-    #inkscape --file=$FILE.svg --export-area-snap -A $FILE.pdf
+
+    # TODO: add menu item to print file - open inkscape without gui, save to pdf, use a linux print utility (not inkscape)
+    # inkscape --file=$FILE.svg --export-area-snap -A $FILE.pdf
 
     return;
     }
@@ -91,6 +92,8 @@ function PatternMenu () {
 
 function MainMenu () {
     # Loop until user selects EXIT
+    # TODO: add option to open existing pattern .svg file\
+    # TODO: make this script more robust
 
     var1="$(zenity --list --radiolist\
  --text '*        Welcome to Tau Meta Tau Physica                               *'\
@@ -98,7 +101,7 @@ function MainMenu () {
  FALSE 'Create a Pattern'\
  FALSE 'Exit TMTP' )"
 
-    case $var1 in 
+    case $var1 in
         "Create a Pattern")
           GETPATTERN="1";;
         *)
