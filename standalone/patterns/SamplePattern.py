@@ -53,21 +53,29 @@ class PatternDesign():
         # All angles are in radians
         # angles start with 0 at '3:00', & move clockwise b/c quadrant is 'upside down'
         CD = self.CD    #client data is prefaced with CD
+
+        #TODO: add function to select printer/page size
         printer = '36" wide carriage plotter'
+        # TODO: add function to select company/designerpatternmaker name
         companyName = 'Company Name'  # mandatory
         designerName = 'Designer Name' # mandatory
         patternmakerName = 'Patternmaker Name'
+
+        # this info is specific to this file
         patternName = 'Pattern Name or Short Description' # mandatory
+        # TODO: lookup/generate next available pattern number
         patternNumber = 'Pattern Number' # mandatory
 
         # create document
         doc = setupPattern(self, CD, printer, companyName, designerName, patternName, patternNumber)
+
         # create pattern object, add to document
         # TODO: make update styledefs & markerdefs transparent
         bodice = Pattern('bodice')
         bodice.styledefs.update(self.styledefs)
         bodice.markerdefs.update(self.markerdefs)
         doc.add(bodice)
+
         # create pattern pieces, add to pattern object
         bodice.add(PatternPiece('pattern', 'front', 'A', fabric=2, interfacing=0, lining=0))
         bodice.add(PatternPiece('pattern', 'back', 'B', fabric=2, interfacing=0, lining=0))
@@ -93,6 +101,8 @@ class PatternDesign():
         m = rPoint(A, 'm', d.x, k.y) #m : 'armscye corner'
         pnt = polarPointP(m, 1*IN, angleOfDegree(315.0))
         n = rPointP(A, 'n', pnt) #n : armscye curve
+
+        # front dart
         o = rPoint(A, 'o', 0., c.y + distanceP(c, b)/2.0) # o: dart apex height
         p = rPoint(A, 'p', a.x + distanceP(e, f)/2.0, o.y) # p: dart apex
         q = rPoint(A, 'q', p.x - 0.5*IN, b.y) # q: dart inside leg
@@ -109,12 +119,13 @@ class PatternDesign():
         else:
             print 'no intersection found'
         r = rPointP(A, 'r', pnt) #r : 'dart leg outside at waist'
-        # neck control points
+
+        #front  neck control points
         angle = angleOfLineP(h, g) + ANGLE90
         length = distanceP(a, h)/3.0
         h_c1 = cPointP(A, 'h_c1', rightPointP(a, length)) # control point is horizontal to a
         h_c2 = cPointP(A, 'h_c2', polarPointP(h, length, angle)) # control point is perpendicular to line h-g shoulder seam
-        # armscye control points
+        # front armscye control points
         length =  distanceP(d, g)/3.0
         d_c2 = cPointP(A, 'd_c2', polarPointP(d, length, angleOfLineP(n, g)))
         d_c1 = cPointP(A, 'd_c1', polarPointP(g, length, angleOfLineP(g, d_c2)))
@@ -125,7 +136,7 @@ class PatternDesign():
         k_c1 = cPointP(A, 'k_c1', polarPointP(n, length, angleOfLineP(d, k)))
         k_c2 = cPoint(A, 'k_c2', k.x - length, k.y) # b/w n & k, horizontal with k.y
 
-        # create pattern markings & lines
+        # generate front pattern svg info
         # TODO: make diamond markers to place along cuttingLine - single, double and triple
         # TODO: replace addGridLine(), addDartLine(), addSeamLine(), addCuttingLine(),addGrainLine() with addToPath(parent, 'nameofline', args*)
         # TODO: details: addToPath() to be addToPath(A, 'gridLine', args*) not addToPath(varname, args*) -> this would remove grid=path() and addGridLine(A,grid)
@@ -153,7 +164,7 @@ class PatternDesign():
         addCuttingLine(A, cuttingLine)
 
         # bodice Back B
-        # pattern points
+        # back pattern points
         aa = rPoint(B, 'aa', 0., 0.) #aa: nape
         bb = rPoint(B, 'bb', 0., CD.back_waist_length) # bb: center waist
         cc = rPoint(B, 'cc', 0., CD.back_waist_length/4.0) #cc: center across back
@@ -176,10 +187,11 @@ class PatternDesign():
         rr = rPoint(B, 'rr',  nn.x + distanceP(nn, qq)/2.0, jj.y) #rr: dart apex,
         length1 = distanceP(pp, qq) # dart leg
         length2 = CD.back_waist_width/2.0 - distanceP(bb, qq)
-        #neck control points
+
+        # back neck control points
         hh_c1 =  cPoint(B, 'hh_c1', aa.x - distanceP(aa, hh)/2.0,  a.y) # divide by 2 to make this control point a bit stronger than the usual dividing by 3
         hh_c2 =  cPointP(B, 'hh_c2', pntOnLineP(hh, hh_c1, distanceP(hh, aa)/3.0)) # divide by 3
-        # armscye control points
+        # back armscye control points
         pnts = pointList(gg, dd, pp, kk)
         c1, c2 = controlPoints('BackArmscye', pnts)
         dd_c1, dd_c2 = cPointP(B, 'dd_c1', c1[0]), cPointP(B, 'dd_c2', c2[0])
@@ -204,6 +216,7 @@ class PatternDesign():
         dart1.o = rPoint(B, 'dart1.o', dart1.i.x - .25*IN, aa2.y )
         dart1.a = rPoint(B, 'dart1.a', dart1.i.x - .25/2.*IN, dart1.i.y + 3*IN)
 
+        # generate back pattern svg info
         #grainline points
         Bg1 = rPoint(B,  'Bg1', aa.x - 2*IN, aa.y + 2*IN)
         Bg2 = rPoint(B, 'Bg2', Bg1.x, bb.y - 2*IN)
