@@ -54,7 +54,7 @@ function Tmtp () {
     # run inkscape to outset the pattern pieces and view.
     inkscape --file=$FILE.svg --verb=ZoomPage --select=A.cuttingline --select=B.cuttingline --select=C.cuttingline\
     --select=D.cuttingline --select=E.cuttingline --select=F.cuttingline --select=G.cuttingline --select=S.cuttingline\
-    --verb=SelectionOffset --verb=EditDeselect --verb=FileSave
+    --verb=SelectionOffset --verb=EditDeselect --verb=FileSave | zenity --progress --text='Your pattern has been generated.  Please wait, opening Inkscape...' --auto-close
 
     # TODO: add menu item to print file - open inkscape without gui, save to pdf, use a linux print utility (not inkscape)
     # inkscape --file=$FILE.svg --export-area-snap -A $FILE.pdf
@@ -81,11 +81,9 @@ function PatternMenu () {
     # Display menu and interact based on the user's input
     #Display menu and interact based on the user's input
 
-
     PATTERN="$(zenity  --file-selection\
  --title '*        Select A Pattern:                       *'\
- --filename=$PATTERN_BASE\
- --file-filter='*.py')"
+ --filename=$PATTERN_BASE --file-filter='*.py')"
 
     return;
     }
@@ -116,6 +114,10 @@ function MainMenu () {
 GETPATTERN="1"
 
 while true; do
+
+    PATTERN=""
+    CUSTOMER_NAME=""
+    CUSTOMER_DIR=""
 
     MainMenu
 
