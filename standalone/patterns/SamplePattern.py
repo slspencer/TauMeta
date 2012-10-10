@@ -121,20 +121,36 @@ class PatternDesign():
         r = rPointP(A, 'r', pnt) #r : 'dart leg outside at waist'
 
         #front  neck control points
+        # b/w a & h
         angle = angleOfLineP(h, g) + ANGLE90
         length = distanceP(a, h)/3.0
-        h_c1 = cPointP(A, 'h_c1', rightPointP(a, length)) # control point is horizontal to a
         h_c2 = cPointP(A, 'h_c2', polarPointP(h, length, angle)) # control point is perpendicular to line h-g shoulder seam
+        pnt1 = rightPointP(a, 1*IN) # arbitrary point right of point a
+        h_c1 = cPointP(A, 'h_c1', pntIntersectLinesP(a, pnt1, h, h_c2)) # control point is horizontal to a, intersecting with line of h & h_c2. Gives appropriate width to neck opening
+
         # front armscye control points
-        length =  distanceP(d, g)/3.0
-        d_c2 = cPointP(A, 'd_c2', polarPointP(d, length, angleOfLineP(n, g)))
-        d_c1 = cPointP(A, 'd_c1', polarPointP(g, length, angleOfLineP(g, d_c2)))
-        length = distanceP(d, n)/3.0
-        n_c1 = cPointP(A, 'n_c1', polarPointP(d, length, angleOfLineP(g, n)))
-        n_c2 = cPointP(A, 'n_c2', polarPointP(n, length, angleOfLineP(k, d)))
-        length = distanceP(n, k)/3.0
-        k_c1 = cPointP(A, 'k_c1', polarPointP(n, length, angleOfLineP(d, k)))
-        k_c2 = cPoint(A, 'k_c2', k.x - length, k.y) # b/w n & k, horizontal with k.y
+        # b/w g & d
+        length1 =  distanceP(d, g)/3.0
+        angle11 = angleOfLineP(h, g) + ANGLE90
+        d_c1 = cPointP(A, 'd_c1', polarPointP(g, length1, angle11))
+        angle12 = angleOfLineP(d, d_c1)
+        d_c2 = cPointP(A, 'd_c2', polarPointP(d, length1, angle12 ))
+        # b/w d & n - 1st control point
+        length2 = distanceP(d, n)/3.0
+        angle21 = angleOfLineP(d_c1, d)
+        n_c1 = cPointP(A, 'n_c1', polarPointP(d, length2, angle21))
+        # b/w n & k - 2nd control point
+        length3 = distanceP(n, k)/3.0
+        angle32 = angleOfLineP(k, l) + ANGLE90
+        k_c2 = cPointP(A, 'k_c2', polarPointP(k, length3, angle32))
+        # b/w d & n - 2nd control point
+        angleD = angleOfLineP(n, n_c1)
+        angleK = angleOfLineP(k, n)
+        angle22 = (angleD + angleK)/2.0
+        n_c2 = cPointP(A, 'n_c2', polarPointP(n, length2, angle22)) # unknown 1st pass
+        # b/w n & k - 1st control point
+        angle31 = angleOfLineP(n_c2, n)
+        k_c1 = cPointP(A, 'k_c1', polarPointP(n, length3, angle31))
 
         # generate front pattern svg info
         # TODO: make diamond markers to place along cuttingLine - single, double and triple
@@ -189,8 +205,13 @@ class PatternDesign():
         length2 = CD.back_waist_width/2.0 - distanceP(bb, qq)
 
         # back neck control points
-        hh_c1 =  cPoint(B, 'hh_c1', aa.x - distanceP(aa, hh)/2.0,  a.y) # divide by 2 to make this control point a bit stronger than the usual dividing by 3
-        hh_c2 =  cPointP(B, 'hh_c2', pntOnLineP(hh, hh_c1, distanceP(hh, aa)/3.0)) # divide by 3
+        # b/w hh & aa
+        angle = angleOfLineP(hh, gg) - ANGLE90
+        length = distanceP(aa, hh)/3.0
+        hh_c2 =  cPointP(B, 'hh_c2', polarPointP(hh, length,  angle) )
+        pnt1 = leftPointP(aa, 1*IN) # arbitrary point left of nape
+        hh_c1 =  cPointP(B, 'hh_c1', pntIntersectLinesP(aa, pnt1, hh, hh_c2))
+
         # back armscye control points
         pnts = pointList(gg, dd, pp, kk)
         c1, c2 = controlPoints('BackArmscye', pnts)
