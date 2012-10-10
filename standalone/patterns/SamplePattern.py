@@ -153,9 +153,6 @@ class PatternDesign():
         k_c1 = cPointP(A, 'k_c1', pntIntersectLinesP(n, pnt, k, k_c2))
 
         # generate front pattern svg info
-        # TODO: make diamond markers to place along cuttingLine - single, double and triple
-        # TODO: replace addGridLine(), addDartLine(), addSeamLine(), addCuttingLine(),addGrainLine() with addToPath(parent, 'nameofline', args*)
-        # TODO: details: addToPath() to be addToPath(A, 'gridLine', args*) not addToPath(varname, args*) -> this would remove grid=path() and addGridLine(A,grid)
         # grainline points
         Ag1 = rPoint(A,  'Ag1', a.x + 2*IN, a.y + 2*IN)
         Ag2 = rPoint(A, 'Ag2', Ag1.x, b.y - 2*IN)
@@ -167,6 +164,9 @@ class PatternDesign():
         A.setLetter(anchor_pnt.x, anchor_pnt.y, scaleby=7.0)
         # label points
         A.label_x,  A.label_y = anchor_pnt.x, anchor_pnt.y +0.5*IN
+        # TODO: make diamond markers to place along cuttingLine - single, double and triple
+        # TODO: replace addGridLine(), addDartLine(), addSeamLine(), addCuttingLine(), and addGrainLine() with one command: addToPath(parent, 'nameofline', args*)
+        # TODO: details: addToPath() to be addToPath(A, 'gridLine', args*) not addToPath(varname, args*) -> this would remove grid=path() and addGridLine(A,grid) commands
         # grid path
         grid = path()
         addToPath(grid, 'M', b, 'L', e, 'L', f, 'L', g, 'M', c, 'L', d, 'M', j, 'L', k, 'M', o, 'L', p,  'M', m, 'L', n,  'M', m, 'L', d)
@@ -235,7 +235,7 @@ class PatternDesign():
         dart_apex,  curve1,  curve2 = neckDart(B, NECK_DART_WIDTH, NECK_DART_LENGTH, length, back_neck_curve)
 
         # read in new curve points
-        bD2 = Pnt() # group to hold dart points  bD2.a, bD2.i, bD2.o
+        bD2 = Pnt(name = 'bD2') # group to hold dart points  bD2.a, bD2.i, bD2.o
         bD2.a = rPointP(B, 'bD2.a', dart_apex) # dart apex point
         updatePoint(aa, curve1[0]) # update existing nape point
         bD2.i_c1 = cPointP(B, 'bD2.i_c1', curve1[1])
@@ -246,6 +246,8 @@ class PatternDesign():
         updatePoint(hh_c2, curve2[2])
         # hh is last point in curve2 & was not changed
 
+        # add fold points for dart - adds bD2.m,bD2.ic, bD2.oc - if dart were wider then we'd calculate some control points b/w bD2.i & bD2.m to match curve from bD2.i to aa
+        addDartFold(B, bD2, bD2.i_c2) # create points for dart folded towards bD2.i_c2 - all folds either fold upwards or fold towards center
 
         # back armscye control points
         # b/w gg & dd
@@ -269,18 +271,18 @@ class PatternDesign():
         kk_c1 = cPointP(B, 'kk_c1', pntIntersectLinesP(pp, pnt, kk, kk_c2))
 
         # generate back pattern svg info
-        #grainline points
+        #grainline
         Bg1 = rPoint(B,  'Bg1', aa.x - 2*IN, bD2.a.y + 1*IN)
         Bg2 = rPoint(B, 'Bg2', Bg1.x, bb.y - 2*IN)
         addGrainLine(B, Bg1, Bg2)
         # letter location and size
         anchor = Pnt(Bg1.x - 3.5*IN, (Bg1.y + Bg2.y)/3.0)
         B.setLetter(anchor.x, anchor.y, scaleby=7.0)
-        # label points
+        # label
         B.label_x,  B.label_y = anchor.x, anchor.y + 0.5*IN
-        # dartline
+        # dartline - draw from cuttingline points bD2.ic & bD2.oc to apex bD2 .a
         dartLine = path()
-        addToPath(dartLine, 'M', bD2.i, 'L', bD2.a, 'L', bD2.o)
+        addToPath(dartLine, 'M', bD2.ic, 'L', bD2.a, 'L', bD2.oc)
         addDartLine(B, dartLine)
         # grid
         grid = path()
@@ -290,8 +292,8 @@ class PatternDesign():
         seamLine = path()
         cuttingLine = path()
         for P in seamLine, cuttingLine:
-            addToPath(P, 'M', aa, 'C', bD2.i_c1, bD2.i_c2, bD2.i, 'L', bD2.o,'C', hh_c1, hh_c2, hh, 'L', gg, 'C', dd_c1, dd_c2, dd,  'C',  pp_c1, pp_c2,  pp, 'C', kk_c1, kk_c2,  kk)
-            addToPath(P, 'L', mm2, 'L', bb2, 'L', aa)
+            addToPath(P, 'M', aa, 'C', bD2.i_c1, bD2.i_c2, bD2.i, 'L', bD2.m, 'L', bD2.o, 'C', hh_c1, hh_c2, hh, 'L', gg, 'C', dd_c1, dd_c2, dd)
+            addToPath(P, 'C',  pp_c1, pp_c2,  pp, 'C', kk_c1, kk_c2,  kk,'L', mm2, 'L', bb2, 'L', aa)
         addSeamLine(B, seamLine)
         addCuttingLine(B, cuttingLine)
 
