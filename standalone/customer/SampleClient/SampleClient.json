@@ -1,5 +1,5 @@
     {
-        "customername": { "value":"Susan", "type":"string", "gui_text":"Client Name" },
+        "customername": { "value":"Sample Client", "type":"string", "gui_text":"Client Name" },
         "measureunit": { "value":"cm", "type":"string", "gui_text":"Measurement Units (in or cm)" },
         "neck_circumference": { "value":"36", "type":"float", "gui_text":"Neck Circumference" },
         "neck_width": { "value":"18", "type":"float", "gui_text":"Neck Width" },
