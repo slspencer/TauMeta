@@ -1016,11 +1016,12 @@ def splitCurveAtLength(length, curve):
 
     return new_curve
 
-def neckDart(parent, dart_width, dart_length, length, neck_curve):
-    '''Accepts dart_width, dart_length, length, and curve  list with points P0 C1 C2 P1. Returns dart_apex, curve1 list with points P0 C11 C12 P1, curve2 with points P3 C41 C42 P4'''
-
-    # split neck curve at length
-    split_curve = splitCurveAtLength(length, neck_curve)
+def waistDart(parent, dart_width, dart_length, length, waist_curve, dart_angle=ANGLE90):
+    '''Accepts dart_width, dart_length, length, and curve  list from center to side with points P0 C1 C2 P1, and angle of dart in radians.
+    Default angle is pi/4 radians (90 degrees).
+    If waist does not have a curve, create waist_curve list with control points at 1/3 & 2/3 distance on line from center to side.
+    Returns dart_apex, curve1 list from center to dart with points P0 C11 C12 P1, and curve2 list from dart to side with points P2 C31 C32 P3.
+    Side point is rotated/moved out to accommodate dart.'''
 
     # see http://math.stackexchange.com/questions/164541/finding-a-point-having-the-radius-chord-length-and-another-point
     # find the angle between two points given center, radius, chordlength & starting point = 2 * asin(d/2r)
@@ -1028,6 +1029,60 @@ def neckDart(parent, dart_width, dart_length, length, neck_curve):
     r = dart_length # radius
     d_div_2r = d/(2.0*r)
     rotation_angle = 2*asin(d_div_2r)
+
+    # split neck curve at length - returns curve with P0 C11 C12 P1 C21 C22 P2
+    split_curve = splitCurveAtLength(length, waist_curve)
+
+    #dart_apex = rPointP(parent, parent.name + 'dart_apex', polarPointP(split_curve[3], dart_length, angleOfLineP(split_curve[3], split_curve[2]) + ANGLE90))
+    # TODO: test for direction of dart - plus or minus 90 degrees from the angle of the tangent at the dart...
+    # ...the angle of line from 2nd control point (split_curve[2]) to the split point (split_curve[3])
+    dart_apex = polarPointP(split_curve[3], dart_length, angleOfLineP(split_curve[3], split_curve[2]) + dart_angle)
+
+    # separate split_curve into inside_curve1 & outside_curve
+    inside_curve = []
+    i = 0
+    while i <= 3:
+        inside_curve.append(PntP(split_curve[i]))
+        i = i + 1
+
+    outside_curve = []
+
+    i = 3
+    while i <= 6:
+        outside_curve.append(PntP(split_curve[i ]))
+        i = i + 1
+
+    # rotate outside leg & side point (outside_curve) relative to the dart_apex, creating the dart
+    slashAndSpread(dart_apex, rotation_angle, outside_curve[0], outside_curve[1], outside_curve[2], outside_curve[3])
+
+    return dart_apex,  inside_curve,  outside_curve
+
+def angleFromChord(chord_width,  radius):
+    # see http://math.stackexchange.com/questions/164541/finding-a-point-having-the-radius-chord-length-and-another-point
+    # find the angle between two points given center, radius, chordlength & starting point = 2 * asin(d/2r)
+    d = chord_width # chord width - usage: could be the dart width
+    r = radius # radius - usage: could be the dart length
+    d_div_2r = d/(2.0*r)
+    angle = 2*asin(d_div_2r) # angle - usage: could be the rotation angle used in slashAndSpread to create a dart
+
+    return angle
+
+def neckDart(parent, dart_width, dart_length, length, neck_curve):
+    '''Accepts dart_width, dart_length, length, and curve list of neck from center to shoulder with points P0 C1 C2 P1.
+    Moves/rotates nape point to accomodate dart.
+    Returns dart_apex, curve1 list from center to dart with points P0 C11 C12 P1, curve2 list from dart to shoulder with points P2 C31 C32 P3.
+    Dart is formed from P1 to dart_apex to P2'''
+
+    # split neck curve at length
+    split_curve = splitCurveAtLength(length, neck_curve)
+
+    # see http://math.stackexchange.com/questions/164541/finding-a-point-having-the-radius-chord-length-and-another-point
+    # find the angle between two points given center, radius, chordlength & starting point = 2 * asin(d/2r)
+    #d = dart_width # chord length
+    #r = dart_length # radius
+    #d_div_2r = d/(2.0*r)
+    #rotation_angle = 2*asin(d_div_2r)
+    rotation_angle = angleFromChord(dart_width, dart_length)
 
     dart_apex = rPointP(parent, 'dart_apex', polarPointP(split_curve[3], dart_length, angleOfLineP(split_curve[3], split_curve[2]) + ANGLE90))
 
@@ -1563,14 +1618,14 @@ class Pnt():
     def __init__(self, x=0.0, y=0.0, name=''):
         self.x = x
         self.y = y
-        self.name = ''
+        self.name = name
 
 class PntP():
     '''Accepts a point object. Returns a point object with .x, .y, and .name children.  Does not create point in SVG document'''
-    def __init__(self, pnt):
+    def __init__(self, pnt=Pnt(), name=''):
         self.x = pnt.x
         self.y = pnt.y
-        self.name = ""
+        self.name = name
 
 class Pattern(pBase):
     """
