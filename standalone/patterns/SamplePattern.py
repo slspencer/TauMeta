@@ -84,44 +84,51 @@ class PatternDesign():
         B = bodice.back
 
         # bodice Front A
-        BUST_EASE= CD.bust_circumference/9.0
-        WAIST_EASE = CD.waist_circumference/12.0
+        BUST_EASE = (CD.bust_circumference/10.0)/4.0
+        WAIST_EASE = (CD.waist_circumference/12.0)/4.0
         # pattern points
         a = rPoint(A, 'a', 0.0, 0.0) # center neck
-        b = rPoint(A, 'b', 0., CD.front_waist_length) # center waist
-        c = rPoint(A, 'c',  0., a.y + CD.front_waist_length/5.0) # center across chest
+        b = rPoint(A, 'b', 0.0, CD.front_waist_length) # center waist
+        c = rPoint(A, 'c',  0.0, a.y + CD.front_waist_length/5.0) # center across chest
         d = rPoint(A, 'd', a.x + CD.across_chest/2.0, c.y) # side across chest
-        e = rPoint(A, 'e', 0., b.y - CD.front_shoulder_height) # front shoulder height
+        e = rPoint(A, 'e', 00., b.y - CD.front_shoulder_height) # front shoulder height
         f = rPoint(A, 'f', a.x + CD.front_shoulder_width/2.0, e.y) # front shoulder width
         h = rPoint(A, 'h', a.x + CD.neck_width/2.0, e.y) # side neck
+        # find shoulder tip given shoulder length (CD.shoulder), height of triangle (from h.y to f.y)
         height = abs(distanceP(h, f))
         hypoteneuse = CD.shoulder
         base = (abs(hypoteneuse**2.0 - height**2.0))**0.5
         g = rPoint(A, 'g', f.x, f.y + base) # shoulder tip
-        j = rPoint(A, 'j', 0., b.y - CD.side - (11/8.0)*IN) # center chest
-        k = rPoint(A, 'k', a.x + (CD.front_bust_width)/2.0 , j.y) # side chest
-        l = rPoint(A, 'l', k.x, k.y + CD.side) # side waist
+        j = rPoint(A, 'j', a.x, b.y - CD.side - (11/8.0)*IN) # chest center
+        k = rPointP(A, 'k', rightPointP(j, CD.front_bust_width/2.0 + BUST_EASE)) # chest side
         m = rPoint(A, 'm', d.x, k.y) # armscye corner
-        pnt = polarPointP(m, 1*IN, angleOfDegree(315.0))
-        n = rPointP(A, 'n', pnt) # armscye curve
+        n = rPointP(A, 'n', polarPointP(m, 1*IN, angleOfDegree(315.0))) # armscye curve
 
         # front dart
-        o = rPoint(A, 'o', 0., c.y + distanceP(c, b)/2.0) # dart apex height
-        p = rPoint(A, 'p', a.x + distanceP(e, f)/2.0, o.y) # dart apex
-        q = rPoint(A, 'q', p.x - 0.5*IN, b.y) # dart inside leg
-        length1 = distanceP(p, q) # dart leg length
-        length2 = CD.front_waist_width/2.0 - distanceP(b, q) # length of pattern between dart outside leg & side seam
         # TODO: use lib2geom python library to find accurate intersection between two circles
-        Pnts = pntIntersectCirclesP(p, length1, l, length2)
-        # Pnts.intersection is the number of intersections found (0, 1, or 2); Pnts.p1 is 1st intersection, Pnts.p2 is 2nd intersection.
-        if (Pnts.intersections != 0):
-            if (Pnts.p1.y > p.y): # choose the intersection below dart apex p
-                pnt = Pnts.p1
+        FRONT_WAIST_DART_LENGTH = distanceP(c, b)/2.0
+        FRONT_WAIST_DART_WIDTH = CD.front_waist_width/6.0
+        aD1 = PntP(name='aD1') # group to hold all dart points - aD1.a, aD1.i, aD1.o, aD1.m aD1.ic, aD1.oc
+        aD1.i = rPointP(A, 'aD1.i', rightPointP(b, (CD.front_bust_points_distance + BUST_EASE - FRONT_WAIST_DART_WIDTH)/2.0)) # dart inside leg
+        aD1.a = rPoint(A, 'aD1.a', aD1.i.x + FRONT_WAIST_DART_WIDTH/2.0, aD1.i.y - FRONT_WAIST_DART_LENGTH) # dart apex
+        aD1.o = rPoint(A, 'aD1.o', aD1.i.x + FRONT_WAIST_DART_WIDTH, aD1.i.y ) # dart outside leg
+        # find waist side
+        pnts = pntIntersectCirclesP(k, CD.side, aD1.o, (CD.front_waist_width/2.0 + WAIST_EASE) - distanceP(aD1.i, b))
+        # pnts.intersection is the number of intersections found (0, 1, or 2); Pnts.p1 is 1st intersection, Pnts.p2 is 2nd intersection.
+        if (pnts.intersections != 0):
+            if (pnts.p1.x > aD1.o.x): # choose the intersection to the right of aD1.o
+                pnt = pnts.p1
             else:
-                pnt = Pnts.p2
+                pnt = pnts.p2
+            l = rPointP(A, 'l', pnt) # side waist
         else:
             print 'no intersection found'
-        r = rPointP(A, 'r', pnt) # dart leg outside at waist
+        # control points b/w l & aD1.o
+        length = distanceP(aD1.o, l)/3.0
+        aD1.o_c1 = cPointP(A, 'aD1.o_c1', polarPointP(l, length, angleOfLineP(k, l) + ANGLE90))
+        aD1.o_c2 = cPointP(A, 'aD1.o_c2', polarPointP(aD1.o, length, angleOfLineP(aD1.a, aD1.o) - ANGLE90))
+        # shape dart at seamline & cuttingline to allow folding towards center, use nearest point towards center 'b'
+        addDartFold(A, aD1, b) # adds aD1.m, aD1.ic, ad1.oc -- midpoint on seamline (.m), inside leg on cutting line (.ic) & outside leg on cutting line (.oc)
 
         #front  neck control points
         # b/w a & h
@@ -152,90 +159,78 @@ class PatternDesign():
         pnt = polarPointP(n, length3, angleOfLineP(n_c2, n))
         k_c1 = cPointP(A, 'k_c1', pntIntersectLinesP(n, pnt, k, k_c2))
 
-        # generate front pattern svg info
-        # grainline points
-        Ag1 = rPoint(A,  'Ag1', a.x + 2*IN, a.y + 2*IN)
-        Ag2 = rPoint(A, 'Ag2', Ag1.x, b.y - 2*IN)
-        addGrainLine(A, Ag1, Ag2)
-        # TODO: make label points a function
-        # TODO: make setLetter a better function that accepts the parent object as an argument, separate from the parent object
-        # Set letter location and size
-        anchor_pnt = Pnt(Ag1.x + 3.5*IN, (Ag1.y + Ag2.y)/3.0)
-        A.setLetter(anchor_pnt.x, anchor_pnt.y, scaleby=7.0)
-        # label points
-        A.label_x,  A.label_y = anchor_pnt.x, anchor_pnt.y +0.5*IN
-        # TODO: make diamond markers to place along cuttingLine - single, double and triple
-        # TODO: replace addGridLine(), addDartLine(), addSeamLine(), addCuttingLine(), and addGrainLine() with one command: addToPath(parent, 'nameofline', args*)
-        # TODO: details: addToPath() to be addToPath(A, 'gridLine', args*) not addToPath(varname, args*) -> this would remove grid=path() and addGridLine(A,grid) commands
-        # grid path
-        grid = path()
-        addToPath(grid, 'M', b, 'L', e, 'L', f, 'L', g, 'M', c, 'L', d, 'M', j, 'L', k, 'M', o, 'L', p,  'M', m, 'L', n,  'M', m, 'L', d)
-        addGridLine(A, grid)
-        # seamline & cuttingline paths
-        seamLine = path()
-        cuttingLine = path()
-        for P in seamLine, cuttingLine:
-            addToPath(P, 'M', a, 'C', h_c1, h_c2, h, 'L', g, 'C', d_c1, d_c2, d,  'C',  n_c1, n_c2,  n, 'C', k_c1, k_c2,  k)
-            addToPath(P, 'L', l, 'L', r, 'L', p, 'L', q, 'L', b, 'L', a)
-        addSeamLine(A, seamLine)
-        addCuttingLine(A, cuttingLine)
 
         # bodice Back B
         # back pattern points
-        aa = rPoint(B, 'aa', 0., 0.) #aa: nape
-        bb = rPoint(B, 'bb', 0., CD.back_waist_length) # bb: center waist
-        cc = rPoint(B, 'cc', 0., CD.back_waist_length/4.0) #cc: center across back
-        dd = rPoint(B, 'dd', aa.x - CD.across_back/2.0, cc.y) #dd: side across back
-        ee = rPoint(B, 'ee', 0.,  bb.y - CD.back_shoulder_height) #ee: center shoulder height,
-        ff = rPoint(B, 'ff', aa.x - CD.back_shoulder_width/2.0, ee.y) # #ff : side shoulder width
-        hh = rPoint(B, 'hh', aa.x - CD.neck_width/2.0, ee.y) #hh: side neck
+        aa = rPoint(B, 'aa', 0.0, 0.0) #nape
+        aa2 = rPointP(B, 'aa2', aa) # copy of nape - use this in grid to view how much aa moved
+        # slant waist center inwards a small bit
+        bb = rPointP(B, 'bb', downPointP(aa, CD.back_waist_length)) # waist center
+        cc = rPointP(B, 'cc', downPointP(aa, CD.back_waist_length/4.0)) # across back center
+        dd = rPointP(B, 'dd', leftPointP(cc, CD.across_back/2.0)) # across-back side
+        ee = rPointP(B, 'ee', upPointP(bb, CD.back_shoulder_height))#shoulder height center
+        ff = rPointP(B, 'ff', leftPointP(ee, CD.back_shoulder_width/2.0)) # # shoulder height width
+        hh = rPointP(B, 'hh', leftPointP(ee, CD.neck_width/2.0)) # neck side
         height = abs(distanceP(hh, ff))
         hypoteneuse = CD.shoulder
         base = (abs(hypoteneuse**2.0 - height**2.0))**0.5
-        gg = rPoint(B, 'gg', ff.x, ff.y + base) #gg: shoulder tip
-        jj = rPoint(B, 'jj', 0., bb.y - CD.side + .25*IN) #jj: center chest
-        kk = rPoint(B, 'kk', aa.x - (CD.back_underarm_width)/2.0 , jj.y) #kk: side chest
-        ll = rPoint(B, 'll', kk.x, kk.y + CD.side) #ll: side waist marker
-        mm = rPoint(B, 'mm', ll.x + .75*IN, ll.y) #mm: side waist
-        nn = rPoint(B, 'nn', aa.x - distanceP(jj, kk)/2.0, bb.y) #nn: dart legt outside
-        oo = rPoint(B, 'oo', dd.x, jj.y) #oo: armscye corner
-        pp = rPointP(B, 'pp', polarPointP(oo, (9/8.)*IN, angleOfDegree(225))) # #pp: armscye curve
-        qq = rPoint(B, 'qq', aa.x - (CD.back_waist_width/2.0 - distanceP(mm, nn)), bb.y) #qq: dart leg inside,
-        rr = rPoint(B, 'rr',  nn.x + distanceP(nn, qq)/2.0, jj.y) #rr: dart apex,
-        length1 = distanceP(pp, qq) # dart leg
-        length2 = CD.back_waist_width/2.0 - distanceP(bb, qq)
+        gg = rPointP(B, 'gg', downPointP(ff, base))#shoulder tip
+        jj = rPointP(B, 'jj', upPointP(bb, CD.side - .25*IN)) #chest center
+        kk = rPointP(B, 'kk', leftPointP(jj, CD.back_bust_width/2.0 + BUST_EASE)) #chest side
+        ll = rPointP(B, 'll', downPointP(kk, CD.side))#waist side - marker
+        nn = rPoint(B, 'nn', dd.x, jj.y) #armscye corner
+        oo = rPointP(B, 'oo', polarPointP(nn, (9/8.0)*IN, angleOfDegree(225))) #armscye curve
 
-        # back neck control points
-        # b/w hh & aa
+        # back control points
+        # back center seam control points - b/w bb & aa
+        length = distanceP(bb, aa)/3.0
+        aa_c1 = cPointP(B, 'aa_c1', upPointP(bb, length))
+        aa_c2 = cPointP(B, 'aa_c2', downPointP(aa, length/2.0))
+        # back neck control points - b/w aa & hh
         angle = angleOfLineP(hh, gg) - ANGLE90
         length = distanceP(aa, hh)/3.0
         hh_c2 =  cPointP(B, 'hh_c2', polarPointP(hh, length,  angle) )
         pnt1 = leftPointP(aa, 1*IN) # arbitrary point left of nape
         hh_c1 =  cPointP(B, 'hh_c1', pntIntersectLinesP(aa, pnt1, hh, hh_c2))
 
-        # slant back center seam
-        bb2 = rPoint(B, 'bb2', bb.x - .5*IN,  bb.y)
-        # TODO: use lib2geom python bindings to find accurate intersection between line & curve
-        Pnts = pntIntersectCirclesP(kk, CD.side, bb2, CD.back_waist_width*0.5)
+        # back waist dart
+        BACK_WAIST_DART_LENGTH = distanceP(jj, bb)*(5/6.0)
+        BACK_WAIST_DART_WIDTH = CD.back_waist_width/8.0
+        bD1 = PntP(name='bD1') # group to hold all dart points - bD1.a, bD1.i, bD1.o, bD1.m bD1.ic, bD1.oc
+        pnt1 = pntMidPointP(kk, jj)
+        pnt2 = downPointP(pnt1, distanceP(jj, bb)/6.0)
+        bD1.a = rPointP(B, 'bD1.a', pnt2) # dart apex
+        bD1.i = rPoint(B, 'bD1.i', bD1.a.x + BACK_WAIST_DART_WIDTH/2.0, bb.y) # dart inside leg
+        bD1.o = rPoint(B, 'bD1.o', bD1.a.x - BACK_WAIST_DART_WIDTH/2.0, bb.y) # dart outside leg
+        # TODO: use lib2geom python bindings to find most accurate intersection between line & curve,
+        # TODO: create better fail mechanism
+        Pnts = pntIntersectCirclesP(kk, CD.side, bD1.o, CD.back_waist_width/2.0 + WAIST_EASE - distanceP(bb, bD1.i))
         if (Pnts.intersections > 0):
             if (Pnts.p1.x < Pnts.p2.x):
                 pnt = Pnts.p1
             else:
                 pnt = Pnts.p2
             # remove back waist dart
-            mm2 = rPointP(B, 'mm2', pnt)
+            mm = rPointP(B, 'mm', pnt)
         else:
-            print 'no intersection found' # TODO - make this more robust, or have a better fail mechanism
+            print 'no intersection found'
+        # back waist control points
+        length = distanceP(bD1.o, mm)/3.0
+        bD1.o_c1 = cPointP(B, 'bD1.o_c1', polarPointP(mm, length, angleOfLineP(kk, mm) - ANGLE90))
+        bD1.o_c2 = cPointP(B, 'bD1.o_c2', polarPointP(bD1.o, length, angleOfLineP(bD1.a, bD1.o) + ANGLE90))
+        # create points for dart folded towards bb (waist darts are folded towards center)
+        # creates points on cutting line - bD1.ic = inside dart leg, bD1.oc= outside dart leg, bD1.m= middle point on cutting line
+        addDartFold(B, bD1, bb)
 
-        # create neck dart
-        NECK_DART_LENGTH = 3*IN
-        NECK_DART_WIDTH = 0.25*IN
+        # back neck dart
         back_neck_curve = pointList(aa, hh_c1, hh_c2, hh)
-        length = curveLength(back_neck_curve)/3.0 # dart is at 1/3rd length of curve
+        back_neck_curve_length = curveLength(back_neck_curve)
+        length = back_neck_curve_length/3.0 # dart is at 1/3rd length of curve
+        NECK_DART_LENGTH = distanceP(aa, cc)*(5/6.0)
+        NECK_DART_WIDTH = length/5.0
+        # split neck curve into two parts, find dart apex
         dart_apex,  curve1,  curve2 = neckDart(B, NECK_DART_WIDTH, NECK_DART_LENGTH, length, back_neck_curve)
-
-        # read in new curve points
-        bD2 = Pnt(name = 'bD2') # group to hold dart points  bD2.a, bD2.i, bD2.o
+        bD2 = PntP(name='bD2') # group to hold dart points  bD2.a, bD2.i, bD2.o, bD2.m, bD2.ic, bD2.oc
         bD2.a = rPointP(B, 'bD2.a', dart_apex) # dart apex point
         updatePoint(aa, curve1[0]) # update existing nape point
         bD2.i_c1 = cPointP(B, 'bD2.i_c1', curve1[1])
@@ -245,33 +240,69 @@ class PatternDesign():
         updatePoint(hh_c1, curve2[1])
         updatePoint(hh_c2, curve2[2])
         # hh is last point in curve2 & was not changed
-
         # add fold points for dart - adds bD2.m,bD2.ic, bD2.oc - if dart were wider then we'd calculate some control points b/w bD2.i & bD2.m to match curve from bD2.i to aa
         addDartFold(B, bD2, bD2.i_c2) # create points for dart folded towards bD2.i_c2 - all folds either fold upwards or fold towards center
+        # rotate aa_c2 control point
+        slashAndSpread(bD2.a, aa_c2)
 
         # back armscye control points
         # b/w gg & dd
         length1 =  distanceP(gg, dd)/3.0
         dd_c1 = cPointP(B, 'dd_c1', polarPointP(gg, length1, angleOfLineP(hh, gg) - ANGLE90))
         dd_c2 = cPointP(B, 'dd_c2', upPointP(dd, length1))
-        # b/w dd & pp - 1st control point
-        length2 = distanceP(dd, pp)/3.0
-        pp_c1 = cPointP(B, 'pp_c1', downPointP(dd, length2))
-        # b/w pp & kk - 2nd control point
-        length3 = distanceP(pp, kk)/3.0
-        kk_c2 = cPointP(B,  'kk_c2', polarPointP(kk, length3, angleOfLineP(kk, mm2) - ANGLE90))
-        # b/w dd & pp - 2nd control point
-        angleDD = angleOfLineP(pp, pp_c1)
-        angleKK = angleOfLineP(kk, pp)
+        # b/w dd & oo - 1st control point
+        length2 = distanceP(dd, oo)/3.0
+        oo_c1 = cPointP(B, 'oo_c1', downPointP(dd, length2))
+        # b/w oo & kk - 2nd control point
+        length3 = distanceP(oo, kk)/3.0
+        kk_c2 = cPointP(B,  'kk_c2', polarPointP(kk, length3, angleOfLineP(kk, mm) - ANGLE90))
+        # b/w dd & oo - 2nd control point
+        angleDD = angleOfLineP(oo, oo_c1)
+        angleKK = angleOfLineP(kk, oo)
         angle = (angleDD + angleKK)/2.0
-        pnt = polarPointP(pp, length2, angle)
-        pp_c2 = cPointP(B, 'pp_c2', pntIntersectLinesP(pp, pnt, dd, pp_c1))
-        # b/w pp & kk - 1st control point
-        pnt = polarPointP(pp, length3, angleOfLineP(pp_c2, pp))
-        kk_c1 = cPointP(B, 'kk_c1', pntIntersectLinesP(pp, pnt, kk, kk_c2))
+        pnt = polarPointP(oo, length2, angle)
+        oo_c2 = cPointP(B, 'oo_c2', pntIntersectLinesP(oo, pnt, dd, oo_c1))
+        # b/w oo & kk - 1st control point
+        pnt = polarPointP(oo, length3, angleOfLineP(oo_c2, oo))
+        kk_c1 = cPointP(B, 'kk_c1', pntIntersectLinesP(oo, pnt, kk, kk_c2))
+        # ---- all pattern points have been created for front A & back B
+        # ---- now create pattern paths & labels with these points
+        # TODO: write functions to make this section more encapsulated
 
-        # generate back pattern svg info
-        #grainline
+        # front A  paths & labels
+        # grainline
+        Ag1 = rPoint(A,  'Ag1', a.x + 2*IN, a.y + 2*IN)
+        Ag2 = rPoint(A, 'Ag2', Ag1.x, b.y - 2*IN)
+        addGrainLine(A, Ag1, Ag2)
+        # TODO: make label points a function
+        # TODO: make setLetter a better function that accepts the parent object as an argument, separate from the parent object
+        # Set letter location and size
+        anchor_pnt = Pnt(Ag1.x + 3.5*IN, (Ag1.y + Ag2.y)/3.0)
+        A.setLetter(anchor_pnt.x, anchor_pnt.y, scaleby=7.0)
+        # label
+        A.label_x,  A.label_y = anchor_pnt.x, anchor_pnt.y +0.5*IN
+        # TODO: make diamond markers to place along cuttingLine - single, double and triple
+        # TODO: replace addGridLine(), addDartLine(), addSeamLine(), addCuttingLine(), and addGrainLine() with one command: addToPath(parent, 'nameofline', args*)
+        # TODO: details: addToPath() to be addToPath(A, 'gridLine', args*) not addToPath(varname, args*) -> this would remove grid=path() and addGridLine(A,grid) commands
+        # grid
+        grid = path()
+        addToPath(grid, 'M', b, 'L', e, 'L', f, 'L', g, 'M', c, 'L', d, 'M', j, 'L', k, 'M', m, 'L', n,  'M', m, 'L', d)
+        addGridLine(A, grid)
+        # dart
+        dart = path()
+        addToPath(dart, 'M', aD1.ic, 'L', aD1.a, 'L', aD1.oc)
+        addDartLine(A, dart)
+        # seamline & cuttingline
+        seamLine = path()
+        cuttingLine = path()
+        for P in seamLine, cuttingLine:
+            addToPath(P, 'M', a, 'C', h_c1, h_c2, h, 'L', g, 'C', d_c1, d_c2, d,  'C',  n_c1, n_c2,  n, 'C', k_c1, k_c2,  k)
+            addToPath(P, 'L', l, 'C', aD1.o_c1, aD1.o_c2, aD1.o, 'L', aD1.m, 'L', aD1.i, 'L', b, 'L', a)
+        addSeamLine(A, seamLine)
+        addCuttingLine(A, cuttingLine)
+
+        # B back bodice paths and labels
+        # grainline
         Bg1 = rPoint(B,  'Bg1', aa.x - 2*IN, bD2.a.y + 1*IN)
         Bg2 = rPoint(B, 'Bg2', Bg1.x, bb.y - 2*IN)
         addGrainLine(B, Bg1, Bg2)
@@ -280,20 +311,23 @@ class PatternDesign():
         B.setLetter(anchor.x, anchor.y, scaleby=7.0)
         # label
         B.label_x,  B.label_y = anchor.x, anchor.y + 0.5*IN
-        # dartline - draw from cuttingline points bD2.ic & bD2.oc to apex bD2 .a
+        # dartline
         dartLine = path()
-        addToPath(dartLine, 'M', bD2.ic, 'L', bD2.a, 'L', bD2.oc)
+        addToPath(dartLine, 'M', bD1.ic, 'L', bD1.a, 'L', bD1.oc) # back waist dart
+        addToPath(dartLine, 'M', bD2.ic, 'L', bD2.a, 'L', bD2.oc) # back neck dart
         addDartLine(B, dartLine)
         # grid
         grid = path()
-        addToPath(grid, 'M', bb, 'L', ee, 'L', ff, 'L', gg, 'M', cc, 'L', dd, 'M', jj, 'L', kk, 'M', oo, 'L', pp,  'M', oo, 'L', dd,  'M', kk, 'L', ll, 'L', mm)
+        addToPath(grid, 'M', bb, 'L', ee, 'L', ff, 'L', gg, 'M', cc, 'L', dd, 'M', jj, 'L', kk, 'M', nn, 'L', oo,  'M', nn, 'L', dd,  'M', kk, 'L', ll, 'L', mm)
         addGridLine(B, grid)
         # seamline & cuttingline
         seamLine = path()
         cuttingLine = path()
         for P in seamLine, cuttingLine:
-            addToPath(P, 'M', aa, 'C', bD2.i_c1, bD2.i_c2, bD2.i, 'L', bD2.m, 'L', bD2.o, 'C', hh_c1, hh_c2, hh, 'L', gg, 'C', dd_c1, dd_c2, dd)
-            addToPath(P, 'C',  pp_c1, pp_c2,  pp, 'C', kk_c1, kk_c2,  kk,'L', mm2, 'L', bb2, 'L', aa)
+            addToPath(P, 'M', aa, 'C', bD2.i_c1, bD2.i_c2, bD2.i, 'L', bD2.m, 'L', bD2.o, 'C', hh_c1, hh_c2, hh, 'L', gg) # nape, neck dart, shoulder, shoulder tip
+            addToPath(P, 'C', dd_c1, dd_c2, dd,'C',  oo_c1, oo_c2,  oo, 'C', kk_c1, kk_c2,  kk) # armscye
+            addToPath(P, 'L', mm, 'C', bD1.o_c1, bD1.o_c2, bD1.o, 'L', bD1.m, 'L', bD1.i, 'L', bb) # side, waist dart, waist center
+            addToPath(P, 'C', aa_c1, aa_c2, aa) # back center seam to nape
         addSeamLine(B, seamLine)
         addCuttingLine(B, cuttingLine)
 
