@@ -21,13 +21,11 @@
 # SamplePattern.py
 
 from math import asin
-
-#from pysvg.builders import *
 from pysvg.builders import path
 
 from tmtpl.constants import *
-from tmtpl.pattern   import *
-from tmtpl.document   import *
+from tmtpl.pattern import *
+from tmtpl.document  import *
 
 class PatternDesign():
 
@@ -64,12 +62,14 @@ class PatternDesign():
 
         # create pattern object, add to document
         # TODO: make update styledefs & markerdefs transparent
+        # TODO: rewrite as: bodice = pattern(doc, 'bodice') so that update(self.styledefs) and update(self.markerdefs) is automatic
         bodice = Pattern('bodice')
         bodice.styledefs.update(self.styledefs)
         bodice.markerdefs.update(self.markerdefs)
         doc.add(bodice)
 
         # create pattern pieces, add to pattern object
+        # TODO: rewrite as:  A = patternPiece(bodice, 'A', 'front', fabric=2, interfacing=0, lining=0) so that A = bodice.front is automatic
         bodice.add(PatternPiece('pattern', 'front', 'A', fabric=2, interfacing=0, lining=0))
         bodice.add(PatternPiece('pattern', 'back', 'B', fabric=2, interfacing=0, lining=0))
         A = bodice.front
@@ -97,7 +97,7 @@ class PatternDesign():
         n = rPointP(A, 'n', polarPointP(m, 1*IN, angleOfDegree(315.0))) # armscye curve
 
         # front dart
-        # TODO: use lib2geom python library to find accurate intersection between two circles
+        # TODO: use lib2geom python library to find robust more precise intersection between two circles
         FRONT_WAIST_DART_LENGTH = distanceP(c, b)/2.0
         FRONT_WAIST_DART_WIDTH = CD.front_waist_width/6.0
         aD1 = PntP(name='aD1') # group to hold all dart points - aD1.a, aD1.i, aD1.o, aD1.m aD1.ic, aD1.oc
