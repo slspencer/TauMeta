@@ -19,19 +19,11 @@
 #
 
 # SamplePattern.py
-# This is a pattern block to be used to make other patterns.
 
 from math import asin
 
-from pysvg.filter import *
-from pysvg.gradient import *
-from pysvg.linking import *
-from pysvg.script import *
-from pysvg.shape import *
-from pysvg.structure import *
-from pysvg.style import *
-from pysvg.text import *
-from pysvg.builders import *
+#from pysvg.builders import *
+from pysvg.builders import path
 
 from tmtpl.constants import *
 from tmtpl.pattern   import *
@@ -277,7 +269,7 @@ class PatternDesign():
         # TODO: make label points a function
         # TODO: make setLetter a better function that accepts the parent object as an argument, separate from the parent object
         # Set letter location and size
-        anchor_pnt = Pnt(Ag1.x + 3.5*IN, (Ag1.y + Ag2.y)/3.0)
+        anchor_pnt = Pnt(Ag1.x + 2*IN, (Ag1.y + Ag2.y)/3.0)
         A.setLetter(anchor_pnt.x, anchor_pnt.y, scaleby=7.0)
         # label
         A.label_x,  A.label_y = anchor_pnt.x, anchor_pnt.y +0.5*IN
