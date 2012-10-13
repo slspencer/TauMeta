@@ -1,0 +1,90 @@
+#
+# Copyright (C) 2010, Susan Spencer
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version. Attribution must be given in 
+# all derived works.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Patterns are saved to the customer's directory by default.
+
+If a pattern generates errors, the 'Failed to load the requested file..." error message will appear. Inkscape will continue to open and show a blank document. To see the errors, run ./tmtp.sh from a terminal. Error messages contain file & line number information.
+
+To print the value of a point add print statments:
+		print 'ad =', ad.x, ad.y, ad.name
+
+TMTP converts client data into pixels. Convert the measurement back to centimeters or inches when printing.
+	print 'waist circumference =', CD.waist_circumference*CM
+	print 'waist_circumference =', CD.waist_circumference*IN
+
+Python assumes that if a divisor is integer the result is integer.
+    Correct: 3/5.0 or 3/5.
+    Incorrect:  3/5, as python may return 0 integer value
+
+Pattern points have a 'name' attribute that is used as it's SVG id. To find a point in Inkscape you can look at the xml listing in the reference layer.
+
+Printing and plotting success depends on the linux/printer driver combination. Some linux distributions don't pass long document length to some plotter drivers, so pattern printout is truncated at 54".
+
+Hide the reference layer and save as PDF before printing or plotting.
+
+Printing from Inkscape:
+1. Hide the reference layer and save file as PDF.
+1. Select File/Document Properties.
+      For Plotters:
+              Enter roll width for roll paper plotters  - change dialog to use to inches or centimeters.
+              Or select paper size for cut-sheet plotters.
+      For Printers:
+              Select paper size for your printer.
+      Input border amounts recommended for the printer or plotter.
+      Click on Resize Document.
+      Rearrange pattern pieces if needed to fit on the paper size.  For plotters, the pieces can extend below bottom of page.
+      Resize again & rearrange until all pieces fit on paper.
+      For plotters, write down final document width & height.
+2. Save as a PDF file. Files are saved to the customer's directory by default.
+3. Select File/Print . The default printing dialog should appear.
+      Choose the correct paper size, or input the document width and height.
+      Click on Print.
+
+Printing from GIMP:
+  Open the PDF in GIMP.
+  Try printing from each of the drivers listed and record which driver worked best.
+
+Printing directly from Linux:
+  Right click on the PDF. Select 'Print'. The print dialog will appear. Select printer.  
+  Adjust paper size to match your notes and Print.
+
+Printing from Adobe v10+ (requires v10+ for extra long paper size, etc.)
+  Right click on the PDF. Select 'Open with' and select Adobe 10.
+  Adjust paper size to match your notes and Print.
+
+Printing from a 3rd party printing utility:
+  Download a 3rd party linux printing utility - I have not done this and have no recommendations.  Please contact TMTP with your results.
+
+If printing problems are unresolved:
+ Write down the version of your operating system, the make & model of your printer or plotter, the paper size if it's unusual, and the printer driver version from your operating system.
+1. File a bug with your linux distribution.
+2. Contact the linux print working group.  They want to resolve problems with linux printing.
+3. Contact TMTP with problem & results so it can be included in documentation.
+
+
+Contributing to Tau Meta Tau Physica:
+  If you'd like to be a code contributor, find the source code at http://github.com/sconklin/tmtp.
+  If you'd like to be a software beta tester, please send us an email.
+  If you'd like to be a pattern beta tester, please send us an email.
+
+  Tau Meta Tau Physica will be used a teaching tool for students in early adolescence.
+  The code is written as simply as possible, which is why it is written in python.
+  The math functions use the lowest level of complexity required to get the job done.
+  The teaching code will eventually be on its own branch, and
+  lib2geom will be used for curve calculations in the public branch.
+  The code can be converted from python to C++ at that time.
+
+If you have further questions please contact us at sew@sew-brilliant.org
+
