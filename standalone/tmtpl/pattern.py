@@ -980,6 +980,17 @@ def pntsOnCircleFromChordLength(C, P, r, chord_length):
     pnts.append(polarPointP(C, r, - angle))
     return pnts
 
+def pntsOnChord(C, r, P, chord_length):
+    ''' Accepts center of circle, radius of circle, a point on the circle, and chord length.  Returns a list of two points on the circle at chord_length distance away from original point'''
+    d = chord_length
+    # point on circle given chordlength & starting point = 2 * asin(d/2r)
+    d_div_2r = d/(2.0*r)
+    angle = 2*asin(d_div_2r)
+    pnts = []
+    pnts.append(polarPointP(C, r, angle))
+    pnts.append(polarPointP(C, r, - angle))
+    return pnts
+
 def splitCurveAtLength(length, curve):
     '''Accepts a point on a curve, and a curve list with points P0 C1 C2 P1. Returns curve list with P0, split_c1, split_c2, split_pnt, new_c11, new_c12, P1'''
 
@@ -1202,7 +1213,9 @@ def addDartFold(parent, dart, inside_pnt):
 
         return
 
+
 def addDartMidPoint(parent, dart_leg1, dart_apex, dart_leg2, next_pnt):
+        '''old version of addDartFold() -- uses .l1, l11, .l2, .l21 instead of newer .o, .oc, .i, .ic'''
         DART_LENGTH = distanceP(dart_apex, dart_leg1)
         DART_HALF_ANGLE = abs(angleOfVectorP(dart_leg1, dart_apex, dart_leg2))/2.0
         DART_LEG1_ANGLE = angleOfLineP(dart_apex, dart_leg1)
