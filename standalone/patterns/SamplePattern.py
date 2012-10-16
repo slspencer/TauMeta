@@ -83,7 +83,7 @@ class PatternDesign():
         b = rPoint(A, 'b', 0.0, CD.front_waist_length) # center waist
         c = rPoint(A, 'c',  0.0, a.y + CD.front_waist_length/5.0) # center across chest
         d = rPoint(A, 'd', a.x + CD.across_chest/2.0, c.y) # side across chest
-        e = rPoint(A, 'e', 00., b.y - CD.front_shoulder_height) # front shoulder height
+        e = rPoint(A, 'e', 0.0, b.y - CD.front_shoulder_height) # front shoulder height
         f = rPoint(A, 'f', a.x + CD.front_shoulder_width/2.0, e.y) # front shoulder width
         h = rPoint(A, 'h', a.x + CD.neck_width/2.0, e.y) # side neck
         # find shoulder tip given shoulder length (CD.shoulder), height of triangle (from h.y to f.y)
