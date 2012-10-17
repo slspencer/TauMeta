@@ -1795,8 +1795,12 @@ class PatternPiece(pBase):
 
             # create a temporary pySVG group object
             temp_group = PYB.g()
+
             # assign temp group a unique id
-            grpid = self.id + '.' + child_group_name
+            try:
+                grpid = self.id + '.' + child_group_name
+            except:
+                print 'self.id =', self.id,  'child_group_name =',  child_group_name,  'in pattern.PatternPiece.getsvg()'
             temp_group.set_id(grpid)
 
             # temp group gets all patternpiece's attributes
