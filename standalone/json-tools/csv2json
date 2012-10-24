@@ -1,0 +1,223 @@
+#!/usr/bin/env python
+#
+
+from sys                                import stdout, argv, exit
+from os                                 import getenv, path
+import json
+import csv
+import fileinput
+from argparse                           import ArgumentParser
+from logging                            import debug, info, basicConfig, DEBUG, INFO
+
+# Exit
+#
+class Exit():
+    """
+    If an error message has already been displayed and we want to just exit the app, this
+    exception is raised.
+    """
+    pass
+
+class ConvertJson():
+
+    # __init__
+    #
+    def __init__(self, args):
+        self.cfg = args
+
+    def load_jsonfile(self, file_name):
+        """
+        Load the json data file.
+        """
+        retval = None
+
+        if file_name[0] == '/' or file_name[0] == '.':
+            # The full path is specified. Use the name as is.
+            #
+            fid = file_name
+        else:
+            # Find it ...
+            #
+            fid = file_name
+            if not path.exists(fid): # Current directory
+                fid = path.join(path.dirname(argv[0]), file_name)
+                if not path.exists(fid):
+                    fid = None
+
+        if fid is not None:
+            with open(fid, 'r') as f:
+                retval = json.load(f)
+                f.close()
+            retval = 0
+        else:
+            print("Error: Failed to find the json file.")
+
+        return retval
+
+    def write_jsonfile(self, data, file_name):
+        """
+        Write the data to a JSON data file
+        """
+
+        if file_name[0] == '/' or file_name[0] == '.':
+            # The full path is specified. Use the name as is.
+            #
+            fid = file_name
+        else:
+            # Find it ...
+            #
+            fid = file_name
+            if not path.exists(fid): # Current directory
+                fid = path.join(path.dirname(argv[0]), file_name)
+                if not path.exists(fid):
+                    fid = None
+
+        if ((fid is not None) and (self.cfg.force is not True)):
+            print "ERROR: Output file exists, use --force to force overwrite"
+            return -1
+
+        with open(file_name, 'w') as f:
+            f.write(json.dumps(data, sort_keys=True, indent=4) + "\n")
+            f.close()
+
+        return
+
+
+    def load_csvfile(self, file_name):
+        """
+        Load the csv data file.
+        """
+        retval = None
+
+        if file_name[0] == '/' or file_name[0] == '.':
+            # The full path is specified. Use the name as is.
+            #
+            fid = file_name
+        else:
+            # Find it ...
+            #
+            fid = file_name
+            if not path.exists(fid): # Current directory
+                fid = path.join(path.dirname(argv[0]), file_name)
+                if not path.exists(fid):
+                    fid = None
+
+        if fid is not None:
+            topdict = {}
+            for line in fileinput.input(fid):
+                # There are 4 parts
+                # "Name","value","type","gui_text"
+                parts = line.strip().replace('\"', '').split(',')
+                name = parts[0]
+                if name.startswith("Name"):
+                    #print "Skipping First"
+                    continue
+                line = {'value':parts[1], 'type':parts[2], 'gui_text':parts[3]}
+                topdict[name] = line
+            return topdict
+        else:
+            print("Error: Failed to find the csv file.")
+
+        return retval
+
+    def write_csvfile(self, data, file_name):
+        """
+        Write the data to a CSV that a spreadsheet can load
+        """
+        #print(json.dumps(data, sort_keys=True, indent=4))
+
+        if file_name[0] == '/' or file_name[0] == '.':
+            # The full path is specified. Use the name as is.
+            #
+            fid = file_name
+        else:
+            # Find it ...
+            #
+            fid = file_name
+            if not path.exists(fid): # Current directory
+                fid = path.join(path.dirname(argv[0]), file_name)
+                if not path.exists(fid):
+                    fid = None
+
+        if ((fid is not None) and (self.cfg.force is not True)):
+            print "ERROR: Output file exists, use --force to force overwrite"
+            return -1
+
+        with open(file_name, 'w') as f:
+            csv.register_dialect('libreoffice', delimiter=',', quoting=csv.QUOTE_ALL)
+            wr = csv.writer(f, dialect='libreoffice')
+            headings = ['Name', 'value', 'type', 'gui_text']
+            wr.writerow(headings)
+            for key in sorted(data.iterkeys()):
+                wr.writerow([key, data[key]['value'], data[key]['type'], data[key]['gui_text']])
+                #wr.writerows(data)
+
+            f.close()
+
+        return
+
+    def convert_json_to_csv(self, jsonfile_name, csvfile_name):
+        try:
+            jdata = self.load_jsonfile(jsonfile_name)
+        except ValueError:
+            print "ERROR: Can't parse json file, are you sure it's JSON data?"
+            return None
+        #print(json.dumps(jdata, sort_keys=True, indent=4))
+        return self.write_csvfile(jdata, csvfile_name)
+
+    def convert_csv_to_json(self, csvfile_name, jsonfile_name):
+        jdata = self.load_csvfile(csvfile_name)
+        #print(json.dumps(jdata, sort_keys=True, indent=4))
+        return self.write_jsonfile(jdata, jsonfile_name)
+
+    # main
+    #
+    def main(self):
+        retval = 1
+        try:
+            # Now, actually do something.
+            #
+            if self.cfg.reverse:
+                return self.convert_json_to_csv(self.cfg.infile, self.cfg.outfile)
+            else:
+                return self.convert_csv_to_json(self.cfg.infile, self.cfg.outfile)
+
+        # Handle the user presses <ctrl-C>.
+        #
+        except KeyboardInterrupt:
+            pass
+
+        return retval
+
+
+if __name__ == '__main__':
+
+    result = 0
+
+    if getenv('DEBUG'):
+        LOGLEVEL = DEBUG
+    else:
+        LOGLEVEL = INFO
+    basicConfig(level=LOGLEVEL, format="%(asctime)-15s-%(levelname)s - %(message)s")
+    info('Started')
+
+    parser = ArgumentParser()
+
+    parser.add_argument('--force',        required=False, action='store_true', default=False, help='Overwrite an existing output file')
+    parser.add_argument('--reverse',      required=False, action='store_true', default=False, help='Convert json to csv')
+    parser.add_argument("infile")
+    parser.add_argument("outfile")
+
+    args = parser.parse_args()
+
+    if args.force == 'True':
+        print "Forcing . . ."
+
+    app = ConvertJson(args)
+    result = app.main()
+
+    info('That\'s All Folks!')
+    exit(result)
+
+# vi:set ts=4 sw=4 expandtab:
+
