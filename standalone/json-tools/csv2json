@@ -48,7 +48,6 @@ class ConvertJson():
             with open(fid, 'r') as f:
                 retval = json.load(f)
                 f.close()
-            retval = 0
         else:
             print("Error: Failed to find the json file.")
 
