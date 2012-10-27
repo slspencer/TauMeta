@@ -26,8 +26,8 @@
 
         "shoulder": { "value":"14.5", "type":"float", "gui_text":"Shoulder Seam Length - from Neck side to Shoulder tip" },
         "front_shoulder_height": { "value":"50", "type":"float", "gui_text":"Front Shoulder Height -Neck side to Waistline down Front" },
-        "front_shoulder_width": { "value":"43.5", "type":"float", "gui_text":"Front Shoulder Width -Shoulder tip to Shoulder tip across Front" },
-        "back_shoulder_height": { "value":"47", "type":"float", "gui_text":"Back Shoulder Height -Neck side to Waistline down Back" },
+        "front_shoulder_width": { "value":"45", "type":"float", "gui_text":"Front Shoulder Width -Shoulder tip to Shoulder tip across Front" },
+        "back_shoulder_height": { "value":"48", "type":"float", "gui_text":"Back Shoulder Height -Neck side to Waistline down Back" },
         "back_shoulder_width": { "value":"43.5", "type":"float", "gui_text":"Back Shoulder Width -Shoulder tip to Shoulder tip across Back" },
 
         "side": { "value":"20.5", "type":"float", "gui_text":"Side Length" },
