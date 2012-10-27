@@ -487,25 +487,53 @@ def pntOnCircleAtY(C, r, y):
     Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
     """
 
-    P1, P2 = Pnt(), Pnt()
-    P1.x, P1.y = 0.0, y
-    P2.x, P2.y = 1.0, y
+    if abs(y - C.y) > r:
 
-    return pntIntersectLineCircleP(C, r, P1, P2)
+        print 'y is beyond radius in pntOnCircleAtY()'
+        return
+
+    else:
+
+        translated_y = y - C.y
+        translated_x1 = abs(math.sqrt(r**2 - translated_y**2))
+        translated_x2 = -translated_x1
+
+        x1 = translated_x1 + C.x
+        x2 = translated_x2 + C.x
+
+        P = Pnt()
+        P.p1 = Pnt(x1, y)
+        P.p2 = Pnt(x2, y)
+
+    return P
 
 def pntOnCircleAtX(C, r, x):
     """
     Finds points one or two points on circle where p.x = x
     Accepts circle center point object C, radius r, and value x
     Returns an object P with number of intersection points, and up to two coordinate pairs.
-    Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
     """
 
-    P1, P2 = Pnt(), Pnt()
-    P1.x, P1.y = x, 0.0
-    P2.x, P2.y = x, 1.0
+    if abs(x - C.x) > r:
 
-    return pntIntersectLineCircleP(C, r, P1, P2)
+        print 'x is beyond radius in pntOnCircleAtX()'
+        return
+
+    else:
+
+        translated_x = x - C.x
+        translated_y1 = abs(math.sqrt(r**2 - translated_x**2))
+        translated_y2 = -translated_y1
+
+        y1 = translated_y1 + C.y
+        y2 = translated_y2 + C.y
+
+        P = Pnt()
+        P.p1 = Pnt(x, y1)
+        P.p2 = Pnt(x, y2)
+
+    return P
+
 
 def pntsOnCurveAtX(curve,  x):
     '''
@@ -1791,6 +1819,7 @@ class PatternPiece(pBase):
 
         for child_group_name, members in child_group_dict.items(): # for each group used in this pattern piece
             if self.debug:
+                print 'self.id =', self.id,  'child_group_name =',  child_group_name
                 print '++ Group ==', child_group_name, ' in pattern.PatternPiece.getsvg()'
 
             # create a temporary pySVG group object
