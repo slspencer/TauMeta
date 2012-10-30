@@ -908,7 +908,9 @@ def pntIntersectLineCircleP(C, r, P1, P2):
     i = b * b - 4.0 * a * c
 
     if i < 0.0:
-        print 'no intersections'
+        print 'no intersections b/w line', P1.name,  P1.x, P1.y, '--', P2.name, P2.x, P2.y, 'and Circle', C.name, C.x, C.y, 'with radius',  r
+        return None
+
     elif i == 0.0:
         # one intersection
         intersections = 1
