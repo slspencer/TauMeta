@@ -1237,7 +1237,7 @@ def addDartFold(parent, dart, inside_pnt):
         # dart inside leg at cuttingline
         temp_pnt = pntOnLineP(dart.i, dart.a, -SEAM_ALLOWANCE)
         if hasattr(dart, 'ic'):
-            update(dart.ic, temp_pnt)
+            updatePoint(dart.ic, temp_pnt)
         else:
             dart.ic = rPointP(parent, dart.name + 'ic', temp_pnt) # adds '.' automatically - why?
 
