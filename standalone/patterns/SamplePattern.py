@@ -211,20 +211,24 @@ class PatternDesign():
         # back neck dart
         back_neck_curve = pointList(aa, hh.c1, hh.c2, hh)
         back_neck_curve_length = curveLength(back_neck_curve)
-        position = back_neck_curve_length/3.0 # dart is at 1/3rd length of curve
-        NECK_DART_LENGTH = distanceP(aa, cc)*(5/6.0)
-        NECK_DART_WIDTH = length/5.0
+        position = back_neck_curve_length/3.0 # dart is at 1/3 length of curve
+        NECK_DART_LENGTH = distanceP(aa, cc)*(1/2.0)
+        NECK_DART_WIDTH = back_neck_curve_length/7.0
         # split neck curve into two parts, find dart apex
         bD2 = PntP(name='bD2') # group to hold dart points  bD2.a, bD2.i, bD2.o, bD2.m, bD2.ic, bD2.oc
+
+        # TODO: create addNeckDart(parent, dart object, dart width, dart length, position, curve) to replace the next 9 lines
         dart_apex,  curve1,  curve2 = neckDart(B, NECK_DART_WIDTH, NECK_DART_LENGTH, position, back_neck_curve)
         bD2.a = rPointP(B, 'bD2.a', dart_apex) # dart apex point
         updatePoint(aa, curve1[0]) # update existing nape point
-        bD2.i = rPointP(B, 'bD2.i', curve1[3]) # dart inside leg
         bD2.i.c1 = cPointP(B, 'bD2.i.c1', curve1[1])
         bD2.i.c2 = cPointP(B, 'bD2.i.c2', curve1[2])
+        bD2.i = rPointP(B, 'bD2.i', curve1[3]) # dart inside leg
         bD2.o = rPointP(B, 'bD2.o', curve2[0]) # dart outside leg
         updatePoint(hh.c1, curve2[1])
         updatePoint(hh.c2, curve2[2])
+
+
         # hh is last point in curve2 & was not changed
         # add fold points for dart - adds bD2.m,bD2.ic, bD2.oc - if dart were wider then we'd calculate some control points b/w bD2.i & bD2.m to match curve from bD2.i to aa
         addDartFold(B, bD2, bD2.i.c2) # create points for dart folded towards bD2.i.c2 - all folds either fold upwards or fold towards center
@@ -232,16 +236,17 @@ class PatternDesign():
         slashAndSpread(bD2.a, aa.c2)
 
         # back armscye control points
+        # from gg to dd
         length1 = distanceP(gg, dd)/3.0
         angle1 = angleOfLineP(oo, gg) # angle from d to d.c2
         dd.c2 = cPointP(B, 'dd.c2', polarPointP(dd, length1, angle1))
         dd.c1 = cPointP(B, 'dd.c1', polarPointP(gg, length1, angleOfLineP(gg, dd.c2)))
-
+        # from dd to oo
         length2 = distanceP(dd, oo)/3.0
         angle2 = (angleOfLineP(oo, dd) + angleOfLineP(kk, oo))/2.0
         oo.c1 = cPointP(B, 'oo.c1', polarPointP(dd, length2, angleOfLineP(dd.c2, dd)))
         oo.c2 =cPointP(B, 'oo.c2', polarPointP(oo, length2, angle2))
-
+        # from oo to kk
         length3 = distanceP(oo, kk)/3.0
         angle3 = angleOfLineP(kk, mm) - ANGLE90
         kk.c2= cPointP(B, 'kk.c2',polarPointP(kk, length3, angle3))
@@ -256,16 +261,19 @@ class PatternDesign():
         Ag1 = rPoint(A,  'Ag1', a.x + 2*IN, a.y + 2*IN)
         Ag2 = rPoint(A, 'Ag2', Ag1.x, b.y - 2*IN)
         addGrainLine(A, Ag1, Ag2)
-        # TODO: make label points a function
-        # TODO: make setLetter a better function that accepts the parent object as an argument, separate from the parent object
+
         # Set letter location and size
+        # TODO: make setLetter a better function that accepts the parent object as an argument
         anchor_pnt = Pnt(Ag1.x + 2*IN, (Ag1.y + Ag2.y)/3.0)
         A.setLetter(anchor_pnt.x, anchor_pnt.y, scaleby=7.0)
+
         # label
+        # TODO: make label points a function
         A.label_x,  A.label_y = anchor_pnt.x, anchor_pnt.y +0.5*IN
+
         # TODO: make diamond markers to place along cuttingLine - single, double and triple
-        # TODO: replace addGridLine(), addDartLine(), addSeamLine(), addCuttingLine(), and addGrainLine() with one command: addToPath(parent, 'nameofline', args*)
-        # TODO: details: addToPath() to be addToPath(A, 'gridLine', args*) not addToPath(varname, args*) -> this would remove grid=path() and addGridLine(A,grid) commands
+        # TODO: replace addGridLine(), addDartLine(), addSeamLine(), addCuttingLine(), and addGrainLine() with one command: addLine(parent, 'linetype', args*)
+        # TODO: combine grid=path() and addGridLine(A,grid) commands
         # grid
         grid = path()
         addToPath(grid, 'M', b, 'L', e, 'L', f, 'L', g, 'M', c, 'L', d, 'M', j, 'L', k, 'M', m, 'L', n,  'M', m, 'L', d)
