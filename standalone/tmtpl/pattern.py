@@ -5,7 +5,7 @@
 #
 # Copyright (C) 2010,2011,2012 Susan Spencer and Steve Conklin
 #
-# This program is free software: you can redistribute it and/or modify
+# This program is free software:you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation,either version 3 of the License,or
 # (at your option) any later version. Attribution must be given in
@@ -50,7 +50,7 @@ def pPoint(x,y):
 
 def pPointP(pnt1):
     '''Accepts an object of class Point or Pnt (can be from another calculation).
-    Returns an object of class Pnt - Does not create an SVG point.'''
+    Returns an object of class Pnt-Does not create an SVG point.'''
     pnt=Pnt(pnt1.x,pnt1.y)
     return pnt
 
@@ -69,7 +69,7 @@ def rPointP(parent,id,pnt,transform=''):
 def cPoint(parent,id,x,y,transform=''):
     '''Accepts parent object,id,x,y,and optional transform. Returns object of class Point.
     Creates SVG blue open dot in reference group to display control point in bezier curves.'''
-    pnt=Point('reference',id, x, y, 'controlpoint_style',transform)
+    pnt=Point('reference',id,x,y,'controlpoint_style',transform)
     parent.add(pnt)
     return pnt
 
@@ -89,32 +89,32 @@ def moveP(pathSVG,point,transform=''):
     """
     appendMoveToPath method
     """
-    if (transform == '') :
-        x,y=point.x, point.y
+    if (transform=='') :
+        x,y=point.x,point.y
     else:
         x,y=transformPoint(point.x,point.y,transform)
     return pathSVG.appendMoveToPath( x,y,relative=False)
 
-def lineP(pathSVG,point, transform=''):
+def lineP(pathSVG,point,transform=''):
     """
     appendLineToPath method
     """
-    if (transform == '') :
-        x,y=point.x, point.y
+    if (transform=='') :
+        x,y=point.x,point.y
     else:
         x,y=transformPoint(point.x,point.y,transform)
-    return pathSVG.appendLineToPath( x,y, relative=False)
+    return pathSVG.appendLineToPath( x,y,relative=False)
 
 def cubicCurveP(pathSVG,control1,control2,point,transform=''):
     """
     Accepts pathSVG,control1,control2,point and optional transform to call appendCubicCurveToPath method
     """
-    if (transform == '') :
-        c1x,c1y,c2x,c2y,px,py=control1.x,control1.y,control2.x, control2.y,point.x,point.y
+    if (transform=='') :
+        c1x,c1y,c2x,c2y,px,py=control1.x,control1.y,control2.x,control2.y,point.x,point.y
     else:
         c1x,c1y=transformPoint(control1.x,control1.y,transform)
         c2x,c2y=transformPoint(control2.x,control2.y,transform)
-        px, py=transformPoint(point.x,point.y,transform)
+        px,py=transformPoint(point.x,point.y,transform)
     return pathSVG.appendCubicCurveToPath(c1x,c1y,c2x,c2y,px,py,relative=False)
 
 def quadraticCurveP(pathSVG,control1,point,transform=''):
@@ -146,11 +146,11 @@ def seamLinePath(name,label,pathSVG,transform=''):
 def patternLinePath(name,label,pathSVG,transform=''):
     """
     Accepts name,label,svg path,transform. Returns path object using 'dartline_style'.
-    Creates pattern line path in pattern group,other than cuttingline,seamline,or hemline - used for darts,etc.
+    Creates pattern line path in pattern group,other than cuttingline,seamline,or hemline-used for darts,etc.
     """
     return Path('pattern',name,label,pathSVG,'dartline_style',transform)
 
-def stitchLinePath( name,label, pathSVG,transform='' ):
+def stitchLinePath( name,label,pathSVG,transform='' ):
     """
     Creates stitch line in pattern group,other than cuttingline,seamline,or hemline
     """
@@ -162,13 +162,13 @@ def foldLinePath(name,label,pathSVG,transform='' ):
     """
     return Path('pattern',name,label,pathSVG,'foldline_style',transform)
 
-def grainLinePath(name,label,pnt1,pnt2, transform=''):
+def grainLinePath(name,label,pnt1,pnt2,transform=''):
     """
     Creates grain line in pattern group
     """
-    if (transform == '') :
-        x1,y1=pnt1.x, pnt1.y
-        x2,y2=pnt2.x, pnt2.y
+    if (transform=='') :
+        x1,y1=pnt1.x,pnt1.y
+        x2,y2=pnt2.x,pnt2.y
     else:
         x1,y1=transformPoint(pnt1.x,pnt1.y,transform)
         x2,y2=transformPoint(pnt2.x,pnt2.y,transform)
@@ -186,9 +186,9 @@ def addToPath(p,*args):
     for arg in args:
         tokens.append(arg)
     i=0
-    while (i < len(tokens)):
+    while (i<len(tokens)):
         cmd=tokens[i]
-        if (cmd == 'M'):
+        if (cmd=='M'):
             pnt=tokens[i+1]
             moveP(p,pnt)
             i=i+2
@@ -196,7 +196,7 @@ def addToPath(p,*args):
             pnt=tokens[i+1]
             lineP(p,pnt)
             i=i+2
-        elif (cmd == 'C'):
+        elif (cmd=='C'):
             c1=tokens[i+1]
             c2=tokens[i+2]
             pnt=tokens[i+3]
@@ -247,7 +247,7 @@ def addFacingLine(parent,path):
 def slopeOfLine(x1,y1,x2,y2):
     """ Accepts two sets of coordinates x1,y1,x2,y2 and returns the slope   """
     if (x2 <> x1):
-        m=(y2 - y1)/(x2 - x1)
+        m=(y2-y1)/(x2-x1)
     else:
         print 'Vertical Line'
         m=None
@@ -255,8 +255,8 @@ def slopeOfLine(x1,y1,x2,y2):
 
 def slopeOfLineP(P1,p2):
     """ Accepts two point objects and returns the slope """
-    if ((p2.x - p1.x) <> 0):
-        m=(p2.y - p1.y)/(p2.x - p1.x)
+    if ((p2.x-p1.x) <> 0):
+        m=(p2.y-p1.y)/(p2.x-p1.x)
     else:
         print 'Vertical Line'
         m=None
@@ -270,8 +270,8 @@ def angleOfDegree(degree):
 
 def angleOfSlope(x1,y1,x2,y2):
     """Accepts two sets of coordinates x1,y1,x2,y2 inputs and returns angle in radians. Uses atan2.   """
-    rise=y2 - y1
-    run=x2 - x1
+    rise=y2-y1
+    run=x2-x1
     return math.atan2(rise,run )
 
 def angleOfSlopeP(pnt1,pnt2):
@@ -279,7 +279,7 @@ def angleOfSlopeP(pnt1,pnt2):
 
 def angleOfLine(x1,y1,x2,y2):
     """ Accepts two sets of coordinates x1,y1,x2,y2 and returns the angle of the vector between them. Uses atan2.   """
-    return math.atan2(y2 - y1,x2 - x1)
+    return math.atan2(y2-y1,x2-x1)
 
 def angleOfLineP(p1,p2):
     """ Accepts two point objects and returns the angle of the vector between them. Calls angleOfLine(x1,y1,x2,y2)"""
@@ -289,19 +289,19 @@ def angleOfVectorP(p1,v,p2):
     #L1=distanceP(p1,p2)
     #L2=distanceP(p1,p3)
     #L3=distanceP(p2,p3)
-    #return math.acos((L1**2+L2**2 - L3**2)/(2*L1*L2))
-    return abs(angleOfLineP(v,p1) - angleOfLineP(v,p2))
+    #return math.acos((L1**2+L2**2-L3**2)/(2*L1*L2))
+    return abs(angleOfLineP(v,p1)-angleOfLineP(v,p2))
 
 def rightPointP(p1,n):
     pnt=Pnt(p1.x+n,p1.y)
     return pnt
 
 def leftPointP(p1,n):
-    pnt=Pnt(p1.x - n,p1.y)
+    pnt=Pnt(p1.x-n,p1.y)
     return pnt
 
 def upPointP(p1,n):
-    pnt=Pnt(p1.x,p1.y - n)
+    pnt=Pnt(p1.x,p1.y-n)
     return pnt
 
 def downPointP(p1,n):
@@ -313,12 +313,12 @@ def symmetricPointP(p1,p2,type):
     Copy p1 symmetrical to vertical line x=p2.x or horizontal line y=p2.y.
     Returns pnt which is mirror image of p1'''
     pnt=Pnt()
-    dx=p2.x - p1.x
-    dy=p2.y - p1.y
-    if (type == 'vertical'):
+    dx=p2.x-p1.x
+    dy=p2.y-p1.y
+    if (type=='vertical'):
         pnt.x=p2.x+dx
         pnt.y=p1.y
-    elif (type == 'horizontal'):
+    elif (type=='horizontal'):
         pnt.x=p1.x
         pnt.y=p2.y+dy
     return pnt
@@ -430,15 +430,15 @@ def pntOffLineP(p1,p2,distance,rotation=0):
 
 def xyMidPoint(x1,y1,x2,y2,n=0.5):
     '''Accepts x1,y1,x2,y2 and 0<n<1,returns x,y'''
-    return (x1+x2)*n, (y1+y2)*n
+    return (x1+x2)*n,(y1+y2)*n
 
 def xyMidPointP(p1,p2,n=0.5):
     '''Accepts p1 & p2 and 0<n<1,returns x,y'''
-    return xyMidPoint(p1.x, p1.y, p2.x, p2.y,n)
+    return xyMidPoint(p1.x,p1.y,p2.x,p2.y,n)
 
 def pntMidPoint(x1,y1,x2,y2,n=0.5):
     '''Accepts x1,y1,x2,y2 and 0<n<1,returns pnt'''
-    #TODO - fix nomenclature of functions - pMidPointP should be pntMidpointP,etc...or pMidpointP - for all functions
+    #TODO-fix nomenclature of functions-pMidPointP should be pntMidpointP,etc...or pMidpointP-for all functions
     pnt=Pnt()
     pnt.x,pnt.y=xyMidPoint(x1,y1,x2,y2,n)
     return pnt
@@ -446,21 +446,21 @@ def pntMidPoint(x1,y1,x2,y2,n=0.5):
 def pntMidPointP( p1,p2,n=0.5):
     '''Accepts p1 & p2 and 0<n<1,returns p3'''
     pnt=Pnt()
-    pnt.x, pnt.y=xyMidPointP(p1,p2,n)
+    pnt.x,pnt.y=xyMidPointP(p1,p2,n)
     return pnt
 
 # ----------------...Calculate intercepts given x or y..------------------------------
 
 def pntOnLineAtXP(p1,p2,x):
-    #on line p1-p2, given x find y
+    #on line p1-p2,given x find y
     pnt=Pnt()
     pnt.x=x
-    if (p1.x == p2.x): # vertical line
+    if (p1.x==p2.x):# vertical line
         print  'infinite values of y on vertical line'
         return None
     else:
-        m=(p1.y - p2.y)/(p1.x-p2.x)
-        b=p2.y - (m*p2.x)
+        m=(p1.y-p2.y)/(p1.x-p2.x)
+        b=p2.y-(m*p2.x)
         pnt.y=(x*m)-b
         return pnt
 
@@ -468,14 +468,14 @@ def pntOnLineAtYP(p1,p2,y):
     #on line p1-p2,find x given y
     pnt=Pnt()
     pnt.y=y
-    if (p1.y == p2.y) and (p1.y != y): # if horizontal line,and value y is different than horizontal line's y
+    if (p1.y==p2.y) and (p1.y !=y):# if horizontal line,and value y is different than horizontal line's y
         print 'y=',y,' not on line'
         return None
-    elif (p1.x != p2.x): # if not vertical line
-        m=(p1.y - p2.y)/(p1.x-p2.x)
-        b=p2.y - (m*p2.x)
-        pnt.x=(y - b)/m
-    else: # if vertical line
+    elif (p1.x !=p2.x):# if not vertical line
+        m=(p1.y-p2.y)/(p1.x-p2.x)
+        b=p2.y-(m*p2.x)
+        pnt.x=(y-b)/m
+    else:# if vertical line
         pnt.x=p1.x
     return pnt
 
@@ -487,15 +487,15 @@ def pntOnCircleAtY(C,r,y):
     Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py,written in Python 3.2 by Campbell Barton
     """
 
-    if abs(y - C.y) > r:
+    if abs(y-C.y)>r:
 
         print 'y is beyond radius in pntOnCircleAtY()'
         return
 
     else:
 
-        translated_y=y - C.y
-        translated_x1=abs(math.sqrt(r**2 - translated_y**2))
+        translated_y=y-C.y
+        translated_x1=abs(math.sqrt(r**2-translated_y**2))
         translated_x2=-translated_x1
 
         x1=translated_x1+C.x
@@ -514,15 +514,15 @@ def pntOnCircleAtX(C,r,x):
     Returns an object P with number of intersection points,and up to two coordinate pairs.
     """
 
-    if abs(x - C.x) > r:
+    if abs(x-C.x)>r:
 
         print 'x is beyond radius in pntOnCircleAtX()'
         return
 
     else:
 
-        translated_x=x - C.x
-        translated_y1=abs(math.sqrt(r**2 - translated_x**2))
+        translated_x=x-C.x
+        translated_y1=abs(math.sqrt(r**2-translated_x**2))
         translated_y2=-translated_y1
 
         y1=translated_y1+C.y
@@ -535,7 +535,7 @@ def pntOnCircleAtX(C,r,x):
     return P
 
 
-def pntsOnCurveAtX(curve, x):
+def pntsOnCurveAtX(curve,x):
     '''
     Accepts an array 'curve' of bezier curves,returns list of points. Each bezier curve consists of  P0,P1,P2,P3 [eg knot1,controlpoint1,controlpoint2,knot2].
     P3 of one curve is P0 of the next curve. Minimum of one bezier curve in curveArray.
@@ -546,25 +546,25 @@ def pntsOnCurveAtX(curve, x):
     xlist,ylist=[],[]
     pnt=Pnt()
     j=0
-    while j <= len(curve)  - 4:  # for each bezier curve in curveArray
+    while j <=len(curve) -4: # for each bezier curve in curveArray
 
         interpolatedPoints=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],100)  #interpolate this bezier curve,n=100
 
         # get min & max for x & y for this bezier curve from its interpolated points
         i=0
-        while (i < len(interpolatedPoints)):
+        while (i<len(interpolatedPoints)):
             xlist.append(interpolatedPoints[i].x)
             ylist.append(interpolatedPoints[i].y)
             i=i+1
-        xmin,ymin,xmax,ymax=min(xlist), min(ylist), max(xlist), max(ylist)
+        xmin,ymin,xmax,ymax=min(xlist),min(ylist),max(xlist),max(ylist)
         print 'xmin,xmax =',xmin,xmax,'...pattern.pntsOnCurveAtX()'
         print 'ymin,ymax =',ymin,ymax,'...pattern.pntsOnCurveAtX()'
         print 'x =',x,'...pattern.pntsOnCurveAtX()'
 
         i=0
-        if ((x >= xmin) and (x <= xmax)):
-            while (i < (len(interpolatedPoints) - 1)):
-                if (x >= interpolatedPoints[i].x) and (x <= interpolatedPoints[i+1].x):
+        if ((x >=xmin) and (x <=xmax)):
+            while (i<(len(interpolatedPoints)-1)):
+                if (x >=interpolatedPoints[i].x) and (x <=interpolatedPoints[i+1].x):
                     pnt=pntOnLineAtXP(interpolatedPoints[i],interpolatedPoints[i+1],x)
                     intersect_points.append(pnt)
                 i=i+1
@@ -592,7 +592,7 @@ def curveTangentAtLine(P1,P2,curve):
 
     # determine whether P1 or P2 is the  furthest away from 1st point in curve[].
     # The point further away is considered the 'fixed point' & use this point to derive the angle of the line towards the curve
-    if distanceP(P1,curve[0]) >= distanceP(P2,curve[0] ):
+    if distanceP(P1,curve[0]) >=distanceP(P2,curve[0] ):
         fixed_pnt=P1
         angle=angleOfLineP(P1,P2)
     else:
@@ -604,24 +604,24 @@ def curveTangentAtLine(P1,P2,curve):
 
     found='false'
     j=0
-    while j <= len(curve)  - 4 and found != 'true':  # for each bezier curve in curveArray until a point is found
+    while j <=len(curve) -4 and found !='true': # for each bezier curve in curveArray until a point is found
         intersection_estimate=pntIntersectLinesP(P1,P2,curve[j],curve[j+3]) # is there an intersection?
-        if intersection_estimate != None or intersection_estimate != '':
+        if intersection_estimate !=None or intersection_estimate !='':
             interpolated_points=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],100)  #interpolate this bezier curve,n=100
 
             k=0
-            while (k < len(interpolated_points) - 1) and (found != 'true'):
+            while (k<len(interpolated_points)-1) and (found !='true'):
                 pnt_on_line=polarPointP(fixed_pnt,distanceP(fixed_pnt,interpolated_points[k]),angle)
-                range=distanceP(interpolated_points[k],interpolated_points[k+1]) # TODO: improve margin of error
-                if (distanceP(pnt_on_line,interpolated_points[k]) < range):
+                range=distanceP(interpolated_points[k],interpolated_points[k+1]) # TODO:improve margin of error
+                if (distanceP(pnt_on_line,interpolated_points[k])<range):
                     # its close enough!
                     num=k
                     found='true'
-                    if k > 1:
-                        if (interpolated_points[k - 1] not in intersections) and (interpolated_points[k-2] not in intersections):
+                    if k>1:
+                        if (interpolated_points[k-1] not in intersections) and (interpolated_points[k-2] not in intersections):
                             intersections.append(interpolated_points[k])
-                    elif k == 1:
-                        if (interpolated_points[k - 1] not in intersections):
+                    elif k==1:
+                        if (interpolated_points[k-1] not in intersections):
                             intersections.append(interpolated_points[k])
                     else:
                         intersections.append(interpolated_points[k])
@@ -629,8 +629,8 @@ def curveTangentAtLine(P1,P2,curve):
 
         j=j+3 # skip j up to P3 of the current curve to be used as P0 start of next curve
 
-    if (found == 'true'):
-        tangent_angle=angleOfLineP(interpolated_points[num - 1],interpolated_points[num+1])
+    if (found=='true'):
+        tangent_angle=angleOfLineP(interpolated_points[num-1],interpolated_points[num+1])
     else:
         tangent_angle=None
 
@@ -648,12 +648,12 @@ def curveLength(curve,n=100):
 
     curveLength=0.0
     j=0
-    while j <= len(curve)  - 4:  # for each curve,get segmentLength & add to curveLength
+    while j <=len(curve) -4: # for each curve,get segmentLength & add to curveLength
         interpolatedPoints=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],n)  #interpolate this curve
         # add up lengths between the interpolated points
         segmentLength=0.0
         i=1
-        while (i <= n):
+        while (i <=n):
                 segmentLength=segmentLength+distanceP(interpolatedPoints[i-1],interpolatedPoints[i]) #length from previous point to current point
                 i=i+1
         curveLength=curveLength+segmentLength
@@ -665,17 +665,17 @@ def curveLengthAtPoint(pnt,curve,n=100):
     found=0
     curveLength=0.0
     j=0
-    while j <= len(curve)  - 4 and found == 0:  # for each curve,get segmentLength & add to curveLength
+    while j <=len(curve) -4 and found==0: # for each curve,get segmentLength & add to curveLength
 
         interpolatedPoints=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],n)  #interpolate this curve
 
         # add up lengths between the interpolated points
         segmentLength=0.0
         i=1
-        while (i <= n) and (found == 0):
+        while (i <=n) and (found==0):
                 segmentLength=segmentLength+distanceP(interpolatedPoints[i-1],interpolatedPoints[i]) #length from previous point to current point
                 try:
-                    if pnt == interpolatedPoints[i] or distanceP(pnt,interpolatedPoints[i]) <= 0.01:
+                    if pnt==interpolatedPoints[i] or distanceP(pnt,interpolatedPoints[i]) <=0.01:
                         found=1
                 except:
                     print 'out of bounds i=',i
@@ -691,10 +691,10 @@ def interpolatedCurveLengthAtPoint(pnt,interpolatedPoints):
     segmentLength=0.0
     found=0
     i=1
-    while (i < len(interpolatedPoints)) and (found == 0):
+    while (i<len(interpolatedPoints)) and (found==0):
             segmentLength=segmentLength+distanceP(interpolatedPoints[i-1],interpolatedPoints[i]) #length from previous point to current point
             try:
-                if pnt == interpolatedPoints[i] or distanceP(pnt,interpolatedPoints[i]) <= 1.0: # 1 pixel
+                if pnt==interpolatedPoints[i] or distanceP(pnt,interpolatedPoints[i]) <=1.0:# 1 pixel
                     found=1
             except:
                 print 'out of bounds i=',i
@@ -709,9 +709,9 @@ def interpolatedCurvePointAtLength(length,interpolatedPoints):
     segmentLength=0.0
     found=0
     i=1
-    while (i < len(interpolatedPoints)) and (found == 0):
+    while (i<len(interpolatedPoints)) and (found==0):
             segmentLength=segmentLength+distanceP(interpolatedPoints[i-1],interpolatedPoints[i]) #length from previous point to current point
-            if segmentLength >= length: # 1 pixel - err on the side of too much rather than too little length
+            if segmentLength >=length:# 1 pixel-err on the side of too much rather than too little length
                     found=1
                     pnt=interpolatedPoints[i]
             i=i+1
@@ -722,7 +722,7 @@ def interpolateCurveList(curve,t=100):
     '''curve can be multiple cubic curves in an array ' P0 C1a C2a P1 C1b C2b P2...'''
     interpolatedPoints=[]
     j=0
-    while j <= len(curve) - 4: # interpolate each curve segment
+    while j <=len(curve)-4:# interpolate each curve segment
         temp_list=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],t)
         for pnt in temp_list:
             interpolatedPoints.append(pnt)
@@ -732,28 +732,28 @@ def interpolateCurveList(curve,t=100):
 def interpolateCurve(P0,P1,P2,P3,t=100):
     '''
     Accepts curve points P0,P1,P2,P3 & number of interpolations t from curveLength()
-    P0 - knot point 1,P1 - control point 1,P2 - control point 2,P3 - knot point 2
+    P0-knot point 1,P1-control point 1,P2-control point 2,P3-knot point 2
     Adapted from http://www.planetclegg.com/projects/WarpingTextToSplines.htm
     Using P0 P1 P2 P3 not P0 C1 C2 P1 to make the formulas easier
     '''
 
     # calculate coefficients for two knot points P0 & P3 ;     P1 & P2 are the controlpoints.
     # x coefficients
-    A=P3.x - (3*P2.x)+(3*P1.x) - P0.x
-    B=(3*P2.x) - (6*P1.x)+(3*P0.x)
-    C=(3*P1.x) - (3*P0.x)
+    A=P3.x-(3*P2.x)+(3*P1.x)-P0.x
+    B=(3*P2.x)-(6*P1.x)+(3*P0.x)
+    C=(3*P1.x)-(3*P0.x)
     D=P0.x
     # y coefficients
-    E=P3.y - (3*P2.y)+(3*P1.y) - P0.y
-    F=(3*P2.y) - (6*P1.y)+(3*P0.y)
-    G=(3*P1.y) - (3*P0.y)
+    E=P3.y-(3*P2.y)+(3*P1.y)-P0.y
+    F=(3*P2.y)-(6*P1.y)+(3*P0.y)
+    G=(3*P1.y)-(3*P0.y)
     H=P0.y
 
     # calculate interpolated points
     interpolatedPoints=[]
     maxPoint=float(t)
     i=0
-    while ( i <= t):
+    while ( i <=t):
             j=i/maxPoint # j can't be an integer,i/t is an integer..always 0.
             x=A*(j**3)+B*(j**2)+C*j+D
             y=E*(j**3)+F*(j**2)+G*j+H
@@ -765,7 +765,7 @@ def interpolateCurve(P0,P1,P2,P3,t=100):
 # ----------------...Calculate intersections...------------------------------
 
 def xyIntersectLines2(L1x1,L1y1,L1x2,L1y2,L2x1,L2y1,L2x2,L2y2):
-    """ Accepts coords for endpoints of 2 lines: L1x1,L1y1,L1x2,L1y2,L2x1,L2y1,L2x2,L2y2. Returns x,y of intersection"""
+    """ Accepts coords for endpoints of 2 lines:L1x1,L1y1,L1x2,L1y2,L2x1,L2y1,L2x2,L2y2. Returns x,y of intersection"""
     L1startx=float(L1x1)
     L1starty=float(L1y1)
     L1endx=float(L1x2)
@@ -774,29 +774,32 @@ def xyIntersectLines2(L1x1,L1y1,L1x2,L1y2,L2x1,L2y1,L2x2,L2y2):
     L2starty=float(L2y1)
     L2endx=float(L2x2)
     L2endy=float(L2y2)
-    if (L1startx == L1endx):
+    if (L1startx==L1endx):
         x=L1startx
         L2m=slopeOfLine(L2startx,L2starty,L2endx,L2endy)
-        L2b=L2starty - L2m*L2startx
+        L2b=L2starty-L2m*L2startx
         y=L2m*x+L2b
-    elif (L2startx == L2endx):
+    elif (L2startx==L2endx):
         x=L2startx
         L1m=slopeOfLine(L1startx,L1starty,L1endx,L1endy)
-        L1b=L1starty - L1m*L1startx
+        L1b=L1starty-L1m*L1startx
         y=L1m*x+L1b
     else:
-        L1m=(L1endy - L1starty)/(L1endx - L1startx)
-        L2m=(L2endy - L2starty)/(L2endx - L2startx)
-        L1b=L1starty - L1m*L1startx
-        L2b=L2starty - L2m*L2startx
-        if (abs(L1b - L2b) < 0.01):
+        L1m=(L1endy-L1starty)/(L1endx-L1startx)
+        L2m=(L2endy-L2starty)/(L2endx-L2startx)
+        L1b=L1starty-L1m*L1startx
+        L2b=L2starty-L2m*L2startx
+        #if (abs(L1b-L2b)<0.01) and (L1m==L2m):
+        if (L1m==L2m):
             debug('***** Parallel lines in intersectLines2 *****')
             return None,None
+        #else:
+            #if (L1m==L2m):
+                #x=L1startx
+            #else:
+                #x=(L2b-L1b) / (L1m-L2m)
         else:
-            if (L1m == L2m):
-                x=L1startx
-            else:
-                x=(L2b - L1b) / (L1m - L2m)
+            x=(L2b-L1b) / (L1m-L2m)              
             y=(L1m*x)+L1b # arbitrary choice,could have used L2m & L2b
     return x,y
 
@@ -808,7 +811,7 @@ def xyIntersectLines_notinuse(xstart1,ystart1,xend1,yend1,xstart2,ystart2,xend2,
     """
     # Find point x,y where m1*x+b1=m2*x+b2
     # m=(ystart1-y2)/(xstart1-xend1) --> find slope for each line
-    # y=mx+b --> b=y - mx  --> find b for each line
+    # y=mx+b --> b=y-mx  --> find b for each line
     FIRST_VERTICAL=''
     SECOND_VERTICAL=''
     if (xend1==xstart1):
@@ -816,8 +819,8 @@ def xyIntersectLines_notinuse(xstart1,ystart1,xend1,yend1,xstart2,ystart2,xend2,
         FIRST_VERTICAL='True'
         x=xstart1
     else:
-        m1= slopeOfLine(xstart1,ystart1,xend1,yend1)
-        b1=(ystart1 - (m1*xstart1)) # b=y-mx
+        m1=slopeOfLine(xstart1,ystart1,xend1,yend1)
+        b1=(ystart1-(m1*xstart1)) # b=y-mx
 
     if (xend2==xstart2):
         # vertical 2nd line
@@ -825,27 +828,27 @@ def xyIntersectLines_notinuse(xstart1,ystart1,xend1,yend1,xstart2,ystart2,xend2,
         x=xstart2
     else:
         m2=slopeOfLine(xstart2,ystart2,xend2,yend2)
-        b2=(ystart2 - (m2*xstart2))
+        b2=(ystart2-(m2*xstart2))
 
     # test for parallel
     if (FIRST_VERTICAL and SECOND_VERTICAL):
         debug('***** Parallel lines in intersectLines *****')
         return None,None
     elif (not (FIRST_VERTICAL or SECOND_VERTICAL)):
-            if  (abs(b2 - b1) < 0.01):
+            if  (abs(b2-b1)<0.01):
                 debug('***** Parallel lines in intersectLines *****')
                 return None,None
 
     # find x where m1*x+b1=m2*x+b2
-    # m1*x - m2*x   = b2 - b1
-    # x( m1 - m2 ) =b2 - b1
+    # m1*x-m2*x  =b2-b1
+    # x( m1-m2 ) =b2-b1
     # x=(b2-b1)/(m1-m2)
     if (FIRST_VERTICAL):
         y=m2*x+b2
     elif (SECOND_VERTICAL):
         y=m1*x+b1
     else:
-        x=(b2 - b1) / (m1 - m2)
+        x=(b2-b1) / (m1-m2)
         y=(m1*x)+b1 # arbitrary choice,could have used y=m2*x+b2
     return x,y
 
@@ -884,8 +887,8 @@ def pntIntersectLineCircleP(C,r,P1,P2):
     Returns an object P with number of intersection points,and up to two coordinate pairs as P.intersections,P.p1,P.p2
     Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py,written in Python 3.2 by Campbell Barton
     """
-    #TODO - add test parameter to determine which intersection should be used
-    #TODO - doesn't work on P1-P2 vertical line - CRASHES!!!!!!
+    #TODO-add test parameter to determine which intersection should be used
+    #TODO-doesn't work on P1-P2 vertical line-CRASHES!!!!!!
 
     def square(f):
         return f*f
@@ -898,36 +901,36 @@ def pntIntersectLineCircleP(C,r,P1,P2):
     # This function returns a pointer array which first index indicates
     # the number of intersection points,followed by coordinate pairs.
 
-    P,p1,p2=Pnt(), Pnt(), Pnt()
+    P,p1,p2=Pnt(),Pnt(),Pnt()
     intersections=0
-    a=square(P2.x - P1.x)+square(P2.y - P1.y)
-    b=(2.0*((P2.x - P1.x)*(P1.x - C.x))+((P2.y - P1.y)*(P1.y - C.y)))
-    c=(square(C.x)+square(C.y)+square(P1.x)+square(P1.y) - (2.0*(C.x*P1.x+C.y*P1.y )) -
+    a=square(P2.x-P1.x)+square(P2.y-P1.y)
+    b=(2.0*((P2.x-P1.x)*(P1.x-C.x))+((P2.y-P1.y)*(P1.y-C.y)))
+    c=(square(C.x)+square(C.y)+square(P1.x)+square(P1.y)-(2.0*(C.x*P1.x+C.y*P1.y )) -
             square(r))
 
-    i=b*b - 4.0*a*c
+    i=b*b-4.0*a*c
 
-    if i < 0.0:
-        print 'no intersections b/w line',P1.name, P1.x,P1.y,'--',P2.name,P2.x,P2.y,'and Circle',C.name,C.x,C.y,'with radius', r
+    if i<0.0:
+        print 'no intersections b/w line',P1.name,P1.x,P1.y,'--',P2.name,P2.x,P2.y,'and Circle',C.name,C.x,C.y,'with radius',r
         return None
 
-    elif i == 0.0:
+    elif i==0.0:
         # one intersection
         intersections=1
         mu=-b / (2.0*a)
-        p1.x, p1.y=P1.x+mu*(P2.x - P1.x), P1.y+mu*(P2.y - P1.y)
+        p1.x,p1.y=P1.x+mu*(P2.x-P1.x),P1.y+mu*(P2.y-P1.y)
 
-    elif i > 0.0:
+    elif i>0.0:
         # two intersections
         intersections=2
 
         # first intersection
         mu1=(-b+math.sqrt(i)) / (2.0*a)
-        p1.x, p1.y=P1.x+mu1*(P2.x - P1.x),P1.y+mu1*(P2.y - P1.y)
+        p1.x,p1.y=P1.x+mu1*(P2.x-P1.x),P1.y+mu1*(P2.y-P1.y)
 
         # second intersection
-        mu2=(-b - math.sqrt(i)) / (2.0*a)
-        p2.x,p2.y=P1.x+mu2*(P2.x - P1.x),P1.y+mu2*(P2.y - P1.y)
+        mu2=(-b-math.sqrt(i)) / (2.0*a)
+        p2.x,p2.y=P1.x+mu2*(P2.x-P1.x),P1.y+mu2*(P2.y-P1.y)
 
     P.intersections=intersections
     P.p1=p1
@@ -938,41 +941,41 @@ def intersectCircles(x0,y0,r0,x1,y1,r1):
     """
     Accepts data for two circles x1,y1,r1,x2,y2,r2
     Returns xi,yi,xi_prime,yi_prime pairs where circles intersect,and intersections=number of intersections
-    example: returns ax,ay,bx,by,number of intersections {0|1|2} --> ax,ay and bx,by are empty when intersections=0,and  bx,by is empty when intersections=1
+    example:returns ax,ay,bx,by,number of intersections {0|1|2} --> ax,ay and bx,by are empty when intersections=0,and  bx,by is empty when intersections=1
     """
     #print 'radius of 1st circle ro:',r0
     #print 'radius of 2nd circle r1:',r1
     d=distance(x0,y0,x1,y1) # distance b/w circle centers
     #print 'distance between circle centers:',d
-    dx,dy=(x1 - x0),(y1 - y0) # negate y b/c canvas increases top to bottom
+    dx,dy=(x1-x0),(y1-y0) # negate y b/c canvas increases top to bottom
 
-    if (d == 0):
+    if (d==0):
             print 'center of both circles are the same...patternintersectCircles()'
             intersections=0
-    elif (d < abs(r0 - r1)):
+    elif (d<abs(r0-r1)):
             print 'one circle is within the other ...pattern.intersectCircles()'
-            print 'r0 - r1 =', (r0 - r1),abs(r0 - r1)
-            print 'd < abs(r0 - r1)?', (d<abs(r0 - r1))
+            print 'r0-r1 =',(r0-r1),abs(r0-r1)
+            print 'd<abs(r0-r1)?',(d<abs(r0-r1))
             intersections=0
-    elif (d > (r0+r1)):
+    elif (d>(r0+r1)):
             print 'circles do not intersect ...pattern.intersectCircles()'
             #intersections=0
-            # TODO: possible kluge  - check if this is acceptable using a small margin of error between r0 & r1 (2*CM)?:
-            r1=d - r0
+            # TODO:possible kluge -check if this is acceptable using a small margin of error between r0 & r1 (2*CM)?:
+            r1=d-r0
     else:
             #'I' is the point where the line through the circle centers crosses the line between the intersection points,creating 2 right triangles
-            a=((r0*r0) - (r1*r1)+(d*d)) / (2.0*d)
+            a=((r0*r0)-(r1*r1)+(d*d)) / (2.0*d)
             intersections=2
 
             x2=x0+(dx*a/d)
             y2=y0+(dy*a/d)
-            h=math.sqrt((r0*r0) - (a*a))
+            h=math.sqrt((r0*r0)-(a*a))
             rx=-dy*(h/d)
             ry=dx*(h/d)
             xi=x2+rx
-            xi_prime=x2 - rx
+            xi_prime=x2-rx
             yi=y2+ry
-            yi_prime=y2 - ry
+            yi_prime=y2-ry
             return xi,yi,xi_prime,yi_prime,intersections
 
 def xyIntersectCirclesP(C1,r1,C2,r2):
@@ -987,10 +990,10 @@ def pntIntersectCirclesP(C1,r1,C2,r2):
     Accepts C1,r1,C2,r2 where C1 & C2 are point objects
     Returns an object P,where P.intersections=number of intersections,and P.p1 & P.p2 are point objects where the two circles intersect
     """
-    P,p1,p2=Pnt(), Pnt(), Pnt()
+    P,p1,p2=Pnt(),Pnt(),Pnt()
     intersections=0
-    #print 'C1.x,C1.y,r1 =',C1.x, C1.y,r1
-    #print 'C2.x,C2.y,r2 =', C2.x,C2.y,r2
+    #print 'C1.x,C1.y,r1 =',C1.x,C1.y,r1
+    #print 'C2.x,C2.y,r2 =',C2.x,C2.y,r2
     x1,y1,x2,y2,intersections=intersectCircles(C1.x,C1.y,r1,C2.x,C2.y,r2)
     p1=Pnt(x1,y1)
     p2=Pnt(x2,y2)
@@ -1024,15 +1027,15 @@ def pntsOnChord(C,r,P,chord_length):
 def splitCurveAtLength(length,curve):
     '''Accepts a point on a curve,and a curve list with points P0 C1 C2 P1. Returns curve list with P0,split.c1,split.c2,split_pnt,new.c11,new.c12,P1'''
 
-    #TODO: use lib2geom to split a curve - this function is temporary
+    #TODO:use lib2geom to split a curve-this function is temporary
 
     # find split point
     interpolated_points=interpolateCurve(curve[0],curve[1],curve[2],curve[3])
     split_pnt=interpolatedCurvePointAtLength(length,interpolated_points) # split neck curve at this point
 
     # find tangent at split point
-    pnt1=interpolatedCurvePointAtLength(length - .1*IN,interpolated_points) # arbitrary 1/10th of an inch - good enough for this application?
-    pnt2=interpolatedCurvePointAtLength(length+.1*IN,interpolated_points) # arbitrary 1/10th of an inch - good enough for this application?
+    pnt1=interpolatedCurvePointAtLength(length-.1*IN,interpolated_points) # arbitrary 1/10th of an inch-good enough for this application?
+    pnt2=interpolatedCurvePointAtLength(length+.1*IN,interpolated_points) # arbitrary 1/10th of an inch-good enough for this application?
     forward_tangent_angle=angleOfLineP(pnt1,pnt2)
     backward_tangent_angle=angleOfLineP(pnt2,pnt1)
 
@@ -1072,40 +1075,40 @@ def waistDart(parent,dart_width,dart_length,length,waist_curve,dart_angle=ANGLE9
     d_div_2r=d/(2.0*r)
     rotation_angle=2*asin(d_div_2r)
 
-    # split neck curve at length - returns curve with P0 C11 C12 P1 C21 C22 P2
+    # split neck curve at length-returns curve with P0 C11 C12 P1 C21 C22 P2
     split_curve=splitCurveAtLength(length,waist_curve)
 
     #dart_apex=rPointP(parent,parent.name+'dart_apex',polarPointP(split_curve[3],dart_length,angleOfLineP(split_curve[3],split_curve[2])+ANGLE90))
-    # TODO: test for direction of dart - plus or minus 90 degrees from the angle of the tangent at the dart...
+    # TODO:test for direction of dart-plus or minus 90 degrees from the angle of the tangent at the dart...
     # ...the angle of line from 2nd control point (split_curve[2]) to the split point (split_curve[3])
     dart_apex=polarPointP(split_curve[3],dart_length,angleOfLineP(split_curve[3],split_curve[2])+dart_angle)
 
     # separate split_curve into inside_curve1 & outside_curve
     inside_curve=[]
     i=0
-    while i <= 3:
+    while i <=3:
         inside_curve.append(PntP(split_curve[i]))
         i=i+1
 
     outside_curve=[]
 
     i=3
-    while i <= 6:
+    while i <=6:
         outside_curve.append(PntP(split_curve[i ]))
         i=i+1
 
     # rotate outside leg & side point (outside_curve) relative to the dart_apex,creating the dart
     slashAndSpread(dart_apex,rotation_angle,outside_curve[0],outside_curve[1],outside_curve[2],outside_curve[3])
 
-    return dart_apex, inside_curve, outside_curve
+    return dart_apex,inside_curve,outside_curve
 
-def angleFromChord(chord_width, radius):
+def angleFromChord(chord_width,radius):
     # see http://math.stackexchange.com/questions/164541/finding-a-point-having-the-radius-chord-length-and-another-point
     # find the angle between two points given center,radius,chordlength & starting point=2*asin(d/2r)
-    d=chord_width # chord width - usage: could be the dart width
-    r=radius # radius - usage: could be the dart length
+    d=chord_width # chord width-usage:could be the dart width
+    r=radius # radius-usage:could be the dart length
     d_div_2r=d/(2.0*r)
-    angle=2*asin(d_div_2r) # angle - usage: could be the rotation angle used in slashAndSpread to create a dart
+    angle=2*asin(d_div_2r) # angle-usage:could be the rotation angle used in slashAndSpread to create a dart
 
     return angle
 
@@ -1131,32 +1134,32 @@ def neckDart(parent,dart_width,dart_length,length,neck_curve):
     # separate split_curve into curve1 & curve2
     curve1=[]
     i=0
-    while i <= 3:
+    while i <=3:
         curve1.append(PntP(split_curve[i]))
         i=i+1
 
     curve2=[]
 
     i=3
-    while i <= 6:
+    while i <=6:
         curve2.append(PntP(split_curve[i ]))
         i=i+1
 
     # rotate curve1 relative to the dart_apex,creating the dart
     slashAndSpread(dart_apex,rotation_angle,curve1[0],curve1[1],curve1[2],curve1[3])
 
-    return dart_apex, curve1, curve2
+    return dart_apex,curve1,curve2
 
 
 def intersectLineCurve(P1,P2,curve,n=100):
     '''
     Accepts two points of a line P1 & P2,and an array of connected bezier curves [P11,C11,C12,P12,C21,C22,P22,C31,C32,P32,...]
-    Returns an array points_found[] of point objects where line intersected with the curve, and tangents_found[] of tangent angle at that point
+    Returns an array points_found[] of point objects where line intersected with the curve,and tangents_found[] of tangent angle at that point
     '''
 
     # get polar equation for line for P1-P2
     # point furthest away from 1st point in curve[] is the fixed point & sets the direction of the angle towards the curve
-    #if distanceP(P1,curve[0]) >= distanceP(P2,curve[0] ):
+    #if distanceP(P1,curve[0]) >=distanceP(P2,curve[0] ):
     #   fixed_pnt=P1
     #   angle=angleOfLineP(P1,P2)
     #else:
@@ -1176,22 +1179,22 @@ def intersectLineCurve(P1,P2,curve,n=100):
     pnt=Pnt()
 
     j=0
-    while j <= len(curve)  - 4:  # for each bezier curve in curveArray
+    while j <=len(curve) -4: # for each bezier curve in curveArray
         intersection_estimate=pntIntersectLinesP(P1,P2,curve[j],curve[j+3]) # is there an intersection?
-        if intersection_estimate != None or intersection_estimate != '':
+        if intersection_estimate !=None or intersection_estimate !='':
             interpolatedPoints=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],n)  #interpolate this bezier curve,n=100
 
             k=0
-            while k < len(interpolatedPoints) - 1:
+            while k<len(interpolatedPoints)-1:
                 pnt_on_line=polarPointP(fixed_pnt,distanceP(fixed_pnt,interpolatedPoints[k]),angle)
-                range=distanceP(interpolatedPoints[k],interpolatedPoints[k+1]) # TODO: improve margin of error
+                range=distanceP(interpolatedPoints[k],interpolatedPoints[k+1]) # TODO:improve margin of error
                 distance=distanceP(pnt_on_line,interpolatedPoints[k])
                 #print k,'pntOnCurve',interpolatedPoints[k].x,interpolatedPoints[k].y,'pntOnLine',pnt_on_line.x,pnt_on_line.y,distance,range
-                if ( distance <= range):
+                if ( distance <=range):
                     # its close enough!
                     #print 'its close enough!'
                     if k>1:
-                        if (interpolatedPoints[k - 1] not in points_found) and (interpolatedPoints[k-2] not in points_found):
+                        if (interpolatedPoints[k-1] not in points_found) and (interpolatedPoints[k-2] not in points_found):
                             points_found.append(interpolatedPoints[k])
                             tangents_found.append(angleOfLineP(interpolatedPoints[k-1],interpolatedPoints[k+1]))
                             intersections=intersections+1
@@ -1222,13 +1225,13 @@ def addDartFold(parent,dart,inside_pnt):
         I_ANGLE=angleOfLineP(dart,dart.i)
 
         # determine which direction the dart will be folded
-        if I_ANGLE <= O_ANGLE:
-            FOLD_ANGLE=I_ANGLE - DART_HALF_ANGLE
+        if I_ANGLE <=O_ANGLE:
+            FOLD_ANGLE=I_ANGLE-DART_HALF_ANGLE
         else:
             FOLD_ANGLE=I_ANGLE+DART_HALF_ANGLE
 
         # find intersection of fold & armscye b/w bd2.i & inside_pnt
-        # TODO: use intersectLineCurve()
+        # TODO:use intersectLineCurve()
         temp_pnt=polarPointP(dart,DART_LENGTH,FOLD_ANGLE)
         fold_pnt=pntIntersectLinesP(dart.i,inside_pnt,dart,temp_pnt)
 
@@ -1238,21 +1241,21 @@ def addDartFold(parent,dart,inside_pnt):
         if hasattr(dart,'m'):
             updatePoint(dart.m,mid_pnt)
         else:
-            dart.m=rPointP(parent,dart.name+'.m',mid_pnt) # adds '.' automatically - why?
+            dart.m=rPointP(parent,dart.name+'.m',mid_pnt) # adds '.' automatically-why?
 
         # dart outside leg at cuttingline
         temp_pnt=pntOnLineP(dart.o,dart,-SEAM_ALLOWANCE)
         if hasattr(dart,'oc'):
-            updatePoint(dart.oc, temp_pnt)
+            updatePoint(dart.oc,temp_pnt)
         else:
-            dart.oc=rPointP(parent,dart.name+'.oc',temp_pnt) # adds '.' automatically - why?
+            dart.oc=rPointP(parent,dart.name+'.oc',temp_pnt) # adds '.' automatically-why?
 
         # dart inside leg at cuttingline
         temp_pnt=pntOnLineP(dart.i,dart,-SEAM_ALLOWANCE)
         if hasattr(dart,'ic'):
             updatePoint(dart.ic,temp_pnt)
         else:
-            dart.ic=rPointP(parent,dart.name+'.ic',temp_pnt) # adds '.' automatically - why?
+            dart.ic=rPointP(parent,dart.name+'.ic',temp_pnt) # adds '.' automatically-why?
 
         return
 
@@ -1264,8 +1267,8 @@ def addDartMidPoint(parent,dart_leg1,dart_apex,dart_leg2,next_pnt):
         DART_LEG1_ANGLE=angleOfLineP(dart_apex,dart_leg1)
         DART_LEG2_ANGLE=angleOfLineP(dart_apex,dart_leg2)
         # determine which direction the dart will be folded
-        if DART_LEG2_ANGLE <= DART_LEG1_ANGLE:
-            DART_FOLD_ANGLE=DART_LEG2_ANGLE - DART_HALF_ANGLE
+        if DART_LEG2_ANGLE <=DART_LEG1_ANGLE:
+            DART_FOLD_ANGLE=DART_LEG2_ANGLE-DART_HALF_ANGLE
         else:
             DART_FOLD_ANGLE=DART_LEG2_ANGLE+DART_HALF_ANGLE
         midpnt=pntMidPointP(dart_leg1,dart_leg2)
@@ -1274,7 +1277,7 @@ def addDartMidPoint(parent,dart_leg1,dart_apex,dart_leg2,next_pnt):
         # dart midpoint at waist
         pnt=pntOnLineP(dart_apex,midpnt,distanceP(dart_apex,intpnt))
         if hasattr(dart_apex,'m'):
-            dart_apex.m.x, dart_apex.m.y=pnt.x,pnt.y
+            dart_apex.m.x,dart_apex.m.y=pnt.x,pnt.y
             dart_apex.m.coords  =str(pnt.x)+","+str(pnt.y)
         else:
             dart_apex.m=rPointP(parent,dart_apex.name+'.m',pnt)
@@ -1304,20 +1307,20 @@ def pointList(*args):
     return points
 
 def controlPoints(name,knots):
-    #TODO: remove name from args
-    k_num=len(knots) - 1 # last iterator for n knots 0..n-1
-    c_num=k_num - 1 # last iterator for n-1 curve segments 0..n-2
+    #TODO:remove name from args
+    k_num=len(knots)-1 # last iterator for n knots 0..n-1
+    c_num=k_num-1 # last iterator for n-1 curve segments 0..n-2
     c1=[] # first control points c1[0..c_num]
     c2=[] # second control points c2[0..c_num]
 
     i=1
-    while (i <= c_num):
+    while (i <=c_num):
         # each loop produces c2[previous] and c1[current]
-        # special cases: get c1[0] in 1st loop & c2[c_num] in last loop
+        # special cases:get c1[0] in 1st loop & c2[c_num] in last loop
         # previous segment is segment b/w previous knot & current knot
         # current segment is segment b/w current knot & next knot
         # start with i=1 because can't start processing with knot[0] b/c it doesn't have a previous knot
-        previous=(i - 1)
+        previous=(i-1)
         current=i
         next=(i+1)
         last_knot=k_num
@@ -1329,7 +1332,7 @@ def controlPoints(name,knots):
         pnt=polarPointP(knots[current],length,angle)
         c2.append(pnt) # c2[previous]
 
-        if (current == 1):
+        if (current==1):
             # process 1st segment's c1
             angle=angleOfLineP(knots[0],c2[0])
             pnt=polarPointP(knots[0],length,angle)
@@ -1341,7 +1344,7 @@ def controlPoints(name,knots):
         pnt=polarPointP(knots[current],length,angle)
         c1.append(pnt) # c1[current]
 
-        if (current == c_num):
+        if (current==c_num):
             # process last segment's c2
             angle=angleOfLineP(knots[last_knot],c1[last_segment])
             pnt=polarPointP(knots[last_knot],length,angle)
@@ -1349,7 +1352,7 @@ def controlPoints(name,knots):
 
         i=(i+1)
 
-    return c1, c2
+    return c1,c2
 
 # ----------------...Calculate transforms..------------------------------
 
@@ -1358,29 +1361,29 @@ def transformPoint(x,y,transform=''):
     Apply an SVG transformation string to a 2D point and return the resulting x,y pair
     """
     #
-    # -spc- TODO - use numpy to do a proper handling of all transformations in order
+    # -spc- TODO-use numpy to do a proper handling of all transformations in order
     # Postponing this until after the LGM workshop in order not to introduce
-    # a new dependency - for now we will only handle a few transformation types
+    # a new dependency-for now we will only handle a few transformation types
     #
-    if transform == '':
+    if transform=='':
         return x,y
 
     # Every transform in the list ends with a close paren
     transforms=re.split(r'\)',transform)
     for tr in transforms:
         # I don't know why we get an empty string at the end
-        if tr == '':
+        if tr=='':
             continue
         tr=tr.strip()
 
         trparts=re.split(r',|\(',tr)
         trtype=trparts[0].strip()
 
-        if trtype == 'translate':
-            #tx=float(trparts[1].strip()) #-- commented out by susan 26/08/11 -- was returning 'invalid literal for float(): 0 0' error message -- 0,0 because the transform for 1st pattern is 0,0
+        if trtype=='translate':
+            #tx=float(trparts[1].strip()) #-- commented out by susan 26/08/11 -- was returning 'invalid literal for float():0 0' error message -- 0,0 because the transform for 1st pattern is 0,0
             splitx=re.split("( )",trparts[1].strip())  # added by susan 26/08/11 -- to split apart the two values in tx
-            sx=splitx[0].strip() # strip one more time - susan 26/08/11
-            tx=float(sx) # substituted sx for trparts[1].strip() - susan 26/08/11
+            sx=splitx[0].strip() # strip one more time-susan 26/08/11
+            tx=float(sx) # substituted sx for trparts[1].strip()-susan 26/08/11
             x=x+tx
             try:
                 ty=float(trparts[2].strip())
@@ -1388,7 +1391,7 @@ def transformPoint(x,y,transform=''):
             except IndexError:
                 pass
 
-        elif trtype == 'scale':
+        elif trtype=='scale':
             sx=float(trparts[1].strip())
             try:
                 sy=float(trparts[2].strip())
@@ -1397,19 +1400,19 @@ def transformPoint(x,y,transform=''):
             x=x*sx
             y=y*sy
 
-        elif trtype == 'skewX':
+        elif trtype=='skewX':
             sx=float(trparts[1].strip())
             # now do the thing
-            #TODO: skewX transform not handled yet
+            #TODO:skewX transform not handled yet
             raise NotImplementedError
 
-        elif trtype == 'skewY':
+        elif trtype=='skewY':
             sy=float(trparts[1].strip())
             # now do the thing
-            #TODO: skewY not handled yet
+            #TODO:skewY not handled yet
             raise NotImplementedError
 
-        elif trtype == 'rotate':
+        elif trtype=='rotate':
             an=float(trparts[1].strip())
             try:
                 rx=float(trparts[2].strip())
@@ -1421,10 +1424,10 @@ def transformPoint(x,y,transform=''):
             except IndexError:
                 ry=0
             # now do the thing
-            #TODO: rotate not handled yet
+            #TODO:rotate not handled yet
             raise NotImplementedError
 
-        elif trtype == 'matrix':
+        elif trtype=='matrix':
             ma=float(trparts[1].strip())
             mb=float(trparts[2].strip())
             mc=float(trparts[3].strip())
@@ -1432,10 +1435,10 @@ def transformPoint(x,y,transform=''):
             me=float(trparts[3].strip())
             mf=float(trparts[3].strip())
             # now do the thing
-            #TODO: matrix not handled yet
+            #TODO:matrix not handled yet
             raise NotImplementedError
         else:
-            #TODO: Unexpected transformation %s' % trtype
+            #TODO:Unexpected transformation %s' % trtype
             raise ValueError
 
     return x,y
@@ -1453,10 +1456,10 @@ def scaleAboutPointTransform(x,y,scale):
 # ----------------...Calculate bounding box..------------------------------
 
 def boundingBox(path):
-    # TODO: only use information from paths - cuttinLine,seamLine,foldLine,dartLine
+    # TODO:only use information from paths-cuttinLine,seamLine,foldLine,dartLine
     xlist=[]
     ylist=[]
-    #print '===== Entered boundingBox ====='
+    #print '=====Entered boundingBox ====='
     #print 'path=',path
     path_tokens=path.split() # split path into pieces,separating at each 'space'
 
@@ -1464,7 +1467,7 @@ def boundingBox(path):
 
     try:
         cmd=tok.next()
-        if cmd != 'M':
+        if cmd !='M':
             raise ValueError("Unable to handle patches that don't start with an absolute move")
         currentx=float(tok.next())
         currenty=float(tok.next())
@@ -1486,7 +1489,7 @@ def boundingBox(path):
 
             cmd=cmd.upper()
 
-            if ((cmd == 'M') or (cmd == 'L') or (cmd == 'T')):
+            if ((cmd=='M') or (cmd=='L') or (cmd=='T')):
                 # Note T is really for a Bezier curve,this is a simplification
                 x=float(tok.next())
                 y=float(tok.next())
@@ -1498,26 +1501,26 @@ def boundingBox(path):
                     currenty=y
                 xlist.append(currentx)
                 ylist.append(currenty)
-            elif cmd == 'H':
+            elif cmd=='H':
                 x=float(tok.next())
                 if relative:
                     currentx=currentx+x
                 else:
                     currentx=x
                 xlist.append(currentx)
-            elif cmd == 'V':
+            elif cmd=='V':
                 y=float(tok.next())
                 if relative:
                     currenty=currenty+y
                 else:
                     currenty=y
                 ylist.append(currenty)
-            elif ((cmd == 'C') or (cmd == 'S') or (cmd == 'Q')):
+            elif ((cmd=='C') or (cmd=='S') or (cmd=='Q')):
                 # Curve
                 # TODO This could be innacurate,we are only basing on control points not the actual line
 
                 # 'C' uses two control points,'S' and 'Q' use one
-                if cmd == 'C':
+                if cmd=='C':
                     cpts=2
                 else:
                     cpts=1
@@ -1548,11 +1551,11 @@ def boundingBox(path):
                     currenty=y
                 xlist.append(currentx)
                 ylist.append(currenty)
-            elif cmd == 'A':
-                # TODO implement arcs - punt for now
+            elif cmd=='A':
+                # TODO implement arcs-punt for now
                 # See http://www.w3.org/TR/SVG/paths.html#PathElement
                 raise ValueError('Arc commands in a path are not currently handled')
-            elif cmd == 'Z':
+            elif cmd=='Z':
                 # No argumants to Z,and no new points
                 # but we reset position to the beginning
                 currentx=beginx
@@ -1578,7 +1581,7 @@ def transformBoundingBox(xmin,ymin,xmax,ymax,transform):
     Take a set of points representing a bounding box,and
     put them through a supplied transform,returning the result
     """
-    if transform == '':
+    if transform=='':
         return xmin,ymin,xmax,ymax
 
     new_xmin,new_ymin=transformPoint(xmin,ymin,transform)
@@ -1606,7 +1609,7 @@ def connectObjects(connector_pnts,old_pnts):
         r_pnts=[] # translated points that are rotated. 2nd step.
 
         # translate so that old_pnts[0] will connect with connector_pnts[0]
-        (dx,dy)=(connector_pnts[0].x - old_pnts[0].x),(connector_pnts[0].y - old_pnts[0].y)
+        (dx,dy)=(connector_pnts[0].x-old_pnts[0].x),(connector_pnts[0].y-old_pnts[0].y)
         i=0
         for o in old_pnts:
             # translate all points in old_pnts[]
@@ -1616,14 +1619,14 @@ def connectObjects(connector_pnts,old_pnts):
 
         angle1=angleOfLineP(connector_pnts[0],connector_pnts[1])
         angle2=angleOfLineP(connector_pnts[0],t_pnts[1])
-        rotation_angle=angle2 - angle1 # subtract this angle from each angle of 2nd object's points towards connector0
+        rotation_angle=angle2-angle1 # subtract this angle from each angle of 2nd object's points towards connector0
         i=1 # don't rotate the 1st translated point,it should now be equal to connector0
         r_pnts.append(t_pnts[0])
         for t_pnt in t_pnts:
-            if  (i != len(t_pnts)):
+            if  (i !=len(t_pnts)):
                 distance=distanceP(connector_pnts[0],t_pnts[i])
                 translated_angle=angleOfLineP(connector_pnts[0],t_pnts[i])
-                r_angle=translated_angle - rotation_angle
+                r_angle=translated_angle-rotation_angle
                 r_pnts.append(Pnt())
                 r_pnts[i]=polarPointP(connector_pnts[0],distance,r_angle)
                 i=i+1
@@ -1637,7 +1640,7 @@ def slashAndSpread(pivot,angle,*args):
         for arg in args:
             list.append(arg)
         i=0
-        while (i < len(list)):
+        while (i<len(list)):
             pnt=list[i]
             distance=distanceP(pivot,pnt)
             rotated_pnt=polarPointP(pivot,distance,angleOfLineP(pivot,pnt)+angle) # angle>0=spread clockwise. angle<0=spread counterclockwise.
@@ -1648,19 +1651,19 @@ def slashAndSpread(pivot,angle,*args):
 # ---- Set up pattern document with design info ----------------------------------------
 def setupPattern(pattern_design,clientData,printer,companyName,designerName,patternName,patternNumber):
         pattern_design.cfg['clientdata']=clientData
-        if (printer == '36" wide carriage plotter'):
+        if (printer=='36" wide carriage plotter'):
             pattern_design.cfg['paper_width']=(36.0*IN)
         pattern_design.cfg['border']=(2.54*CM)
         BORDER=pattern_design.cfg['border']
-        metainfo={'companyName': companyName, #mandatory
-                    'designerName': designerName,#mandatory
-                    'patternName': patternName,#mandatory
-                    'patternNumber': patternNumber #mandatory
+        metainfo={'companyName':companyName,#mandatory
+                    'designerName':designerName,#mandatory
+                    'patternName':patternName,#mandatory
+                    'patternNumber':patternNumber #mandatory
                     }
         pattern_design.cfg['metainfo']=metainfo
-        docattrs={'currentscale' : "0.5 : 1",
-                    'fitBoxtoViewport' : "True",
-                    'preserveAspectRatio' : "xMidYMid meet",
+        docattrs={'currentscale':"0.5:1",
+                    'fitBoxtoViewport':"True",
+                    'preserveAspectRatio':"xMidYMid meet",
                     }
         doc=Document(pattern_design.cfg,name='document',attributes=docattrs)
         doc.add(TitleBlock('notes','titleblock',0.0,0.0,stylename='titleblock_text_style'))
@@ -1685,7 +1688,7 @@ class PntP():
 
 class Pattern(pBase):
     """
-    Create an instance of Pattern class,eg - jacket,pants,corset,which will contain the set of pattern piece objects - eg  jacket.back,pants.frontPocket,corset.stayCover
+    Create an instance of Pattern class,eg-jacket,pants,corset,which will contain the set of pattern piece objects-eg  jacket.back,pants.frontPocket,corset.stayCover
     A pattern does not generate any svg itself,output is only generated by children objects
     """
     def __init__(self,name):
@@ -1713,7 +1716,7 @@ class Pattern(pBase):
 
         # our available paper width is reduced by twice the border
         #print self.cfg['paper_width']
-        pg_width=self.cfg['paper_width'] - (2*self.cfg['border'])
+        pg_width=self.cfg['paper_width']-(2*self.cfg['border'])
         if 'verbose' in self.cfg:
             print 'Autolayout:'
             print ' total paperwidth=',self.cfg['paper_width']
@@ -1744,22 +1747,22 @@ class Pattern(pBase):
         for thisletter in letters:
             pp=index_by_letter[thisletter]
             info=parts[pp]
-            pp_width=info['xhi'] - info['xlo']
-            pp_height=info['yhi'] - info['ylo']
+            pp_width=info['xhi']-info['xlo']
+            pp_height=info['yhi']-info['ylo']
 
             if 'verbose' in self.cfg:
-                print '   Part letter: ',thisletter
-                print '     part width=pp_width:',pp_width,' <-- info[xhi]:',info['xhi'], ' - info[xlo]:',info['xlo']
-                print '     part height=pp_height:',pp_height,' <-- info[yhi]:',info['yhi'], ' - info[ylo]:',info['ylo']
+                print '   Part letter:',thisletter
+                print '     part width=pp_width:',pp_width,' <-- info[xhi]:',info['xhi'],'-info[xlo]:',info['xlo']
+                print '     part height=pp_height:',pp_height,' <-- info[yhi]:',info['yhi'],'-info[ylo]:',info['ylo']
                 print '     current x=next_x:',next_x
                 print '     current y=next_y:',next_y
 
-            if pp_width > pg_width:
-                print 'Error: Pattern piece <%s> is too wide to print on page width' % pp.name
-                # TODO: -figure out something smarter
+            if pp_width>pg_width:
+                print 'Error:Pattern piece <%s> is too wide to print on page width' % pp.name
+                # TODO:-figure out something smarter
                 ## raise
 
-            if next_x+pp_width > pg_width:
+            if next_x+pp_width>pg_width:
                 # start a new row
                 real_next_y=next_y+max_height_this_row+PATTERN_OFFSET
                 if 'verbose' in self.cfg:
@@ -1773,7 +1776,7 @@ class Pattern(pBase):
                 max_height_this_row=pp_height
                 next_x=0
             else:
-                if pp_height > max_height_this_row:
+                if pp_height>max_height_this_row:
                     max_height_this_row=pp_height
                     if 'verbose' in self.cfg:
                         print'       Previous y=next_y:',next_y
@@ -1781,8 +1784,8 @@ class Pattern(pBase):
                         print'       New max_height_this_row=pp_height:',pp_height
 
             # now set up a transform to move this part to next_x,next_y
-            xtrans=(next_x - info['xlo'])
-            ytrans=(next_y - info['ylo'])
+            xtrans=(next_x-info['xlo'])
+            ytrans=(next_y-info['ylo'])
             pp.attrs['transform']=pp.attrs['transform']+(' translate(%f,%f)' % (xtrans,ytrans))
             if 'verbose' in self.cfg:
                 print '     Transform=translate(xtrans:',xtrans,',ytrans:',ytrans,')<-- (next_x:',next_x,'- info[xlo]:',info['xlo'],'),next_y:',next_y,'- info[ylo]:',info['ylo'],')'
@@ -1803,7 +1806,7 @@ class PatternPiece(pBase):
     """
     Create an instance of the PatternPiece class,eg jacket.back,pants.frontPocket,corset.stayCover
     which will contain the set of seams and all other pattern piece info,
-    eg - jacket.back.seam.shoulder,jacket.back.grainline, jacket.back.interfacing
+    eg-jacket.back.seam.shoulder,jacket.back.grainline,jacket.back.interfacing
     """
     def __init__(self,group,name,letter='?',fabric=0,interfacing=0,lining=0):
         self.name=name
@@ -1832,9 +1835,9 @@ class PatternPiece(pBase):
 
         child_group_dict=pBase.getsvg(self) # call the baseclass svg method on this pattern piece. Returns a dictionary of all groups to be drawn.
 
-        for child_group_name,members in child_group_dict.items(): # for each group used in this pattern piece
+        for child_group_name,members in child_group_dict.items():# for each group used in this pattern piece
             if self.debug:
-                print 'self.id =',self.id, 'child_group_name =', child_group_name
+                print 'self.id =',self.id,'child_group_name =',child_group_name
                 print '++ Group ==',child_group_name,' in pattern.PatternPiece.getsvg()'
 
             # create a temporary pySVG group object
@@ -1844,7 +1847,7 @@ class PatternPiece(pBase):
             try:
                 grpid=self.id+'.'+child_group_name
             except:
-                print 'self.id =',self.id, 'child_group_name =', child_group_name, 'in pattern.PatternPiece.getsvg()'
+                print 'self.id =',self.id,'child_group_name =',child_group_name,'in pattern.PatternPiece.getsvg()'
             temp_group.set_id(grpid)
 
             # temp group gets all patternpiece's attributes
@@ -1881,13 +1884,13 @@ class PatternPiece(pBase):
 
         text.append(mi['companyName'])
 
-        text.append('Designer: %s' % mi['designerName'])
-        text.append('Client: %s' % self.cfg['clientdata'].customername)
+        text.append('Designer:%s' % mi['designerName'])
+        text.append('Client:%s' % self.cfg['clientdata'].customername)
         text.append(mi['patternNumber'])
         text.append('Pattern Piece %s' % self.lettertext)
-        if self.fabric > 0:
+        if self.fabric>0:
             text.append('Cut %d Fabric' % self.fabric)
-        if self.interfacing > 0:
+        if self.interfacing>0:
             text.append('Cut %d Interfacing' % self.interfacing)
 
         #def __init__(group,name,headline,x,y,text,textstyledef='default_textblock_text_style',boxstyledef=None,transform=''):
@@ -1901,8 +1904,8 @@ class PatternPiece(pBase):
         Return two points which define a bounding box around the object
         """
         # get all the children
-        xmin,ymin,xmax,ymax= pBase.boundingBox(self,grouplist)
-        xmin,ymin,xmax,ymax= transformBoundingBox(xmin,ymin,xmax,ymax,self.attrs['transform'])
+        xmin,ymin,xmax,ymax=pBase.boundingBox(self,grouplist)
+        xmin,ymin,xmax,ymax=transformBoundingBox(xmin,ymin,xmax,ymax,self.attrs['transform'])
 
         return xmin,ymin,xmax,ymax
 
@@ -1918,17 +1921,17 @@ class Point(pBase):
     """
     Creates instance of Python class Point
     """
-    def __init__(self,group,name,x=0, y=0,styledef='default',transform='') :
+    def __init__(self,group,name,x=0,y=0,styledef='default',transform='') :
 
         self.groupname=group
         self.name=name
         self.sdef=styledef
-        self.x      =x
-        self.y      =y
+        self.x=x
+        self.y=y
         self.attrs={}
         self.attrs['transform']=transform
-        self.size    =5
-        self.coords  =str(x)+","+str(y)
+        self.size=5
+        self.coords=str(x)+","+str(y)
         pBase.__init__(self)
 
     def add(self,obj):
@@ -1945,7 +1948,7 @@ class Point(pBase):
         # an empty dict to hold our svg elements
         md=self.mkgroupdict()
 
-        pstyle= PYB.StyleBuilder(self.styledefs[self.sdef])
+        pstyle=PYB.StyleBuilder(self.styledefs[self.sdef])
         p=PYB.circle(self.x,self.y,self.size)
         p.set_style(pstyle.getStyle())
         p.set_id(self.id)
@@ -1963,7 +1966,7 @@ class Point(pBase):
             txtstyle='control_point_text_style'
         else:
             txtstyle='point_text_style'
-        txt=self.generateText(self.x,self.y - 25,txtlabel,txttxt,txtstyle)
+        txt=self.generateText(self.x,self.y-25,txtlabel,txttxt,txtstyle)
         md[self.groupname].append(txt)
 
         return md
@@ -1975,7 +1978,7 @@ class Point(pBase):
         if grouplist is None:
             grouplist=self.groups.keys()
         if self.groupname in grouplist:
-            (x1,y1)=(self.x - (self.size/2.0),self.y - (self.size/2.0))
+            (x1,y1)=(self.x-(self.size/2.0),self.y-(self.size/2.0))
             (x2,y2)=(self.x+(self.size/2.0),self.y+(self.size/2.0))
             return x1,y1,x2,y2
         else:
@@ -1985,7 +1988,7 @@ class Line(pBase):
     """
     Creates instance of Python class Line
     """
-    def __init__(self,group,name,label,xstart, ystart,xend,yend,styledef='default',transform='') :
+    def __init__(self,group,name,label,xstart,ystart,xend,yend,styledef='default',transform='') :
 
         self.groupname=group
         self.name=name
@@ -2046,7 +2049,7 @@ class Line(pBase):
         # an empty dict to hold our svg elements
         md=self.mkgroupdict()
 
-        pstyle= PYB.StyleBuilder(self.styledefs[self.sdef])
+        pstyle=PYB.StyleBuilder(self.styledefs[self.sdef])
         p=PYB.line(self.xstart,self.ystart,self.xend,self.yend)
         p.set_style(pstyle.getStyle())
         p.set_id(self.id)
@@ -2063,14 +2066,14 @@ class Line(pBase):
         if grouplist is None:
             grouplist=self.groups.keys()
         #if self.groupname in grouplist:
-            #print '         end pattern.Line.boundingBox(',self.name,') - returning (xmin:',min(self.xstart,self.xend),' ymin:',min(self.ystart,self.yend) ,') ( xmax:',max(self.xstart,self.xend),' ymax:',max(self.ystart,self.yend),')'
+            #print '         end pattern.Line.boundingBox(',self.name,')-returning (xmin:',min(self.xstart,self.xend),' ymin:',min(self.ystart,self.yend) ,') ( xmax:',max(self.xstart,self.xend),' ymax:',max(self.ystart,self.yend),')'
             #return (min(self.xstart,self.xend),min(self.ystart,self.yend),max(self.xstart,self.xend),max(self.ystart,self.yend))
         #else:
-            #print '         end pattern.Line.boundingBox(',self.name,') - returning (None,None,None,None)'
+            #print '         end pattern.Line.boundingBox(',self.name,')-returning (None,None,None,None)'
             #return None,None,None,None
         if self.groupname in grouplist:
             dd='M '+str(self.xstart)+' '+str(self.ystart)+' L '+str(self.xend)+' '+str(self.yend)
-            xmin,ymin,xmax,ymax= boundingBox(dd)
+            xmin,ymin,xmax,ymax=boundingBox(dd)
             return xmin,ymin,xmax,ymax
         else:
             return None,None,None,None
@@ -2095,7 +2098,7 @@ class Path(pBase):
     def setMarker(self,markername=None,start=True,end=True,mid=True):
 
         if markername not in self.markerdefs:
-            print 'Markerdefs: ',self.markerdefs
+            print 'Markerdefs:',self.markerdefs
             raise ValueError("Marker %s was specified but isn't defined" % markername)
         else:
             # List it as used so we put it in the output file
@@ -2146,7 +2149,7 @@ class Path(pBase):
             # an empty dict to hold our svg elements
             md=self.mkgroupdict()
 
-            pstyle= PYB.StyleBuilder(self.styledefs[self.sdef])
+            pstyle=PYB.StyleBuilder(self.styledefs[self.sdef])
 
             self.pathSVG.set_id(self.id)
             self.pathSVG.set_style(pstyle.getStyle())
@@ -2170,7 +2173,7 @@ class Path(pBase):
             grouplist=self.groups.keys()
         if self.groupname in grouplist:
             dd=self.pathSVG.get_d()
-            xmin,ymin,xmax,ymax= boundingBox(dd)
+            xmin,ymin,xmax,ymax=boundingBox(dd)
             return xmin,ymin,xmax,ymax
         else:
             return None,None,None,None
@@ -2222,7 +2225,7 @@ class TextBlock(pBase):
             tg.addElement(txt)
         else:
             # this is a bit cheesy
-            spacing = ( int(self.styledefs[self.textsdef]['font-size'])*1.2 )
+            spacing=( int(self.styledefs[self.textsdef]['font-size'])*1.2 )
             line=1
             for line in self.text:
                 label=self.id+'.line'+str(line)
