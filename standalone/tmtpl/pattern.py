@@ -799,7 +799,7 @@ def xyIntersectLines2(L1x1,L1y1,L1x2,L1y2,L2x1,L2y1,L2x2,L2y2):
             #else:
                 #x=(L2b-L1b) / (L1m-L2m)
         else:
-            x=(L2b-L1b) / (L1m-L2m)              
+            x=(L2b-L1b) / (L1m-L2m)
             y=(L1m*x)+L1b # arbitrary choice,could have used L2m & L2b
     return x,y
 
@@ -1209,7 +1209,7 @@ def intersectLineCurve(P1,P2,curve,n=100):
                 k=k+1
 
         j=j+3 # skip j up to P3 of the current curve to be used as P0 start of next curve
-        
+
         if intersections==0:
             print 'no intersections found in intersectLineCurve(',P1.name,P2.name,' and curve'
 
@@ -1241,21 +1241,23 @@ def addDartFold(parent,dart,inside_pnt):
         if hasattr(dart,'m'):
             updatePoint(dart.m,mid_pnt)
         else:
-            dart.m=rPointP(parent,dart.name+'.m',mid_pnt) # adds '.' automatically-why?
+            dart.m=rPointP(parent,dart.name+'.m',mid_pnt)
 
         # dart outside leg at cuttingline
-        temp_pnt=pntOnLineP(dart.o,dart,-SEAM_ALLOWANCE)
+
+        #temp_pnt=pntOnLineP(dart.o,dart,-SEAM_ALLOWANCE)
+        temp_pnt=polarPointP(dart, distanceP(dart, dart.o)+SEAM_ALLOWANCE, angleOfLineP(dart, dart.o))
         if hasattr(dart,'oc'):
             updatePoint(dart.oc,temp_pnt)
         else:
-            dart.oc=rPointP(parent,dart.name+'.oc',temp_pnt) # adds '.' automatically-why?
+            dart.oc=rPointP(parent,dart.name+'.oc',temp_pnt)
 
         # dart inside leg at cuttingline
         temp_pnt=pntOnLineP(dart.i,dart,-SEAM_ALLOWANCE)
         if hasattr(dart,'ic'):
             updatePoint(dart.ic,temp_pnt)
         else:
-            dart.ic=rPointP(parent,dart.name+'.ic',temp_pnt) # adds '.' automatically-why?
+            dart.ic=rPointP(parent,dart.name+'.ic',temp_pnt)
 
         return
 
