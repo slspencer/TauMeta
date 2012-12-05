@@ -225,8 +225,17 @@ def angleOfChord(chord_width,radius):
     angle=2*asin(d_div_2r) # angle-usage:could be the rotation angle used in slashAndSpread to create a dart
     return angle
 
-# ---tests for position---
+#---slope---
+def slopeOfLine(p1,p2):
+    """ Accepts two point objects and returns the slope """
+    if ((p2.x-p1.x) <> 0):
+        m=(p2.y-p1.y)/(p2.x-p1.x)
+    else:
+        print 'Vertical Line'
+        m=None
+    return m
 
+#---tests for position---
 def isRight(pnt1, pnt2):
     '''returns 1 if pnt2 is to the right of pnt1'''
     right=0
@@ -311,12 +320,12 @@ def intersectLines(p1,p2,p3,p4):
     x,y=0.0,0.0
     if (p1.x==p2.x): #if 1st line vertical,use slope of 2nd line
         x=p1.x
-        m2=slopeOfLine(p3.x,p3.y,p4.x,p4.y)
+        m2=slopeOfLine(p3,p4)
         b2=p3.y-m2*p3.x
         y=m2*x+b2
     elif (p3.x==p4.x): #if 2nd line vertical, use slope of 1st line
         x=p3.x
-        m1=slopeOfLine(p1.x,p1.y,p2.x,p2.y)
+        m1=slopeOfLine(p1,p2)
         b1=p1.y-m1*p1.x
         y=m1*x+b1
     else: #otherwise use ratio of difference between slopes
@@ -852,6 +861,32 @@ def foldDart(parent,dart,inside_pnt):
             dart.ic=pPoint(parent,dart.name+'.ic',temp_pnt)
         return
 
+def adjustDartLength(a,dart,b):
+    """
+    Accepts a of class Pnt or Point, dart of class Dart, and b of class Pnt or Point
+    Finds optimum leg length to smooth the curve from a to b
+    dart.i & dart.o are saved to dart.i_orig & dart.o_orig
+    dart.i_orig & dart.o_orig will be used to calculate curve control points
+    dart.i & dart.o are updated to new longer point on dart legs
+    """
+    #TODO: define class Dart
+    #rotate point 'a' to p1 where it would lie if dart were closed
+    p1=PntP(a)
+    dart.i_orig=PntP(dart.i)
+    dart.o_orig=PntP(dart.o)
+    rotation_angle=angleOfVector(dart.i,dart,dart.o)
+    slashAndSpread(dart,rotation_angle,p1)
+    #calculate intersection 'p2' of dart leg and the imaginary line from p1 to point 'b'
+    p2=intersectLines(dart,dart.i,p1,b)
+    #get point 'p3' halfway out from dart leg to intersection 'p2'
+    p3=midPoint(dart.i,p2)
+    #use p3 to calculate new dart leg length
+    dart_length=distance(dart,dart.i)+distance(dart.i,p3)
+    p4=intersectLineAtLength(dart,dart.o,dart_length)
+    p5=intersectLineAtLength(dart,dart.i,dart_length)
+    updatePoint(dart.o,p4)
+    updatePoint(dart.i,p5)
+
 # ---control points---
 def pointList(*args):
     points=[]
@@ -1158,8 +1193,8 @@ def slashAndSpread(pivot,angle,*args):
         i=0
         while (i<len(list)):
             pnt=list[i]
-            distance=distance(pivot,pnt)
-            rotated_pnt=polarPoint(pivot,distance,angleOfLine(pivot,pnt)+angle) # angle>0=spread clockwise. angle<0=spread counterclockwise.
+            length=distance(pivot,pnt)
+            rotated_pnt=polarPoint(pivot,length,angleOfLine(pivot,pnt)+angle) # angle>0=spread clockwise. angle<0=spread counterclockwise.
             updatePoint(pnt,rotated_pnt)
             i=i+1
         return
