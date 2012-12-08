@@ -859,33 +859,34 @@ def foldDart(parent,dart,inside_pnt):
             updatePoint(dart.ic,temp_pnt)
         else:
             dart.ic=pPoint(parent,dart.name+'.ic',temp_pnt)
+        #create or update dart.angles
+        dart.angle=angleOfVector(dart.i,dart,dart.o)
+
         return
 
-def adjustDartLength(a,dart,b):
+def adjustDartLength(p1,dart,p2):
     """
-    Accepts a of class Pnt or Point, dart of class Dart, and b of class Pnt or Point
-    Finds optimum leg length to smooth the curve from a to b
+    Accepts p1 of class Pnt or Point, dart of class Dart, and p2 of class Pnt or Point
+    Finds optimum leg length to smooth the curve from p1 to p2
     dart.i & dart.o are saved to dart.i_orig & dart.o_orig
     dart.i_orig & dart.o_orig will be used to calculate curve control points
     dart.i & dart.o are updated to new longer point on dart legs
     """
     #TODO: define class Dart
-    #rotate point 'a' to p1 where it would lie if dart were closed
-    p1=PntP(a)
-    dart.i_orig=PntP(dart.i)
-    dart.o_orig=PntP(dart.o)
+    #rotate point 'p1' to p1_new where it would lie if dart were closed
+    p1_new=PntP(p1)
     rotation_angle=angleOfVector(dart.i,dart,dart.o)
-    slashAndSpread(dart,rotation_angle,p1)
-    #calculate intersection 'p2' of dart leg and the imaginary line from p1 to point 'b'
-    p2=intersectLines(dart,dart.i,p1,b)
-    #get point 'p3' halfway out from dart leg to intersection 'p2'
-    p3=midPoint(dart.i,p2)
-    #use p3 to calculate new dart leg length
-    dart_length=distance(dart,dart.i)+distance(dart.i,p3)
-    p4=intersectLineAtLength(dart,dart.o,dart_length)
-    p5=intersectLineAtLength(dart,dart.i,dart_length)
-    updatePoint(dart.o,p4)
-    updatePoint(dart.i,p5)
+    slashAndSpread(dart,rotation_angle,p1_new)
+    #find intersection of dart leg and line p1_new to p2
+    p3=intersectLines(dart,dart.i,p1_new,p2)
+    #new dart length at 1/3 distance from dart.i to p3
+    new_dart_length=distance(dart,dart.i)+distance(dart.i,p3)/3.0
+    #update dart.i & dart.o
+    p4=intersectLineAtLength(dart,dart.i,new_dart_length)
+    p5=intersectLineAtLength(dart,dart.o,new_dart_length)
+    updatePoint(dart.i,p4)
+    updatePoint(dart.o,p5)
+    return
 
 # ---control points---
 def pointList(*args):
