@@ -1647,16 +1647,19 @@ def slashAndSpread(pivot,angle,*args):
         return
 
 #---- Set up pattern document with design info ----------------------------------------
-def setupPattern(pattern_design,clientData,printer,companyName,designerName,patternName,patternNumber):
+
+def setupPattern(pattern_design,clientData,patternData):
         pattern_design.cfg['clientdata']=clientData
         if (printer=='36" wide carriage plotter'):
             pattern_design.cfg['paper_width']=(36.0*IN)
-        pattern_design.cfg['border']=(2.54*CM)
+        #set default border for document to allow printing
+        pattern_design.cfg['border']=(2.5*CM)
         BORDER=pattern_design.cfg['border']
-        metainfo={'companyName':companyName,#mandatory
-                    'designerName':designerName,#mandatory
-                    'patternName':patternName,#mandatory
-                    'patternNumber':patternNumber #mandatory
+        #set data to print at top of pattern
+        metainfo={'companyName':patternData['companyName'],#mandatory
+                    'designerName':patternData['designerName'],#mandatory
+                    'patternName':patternData['patternName'],#mandatory
+                    'patternNumber':patternData['patternNumber'] #mandatory
                     }
         pattern_design.cfg['metainfo']=metainfo
         docattrs={'currentscale':"0.5:1",
