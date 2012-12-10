@@ -19,19 +19,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not,see<http://www.gnu.org/licenses/>.
 
-#python libs
+#python
 import math
 import string
 import re
 import random
 import inspect
 from math import sin,cos,pi,sqrt,asin
-#pysvg libs
+#pysvg
 import pysvg.builders as PYB
-#tmtp libs
+#tmtp
 from document import *
 from constants import *
 from utils import debug
+
 
 #---calculate and draw points---
 
