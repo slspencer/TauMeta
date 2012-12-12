@@ -25,6 +25,8 @@ import string
 import re
 import random
 import inspect
+import string
+from pprint import pprint
 from math import sin,cos,pi,sqrt,asin
 #pysvg
 import pysvg.builders as PYB
@@ -33,6 +35,44 @@ from document import *
 from constants import *
 from utils import debug
 
+
+#c = {"one": 1, "two": 2}
+#for k,v in c.iteritems():
+#    exec("%s=%s" % (k,v))
+#---
+def drawPoints(parent,vdict):
+    '''Create svg objects for the python objects listed in the dictionary'''
+    print('Called drawPoints()')
+
+    def getControlPoints(parent,key,val):
+        #if object in val has c1 & c2 attributes
+        if hasattr(val,'c1') and hasattr(val,'c2'):
+            cPoint(parent,key+'.c1',getattr(val,'c1'))
+            cPoint(parent,key+'.c2',getattr(val,'c2'))
+        return
+
+    def getDartPoints(parent,name,pnt):
+        #all darts have .o,.oc,.i,.ic,.m dynamic object attributes of class Pnt()
+        for attrib in 'i','ic','o','oc','m':
+            name1=name+'.'+attrib #'aD1.i','aD1.ic',etc.
+            pnt1=getattr(pnt,attrib)
+            pPoint(parent,name1,pnt1)
+            getControlPoints(parent,name1,pnt1)
+        return
+
+    letter=parent.lettertext.lower()
+    for key,val in vdict.iteritems():
+        print(key)
+        if key[0]==letter:
+            #create svg pattern & control points
+            if key[1].isdigit():
+                pPoint(parent,key,val)
+                getControlPoints(parent,key,val)
+            #create svg dart points
+            elif key[1]=='D' and key[2].isdigit():
+                pPoint(parent,key,val) #aD1,etc.
+                getDartPoints(parent,key,val)
+    return
 
 #---calculate and draw points---
 
@@ -827,43 +867,66 @@ def neckDart(parent,dart_width,dart_length,length,neck_curve):
     return dart_apex,curve1,curve2
 
 def foldDart(parent,dart,inside_pnt):
-        DART_LENGTH=distance(dart,dart.o)
-        DART_HALF_ANGLE=abs(angleOfVector(dart.o,dart,dart.i))/2.0
-        O_ANGLE=angleOfLine(dart,dart.o)
-        I_ANGLE=angleOfLine(dart,dart.i)
-        # determine which direction the dart will be folded
-        if I_ANGLE<=O_ANGLE:
-            FOLD_ANGLE=I_ANGLE-DART_HALF_ANGLE
-        else:
-            FOLD_ANGLE=I_ANGLE+DART_HALF_ANGLE
-        # find intersection of fold & armscye b/w bd2.i & inside_pnt
-        # TODO:use intersectLineCurve()
-        temp_pnt=polarPoint(dart,DART_LENGTH,FOLD_ANGLE)
-        fold_pnt=intersectLines(dart.i,inside_pnt,dart,temp_pnt)
-        # dart midpoint at seamline
-        temp_pnt=midPoint(dart.i,dart.o)
-        mid_pnt=intersectLineAtLength(dart,temp_pnt,distance(dart,fold_pnt))
-        if hasattr(dart,'m'):
-            updatePoint(dart.m,mid_pnt)
-        else:
-            dart.m=pPoint(parent,dart.name+'.m',mid_pnt)
-        # dart outside leg at cuttingline
-        #temp_pnt=intersectLineAtLength(dart.o,dart,-SEAM_ALLOWANCE)
-        temp_pnt=polarPoint(dart, distance(dart, dart.o)+SEAM_ALLOWANCE, angleOfLine(dart, dart.o))
-        if hasattr(dart,'oc'):
-            updatePoint(dart.oc,temp_pnt)
-        else:
-            dart.oc=pPoint(parent,dart.name+'.oc',temp_pnt)
-        # dart inside leg at cuttingline
-        temp_pnt=intersectLineAtLength(dart.i,dart,-SEAM_ALLOWANCE)
-        if hasattr(dart,'ic'):
-            updatePoint(dart.ic,temp_pnt)
-        else:
-            dart.ic=pPoint(parent,dart.name+'.ic',temp_pnt)
-        #create or update dart.angles
-        dart.angle=angleOfVector(dart.i,dart,dart.o)
+    DART_LENGTH=distance(dart,dart.o)
+    DART_HALF_ANGLE=abs(angleOfVector(dart.o,dart,dart.i))/2.0
+    O_ANGLE=angleOfLine(dart,dart.o)
+    I_ANGLE=angleOfLine(dart,dart.i)
+    # determine which direction the dart will be folded
+    if I_ANGLE<=O_ANGLE:
+        FOLD_ANGLE=I_ANGLE-DART_HALF_ANGLE
+    else:
+        FOLD_ANGLE=I_ANGLE+DART_HALF_ANGLE
+    # find intersection of fold & armscye b/w bd2.i & inside_pnt
+    # TODO:use intersectLineCurve()
+    temp_pnt=polarPoint(dart,DART_LENGTH,FOLD_ANGLE)
+    fold_pnt=intersectLines(dart.i,inside_pnt,dart,temp_pnt)
+    # dart midpoint at seamline
+    temp_pnt=midPoint(dart.i,dart.o)
+    mid_pnt=intersectLineAtLength(dart,temp_pnt,distance(dart,fold_pnt))
+    if hasattr(dart,'m'):
+        updatePoint(dart.m,mid_pnt)
+    else:
+        dart.m=pPoint(parent,dart.name+'.m',mid_pnt)
+    # dart outside leg at cuttingline
+    #temp_pnt=intersectLineAtLength(dart.o,dart,-SEAM_ALLOWANCE)
+    temp_pnt=polarPoint(dart,distance(dart,dart.o)+SEAM_ALLOWANCE,angleOfLine(dart,dart.o))
+    if hasattr(dart,'oc'):
+        updatePoint(dart.oc,temp_pnt)
+    else:
+        dart.oc=pPoint(parent,dart.name+'.oc',temp_pnt)
+    # dart inside leg at cuttingline
+    temp_pnt=intersectLineAtLength(dart.i,dart,-SEAM_ALLOWANCE)
+    if hasattr(dart,'ic'):
+        updatePoint(dart.ic,temp_pnt)
+    else:
+        dart.ic=pPoint(parent,dart.name+'.ic',temp_pnt)
+    #create or update dart.angles
+    dart.angle=angleOfVector(dart.i,dart,dart.o)
 
-        return
+    return
+
+def foldDart2(dart,inside_pnt):
+    DART_LENGTH=distance(dart,dart.o)
+    DART_HALF_ANGLE=abs(angleOfVector(dart.o,dart,dart.i))/2.0
+    O_ANGLE=angleOfLine(dart,dart.o)
+    I_ANGLE=angleOfLine(dart,dart.i)
+    #determine which direction the dart will be folded
+    if I_ANGLE<=O_ANGLE:
+        FOLD_ANGLE=I_ANGLE-DART_HALF_ANGLE
+    else:
+        FOLD_ANGLE=I_ANGLE+DART_HALF_ANGLE
+    #TODO:find intersection of fold & armscye b/w bd2.i & inside_pnt
+    #TODO:use intersectLineCurve()
+    temp_pnt=polarPoint(dart,DART_LENGTH,FOLD_ANGLE)
+    fold_pnt=intersectLines(dart.i,inside_pnt,dart,temp_pnt)
+    temp_pnt=midPoint(dart.i,dart.o)
+    dart.m=intersectLineAtLength(dart,temp_pnt,distance(dart,fold_pnt)) #dart midpoint at seamline
+    dart.oc=polarPoint(dart,distance(dart,dart.o)+SEAM_ALLOWANCE,angleOfLine(dart,dart.o)) #dart outside leg at cuttingline
+    dart.ic=intersectLineAtLength(dart.i,dart,-SEAM_ALLOWANCE) #dart inside leg at cuttingline
+    #create or update dart.angles
+    dart.angle=angleOfVector(dart.i,dart,dart.o)
+
+    return
 
 def adjustDartLength(p1,dart,p2):
     """
@@ -1397,9 +1460,10 @@ class Node(pBase):
 class Pnt():
     '''Accepts no parameters, or optional x,y,name. Returns a Pnt object with .x,.y,and .name children.  Does not create point in SVG document'''
     def __init__(self,x=0.0,y=0.0,name=''):
+        self.name=name
         self.x=x
         self.y=y
-        self.name=name
+
 
 class PntP():
     '''Accepts no parameters, or optional Point or Pnt object. Returns a Pnt object with .x,.y,and .name children.  Does not create point in SVG document. Same as class Pnt()'''
