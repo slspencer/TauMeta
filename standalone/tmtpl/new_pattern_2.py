@@ -39,7 +39,14 @@ from utils import debug
 #c = {"one": 1, "two": 2}
 #for k,v in c.iteritems():
 #    exec("%s=%s" % (k,v))
+
+
+
+    #TODO: write function to draw shortest line from point to line
+    #TODO: write function to draw perpendicular line from point to line (with optional parameter to use a given angle)
 #---
+
+
 def drawPoints(parent,vdict):
     '''Create svg objects for the python objects listed in the dictionary'''
     print('Called drawPoints()')
@@ -47,8 +54,8 @@ def drawPoints(parent,vdict):
     def getControlPoints(parent,key,val):
         #if object in val has c1 & c2 attributes
         if hasattr(val,'c1') and hasattr(val,'c2'):
-            cPoint(parent,key+'.c1',getattr(val,'c1'))
-            cPoint(parent,key+'.c2',getattr(val,'c2'))
+            cPoint(parent,key+'.c1',getattr(val,'c1')) #create control point SVG object
+            cPoint(parent,key+'.c2',getattr(val,'c2')) #creat control point SVG object
         return
 
     def getDartPoints(parent,name,pnt):
@@ -57,21 +64,27 @@ def drawPoints(parent,vdict):
             name1=name+'.'+attrib #'aD1.i','aD1.ic',etc.
             pnt1=getattr(pnt,attrib)
             pPoint(parent,name1,pnt1)
-            getControlPoints(parent,name1,pnt1)
+            getControlPoints(parent,name1,pnt1) # find & create control points SVG objects, if any
         return
 
-    letter=parent.lettertext.lower()
     for key,val in vdict.iteritems():
         print(key)
-        if key[0]==letter:
-            #create svg pattern & control points
-            if key[1].isdigit():
-                pPoint(parent,key,val)
-                getControlPoints(parent,key,val)
-            #create svg dart points
-            elif key[1]=='D' and key[2].isdigit():
-                pPoint(parent,key,val) #aD1,etc.
-                getDartPoints(parent,key,val)
+        if hasattr(val,'isCircle'):
+            circle(parent,key,val)
+        elif ('Letter' in parent.name) or ('letter' in parent.name):
+            pPoint(parent,key,val)
+            getControlPoints(parent,key,val)
+        else:
+            letter=parent.lettertext.lower()
+            if key[0]==letter:
+                #create svg pattern & control points
+                if key[1].isdigit(): #a1,b3,...
+                    pPoint(parent,key,val)
+                    getControlPoints(parent,key,val)
+                #create svg dart points
+                elif key[1]=='D' and key[2].isdigit():
+                    pPoint(parent,key,val) #aD1,bD1,...
+                    getDartPoints(parent,key,val)
     return
 
 #---calculate and draw points---
@@ -146,6 +159,16 @@ def cPointXY(parent,id,x,y,transform=''):
     p1=Point('reference',id,x,y,'controlpoint_style',transform)
     parent.add(p1)
     return p1
+
+def circle(parent,id,p1):
+    """creates an unfilled circle """
+    p2=Point('reference',id+'_circle',p1.x,p1.y,'circle_style',transform='',size=p1.size)
+    parent.add(p2)
+    p3=Point('reference',id,p1.x,p1.y,'point_style',transform='',size=5)
+    parent.add(p3)
+    return
+
+
 
 #---functions to calculate points. These functions do not create SVG objects---
 
@@ -304,6 +327,30 @@ def isBelow(pnt1, pnt2):
     if pnt2.y>pnt1.y:
         down=1
     return down
+
+def lowest(pnt1,pnt2):
+    if pnt2.y>pnt1.y:
+        return pnt2
+    else:
+        return pnt1
+
+def highest(pnt1,pnt2):
+    if pnt2.y<pnt1.y:
+        return pnt2
+    else:
+        return pnt1
+
+def leftmost(pnt1,pnt2):
+    if pnt2.x<pnt1.x:
+        return pnt2
+    else:
+        return pnt1
+
+def rightmost(pnt1,pnt2):
+    if pnt2.x>pnt1.x:
+        return pnt2
+    else:
+        return pnt1
 
 # ---lines---
 
@@ -762,31 +809,49 @@ def intersectLineCircle(C,r,P1,P2):
     Returns an object P with number of intersection points,and up to two coordinate pairs as P.intersections,P.p1,P.p2
     Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py,written in Python 3.2 by Campbell Barton
     """
-    #TODO-doesn't work on P1-P2 vertical line-CRASHES!!!!!!
     P,p1,p2=Pnt(),Pnt(),Pnt()
     intersections=0
-    a=(P2.x-P1.x)**2+(P2.y-P1.y)**2
-    b=(2.0*((P2.x-P1.x)*(P1.x-C.x))+((P2.y-P1.y)*(P1.y-C.y)))
-    c=((C.x)**2+(C.y)*82+(P1.x**2)+(P1.y)**2-(2.0*(C.x*P1.x+C.y*P1.y ))-(r)**2)
-    i=b**2-4.0*a*c
-    if i<0.0:
-        print 'no intersections b/w line',P1.name,P1.x,P1.y,'--',P2.name,P2.x,P2.y,'and Circle',C.name,C.x,C.y,'with radius',r
-        return None
-    elif i==0.0:
-        # one intersection
-        intersections=1
-        mu=-b/(2.0*a)
-        p1.x,p1.y=P1.x+mu*(P2.x-P1.x),P1.y+mu*(P2.y-P1.y)
-    elif i>0.0:
-        # two intersections
-        intersections=2
-        # first intersection
-        mu1=(-b+math.sqrt(i))/(2.0*a)
-        p1.x,p1.y=P1.x+mu1*(P2.x-P1.x),P1.y+mu1*(P2.y-P1.y)
-        # second intersection
-        mu2=(-b-math.sqrt(i))/(2.0*a)
-        p2.x,p2.y=P1.x+mu2*(P2.x-P1.x),P1.y+mu2*(P2.y-P1.y)
-    P.intersections=intersections
+
+    if P1.x==P2.x: #vertical line
+        if abs(P1.x-C.x)>r:
+            print 'no intersections for vertical line P1',P1.name,P1.x,P1.y,', P2',P2.name,P2.x,P2.y,',and Circle',C.name,C.x,C.y,', radius',r
+            return None
+        else:
+            p1.x=P1.x
+            p2.x=P1.x
+            p1.y=C.y+sqrt((r**2)-((P1.x-C.x)**2))
+            p2.y=C.y-sqrt(r**2-(P1.x-C.x)**2)
+    elif P1.y==P2.y: #horizontal line
+        if abs(P1.y-C.y)>r:
+            print 'no intersections for horizontal line P1',P1.name,P1.x,P1.y,', P2',P2.name,P2.x,P2.y,',and Circle',C.name,C.x,C.y,', radius',r
+            return None
+        else:
+            p1.y=P1.y
+            p2.y=P1.y
+            p1.x=C.x+sqrt(r**2-(P1.y-C.y)**2)
+            p2.x=C.x-sqrt(r**2-(P1.y-C.y)**2)
+    else:
+        a=(P2.x-P1.x)**2+(P2.y-P1.y)**2
+        b=(2.0*((P2.x-P1.x)*(P1.x-C.x))+((P2.y-P1.y)*(P1.y-C.y)))
+        c=((C.x)**2+(C.y)*82+(P1.x**2)+(P1.y)**2-(2.0*(C.x*P1.x+C.y*P1.y ))-(r)**2)
+        i=b**2-4.0*a*c
+        if i<0.0:
+            print 'no intersections b/w line',P1.name,P1.x,P1.y,'--',P2.name,P2.x,P2.y,'and Circle',C.name,C.x,C.y,'with radius',r
+            return None
+        elif i==0.0:
+            # one intersection
+            intersections=1
+            mu=-b/(2.0*a)
+            p1.x,p1.y=P1.x+mu*(P2.x-P1.x),P1.y+mu*(P2.y-P1.y)
+        elif i>0.0:
+            # two intersections
+            intersections=2
+            # first intersection
+            mu1=(-b+math.sqrt(i))/(2.0*a)
+            p1.x,p1.y=P1.x+mu1*(P2.x-P1.x),P1.y+mu1*(P2.y-P1.y)
+            # second intersection
+            mu2=(-b-math.sqrt(i))/(2.0*a)
+            p2.x,p2.y=P1.x+mu2*(P2.x-P1.x),P1.y+mu2*(P2.y-P1.y)
     P.p1=p1
     P.p2=p2
     return P
@@ -801,6 +866,7 @@ def intersectChordCircle(C,r,P,chord_length):
     P.append(polarPoint(C,r,angle))
     P.append(polarPoint(C,r,- angle))
     return P
+
 
 #---darts---
 def waistDart(parent,dart_width,dart_length,length,waist_curve,dart_angle=ANGLE90):
@@ -928,13 +994,13 @@ def foldDart2(dart,inside_pnt):
 
     return
 
-def adjustDartLength(p1,dart,p2):
+def adjustDartLength(p1,dart,p2,extension=1/3.0):
     """
-    Accepts p1 of class Pnt or Point, dart of class Dart, and p2 of class Pnt or Point
     Finds optimum leg length to smooth the curve from p1 to p2
-    dart.i & dart.o are saved to dart.i_orig & dart.o_orig
-    dart.i_orig & dart.o_orig will be used to calculate curve control points
+    Accepts p1 of class Pnt or Point, dart of class Dart, and p2 of class Pnt or Point
     dart.i & dart.o are updated to new longer point on dart legs
+    Default extension is 1/3 distance from orig dart length to the line
+    drawn between p1 & p2 after the dart is created
     """
     #TODO: define class Dart
     #rotate point 'p1' to p1_new where it would lie if dart were closed
@@ -944,7 +1010,7 @@ def adjustDartLength(p1,dart,p2):
     #find intersection of dart leg and line p1_new to p2
     p3=intersectLines(dart,dart.i,p1_new,p2)
     #new dart length at 1/3 distance from dart.i to p3
-    new_dart_length=distance(dart,dart.i)+distance(dart.i,p3)/3.0
+    new_dart_length=distance(dart,dart.i)+distance(dart.i,p3)*extension
     #update dart.i & dart.o
     p4=intersectLineAtLength(dart,dart.i,new_dart_length)
     p5=intersectLineAtLength(dart,dart.o,new_dart_length)
@@ -1457,26 +1523,38 @@ class Node(pBase):
         self.name=name
         pBase.__init__(self)
 
+
 class Pnt():
-    '''Accepts no parameters, or optional x,y,name. Returns a Pnt object with .x,.y,and .name children.  Does not create point in SVG document'''
-    def __init__(self,x=0.0,y=0.0,name=''):
-        self.name=name
+    '''Returns a Pnt object with .x,.y,and .name children'''
+    def __init__(self,x=0.0,y=0.0,name='',size=''):
         self.x=x
         self.y=y
+        self.name=name
+        self.size=size
 
 
 class PntP():
     '''Accepts no parameters, or optional Point or Pnt object. Returns a Pnt object with .x,.y,and .name children.  Does not create point in SVG document. Same as class Pnt()'''
-    def __init__(self,pnt=Pnt(),name=''):
+    def __init__(self,pnt=Pnt(),name='',size=''):
         self.x=pnt.x
         self.y=pnt.y
         self.name=name
+        self.size=size
+
+class Circ():
+    '''Returns a Circ object with .x,.y,and .name children'''
+    def __init__(self,p1=Pnt(0,0),name='',size=''):
+        self.x=p1.x
+        self.y=p1.y
+        self.name=name
+        self.size=size
+        self.isCircle=1
 
 class Point(pBase):
     """
     Creates instance of Python class Point
     """
-    def __init__(self,group,name,x=0,y=0,styledef='default',transform='') :
+    def __init__(self,group,name,x=0,y=0,styledef='default',transform='',size=5) :
 
         self.groupname=group
         self.name=name
@@ -1485,7 +1563,7 @@ class Point(pBase):
         self.y=y
         self.attrs={}
         self.attrs['transform']=transform
-        self.size=5
+        self.size=size
         self.coords=str(x)+","+str(y)
         pBase.__init__(self)
 
@@ -1515,14 +1593,15 @@ class Point(pBase):
             p.setAttribute(attrname,attrvalue)
         md[self.groupname].append(p)
 
-        txtlabel=self.id+'.text'
-        txttxt=self.name
-        if '_c' in txttxt:
-            txtstyle='control_point_text_style'
-        else:
-            txtstyle='point_text_style'
-        txt=self.generateText(self.x,self.y-25,txtlabel,txttxt,txtstyle)
-        md[self.groupname].append(txt)
+        if 'circle' not in self.id: #circles get a separate point in the middle with text id, this would be redundant
+            txtlabel=self.id+'.text'
+            txttxt=self.name
+            if '_c' in txttxt:
+                txtstyle='control_point_text_style'
+            else:
+                txtstyle='point_text_style'
+            txt=self.generateText(self.x+7,self.y-7,txtlabel,txttxt,txtstyle)
+            md[self.groupname].append(txt)
 
         return md
 
@@ -1800,14 +1879,14 @@ class PatternPiece(pBase):
     which will contain the set of seams and all other pattern piece info,
     eg-jacket.back.seam.shoulder,jacket.back.grainline,jacket.back.interfacing
     """
-    def __init__(self,group,name,letter='?',fabric=0,interfacing=0,lining=0):
+    def __init__(self,group,name,lettertext='?',fabric=0,interfacing=0,lining=0):
         self.name=name
         self.groupname=group
         self.width=0
         self.height=0
         self.labelx=0
         self.labely=0
-        self.lettertext=letter
+        self.lettertext=lettertext
         self.fabric=fabric
         self.interfacing=interfacing
         self.lining=lining
