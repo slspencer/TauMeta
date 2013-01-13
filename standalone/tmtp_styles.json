@@ -116,6 +116,13 @@
         "stroke": "gray",
         "stroke-width": "1"
     },
+    "circle_style": {
+        "fill": "none",
+        "stroke": "green",
+        "stroke-linejoin": "miter",
+        "stroke-miterlimit": "4",
+        "stroke-width": "4"
+    },
     "point_text_style": {
         "fill": "darkblue",
         "fill-opacity": "1.0",
