@@ -85,6 +85,8 @@ def drawPoints(parent,vdict):
                 elif key[1]=='D' and key[2].isdigit():
                     pPoint(parent,key,val) #aD1,bD1,...
                     getDartPoints(parent,key,val)
+                elif 'apex' in key:
+                    pPoint(parent,key,val) #a_apex,b_apex,...
     return
 
 #---calculate and draw points---
