@@ -60,6 +60,8 @@ class Document(pBase):
 
     def draw(self):
 
+        #TODO:place testgrid 1" to the right of the TitleBlock
+
         # the user may have specified on the command line to draw groups that
         # aren't present in the file. If not present, print a warning and remove those groups from the self.displayed_groups list.
         todelete = []
