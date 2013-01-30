@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #
-# This file is part of the tmtp (Tau Meta Tau Physica) project.
-# For more information, see http://www.sew-brilliant.org/
+# This file is part of the Tau Meta Tau Physica project.
+# For more information, see http://www.taumeta.org/
 #
 # Copyright (C) 2010, 2011, 2012  Susan Spencer and Steve Conklin
 #
@@ -88,11 +88,11 @@ class pBase(object):
         """
         # Creates a new dictionary that contains all the groups from the Baseclass groups dictionary.
         # This dictionary contains an empty list for each group. These lists are used in creating the SVG document.
-        td = {}
+        new_dict = {}
         for k, v in self.groups.items():
             # Add group to new dictionary & the group is now an empty list
-            td[k] = []
-        return td
+            new_dict[k] = []
+        return new_dict
 
     def generateText(self, x, y, label, string, styledef, trans = ''):
         """
@@ -101,12 +101,12 @@ class pBase(object):
         # in this class because it needs the styledefs
         tstyle = PYB.StyleBuilder(self.styledefs[styledef])
 
-        t = PYB.text(string, x, y)
-        t.set_style(tstyle.getStyle())
-        t.set_id(label)
-        t.setAttribute('transform', trans)
+        svg_text = PYB.text(string, x, y)
+        svg_text.set_style(tstyle.getStyle())
+        svg_text.set_id(label)
+        svg_text.setAttribute('transform', trans)
 
-        return t
+        return svg_text
 
     def getsvg(self):
         """
@@ -140,12 +140,12 @@ class pBase(object):
         # to the parent for the group that the pattern piece belongs to.
         #
         #
-        md = {} # create local mydictionary
+        svg_dict = {} # create local mydictionary
         if self.debug:
             print "getsvg() called in ", self.name
         # create empty lists for each group in the base document
         for groupname in self.groups:
-            md[groupname] = [] # append groupname as an empty list
+            svg_dict[groupname] = [] # append groupname as an empty list
 
         # now recursively call getsvg() for each of my children
         for child in self.children:
@@ -153,12 +153,12 @@ class pBase(object):
                 print 'Processing child ', child.name
             # If the child has a method to generate svg, call it
             if child.getsvg:
-                cd = child.getsvg()
+                svg_child = child.getsvg()
                 # Now append everything in each group from the child to my list for that group
-                for grpnm, glist in cd.items(): # for each group
+                for grpnm, glist in svg_child.items(): # for each group
                     for svgitem in glist:       # for each item in group
-                        md[grpnm].append(svgitem) # append item to mydictionary's list for that group
-        return md
+                        svg_dict[grpnm].append(svgitem) # append item to mydictionary's list for that group
+        return svg_dict
 
     def boundingBox(self, grouplist = None):
         """
@@ -175,8 +175,6 @@ class pBase(object):
         xhigh = 0
         yhigh = 0
         first = 1
-
-        md = {}
 
         if self.debug:
             print "boundingBox() called in ", self.name
