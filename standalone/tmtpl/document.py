@@ -21,7 +21,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import json
-
 import pysvg.builders as PYB
 
 from constants import *
@@ -82,28 +81,27 @@ class Document(pBase):
                 self.displayed_groups.append(groupname)
 
         # create the base pysvg object
-        sz = PYB.svg()
+        svg_base = PYB.svg()
 
         if 'tooltips' in self.cfg:
             # If --tooltips specified in mkpattern command line options
-            # create pysvg script class object
-            sc = PYB.script()
-            sc.set_xlink_href('tmtp_mouse.js')
-            sc.set_xlink_type('text/ecmascript')
-            # Add script object elements to pysvg base object
-            sz.addElement(sc)
-            sz.set_onload('init(evt)')
+            # create pysvg script class object, add to svg_base object, & set script to initialize on document load
+            svg_script = PYB.script()
+            svg_script.set_xlink_href('tmtp_mouse.js')
+            svg_script.set_xlink_type('text/ecmascript')
+            svg_base.addElement(svg_script)
+            svg_base.set_onload('init(evt)')
 
             # Add the tooltip text element. Start it hidden at upper left with 'ToolTip' as it's displayable string.
             ttel = self.generateText(0, 0, 'tooltip', 'ToolTip', 'tooltip_text_style')
             ttel.setAttribute('visibility', 'hidden')
-            sz.addElement(ttel)
+            svg_base.addElement(ttel)
 
         # for some of the common information, make them attributes also
-        mi = self.cfg['metainfo']
+        meta_info = self.cfg['metainfo']
         for lbl in ['companyName', 'designerName', 'patternname', 'patternNumber']:
-            if lbl in mi:
-                self.attrs[lbl] = mi[lbl] # adds the self.cfg metainfo dictionary items to self.attrs so they will be written to the svg document.
+            if lbl in meta_info:
+                self.attrs[lbl] = meta_info[lbl] # adds the self.cfg metainfo dictionary items to self.attrs so they will be written to the svg document.
 
         self.attrs['client-name'] = self.cfg['clientdata'].customername # Add customername to self.attrs so it can be written to the svg document.
 
@@ -116,7 +114,7 @@ class Document(pBase):
         # Add namespaces
         #
         # TODO - note sure if any of these are required
-        #sz.setAttribute('xmlns:cc', "http://creativecommons.org/ns#")
+        #svg_base.setAttribute('xmlns:cc', "http://creativecommons.org/ns#")
         # dc xmlns:dc="http://purl.org/dc/elements/1.1/"
         # u'rdf'      :u'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
         # u'sodipodi' :u'http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd',
@@ -131,11 +129,11 @@ class Document(pBase):
         #
         if self.attrs:
             for attr, value in self.attrs.items():
-                sz.setAttribute(attr, value)
+                svg_base.setAttribute(attr, value)
 
-        sz.setAttribute('xmlns:sodipodi', 'http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd')
+        svg_base.setAttribute('xmlns:sodipodi', 'http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd')
         # //svg:svg/sodipodi:namedspace/inkscape:document-units
-        sz.appendTextContent("""<sodipodi:namedview
+        svg_base.appendTextContent("""<sodipodi:namedview
              id="base"
              pagecolor="#ffffff"
              bordercolor="#666666"
@@ -147,7 +145,7 @@ class Document(pBase):
              showgrid="false"
              inkscape:window-maximized="1" />\n""")
         # Original taken from an empty inkscape test file
-        #        sz.appendTextContent("""<sodipodi:namedview
+        #        svg_base.appendTextContent("""<sodipodi:namedview
         #     id="base"
         #     pagecolor="#ffffff"
         #     bordercolor="#666666"
@@ -184,7 +182,7 @@ class Document(pBase):
                 else:
                     print mname, 'marker is an unexpected type ***************'
 
-            sz.addElement(pdefs) # write pdefs to pysvg base object
+            svg_base.addElement(pdefs) # write pdefs to pysvg base object
 
         # Recursively get everything to draw. svgdict[] will contain everything that will be written to the svg document.
         svgdict = self.getsvg()
@@ -198,8 +196,8 @@ class Document(pBase):
         # -spc- TODO This is clearly wrong - it sizes the document to the pattern and ignores paper size
         xsize = (xhi - xlo) + (2.0 * self.cfg['border'])
         ysize = (yhi - ylo) + (2.0 * self.cfg['border'])
-        sz.set_height(ysize)
-        sz.set_width(xsize)
+        svg_base.set_height(ysize)
+        svg_base.set_width(xsize)
         #print 'document height = ', ysize
         #print 'document width = ', xsize
 
@@ -228,10 +226,10 @@ class Document(pBase):
                 wg.addElement(svgel)
 
             # Now add the top level group to the document
-            sz.addElement(wg)
+            svg_base.addElement(wg)
 
         # Write out the svg file
-        sz.save(self.filename)
+        svg_base.save(self.filename)
         return
 
 class TitleBlock(pBase):
@@ -253,29 +251,29 @@ class TitleBlock(pBase):
             print 'getsvg() called for titleblock ID ', self.id
 
         # an empty dict to hold our svg elements
-        md = self.mkgroupdict()
+        svg_dict = self.mkgroupdict()
 
         # TODO make the text parts configurable
-        tbg = PYB.g()
-        tbg.set_id(self.id)
+        svg_textgroup = PYB.g()
+        svg_textgroup.set_id(self.id)
         # this is a bit cheesy
         text_space =  ( int(self.styledefs[self.stylename]['font-size']) * 1.1 )
         x = self.x
         y = self.y
-        mi = self.cfg['metainfo']
-        tbg.addElement(self.generateText(x, y, 'company', mi['companyName'], self.stylename))
+        meta_info = self.cfg['metainfo']
+        svg_textgroup.addElement(self.generateText(x, y, 'company', meta_info['companyName'], self.stylename))
         y = y + text_space
-        tbg.addElement(self.generateText(x, y, 'designer', mi['designerName'], self.stylename))
+        svg_textgroup.addElement(self.generateText(x, y, 'designer', meta_info['designerName'], self.stylename))
         y = y + text_space
-        tbg.addElement(self.generateText(x, y, 'pattern_number', mi['patternNumber'], self.stylename))
+        svg_textgroup.addElement(self.generateText(x, y, 'pattern_number', meta_info['patternNumber'], self.stylename))
         y = y + text_space
-        tbg.addElement(self.generateText(x, y, 'pattern_name', mi['patternName'], self.stylename))
+        svg_textgroup.addElement(self.generateText(x, y, 'pattern_name', meta_info['patternName'], self.stylename))
         y = y + text_space
-        tbg.addElement(self.generateText(x, y, 'client', self.cfg['clientdata'].customername, self.stylename))
+        svg_textgroup.addElement(self.generateText(x, y, 'client', self.cfg['clientdata'].customername, self.stylename))
         y = y + text_space
 
-        md[self.groupname].append(tbg)
-        return md
+        svg_dict[self.groupname].append(svg_textgroup)
+        return svg_dict
 
 class TestGrid(pBase):
     def __init__(self, group, name, x, y, centimeters=10, inches=4, stylename = ''):
@@ -298,11 +296,11 @@ class TestGrid(pBase):
             print 'getsvg() called for TestGrid ID ', self.id
 
         # an empty dict to hold our svg elements
-        md = self.mkgroupdict()
+        svg_dict = self.mkgroupdict()
 
         # TODO make the text parts configurable
-        tbg = PYB.g()
-        tbg.set_id(self.id)
+        svg_gridgroup = PYB.g()
+        svg_gridgroup.set_id(self.id)
 
         """
         Creates two TestGrids at top of pattern --> 20cm & 8in
@@ -310,15 +308,15 @@ class TestGrid(pBase):
 
         CMW = self.centimeters*CM_TO_PX
         INW = self.inches*IN_TO_PX
-        tgps = PYB.path()
+        svg_gridpath = PYB.path()
 
         gstyle = PYB.StyleBuilder(self.styledefs[self.stylename])
-        tgps.set_style(gstyle.getStyle())
-        tgps.set_id(self.name)
+        svg_gridpath.set_style(gstyle.getStyle())
+        svg_gridpath.set_id(self.name)
         #t.setAttribute('transform', trans)
 
 
-        tbg.addElement(tgps)
+        svg_gridgroup.addElement(svg_gridpath)
 
         #Points
         start_x, start_y = self.x, self.y
@@ -330,29 +328,29 @@ class TestGrid(pBase):
         i=0
         while (i<=self.centimeters): # vertical lines
             x=startcm_x + i*CM_TO_PX
-            tgps.appendMoveToPath(x, startcm_y, relative=False)
-            tgps.appendLineToPath(x, startcm_y + CMW, relative=False)
+            svg_gridpath.appendMoveToPath(x, startcm_y, relative=False)
+            svg_gridpath.appendLineToPath(x, startcm_y + CMW, relative=False)
             i=i + 1
         i=0
         while (i<=self.centimeters): # horizontal lines
             y=startcm_y + i*CM_TO_PX
-            tgps.appendMoveToPath(startcm_x, y, relative=False)
-            tgps.appendLineToPath(startcm_x + CMW, y, relative=False)
+            svg_gridpath.appendMoveToPath(startcm_x, y, relative=False)
+            svg_gridpath.appendLineToPath(startcm_x + CMW, y, relative=False)
             i=i + 1
 
         # inch grid
         i=0
         while (i<=self.inches): #vertical
             x=startin_x + i*IN_TO_PX
-            tgps.appendMoveToPath(x, startin_y, relative=False)
-            tgps.appendLineToPath(x, startin_y + INW, relative=False)
+            svg_gridpath.appendMoveToPath(x, startin_y, relative=False)
+            svg_gridpath.appendLineToPath(x, startin_y + INW, relative=False)
             i=i + 1
         i=0
         while (i<=self.inches): #horizontal
             y=startin_y + i*IN_TO_PX
-            tgps.appendMoveToPath(startin_x, y, relative=False)
-            tgps.appendLineToPath(startin_x + INW, y, relative=False)
+            svg_gridpath.appendMoveToPath(startin_x, y, relative=False)
+            svg_gridpath.appendLineToPath(startin_x + INW, y, relative=False)
             i=i + 1
 
-        md[self.groupname].append(tbg)
-        return md
+        svg_dict[self.groupname].append(svg_gridgroup)
+        return svg_dict
