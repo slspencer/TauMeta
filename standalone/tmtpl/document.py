@@ -209,24 +209,24 @@ class Document(pBase):
                     print 'Group %s is not enabled for display' % dictname
                 continue
 
-            wg = PYB.g()
-            self.groups[dictname] = wg
+            svg_group = PYB.g()
+            self.groups[dictname] = svg_group
             # Set the ID to the group name
-            wg.set_id(dictname)
+            svg_group.set_id(dictname)
 
             # set the transform in each group
-            wg.setAttribute('transform', fixuptransform)
+            svg_group.setAttribute('transform', fixuptransform)
             if 'noinkscape' not in self.cfg:
                 # add inkscape layer attributes
-                wg.setAttribute('inkscape:groupmode', 'layer')
-                wg.setAttribute('inkscape:label', ('Label-%s' % dictname))
+                svg_group.setAttribute('inkscape:groupmode', 'layer')
+                svg_group.setAttribute('inkscape:label', ('Label-%s' % dictname))
 
             # Now add all the elements to it
             for svgel in dictelements:
-                wg.addElement(svgel)
+                svg_group.addElement(svgel)
 
             # Now add the top level group to the document
-            svg_base.addElement(wg)
+            svg_base.addElement(svg_group)
 
         # Write out the svg file
         svg_base.save(self.filename)
