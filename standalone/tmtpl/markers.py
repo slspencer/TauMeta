@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #
 # This file is part of the tmtp (Tau Meta Tau Physica) project.
-# For more information, see http://www.sew-brilliant.org/
+# For more information, see http://www.taumeta.org/
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
