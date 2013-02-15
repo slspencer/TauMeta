@@ -418,7 +418,7 @@ def intersectLineCurve(P1,P2,curve,n=100):
         #print 'curve =',pnt.x,pnt.y
     intersections=0
     points_found=[]
-    tangents_found=[]
+    #tangents_found=[]
     pnt=Pnt()
     j=0
     while j<=len(curve) -4: # for each bezier curve in curveArray
@@ -429,29 +429,30 @@ def intersectLineCurve(P1,P2,curve,n=100):
             while k<len(interpolatedPoints)-1:
                 pnt_on_line=polarPoint(fixed_pnt,distance(fixed_pnt,interpolatedPoints[k]),angle)
                 range=distance(interpolatedPoints[k],interpolatedPoints[k+1]) # TODO:improve margin of error
-                distance=distance(pnt_on_line,interpolatedPoints[k])
+                length=distance(pnt_on_line,interpolatedPoints[k])
                 #print k,'pntOnCurve',interpolatedPoints[k].x,interpolatedPoints[k].y,'intersectLineAtLength',pnt_on_line.x,pnt_on_line.y,distance,range
-                if ( distance<=range):
+                if ( length<=range):
                     # its close enough!
                     #print 'its close enough!'
                     if k>1:
                         if (interpolatedPoints[k-1] not in points_found) and (interpolatedPoints[k-2] not in points_found):
                             points_found.append(interpolatedPoints[k])
-                            tangents_found.append(angleOfLine(interpolatedPoints[k-1],interpolatedPoints[k+1]))
+                            #tangents_found.append(angleOfLine(interpolatedPoints[k-1],interpolatedPoints[k+1]))
                             intersections=intersections+1
                     elif k==1:
                         if (curve[0] not in intersections):
                             points_found.append(interpolatedPoints[1])
-                            tangents_found.append(angleOfLine(curve[0],interpolatedPoints[2]))
+                            #tangents_found.append(angleOfLine(curve[0],interpolatedPoints[2]))
                             intersections=intersections+1
                     else:
                         intersections.append(curve[0])
-                        tangents_found.append(angleOfLine(curve[0],curve[1]))
+                        #tangents_found.append(angleOfLine(curve[0],curve[1]))
                 k=k+1
         j=j+3 # skip j up to P3 of the current curve to be used as P0 start of next curve
         if intersections==0:
             print 'no intersections found in intersectLineCurve(',P1.name,P2.name,' and curve'
-    return points_found,tangents_found
+    #return points_found,tangents_found
+    return points_found
 
 def intersectCurveAtX(curve,x):
     '''
@@ -1312,11 +1313,11 @@ def connectObjects(connector_pnts,old_pnts):
         r_pnts.append(t_pnts[0])
         for t_pnt in t_pnts:
             if  (i !=len(t_pnts)):
-                distance=distance(connector_pnts[0],t_pnts[i])
+                length=distance(connector_pnts[0],t_pnts[i])
                 translated_angle=angleOfLine(connector_pnts[0],t_pnts[i])
                 r_angle=translated_angle-rotation_angle
                 r_pnts.append(Pnt())
-                r_pnts[i]=polarPoint(connector_pnts[0],distance,r_angle)
+                r_pnts[i]=polarPoint(connector_pnts[0],length,r_angle)
                 i=i+1
         return r_pnts
 
