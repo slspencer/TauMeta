@@ -1117,7 +1117,7 @@ def scaleAboutPointTransform(x,y,scale):
 
 # ---bounding box---
 
-def boundingBox(path):
+def getBBox(path):
     # TODO:only use information from paths-cuttinLine,seamLine,foldLine,dartLine
     xlist=[]
     ylist=[]
@@ -1709,7 +1709,7 @@ class Line(pBase):
             #return None,None,None,None
         if self.groupname in grouplist:
             dd='M '+str(self.xstart)+' '+str(self.ystart)+' L '+str(self.xend)+' '+str(self.yend)
-            xmin,ymin,xmax,ymax=boundingBox(dd)
+            xmin,ymin,xmax,ymax=getBBox(dd)
             return xmin,ymin,xmax,ymax
         else:
             return None,None,None,None
@@ -1809,7 +1809,7 @@ class Path(pBase):
             grouplist=self.groups.keys()
         if self.groupname in grouplist:
             dd=self.pathSVG.get_d()
-            xmin,ymin,xmax,ymax=boundingBox(dd)
+            xmin,ymin,xmax,ymax=getBBox(dd)
             return xmin,ymin,xmax,ymax
         else:
             return None,None,None,None
