@@ -247,9 +247,9 @@ class TitleBlock(pBase):
         return svg_dict
 
 class TestGrid(pBase):
-    def __init__(self, group, name, x, y, centimeters=10, inches=4, stylename = ''):
-        self.centimeters = 10
-        self.inches = 4
+    def __init__(self, group, name, x, y, centimeters=6, inches=3, stylename = ''):
+        self.centimeters = 6
+        self.inches = 3
         self.name = name
         self.groupname = group
         self.stylename = stylename
