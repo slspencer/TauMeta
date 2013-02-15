@@ -112,26 +112,16 @@ class Document(pBase):
         self.attrs['margin-top'] = str(self.cfg['border'])
 
         # Add namespaces
-        #
-        # TODO - note sure if any of these are required
-        #svg_base.setAttribute('xmlns:cc', "http://creativecommons.org/ns#")
-        # dc xmlns:dc="http://purl.org/dc/elements/1.1/"
-        # u'rdf'      :u'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
-        # u'sodipodi' :u'http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd',
         if 'noinkscape' not in self.cfg:
             self.attrs['xmlns:inkscape'] = 'http://www.inkscape.org/namespaces/inkscape'
-        # u'xml'      :u'http://www.w3.org/XML/1998/namespace',
-        # u'xpath'    :u'http://www.w3.org/TR/xpath',
-        # u'xsl'      :u'http://www.w3.org/1999/XSL/Transform'
 
         # Add attributes - TODO probably put these in a dictionary as
         # part of the document class
-        #
         if self.attrs:
             for attr, value in self.attrs.items():
                 svg_base.setAttribute(attr, value)
-
         svg_base.setAttribute('xmlns:sodipodi', 'http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd')
+
         # //svg:svg/sodipodi:namedspace/inkscape:document-units
         svg_base.appendTextContent("""<sodipodi:namedview
              id="base"
@@ -144,25 +134,6 @@ class Document(pBase):
              inkscape:document-units="pt"
              showgrid="false"
              inkscape:window-maximized="1" />\n""")
-        # Original taken from an empty inkscape test file
-        #        svg_base.appendTextContent("""<sodipodi:namedview
-        #     id="base"
-        #     pagecolor="#ffffff"
-        #     bordercolor="#666666"
-        #     borderopacity="1.0"
-        #     inkscape:pageopacity="0.0"
-        #     inkscape:pageshadow="2"
-        #     inkscape:zoom="0.35"
-        #     inkscape:cx="375"
-        #     inkscape:cy="520"
-        #     inkscape:document-units="px"
-        #     inkscape:current-layer="layer1"
-        #     showgrid="false"
-        #     inkscape:window-width="613"
-        #     inkscape:window-height="504"
-        #     inkscape:window-x="1349"
-        #     inkscape:window-y="29"
-        #     inkscape:window-maximized="0" />\n""")
 
         # If any markers used, add marker definitions to the svg document so they can be referenced within the svg document
         # two types of markers -- plain is a string, dictionary has more than one marker
