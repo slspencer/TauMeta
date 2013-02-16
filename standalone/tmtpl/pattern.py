@@ -2023,9 +2023,9 @@ class Pattern(pBase):
             print ' available paperwidth=',pg_width
             print ' pattern offset=',PATTERN_OFFSET
 
-        next_x=0
+        next_x=SEAM_ALLOWANCE
         # -spc- FIX Leave room for the title block!
-        next_y=8.0*IN_TO_PT # this should be zero
+        next_y=5.0*IN_TO_PT # this should be zero
         #next_y=0 # this should be zero
         max_height_this_row=0
         # a very simple algorithm
@@ -2044,7 +2044,9 @@ class Pattern(pBase):
         letters.sort()
 
         for thisletter in letters:
+            print 'thisletter =',thisletter
             pp=index_by_letter[thisletter]
+            print 'pp=',pp
             info=parts[pp]
             pp_width=info['xhi']-info['xlo']
             pp_height=info['yhi']-info['ylo']
