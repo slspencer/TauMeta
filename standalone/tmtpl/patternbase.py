@@ -170,10 +170,7 @@ class pBase(object):
         # We recurse through children to get a bounding box. Only include elements
         # which are in the groups which appear in the grouplist
         #
-        xlow = 0
-        ylow = 0
-        xhigh = 0
-        yhigh = 0
+        xlow,ylow,xhigh,yhigh = None,None,None,None
         first = 1
 
         if self.debug:
@@ -189,23 +186,28 @@ class pBase(object):
                         print ' calculating bounding box for all groups'
                     grouplist = self.groups.keys()
                 cxlow, cylow, cxhigh, cyhigh = child.boundingBox(grouplist)
-                if first == 1:
-                    xlow = cxlow
-                    ylow = cylow
-                    xhigh = cxhigh
-                    yhigh = cyhigh
-                    first = 0
-                if cxlow != None:
-                    if xlow != None:
-                        xlow = min(xlow, cxlow)
-                        ylow = min(ylow, cylow)
-                        xhigh = max(xhigh, cxhigh)
-                        yhigh = max(yhigh, cyhigh)
-                    else:
+                if child.name not in ('TitleBlock','TestGrid','info','letter'):
+                    if first == 1:
                         xlow = cxlow
                         ylow = cylow
                         xhigh = cxhigh
                         yhigh = cyhigh
+                        first = 0
+                    elif cxlow != None:
+                        if xlow != None:
+                            xlow = min(xlow, cxlow)
+                            ylow = min(ylow, cylow)
+                            xhigh = max(xhigh, cxhigh)
+                            yhigh = max(yhigh, cyhigh)
+                        else:
+                            xlow = cxlow
+                            ylow = cylow
+                            xhigh = cxhigh
+                            yhigh = cyhigh
+
+        if xlow==None:
+            xlow,ylow,xhigh,yhigh=0,0,0,0
+            print self.name,' xlow=None'
 
         return (xlow, ylow, xhigh, yhigh)
 

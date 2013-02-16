@@ -2025,7 +2025,7 @@ class Pattern(pBase):
 
         next_x=SEAM_ALLOWANCE
         # -spc- FIX Leave room for the title block!
-        next_y=5.0*IN_TO_PT # this should be zero
+        next_y=6.0*IN_TO_PT # this should be zero
         #next_y=0 # this should be zero
         max_height_this_row=0
         # a very simple algorithm
