@@ -298,13 +298,13 @@ class TestGrid(pBase):
         # centimeter grid
         i=0
         while (i<=self.centimeters): # vertical lines
-            x=startcm_x + i*CM_TO_PX
+            x=startcm_x + i*CM
             svg_gridpath.appendMoveToPath(x, startcm_y, relative=False)
             svg_gridpath.appendLineToPath(x, startcm_y + CMW, relative=False)
             i=i + 1
         i=0
         while (i<=self.centimeters): # horizontal lines
-            y=startcm_y + i*CM_TO_PX
+            y=startcm_y + i*CM
             svg_gridpath.appendMoveToPath(startcm_x, y, relative=False)
             svg_gridpath.appendLineToPath(startcm_x + CMW, y, relative=False)
             i=i + 1
@@ -312,13 +312,13 @@ class TestGrid(pBase):
         # inch grid
         i=0
         while (i<=self.inches): #vertical
-            x=startin_x + i*IN_TO_PX
+            x=startin_x + i*IN
             svg_gridpath.appendMoveToPath(x, startin_y, relative=False)
             svg_gridpath.appendLineToPath(x, startin_y + INW, relative=False)
             i=i + 1
         i=0
         while (i<=self.inches): #horizontal
-            y=startin_y + i*IN_TO_PX
+            y=startin_y + i*IN
             svg_gridpath.appendMoveToPath(startin_x, y, relative=False)
             svg_gridpath.appendLineToPath(startin_x + INW, y, relative=False)
             i=i + 1
