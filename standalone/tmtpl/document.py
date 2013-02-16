@@ -37,8 +37,8 @@ class Document(pBase):
         self.id = name
         self.x = 0
         self.y = 0
-        self.width = 8.5 * IN_TO_PT
-        self.height = 11.0 * IN_TO_PT
+        self.width = 8.5 * IN_TO_PT #starting document size
+        self.height = 11.0 * IN_TO_PT #starting document size
         self.cfg.update(prog_cfg)
         self.filename = self.cfg['args'][0]
         self.attrs = attributes
@@ -165,8 +165,8 @@ class Document(pBase):
         fixuptransform = ('translate(%f,%f)' % (xtrans, ytrans))
 
         # -spc- TODO This is clearly wrong - it sizes the document to the pattern and ignores paper size
-        xsize = (xhi - xlo) + (2.0 * self.cfg['border'])
-        ysize = (yhi - ylo) + (2.0 * self.cfg['border'])
+        xsize = (xhi - xlo) + (2.0 * self.cfg['border']) + SEAM_ALLOWANCE
+        ysize = (yhi - ylo) + (2.0 * self.cfg['border']) + SEAM_ALLOWANCE
         svg_base.set_height(ysize)
         svg_base.set_width(xsize)
         #print 'document height = ', ysize
