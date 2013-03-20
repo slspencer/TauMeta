@@ -250,6 +250,16 @@ def angleOfChord(chord_width,radius):
     angle=2*asin(d_div_2r) # angle-usage:could be the rotation angle used in slashAndSpread to create a dart
     return angle
 
+def angleFromChord(chord_width, radius):
+    #see http://math.stackexchange.com/questions/164541/finding-a-point-having-the-radius-chord-length-and-another-point
+    #find the angle between two points given center,radius,chordlength & starting point=2*asin(d/2r)
+    d=chord_width #chord width-usage:could be the dart width
+    r=radius #radius-usage:could be the dart length
+    d_div_2r=d/(2.0*r)
+    angle=2*asin(d_div_2r) #angle-usage:could be the rotation angle used in slashAndSpread to create a dart
+
+    return angle
+
 #---slope---
 def slopeOfLine(p1,p2):
     """ Accepts two point objects and returns the slope """
@@ -474,9 +484,9 @@ def intersectCurveAtX(curve,x):
             ylist.append(interpolatedPoints[i].y)
             i=i+1
         xmin,ymin,xmax,ymax=min(xlist),min(ylist),max(xlist),max(ylist)
-        print 'xmin,xmax =',xmin,xmax,'...pattern.intersectCurveAtX()'
-        print 'ymin,ymax =',ymin,ymax,'...pattern.intersectCurveAtX()'
-        print 'x =',x,'...pattern.intersectCurveAtX()'
+        #print 'xmin,xmax =',xmin,xmax,'...pattern.intersectCurveAtX()'
+        #print 'ymin,ymax =',ymin,ymax,'...pattern.intersectCurveAtX()'
+        #print 'x =',x,'...pattern.intersectCurveAtX()'
         i=0
         if ((x >=xmin) and (x<=xmax)):
             while (i<(len(interpolatedPoints)-1)):
@@ -584,22 +594,22 @@ def curvePointAtLength(length,curve):
     p1=Pnt()
     found=0
     j=0
-    while j<=len(curve)-4 and found==0: # for each curve, find pnt
-        interpolated_points=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],n)
-        p1,found=interpolatedCurvePointAtlength(length,interpolated_points,found)
-        j=j+3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+    while (j <= len(curve)-4) and (p1.x == ""): # for each curve, find pnt
+        interpolated_points = interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],n)
+        p1 = interpolatedCurvePointAtlength(length, interpolated_points)
+        j = j+3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return p1
 
-def interpolatedCurvePointAtLength(length,interpolatedPoints,found=0):
-    p1=Pnt()
-    i=1
-    while (i<len(interpolatedPoints)) and (found==0):
-        segmentLength=segmentLength+distance(interpolatedPoints[i-1],interpolatedPoints[i]) #length from previous point to current point
-        if segmentLength>=length:
-            found=1
-            p1.x,p1.y=interpolatedPoints[i].x,interpolatedPoints[i].y
-            i=i+1
-    return p1,found
+def interpolatedCurvePointAtLength(length, interpolatedPoints):
+    p1 = Pnt()
+    i = 1
+    segmentLength = 0
+    while (i < len(interpolatedPoints)) and (p1.x == ''):
+        segmentLength += distance(interpolatedPoints[i-1], interpolatedPoints[i]) #length from previous point to current point
+        if segmentLength >= length:
+            p1.x, p1.y = interpolatedPoints[i].x, interpolatedPoints[i].y
+            i = i+1
+    return p1
 
 def interpolateCurveList(curve,t=100):
     '''curve can have multiple cubic curves P0 C1 C2 P1 C1 C2 P3...'''
@@ -641,19 +651,19 @@ def interpolateCurve(P0,C1,C2,P1,t=100):
             i=i+1
     return interpolatedPoints
 
-def splitCurveAtLength(length,curve):
+def splitCurveAtLength(length, curve):
     '''Accepts a point on a curve,and a curve list with points P0 C1 C2 P1.
     Returns curve list with P0,split.c1,split.c2,split_pnt,new.c11,new.c12,P1'''
     # find split point
-    interpolated_points=interpolateCurve(curve[0],curve[1],curve[2],curve[3])
-    split_pnt=interpolatedCurvePointAtLength(length,interpolated_points) # split neck curve at this point
+    interpolated_points = interpolateCurve(curve[0], curve[1], curve[2], curve[3])
+    split_pnt = interpolatedCurvePointAtLength(length, interpolated_points) # split neck curve at this point
     # find tangent at split point
-    pnt1=interpolatedCurvePointAtLength(length-.1*IN,interpolated_points) # arbitrary 1/10th of an inch-good enough for this application?
-    pnt2=interpolatedCurvePointAtLength(length+.1*IN,interpolated_points) # arbitrary 1/10th of an inch-good enough for this application?
-    forward_tangent_angle=angleOfLine(pnt1,pnt2)
-    backward_tangent_angle=angleOfLine(pnt2,pnt1)
+    pnt1 = interpolatedCurvePointAtLength(length - .25*CM, interpolated_points) # arbitrary 1/4th of a cm-good enough for this application?
+    pnt2 = interpolatedCurvePointAtLength(length + .25*CM, interpolated_points) # arbitrary 1/4th of a cm-good enough for this application?
+    forward_tangent_angle = angleOfLine(pnt1, pnt2)
+    backward_tangent_angle = angleOfLine(pnt2, pnt1)
     # neck control points
-    #b/w curve[0] and split_pnt
+    # b/w curve[0] and split_pnt
     length=distance(curve[0],split_pnt)/3.0
     split_pnt.c1=polarPoint(curve[0],length,angleOfLine(curve[0],curve[1])) # preserve angle b/w P0 & original 1st control point
     split_pnt.c2=polarPoint(split_pnt,length,backward_tangent_angle)
@@ -877,19 +887,30 @@ def neckDart(parent,dart_width,dart_length,length,neck_curve):
     #r=dart_length # radius
     #d_div_2r=d/(2.0*r)
     #rotation_angle=2*asin(d_div_2r)
-    rotation_angle=angleFromChord(dart_width,dart_length)
-    dart_apex=pPoint(parent,'dart_apex',polarPoint(split_curve[3],dart_length,angleOfLine(split_curve[3],split_curve[2])+ANGLE90))
+
+    rotation_angle = angleFromChord(dart_width,dart_length)
+    #print('rotation_angle =', rotation_angle)
+    dart_apex = pPoint(parent,'dart_apex',polarPoint(split_curve[3],dart_length,angleOfLine(split_curve[3],split_curve[2])+ANGLE90))
+    #print('dart_apex =', dart_apex)
+
     # separate split_curve into curve1 & curve2
-    curve1=[]
-    i=0
-    while i<=3:
+    curve1 = []
+    i = 0
+    while i <= 3:
+        p#rint('i = ', i)
+        #print('split_curve[', i, '] =', split_curve[i].x, split_curve[i].y)
         curve1.append(PntP(split_curve[i]))
-        i=i+1
-    curve2=[]
-    i=3
-    while i<=6:
-        curve2.append(PntP(split_curve[i ]))
-        i=i+1
+        #print('curve1[', i, '] =', curve1[i].x, curve1[i].y)
+        i += 1
+
+    curve2 = []
+    i = 3
+    while i <= 6:
+        p#rint('i = ', i)
+        #print('split_curve[', i, '] =', split_curve[i].x, split_curve[i].y)
+        curve2.append(PntP(split_curve[i]))
+        #print('curve2[',i,'] =', curve2[i].x, curve2[i].y)
+        i += 1
     # rotate curve1 relative to the dart_apex,creating the dart
     slashAndSpread(dart_apex,rotation_angle,curve1[0],curve1[1],curve1[2],curve1[3])
     return dart_apex,curve1,curve2
@@ -1248,7 +1269,7 @@ def extractMarkerId(markertext):
 
 def drawPoints(parent,vdict):
     '''Create svg objects for the python objects listed in the dictionary. This function not necessary in Inkscape extensions.'''
-    print('Called drawPoints()')
+    #print('Called drawPoints()')
 
     def getControlPoints(parent,key,val):
         #if object in val has c1 & c2 attributes
@@ -1267,7 +1288,7 @@ def drawPoints(parent,vdict):
         return
 
     for key,val in vdict.iteritems():
-        print(key)
+        #print(key)
         if hasattr(val,'isCircle'):
             circle(parent,key,val)
         elif ('Letter' in parent.name) or ('letter' in parent.name):
@@ -1491,7 +1512,7 @@ def addToPath(p,*args):
             cubicCurveP(p,c1,c2,pnt)
             i=i+4
         else:
-            print 'Unknown command token'
+            print 'Unknown command token ' + cmd
     return
 
 # ---- Set up pattern document with design info ----------------------------------------
@@ -2044,9 +2065,9 @@ class Pattern(pBase):
         letters.sort()
 
         for thisletter in letters:
-            print 'thisletter =',thisletter
+            #print 'thisletter =',thisletter
             pp=index_by_letter[thisletter]
-            print 'pp=',pp
+            #print 'pp=',pp
             info=parts[pp]
             pp_width=info['xhi']-info['xlo']
             pp_height=info['yhi']-info['ylo']

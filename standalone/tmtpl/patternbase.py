@@ -207,7 +207,8 @@ class pBase(object):
 
         if xlow==None:
             xlow,ylow,xhigh,yhigh=0,0,0,0
-            print self.name,' xlow=None'
+            if self.debug:
+                print self.name,' xlow=None'
 
         return (xlow, ylow, xhigh, yhigh)
 
