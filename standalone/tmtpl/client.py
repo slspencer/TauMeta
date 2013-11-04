@@ -25,7 +25,7 @@ import sys
 import json
 
 from constants import *
-
+from database import *
 # Define globals
 
 class ClientData(object):
@@ -43,12 +43,15 @@ class Client(object):
     def __init__(self, filename, filetype= 'json'):
         # This is set up to be extensible for XML or other formats
 
-        self.filetypes = ['json']
+        self.filetypes = ['json', 'database']
         self.data = ClientData()
+        print "Client init filetype = ", filetype
         if filetype not in self.filetypes:
             print 'Client: supported file types are ', self.filetypes
         if filetype == 'json':
             self.__readJson__(filename)
+        elif filetype == 'database':
+            self.__readDb__(filename)
 
     def __readJson__(self, datafilename):
         self.info={}
@@ -113,6 +116,84 @@ class Client(object):
                 setattr(parent, attrname, int(val['value']))
             else:
                 raise ValueError('Unknown type ' + ty + 'in client data')
+        return
+
+    #
+    # Database read routine
+    #
+    def __readDb__(self, recordnum):
+        self.info={}
+
+        # open the client file and read data
+        SDB = Sewdb()
+        SDB.open()
+
+        query = """SELECT * FROM measurements WHERE id='%s';""" % recordnum
+
+        SDB.doquery(query)
+        result = SDB.store_result()
+        data = result.fetch_row(how=1)
+        if len(data) == 0:
+            print "Unable to fetch client data from DataBase"
+            raise
+        cdata = data[0]
+
+        # Check to make sure we have units
+        try:
+            units = cdata['units']
+            if units == 'cm':
+                #self.__conversion__ = cm_to_pt
+                self.__conversion__ = CM_TO_PX
+            elif  units == 'in':
+                #self.__conversion__ = in_to_pt
+                self.__conversion__ = IN_TO_PX
+        except KeyError:
+            print 'Client Data measurement units not defined in client data'
+            raise
+
+        #
+        # read all these and then create a heirarchy of objects and
+        # attributes, based on the 'dotted path' notation.
+        #
+
+        # read everything into attributes
+        # TODO -spc- I can't remember what this is used for, can it go away?
+        for key, val in cdata.items():
+            keyparts = key.split('.')
+
+            # make sure the objects are created in the dotted 'path'
+            parent = self.data
+            for i in range (0, len(keyparts)-1):
+                oname = keyparts[i]
+                if oname not in dir(parent):
+                    # object does not exist, create a new ClientData object within the parent
+                    setattr(parent, oname, ClientData())
+                    # Now, set the parent to be the object we just created
+                    parent = getattr(parent, oname)
+                else:
+                    # object exists - it better be a clientdata type and not something
+                    # else. This can be caused by errors in the variable naming in the json file
+                    parent = getattr(parent, oname)
+                    if not isinstance(parent, ClientData):
+                        print "########################### ERROR: Malformed Client Data ###########################"
+                        print "\nThe valiable named <", oname, "> appears both as an attribute and as a parent"
+                        print "Check the Data file <", datafilename, ">"
+                        print "\n####################################################################################"
+                        raise ValueError
+
+            # now, we have all the containing objects in place
+            # get the rightmost part of the dotted variable, and add it
+            attrname = keyparts[-1]
+            # Create attribute based on the type in the json data
+            if key == 'customername':
+                setattr(parent, attrname, val)
+            elif key == 'units':
+                print "units"
+            elif key == 'id':
+                pass
+            else:
+                # it's a float
+                setattr(parent, attrname, float(val) * self.__conversion__)
         return
 
     def __dump__(self, obj, parent = '', parentstring = '', outtxt = []):

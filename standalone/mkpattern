@@ -115,6 +115,9 @@ class Cmdline:
         stdo("        --client=<client file>                                                               \n")
         stdo("                         The full path to the client data file to use.                       \n")
         stdo("                                                                                             \n")
+        stdo("        --clientrecord=<client db record number>                                             \n")
+        stdo("                         The database record number for the client.                          \n")
+        stdo("                                                                                             \n")
         stdo("        --debug=[dump|prints]                                                                       \n")
         stdo("                         Performs additional output related to the option enabled and        \n")
         stdo("                         the application defined support for the option.                     \n")
@@ -134,7 +137,7 @@ class Cmdline:
         result = True
         try:
             optsShort = ''
-            optsLong  = ['help', 'verbose', 'tooltips', 'config=', 'pattern=', 'cfgoptions=', 'printgroups=', 'styles=', 'client=', 'debug=']
+            optsLong  = ['help', 'verbose', 'tooltips', 'config=', 'pattern=', 'cfgoptions=', 'printgroups=', 'styles=', 'client=', 'clientrecord=', 'debug=']
             opts, args = getopt(argv[1:], optsShort, optsLong)
 
             if len(args) != 1:
@@ -170,6 +173,9 @@ class Cmdline:
 
                 elif opt in ('--client'):
                     self.cfg['client_file'] = val
+
+                elif opt in ('--clientrecord'):
+                    self.cfg['client_record'] = val
 
                 elif opt in ('--debug'):
                     self.cfg['debug'] = val.split(',')
@@ -220,13 +226,20 @@ class AppTemplate(StdApp):
         else:
             verbose = False
 
+        if (self.cfg.has_key('client_file') and self.cfg.has_key('client_record')):
+            cmdline.error('Error: You specfied both a file and a database record number for the client \n\n', self.defaults)
+            return
 
         if self.cfg.has_key('client_file'):
             mfn = self.cfg['client_file']
             if verbose:
                 print "Using client file: ", mfn
+        elif self.cfg.has_key('client_record'):
+            mfn = self.cfg['client_record']
+            if verbose:
+                print "Using client database record: ", mfn
         else:
-            cmdline.error('Error: You must specify a client file\n\n', self.defaults)
+            cmdline.error('Error: You must specify either filename or a database record number for the client \n\n', self.defaults)
             return
 
         if self.cfg.has_key('pattern_file'):
@@ -269,7 +282,10 @@ class AppTemplate(StdApp):
                 print "Debug: dump enabled"
 
         # open the client file and read the data
-        client = Client(self.cfg['client_file'])
+        if self.cfg.has_key('client_file'):
+            client = Client(self.cfg['client_file'], filetype='json')
+        elif  self.cfg.has_key('client_record'):
+            client = Client(self.cfg['client_record'], filetype='database')
         CD = client.data
 
         if dbgdump:
