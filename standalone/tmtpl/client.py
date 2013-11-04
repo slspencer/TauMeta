@@ -30,7 +30,7 @@ from database import *
 
 class ClientData(object):
     """
-    Class used to build a heirarchical structure of client data
+    Class used to store client data
     """
     def __init__(self):
         return
@@ -74,46 +74,22 @@ class Client(object):
             print 'Client Data measurement units not defined in client data file'
             raise
 
-        #
-        # read all these and then create a heirarchy of objects and
-        # attributes, based on the 'dotted path' notation.
-        #
-
         # read everything into attributes
         for key, val in self.client.items():
-            keyparts = key.split('.')
+            if len(key.split('.')) > 1:
+                print "########################### ERROR: Malformed Client Data ###########################"
+                print "\nThe variable named <", key, "> contains periods, which are not allowed"
+                print "\n####################################################################################"
+                raise ValueError
 
-            # make sure the objects are created in the dotted 'path'
-            parent = self.data
-            for i in range (0, len(keyparts)-1):
-                oname = keyparts[i]
-                if oname not in dir(parent):
-                    # object does not exist, create a new ClientData object within the parent
-                    setattr(parent, oname, ClientData())
-                    # Now, set the parent to be the object we just created
-                    parent = getattr(parent, oname)
-                else:
-                    # object exists - it better be a clientdata type and not something
-                    # else. This can be caused by errors in the variable naming in the json file
-                    parent = getattr(parent, oname)
-                    if not isinstance(parent, ClientData):
-                        print "########################### ERROR: Malformed Client Data ###########################"
-                        print "\nThe valiable named <", oname, "> appears both as an attribute and as a parent"
-                        print "Check the Data file <", datafilename, ">"
-                        print "\n####################################################################################"
-                        raise ValueError
-
-            # now, we have all the containing objects in place
-            # get the rightmost part of the dotted variable, and add it
-            attrname = keyparts[-1]
             # Create attribute based on the type in the json data
             ty = val['type']
             if ty == 'float':
-                setattr(parent, attrname, float(val['value']) * self.__conversion__)
+                setattr(self.data, key, float(val['value']) * self.__conversion__)
             elif ty == 'string':
-                setattr(parent, attrname, val['value'])
+                setattr(self.data, key, val['value'])
             elif ty == 'int':
-                setattr(parent, attrname, int(val['value']))
+                setattr(self.data, key, int(val['value']))
             else:
                 raise ValueError('Unknown type ' + ty + 'in client data')
         return
@@ -151,49 +127,23 @@ class Client(object):
             print 'Client Data measurement units not defined in client data'
             raise
 
-        #
-        # read all these and then create a heirarchy of objects and
-        # attributes, based on the 'dotted path' notation.
-        #
-
         # read everything into attributes
-        # TODO -spc- I can't remember what this is used for, can it go away?
         for key, val in cdata.items():
-            keyparts = key.split('.')
+            if len(key.split('.')) > 1:
+                print "########################### ERROR: Malformed Client Data ###########################"
+                print "\nThe variable named <", key, "> contains periods, which are not allowed"
+                print "\n####################################################################################"
+                raise ValueError
 
-            # make sure the objects are created in the dotted 'path'
-            parent = self.data
-            for i in range (0, len(keyparts)-1):
-                oname = keyparts[i]
-                if oname not in dir(parent):
-                    # object does not exist, create a new ClientData object within the parent
-                    setattr(parent, oname, ClientData())
-                    # Now, set the parent to be the object we just created
-                    parent = getattr(parent, oname)
-                else:
-                    # object exists - it better be a clientdata type and not something
-                    # else. This can be caused by errors in the variable naming in the json file
-                    parent = getattr(parent, oname)
-                    if not isinstance(parent, ClientData):
-                        print "########################### ERROR: Malformed Client Data ###########################"
-                        print "\nThe valiable named <", oname, "> appears both as an attribute and as a parent"
-                        print "Check the Data file <", datafilename, ">"
-                        print "\n####################################################################################"
-                        raise ValueError
-
-            # now, we have all the containing objects in place
-            # get the rightmost part of the dotted variable, and add it
-            attrname = keyparts[-1]
-            # Create attribute based on the type in the json data
             if key == 'customername':
-                setattr(parent, attrname, val)
+                setattr(self.data, key, val)
             elif key == 'units':
-                print "units"
+                setattr(self.data, key, val)
             elif key == 'id':
-                pass
+                setattr(self.data, "database_id", val)
             else:
                 # it's a float
-                setattr(parent, attrname, float(val) * self.__conversion__)
+                setattr(self.data, key, float(val) * self.__conversion__)
         return
 
     def __dump__(self, obj, parent = '', parentstring = '', outtxt = []):
