@@ -79,7 +79,7 @@ class PatternDesign():
         # TODO - abstract these into configuration file(s)
         metainfo = {'companyName':'Test Company',      # mandatory
                     'designerName':'Test Designer',      # mandatory
-                    'patternName':'Layout Test 1',  # mandatory
+                    'patternTitle':'Layout Test 1',  # mandatory
                     'patternNumber':'1234567'         # mandatory
                     }
         self.cfg['metainfo'] = metainfo

@@ -90,7 +90,7 @@ class PatternDesign():
         # TODO - abstract these into configuration file(s)
         metainfo = {'companyName':'Swank Patterns',      # mandatory
                     'designerName':'Susan Spencer',      # mandatory
-                    'patternName':'Steampunk Trousers',  # mandatory
+                    'patternTitle':'Steampunk Trousers',  # mandatory
                     'patternNumber':'1870-M-T-1'         # mandatory
                     }
         self.cfg['metainfo'] = metainfo

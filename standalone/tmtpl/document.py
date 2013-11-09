@@ -238,7 +238,7 @@ class TitleBlock(pBase):
         y = y + text_space
         svg_textgroup.addElement(self.generateText(x, y, 'pattern_number', meta_info['patternNumber'], self.stylename))
         y = y + text_space
-        svg_textgroup.addElement(self.generateText(x, y, 'pattern_name', meta_info['patternName'], self.stylename))
+        svg_textgroup.addElement(self.generateText(x, y, 'pattern_name', meta_info['patternTitle'], self.stylename))
         y = y + text_space
         svg_textgroup.addElement(self.generateText(x, y, 'client', self.cfg['clientdata'].customername, self.stylename))
         y = y + text_space

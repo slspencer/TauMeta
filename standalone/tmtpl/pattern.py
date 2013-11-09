@@ -1526,7 +1526,7 @@ def setupPattern(pattern_design,clientData,printer,patternData):
         #set data to print at top of pattern
         metainfo={'companyName':patternData['companyName'],#mandatory
                     'designerName':patternData['designerName'],#mandatory
-                    'patternName':patternData['patternName'],#mandatory
+                    'patternTitle':patternData['patternTitle'],#mandatory
                     'patternNumber':patternData['patternNumber'] #mandatory
                     }
         pattern_design.cfg['metainfo']=metainfo
