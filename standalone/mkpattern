@@ -55,6 +55,8 @@ from pysvg.builders import *
 from os import path
 import imp
 
+from tmtpl.database import *
+
 # CmdlineError
 #
 # The type of exception that will be raised by Cmdline.process() if there
@@ -106,8 +108,8 @@ class Cmdline:
         stdo("        --pattern=<pattern file>                                                             \n")
         stdo("                         The full path to the pattern file to use.                           \n")
         stdo("                                                                                             \n")
-        stdo("        --styles=<styles file>                                                              \n")
-        stdo("                         The full path to the styles file to use.                            \n")
+        stdo("        --styles=<styles file>                                                               \n")
+        stdo("                         The full path to a styles file to use. Defaults to using database   \n")
         stdo("                                                                                             \n")
         stdo("        --printgroups=<groupname1,groupname2, . . .>                                         \n")
         stdo("                         The groups you want in the output (defaults to all).                \n")
@@ -250,14 +252,6 @@ class AppTemplate(StdApp):
             cmdline.error('Error: You must specify a pattern file\n\n', self.defaults)
             return
 
-        if self.cfg.has_key('styles_file'):
-            mfn = self.cfg['styles_file']
-            if verbose:
-                print "Using styles file: ", mfn
-        else:
-            cmdline.error('Error: You must specify a styles file\n\n', self.defaults)
-            return
-
         if self.cfg.has_key('print_groups'):
             pgrps = self.cfg['print_groups']
             if pgrps == '':
@@ -294,13 +288,28 @@ class AppTemplate(StdApp):
             print "======== End Client Data Dump ========"
 
         # open the styles file and read data
-        try:
-            f = open(self.cfg['styles_file'], 'r')
-            self.styledefs = json.load(f)
-            f.close()
-        except:
-            print 'unable to load Styles File <%s>' % self.cfg['styles_file']
-            return
+        if 'styles_file' in self.cfg:
+            try:
+                f = open(self.cfg['styles_file'], 'r')
+                self.styledefs = json.load(f)
+                f.close()
+            except:
+                print 'unable to load Styles File <%s>' % self.cfg['styles_file']
+                return
+        else:
+            # open the client file and read data
+            SDB = Sewdb()
+            SDB.open()
+            query = "SELECT name,value FROM styles"
+            SDB.doquery(query)
+            result = SDB.store_result()
+            data = result.fetch_row(0, how=1)
+            if len(data) == 0:
+                print "Unable to fetch styles data from DataBase"
+                raise
+            self.styledefs = {}
+            for style in data:
+                self.styledefs[style['name']] = json.loads(style['value'])
 
         # Load the markers from the python module where they are defined in a dictionary
         self.markerdefs = markers.markerlist
