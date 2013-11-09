@@ -46,6 +46,32 @@ class PatternDesign():
     def __init__(self):
         self.styledefs={}
         self.markerdefs={}
+        self.printer='36" wide carriage plotter'
+        self.patternData={
+            'patternNumber':'AL_B1', # Mandatory
+            'patternTitle':'Shirt Waist 1', # Mandatory
+            'description':"""
+This is a pattern for the blah blah.
+Multiline text and sales pitch.
+
+More text
+""", # Mandatory (paragraph)
+            'category':'Shirt/TShirt/Blouse', # Mandatory
+            'type':'Streetwear', # Mandatory
+            'gender':'F', # Optional 'M', 'F', or ''
+            'yearstart':1700, # Optional
+            'yearend':2000, # Optional
+            'culture':'', # Optional
+            'wearer':'', # Optional
+            'source':'', # Optional
+            'character':'', # Optional
+            'recommendedFabric':'',
+            'recommendedNotions':'',
+            # The following are NOT currently in the database but ARE used
+            'companyName':'Sample Company',#mandatory
+            'designerName':'Sara May Allington',#mandatory
+            'patternmakerName':'Tau Meta Tau Physica',
+            }
         return
 
     def pattern(self):
@@ -55,15 +81,8 @@ class PatternDesign():
         """
         CD=self.CD #client data is prefaced with CD
 
-        printer='36" wide carriage plotter'
-        patternData={'companyName':'Sample Company',#mandatory
-                    'designerName':'Sara May Allington',#mandatory
-                    'patternmakerName':'Tau Meta Tau Physica',
-                    'patternName':'Shirt Waist 1',#mandatory
-                    'patternNumber':'AL_B1' #mandatory
-                    }
         #create document
-        doc=setupPattern(self,CD,printer,patternData)
+        doc=setupPattern(self,CD,self.printer,self.patternData)
 
         #create the 'bodice' pattern object in the document
         #TODO: reduce the next 4 statements to: doc.add(Pattern('bodice'))
@@ -175,6 +194,7 @@ class PatternDesign():
         a12.c2=downPoint(a12,length)
 
         #all points are defined, now create marks,labels,grainlines,seamlines,cuttinglines,darts,etc.
+
         #bodice front A
         #draw points
         drawPoints(A,locals())
