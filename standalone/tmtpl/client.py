@@ -104,7 +104,7 @@ class Client(object):
         SDB = Sewdb()
         SDB.open()
 
-        query = """SELECT * FROM measurements WHERE id='%s';""" % recordnum
+        query = """SELECT * FROM measurements02 WHERE id='%s';""" % recordnum
 
         SDB.doquery(query)
         result = SDB.store_result()
