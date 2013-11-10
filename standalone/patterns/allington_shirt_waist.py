@@ -51,7 +51,7 @@ class PatternDesign():
             'patternNumber':'AL_B1', # Mandatory
             'patternTitle':'Shirt Waist 1', # Mandatory
             'description':"""
-This is a pattern for the blah blah.
+This is a test pattern for the blah blah.
 Multiline text and sales pitch.
 
 More text
@@ -64,13 +64,12 @@ More text
             'culture':'', # Optional
             'wearer':'', # Optional
             'source':'', # Optional
-            'character':'', # Optional
+            'characterName':'', # Optional
             'recommendedFabric':'',
             'recommendedNotions':'',
-            # The following are NOT currently in the database but ARE used
-            'companyName':'Sample Company',#mandatory
-            'designerName':'Sara May Allington',#mandatory
-            'patternmakerName':'Tau Meta Tau Physica',
+            'companyName':'Sample Company', # Mandatory
+            'designerName':'Sara May Allington', # Mandatory
+            'patternmakerName':'Tau Meta Tau Physica', # Mandatory
             }
         return
 

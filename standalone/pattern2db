@@ -1,0 +1,218 @@
+#!/usr/bin/env python
+# for the framework
+from sys             import argv
+from getopt          import getopt, GetoptError
+from os.path         import basename
+
+# for the pattern generation
+from tmtpl.utils     import stdo
+from tmtpl.std_app   import StdApp
+from tmtpl.markers   import markers
+
+from tmtpl.constants import *
+from tmtpl.pattern   import *
+from tmtpl.document  import *
+from tmtpl.client    import Client
+from tmtpl.database  import *
+
+# Project specific
+#from math import sin, cos, radians
+
+#from pysvg.filter import *
+#from pysvg.gradient import *
+#from pysvg.linking import *
+#from pysvg.script import *
+#from pysvg.shape import *
+#from pysvg.structure import *
+#from pysvg.style import *
+#from pysvg.text import *
+#from pysvg.builders import *
+
+# Needed in order to import the design
+from os import path
+import MySQLdb as mdb
+import imp
+
+# CmdlineError
+#
+# The type of exception that will be raised by Cmdline.process() if there
+# are command line processing errors.
+#
+class CmdlineError(Exception):
+    # __init__
+    #
+    def __init__(self, error):
+        self.msg = error
+
+# Cmdline
+#
+# Do all the command line processing.
+#
+class Cmdline:
+    # __init__
+    #
+    def __init__(self):
+        self.cfg = {}
+
+    # error
+    #
+    def error(self, e, defaults):
+        if e != '': print e
+        self.usage(defaults)
+
+    # usage
+    #
+    # Prints out the help text which explains the command line options.
+    #
+    def usage(self, defaults):
+        stdo("    Usage:                                                                                   \n")
+        stdo("        %s <pattern file> \n" % self.cfg['app_name'])
+        stdo("                                                                                             \n")
+        stdo("    Options:                                                                                 \n")
+        stdo("        --help           Prints this text.                                                   \n")
+        stdo("                                                                                             \n")
+        stdo("        --replace                                                                            \n")
+        stdo("                         Force replacement of info for the same pattern number               \n")
+        stdo("                                                                                             \n")
+
+    def process(self, argv, defaults):
+        self.cfg['app_name'] = argv[0]
+        result = True
+        try:
+            optsShort = ''
+            optsLong  = ['help', 'replace']
+            opts, args = getopt(argv[1:], optsShort, optsLong)
+
+            if len(args) != 1:
+                print len(args)
+                raise CmdlineError('You must supply a pattern file name\n\n')
+
+            self.cfg['filename'] = args[0]
+
+            for opt, val in opts:
+                if (opt == '--help'):
+                    raise CmdlineError('')
+
+                if (opt == '--replace'):
+                    self.cfg['replace'] = True
+
+        except GetoptError, error:
+            print(error, defaults)
+            raise CmdlineError('')
+
+        return self.cfg
+
+# AppTemplate
+#
+class AppTemplate(StdApp):
+    # __init__
+    #
+    def __init__(self):
+        StdApp.__init__(self)
+        self.defaults = {}
+
+    # main
+    #
+    def main(self):
+        cmdline = Cmdline()
+        try:
+            self.merge_config_options(self.defaults, cmdline.process(argv, self.defaults))
+
+        # Handle the user presses <ctrl-C>.
+        #
+        except KeyboardInterrupt:
+            pass
+
+        # Handle command line errors.
+        #
+        except CmdlineError as e:
+            cmdline.error(e.msg, self.defaults)
+            return
+
+        # Now we load the actual design, which is in the form of a python module
+        #print self.cfg['filename']
+        try:
+            mod_name,file_ext = path.splitext(path.split(self.cfg['filename'])[-1])
+            designModule = imp.load_source(mod_name, self.cfg['filename'])
+        except:
+            raise error('unable to load Pattern File <%s>' % self.cfg['filename'])
+
+        design = designModule.PatternDesign()
+        metadata = design.patternData
+
+        #for thingy in metadata:
+        #    print thingy, ":", metadata[thingy]
+
+        valid =   ['patternNumber', 'patternTitle', 'description', 'category', 'type', 'gender', 'yearstart', 'yearend', 'culture', 'wearer', 'source', 'characterName', 'recommendedFabric', 'recommendedNotions', 'companyName', 'designerName', 'patternmakerName', ]
+        required =  ['patternNumber', 'patternTitle', 'description', 'category', 'type', 'companyName', 'designerName', 'patternmakerName']
+        for fname in required:
+            if fname not in metadata:
+                raise error('Required metadata named %s is not present in pattern file' % fname)
+            if metadata[fname] == '':
+                raise error('Required metadata named %s in pattern file must have a value' % fname)
+
+        # See whether there's already a record with the same pattern number
+        query = 'SELECT * FROM pattern WHERE patternNumber="%s";' % metadata['patternNumber']
+        SDB = Sewdb()
+        SDB.open()
+        SDB.doquery(query)
+        result = SDB.store_result()
+        data = result.fetch_row(how=1)
+        pfname = basename(self.cfg['filename'])
+
+        # Build a dictionary using the db names
+        dbd = {}
+        dbd['filename'] = pfname
+        for fname in valid:
+            if fname in metadata:
+                if 'year' not in fname:
+                    dbd[fname] = mdb.escape_string(metadata[fname])
+                else:
+                    dbd[fname] = metadata[fname]
+            else:
+                dbd[fname] = ''
+
+        if len(data) == 0:
+            if 'replace' in self.cfg:
+                print "A record does not exist with the same pattern number, yet you specified --replace. Confused."
+                return
+            # record does not exist, do an insert
+            query = 'INSERT INTO pattern ('
+            for fname in dbd:
+                query += fname
+                query += ','
+            query = query[:-1]
+            query += ') VALUES ('
+            for fname in dbd:
+                query += '"%s"' % dbd[fname]
+                query += ','
+            query = query[:-1]
+            query += ')'
+
+        elif len(data) == 1:
+            if 'replace' not in self.cfg:
+                print "A record exists with the same pattern number. Use --replace if you want to replace it"
+                return
+            # TODO extract record ID to update
+            rid = data[0]['id']
+            query = 'UPDATE pattern SET '
+            for fname in valid:
+                query += '%s="%s",' % (fname, dbd[fname])
+            query = query[:-1]
+            query += ' WHERE id=%d' % rid
+            #print query
+        else:
+            print "Found multiple records with the same pattern name, this shouldn't happen. Check database."
+            return
+
+        # Do the actual query
+        result = SDB.doquery(query)
+        SDB.docommit()
+       
+
+if __name__ == '__main__':
+    app = AppTemplate()
+    app.main()
+
+# vi:set ts=4 sw=4 expandtab:
+
