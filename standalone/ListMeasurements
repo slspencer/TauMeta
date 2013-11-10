@@ -1,0 +1,26 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import MySQLdb as mdb
+import json
+from sys                                import stdout, argv, exit
+from os                                 import path
+from tmtpl.database import *
+
+def list_measurements():
+
+    SDB = Sewdb()
+    SDB.open()
+
+    query = """SELECT id, customername FROM measurements02 ORDER BY customername;"""
+
+    SDB.doquery(query)
+    result = SDB.store_result()
+    while 1:
+        data = result.fetch_row(how=1)
+        if len(data) == 0:
+            break
+        print data[0]['id'],data[0]['customername']
+    return
+
+list_measurements()
