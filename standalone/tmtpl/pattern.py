@@ -492,7 +492,6 @@ def tangentOfCurveAtLine(P1,P2,curve):
         fixed_pnt=P2
         angle=angleOfLine(P2,P1)
     intersections=[]
-    pnt=Pnt()
     found='false'
     j=0
     while j<=len(curve) -4 and found !='true': # for each bezier curve in curveArray until a point is found
