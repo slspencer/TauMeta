@@ -571,7 +571,6 @@ def interpolatedCurveLengthAtPoint(pnt,interpolatedPoints,found=0):
 
 def curvePointAtLength(length,curve):
     p1=Pnt()
-    found=0
     j=0
     while (j <= len(curve)-4) and (p1.x == ""): # for each curve, find pnt
         interpolated_points = interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],n)
