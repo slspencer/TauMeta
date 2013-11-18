@@ -69,7 +69,7 @@ def pPoint(parent,id,p1,transform=''):
             lowercase(parent.letter) + next unused lower case letter, e.g. for pattern piece A: aa,ab,ac,ad,etc.
     Always assign to python variable of same name in pattern design file
         Examples:
-            ac=pPoint(A,'ac',downPointP(aa,2*IN)) #ac is point on pattern piece A, 2inches below point aa
+            ac=pPoint(A,'ac',downP(aa,2*IN)) #ac is point on pattern piece A, 2inches below point aa
             bd=pPoint(B,'bd',temp_point) #bd is point on pattern piece B, same x & y values as variable temp_point
             cc=pPoint(C,'cc',ba)#cc is point on pattern piece B, same x & y values as ba
     The python variable assignment is required because they are used to write the SVG circles and paths to the XML Document at the doc.draw() command at the end of the pattern design file
@@ -79,12 +79,6 @@ def pPoint(parent,id,p1,transform=''):
     parent.add(p2)
     return p2
 
-def pPointXY(parent,id,x,y,transform=''):
-    '''Similar to cPoint() above, except accepts x and y of type float instead of p1 as type Point
-    Creates SVG unfilled gray circle for control points in bezier curves'''
-    p1=Point('reference',id,x,y,'point_style',transform)
-    parent.add(p1)
-    return p1
 
 def cPoint(parent,id,p1,transform=''):
     '''
@@ -105,8 +99,8 @@ def cPoint(parent,id,p1,transform=''):
     Always assign to python variable of same name in pattern design file:
         Example of control points on curve from ac to ad:
             length=distance(ac,ad)/3.0
-            ad.c1=cPoint(A,'ad.c1',polarPoint(ac,length,angleOfLine(ab,ac)+ANGLE90)
-            ad.c2=cPoint(A,'ad.c2',polarPoint(ad,length,angleOfLine(ad,ad.c1))
+            ad.c1=cPoint(A,'ad.c1',polar(ac,length,angleOfLine(ab,ac)+ANGLE90)
+            ad.c2=cPoint(A,'ad.c2',polar(ad,length,angleOfLine(ad,ad.c1))
     The python variable assignment is required because they are used to write the SVG circles and paths to the XML Document at the doc.draw() command at the end of the pattern design file
     Paths are built as    'M',aa,'L',ab,'C',ac.c1,ac.c2,ac,'L',aa   (no 'm','l','h','v','z' relative path or 'Q' quadratic curve commands)
     '''
@@ -139,22 +133,22 @@ def updatePoint(p1,p2):
     p1.x,p1.y,p1.coords=p2.x,p2.y,str(p2.x)+','+str(p2.y)
     return
 
-def rightPoint(p1,n):
+def right(p1,n):
     '''Accepts p1 of class Point,n of type float. Returns p2 of class Point to the right of p1 at (p1.x+n, p1.y)'''
     p2=Pnt(p1.x+n,p1.y)
     return p2
 
-def leftPoint(p1,n):
+def left(p1,n):
     '''Accepts p1 of class Point,n of type float. Returns p2 of class Point to the left of p1 at (p1.x-n, p1.y)'''
     p2=Pnt(p1.x-n,p1.y)
     return p2
 
-def upPoint(p1,n):
+def up(p1,n):
     '''Accepts p1 of class Point,n of type float. Returns p2 of class Point above p1 at (p1.x, p1.y-n)'''
     p2=Pnt(p1.x,p1.y-n)
     return p2
 
-def downPoint(p1,n):
+def down(p1,n):
     '''Accepts p1 of class Point,n of type float. Returns p2 of class Point below p1 at (p1.x, p1.y+n)'''
     p2=Pnt(p1.x,p1.y+n)
     return p2
@@ -177,7 +171,7 @@ def symmetricPoint(p1,p2,type='vertical'):
         p3.y=p2.y+dy
     return p3
 
-def polarPoint(p1,distance,angle):
+def polar(p1,distance,angle):
     '''
     Adapted from http://www.teacherschoice.com.au/maths_library/coordinates/polar_-_rectangular_conversion.htm
     Accepts p1 as type Point,distance as float,angle as float. angle is in radians
@@ -242,22 +236,14 @@ def angleOfVector(p1,v,p2):
     return abs(angleOfLine(v,p1)-angleOfLine(v,p2))
 
 def angleOfChord(chord_width,radius):
-    """Find the angle between two points given center,radius,chordlength & starting point=2*asin(d/2r)
-    Adapted from http://math.stackexchange.com/questions/164541/finding-a-point-having-the-radius-chord-length-and-another-point"""
+    """
+    Find the angle between two points given center,radius,chordlength & starting point=2*asin(d/2r)
+    Adapted from http://math.stackexchange.com/questions/164541/finding-a-point-having-the-radius-chord-length-and-another-point
+    """
     d=chord_width # chord width-usage:could be the dart width
     r=radius # radius-usage:could be the dart length
     d_div_2r=d/(2.0*r)
     angle=2*asin(d_div_2r) # angle-usage:could be the rotation angle used in slashAndSpread to create a dart
-    return angle
-
-def angleFromChord(chord_width, radius):
-    #see http://math.stackexchange.com/questions/164541/finding-a-point-having-the-radius-chord-length-and-another-point
-    #find the angle between two points given center,radius,chordlength & starting point=2*asin(d/2r)
-    d=chord_width #chord width-usage:could be the dart width
-    r=radius #radius-usage:could be the dart length
-    d_div_2r=d/(2.0*r)
-    angle=2*asin(d_div_2r) #angle-usage:could be the rotation angle used in slashAndSpread to create a dart
-
     return angle
 
 #---slope---
@@ -325,7 +311,7 @@ def rightmost(pnt1,pnt2):
 
 # ---lines---
 
-def intersectLineAtLength(p1,p2,length,rotation=0):
+def onLineAtLength(p1,p2,length,rotation=0):
     """
     Accepts p1 and p2 of class Pnt, distance, and an optional rotation angle
     Returns p3 of class Pnt on the line at length measured from p1 towards p2
@@ -340,7 +326,7 @@ def intersectLineAtLength(p1,p2,length,rotation=0):
     p3=Pnt(x,y)
     return p3
 
-def intersectLineAtX(p1,p2,x):
+def onLineAtX(p1,p2,x):
     #on line p1-p2,given x find y
     pnt=Pnt()
     pnt.x=x
@@ -353,12 +339,12 @@ def intersectLineAtX(p1,p2,x):
         pnt.y=(x*m)-b
         return pnt
 
-def intersectLineAtY(p1,p2,y):
+def onLineAtY(p1,p2,y):
     #on line p1-p2,find x given y
     p3=Pnt()
     if (p1.y==p2.y): #if horizontal line
         if (p1.y!=y): #if y is not on horizontal line
-            print 'y =',y,' -- not on horizontal line p1.y =', p1.y, 'in intersectLineAtY -- no intersection'
+            print 'y =',y,' -- not on horizontal line p1.y =', p1.y, 'in onLineAtY -- no intersection'
         else:
             p3.y=y
     elif (p1.x==p2.x):# if vertical line
@@ -437,10 +423,10 @@ def intersectLineCurve(P1,P2,curve,n=100):
             interpolatedPoints=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],n)  #interpolate this bezier curve,n=100
             k=0
             while k<len(interpolatedPoints)-1:
-                pnt_on_line=polarPoint(fixed_pnt,distance(fixed_pnt,interpolatedPoints[k]),angle)
+                pnt_on_line=polar(fixed_pnt,distance(fixed_pnt,interpolatedPoints[k]),angle)
                 range=distance(interpolatedPoints[k],interpolatedPoints[k+1]) # TODO:improve margin of error
                 length=distance(pnt_on_line,interpolatedPoints[k])
-                #print k,'pntOnCurve',interpolatedPoints[k].x,interpolatedPoints[k].y,'intersectLineAtLength',pnt_on_line.x,pnt_on_line.y,distance,range
+                #print k,'pntOnCurve',interpolatedPoints[k].x,interpolatedPoints[k].y,'onLineAtLength',pnt_on_line.x,pnt_on_line.y,distance,range
                 if ( length<=range):
                     # its close enough!
                     #print 'its close enough!'
@@ -464,7 +450,7 @@ def intersectLineCurve(P1,P2,curve,n=100):
     #return points_found,tangents_found
     return points_found
 
-def intersectCurveAtX(curve,x):
+def onCurveAtX(curve,x):
     '''
     Accepts an array 'curve' of bezier curves,returns list of points. Each bezier curve consists of  P0,P1,P2,P3 [eg knot1,controlpoint1,controlpoint2,knot2].
     P3 of one curve is P0 of the next curve. Minimum of one bezier curve in curveArray.
@@ -484,14 +470,14 @@ def intersectCurveAtX(curve,x):
             ylist.append(interpolatedPoints[i].y)
             i=i+1
         xmin,ymin,xmax,ymax=min(xlist),min(ylist),max(xlist),max(ylist)
-        #print 'xmin,xmax =',xmin,xmax,'...pattern.intersectCurveAtX()'
-        #print 'ymin,ymax =',ymin,ymax,'...pattern.intersectCurveAtX()'
-        #print 'x =',x,'...pattern.intersectCurveAtX()'
+        #print 'xmin,xmax =',xmin,xmax,'...pattern.onCurveAtX()'
+        #print 'ymin,ymax =',ymin,ymax,'...pattern.onCurveAtX()'
+        #print 'x =',x,'...pattern.onCurveAtX()'
         i=0
         if ((x >=xmin) and (x<=xmax)):
             while (i<(len(interpolatedPoints)-1)):
                 if (x >=interpolatedPoints[i].x) and (x<=interpolatedPoints[i+1].x):
-                    pnt=intersectLineAtX(interpolatedPoints[i],interpolatedPoints[i+1],x)
+                    pnt=onLineAtX(interpolatedPoints[i],interpolatedPoints[i+1],x)
                     intersect_points.append(pnt)
                 i=i+1
         j=j+3 # skip j up to P3 of the current curve to be used as P0 start of next curve
@@ -521,7 +507,7 @@ def tangentOfCurveAtLine(P1,P2,curve):
             interpolated_points=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],100)  #interpolate this bezier curve,n=100
             k=0
             while (k<len(interpolated_points)-1) and (found !='true'):
-                pnt_on_line=polarPoint(fixed_pnt,distance(fixed_pnt,interpolated_points[k]),angle)
+                pnt_on_line=polar(fixed_pnt,distance(fixed_pnt,interpolated_points[k]),angle)
                 range=distance(interpolated_points[k],interpolated_points[k+1]) # TODO:improve margin of error
                 if (distance(pnt_on_line,interpolated_points[k])<range):
                     # its close enough!
@@ -665,13 +651,13 @@ def splitCurveAtLength(length, curve):
     # neck control points
     # b/w curve[0] and split_pnt
     length=distance(curve[0],split_pnt)/3.0
-    split_pnt.c1=polarPoint(curve[0],length,angleOfLine(curve[0],curve[1])) # preserve angle b/w P0 & original 1st control point
-    split_pnt.c2=polarPoint(split_pnt,length,backward_tangent_angle)
+    split_pnt.c1=polar(curve[0],length,angleOfLine(curve[0],curve[1])) # preserve angle b/w P0 & original 1st control point
+    split_pnt.c2=polar(split_pnt,length,backward_tangent_angle)
     # b/w split_pnt and curve[3]
     curve3=PntP(curve[3])
     length=distance(split_pnt,curve3)/3.0
-    curve3.c1=polarPoint(split_pnt,length,forward_tangent_angle)
-    curve3.c2=polarPoint(curve3,length,angleOfLine(curve3,curve[2])) # preserve angle b/w original 2nd control point & P1
+    curve3.c1=polar(split_pnt,length,forward_tangent_angle)
+    curve3.c2=polar(curve3,length,angleOfLine(curve3,curve[2])) # preserve angle b/w original 2nd control point & P1
     new_curve=[]
     new_curve.append(curve[0])
     new_curve.append(split_pnt.c1)
@@ -733,7 +719,7 @@ def intersectCircles(C1,r1,C2,r2):
         P.append(Pnt(X2,Y2))
     return P
 
-def intersectCircleAtX(C,r,x):
+def onCircleAtX(C,r,x):
     """
     Finds points on circle where p.x=x
     Accepts C as an object of class Pnt for the center of the circle,
@@ -742,7 +728,7 @@ def intersectCircleAtX(C,r,x):
     """
     P=[]
     if abs(x-C.x)>r:
-        print 'x is outside radius of circle in intersections.intersectCircleAtX()'
+        print 'x is outside radius of circle in intersections.onCircleAtX()'
     else:
         translated_x=x-C.x # center of translated circle is (0,0) as translated_x is the difference b/w C.x & x
         translated_y1=abs(math.sqrt(r**2-translated_x**2))
@@ -753,7 +739,7 @@ def intersectCircleAtX(C,r,x):
         P.append(Pnt(x,y2))
     return P
 
-def intersectCircleAtY(C,r,y):
+def onCircleAtY(C,r,y):
     """
     Finds points one or two points on circle where P.y=y
     Accepts C of class Pnt or Point as circle center, r of type float as radius, and y of type float)
@@ -761,7 +747,7 @@ def intersectCircleAtY(C,r,y):
     Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py,written in Python 3.2 by Campbell Barton
     """
     if abs(y-C.y)>r:
-        print 'y is outside radius in intersectCircleAtY() -- no intersection'
+        print 'y is outside radius in onCircleAtY() -- no intersection'
         return
     else:
         translated_y=y-C.y
@@ -835,8 +821,8 @@ def intersectChordCircle(C,r,P,chord_length):
     d_div_2r=d/(2.0*r)
     angle=2*asin(d_div_2r)
     P=[]
-    P.append(polarPoint(C,r,angle))
-    P.append(polarPoint(C,r,- angle))
+    P.append(polar(C,r,angle))
+    P.append(polar(C,r,- angle))
     return P
 
 
@@ -855,10 +841,10 @@ def waistDart(parent,dart_width,dart_length,length,waist_curve,dart_angle=ANGLE9
     rotation_angle=2*asin(d_div_2r)
     # split neck curve at length-returns curve with P0 C11 C12 P1 C21 C22 P2
     split_curve=splitCurveAtLength(length,waist_curve)
-    #dart_apex=pPoint(parent,parent.name+'dart_apex',polarPoint(split_curve[3],dart_length,angleOfLine(split_curve[3],split_curve[2])+ANGLE90))
+    #dart_apex=pPoint(parent,parent.name+'dart_apex',polar(split_curve[3],dart_length,angleOfLine(split_curve[3],split_curve[2])+ANGLE90))
     # TODO:test for direction of dart-plus or minus 90 degrees from the angle of the tangent at the dart...
     # ...the angle of line from 2nd control point (split_curve[2]) to the split point (split_curve[3])
-    dart_apex=polarPoint(split_curve[3],dart_length,angleOfLine(split_curve[3],split_curve[2])+dart_angle)
+    dart_apex=polar(split_curve[3],dart_length,angleOfLine(split_curve[3],split_curve[2])+dart_angle)
     # separate split_curve into inside_curve1 & outside_curve
     inside_curve=[]
     i=0
@@ -890,7 +876,7 @@ def neckDart(parent,dart_width,dart_length,length,neck_curve):
 
     rotation_angle = angleFromChord(dart_width,dart_length)
     #print('rotation_angle =', rotation_angle)
-    dart_apex = pPoint(parent,'dart_apex',polarPoint(split_curve[3],dart_length,angleOfLine(split_curve[3],split_curve[2])+ANGLE90))
+    dart_apex = pPoint(parent,'dart_apex',polar(split_curve[3],dart_length,angleOfLine(split_curve[3],split_curve[2])+ANGLE90))
     #print('dart_apex =', dart_apex)
 
     # separate split_curve into curve1 & curve2
@@ -927,24 +913,24 @@ def foldDart(parent,dart,inside_pnt):
         FOLD_ANGLE=I_ANGLE+DART_HALF_ANGLE
     # find intersection of fold & armscye b/w bd2.i & inside_pnt
     # TODO:use intersectLineCurve()
-    temp_pnt=polarPoint(dart,DART_LENGTH,FOLD_ANGLE)
+    temp_pnt=polar(dart,DART_LENGTH,FOLD_ANGLE)
     fold_pnt=intersectLines(dart.i,inside_pnt,dart,temp_pnt)
     # dart midpoint at seamline
     temp_pnt=midPoint(dart.i,dart.o)
-    mid_pnt=intersectLineAtLength(dart,temp_pnt,distance(dart,fold_pnt))
+    mid_pnt=onLineAtLength(dart,temp_pnt,distance(dart,fold_pnt))
     if hasattr(dart,'m'):
         updatePoint(dart.m,mid_pnt)
     else:
         dart.m=pPoint(parent,dart.name+'.m',mid_pnt)
     # dart outside leg at cuttingline
-    #temp_pnt=intersectLineAtLength(dart.o,dart,-SEAM_ALLOWANCE)
-    temp_pnt=polarPoint(dart,distance(dart,dart.o)+SEAM_ALLOWANCE,angleOfLine(dart,dart.o))
+    #temp_pnt=onLineAtLength(dart.o,dart,-SEAM_ALLOWANCE)
+    temp_pnt=polar(dart,distance(dart,dart.o)+SEAM_ALLOWANCE,angleOfLine(dart,dart.o))
     if hasattr(dart,'oc'):
         updatePoint(dart.oc,temp_pnt)
     else:
         dart.oc=pPoint(parent,dart.name+'.oc',temp_pnt)
     # dart inside leg at cuttingline
-    temp_pnt=intersectLineAtLength(dart.i,dart,-SEAM_ALLOWANCE)
+    temp_pnt=onLineAtLength(dart.i,dart,-SEAM_ALLOWANCE)
     if hasattr(dart,'ic'):
         updatePoint(dart.ic,temp_pnt)
     else:
@@ -966,12 +952,12 @@ def foldDart2(dart,inside_pnt):
         FOLD_ANGLE=I_ANGLE+DART_HALF_ANGLE
     #TODO:find intersection of fold & armscye b/w bd2.i & inside_pnt
     #TODO:use intersectLineCurve()
-    temp_pnt=polarPoint(dart,DART_LENGTH,FOLD_ANGLE)
+    temp_pnt=polar(dart,DART_LENGTH,FOLD_ANGLE)
     fold_pnt=intersectLines(dart.i,inside_pnt,dart,temp_pnt)
     temp_pnt=midPoint(dart.i,dart.o)
-    dart.m=intersectLineAtLength(dart,temp_pnt,distance(dart,fold_pnt)) #dart midpoint at seamline
-    dart.oc=polarPoint(dart,distance(dart,dart.o)+SEAM_ALLOWANCE,angleOfLine(dart,dart.o)) #dart outside leg at cuttingline
-    dart.ic=intersectLineAtLength(dart.i,dart,-SEAM_ALLOWANCE) #dart inside leg at cuttingline
+    dart.m=onLineAtLength(dart,temp_pnt,distance(dart,fold_pnt)) #dart midpoint at seamline
+    dart.oc=polar(dart,distance(dart,dart.o)+SEAM_ALLOWANCE,angleOfLine(dart,dart.o)) #dart outside leg at cuttingline
+    dart.ic=onLineAtLength(dart.i,dart,-SEAM_ALLOWANCE) #dart inside leg at cuttingline
     #create or update dart.angles
     dart.angle=angleOfVector(dart.i,dart,dart.o)
 
@@ -995,8 +981,8 @@ def adjustDartLength(p1,dart,p2,extension=1/3.0):
     #new dart length at 1/3 distance from dart.i to p3
     new_dart_length=distance(dart,dart.i)+distance(dart.i,p3)*extension
     #update dart.i & dart.o
-    p4=intersectLineAtLength(dart,dart.i,new_dart_length)
-    p5=intersectLineAtLength(dart,dart.o,new_dart_length)
+    p4=onLineAtLength(dart,dart.i,new_dart_length)
+    p5=onLineAtLength(dart,dart.o,new_dart_length)
     updatePoint(dart.i,p4)
     updatePoint(dart.o,p5)
     return
@@ -1029,22 +1015,22 @@ def controlPoints(name,knots):
         # process previous segment's c2
         angle=angleOfLine(knots[next],knots[previous])
         length=distance(knots[current],knots[previous])/3.0
-        pnt=polarPoint(knots[current],length,angle)
+        pnt=polar(knots[current],length,angle)
         c2.append(pnt) # c2[previous]
         if (current==1):
             # process 1st segment's c1
             angle=angleOfLine(knots[0],c2[0])
-            pnt=polarPoint(knots[0],length,angle)
+            pnt=polar(knots[0],length,angle)
             c1.append(pnt)
         # process current segment's c1
         angle=angleOfLine(knots[previous],knots[next])
         length=distance(knots[current],knots[next])/3.0
-        pnt=polarPoint(knots[current],length,angle)
+        pnt=polar(knots[current],length,angle)
         c1.append(pnt) # c1[current]
         if (current==c_num):
             # process last segment's c2
             angle=angleOfLine(knots[last_knot],c1[last_segment])
-            pnt=polarPoint(knots[last_knot],length,angle)
+            pnt=polar(knots[last_knot],length,angle)
             c2.append(pnt) # c2[last_segment]
         i=(i+1)
     return c1,c2
@@ -1338,7 +1324,7 @@ def connectObjects(connector_pnts,old_pnts):
                 translated_angle=angleOfLine(connector_pnts[0],t_pnts[i])
                 r_angle=translated_angle-rotation_angle
                 r_pnts.append(Pnt())
-                r_pnts[i]=polarPoint(connector_pnts[0],length,r_angle)
+                r_pnts[i]=polar(connector_pnts[0],length,r_angle)
                 i=i+1
         return r_pnts
 
@@ -1351,7 +1337,7 @@ def slashAndSpread(pivot,angle,*args):
         while (i<len(list)):
             pnt=list[i]
             length=distance(pivot,pnt)
-            rotated_pnt=polarPoint(pivot,length,angleOfLine(pivot,pnt)+angle) # angle>0=spread clockwise. angle<0=spread counterclockwise.
+            rotated_pnt=polar(pivot,length,angleOfLine(pivot,pnt)+angle) # angle>0=spread clockwise. angle<0=spread counterclockwise.
             updatePoint(pnt,rotated_pnt)
             i=i+1
         return

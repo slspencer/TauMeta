@@ -25,7 +25,7 @@
 #import re
 
 import math
-from pattern import Point, distanceP, pntOnLine, polarPoint
+from pattern import Point, distanceP, pntOnLine, polar
 from tmtpl.constants import *
 
 

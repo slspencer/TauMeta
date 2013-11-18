@@ -97,37 +97,37 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.
 
         #pattern points
         b1 = Pnt(0, 0)
-        b2 = downPoint(b1,  CD.front_waist_length)
-        b3 = upPoint(b2,  CD.side)
-        a1 = leftPoint(b3,  CD.bust/2.0)
-        b4 = leftPoint(b3, CD.back_armfold_distance/2.0)
-        b5 = upPoint(b4, CD.arm_scye/3.0)
-        b6 = upPoint(b1,  0.5*IN)
-        b7 = leftPoint(b6, 1.5*IN)
-        b8 = intersectLineAtLength(b5, b7, -0.5*IN)
-        a2 = leftPoint(b4, CD.arm_scye/4.0)
+        b2 = down(b1,  CD.front_waist_length)
+        b3 = up(b2,  CD.side)
+        a1 = left(b3,  CD.bust/2.0)
+        b4 = left(b3, CD.back_armfold_distance/2.0)
+        b5 = up(b4, CD.arm_scye/3.0)
+        b6 = up(b1,  0.5*IN)
+        b7 = left(b6, 1.5*IN)
+        b8 = onLineAtLength(b5, b7, -0.5*IN)
+        a2 = left(b4, CD.arm_scye/4.0)
         a3 = midPoint(a2, b4)
-        a4 = upPoint(a2,  2.5*IN)
-        a5 = upPoint(b5, 1.5*IN)
-        a6 = leftPoint(a5, 2*IN)
+        a4 = up(a2,  2.5*IN)
+        a5 = up(b5, 1.5*IN)
+        a6 = left(a5, 2*IN)
         length = distance(b7, b8)
-        a7 = leftPoint(a6, length)
+        a7 = left(a6, length)
         a8 = Pnt(a7.x,  b3.y - (CD.bust_balance - distance(b1, b7)))
-        a9 = downPoint(a8, CD.neck/4.0)
-        a10 = upPoint(a9, 0.5*IN)
-        a11 = leftPoint(a10, (CD.neck/6.0) + 0.25*IN )
+        a9 = down(a8, CD.neck/4.0)
+        a10 = up(a9, 0.5*IN)
+        a11 = left(a10, (CD.neck/6.0) + 0.25*IN )
         b9 = midPoint(a3, b4)
         a12 = PntP(b9)
-        b10 = downPoint(b9, CD.side)
-        b11 = rightPoint(b10, 1*IN)
-        a13 = leftPoint(b10, 1*IN)
-        a14 = intersectLineAtLength(a11, a1, CD.front_waist_length)
-        a15 = downPoint(a8, distance(a8, a14))
-        b12 = upPoint(b4, distance(b5, b4)/3.0)
+        b10 = down(b9, CD.side)
+        b11 = right(b10, 1*IN)
+        a13 = left(b10, 1*IN)
+        a14 = onLineAtLength(a11, a1, CD.front_waist_length)
+        a15 = down(a8, distance(a8, a14))
+        b12 = up(b4, distance(b5, b4)/3.0)
         #armscye curve from a3 to b12
         length = distance(a3, b12)/3.0
-        b12.c1 = rightPoint(a3, length)
-        b12.c2 = downPoint(b12, length)
+        b12.c1 = right(a3, length)
+        b12.c2 = down(b12, length)
         #find intersection of side and armscye curve
         curve1 = pointList(a3, b12.c1, b12.c2, b12)
         intersections = intersectLineCurve(b10, b9, curve1) #this line is directional from b10 to b9
@@ -137,56 +137,56 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.
         #back control points  -  path runs clockwise from nape b1
         #back neck control points from b7 to b1
         length = distance(b7, b1)/3.0
-        b1.c1 = downPoint(b7, length/2.0) #short control point handle
-        b1.c2 = leftPoint(b1, length*2) #long control point handle
+        b1.c1 = down(b7, length/2.0) #short control point handle
+        b1.c2 = left(b1, length*2) #long control point handle
         #back armscye control points from b13 to b12
         length = distance(b12, b13)/3.0
-        pnt1 = polarPoint(b13, length, angleOfLine(a3, a16))
+        pnt1 = polar(b13, length, angleOfLine(a3, a16))
         updatePoint(b12.c1, pnt1)
-        pnt2 = downPoint(b12, length)
+        pnt2 = down(b12, length)
         updatePoint(b12.c2, pnt2)
         #back armscye control points from b12 to b8
         length = distance(b12, b8)/3.0
-        b8.c1 = upPoint(b12, length)
-        b8.c2 = polarPoint(b8, length, angleOfLine(b8, b12))
+        b8.c1 = up(b12, length)
+        b8.c2 = polar(b8, length, angleOfLine(b8, b12))
         #back side control points from b11 to b9
         length1 = distance(b11, b9)/3.0
-        b9.c1 = intersectLineAtLength(b11, b9, length1)
-        b9.c2 = downPoint(b9, length1)
+        b9.c1 = onLineAtLength(b11, b9, length1)
+        b9.c2 = down(b9, length1)
 
         #front control points  -  path runs counterclockwise from front neck center a11
         #front neck control points from a8 to a11
         length = distance(a8, a11)/3.0
-        a11.c2 = rightPoint(a11, 1.5*length)
-        a11.c1 = polarPoint(a8, length, angleOfLine(a8, a11.c2))
+        a11.c2 = right(a11, 1.5*length)
+        a11.c1 = polar(a8, length, angleOfLine(a8, a11.c2))
         #front waist control points from a14 to a15
         length = distance(a14, a15)/3.0
-        a15.c1 = polarPoint(a14, length, angleOfLine(a14, a11) + ANGLE90) #control handle line is perpendicular to line a14 - a11
-        a15.c2 = leftPoint(a15, length)
+        a15.c1 = polar(a14, length, angleOfLine(a14, a11) + ANGLE90) #control handle line is perpendicular to line a14 - a11
+        a15.c2 = left(a15, length)
         #front waist control points from a15 to a13
         length = distance(a15, a13)/3.0
-        a13.c1 = rightPoint(a15, 1.5*length)
-        a13.c2 = polarPoint(a13, length, angleOfLine(a13, a13.c1)) #second control aimed at first control point
+        a13.c1 = right(a15, 1.5*length)
+        a13.c2 = polar(a13, length, angleOfLine(a13, a13.c1)) #second control aimed at first control point
         #front armscye control points from a16 to a3 to a4 to 16
         length = distance(a16, a3)/3.0
         angle_a16a3 = angleOfLine(a16, a3)
         angle12 = (angleOfLine(a16, a3) + ANGLE180)/2.0
         angle11 = angle12 + ANGLE180
-        a3.c1 = polarPoint(a16, length, angle_a16a3)
-        a3.c2 = polarPoint(a3, length, angle11)
+        a3.c1 = polar(a16, length, angle_a16a3)
+        a3.c2 = polar(a3, length, angle11)
         length1 = distance(a3, a4)/3.0
         length2 = distance(a4, a6)/3.0
         angle_a6a4 = angleOfLine(a6, a4)
         angle21 = (ANGLE90 + angle_a6a4)/2.0
         angle22 = angle21 + ANGLE180
-        a4.c1 = polarPoint(a3, length1, angle12)
-        a4.c2 = polarPoint(a4, 1.5*length1, angle21)
-        a6.c1 = polarPoint(a4, length2, angle22)
-        a6.c2 = polarPoint(a6, length2, angle_a6a4)
+        a4.c1 = polar(a3, length1, angle12)
+        a4.c2 = polar(a4, 1.5*length1, angle21)
+        a6.c1 = polar(a4, length2, angle22)
+        a6.c2 = polar(a6, length2, angle_a6a4)
         #front side control points from a13 to a12
         length = distance(a13, a12)/3.0
-        a12.c1 = intersectLineAtLength(a13, a12, length)
-        a12.c2 = downPoint(a12, length)
+        a12.c1 = onLineAtLength(a13, a12, length)
+        a12.c2 = down(a12, length)
 
         #all points are defined,  now create marks, labels, grainlines, seamlines, cuttinglines, darts, etc.
 
@@ -195,14 +195,14 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.
         drawPoints(A, locals())
         #label
         #TODO :  addLabel(parent, x, y)  and addLabelP(parent, P)
-        pnt1 = downPoint(a8, distance(a8, a15)/3.0)
+        pnt1 = down(a8, distance(a8, a15)/3.0)
         A.label_x, A.label_y = pnt1.x, pnt1.y
         #letter
-        pnt2 = upPoint(pnt1, 0.5*IN)
+        pnt2 = up(pnt1, 0.5*IN)
         A.setLetter(x = pnt2.x, y = pnt2.y, scaleby = 10.0)
         #grainline
-        aG1 = downPoint(a11, CD.front_waist_length/3.0)
-        aG2 = downPoint(aG1, CD.front_waist_length/2.0)
+        aG1 = down(a11, CD.front_waist_length/3.0)
+        aG2 = down(aG1, CD.front_waist_length/2.0)
         addGrainLine(A, aG1, aG2)
         # gridline
         # this grid is helpful to troubleshoot during design phase
@@ -222,14 +222,14 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.
         #draw svg points
         drawPoints(B, locals())
         #label
-        pnt1 = downPoint(midPoint(b7, b8), distance(b1, b2)/4.0)
+        pnt1 = down(midPoint(b7, b8), distance(b1, b2)/4.0)
         B.label_x, B.label_y = pnt1.x, pnt1.y
         #letter
-        pnt2 = upPoint(pnt1, 0.5*IN)
+        pnt2 = up(pnt1, 0.5*IN)
         B.setLetter(x = pnt2.x, y = pnt2.y, scaleby = 10.0)
         #grainline X
-        bG1 = downPoint(b7, CD.back_waist_length/3.0)
-        bG2 = downPoint(bG1, CD.back_waist_length/2.0)
+        bG1 = down(b7, CD.back_waist_length/3.0)
+        bG2 = down(bG1, CD.back_waist_length/2.0)
         addGrainLine(B, bG1, bG2)
         # gridline X
         gridLine = path()
