@@ -21,13 +21,8 @@
 
 #python
 import math
-import string
 import re
-import random
-import inspect
-import string
-from pprint import pprint
-from math import sin,cos,pi,sqrt,asin
+from math import sin,cos,sqrt,asin
 #pysvg
 import pysvg.builders as PYB
 #tmtp
