@@ -410,7 +410,6 @@ def intersectLineCurve(P1,P2,curve,n=100):
     intersections=0
     points_found=[]
     #tangents_found=[]
-    pnt=Pnt()
     j=0
     while j<=len(curve) -4: # for each bezier curve in curveArray
         intersection_estimate=intersectLines(P1,P2,curve[j],curve[j+3]) # is there an intersection?
