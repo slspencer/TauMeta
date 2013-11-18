@@ -20,8 +20,21 @@ The output (at this time) contains both reference and pattern objects. Command l
 will be added to control this, but for now you have to edit the sample design file.
 
 
-In order to generate a pattern, use the following 2 steps in command line format:
+In order to generate a pattern, do either I or II:
 
+I. Use the startup script to call a pattern, create the .svg output file with reference layer, open in Inkscape, and outset the cutting lines:
+                 ./tmtp-private.sh <pattern design file name without extension>
+
+Example:         ./tmtp-private.sh allington_shirt_waist
+
+* allington_shirt_waist.py must exist in the ./patterns directory
+* allington_shirt_waist.svg will be created in the ./output directory
+* before running tmtp-private.sh for the first time you may need to set the file with execute privileges:
+                 ./chmod +x tmtp-private.sh
+
+...OR...
+
+II. use the following 2 steps in command line format:
 1. create the pattern
 ./mkpattern --tooltips --client=./customer/<client's measurements JSON file> --pattern=./patterns/<collection>/<pattern design file>  --styles=tmtp_styles.json <output file name>
 
@@ -40,6 +53,7 @@ The output file (foo.svg in above examples) can be viewed with most browsers, or
   With Inkscape:  inkscape --file=<output file name>
 
 If option 2a is used above, open the output file in an SVG-animation compatible browser to view names of the pattern points by passing the mouse pointer over the points. 
+
 
 
 
