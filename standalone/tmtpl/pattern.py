@@ -790,12 +790,10 @@ def intersectLineCircle(C,r,P1,P2):
             return None
         elif i==0.0:
             # one intersection
-            intersections=1
             mu=-b/(2.0*a)
             p1.x,p1.y=P1.x+mu*(P2.x-P1.x),P1.y+mu*(P2.y-P1.y)
         elif i>0.0:
             # two intersections
-            intersections=2
             # first intersection
             mu1=(-b+math.sqrt(i))/(2.0*a)
             p1.x,p1.y=P1.x+mu1*(P2.x-P1.x),P1.y+mu1*(P2.y-P1.y)
