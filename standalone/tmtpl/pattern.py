@@ -2079,12 +2079,12 @@ class Pattern(pBase):
                         print'       New y=Previous y'
                         print'       New max_height_this_row=pp_height:', pp_height
             # now set up a transform to move this part to next_x, next_y
-            xtrans = (next_x-info['xlo'])
-            ytrans = (next_y-info['ylo'])
-            pp.attrs['transform']=pp.attrs['transform'] + (' translate(%f, %f)' % (xtrans, ytrans))
+            xtrans = (next_x - info['xlo'])
+            ytrans = (next_y - info['ylo'])
+            pp.attrs['transform'] = pp.attrs['transform'] + (' translate(%f, %f)' % (xtrans, ytrans))
             if 'verbose' in self.cfg:
                 print '     Transform=translate(xtrans:', xtrans, ', ytrans:', ytrans, ') < -- (next_x:', next_x, '- info[xlo]:', info['xlo'], '), next_y:', next_y, '- info[ylo]:', info['ylo'], ')'
-                print '     New x is next_x:', next_x+pp_width+PATTERN_OFFSET, ' < --(next_x:', next_x, '+ppwidth:', pp_width, '+PATTERN_OFFSET:', PATTERN_OFFSET, ')'
+                print '     New x is next_x:', next_x + pp_width + PATTERN_OFFSET, ' < --(next_x:', next_x, '+ppwidth:', pp_width, '+PATTERN_OFFSET:', PATTERN_OFFSET, ')'
             next_x = next_x + pp_width + PATTERN_OFFSET
         if 'verbose' in self.cfg:
             print 'Autolayout END'
