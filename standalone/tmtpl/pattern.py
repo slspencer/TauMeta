@@ -1497,7 +1497,6 @@ def setupPattern(pattern_design,clientData,printer,patternData):
             pattern_design.cfg['paper_width']=(36.0*IN)
         #set default border for document to allow printing
         pattern_design.cfg['border']=(2.5*CM)
-        BORDER=pattern_design.cfg['border']
         #set data to print at top of pattern
         metainfo={'companyName':patternData['companyName'],#mandatory
                     'designerName':patternData['designerName'],#mandatory
