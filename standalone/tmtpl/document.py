@@ -277,8 +277,8 @@ class TestGrid(pBase):
         Creates two TestGrids at top of pattern --> 20cm & 8in
         """
 
-        CMW = self.centimeters*CM_TO_PX
-        INW = self.inches*IN_TO_PX
+        CMW = self.centimeters * CM_TO_PX
+        INW = self.inches * IN_TO_PX
         svg_gridpath = PYB.path()
 
         gstyle = PYB.StyleBuilder(self.styledefs[self.stylename])
@@ -297,31 +297,31 @@ class TestGrid(pBase):
 
         # centimeter grid
         i=0
-        while (i<=self.centimeters): # vertical lines
-            x=startcm_x + i*CM
+        while (i <= self.centimeters): # vertical lines
+            x = startcm_x + i*CM
             svg_gridpath.appendMoveToPath(x, startcm_y, relative=False)
             svg_gridpath.appendLineToPath(x, startcm_y + CMW, relative=False)
-            i=i + 1
+            i = i + 1
         i=0
-        while (i<=self.centimeters): # horizontal lines
-            y=startcm_y + i*CM
+        while (i <= self.centimeters): # horizontal lines
+            y = startcm_y + i*CM
             svg_gridpath.appendMoveToPath(startcm_x, y, relative=False)
             svg_gridpath.appendLineToPath(startcm_x + CMW, y, relative=False)
-            i=i + 1
+            i = i + 1
 
         # inch grid
-        i=0
-        while (i<=self.inches): #vertical
-            x=startin_x + i*IN
+        i = 0
+        while (i <= self.inches): #vertical
+            x = startin_x + i*IN
             svg_gridpath.appendMoveToPath(x, startin_y, relative=False)
             svg_gridpath.appendLineToPath(x, startin_y + INW, relative=False)
-            i=i + 1
-        i=0
-        while (i<=self.inches): #horizontal
-            y=startin_y + i*IN
+            i = i + 1
+        i = 0
+        while (i <= self.inches): #horizontal
+            y = startin_y + i*IN
             svg_gridpath.appendMoveToPath(startin_x, y, relative=False)
             svg_gridpath.appendLineToPath(startin_x + INW, y, relative=False)
-            i=i + 1
+            i = i + 1
 
         svg_dict[self.groupname].append(svg_gridgroup)
         return svg_dict
