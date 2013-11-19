@@ -760,7 +760,6 @@ def intersectLineCircle(C,r,P1,P2):
     Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py,written in Python 3.2 by Campbell Barton
     """
     P,p1,p2=Pnt(),Pnt(),Pnt()
-    intersections=0
 
     if P1.x==P2.x: #vertical line
         if abs(P1.x-C.x)>r:
