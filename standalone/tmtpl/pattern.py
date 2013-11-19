@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not,see<http://www.gnu.org/licenses/>.
+# along with this program.  If not,see < http://www.gnu.org/licenses/ > .
 
 #python
 import math
@@ -180,7 +180,7 @@ def polar(p1,distance,angle):
     return p2
 
 def midPoint(p1,p2,n=0.5):
-    '''Accepts p1 & p2 of class Point or Pnt, and n where 0<n<1. Returns p3 of class Pnt as midpoint b/w p1 & p2'''
+    '''Accepts p1 & p2 of class Point or Pnt, and n where 0 < n < 1. Returns p3 of class Pnt as midpoint b/w p1 & p2'''
     p3=Pnt((p1.x+p2.x)*n,(p1.y+p2.y)*n)
     return p3
 
@@ -244,7 +244,7 @@ def angleOfChord(chord_width,radius):
 #---slope---
 def slopeOfLine(p1,p2):
     """ Accepts two point objects and returns the slope """
-    if ((p2.x-p1.x) <> 0):
+    if ((p2.x-p1.x) <>  0):
         m=(p2.y-p1.y)/(p2.x-p1.x)
     else:
         print 'Vertical Line'
@@ -255,51 +255,51 @@ def slopeOfLine(p1,p2):
 def isRight(pnt1, pnt2):
     '''returns 1 if pnt2 is to the right of pnt1'''
     right=0
-    if pnt2.x>pnt1.x:
+    if pnt2.x > pnt1.x:
         right=1
     return right
 
 def isLeft(pnt1, pnt2):
     '''returns 1 if pnt2 is to the left of pnt1'''
     left=0
-    if pnt2.x<pnt1.x:
+    if pnt2.x < pnt1.x:
         left=1
     return left
 
 def isAbove(pnt1, pnt2):
     '''returns 1 if pnt2 is above pnt1'''
     up=0
-    if pnt2.y<pnt1.y:
+    if pnt2.y < pnt1.y:
         up=1
     return up
 
 def isBelow(pnt1, pnt2):
     '''returns 1 if pnt2 is below pnt1'''
     down=0
-    if pnt2.y>pnt1.y:
+    if pnt2.y > pnt1.y:
         down=1
     return down
 
 def lowest(pnt1,pnt2):
-    if pnt2.y>pnt1.y:
+    if pnt2.y > pnt1.y:
         return pnt2
     else:
         return pnt1
 
 def highest(pnt1,pnt2):
-    if pnt2.y<pnt1.y:
+    if pnt2.y < pnt1.y:
         return pnt2
     else:
         return pnt1
 
 def leftmost(pnt1,pnt2):
-    if pnt2.x<pnt1.x:
+    if pnt2.x < pnt1.x:
         return pnt2
     else:
         return pnt1
 
 def rightmost(pnt1,pnt2):
-    if pnt2.x>pnt1.x:
+    if pnt2.x > pnt1.x:
         return pnt2
     else:
         return pnt1
@@ -373,7 +373,7 @@ def intersectLines(p1,p2,p3,p4):
         m2=(p4.y-p3.y)/(p4.x-p3.x)
         b1=p1.y-m1*p1.x
         b2=p3.y-m2*p3.x
-        #if (abs(b1-b2)<0.01) and (m1==m2):
+        #if (abs(b1-b2) < 0.01) and (m1==m2):
         if (m1==m2):
             debug('***** Parallel lines in intersectLines2 *****')
         #else:
@@ -395,7 +395,7 @@ def intersectLineCurve(P1,P2,curve,n=100):
     '''
     # get polar equation for line for P1-P2
     # point furthest away from 1st point in curve[] is the fixed point & sets the direction of the angle towards the curve
-    #if distance(P1,curve[0]) >=distance(P2,curve[0] ):
+    #if distance(P1,curve[0]) >= distance(P2,curve[0] ):
     #   fixed_pnt=P1
     #   angle=angleOfLine(P1,P2)
     #else:
@@ -411,20 +411,20 @@ def intersectLineCurve(P1,P2,curve,n=100):
     points_found=[]
     #tangents_found=[]
     j=0
-    while j<=len(curve) -4: # for each bezier curve in curveArray
+    while j <= len(curve) -4: # for each bezier curve in curveArray
         intersection_estimate=intersectLines(P1,P2,curve[j],curve[j+3]) # is there an intersection?
-        if intersection_estimate !=None or intersection_estimate !='':
+        if intersection_estimate  != None or intersection_estimate !='':
             interpolatedPoints=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],n)  #interpolate this bezier curve,n=100
             k=0
-            while k<len(interpolatedPoints)-1:
+            while k < len(interpolatedPoints)-1:
                 pnt_on_line=polar(fixed_pnt,distance(fixed_pnt,interpolatedPoints[k]),angle)
                 range=distance(interpolatedPoints[k],interpolatedPoints[k+1]) # TODO:improve margin of error
                 length=distance(pnt_on_line,interpolatedPoints[k])
                 #print k,'pntOnCurve',interpolatedPoints[k].x,interpolatedPoints[k].y,'onLineAtLength',pnt_on_line.x,pnt_on_line.y,distance,range
-                if ( length<=range):
+                if ( length <= range):
                     # its close enough!
                     #print 'its close enough!'
-                    if k>1:
+                    if k > 1:
                         if (interpolatedPoints[k-1] not in points_found) and (interpolatedPoints[k-2] not in points_found):
                             points_found.append(interpolatedPoints[k])
                             #tangents_found.append(angleOfLine(interpolatedPoints[k-1],interpolatedPoints[k+1]))
@@ -455,11 +455,11 @@ def onCurveAtX(curve,x):
     xlist,ylist=[],[]
     pnt=Pnt()
     j=0
-    while j<=len(curve) -4: # for each bezier curve in curveArray
+    while j <= len(curve) -4: # for each bezier curve in curveArray
         interpolatedPoints=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],100)  #interpolate this bezier curve,n=100
         # get min & max for x & y for this bezier curve from its interpolated points
         i=0
-        while (i<len(interpolatedPoints)):
+        while (i < len(interpolatedPoints)):
             xlist.append(interpolatedPoints[i].x)
             ylist.append(interpolatedPoints[i].y)
             i=i+1
@@ -468,9 +468,9 @@ def onCurveAtX(curve,x):
         #print 'ymin,ymax =',ymin,ymax,'...pattern.onCurveAtX()'
         #print 'x =',x,'...pattern.onCurveAtX()'
         i=0
-        if ((x >=xmin) and (x<=xmax)):
-            while (i<(len(interpolatedPoints)-1)):
-                if (x >=interpolatedPoints[i].x) and (x<=interpolatedPoints[i+1].x):
+        if ((x >= xmin) and (x <= xmax)):
+            while (i < (len(interpolatedPoints)-1)):
+                if (x >= interpolatedPoints[i].x) and (x <= interpolatedPoints[i+1].x):
                     pnt=onLineAtX(interpolatedPoints[i],interpolatedPoints[i+1],x)
                     intersect_points.append(pnt)
                 i=i+1
@@ -485,7 +485,7 @@ def tangentOfCurveAtLine(P1,P2,curve):
     '''
     # determine whether P1 or P2 is the  furthest away from 1st point in curve[].
     # The point further away is considered the 'fixed point' & use this point to derive the angle of the line towards the curve
-    if distance(P1,curve[0]) >=distance(P2,curve[0] ):
+    if distance(P1,curve[0]) >= distance(P2,curve[0] ):
         fixed_pnt=P1
         angle=angleOfLine(P1,P2)
     else:
@@ -494,19 +494,19 @@ def tangentOfCurveAtLine(P1,P2,curve):
     intersections=[]
     found='false'
     j=0
-    while j<=len(curve) -4 and found !='true': # for each bezier curve in curveArray until a point is found
+    while j <= len(curve) -4 and found  != 'true': # for each bezier curve in curveArray until a point is found
         intersection_estimate=intersectLines(P1,P2,curve[j],curve[j+3]) # is there an intersection?
-        if intersection_estimate !=None or intersection_estimate !='':
+        if intersection_estimate  != None or intersection_estimate  != '':
             interpolated_points=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],100)  #interpolate this bezier curve,n=100
             k=0
-            while (k<len(interpolated_points)-1) and (found !='true'):
+            while (k < len(interpolated_points)-1) and (found  != 'true'):
                 pnt_on_line=polar(fixed_pnt,distance(fixed_pnt,interpolated_points[k]),angle)
                 range=distance(interpolated_points[k],interpolated_points[k+1]) # TODO:improve margin of error
-                if (distance(pnt_on_line,interpolated_points[k])<range):
+                if (distance(pnt_on_line,interpolated_points[k]) < range):
                     # its close enough!
                     num=k
                     found='true'
-                    if k>1:
+                    if k > 1:
                         if (interpolated_points[k-1] not in intersections) and (interpolated_points[k-2] not in intersections):
                             intersections.append(interpolated_points[k])
                     elif k==1:
@@ -531,12 +531,12 @@ def curveLength(curve,n=100):
     '''
     curveLength=0.0
     j=0
-    while j<=len(curve) -4: # for each curve,get segmentLength & add to curveLength
+    while j <= len(curve) -4: # for each curve,get segmentLength & add to curveLength
         interpolatedPoints=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],n)  #interpolate this curve
         # add up lengths between the interpolated points
         segmentLength=0.0
         i=1
-        while (i<=n):
+        while (i <= n):
                 segmentLength=segmentLength+distance(interpolatedPoints[i-1],interpolatedPoints[i]) #length from previous point to current point
                 i=i+1
         curveLength=curveLength+segmentLength
@@ -547,7 +547,7 @@ def curveLengthAtPoint(pnt,curve,n=100):
     found=0
     curve_length=0.0
     j=0
-    while j<=len(curve) -4 and found==0: # for each curve,get segmentLength & add to curveLength
+    while j <= len(curve) -4 and found==0: # for each curve,get segmentLength & add to curveLength
         interpolated_points=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],n)  #interpolate this curve
         # add up lengths between the interpolated points
         current_curve_length,found=interpolatedCurveLengthAtPoint(pnt,interpolated_points,found)
@@ -561,10 +561,10 @@ def interpolatedCurveLengthAtPoint(pnt,interpolatedPoints,found=0):
     # add up lengths between the interpolated points
     segment_length=0.0
     i=1
-    while (i<len(interpolatedPoints)) and (found==0):
+    while (i < len(interpolatedPoints)) and (found==0):
         current_length=distance(interpolatedPoints[i-1],interpolatedPoints[i]) #length from previous point to current point
         segment_length=segment_length+current_length
-        if pnt==interpolatedPoints[i] or distance(pnt,interpolatedPoints[i])<=current_length:
+        if pnt==interpolatedPoints[i] or distance(pnt,interpolatedPoints[i]) <= current_length:
             found=1
         i=i+1
     return segmentLength,found
@@ -582,7 +582,7 @@ def interpolatedCurvePointAtLength(length, interpolatedPoints):
     p1 = Pnt()
     i = 1
     segmentLength = 0
-    while (i < len(interpolatedPoints)) and (p1.x == ''):
+    while (i <  len(interpolatedPoints)) and (p1.x == ''):
         segmentLength += distance(interpolatedPoints[i-1], interpolatedPoints[i]) #length from previous point to current point
         if segmentLength >= length:
             p1.x, p1.y = interpolatedPoints[i].x, interpolatedPoints[i].y
@@ -593,7 +593,7 @@ def interpolateCurveList(curve,t=100):
     '''curve can have multiple cubic curves P0 C1 C2 P1 C1 C2 P3...'''
     interpolatedPoints=[]
     j=0
-    while j<=len(curve)-4:#interpolate each cubic curve
+    while j <= len(curve)-4:#interpolate each cubic curve
         temp_list=interpolateCurve(curve[j],curve[j+1],curve[j+2],curve[j+3],t)
         for pnt in temp_list:
             interpolatedPoints.append(pnt)
@@ -621,7 +621,7 @@ def interpolateCurve(P0,C1,C2,P1,t=100):
     interpolatedPoints=[]
     maxPoint=float(t)
     i=0
-    while ( i<=t):
+    while ( i <= t):
             j=i/maxPoint # j can't be an integer,i/t is an integer..always 0.
             x=A*(j**3)+B*(j**2)+C*j+D
             y=E*(j**3)+F*(j**2)+G*j+H
@@ -677,20 +677,20 @@ def intersectCircles(C1,r1,C2,r2):
         print 'center of both circles are the same...intersections.intersectCircles()'
         print 'C1 =', C1.x, C1.y, 'radius1 =', r1
         print 'C2 =', C2.x, C2.y, 'radius1 =',r2
-    elif (d<abs(r1-r2)):
+    elif (d < abs(r1-r2)):
         #intersections=0
         print 'one circle is within the other ...intersections.intersectCircles()'
         print 'd =', d
         print 'r1 - r2 =',(r1-r2)
-        print 'd< abs(r1 - r2) ?', (d<abs(r1-r2))
+        print 'd <  abs(r1 - r2) ?', (d < abs(r1-r2))
         print 'C1 =', C1.x, C1.y, 'radius1 =', r1
         print 'C2 =', C2.x, C2.y, 'radius1 =',r2
-    elif (d>(r1+r2)):
+    elif (d > (r1+r2)):
         #intersections=0
         print 'circles do not intersect ...intersections.intersectCircles()'
         print 'd =', d
         print 'r1 + r2 =',(r1+r2)
-        print 'd > abs(r1 + r2) ?', (d>abs(r1+r2))
+        print 'd >  abs(r1 + r2) ?', (d > abs(r1+r2))
         print 'C1 =', C1.x, C1.y, 'radius1 =', r1
         print 'C2 =', C2.x, C2.y, 'radius1 =',r2
         # TODO:possible kluge -check if this is acceptable using a small margin of error between r1 & r2 (2*CM)?:
@@ -719,7 +719,7 @@ def onCircleAtX(C,r,x):
     Returns an array P which holds objects of class Pnt for each intersection
     """
     P=[]
-    if abs(x-C.x)>r:
+    if abs(x-C.x) > r:
         print 'x is outside radius of circle in intersections.onCircleAtX()'
     else:
         translated_x=x-C.x # center of translated circle is (0,0) as translated_x is the difference b/w C.x & x
@@ -738,7 +738,7 @@ def onCircleAtY(C,r,y):
     Returns an array P containg intersections of class Pnt
     Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py,written in Python 3.2 by Campbell Barton
     """
-    if abs(y-C.y)>r:
+    if abs(y-C.y) > r:
         print 'y is outside radius in onCircleAtY() -- no intersection'
         return
     else:
@@ -762,7 +762,7 @@ def intersectLineCircle(C,r,P1,P2):
     P,p1,p2=Pnt(),Pnt(),Pnt()
 
     if P1.x==P2.x: #vertical line
-        if abs(P1.x-C.x)>r:
+        if abs(P1.x-C.x) > r:
             print 'no intersections for vertical line P1',P1.name,P1.x,P1.y,', P2',P2.name,P2.x,P2.y,',and Circle',C.name,C.x,C.y,', radius',r
             return None
         else:
@@ -771,7 +771,7 @@ def intersectLineCircle(C,r,P1,P2):
             p1.y=C.y+sqrt((r**2)-((P1.x-C.x)**2))
             p2.y=C.y-sqrt(r**2-(P1.x-C.x)**2)
     elif P1.y==P2.y: #horizontal line
-        if abs(P1.y-C.y)>r:
+        if abs(P1.y-C.y) > r:
             print 'no intersections for horizontal line P1',P1.name,P1.x,P1.y,', P2',P2.name,P2.x,P2.y,',and Circle',C.name,C.x,C.y,', radius',r
             return None
         else:
@@ -784,14 +784,14 @@ def intersectLineCircle(C,r,P1,P2):
         b=(2.0*((P2.x-P1.x)*(P1.x-C.x))+((P2.y-P1.y)*(P1.y-C.y)))
         c=((C.x)**2+(C.y)*82+(P1.x**2)+(P1.y)**2-(2.0*(C.x*P1.x+C.y*P1.y ))-(r)**2)
         i=b**2-4.0*a*c
-        if i<0.0:
+        if i < 0.0:
             print 'no intersections b/w line',P1.name,P1.x,P1.y,'--',P2.name,P2.x,P2.y,'and Circle',C.name,C.x,C.y,'with radius',r
             return None
         elif i==0.0:
             # one intersection
             mu=-b/(2.0*a)
             p1.x,p1.y=P1.x+mu*(P2.x-P1.x),P1.y+mu*(P2.y-P1.y)
-        elif i>0.0:
+        elif i > 0.0:
             # two intersections
             # first intersection
             mu1=(-b+math.sqrt(i))/(2.0*a)
@@ -837,12 +837,12 @@ def waistDart(parent,dart_width,dart_length,length,waist_curve,dart_angle=ANGLE9
     # separate split_curve into inside_curve1 & outside_curve
     inside_curve=[]
     i=0
-    while i<=3:
+    while i <= 3:
         inside_curve.append(PntP(split_curve[i]))
         i=i+1
     outside_curve=[]
     i=3
-    while i<=6:
+    while i <= 6:
         outside_curve.append(PntP(split_curve[i ]))
         i=i+1
     # rotate outside leg & side point (outside_curve) relative to the dart_apex,creating the dart
@@ -896,7 +896,7 @@ def foldDart(parent,dart,inside_pnt):
     O_ANGLE=angleOfLine(dart,dart.o)
     I_ANGLE=angleOfLine(dart,dart.i)
     # determine which direction the dart will be folded
-    if I_ANGLE<=O_ANGLE:
+    if I_ANGLE <= O_ANGLE:
         FOLD_ANGLE=I_ANGLE-DART_HALF_ANGLE
     else:
         FOLD_ANGLE=I_ANGLE+DART_HALF_ANGLE
@@ -935,7 +935,7 @@ def foldDart2(dart,inside_pnt):
     O_ANGLE=angleOfLine(dart,dart.o)
     I_ANGLE=angleOfLine(dart,dart.i)
     #determine which direction the dart will be folded
-    if I_ANGLE<=O_ANGLE:
+    if I_ANGLE <= O_ANGLE:
         FOLD_ANGLE=I_ANGLE-DART_HALF_ANGLE
     else:
         FOLD_ANGLE=I_ANGLE+DART_HALF_ANGLE
@@ -990,7 +990,7 @@ def controlPoints(name,knots):
     c1=[] # first control points c1[0..c_num]
     c2=[] # second control points c2[0..c_num]
     i=1
-    while (i<=c_num):
+    while (i <= c_num):
         # each loop produces c2[previous] and c1[current]
         # special cases:get c1[0] in 1st loop & c2[c_num] in last loop
         # previous segment is segment b/w previous knot & current knot
@@ -1123,7 +1123,7 @@ def getBoundingBox(path):
     tok=iter(path_tokens)
     try:
         cmd=tok.next()
-        if cmd !='M':
+        if cmd  != 'M':
             raise ValueError("Unable to handle patches that don't start with an absolute move")
         currentx=float(tok.next())
         currenty=float(tok.next())
@@ -1236,7 +1236,7 @@ def transformBoundingBox(xmin,ymin,xmax,ymax,transform):
 
 def extractMarkerId(markertext):
     # Regex -
-    #<marker id=\"grainline_mk\"\nviewBox=
+    # < marker id=\"grainline_mk\"\nviewBox=
     # one or more WS,followed by 'id' followed by zero or more WS followed by '=' followed by zero or more WS,followed by '"',
     m=re.search('(\s+id\s*=\s*\"\w+\")',markertext,re.I)
     mid=m.group(0).split('"')[1]
@@ -1308,7 +1308,7 @@ def connectObjects(connector_pnts,old_pnts):
         i=1 # don't rotate the 1st translated point,it should now be equal to connector0
         r_pnts.append(t_pnts[0])
         for t_pnt in t_pnts:
-            if  (i !=len(t_pnts)):
+            if  (i != len(t_pnts)):
                 length=distance(connector_pnts[0],t_pnts[i])
                 translated_angle=angleOfLine(connector_pnts[0],t_pnts[i])
                 r_angle=translated_angle-rotation_angle
@@ -1323,10 +1323,10 @@ def slashAndSpread(pivot,angle,*args):
         for arg in args:
             list.append(arg)
         i=0
-        while (i<len(list)):
+        while (i < len(list)):
             pnt=list[i]
             length=distance(pivot,pnt)
-            rotated_pnt=polar(pivot,length,angleOfLine(pivot,pnt)+angle) # angle>0=spread clockwise. angle<0=spread counterclockwise.
+            rotated_pnt=polar(pivot,length,angleOfLine(pivot,pnt)+angle) # angle > 0=spread clockwise. angle < 0=spread counterclockwise.
             updatePoint(pnt,rotated_pnt)
             i=i+1
         return
@@ -1470,7 +1470,7 @@ def addToPath(p,*args):
     for arg in args:
         tokens.append(arg)
     i=0
-    while (i<len(tokens)):
+    while (i < len(tokens)):
         cmd=tokens[i]
         if (cmd=='M'):
             pnt=tokens[i+1]
@@ -1959,9 +1959,9 @@ class PatternPiece(pBase):
         text.append('Client:%s' % self.cfg['clientdata'].customername)
         text.append(mi['patternNumber'])
         text.append('Pattern Piece %s' % self.lettertext)
-        if self.fabric>0:
+        if self.fabric > 0:
             text.append('Cut %d Fabric' % self.fabric)
-        if self.interfacing>0:
+        if self.interfacing > 0:
             text.append('Cut %d Interfacing' % self.interfacing)
 
         #def __init__(group,name,headline,x,y,text,textstyledef='default_textblock_text_style',boxstyledef=None,transform=''):
@@ -2031,7 +2031,7 @@ class Pattern(pBase):
         for pp,info in parts.items():
             letter=pp.lettertext
             if letter in index_by_letter:
-                raise ValueError('The same Pattern Piece letter<%s> is used on more than one pattern piece' % letter)
+                raise ValueError('The same Pattern Piece letter < %s >  is used on more than one pattern piece' % letter)
             index_by_letter[letter]=pp
             letters.append(letter)
 
@@ -2048,30 +2048,30 @@ class Pattern(pBase):
 
             if 'verbose' in self.cfg:
                 print '   Part letter:',thisletter
-                print '     part width=pp_width:',pp_width,'<-- info[xhi]:',info['xhi'],'-info[xlo]:',info['xlo']
-                print '     part height=pp_height:',pp_height,'<-- info[yhi]:',info['yhi'],'-info[ylo]:',info['ylo']
+                print '     part width=pp_width:',pp_width,' < -- info[xhi]:',info['xhi'],'-info[xlo]:',info['xlo']
+                print '     part height=pp_height:',pp_height,' < -- info[yhi]:',info['yhi'],'-info[ylo]:',info['ylo']
                 print '     current x=next_x:',next_x
                 print '     current y=next_y:',next_y
 
-            if pp_width>pg_width:
-                print 'Error:Pattern piece<%s> is too wide to print on page width' % pp.name
+            if pp_width > pg_width:
+                print 'Error:Pattern piece < %s >  is too wide to print on page width' % pp.name
                 # TODO:-figure out something smarter
                 ## raise
 
-            if next_x+pp_width>pg_width:
+            if next_x+pp_width > pg_width:
                 # start a new row
                 real_next_y=next_y+max_height_this_row+PATTERN_OFFSET
                 if 'verbose' in self.cfg:
                     print '     Starting new row,right side of piece would have been=',next_x+pp_width
                     print '     New x=0'
                     print '     Previous y=next_y:',next_y
-                    print '     New y=real_next_y:',real_next_y,'<-- (next_y:',next_y,'+max_height_this_row:',max_height_this_row,'+PATTERN_OFFSET:',PATTERN_OFFSET,')'
+                    print '     New y=real_next_y:',real_next_y,' < -- (next_y:',next_y,'+max_height_this_row:',max_height_this_row,'+PATTERN_OFFSET:',PATTERN_OFFSET,')'
                     print '     New max_height_this_row=pp_height:',pp_height
                 next_y=real_next_y
                 max_height_this_row=pp_height
                 next_x=0
             else:
-                if pp_height>max_height_this_row:
+                if pp_height > max_height_this_row:
                     max_height_this_row=pp_height
                     if 'verbose' in self.cfg:
                         print'       Previous y=next_y:',next_y
@@ -2082,8 +2082,8 @@ class Pattern(pBase):
             ytrans=(next_y-info['ylo'])
             pp.attrs['transform']=pp.attrs['transform']+(' translate(%f,%f)' % (xtrans,ytrans))
             if 'verbose' in self.cfg:
-                print '     Transform=translate(xtrans:',xtrans,',ytrans:',ytrans,')<-- (next_x:',next_x,'- info[xlo]:',info['xlo'],'),next_y:',next_y,'- info[ylo]:',info['ylo'],')'
-                print '     New x is next_x:',next_x+pp_width+PATTERN_OFFSET,'<--(next_x:',next_x,'+ppwidth:',pp_width,'+PATTERN_OFFSET:',PATTERN_OFFSET,')'
+                print '     Transform=translate(xtrans:',xtrans,',ytrans:',ytrans,') < -- (next_x:',next_x,'- info[xlo]:',info['xlo'],'),next_y:',next_y,'- info[ylo]:',info['ylo'],')'
+                print '     New x is next_x:',next_x+pp_width+PATTERN_OFFSET,' < --(next_x:',next_x,'+ppwidth:',pp_width,'+PATTERN_OFFSET:',PATTERN_OFFSET,')'
             next_x=next_x+pp_width+PATTERN_OFFSET
         if 'verbose' in self.cfg:
             print 'Autolayout END'
