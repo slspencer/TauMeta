@@ -70,7 +70,7 @@ def pPoint(parent, id, p1, transform=''):
     The python variable assignment is required because they are used to write the SVG circles and paths to the XML Document at the doc.draw() command at the end of the pattern design file
     Paths are built as    'M', aa, 'L', ab, 'C', ac.c1, ac.c2, ac, 'L', aa   (no 'm', 'l', 'h', 'v', 'z' relative path or 'Q' quadratic curve commands)
     '''
-    p2=Point('reference', id, p1.x, p1.y, 'point_style', transform)
+    p2 = Point('reference', id, p1.x, p1.y, 'point_style', transform)
     parent.add(p2)
     return p2
 
@@ -99,7 +99,7 @@ def cPoint(parent, id, p1, transform=''):
     The python variable assignment is required because they are used to write the SVG circles and paths to the XML Document at the doc.draw() command at the end of the pattern design file
     Paths are built as    'M', aa, 'L', ab, 'C', ac.c1, ac.c2, ac, 'L', aa   (no 'm', 'l', 'h', 'v', 'z' relative path or 'Q' quadratic curve commands)
     '''
-    p2=Point('reference', id, p1.x, p1.y, 'controlpoint_style', transform)
+    p2 = Point('reference', id, p1.x, p1.y, 'controlpoint_style', transform)
     parent.add(p2)
     return p2
 
@@ -112,9 +112,9 @@ def cPointXY(parent, id, x, y, transform=''):
 
 def circle(parent, id, p1):
     """creates an unfilled circle """
-    p2=Point('reference', id+'_circle', p1.x, p1.y, 'circle_style', transform='', size=p1.size)
+    p2 = Point('reference', id+'_circle', p1.x, p1.y, 'circle_style', transform='', size=p1.size)
     parent.add(p2)
-    p3=Point('reference', id, p1.x, p1.y, 'point_style', transform='', size=5)
+    p3 = Point('reference', id, p1.x, p1.y, 'point_style', transform='', size=5)
     parent.add(p3)
     return
 
@@ -125,27 +125,27 @@ def circle(parent, id, p1):
 def updatePoint(p1, p2):
     '''Accepts p1 and p2 of class Point. Updates p1 with x & y values from p2'''
     #p2 might not have p2.coords,  so create p1.coords with p2.x & p2.y
-    p1.x, p1.y, p1.coords=p2.x, p2.y, str(p2.x)+', '+str(p2.y)
+    p1.x, p1.y, p1.coords = p2.x, p2.y, str(p2.x) + ', ' + str(p2.y)
     return
 
 def right(p1, n):
     '''Accepts p1 of class Point, n of type float. Returns p2 of class Point to the right of p1 at (p1.x+n,  p1.y)'''
-    p2=Pnt(p1.x+n, p1.y)
+    p2 = Pnt(p1.x + n, p1.y)
     return p2
 
 def left(p1, n):
     '''Accepts p1 of class Point, n of type float. Returns p2 of class Point to the left of p1 at (p1.x-n,  p1.y)'''
-    p2=Pnt(p1.x-n, p1.y)
+    p2 = Pnt(p1.x - n, p1.y)
     return p2
 
 def up(p1, n):
     '''Accepts p1 of class Point, n of type float. Returns p2 of class Point above p1 at (p1.x,  p1.y-n)'''
-    p2=Pnt(p1.x, p1.y-n)
+    p2 = Pnt(p1.x, p1.y - n)
     return p2
 
 def down(p1, n):
     '''Accepts p1 of class Point, n of type float. Returns p2 of class Point below p1 at (p1.x,  p1.y+n)'''
-    p2=Pnt(p1.x, p1.y+n)
+    p2 = Pnt(p1.x, p1.y + n)
     return p2
 
 def symmetricPoint(p1, p2, type='vertical'):
@@ -155,15 +155,15 @@ def symmetricPoint(p1, p2, type='vertical'):
     If type=='vertical': pnt is on opposite side of vertical line x=p2.x from p1
     If type=='horizontal': pnt is on opposite side of horizontal line y=p2.y from p1
     """
-    p3=Pnt()
-    dx=p2.x-p1.x
-    dy=p2.y-p1.y
-    if (type=='vertical'):
-        p3.x=p2.x+dx
-        p3.y=p1.y
-    elif (type=='horizontal'):
-        p3.x=p1.x
-        p3.y=p2.y+dy
+    p3 = Pnt()
+    dx = p2.x - p1.x
+    dy = p2.y - p1.y
+    if (type == 'vertical'):
+        p3.x = p2.x+dx
+        p3.y = p1.y
+    elif (type == 'horizontal'):
+        p3.x = p1.x
+        p3.y = p2.y+dy
     return p3
 
 def polar(p1, distance, angle):
@@ -173,34 +173,34 @@ def polar(p1, distance, angle):
     Returns p2 as type Point,  calculated at distance and angle from p1,
     Angles start at position 3:00 and move clockwise due to y increasing downwards on Cairo Canvas
     '''
-    r=distance
-    x=p1.x+(r*cos(angle))
-    y=p1.y+(r*sin(angle))
-    p2=Pnt(x, y)
+    r = distance
+    x = p1.x + (r * cos(angle))
+    y = p1.y + (r * sin(angle))
+    p2 = Pnt(x, y)
     return p2
 
 def midPoint(p1, p2, n=0.5):
     '''Accepts p1 & p2 of class Point or Pnt,  and n where 0 < n < 1. Returns p3 of class Pnt as midpoint b/w p1 & p2'''
-    p3=Pnt((p1.x+p2.x)*n, (p1.y+p2.y)*n)
+    p3 = Pnt((p1.x + p2.x) * n, (p1.y + p2.y) * n)
     return p3
 
 # ---length---
 
 def distance(p1, p2):
     """Accepts p1 & p2 if class Pnt or Point and returns distance between the points (type float)"""
-    return math.sqrt(((p2.x-p1.x)**2)+((p2.y-p1.y)**2))
+    return math.sqrt(((p2.x - p1.x) ** 2) + ((p2.y - p1.y) ** 2))
 
 def distanceXY(x1, y1, x2, y2):
     """Accepts four values x1, y1, x2, y2 and returns distance"""
-    return math.sqrt(((x2-x1)**2)+((y2-y1)**2))
+    return math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2))
 
 #---angles---
 
 def degreeOfAngle(angle):
-    return angle*180.0/math.pi
+    return angle * 180.0/math.pi
 
 def angleOfDegree(degree):
-    return degree*math.pi/180.0
+    return degree * math.pi/180.0
 
 def angleOfSlope(p1, p2):
     """
@@ -208,8 +208,8 @@ def angleOfSlope(p1, p2):
     Returns the angle in radians from p1 to p2
     Identical to function angleOfLine(); keep this function for educational purposes
     """
-    rise=p2.y-p1.y
-    run=p2.x-p1.x
+    rise = p2.y - p1.y
+    run = p2.x - p1.x
     return math.atan2(rise, run)
 
 def angleOfLine(p1, p2):
@@ -217,7 +217,7 @@ def angleOfLine(p1, p2):
     Accepts p1 & p2 of class Pnt
     Returns the angle in radians of the vector between them\
     """
-    return math.atan2(p2.y-p1.y, p2.x-p1.x)
+    return math.atan2(p2.y - p1.y, p2.x - p1.x)
 
 def angleOfVector(p1, v, p2):
     """
@@ -228,56 +228,56 @@ def angleOfVector(p1, v, p2):
     #L2=distance(p1, p3)
     #L3=distance(p2, p3)
     #return math.acos((L1**2+L2**2-L3**2)/(2*L1*L2))
-    return abs(angleOfLine(v, p1)-angleOfLine(v, p2))
+    return abs(angleOfLine(v, p1) - angleOfLine(v, p2))
 
 def angleOfChord(chord_width, radius):
     """
     Find the angle between two points given center, radius, chordlength & starting point=2*asin(d/2r)
     Adapted from http://math.stackexchange.com/questions/164541/finding-a-point-having-the-radius-chord-length-and-another-point
     """
-    d=chord_width # chord width-usage:could be the dart width
-    r=radius # radius-usage:could be the dart length
-    d_div_2r=d/(2.0*r)
-    angle=2*asin(d_div_2r) # angle-usage:could be the rotation angle used in slashAndSpread to create a dart
+    d = chord_width # chord width-usage:could be the dart width
+    r = radius # radius-usage:could be the dart length
+    d_div_2r = d/(2.0 * r)
+    angle = 2 * asin(d_div_2r) # angle-usage:could be the rotation angle used in slashAndSpread to create a dart
     return angle
 
 #---slope---
 def slopeOfLine(p1, p2):
     """ Accepts two point objects and returns the slope """
-    if ((p2.x-p1.x) <>  0):
-        m=(p2.y-p1.y)/(p2.x-p1.x)
+    if ((p2.x - p1.x) <>  0):
+        m = (p2.y - p1.y)/(p2.x - p1.x)
     else:
         print 'Vertical Line'
-        m=None
+        m = None
     return m
 
 #---tests for position---
 def isRight(pnt1,  pnt2):
     '''returns 1 if pnt2 is to the right of pnt1'''
-    right=0
+    right = 0
     if pnt2.x > pnt1.x:
-        right=1
+        right = 1
     return right
 
 def isLeft(pnt1,  pnt2):
     '''returns 1 if pnt2 is to the left of pnt1'''
-    left=0
+    left = 0
     if pnt2.x < pnt1.x:
-        left=1
+        left = 1
     return left
 
 def isAbove(pnt1,  pnt2):
     '''returns 1 if pnt2 is above pnt1'''
-    up=0
+    up = 0
     if pnt2.y < pnt1.y:
-        up=1
+        up = 1
     return up
 
 def isBelow(pnt1,  pnt2):
     '''returns 1 if pnt2 is below pnt1'''
-    down=0
+    down = 0
     if pnt2.y > pnt1.y:
-        down=1
+        down = 1
     return down
 
 def lowest(pnt1, pnt2):
@@ -313,43 +313,43 @@ def onLineAtLength(p1, p2, length, rotation=0):
     If length is negative,  will return p3 at length measured from p1 in opposite direction from p2
     The point is optionally rotated about the first point by the rotation angle in degrees
     """
-    p3=Pnt()
-    lineangle=angleOfLine(p1, p2)
-    angle=lineangle+(rotation*(math.pi/180))
-    x=(length*math.cos(angle))+p1.x
-    y=(length*math.sin(angle))+p1.y
-    p3=Pnt(x, y)
+    p3 = Pnt()
+    lineangle = angleOfLine(p1, p2)
+    angle = lineangle + (rotation * (math.pi/180))
+    x = (length * math.cos(angle)) + p1.x
+    y = (length * math.sin(angle)) + p1.y
+    p3 = Pnt(x, y)
     return p3
 
 def onLineAtX(p1, p2, x):
     #on line p1-p2, given x find y
-    pnt=Pnt()
-    pnt.x=x
-    if (p1.x==p2.x):# vertical line
+    pnt = Pnt()
+    pnt.x = x
+    if (p1.x == p2.x):# vertical line
         print  'infinite values of y on vertical line'
         return None
     else:
-        m=(p1.y-p2.y)/(p1.x-p2.x)
-        b=p2.y-(m*p2.x)
-        pnt.y=(x*m)-b
+        m = (p1.y - p2.y)/(p1.x - p2.x)
+        b = p2.y - (m * p2.x)
+        pnt.y = (x * m) - b
         return pnt
 
 def onLineAtY(p1, p2, y):
     #on line p1-p2, find x given y
-    p3=Pnt()
-    if (p1.y==p2.y): #if horizontal line
-        if (p1.y!=y): #if y is not on horizontal line
+    p3 = Pnt()
+    if (p1.y == p2.y): #if horizontal line
+        if (p1.y != y): #if y is not on horizontal line
             print 'y =', y, ' -- not on horizontal line p1.y =',  p1.y,  'in onLineAtY -- no intersection'
         else:
-            p3.y=y
-    elif (p1.x==p2.x):# if vertical line
-        p3.x=p1.x
-        p3.y=y
+            p3.y = y
+    elif (p1.x == p2.x):# if vertical line
+        p3.x = p1.x
+        p3.y = y
     else:
-        m=(p1.y-p2.y)/(p1.x-p2.x)
-        b=p2.y-(m*p2.x)
-        p3.x=(y-b)/m
-        p3.y=y
+        m = (p1.y - p2.y)/(p1.x - p2.x)
+        b = p2.y - (m * p2.x)
+        p3.x = (y - b)/m
+        p3.y = y
     return p3
 
 def intersectLines(p1, p2, p3, p4):
@@ -357,24 +357,24 @@ def intersectLines(p1, p2, p3, p4):
     Find intersection between two lines. Accepts p1, p2, p3, p4 as class Point. Returns p5 as class Point
     Intersection does not have to be within the supplied line segments
     """
-    x, y=0.0, 0.0
-    if (p1.x==p2.x): #if 1st line vertical, use slope of 2nd line
-        x=p1.x
-        m2=slopeOfLine(p3, p4)
-        b2=p3.y-m2*p3.x
-        y=m2*x+b2
-    elif (p3.x==p4.x): #if 2nd line vertical,  use slope of 1st line
-        x=p3.x
-        m1=slopeOfLine(p1, p2)
-        b1=p1.y-m1*p1.x
-        y=m1*x+b1
+    x, y = 0.0, 0.0
+    if (p1.x == p2.x): #if 1st line vertical, use slope of 2nd line
+        x = p1.x
+        m2 = slopeOfLine(p3, p4)
+        b2 = p3.y - (m2 * p3.x)
+        y = (m2 * x) + b2
+    elif (p3.x == p4.x): #if 2nd line vertical,  use slope of 1st line
+        x = p3.x
+        m1 = slopeOfLine(p1, p2)
+        b1 = p1.y - (m1 * p1.x)
+        y = (m1 * x) + b1
     else: #otherwise use ratio of difference between slopes
-        m1=(p2.y-p1.y)/(p2.x-p1.x)
-        m2=(p4.y-p3.y)/(p4.x-p3.x)
-        b1=p1.y-m1*p1.x
-        b2=p3.y-m2*p3.x
+        m1 = (p2.y - p1.y)/(p2.x - p1.x)
+        m2 = (p4.y - p3.y)/(p4.x - p3.x)
+        b1 = p1.y - (m1 * p1.x)
+        b2 = p3.y - (m2 * p3.x)
         #if (abs(b1-b2) < 0.01) and (m1==m2):
-        if (m1==m2):
+        if (m1 == m2):
             debug('***** Parallel lines in intersectLines2 *****')
         #else:
             #if (m1==m2):
@@ -382,9 +382,9 @@ def intersectLines(p1, p2, p3, p4):
             #else:
                 #x=(b2-b1)/(m1-m2)
         else:
-            x=(b2-b1)/(m1-m2)
-            y=(m1*x)+b1 # arbitrary choice, could have used m2 & b2
-    p5=Pnt(x, y)
+            x = (b2 - b1)/(m1 - m2)
+            y = (m1 * x) + b1 # arbitrary choice, could have used m2 & b2
+    p5 = Pnt(x, y)
     return p5
 
 #---curves---
