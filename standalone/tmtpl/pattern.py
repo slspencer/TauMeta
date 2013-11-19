@@ -401,45 +401,46 @@ def intersectLineCurve(P1, P2, curve, n=100):
     #else:
     #   fixed_pnt=P2
     #  angle=angleOfLine(P2, P1)
-    fixed_pnt=P1
-    angle=angleOfLine(P1, P2)
+    fixed_pnt = P1
+    angle = angleOfLine(P1, P2)
     #print 'P1 =', P1.x, P1.y
     #print 'P2 =', P2.x, P2.y
     #for pnt in curve:
         #print 'curve =', pnt.x, pnt.y
-    intersections=0
-    points_found=[]
+    intersections = 0
+    points_found = []
     #tangents_found=[]
-    j=0
-    while j <= len(curve) -4: # for each bezier curve in curveArray
-        intersection_estimate=intersectLines(P1, P2, curve[j], curve[j+3]) # is there an intersection?
-        if intersection_estimate  != None or intersection_estimate !='':
-            interpolatedPoints=interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], n)  #interpolate this bezier curve, n=100
-            k=0
-            while k < len(interpolatedPoints)-1:
-                pnt_on_line=polar(fixed_pnt, distance(fixed_pnt, interpolatedPoints[k]), angle)
-                range=distance(interpolatedPoints[k], interpolatedPoints[k+1]) # TODO:improve margin of error
-                length=distance(pnt_on_line, interpolatedPoints[k])
+    j = 0
+    while (j <= len(curve) - 4): # for each bezier curve in curveArray
+        intersection_estimate = intersectLines(P1, P2, curve[j], curve[j + 3]) # is there an intersection?
+        if (intersection_estimate != None) or (intersection_estimate != ''):
+            interpolatedPoints = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)
+            k = 0
+            while (k < len(interpolatedPoints) - 1):
+                pnt_on_line = polar(fixed_pnt, distance(fixed_pnt, interpolatedPoints[k]), angle)
+                # TODO:improve margin of error
+                range = distance(interpolatedPoints[k], interpolatedPoints[k + 1])
+                length = distance(pnt_on_line, interpolatedPoints[k])
                 #print k, 'pntOnCurve', interpolatedPoints[k].x, interpolatedPoints[k].y, 'onLineAtLength', pnt_on_line.x, pnt_on_line.y, distance, range
-                if ( length <= range):
+                if (length <= range):
                     # its close enough!
                     #print 'its close enough!'
                     if k > 1:
-                        if (interpolatedPoints[k-1] not in points_found) and (interpolatedPoints[k-2] not in points_found):
+                        if (interpolatedPoints[k - 1] not in points_found) and (interpolatedPoints[k - 2] not in points_found):
                             points_found.append(interpolatedPoints[k])
                             #tangents_found.append(angleOfLine(interpolatedPoints[k-1], interpolatedPoints[k+1]))
-                            intersections=intersections+1
-                    elif k==1:
+                            intersections = intersections+1
+                    elif k == 1:
                         if (curve[0] not in intersections):
                             points_found.append(interpolatedPoints[1])
                             #tangents_found.append(angleOfLine(curve[0], interpolatedPoints[2]))
-                            intersections=intersections+1
+                            intersections = intersections+1
                     else:
                         intersections.append(curve[0])
                         #tangents_found.append(angleOfLine(curve[0], curve[1]))
-                k=k+1
-        j=j+3 # skip j up to P3 of the current curve to be used as P0 start of next curve
-        if intersections==0:
+                k = k+1
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+        if intersections == 0:
             print 'no intersections found in intersectLineCurve(', P1.name, P2.name, ' and curve'
     #return points_found, tangents_found
     return points_found
@@ -451,30 +452,30 @@ def onCurveAtX(curve, x):
     Accepts value of x to find on curve.
     Returns array 'intersections' which contains y values of each intersection found in order from 1st to last bezier curve in curveArray.
     '''
-    intersect_points=[]
-    xlist, ylist=[], []
-    pnt=Pnt()
-    j=0
-    while j <= len(curve) -4: # for each bezier curve in curveArray
+    intersect_points = []
+    xlist, ylist = [], []
+    pnt = Pnt()
+    j = 0
+    while (j <= len(curve) - 4): # for each bezier curve in curveArray
         interpolatedPoints=interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
         # get min & max for x & y for this bezier curve from its interpolated points
-        i=0
+        i = 0
         while (i < len(interpolatedPoints)):
             xlist.append(interpolatedPoints[i].x)
             ylist.append(interpolatedPoints[i].y)
-            i=i+1
+            i = i+1
         xmin, ymin, xmax, ymax=min(xlist), min(ylist), max(xlist), max(ylist)
         #print 'xmin, xmax =', xmin, xmax, '...pattern.onCurveAtX()'
         #print 'ymin, ymax =', ymin, ymax, '...pattern.onCurveAtX()'
         #print 'x =', x, '...pattern.onCurveAtX()'
-        i=0
+        i = 0
         if ((x >= xmin) and (x <= xmax)):
-            while (i < (len(interpolatedPoints)-1)):
-                if (x >= interpolatedPoints[i].x) and (x <= interpolatedPoints[i+1].x):
-                    pnt=onLineAtX(interpolatedPoints[i], interpolatedPoints[i+1], x)
+            while (i < len(interpolatedPoints) - 1):
+                if (x >= interpolatedPoints[i].x) and (x <= interpolatedPoints[i + 1].x):
+                    pnt = onLineAtX(interpolatedPoints[i], interpolatedPoints[i + 1], x)
                     intersect_points.append(pnt)
-                i=i+1
-        j=j+3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+                i = i + 1
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return intersect_points # return array of intersection points
 
 def tangentOfCurveAtLine(P1, P2, curve):
@@ -485,119 +486,119 @@ def tangentOfCurveAtLine(P1, P2, curve):
     '''
     # determine whether P1 or P2 is the  furthest away from 1st point in curve[].
     # The point further away is considered the 'fixed point' & use this point to derive the angle of the line towards the curve
-    if distance(P1, curve[0]) >= distance(P2, curve[0] ):
-        fixed_pnt=P1
-        angle=angleOfLine(P1, P2)
+    if distance(P1, curve[0]) >= distance(P2, curve[0]):
+        fixed_pnt = P1
+        angle = angleOfLine(P1, P2)
     else:
-        fixed_pnt=P2
-        angle=angleOfLine(P2, P1)
-    intersections=[]
-    found='false'
-    j=0
-    while j <= len(curve) -4 and found  != 'true': # for each bezier curve in curveArray until a point is found
-        intersection_estimate=intersectLines(P1, P2, curve[j], curve[j+3]) # is there an intersection?
-        if intersection_estimate  != None or intersection_estimate  != '':
-            interpolated_points=interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
-            k=0
-            while (k < len(interpolated_points)-1) and (found  != 'true'):
-                pnt_on_line=polar(fixed_pnt, distance(fixed_pnt, interpolated_points[k]), angle)
-                range=distance(interpolated_points[k], interpolated_points[k+1]) # TODO:improve margin of error
+        fixed_pnt = P2
+        angle = angleOfLine(P2, P1)
+    intersections = []
+    found = 'false'
+    j = 0
+    while (j <= len(curve) -4) and (found  != 'true'): # for each bezier curve in curveArray until a point is found
+        intersection_estimate = intersectLines(P1, P2, curve[j], curve[j + 3]) # is there an intersection?
+        if (intersection_estimate != None) or (intersection_estimate != ''):
+            interpolated_points = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], 100)  #interpolate this bezier curve, n=100
+            k = 0
+            while (k < len(interpolated_points) - 1) and (found  != 'true'):
+                pnt_on_line = polar(fixed_pnt, distance(fixed_pnt, interpolated_points[k]), angle)
+                range = distance(interpolated_points[k], interpolated_points[k + 1]) # TODO:improve margin of error
                 if (distance(pnt_on_line, interpolated_points[k]) < range):
                     # its close enough!
-                    num=k
-                    found='true'
+                    num = k
+                    found = 'true'
                     if k > 1:
-                        if (interpolated_points[k-1] not in intersections) and (interpolated_points[k-2] not in intersections):
+                        if (interpolated_points[k - 1] not in intersections) and (interpolated_points[k - 2] not in intersections):
                             intersections.append(interpolated_points[k])
-                    elif k==1:
-                        if (interpolated_points[k-1] not in intersections):
+                    elif k == 1:
+                        if (interpolated_points[k - 1] not in intersections):
                             intersections.append(interpolated_points[k])
                     else:
                         intersections.append(interpolated_points[k])
-                k=k+1
-        j=j+3 # skip j up to P3 of the current curve to be used as P0 start of next curve
-    if (found=='true'):
-        tangent_angle=angleOfLine(interpolated_points[num-1], interpolated_points[num+1])
+                k = k + 1
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+    if (found == 'true'):
+        tangent_angle = angleOfLine(interpolated_points[num - 1], interpolated_points[num + 1])
     else:
-        tangent_angle=None
+        tangent_angle = None
     return interpolated_points[num], tangent_angle
 
-def curveLength(curve, n=100):
+def curveLength(curve, n = 100):
     '''
     Accepts curve array with a minimum of four Pnt objects P0, P1, P2, P3 (knot1, controlpoint1, controlpoint2, knot2).
     Each curve after the first will use P3 from the previous curve as it's P0, and use it's own P1, P2, P3
     n is the number to subdivide each curve for calculating the interpolated points and curve length.
     Adapted from http://www.planetclegg.com/projects/WarpingTextToSplines.html
     '''
-    curveLength=0.0
-    j=0
-    while j <= len(curve) -4: # for each curve, get segmentLength & add to curveLength
-        interpolatedPoints=interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], n)  #interpolate this curve
+    curveLength = 0.0
+    j = 0
+    while (j <= len(curve) - 4): # for each curve, get segmentLength & add to curveLength
+        interpolatedPoints = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #interpolate this curve
         # add up lengths between the interpolated points
-        segmentLength=0.0
-        i=1
+        segmentLength = 0.0
+        i = 1
         while (i <= n):
-                segmentLength=segmentLength+distance(interpolatedPoints[i-1], interpolatedPoints[i]) #length from previous point to current point
-                i=i+1
-        curveLength=curveLength+segmentLength
-        j=j+3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+                segmentLength = segmentLength + distance(interpolatedPoints[i - 1], interpolatedPoints[i]) #length from previous point to current point
+                i = i + 1
+        curveLength = curveLength + segmentLength
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return curveLength
 
 def curveLengthAtPoint(pnt, curve, n=100):
-    found=0
-    curve_length=0.0
-    j=0
-    while j <= len(curve) -4 and found==0: # for each curve, get segmentLength & add to curveLength
-        interpolated_points=interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], n)  #interpolate this curve
+    found = 0
+    curve_length = 0.0
+    j = 0
+    while (j <= len(curve) - 4) and (found == 0): # for each curve, get segmentLength & add to curveLength
+        interpolated_points = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #interpolate this curve
         # add up lengths between the interpolated points
-        current_curve_length, found=interpolatedCurveLengthAtPoint(pnt, interpolated_points, found)
-        curve_length=curve_length+current_curve_length
-        j=j+3 # skip j up to P3 of the current curve to be used as P0 start of next curve
-    if curve_length==0.0:
+        current_curve_length, found = interpolatedCurveLengthAtPoint(pnt, interpolated_points, found)
+        curve_length = curve_length+current_curve_length
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+    if curve_length == 0.0:
         print 'Point not found in curveLengthAtPoint'
     return curve_length
 
 def interpolatedCurveLengthAtPoint(pnt, interpolatedPoints, found=0):
     # add up lengths between the interpolated points
-    segment_length=0.0
-    i=1
+    segment_length = 0.0
+    i = 1
     while (i < len(interpolatedPoints)) and (found==0):
-        current_length=distance(interpolatedPoints[i-1], interpolatedPoints[i]) #length from previous point to current point
-        segment_length=segment_length+current_length
-        if pnt==interpolatedPoints[i] or distance(pnt, interpolatedPoints[i]) <= current_length:
-            found=1
-        i=i+1
+        current_length = distance(interpolatedPoints[i - 1], interpolatedPoints[i]) #length from previous point to current point
+        segment_length = segment_length + current_length
+        if (pnt == interpolatedPoints[i]) or (distance(pnt, interpolatedPoints[i]) <= current_length):
+            found = 1
+        i = i + 1
     return segmentLength, found
 
 def curvePointAtLength(length, curve):
-    p1=Pnt()
-    j=0
-    while (j <= len(curve)-4) and (p1.x == ""): # for each curve,  find pnt
-        interpolated_points = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], n)
+    p1 = Pnt()
+    j = 0
+    while (j <= len(curve) - 4) and (p1.x == ""): # for each curve,  find pnt
+        interpolated_points = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)
         p1 = interpolatedCurvePointAtlength(length,  interpolated_points)
-        j = j+3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return p1
 
-def interpolatedCurvePointAtLength(length,  interpolatedPoints):
+def interpolatedCurvePointAtLength(length, interpolatedPoints):
     p1 = Pnt()
     i = 1
     segmentLength = 0
     while (i <  len(interpolatedPoints)) and (p1.x == ''):
-        segmentLength += distance(interpolatedPoints[i-1],  interpolatedPoints[i]) #length from previous point to current point
+        segmentLength += distance(interpolatedPoints[i - 1],  interpolatedPoints[i]) #length from previous point to current point
         if segmentLength >= length:
             p1.x,  p1.y = interpolatedPoints[i].x,  interpolatedPoints[i].y
-            i = i+1
+            i = i + 1
     return p1
 
 def interpolateCurveList(curve, t=100):
     '''curve can have multiple cubic curves P0 C1 C2 P1 C1 C2 P3...'''
-    interpolatedPoints=[]
-    j=0
-    while j <= len(curve)-4:#interpolate each cubic curve
-        temp_list=interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], t)
+    interpolatedPoints = []
+    j = 0
+    while (j <= len(curve) - 4): #interpolate each cubic curve
+        temp_list = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], t)
         for pnt in temp_list:
             interpolatedPoints.append(pnt)
-        j=j+3
+        j = j + 3
     return interpolatedPoints
 
 def interpolateCurve(P0, C1, C2, P1, t=100):
@@ -608,49 +609,49 @@ def interpolateCurve(P0, C1, C2, P1, t=100):
     '''
     # calculate coefficients for two knot points P0 & P1 ;     C1 & C2 are the controlpoints.
     # x coefficients
-    A=P1.x-(3*C2.x)+(3*C1.x)-P0.x
-    B=(3*C2.x)-(6*C1.x)+(3*P0.x)
-    C=(3*C1.x)-(3*P0.x)
-    D=P0.x
+    A = P1.x - (3 * C2.x) + (3 * C1.x) - P0.x
+    B = (3 * C2.x) - (6 * C1.x) + (3 * P0.x)
+    C = (3 * C1.x) - (3 * P0.x)
+    D = P0.x
     # y coefficients
-    E=P1.y-(3*C2.y)+(3*C1.y)-P0.y
-    F=(3*C2.y)-(6*C1.y)+(3*P0.y)
-    G=(3*C1.y)-(3*P0.y)
-    H=P0.y
+    E = P1.y - (3 * C2.y) + (3 * C1.y) - P0.y
+    F = (3 * C2.y) - (6 * C1.y) + (3 * P0.y)
+    G = (3 * C1.y) - (3 * P0.y)
+    H = P0.y
     # calculate interpolated points
-    interpolatedPoints=[]
-    maxPoint=float(t)
-    i=0
-    while ( i <= t):
-            j=i/maxPoint # j can't be an integer, i/t is an integer..always 0.
-            x=A*(j**3)+B*(j**2)+C*j+D
-            y=E*(j**3)+F*(j**2)+G*j+H
+    interpolatedPoints = []
+    maxPoint = float(t)
+    i = 0
+    while (i <= t):
+            j = i/maxPoint # j can't be an integer, i/t is an integer..always 0.
+            x = A * (j ** 3) + B * (j ** 2) + (C * j) + D
+            y = E * (j ** 3) + F * (j ** 2) + (G * j) + H
             interpolatedPoints.append(Pnt(x, y))
-            i=i+1
+            i = i + 1
     return interpolatedPoints
 
 def splitCurveAtLength(length,  curve):
     '''Accepts a point on a curve, and a curve list with points P0 C1 C2 P1.
     Returns curve list with P0, split.c1, split.c2, split_pnt, new.c11, new.c12, P1'''
     # find split point
-    interpolated_points = interpolateCurve(curve[0],  curve[1],  curve[2],  curve[3])
-    split_pnt = interpolatedCurvePointAtLength(length,  interpolated_points) # split neck curve at this point
+    interpolated_points = interpolateCurve(curve[0], curve[1], curve[2], curve[3])
+    split_pnt = interpolatedCurvePointAtLength(length, interpolated_points) # split neck curve at this point
     # find tangent at split point
-    pnt1 = interpolatedCurvePointAtLength(length - .25*CM,  interpolated_points) # arbitrary 1/4th of a cm-good enough for this application?
-    pnt2 = interpolatedCurvePointAtLength(length + .25*CM,  interpolated_points) # arbitrary 1/4th of a cm-good enough for this application?
+    pnt1 = interpolatedCurvePointAtLength(length - 0.25*CM,  interpolated_points) # arbitrary .25cm - good enough for this application?
+    pnt2 = interpolatedCurvePointAtLength(length + 0.25*CM,  interpolated_points)
     forward_tangent_angle = angleOfLine(pnt1,  pnt2)
     backward_tangent_angle = angleOfLine(pnt2,  pnt1)
     # neck control points
     # b/w curve[0] and split_pnt
-    length=distance(curve[0], split_pnt)/3.0
-    split_pnt.c1=polar(curve[0], length, angleOfLine(curve[0], curve[1])) # preserve angle b/w P0 & original 1st control point
-    split_pnt.c2=polar(split_pnt, length, backward_tangent_angle)
+    length = distance(curve[0], split_pnt) / 3.0
+    split_pnt.c1 = polar(curve[0], length, angleOfLine(curve[0], curve[1])) # preserve angle b/w P0 & original 1st control point
+    split_pnt.c2 = polar(split_pnt, length, backward_tangent_angle)
     # b/w split_pnt and curve[3]
-    curve3=PntP(curve[3])
-    length=distance(split_pnt, curve3)/3.0
-    curve3.c1=polar(split_pnt, length, forward_tangent_angle)
-    curve3.c2=polar(curve3, length, angleOfLine(curve3, curve[2])) # preserve angle b/w original 2nd control point & P1
-    new_curve=[]
+    curve3 = PntP(curve[3])
+    length = distance(split_pnt, curve3)/3.0
+    curve3.c1 = polar(split_pnt, length, forward_tangent_angle)
+    curve3.c2 = polar(curve3, length, angleOfLine(curve3, curve[2])) # preserve angle b/w original 2nd control point & P1
+    new_curve = []
     new_curve.append(curve[0])
     new_curve.append(split_pnt.c1)
     new_curve.append(split_pnt.c2)
@@ -667,17 +668,17 @@ def intersectCircles(C1, r1, C2, r2):
     Accepts C1, r1, C2, r2 where C1 & C2 are point objects for the center of each circle,  and r1 & r2 are the radius of each circle
     Returns an array P which holds objects of class Pnt for each intersection
     """
-    x0, y0=C1.x, C1.y
-    x1, y1=C2.x, C2.y
-    d=distanceXY(x0, y0, x1, y1) # distance b/w circle centers
-    dx, dy=(x1-x0), (y1-y0) # negate y b/c canvas increases top to bottom
-    P=[]
-    if (d==0):
+    x0, y0 = C1.x, C1.y
+    x1, y1 = C2.x, C2.y
+    d = distanceXY(x0, y0, x1, y1) # distance b/w circle centers
+    dx, dy = (x1 - x0), (y1 - y0) # negate y b/c canvas increases top to bottom
+    P = []
+    if (d == 0):
         #intersections=0
         print 'center of both circles are the same...intersections.intersectCircles()'
         print 'C1 =',  C1.x,  C1.y,  'radius1 =',  r1
         print 'C2 =',  C2.x,  C2.y,  'radius1 =', r2
-    elif (d < abs(r1-r2)):
+    elif (d < abs(r1 - r2)):
         #intersections=0
         print 'one circle is within the other ...intersections.intersectCircles()'
         print 'd =',  d
@@ -685,7 +686,7 @@ def intersectCircles(C1, r1, C2, r2):
         print 'd <  abs(r1 - r2) ?',  (d < abs(r1-r2))
         print 'C1 =',  C1.x,  C1.y,  'radius1 =',  r1
         print 'C2 =',  C2.x,  C2.y,  'radius1 =', r2
-    elif (d > (r1+r2)):
+    elif (d > (r1 + r2)):
         #intersections=0
         print 'circles do not intersect ...intersections.intersectCircles()'
         print 'd =',  d
@@ -697,16 +698,16 @@ def intersectCircles(C1, r1, C2, r2):
         #r2=d-r1
     else:
         #intersections=2 or intersections=1
-        a=((r1*r1)-(r2*r2)+(d*d))/(2.0*d)
-        x2=x0+(dx*a/d)
-        y2=y0+(dy*a/d)
-        h=math.sqrt((r1*r1)-(a*a))
-        rx=-dy*(h/d)
-        ry=dx*(h/d)
-        X1=x2+rx
-        Y1=y2+ry
-        X2=x2-rx
-        Y2=y2-ry
+        a = ((r1 * r1) - (r2 * r2) + (d * d)) / (2.0 * d)
+        x2 = x0 + (dx * a / d)
+        y2 = y0 + (dy * a / d)
+        h = math.sqrt((r1 * r1) - (a * a))
+        rx = -dy * (h / d)
+        ry = dx * (h / d)
+        X1 = x2 + rx
+        Y1 = y2 + ry
+        X2 = x2 - rx
+        Y2 = y2 - ry
         P.append(Pnt(X1, Y1))
         P.append(Pnt(X2, Y2))
     return P
@@ -718,15 +719,15 @@ def onCircleAtX(C, r, x):
     r as the radius,  and x to find the points on the circle
     Returns an array P which holds objects of class Pnt for each intersection
     """
-    P=[]
-    if abs(x-C.x) > r:
+    P = []
+    if abs(x - C.x) > r:
         print 'x is outside radius of circle in intersections.onCircleAtX()'
     else:
-        translated_x=x-C.x # center of translated circle is (0, 0) as translated_x is the difference b/w C.x & x
-        translated_y1=abs(math.sqrt(r**2-translated_x**2))
-        translated_y2=-(translated_y1)
-        y1=translated_y1+C.y # translate back to C.y
-        y2=translated_y2+C.y # translate back to C.y
+        translated_x = x - C.x # center of translated circle is (0, 0) as translated_x is the difference b/w C.x & x
+        translated_y1 = abs(math.sqrt(r**2 - translated_x**2))
+        translated_y2 = -(translated_y1)
+        y1 = translated_y1 + C.y # translate back to C.y
+        y2 = translated_y2 + C.y # translate back to C.y
         P.append(Pnt(x, y1))
         P.append(Pnt(x, y2))
     return P
@@ -738,16 +739,16 @@ def onCircleAtY(C, r, y):
     Returns an array P containg intersections of class Pnt
     Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
     """
-    if abs(y-C.y) > r:
+    if abs(y - C.y) > r:
         print 'y is outside radius in onCircleAtY() -- no intersection'
         return
     else:
-        translated_y=y-C.y
-        translated_x1=abs(math.sqrt(r**2-translated_y**2))
-        translated_x2=-translated_x1
-        x1=translated_x1+C.x
-        x2=translated_x2+C.x
-        P=[]
+        translated_y = y - C.y
+        translated_x1 = abs(math.sqrt(r**2 - translated_y**2))
+        translated_x2 = -translated_x1
+        x1 = translated_x1 + C.x
+        x2 = translated_x2 + C.x
+        P = []
         P.append(Pnt(x1, y))
         P.append(Pnt(x2, y))
     return P
@@ -759,57 +760,57 @@ def intersectLineCircle(C, r, P1, P2):
     Returns an object P with number of intersection points, and up to two coordinate pairs as P.intersections, P.p1, P.p2
     Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
     """
-    P, p1, p2=Pnt(), Pnt(), Pnt()
+    P, p1, p2 = Pnt(), Pnt(), Pnt()
 
-    if P1.x==P2.x: #vertical line
-        if abs(P1.x-C.x) > r:
+    if P1.x == P2.x: #vertical line
+        if abs(P1.x - C.x) > r:
             print 'no intersections for vertical line P1', P1.name, P1.x, P1.y, ',  P2', P2.name, P2.x, P2.y, ', and Circle', C.name, C.x, C.y, ',  radius', r
             return None
         else:
-            p1.x=P1.x
-            p2.x=P1.x
-            p1.y=C.y+sqrt((r**2)-((P1.x-C.x)**2))
-            p2.y=C.y-sqrt(r**2-(P1.x-C.x)**2)
+            p1.x = P1.x
+            p2.x = P1.x
+            p1.y = C.y + sqrt(r**2 - (P1.x - C.x)**2)
+            p2.y = C.y - sqrt(r**2 - (P1.x - C.x)**2)
     elif P1.y==P2.y: #horizontal line
         if abs(P1.y-C.y) > r:
             print 'no intersections for horizontal line P1', P1.name, P1.x, P1.y, ',  P2', P2.name, P2.x, P2.y, ', and Circle', C.name, C.x, C.y, ',  radius', r
             return None
         else:
-            p1.y=P1.y
-            p2.y=P1.y
-            p1.x=C.x+sqrt(r**2-(P1.y-C.y)**2)
-            p2.x=C.x-sqrt(r**2-(P1.y-C.y)**2)
+            p1.y = P1.y
+            p2.y = P1.y
+            p1.x = C.x + sqrt(r**2 - (P1.y - C.y)**2)
+            p2.x = C.x - sqrt(r**2 - (P1.y - C.y)**2)
     else:
-        a=(P2.x-P1.x)**2+(P2.y-P1.y)**2
-        b=(2.0*((P2.x-P1.x)*(P1.x-C.x))+((P2.y-P1.y)*(P1.y-C.y)))
-        c=((C.x)**2+(C.y)*82+(P1.x**2)+(P1.y)**2-(2.0*(C.x*P1.x+C.y*P1.y ))-(r)**2)
-        i=b**2-4.0*a*c
+        a = (P2.x - P1.x)**2 + (P2.y - P1.y)**2
+        b = 2.0 * ((P2.x - P1.x) * (P1.x - C.x)) + ((P2.y - P1.y) * (P1.y - C.y))
+        c = C.x**2 + C.y**2 + P1.x**2 + P1.y**2 - (2.0 * (C.x * P1.x + C.y * P1.y)) - r**2
+        i = b**2 - 4.0 * a * c
         if i < 0.0:
             print 'no intersections b/w line', P1.name, P1.x, P1.y, '--', P2.name, P2.x, P2.y, 'and Circle', C.name, C.x, C.y, 'with radius', r
             return None
-        elif i==0.0:
+        elif i == 0.0:
             # one intersection
-            mu=-b/(2.0*a)
-            p1.x, p1.y=P1.x+mu*(P2.x-P1.x), P1.y+mu*(P2.y-P1.y)
+            mu = -b/(2.0 * a)
+            p1.x, p1.y = P1.x + mu * (P2.x - P1.x), P1.y + mu * (P2.y - P1.y)
         elif i > 0.0:
             # two intersections
             # first intersection
-            mu1=(-b+math.sqrt(i))/(2.0*a)
-            p1.x, p1.y=P1.x+mu1*(P2.x-P1.x), P1.y+mu1*(P2.y-P1.y)
+            mu1 = (-b + math.sqrt(i)) / (2.0*a)
+            p1.x, p1.y = P1.x + mu1 * (P2.x - P1.x), P1.y + mu1 * (P2.y - P1.y)
             # second intersection
-            mu2=(-b-math.sqrt(i))/(2.0*a)
-            p2.x, p2.y=P1.x+mu2*(P2.x-P1.x), P1.y+mu2*(P2.y-P1.y)
-    P.p1=p1
-    P.p2=p2
+            mu2 = (-b - math.sqrt(i)) / (2.0*a)
+            p2.x, p2.y = P1.x + mu2 * (P2.x - P1.x), P1.y + mu2 * (P2.y - P1.y)
+    P.p1 = p1
+    P.p2 = p2
     return P
 
 def intersectChordCircle(C, r, P, chord_length):
     ''' Accepts center of circle, radius of circle, a point on the circle, and chord length.  Returns a list of two points on the circle at chord_length distance away from original point'''
-    d=chord_length
+    d = chord_length
     # point on circle given chordlength & starting point=2*asin(d/2r)
-    d_div_2r=d/(2.0*r)
-    angle=2*asin(d_div_2r)
-    P=[]
+    d_div_2r = d / (2.0 * r)
+    angle = 2 * asin(d_div_2r)
+    P = []
     P.append(polar(C, r, angle))
     P.append(polar(C, r, - angle))
     return P
@@ -824,27 +825,27 @@ def waistDart(parent, dart_width, dart_length, length, waist_curve, dart_angle=A
     Side point is rotated/moved out to accommodate dart.'''
     # see http://math.stackexchange.com/questions/164541/finding-a-point-having-the-radius-chord-length-and-another-point
     # find the angle between two points given center, radius, chordlength & starting point=2*asin(d/2r)
-    d=dart_width # chord length
-    r=dart_length # radius
-    d_div_2r=d/(2.0*r)
-    rotation_angle=2*asin(d_div_2r)
+    d = dart_width # chord length
+    r = dart_length # radius
+    d_div_2r = d / (2.0 * r)
+    rotation_angle = 2 * asin(d_div_2r)
     # split neck curve at length-returns curve with P0 C11 C12 P1 C21 C22 P2
-    split_curve=splitCurveAtLength(length, waist_curve)
+    split_curve = splitCurveAtLength(length, waist_curve)
     #dart_apex=pPoint(parent, parent.name+'dart_apex', polar(split_curve[3], dart_length, angleOfLine(split_curve[3], split_curve[2])+ANGLE90))
     # TODO:test for direction of dart-plus or minus 90 degrees from the angle of the tangent at the dart...
     # ...the angle of line from 2nd control point (split_curve[2]) to the split point (split_curve[3])
-    dart_apex=polar(split_curve[3], dart_length, angleOfLine(split_curve[3], split_curve[2])+dart_angle)
+    dart_apex = polar(split_curve[3], dart_length, angleOfLine(split_curve[3], split_curve[2]) + dart_angle)
     # separate split_curve into inside_curve1 & outside_curve
-    inside_curve=[]
-    i=0
+    inside_curve = []
+    i = 0
     while i <= 3:
         inside_curve.append(PntP(split_curve[i]))
-        i=i+1
-    outside_curve=[]
-    i=3
+        i = i+1
+    outside_curve = []
+    i = 3
     while i <= 6:
         outside_curve.append(PntP(split_curve[i ]))
-        i=i+1
+        i = i+1
     # rotate outside leg & side point (outside_curve) relative to the dart_apex, creating the dart
     slashAndSpread(dart_apex, rotation_angle, outside_curve[0], outside_curve[1], outside_curve[2], outside_curve[3])
     return dart_apex, inside_curve, outside_curve
@@ -855,7 +856,7 @@ def neckDart(parent, dart_width, dart_length, length, neck_curve):
     Returns dart_apex, curve1 list from center to dart with points P0 C11 C12 P1, curve2 list from dart to shoulder with points P2 C31 C32 P3.
     Dart is formed from P1 to dart_apex to P2'''
     # split neck curve at length
-    split_curve=splitCurveAtLength(length, neck_curve)
+    split_curve = splitCurveAtLength(length, neck_curve)
     # see http://math.stackexchange.com/questions/164541/finding-a-point-having-the-radius-chord-length-and-another-point
     # find the angle between two points given center, radius, chordlength & starting point=2*asin(d/2r)
     #d=dart_width # chord length
@@ -865,7 +866,7 @@ def neckDart(parent, dart_width, dart_length, length, neck_curve):
 
     rotation_angle = angleFromChord(dart_width, dart_length)
     #print('rotation_angle =',  rotation_angle)
-    dart_apex = pPoint(parent, 'dart_apex', polar(split_curve[3], dart_length, angleOfLine(split_curve[3], split_curve[2])+ANGLE90))
+    dart_apex = pPoint(parent, 'dart_apex', polar(split_curve[3], dart_length, angleOfLine(split_curve[3], split_curve[2]) + ANGLE90))
     #print('dart_apex =',  dart_apex)
 
     # separate split_curve into curve1 & curve2
@@ -891,64 +892,64 @@ def neckDart(parent, dart_width, dart_length, length, neck_curve):
     return dart_apex, curve1, curve2
 
 def foldDart(parent, dart, inside_pnt):
-    DART_LENGTH=distance(dart, dart.o)
-    DART_HALF_ANGLE=abs(angleOfVector(dart.o, dart, dart.i))/2.0
-    O_ANGLE=angleOfLine(dart, dart.o)
-    I_ANGLE=angleOfLine(dart, dart.i)
+    DART_LENGTH = distance(dart, dart.o)
+    DART_HALF_ANGLE = abs(angleOfVector(dart.o, dart, dart.i)) / 2.0
+    O_ANGLE = angleOfLine(dart, dart.o)
+    I_ANGLE = angleOfLine(dart, dart.i)
     # determine which direction the dart will be folded
     if I_ANGLE <= O_ANGLE:
-        FOLD_ANGLE=I_ANGLE-DART_HALF_ANGLE
+        FOLD_ANGLE = I_ANGLE - DART_HALF_ANGLE
     else:
-        FOLD_ANGLE=I_ANGLE+DART_HALF_ANGLE
+        FOLD_ANGLE = I_ANGLE + DART_HALF_ANGLE
     # find intersection of fold & armscye b/w bd2.i & inside_pnt
     # TODO:use intersectLineCurve()
-    temp_pnt=polar(dart, DART_LENGTH, FOLD_ANGLE)
-    fold_pnt=intersectLines(dart.i, inside_pnt, dart, temp_pnt)
+    temp_pnt = polar(dart, DART_LENGTH, FOLD_ANGLE)
+    fold_pnt = intersectLines(dart.i, inside_pnt, dart, temp_pnt)
     # dart midpoint at seamline
-    temp_pnt=midPoint(dart.i, dart.o)
-    mid_pnt=onLineAtLength(dart, temp_pnt, distance(dart, fold_pnt))
+    temp_pnt = midPoint(dart.i, dart.o)
+    mid_pnt = onLineAtLength(dart, temp_pnt, distance(dart, fold_pnt))
     if hasattr(dart, 'm'):
         updatePoint(dart.m, mid_pnt)
     else:
-        dart.m=pPoint(parent, dart.name+'.m', mid_pnt)
+        dart.m = pPoint(parent, dart.name+'.m', mid_pnt)
     # dart outside leg at cuttingline
     #temp_pnt=onLineAtLength(dart.o, dart, -SEAM_ALLOWANCE)
-    temp_pnt=polar(dart, distance(dart, dart.o)+SEAM_ALLOWANCE, angleOfLine(dart, dart.o))
+    temp_pnt = polar(dart, distance(dart, dart.o) + SEAM_ALLOWANCE, angleOfLine(dart, dart.o))
     if hasattr(dart, 'oc'):
         updatePoint(dart.oc, temp_pnt)
     else:
-        dart.oc=pPoint(parent, dart.name+'.oc', temp_pnt)
+        dart.oc = pPoint(parent, dart.name + '.oc', temp_pnt)
     # dart inside leg at cuttingline
-    temp_pnt=onLineAtLength(dart.i, dart, -SEAM_ALLOWANCE)
+    temp_pnt = onLineAtLength(dart.i, dart, -SEAM_ALLOWANCE)
     if hasattr(dart, 'ic'):
         updatePoint(dart.ic, temp_pnt)
     else:
-        dart.ic=pPoint(parent, dart.name+'.ic', temp_pnt)
+        dart.ic = pPoint(parent, dart.name + '.ic', temp_pnt)
     #create or update dart.angles
-    dart.angle=angleOfVector(dart.i, dart, dart.o)
+    dart.angle = angleOfVector(dart.i, dart, dart.o)
 
     return
 
 def foldDart2(dart, inside_pnt):
-    DART_LENGTH=distance(dart, dart.o)
-    DART_HALF_ANGLE=abs(angleOfVector(dart.o, dart, dart.i))/2.0
-    O_ANGLE=angleOfLine(dart, dart.o)
-    I_ANGLE=angleOfLine(dart, dart.i)
+    DART_LENGTH = distance(dart, dart.o)
+    DART_HALF_ANGLE = abs(angleOfVector(dart.o, dart, dart.i)) / 2.0
+    O_ANGLE = angleOfLine(dart, dart.o)
+    I_ANGLE = angleOfLine(dart, dart.i)
     #determine which direction the dart will be folded
     if I_ANGLE <= O_ANGLE:
-        FOLD_ANGLE=I_ANGLE-DART_HALF_ANGLE
+        FOLD_ANGLE = I_ANGLE - DART_HALF_ANGLE
     else:
-        FOLD_ANGLE=I_ANGLE+DART_HALF_ANGLE
+        FOLD_ANGLE = I_ANGLE + DART_HALF_ANGLE
     #TODO:find intersection of fold & armscye b/w bd2.i & inside_pnt
     #TODO:use intersectLineCurve()
-    temp_pnt=polar(dart, DART_LENGTH, FOLD_ANGLE)
-    fold_pnt=intersectLines(dart.i, inside_pnt, dart, temp_pnt)
-    temp_pnt=midPoint(dart.i, dart.o)
-    dart.m=onLineAtLength(dart, temp_pnt, distance(dart, fold_pnt)) #dart midpoint at seamline
-    dart.oc=polar(dart, distance(dart, dart.o)+SEAM_ALLOWANCE, angleOfLine(dart, dart.o)) #dart outside leg at cuttingline
-    dart.ic=onLineAtLength(dart.i, dart, -SEAM_ALLOWANCE) #dart inside leg at cuttingline
+    temp_pnt = polar(dart, DART_LENGTH, FOLD_ANGLE)
+    fold_pnt = intersectLines(dart.i, inside_pnt, dart, temp_pnt)
+    temp_pnt = midPoint(dart.i, dart.o)
+    dart.m = onLineAtLength(dart, temp_pnt, distance(dart, fold_pnt)) #dart midpoint at seamline
+    dart.oc = polar(dart, distance(dart, dart.o) + SEAM_ALLOWANCE, angleOfLine(dart, dart.o)) #dart outside leg at cuttingline
+    dart.ic = onLineAtLength(dart.i, dart, -SEAM_ALLOWANCE) #dart inside leg at cuttingline
     #create or update dart.angles
-    dart.angle=angleOfVector(dart.i, dart, dart.o)
+    dart.angle = angleOfVector(dart.i, dart, dart.o)
 
     return
 
@@ -962,66 +963,66 @@ def adjustDartLength(p1, dart, p2, extension=1/3.0):
     """
     #TODO: define class Dart
     #rotate point 'p1' to p1_new where it would lie if dart were closed
-    p1_new=PntP(p1)
-    rotation_angle=angleOfVector(dart.i, dart, dart.o)
+    p1_new = PntP(p1)
+    rotation_angle = angleOfVector(dart.i, dart, dart.o)
     slashAndSpread(dart, rotation_angle, p1_new)
     #find intersection of dart leg and line p1_new to p2
-    p3=intersectLines(dart, dart.i, p1_new, p2)
+    p3 = intersectLines(dart, dart.i, p1_new, p2)
     #new dart length at 1/3 distance from dart.i to p3
-    new_dart_length=distance(dart, dart.i)+distance(dart.i, p3)*extension
+    new_dart_length = distance(dart, dart.i) + distance(dart.i, p3) * extension
     #update dart.i & dart.o
-    p4=onLineAtLength(dart, dart.i, new_dart_length)
-    p5=onLineAtLength(dart, dart.o, new_dart_length)
+    p4 = onLineAtLength(dart, dart.i, new_dart_length)
+    p5 = onLineAtLength(dart, dart.o, new_dart_length)
     updatePoint(dart.i, p4)
     updatePoint(dart.o, p5)
     return
 
 # ---control points---
 def pointList(*args):
-    points=[]
+    points = []
     for arg in args:
         points.append(arg)
     return points
 
 def controlPoints(name, knots):
     #TODO:remove name from args
-    k_num=len(knots)-1 # last iterator for n knots 0..n-1
-    c_num=k_num-1 # last iterator for n-1 curve segments 0..n-2
-    c1=[] # first control points c1[0..c_num]
-    c2=[] # second control points c2[0..c_num]
-    i=1
+    k_num = len(knots)-1 # last iterator for n knots 0..n-1
+    c_num = k_num-1 # last iterator for n-1 curve segments 0..n-2
+    c1 = [] # first control points c1[0..c_num]
+    c2 = [] # second control points c2[0..c_num]
+    i = 1
     while (i <= c_num):
         # each loop produces c2[previous] and c1[current]
         # special cases:get c1[0] in 1st loop & c2[c_num] in last loop
         # previous segment is segment b/w previous knot & current knot
         # current segment is segment b/w current knot & next knot
         # start with i=1 because can't start processing with knot[0] b/c it doesn't have a previous knot
-        previous=(i-1)
-        current=i
-        next=(i+1)
-        last_knot=k_num
-        last_segment=c_num
+        previous = (i - 1)
+        current = i
+        next = (i + 1)
+        last_knot = k_num
+        last_segment = c_num
         # process previous segment's c2
-        angle=angleOfLine(knots[next], knots[previous])
-        length=distance(knots[current], knots[previous])/3.0
-        pnt=polar(knots[current], length, angle)
+        angle = angleOfLine(knots[next], knots[previous])
+        length = distance(knots[current], knots[previous]) / 3.0
+        pnt = polar(knots[current], length, angle)
         c2.append(pnt) # c2[previous]
-        if (current==1):
+        if (current == 1):
             # process 1st segment's c1
-            angle=angleOfLine(knots[0], c2[0])
-            pnt=polar(knots[0], length, angle)
+            angle = angleOfLine(knots[0], c2[0])
+            pnt = polar(knots[0], length, angle)
             c1.append(pnt)
         # process current segment's c1
-        angle=angleOfLine(knots[previous], knots[next])
-        length=distance(knots[current], knots[next])/3.0
+        angle = angleOfLine(knots[previous], knots[next])
+        length = distance(knots[current], knots[next]) / 3.0
         pnt=polar(knots[current], length, angle)
         c1.append(pnt) # c1[current]
-        if (current==c_num):
+        if (current == c_num):
             # process last segment's c2
-            angle=angleOfLine(knots[last_knot], c1[last_segment])
-            pnt=polar(knots[last_knot], length, angle)
+            angle = angleOfLine(knots[last_knot], c1[last_segment])
+            pnt = polar(knots[last_knot], length, angle)
             c2.append(pnt) # c2[last_segment]
-        i=(i+1)
+        i = i + 1
     return c1, c2
 
 # ---transforms---
