@@ -137,7 +137,7 @@ class AppTemplate(StdApp):
         except:
             raise error('unable to load Pattern File <%s>' % self.cfg['filename'])
 
-        design = designModule.PatternDesign()
+        design = designModule.Design()
         metadata = design.patternData
 
         #for thingy in metadata:

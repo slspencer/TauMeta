@@ -279,7 +279,11 @@ class AppTemplate(StdApp):
         if self.cfg.has_key('client_file'):
             client = Client(self.cfg['client_file'], filetype='json')
         elif  self.cfg.has_key('client_record'):
-            client = Client(self.cfg['client_record'], filetype='database')
+            try:
+                client = Client(self.cfg['client_record'], filetype='database')
+            except ValueError , msg:
+                print msg
+                return
         CD = client.data
 
         if dbgdump:
@@ -323,7 +327,7 @@ class AppTemplate(StdApp):
             print 'unable to load Pattern File <%s>' % self.cfg['pattern_file']
             raise
 
-        design = designModule.PatternDesign()
+        design = designModule.Design()
 
         # set Client Data for the design object
         design.CD = CD
