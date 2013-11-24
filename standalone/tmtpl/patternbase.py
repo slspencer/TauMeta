@@ -71,7 +71,7 @@ class pBase(object):
         child.id = newid # Set child's id value to newid string
         child.parent = self  # Set child's parent to refer to current self object
 
-        setattr(self, child.name, child) # TODO: comment what this does ???
+        setattr(self, child.name, child) # sets self.(child.name) to the child object, to allow referencing
         self.children.append(child) # Appends child to current self's children list
 
         try:
