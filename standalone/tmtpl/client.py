@@ -45,7 +45,6 @@ class Client(object):
 
         self.filetypes = ['json', 'database']
         self.data = ClientData()
-        print "Client init filetype = ", filetype
         if filetype not in self.filetypes:
             print 'Client: supported file types are ', self.filetypes
         if filetype == 'json':
@@ -110,8 +109,7 @@ class Client(object):
         result = SDB.store_result()
         data = result.fetch_row(how=1)
         if len(data) == 0:
-            print "Unable to fetch client data from DataBase"
-            raise
+            raise ValueError("Unable to fetch client data from DataBase, check record number")
         cdata = data[0]
 
         # Check to make sure we have units

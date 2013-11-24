@@ -34,58 +34,55 @@ End of Licensing paragraph.
 '''
 
 from pysvg.builders import path
+from tmtpl.designbase import *
 from tmtpl.document import *
 from tmtpl.pattern import *
 from tmtpl.constants import *
 from tmtpl.utils import *
 
 
-class PatternDesign() :
-
-    def __init__(self) :
-        self.styledefs = {}
-        self.markerdefs = {}
-        self.printer = '36" wide carriage plotter'
-        self.patternData = {
-            'patternNumber' : 'AL_B1',  # Mandatory
-            'patternTitle' : 'Allington Shirt Waist 1',  # Mandatory
-            'description' : """
-This is a test pattern for Seamly Patterns.
-It was taken from Sara May Allington's 'Dressmaking',  1917.
-""",  # Mandatory (paragraph)
-            'category' : 'Shirt/TShirt/Blouse',  # Mandatory
-            'type' : 'Historical',  # Mandatory
-            'gender' : 'F',  # Optional 'M',  'F',  or ''
-            'yearstart' : 1910,  # Optional
-            'yearend' : 1920,  # Optional
-            'culture' : 'European',  # Optional
-            'wearer' : '',  # Optional
-            'source' : '',  # Optional
-            'characterName' : '',  # Optional
-            'recommendedFabric' : '',
-            'recommendedNotions' : '',
-            'companyName' : 'Seamly Patterns',  # Mandatory
-            'designerName' : 'Sara May Allington',  # Mandatory
-            'patternmakerName' : 'S.L.Spencer',  # Mandatory
-            }
-        return
+class Design(designBase):
 
     def pattern(self) :
         """
         Method defining a pattern design. This is where the designer places
         all elements of the design definition
         """
+
+        # The designer must supply certain information to allow
+        #   tracking and searching of patterns
+        #
+        # This group is all mandatory
+        #
+        self.setInfo('patternNumber', 'AL_B1')
+        self.setInfo('patternTitle', 'Allington Shirt Waist 1')
+        self.setInfo('companyName', 'Seamly Patterns')
+        self.setInfo('designerName', 'Sara May Allington')
+        self.setInfo('patternmakerName', 'S.L.Spencer')
+        self.setInfo('description', """This is a test pattern for Seamly Patterns.
+It was taken from Sara May Allington's 'Dressmaking',  1917.""")
+        self.setInfo('category', 'Shirt/TShirt/Blouse')
+        self.setInfo('type', 'Historical')
+        #
+        # The next group are all optional
+        #
+        self.setInfo('gender', 'F') # 'M',  'F',  or ''
+        self.setInfo('yearstart', 1910)
+        self.setInfo('yearend', 1920)
+        self.setInfo('culture', 'European')
+        self.setInfo('wearer', '')
+        self.setInfo('source', '')
+        self.setInfo('characterName', '')
+        self.setInfo('recommendedFabric', '')
+        self.setInfo('recommendedNotions', '')
+
         CD = self.CD #client data is prefaced with CD
 
         #create document
-        doc = setupPattern(self, CD, self.printer, self.patternData)
+        doc = self.doc
 
         #create the 'bodice' pattern object in the document
-        #TODO :  reduce the next 4 statements to  doc.add(Pattern('bodice'))
-        bodice = Pattern('bodice')
-        bodice.styledefs.update(self.styledefs)
-        bodice.markerdefs.update(self.markerdefs)
-        doc.add(bodice)
+        bodice = self.addPattern('bodice')
 
         #create 'front' & 'back' pattern piece objects in the svg 'pattern' group,  assign an id letter
         bodice.add(PatternPiece('pattern', 'front', 'A', fabric = 2, interfacing = 0, lining = 0))
@@ -100,6 +97,7 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.
         D = bodice.cuff
 
         #pattern points
+        # -spc- Pnt is a simple object containing x, y, name, and size
         b1 = Pnt(0, 0) #B
         b2 = down(b1, CD.front_waist_length) #A
         b3 = up(b2, CD.side) #C
@@ -170,6 +168,37 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.
         a4.c2 = polar(a4, 1.5*length2, angle6 - ANGLE180)
         a6.c1 = polar(a4, length3, angle6)
         a6.c2 = polar(a6, length3/2.0, angleOfLine(a8, a6) + ANGLE90)
+
+        # End of Piece A points
+        #bodice front A
+        #draw points
+        drawPoints(A, locals())
+        #label
+        #TODO :  addLabel(parent, x, y)  and addLabelP(parent, P)
+        pnt1 = down(a8, distance(a8, a15)/3.0)
+        A.label_x, A.label_y = pnt1.x, pnt1.y
+        #letter
+        pnt2 = up(pnt1, 0.5*IN)
+        A.setLetter(x = pnt2.x, y = pnt2.y, scaleby = 10.0)
+        #grainline
+        aG1 = down(a11, CD.front_waist_length/3.0)
+        aG2 = down(aG1, CD.front_waist_length/2.0)
+        addGrainLine(A, aG1, aG2)
+        # gridline
+        # this grid is helpful to troubleshoot during design phase
+        gridLine = path()
+        addToPath(gridLine, 'M', a1, 'L', a3, 'M', a4, 'L', a2, 'M', a8, 'L', a15, 'M', a11, 'L', a10, 'M', a7, 'L', a5)
+        addGridLine(A, gridLine)
+        #seamline & cuttingline
+        seamLine = path()
+        cuttingLine = path()
+        for P in seamLine, cuttingLine :
+            addToPath(P, 'M', a11, 'L', a14, 'C', a15.c1, a15.c2, a15, 'C', a13.c1, a13.c2, a13, 'C', a12.c1, a12.c2, a12)
+            addToPath(P, 'L', a16, 'C', a3.c1, a3.c2, a3, 'C', a4.c1, a4.c2, a4, 'C', a6.c1, a6.c2, a6, 'L', a8, 'C', a11.c1, a11.c2, a11)
+        addSeamLine(A, seamLine)
+        addCuttingLine(A, cuttingLine)
+
+        # End of piece A processing
 
         #back control points - path runs clockwise from back nape b1
         #back neck control points from b7 to b1
@@ -275,34 +304,6 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.
 
         #all points are defined,  now create marks, labels, grainlines, seamlines, cuttinglines, darts, etc.
 
-        #bodice front A
-        #draw points
-        drawPoints(A, locals())
-        #label
-        #TODO :  addLabel(parent, x, y)  and addLabelP(parent, P)
-        pnt1 = down(a8, distance(a8, a15)/3.0)
-        A.label_x, A.label_y = pnt1.x, pnt1.y
-        #letter
-        pnt2 = up(pnt1, 0.5*IN)
-        A.setLetter(x = pnt2.x, y = pnt2.y, scaleby = 10.0)
-        #grainline
-        aG1 = down(a11, CD.front_waist_length/3.0)
-        aG2 = down(aG1, CD.front_waist_length/2.0)
-        addGrainLine(A, aG1, aG2)
-        # gridline
-        # this grid is helpful to troubleshoot during design phase
-        gridLine = path()
-        addToPath(gridLine, 'M', a1, 'L', a3, 'M', a4, 'L', a2, 'M', a8, 'L', a15, 'M', a11, 'L', a10, 'M', a7, 'L', a5)
-        addGridLine(A, gridLine)
-        #seamline & cuttingline
-        seamLine = path()
-        cuttingLine = path()
-        for P in seamLine, cuttingLine :
-            addToPath(P, 'M', a11, 'L', a14, 'C', a15.c1, a15.c2, a15, 'C', a13.c1, a13.c2, a13, 'C', a12.c1, a12.c2, a12)
-            addToPath(P, 'L', a16, 'C', a3.c1, a3.c2, a3, 'C', a4.c1, a4.c2, a4, 'C', a6.c1, a6.c2, a6, 'L', a8, 'C', a11.c1, a11.c2, a11)
-        addSeamLine(A, seamLine)
-        addCuttingLine(A, cuttingLine)
-
         #bodice back B
         #draw svg points
         drawPoints(B, locals())
@@ -385,8 +386,8 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.
         addSeamLine(D, seamLine)
         addCuttingLine(D, cuttingLine)
 
-        #call doc.draw() to generate svg file
+        #call draw() to generate svg file
+        self.draw()
 
-        doc.draw()
         return
 

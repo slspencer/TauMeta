@@ -1248,7 +1248,7 @@ def drawPoints(parent, vdict):
     def getControlPoints(parent, key, val):
         #if object in val has c1 & c2 attributes
         if hasattr(val, 'c1') and hasattr(val, 'c2'):
-            print '    has c1c2, making control points'
+            #print '    has c1c2, making control points'
             cPoint(parent, key + '.c1', getattr(val, 'c1')) #create control point SVG object
             cPoint(parent, key + '.c2', getattr(val, 'c2')) #creat control point SVG object
         return
@@ -1272,19 +1272,19 @@ def drawPoints(parent, vdict):
         #     make 
 
         if key[0] == letter:
-            print 'default case, letter:', letter, key, val
+            #print 'default case, letter:', letter, key, val
             #create svg pattern & control points
             if key[1].isdigit(): #a1, b3, ...
-                print '  letter case'
+                #print '  letter case'
                 pPoint(parent, key, val)
                 getControlPoints(parent, key, val)
             #create svg dart points
             elif key[1] == 'D' and key[2].isdigit():
-                print '  ***** dart case'
+                #print '  ***** dart case'
                 pPoint(parent, key, val) #aD1, bD1, ...
                 getDartPoints(parent, key, val)
             elif 'apex' in key:
-                print '  ***** apex case'
+                #print '  ***** apex case'
                 pPoint(parent, key, val) #a_apex, b_apex, ...
     return
 
@@ -1493,31 +1493,6 @@ def addToPath(p, *args):
         else:
             print 'Unknown command token ' + cmd
     return
-
-# ---- Set up pattern document with design info ----------------------------------------
-def setupPattern(pattern_design, clientData, printer, patternData):
-        pattern_design.cfg['clientdata'] = clientData
-        if (printer == '36" wide carriage plotter'):
-            pattern_design.cfg['paper_width'] = 36.0 * IN
-        #set default border for document to allow printing
-        pattern_design.cfg['border'] = 2.5 * CM
-        #set data to print at top of pattern
-        metainfo = {
-            'companyName': patternData['companyName'], #mandatory
-            'designerName': patternData['designerName'], #mandatory
-            'patternTitle': patternData['patternTitle'], #mandatory
-            'patternNumber': patternData['patternNumber'] #mandatory
-            }
-        pattern_design.cfg['metainfo'] = metainfo
-        docattrs = {
-            'currentscale': "0.5:1",
-            'fitBoxtoViewport': "True",
-            'preserveAspectRatio': "xMidYMid meet",
-            }
-        doc = Document(pattern_design.cfg, name='document', attributes=docattrs)
-        doc.add(TitleBlock('notes', 'titleblock', 0.0, 0.0, stylename='titleblock_text_style'))
-        doc.add(TestGrid('notes', 'testgrid', pattern_design.cfg['paper_width'] / 3.0, 0.0, stylename='cuttingline_style'))
-        return doc
 
 # ---- Pattern Classes ----------------------------------------
 

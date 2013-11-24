@@ -327,13 +327,8 @@ class AppTemplate(StdApp):
             print 'unable to load Pattern File <%s>' % self.cfg['pattern_file']
             raise
 
-        design = designModule.Design()
-
-        # set Client Data for the design object
-        design.CD = CD
-        design.styledefs = self.styledefs
-        design.markerdefs = self.markerdefs
-        design.cfg = self.cfg
+        # Create the design object and initialize the parts we know
+        design = designModule.Design(CD, self.styledefs, self.markerdefs, self.cfg)
 
         # Call the design to generate the pattern
         design.pattern()
