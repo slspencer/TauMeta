@@ -58,10 +58,6 @@ def pPoint(parent, id, p1, transform=''):
         p2.x=p1.x+transform,
         p2.y=p1.y+transform,
         p2.name=id,
-        p2.id=parent.letter+'.'+id,
-    Naming convention:
-        minimum of two lowercase letters:
-            lowercase(parent.letter) + next unused lower case letter,  e.g. for pattern piece A: aa, ab, ac, ad, etc.
     Always assign to python variable of same name in pattern design file
         Examples:
             ac=pPoint(A, 'ac', downP(aa, 2*IN)) #ac is point on pattern piece A,  2inches below point aa
@@ -1247,9 +1243,12 @@ def drawPoints(parent, vdict):
     '''Create svg objects for the python objects listed in the dictionary. This function not necessary in Inkscape extensions.'''
     #print('Called drawPoints()')
 
+    # -spc- parent is always patternpiece
+
     def getControlPoints(parent, key, val):
         #if object in val has c1 & c2 attributes
         if hasattr(val, 'c1') and hasattr(val, 'c2'):
+            print '    has c1c2, making control points'
             cPoint(parent, key + '.c1', getattr(val, 'c1')) #create control point SVG object
             cPoint(parent, key + '.c2', getattr(val, 'c2')) #creat control point SVG object
         return
@@ -1263,26 +1262,30 @@ def drawPoints(parent, vdict):
             getControlPoints(parent, name1, pnt1) # find & create control points SVG objects,  if any
         return
 
+    # Walk all local variable names, passed in in vdict
+
     for key, val in vdict.iteritems():
-        #print(key)
-        if hasattr(val, 'isCircle'):
-            circle(parent, key, val)
-        elif ('Letter' in parent.name) or ('letter' in parent.name):
-            pPoint(parent, key, val)
-            getControlPoints(parent, key, val)
-        else:
-            letter = parent.lettertext.lower()
-            if key[0] == letter:
-                #create svg pattern & control points
-                if key[1].isdigit(): #a1, b3, ...
-                    pPoint(parent, key, val)
-                    getControlPoints(parent, key, val)
-                #create svg dart points
-                elif key[1] == 'D' and key[2].isdigit():
-                    pPoint(parent, key, val) #aD1, bD1, ...
-                    getDartPoints(parent, key, val)
-                elif 'apex' in key:
-                    pPoint(parent, key, val) #a_apex, b_apex, ...
+        letter = parent.lettertext.lower()
+        # -spc- The rules here are:
+        #  If the first letter of the variable matches the pattern piece letter and the second letter is a digit (possibly followed by more digits) and those are followed by 'c1' or 'c2:
+        #     make a pattern point using the entire variable name
+        #     make 
+
+        if key[0] == letter:
+            print 'default case, letter:', letter, key, val
+            #create svg pattern & control points
+            if key[1].isdigit(): #a1, b3, ...
+                print '  letter case'
+                pPoint(parent, key, val)
+                getControlPoints(parent, key, val)
+            #create svg dart points
+            elif key[1] == 'D' and key[2].isdigit():
+                print '  ***** dart case'
+                pPoint(parent, key, val) #aD1, bD1, ...
+                getDartPoints(parent, key, val)
+            elif 'apex' in key:
+                print '  ***** apex case'
+                pPoint(parent, key, val) #a_apex, b_apex, ...
     return
 
 
@@ -1526,6 +1529,7 @@ class Node(pBase):
         self.name = name
         pBase.__init__(self)
 
+#-spc- needed?
 class Pnt():
     '''Returns a Pnt object with .x, .y, and .name children'''
     def __init__(self, x=0.0, y=0.0, name='', size=''):
@@ -1534,6 +1538,7 @@ class Pnt():
         self.name = name
         self.size = size
 
+# -spc- needed?
 class PntP():
     '''Accepts no parameters,  or optional Point or Pnt object. Returns a Pnt object with .x, .y, and .name children.  Does not create point in SVG document. Same as class Pnt()'''
     def __init__(self, pnt=Pnt(), name='', size=''):
@@ -1541,15 +1546,6 @@ class PntP():
         self.y = pnt.y
         self.name = name
         self.size = size
-
-class Circ():
-    '''Returns a Circ object with .x, .y, and .name children'''
-    def __init__(self, p1=Pnt(0, 0), name='', size=''):
-        self.x = p1.x
-        self.y = p1.y
-        self.name = name
-        self.size = size
-        self.isCircle = 1
 
 class Point(pBase):
     """
