@@ -376,11 +376,11 @@ def distance(p1, p2):
     """Accepts p1 & p2 if class Point or coordinate pairs and returns distance between the points (type float)"""
     p1 = dPnt(p1)
     p2 = dPnt(p2)
-    return math.sqrt(((p2.x - p1.x) ** 2) + ((p2.y - p1.y) ** 2))
+    return math.sqrt(((p2.x - p1.x)**2) + ((p2.y - p1.y)**2))
 
 def distanceXY(x1, y1, x2, y2):
     """Accepts four values x1, y1, x2, y2 and returns distance"""
-    return math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2))
+    return math.sqrt(((x2 - x1)**2) + ((y2 - y1)**2))
 
 #---angles---
 
