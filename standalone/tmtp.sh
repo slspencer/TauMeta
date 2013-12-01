@@ -19,15 +19,14 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses>.
 #
 
+# change the following two lines to match your installation
+cd /home/susan/src/tmtp-private/standalone
 
-# change the following two lines to match your ./tmtp/standalone installation
-cd /home/susan/src/tmtp/standalone
-TMTP_BASE=/home/susan/src/tmtp/standalone/
-
-#
+TMTP_BASE=/home/susan/src/tmtp-private/standalone/
 PATTERN_BASE=$TMTP_BASE/patterns/
 CUSTOMER_BASE=$TMTP_BASE/customer/
 PYTHONPATH=$PYTHONPATH:$TMTP_BASE:$PATTERN_BASE:$CUSTOMER_BASE
+
 export PYTHONPATH
 export TMTP_BASE
 export PATTERN_BASE
@@ -37,7 +36,8 @@ function FileName () {
     D=$(date +"%F"-%H%M)
     FILE=${PATTERN##*/}
     FILE=${FILE%%.*}
-    FILE="$CUSTOMER_DIR/$FILE-$D"
+    #FILE="$CUSTOMER_DIR/$FILE-$D"
+    echo $FILE
 
     return;
 }
@@ -47,12 +47,13 @@ function Tmtp () {
     #Include this option to show additional debug messages, and run ./tmtp.sh from a terminal:   --debug=prints $FILE.svg
 
     # run mkpattern script to generate the pattern
-    $TMTP_BASE/mkpattern --client=$CUSTOMER_NAME --pattern=$PATTERN --styles=$TMTP_BASE/tmtp_styles.json $FILE.svg
+    #$TMTP_BASE/mkpattern --client=$CUSTOMER_NAME --pattern=$PATTERN --styles=$TMTP_BASE/tmtp_styles.json $FILE.svg
+    ./mkpattern --pattern=./patterns/$FILE.py --clientrecord=24 ./output/$FILE.svg
 
     #TODO: add if statement to run inkscape with reference layer visible or hidden.
 
     # run inkscape to outset the cutting lines and to view svg file.
-    inkscape --file=$FILE.svg --verb=ZoomPage --select=A.cuttingline --select=B.cuttingline --select=C.cuttingline\
+    inkscape --file=./output/$FILE.svg --verb=ZoomPage --select=A.cuttingline --select=B.cuttingline --select=C.cuttingline\
     --select=D.cuttingline --select=E.cuttingline --select=F.cuttingline --select=G.cuttingline --select=H.cuttingline\
     --select=I.cuttingline --select=J.cuttingline --select=K.cuttingline --select=S.cuttingline\
     --verb=SelectionOffset --verb=EditDeselect --verb=FileSave | zenity --progress --title='Please wait, opening Inkscape...'\
@@ -82,11 +83,10 @@ function PatternMenu () {
 
     # Display menu and interact based on the user's input
     #Display menu and interact based on the user's input
-
     PATTERN="$(zenity  --file-selection\
  --title '*        Select A Pattern:                       *'\
  --filename=$PATTERN_BASE --file-filter='*.py')"
-
+    echo $PATTERN
     return;
     }
 
@@ -128,7 +128,7 @@ while true; do
         break
     else
         PatternMenu
-        CustomerMenu
+        #CustomerMenu
         FileName
         Tmtp
     fi
