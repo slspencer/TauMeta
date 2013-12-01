@@ -8,10 +8,10 @@
     },
     "buttonhole_style": {
         "fill": "none",
-        "stroke": "green",
+        "stroke": "lightgreen",
         "stroke-linejoin": "miter",
         "stroke-miterlimit": "4",
-        "stroke-width": "3"
+        "stroke-width": "1"
     },
     "cuttingline_style": {
         "fill": "none",
@@ -159,6 +159,13 @@
         "stroke": "green",
         "stroke-dasharray": "24,6",
         "stroke-dashoffset": "0",
+        "stroke-linejoin": "miter",
+        "stroke-miterlimit": "4",
+        "stroke-width": "4"
+    },
+    "slashline_style": {
+        "fill": "none",
+        "stroke": "green",
         "stroke-linejoin": "miter",
         "stroke-miterlimit": "4",
         "stroke-width": "4"
