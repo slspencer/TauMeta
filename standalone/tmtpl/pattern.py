@@ -169,7 +169,7 @@ class Point(pBase):
         if self.debug:
             print 'getsvg() called for Point ID ', self.id
 
-        # call the baseclass svg method on this pattern piece. Returns a dictionary of all groups to be drawn.
+        # call the baseclass svg method on this object. Returns a dictionary of all groups to be drawn.
         child_group_dict=pBase.getsvg(self)
 
         # an empty dict to hold our svg elements
@@ -186,17 +186,29 @@ class Point(pBase):
 
         for attrname, attrvalue in self.attrs.items():
             p.setAttribute(attrname, attrvalue)
+
         md[self.groupname].append(p)
 
         txtlabel = self.id + '.text'
-        txttxt = self.name
+        # special handling for inpoints and outpoints
+        if self.name == 'inpoint':
+            txttxt = self.parent.name + '.in'
+        elif self.name == 'outpoint':
+            txttxt = self.parent.name + '.out'
+        else:
+            txttxt = self.name
         txt=self.generateText(self.x + 7, self.y - 7, txtlabel, txttxt, self.txtstyle)
         md[self.groupname].append(txt)
 
-        # -spc- I hope this is right
-        md.update(child_group_dict)
+        # for each group used in this point
+        for md_group_name, members in md.items():
+            if md_group_name not in child_group_dict:
+                # add the group is it's not already there
+                child_group_dict[md_group_name] = []
+            for member in members:
+                child_group_dict[md_group_name].append(member)
 
-        return md
+        return child_group_dict
 
     def boundingBox(self, grouplist=None):
         """
