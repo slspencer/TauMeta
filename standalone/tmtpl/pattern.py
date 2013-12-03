@@ -104,11 +104,15 @@ def addToPath(p, tokens):
             lineP(p, pnt)
             i = i + 2
         elif (cmd == 'C'):
-            # C uses the outpoint and inpoint which are sub-points of a point
-            pnt = tokens[i + 1]
+            # C uses the outpoint of the previous point and inpoint of the next point,
+            # which are sub-points of those points
+            if i < 2:
+                raise ValueError("'C' path definition must be preceded by at least one point")
+            pnt1 = tokens[i - 1]
+            pnt2 = tokens[i + 1]
             try:
-                outpoint = pnt.outpoint
-                inpoint = pnt.inpoint
+                outpoint = pnt1.outpoint
+                inpoint = pnt2.inpoint
             except:
                 print "Failure processing point", pnt.name
                 raise ValueError("'C' path definition must be followed by a point with outpoint and inpoint defined")
