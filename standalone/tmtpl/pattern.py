@@ -133,8 +133,9 @@ class Point(pBase):
         self.groupname = group
         self.name = name
         self.sdef = styledef
-        self.x = xy[0]
-        self.y = xy[1]
+        ipnt = dPnt(xy)
+        self.x = ipnt.x
+        self.y = ipnt.y
         self.attrs = {}
         self.txtstyle = 'point_text_style'
         self.attrs['transform'] = transform
