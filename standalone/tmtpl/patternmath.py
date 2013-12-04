@@ -951,8 +951,8 @@ def onCircleAtX(C, r, x):
         translated_y2 = -(translated_y1)
         y1 = translated_y1 + C.y # translate back to C.y
         y2 = translated_y2 + C.y # translate back to C.y
-        P.append(Pnt(x, y1))
-        P.append(Pnt(x, y2))
+        P.append(dPnt((x, y1)))
+        P.append(dPnt((x, y2)))
     return P
 
 def onCircleAtY(C, r, y):
@@ -973,8 +973,8 @@ def onCircleAtY(C, r, y):
         x1 = translated_x1 + C.x
         x2 = translated_x2 + C.x
         P = []
-        P.append(Pnt(x1, y))
-        P.append(Pnt(x2, y))
+        P.append(dPnt((x1, y)))
+        P.append(dPnt((x2, y)))
     return P
 
 def intersectLineCircle(C, r, P1, P2):
@@ -1270,7 +1270,7 @@ def connectObjects(connector_pnts, old_pnts):
         i = 0
         for o in old_pnts:
             # translate all points in old_pnts[]
-            t_pnts.append(Pnt())
+            t_pnts.append(dPnt())
             t_pnts[i].x, t_pnts[i].y = o.x + dx, o.y + dy
             i = i + 1
         angle1 = angleOfLine(connector_pnts[0], connector_pnts[1])
@@ -1283,7 +1283,7 @@ def connectObjects(connector_pnts, old_pnts):
                 length = distance(connector_pnts[0], t_pnts[i])
                 translated_angle = angleOfLine(connector_pnts[0], t_pnts[i])
                 r_angle = translated_angle - rotation_angle
-                r_pnts.append(Pnt())
+                r_pnts.append(dPnt())
                 r_pnts[i] = polar(connector_pnts[0], length, r_angle)
                 i = i + 1
         return r_pnts
