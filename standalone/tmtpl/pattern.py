@@ -77,7 +77,7 @@ def extractMarkerId(markertext):
     return mid
 
 # -spc- Notes for adding dart handling later, see also *dart methods in patternmath.py
-# 
+#
 #    def getDartPoints(parent, name, pnt):
 #        #all darts have .o, .oc, .i, .ic, .m dynamic object attributes of class Pnt()
 #        for attrib in 'i', 'ic', 'o', 'oc', 'm':
@@ -114,10 +114,10 @@ def addToPath(p, tokens):
                 outpoint = pnt1.outpoint
                 inpoint = pnt2.inpoint
             except:
-                print "Failure processing point", pnt.name
+                print "Failure processing point", pnt2.name
                 raise ValueError("'C' path definition must be followed by a point with outpoint and inpoint defined")
             i = i + 2
-            cubicCurveP(p, outpoint, inpoint, pnt)
+            cubicCurveP(p, outpoint, inpoint, pnt2)
         else:
             print 'Unknown command token ' + cmd
     return
