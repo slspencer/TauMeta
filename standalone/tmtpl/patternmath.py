@@ -962,8 +962,8 @@ def intersectCircles(C1, r1, C2, r2):
         Y1 = y2 + ry
         X2 = x2 - rx
         Y2 = y2 - ry
-        P.append(dPnt(X1, Y1))
-        P.append(dPnt(X2, Y2))
+        P.append(dPnt((X1, Y1)))
+        P.append(dPnt((X2, Y2)))
     return P
 
 def onCircleAtX(C, r, x):
