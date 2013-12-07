@@ -492,6 +492,14 @@ def lowest(pnt1, pnt2):
     else:
         return pnt1
 
+def lowestP(pnts):
+    low_pnt = pnts[0]
+    i = 1
+    while i < len(pnts):
+        low_pnt = lowest(low_pnt, pnts[i])
+        i += 1
+    return low_pnt
+
 def highest(pnt1, pnt2):
     pnt1 = dPnt(pnt1)
     pnt2 = dPnt(pnt2)
@@ -499,6 +507,14 @@ def highest(pnt1, pnt2):
         return pnt2
     else:
         return pnt1
+
+def highestP(pnts):
+    high_pnt = pnts[0]
+    i = 1
+    while i < len(pnts):
+        high_pnt = highest(high_pnt, pnts[i])
+        i += 1
+    return high_pnt
 
 def leftmost(pnt1, pnt2):
     pnt1 = dPnt(pnt1)
@@ -508,6 +524,14 @@ def leftmost(pnt1, pnt2):
     else:
         return pnt1
 
+def leftmostP(pnts):
+    left_pnt = pnts[0]
+    i = 1
+    while i < len(pnts):
+        left_pnt = leftmost(left_pnt, pnts[i])
+        i += 1
+    return left_pnt
+
 def rightmost(pnt1, pnt2):
     pnt1 = dPnt(pnt1)
     pnt2 = dPnt(pnt2)
@@ -515,6 +539,14 @@ def rightmost(pnt1, pnt2):
         return pnt2
     else:
         return pnt1
+
+def rightmostP(pnts):
+    right_pnt = pnts[0]
+    i = 1
+    while i < len(pnts):
+        right_pnt = rightmost(right_pnt, pnts[i])
+        i += 1
+    return right_pnt
 
 # ---lines---
 
