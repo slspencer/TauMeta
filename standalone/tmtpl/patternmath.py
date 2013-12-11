@@ -1093,7 +1093,7 @@ def waistDart(parent, dart_width, dart_length, length, waist_curve, dart_angle=A
     rotation_angle = 2 * asin(d_div_2r)
     # split neck curve at length-returns curve with P0 C11 C12 P1 C21 C22 P2
     split_curve = splitCurveAtLength(length, waist_curve)
-    #dart_apex=pPoint(parent, parent.name+'dart_apex', polar(split_curve[3], dart_length, angleOfLine(split_curve[3], split_curve[2])+ANGLE90))
+    #dart_apex=dPnt(parent, parent.name+'dart_apex', polar(split_curve[3], dart_length, angleOfLine(split_curve[3], split_curve[2])+ANGLE90))
     # TODO:test for direction of dart-plus or minus 90 degrees from the angle of the tangent at the dart...
     # ...the angle of line from 2nd control point (split_curve[2]) to the split point (split_curve[3])
     dart_apex = polar(split_curve[3], dart_length, angleOfLine(split_curve[3], split_curve[2]) + dart_angle)
@@ -1128,7 +1128,7 @@ def neckDart(parent, dart_width, dart_length, length, neck_curve):
 
     rotation_angle = angleFromChord(dart_width, dart_length)
     #print('rotation_angle =',  rotation_angle)
-    dart_apex = pPoint(parent, 'dart_apex', polar(split_curve[3], dart_length, angleOfLine(split_curve[3], split_curve[2]) + ANGLE90))
+    dart_apex = dPnt(parent, 'dart_apex', polar(split_curve[3], dart_length, angleOfLine(split_curve[3], split_curve[2]) + ANGLE90))
     #print('dart_apex =',  dart_apex)
 
     # separate split_curve into curve1 & curve2
@@ -1173,20 +1173,20 @@ def foldDart(parent, dart, inside_pnt):
     if hasattr(dart, 'm'):
         updatePoint(dart.m, mid_pnt)
     else:
-        dart.m = pPoint(parent, dart.name+'.m', mid_pnt)
+        dart.m = dPnt(parent, dart.name+'.m', mid_pnt)
     # dart outside leg at cuttingline
     #temp_pnt=onLineAtLength(dart.o, dart, -SEAM_ALLOWANCE)
     temp_pnt = polar(dart, distance(dart, dart.o) + SEAM_ALLOWANCE, angleOfLine(dart, dart.o))
     if hasattr(dart, 'oc'):
         updatePoint(dart.oc, temp_pnt)
     else:
-        dart.oc = pPoint(parent, dart.name + '.oc', temp_pnt)
+        dart.oc = dPnt(parent, dart.name + '.oc', temp_pnt)
     # dart inside leg at cuttingline
     temp_pnt = onLineAtLength(dart.i, dart, -SEAM_ALLOWANCE)
     if hasattr(dart, 'ic'):
         updatePoint(dart.ic, temp_pnt)
     else:
-        dart.ic = pPoint(parent, dart.name + '.ic', temp_pnt)
+        dart.ic = dPnt(parent, dart.name + '.ic', temp_pnt)
     #create or update dart.angles
     dart.angle = angleOfVector(dart.i, dart, dart.o)
 
