@@ -1165,24 +1165,24 @@ def foldDart(parent, dart, inside_pnt):
         FOLD_ANGLE = I_ANGLE + DART_HALF_ANGLE
     # find intersection of fold & armscye b/w bd2.i & inside_pnt
     # TODO:use intersectLineCurve()
-    temp_pnt = polar(dart, DART_LENGTH, FOLD_ANGLE)
-    fold_pnt = intersectLines(dart.i, inside_pnt, dart, temp_pnt)
+    temp_pnt = dPnt(polar(dart, DART_LENGTH, FOLD_ANGLE))
+    fold_pnt = dPnt(intersectLines(dart.i, inside_pnt, dart, temp_pnt))
     # dart midpoint at seamline
-    temp_pnt = midPoint(dart.i, dart.o)
-    mid_pnt = onLineAtLength(dart, temp_pnt, distance(dart, fold_pnt))
+    temp_pnt = dPnt(midPoint(dart.i, dart.o))
+    mid_pnt = dPnt(onLineAtLength(dart, temp_pnt, distance(dart, fold_pnt)))
     if hasattr(dart, 'm'):
         updatePoint(dart.m, mid_pnt)
     else:
         dart.m = dPnt(parent, dart.name+'.m', mid_pnt)
     # dart outside leg at cuttingline
     #temp_pnt=onLineAtLength(dart.o, dart, -SEAM_ALLOWANCE)
-    temp_pnt = polar(dart, distance(dart, dart.o) + SEAM_ALLOWANCE, angleOfLine(dart, dart.o))
+    temp_pnt = dPnt(polar(dart, distance(dart, dart.o) + SEAM_ALLOWANCE, angleOfLine(dart, dart.o)))
     if hasattr(dart, 'oc'):
         updatePoint(dart.oc, temp_pnt)
     else:
         dart.oc = dPnt(parent, dart.name + '.oc', temp_pnt)
     # dart inside leg at cuttingline
-    temp_pnt = onLineAtLength(dart.i, dart, -SEAM_ALLOWANCE)
+    temp_pnt = dPnt(onLineAtLength(dart.i, dart, -SEAM_ALLOWANCE))
     if hasattr(dart, 'ic'):
         updatePoint(dart.ic, temp_pnt)
     else:
@@ -1204,12 +1204,12 @@ def foldDart2(dart, inside_pnt):
         FOLD_ANGLE = I_ANGLE + DART_HALF_ANGLE
     #TODO:find intersection of fold & armscye b/w bd2.i & inside_pnt
     #TODO:use intersectLineCurve()
-    temp_pnt = polar(dart, DART_LENGTH, FOLD_ANGLE)
-    fold_pnt = intersectLines(dart.i, inside_pnt, dart, temp_pnt)
-    temp_pnt = midPoint(dart.i, dart.o)
-    dart.m = onLineAtLength(dart, temp_pnt, distance(dart, fold_pnt)) #dart midpoint at seamline
-    dart.oc = polar(dart, distance(dart, dart.o) + SEAM_ALLOWANCE, angleOfLine(dart, dart.o)) #dart outside leg at cuttingline
-    dart.ic = onLineAtLength(dart.i, dart, -SEAM_ALLOWANCE) #dart inside leg at cuttingline
+    temp_pnt = dPnt(polar(dart, DART_LENGTH, FOLD_ANGLE))
+    fold_pnt = dPnt(intersectLines(dart.i, inside_pnt, dart, temp_pnt))
+    temp_pnt = dPnt(midPoint(dart.i, dart.o))
+    dart.m = dPnt(onLineAtLength(dart, temp_pnt, distance(dart, fold_pnt))) #dart midpoint at seamline
+    dart.oc = dPnt(polar(dart, distance(dart, dart.o) + SEAM_ALLOWANCE, angleOfLine(dart, dart.o))) #dart outside leg at cuttingline
+    dart.ic = dPnt(onLineAtLength(dart.i, dart, -SEAM_ALLOWANCE)) #dart inside leg at cuttingline
     #create or update dart.angles
     dart.angle = angleOfVector(dart.i, dart, dart.o)
 
@@ -1225,19 +1225,18 @@ def adjustDartLength(p1, dart, p2, extension=1/3.0):
     """
     #TODO: define class Dart
     #rotate point 'p1' to p1_new where it would lie if dart were closed
-    p2 = dPnt(p2)
-    p1_new = dPnt(p1)
     rotation_angle = angleOfVector(dart.i, dart, dart.o)
-    slashAndSpread(dart, rotation_angle, p1_new)
+    p1_new = dPnt(polar(dart, distance(dart, p1), angleOfLine(dart, p1) + rotation_angle))
+    ######slashAndSpread(dart, rotation_angle, p1_new)
     #find intersection of dart leg and line p1_new to p2
     p3 = intersectLines(dart, dart.i, p1_new, p2)
     #new dart length at 1/3 distance from dart.i to p3
     new_dart_length = distance(dart, dart.i) + distance(dart.i, p3) * extension
     #update dart.i & dart.o
-    p4 = onLineAtLength(dart, dart.i, new_dart_length)
-    p5 = onLineAtLength(dart, dart.o, new_dart_length)
-    updatePoint(dart.i, p4)
-    updatePoint(dart.o, p5)
+    p4 = dPnt(onLineAtLength(dart, dart.i, new_dart_length))
+    p5 = dPnt(onLineAtLength(dart, dart.o, new_dart_length))
+    (dart.i.x, dart.i.y) = (p4.x, p4.y)
+    (dart.o.x, dart.o.y) = (p5.x, p5.y)
     return
 
 # ---control points---
