@@ -1321,6 +1321,9 @@ def connectObjects(connector_pnts, old_pnts):
 
 # ----Slash and spread with slash line, pivot point, and angle
 def slashAndSpread(pivot, angle, *args):
+        """
+        Accepts pivot point, angle of rotation, and the points to be rotated
+        """
         list = []
         for arg in args:
             list.append(arg)
