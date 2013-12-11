@@ -1327,9 +1327,6 @@ def slashAndSpread(pivot, angle, *args):
         if (angle == 0.0):
             print "Angle = 0 -- Slash and Spread not possible"
         else:
-            print 'pivot =', pivot.x, pivot.y
-            print 'angle =',  angle
-
             list = []
             for arg in args:
                 list.append(arg)
