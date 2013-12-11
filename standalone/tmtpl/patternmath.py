@@ -1330,16 +1330,16 @@ def slashAndSpread(pivot, angle, *args):
             print 'pivot =', pivot.x, pivot.y
             print 'angle =',  angle
 
-        list = []
-        for arg in args:
-            list.append(arg)
-        i = 0
-        while (i < len(list)):
-            pnt = list[i]
-            length = distance(pivot, pnt)
-            rotated_pnt = polar(pivot, length, angleOfLine(pivot, pnt) + angle) # angle > 0=spread clockwise. angle < 0=spread counterclockwise.
-            updatePoint(pnt, rotated_pnt)
-            i = i + 1
+            list = []
+            for arg in args:
+                list.append(arg)
+            i = 0
+            while (i < len(list)):
+                pnt = list[i]
+                length = distance(pivot, pnt)
+                rotated_pnt = polar(pivot, length, angleOfLine(pivot, pnt) + angle) # angle > 0=spread clockwise. angle < 0=spread counterclockwise.
+                updatePoint(pnt, rotated_pnt)
+                i = i + 1
         return
 
 #---append points,  lines and curves to paths---
