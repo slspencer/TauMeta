@@ -77,13 +77,6 @@ class Design(designBase):
         totalDartAngle = abs(angleOfVector(a12, a4, a15))
         frontWaistDartAngle = totalDartAngle/2.0
         bustDartAngle = totalDartAngle/2.0
-        print 'degrees(ANGLE90) =', degreeOfAngle(ANGLE90)
-        print 'verticalLineAngle1 =', angleOfLine(a4, a13)
-        print 'verticalLineAngle2 =', angleOfLine(a13, a4)
-        print 'totalDartAngle =', totalDartAngle
-        print 'ANGLE90 =', ANGLE90
-        print 'frontWaistDartAngle =', frontWaistDartAngle
-        print 'aD1.i angle = ', ANGLE90 - frontWaistDartAngle/2.0
         aD1 = A.addPoint('aD1', (a4)) #front waist dart point
         aD1.i = A.addPoint('aD1.i', onRayAtY(a4, ANGLE90 - frontWaistDartAngle/2.0, a2.y)) #front waist dart inside leg
         aD1.o = A.addPoint('aD1.o', onRayAtY(a4, ANGLE90 + frontWaistDartAngle/2.0, a2.y)) #front waist dart outside leg
@@ -162,7 +155,7 @@ class Design(designBase):
         aG2 = dPnt(down(aG1, distance(a1, a2)/2.0))
         A.addGrainLine(aG1, aG2)
 
-        A.addGridLine(['M', a1, 'L', a2, 'L', a5, 'M', a8, 'L', a9, 'M', a1, 'L', a5, 'M', a3, 'L', a4, 'M', a2, 'L', a12, 'M', a4, 'L', a6, 'L', a7, 'M', a11, 'L', a15, 'M', aD1, 'L', a10, 'M', a14, 'L', a4, 'L', a13])
+        A.addGridLine(['M', a1, 'L', a2, 'L', a5, 'M', a8, 'L', a9, 'M', a1, 'L', a5, 'M', a3, 'L', a4, 'M', a2, 'L', a12, 'M', a4, 'L', a6, 'L', a7, 'M', a11, 'L', a15, 'M', a4, 'L', a10, 'M', a14, 'L', a4, 'L', a13])
 
         A.addDartLine(['M', aD1.ic, 'L', aD1, 'L', aD1.oc, 'M', aD2.ic, 'L', aD2, 'L', aD2.oc])
 
