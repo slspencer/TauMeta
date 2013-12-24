@@ -72,7 +72,7 @@ class Design(designBase):
         a14 = A.addPoint('a14', intersectLines(a3, a4, a10, a11)) #intersect bust line & side seam
         a15 = A.addPoint('a15', onLineAtLength(a9, a10, CD.side)) #temporary front waist side 2 - on side seam
 
-        #darts
+        #---darts---
         #front waist dart
         totalDartAngle = abs(angleOfVector(a12, a4, a15))
         frontWaistDartAngle = totalDartAngle/2.0
@@ -82,8 +82,8 @@ class Design(designBase):
         aD1.o = A.addPoint('aD1.o', onRayAtY(a4, ANGLE90 + frontWaistDartAngle/2.0, a2.y)) #front waist dart outside leg
         #bust dart
         aD2 = A.addPoint('aD2', (a4)) #bust dart point
-        aD2.i = A.addPoint('aD2.i', polar(aD2, CD.front_bust/2.0 - distance(a3, a4), ANGLE180 + bustDartAngle/2.0)) #bust dart inside leg
-        aD2.o = A.addPoint('aD2.o', polar(aD2, distance(aD2, aD2.i), ANGLE180 - bustDartAngle/2.0)) #bust dart outside leg
+        aD2.i = A.addPoint('aD2.i', intersectLineRay(a9, a10, a4, ANGLE180 + bustDartAngle/2.0)) #bust dart inside leg
+        aD2.o = A.addPoint('aD2.o', polar(a4, distance(a4, aD2.i), ANGLE180 - bustDartAngle/2.0)) #bust dart outside leg
         #TODO: create function pivot(pivot_point, rotation_angle, point_to_pivot)
 
         #finalize front waist side
@@ -106,7 +106,7 @@ class Design(designBase):
         a1.addInpoint(left(a1, 0.75 * abs(a1.x - a6.x)))
         #b/w aD1.o waist dart outside leg & a16 front waist side - short control handles
         aD1.o.addOutpoint(polar(aD1.o, distance(aD1.o, a16)/6.0, angleOfLine(aD1.o, aD1) - (angleOfLine(aD1.i, aD1) - ANGLE180))) #control handle forms line with a2,aD1.i
-        a16.addInpoint(polar(a16, distance(aD1.o, a16)/6.0, angleOfLine(a16, aD2.o) + ANGLE90)) #control handle is perpendicular to side seam at waist
+        a16.addInpoint(polar(a16, distance(aD1.o, a16)/6.0, angleOfLine(a16, aD1.o.outpoint))) #a16 control handle points to aD1.o control handle
         #b/w a7 front underarm point & a5 front shoulder point
         a5.addInpoint(polar(a5, distance(a7, a5)/6.0, angleOfLine(a5, a6) + ANGLE90)) #short control handle perpendicular to shoulder seam
         a7.addOutpoint(polar(a7, distance(a7, a5)/3.0, angleOfLine(a7, a6))) #control handle points to front neck point
@@ -145,6 +145,9 @@ class Design(designBase):
         #b/w b7 underarm curve & b6 shoulder point
         b7.addOutpoint(polar(b7, distance(b7, b5)/3.0, angleOfLine(b7, b6)))
         b5.addInpoint(polar(b5, distance(b7, b5)/6.0, angleOfLine(b6, b5) + ANGLE90)) #short control handle, perpendicular to shoulder seam
+        #b/w bD1.o waist dart outside leg & b11 waist side
+        bD1.o.addOutpoint(polar(bD1.o, distance(bD1.o, b11)/6.0, angleOfLine(bD1.o, bD1) + ANGLE180 - angleOfVector(b2, bD1.i, bD1))) #short control handle, forms line with control handle for inside leg
+        b11.addInpoint(polar(b11, distance(bD1.o, b11)/3.0, angleOfLine(b10, b11) + angleOfVector(aD2.o, a16, a16.inpoint))) #forms line with control handle for a16 front waist
 
         #draw Bodice Front A
         pnt1 = dPnt(midPoint(a7, a8))
@@ -176,7 +179,7 @@ class Design(designBase):
 
         B.addDartLine(['M', bD1.ic, 'L', bD1, 'L', bD1.oc])
 
-        pth = (['M', b1, 'L', b2, 'L', bD1.i, 'L', bD1.m, 'L', bD1.o, 'L', b11, 'L', b10, 'C', b7, 'C', b5, 'L', b6, 'C', b1])
+        pth = (['M', b1, 'L', b2, 'L', bD1.i, 'L', bD1.m, 'L', bD1.o, 'C', b11, 'L', b10, 'C', b7, 'C', b5, 'L', b6, 'C', b1])
         B.addSeamLine(pth)
         B.addCuttingLine(pth)
 
