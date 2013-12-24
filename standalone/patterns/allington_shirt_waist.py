@@ -81,7 +81,7 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.""")
         #create a pattern named 'bodice'
         bodice = self.addPattern('bodice')
 
-        #create pattern pieces,  assign an id letter
+        #create pattern pieces,  assign an id lettercd ..
         A = bodice.addPiece('front', 'A', fabric = 2, interfacing = 0, lining = 0)
         B = bodice.addPiece('back', 'B', fabric = 2, interfacing = 0, lining = 0)
         C = bodice.addPiece('sleeve', 'C', fabric = 2, interfacing = 0, lining = 0)
@@ -94,7 +94,7 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.""")
         b2  = B.addPoint('b2', down(b1, CD.front_waist_length)) #A
         b3  = B.addPoint('b3', up(b2, CD.side)) #C
         a1  = A.addPoint('a1', left(b3, CD.bust/2.0)) #D
-        b4  = B.addPoint('b4', left(b3, CD.back_armfold_distance/2.0)) #E
+        b4  = B.addPoint('b4', left(b3, CD.across_back/2.0)) #E
         b5  = B.addPoint('b5', up(b4, CD.arm_scye/3.0)) #F
         b6  = B.addPoint('b6', up(b1, 0.5*IN)) #G
         b7  = B.addPoint('b7', left(b6, 1.5*IN)) #H
