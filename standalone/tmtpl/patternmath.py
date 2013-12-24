@@ -1109,6 +1109,15 @@ def onRayAtY(P, angle, y):
 
     return (x, y)
 
+def intersectLineRay(P1, P2, R1, angle):
+    '''
+    Accepts two points defining a line, and a point and angle defining a ray.
+    Returns point where they intersect.
+    '''
+    #define a line R1-R2 by finding point R2 along ray 1 inch (arbitary) from R1
+    R2 = polar(R1, angle, 1*IN)
+    return intersectLines(P1, P2, R1, R2)
+
 # TODO Darts need reworking
 #---darts---
 def waistDart(parent, dart_width, dart_length, length, waist_curve, dart_angle=ANGLE90):
