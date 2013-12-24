@@ -140,7 +140,7 @@ class Design(designBase):
         c4 = C.addPoint('c4', up(c3, distance(c5, c6))) #hem center line
         c7 = C.addPoint('c7', b10) #side seam reference point
         c8 = C.addPoint('c8', b8) #underarm side
-        c9 = C.addPoint('b9', b9) #waist side reference point
+        c9 = C.addPoint('c9', b9) #waist side reference point
         c10 = C.addPoint('c10', right(c9, 2*CM)) #waist side
         c11 = C.addPoint('c11', b11) #hem side reference point
         c12 = C.addPoint('c12', right(c11, 1*CM)) #hem side
@@ -350,7 +350,7 @@ class Design(designBase):
         C.addGrainLine(Cg1, Cg2)
         C.setLabelPosition((Cg1.x - 8*CM, Cg1.y + 3*CM))
         C.setLetter((c14.outpoint.x, c10.y), scaleby=15.0)
-        C.addGridLine(['M', b8, 'L', b10, 'M', c17, 'L', c15, 'L', c13, 'L', c14,'M', c6, 'L', c5, 'M', c23, 'L', c3, 'M', c18, 'L', c20, 'M', c19, 'L', c21, 'M', c23, 'M', c16, 'L', c22, 'M', c1, 'L', c19, 'M', b8, 'L', c2, 'M', b9, 'L', c10, 'M', b11, 'L', c12, 'M', b10, 'L', c3])
+        C.addGridLine(['M', c8, 'L', c7, 'M', c17, 'L', c15, 'L', c13, 'L', c14,'M', c6, 'L', c5, 'M', c23, 'L', c3, 'M', c18, 'L', c20, 'M', c19, 'L', c21, 'M', c23, 'M', c16, 'L', c22, 'M', c1, 'L', c19, 'M', c8, 'L', c2, 'M', c9, 'L', c10, 'M', c11, 'L', c12, 'M', c7, 'L', c3])
         C.addFoldLine(['M', c18, 'L', c20])
         C.addMarkingLine(['M', c1, 'L', c4])
         pth = (['M', c16, 'C', c1, 'L', c18, 'L', c19, 'L', c21, 'L', c6, 'C', c12, 'C', c10, 'C', c8, 'C', c14, 'C', c17, 'L', c16])
