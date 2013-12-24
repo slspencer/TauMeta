@@ -1085,6 +1085,30 @@ def intersectChordCircle(C, r, P, chord_length):
     P.append(polar(C, r, - angle))
     return P
 
+def onCircleTangentFromOutsidePoint(C, r, P):
+  '''
+  Accepts C center of circle, r radius, and P point outside of circle.
+  Returns two points where lines to point P are tangent to circle
+  '''
+  d = distance(C, P)
+  l = sqrt(d*d - r*r)
+  return intersectCircles(C, r, P, l)
+
+#---vectors and rays---
+
+def onRayAtY(P, angle, y):
+    '''
+    Accepts point P and angle of line.
+    Returns point along ray at y
+    '''
+    #convert degrees to slope
+    m = slopeOfAngle(angle)
+    #solve for x
+    #(P.y - y)/(P.x - x) = m
+    x = P.x - (P.y - y)/m
+
+    return (x, y)
+
 # TODO Darts need reworking
 #---darts---
 def waistDart(parent, dart_width, dart_length, length, waist_curve, dart_angle=ANGLE90):
