@@ -402,6 +402,14 @@ def angleOfSlope(p1, p2):
     run = p2.x - p1.x
     return math.atan2(rise, run)
 
+def slopeOfAngle(radians):
+    '''
+    Accepts angle (radians)
+    Returns the slope as tangent radians
+    '''
+    #get tangent of radians
+    return math.tan(radians)
+
 def angleOfLine(p1, p2):
     """
     Accepts p1 & p2 of class point or coordinate pairs
