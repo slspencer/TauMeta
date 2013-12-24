@@ -68,16 +68,28 @@ class Design(designBase):
         # x, y coordinates are always passed as a two-item list like this: (23.6, 67.0)
 
         a1 = A.addPoint('a1', (0.0, 0.0)) # nape
-        a2 = A.addPoint('a2', down(a1, CD.back_armfold_balance/5.0)) # yoke center
-        a3 = A.addPoint('a3', (a1.x + CD.back_armfold_distance/2.0 + 4*CM, a2.y)) #yoke side
+        a2 = A.addPoint('a2', down(a1, CD.back_underarm_balance/5.0)) # yoke center
+        a3 = A.addPoint('a3', (a1.x + CD.across_back/2.0 + 4*CM, a2.y)) #yoke side
         a4 = A.addPoint('a4', (a3.x, a1.y)) # yoke reference point
         a5 = A.addPoint('a5', (a3.x + 0.75*CM, a4.y - 2*CM)) #yoke shoulder point
         a6 = A.addPoint('a6', (a1.x + CD.neck/5.0 - 0.5*CM, a1.y)) #back neck reference point
         a7 = A.addPoint('a7', (a6.x, a6.y - 4.5*CM)) #back neck side
         a8 = A.addPoint('a8', polar(a6, 2*CM, angleOfDegree(225)))
 
-        b1 = B.addPoint('b1', a2.xy) #back top center
-        b2 = B.addPoint('b2', down(a1, CD.back_armfold_balance)) #back underarm point
+        #control points for Shirt Yoke A
+        #control points b/w a8 & a7
+        a8.addOutpoint(polar(a8, distance(a8, a7)/3.0, angleOfDegree(315)))
+        a7.addInpoint(polar(a7, distance(a8, a7)/3.0, angleOfLine(a7, a5) + ANGLE90))
+        #control points b/w a1 & a8
+        a1.addOutpoint(right(a1, distance(a1, a8)/3.0))
+        a8.addInpoint(onLineAtY(a8.outpoint, a8, a1.y))
+        #control points b/w a5 & a3
+        length = distance(a3, a5)/3.0
+        a3.addInpoint(up(a3, length ))
+        a5.addOutpoint(polar(a5, length, angleOfLine(a7, a5) + ANGLE90))
+
+        b1 = B.addPoint('b1', a2) #back top center
+        b2 = B.addPoint('b2', down(a1, CD.back_underarm_balance)) #back underarm point
         b3 = B.addPoint('b3', down(a1, CD.back_waist_length + 2.54*CM + 3*CM)) #back waist lies at 2.54CM below waistline plus 3CM ease
         b4 = B.addPoint('b4', down(a1, SHIRT_LENGTH + 8*CM)) #back hem center
         b19 = B.addPoint('b19', left(b1, 2*CM)) #back center tuck extension
@@ -95,46 +107,6 @@ class Design(designBase):
         b16 = B.addPoint('b16', midPoint(b15, b7)) #back armscye side #3
         b17 = B.addPoint('b17', midPoint(b4,b10)) #back hem curve
         b18 = B.addPoint('b18', (b19.x, b4.y)) #back hem tuck extension
-
-        c1 = C.addPoint('c1', (a1.x + CD.bust/2.0 + 12*CM, a1.y + CD.neck/5.0 - 2.5*CM))
-        c2 = C.addPoint('c2', (c1.x, b2.y))
-        c3 = C.addPoint('c3', (c1.x, b4.y))
-        c5 = C.addPoint('c5', onLineAtLength(c3, b10, distance(c3, b10)/2.0))
-        c6 = C.addPoint('c6', (c5.x, c5.y - 4*CM))
-        c4 = C.addPoint('c4', (c1.x, c6.y))
-        c7 = C.addPoint('c7', b10)
-        c8 = C.addPoint('c8', b8)
-        c9 = C.addPoint('b9', b9)
-        c10 = C.addPoint('c10', (c9.x + 2*CM, c9.y))
-        c11 = C.addPoint('c11', b11)
-        c12 = C.addPoint('c12', (c11.x + 1*CM, c11.y))
-        c13 = C.addPoint('c13', (b1.x + CD.bust/3.0 + 4.5*CM, c2.y))
-        c14 = C.addPoint('c14', polar(c13, 1.75*CM, angleOfDegree(225)))
-        c15 = C.addPoint('c15', (c13.x, c13.y - 3*CM))
-        c16 = C.addPoint('c16', (c2.x - CD.neck/5.0 - 1*CM, a1.y + 4.5*CM))
-        pnts = onCircleAtY(c16, distance(a7, a5) + 0.5*CM, b15.y)
-        if (pnts[0].x < c16.x): # if 1st intersection is to the left of c16
-            c17 = C.addPoint('c17', pnts[0])
-        else:
-            c17 = C.addPoint('c17', pnts[1])
-        c18 = C.addPoint('c18', (c1.x + 1.5*CM, c1.y))
-        c19 = C.addPoint('c19', (c18.x + 3.5*CM, c1.y))
-        c20 = C.addPoint('c20', (c18.x, c6.y))
-        c21 = C.addPoint('c21', (c19.x, c6.y))
-        c22 = C.addPoint('c22', (c2.x, a1.y + 4.5*CM))
-        c23 = C.addPoint('c23', (c1.x, a1.y))
-
-        #control points for Shirt Yoke A
-        #control points b/w a8 & a7
-        a8.addOutpoint(polar(a8, distance(a8, a7)/3.0, angleOfDegree(315)))
-        a7.addInpoint(polar(a7, distance(a8, a7)/3.0, angleOfLine(a7, a5) + ANGLE90))
-        #control points b/w a1 & a8
-        a1.addOutpoint(right(a1, distance(a1, a8)/3.0))
-        a8.addInpoint(onLineAtY(a8.outpoint, a8, a1.y))
-        #control points b/w a5 & a3
-        length = distance(a3, a5)/3.0
-        a3.addInpoint(up(a3, length ))
-        a5.addOutpoint(polar(a5, length, angleOfLine(a7, a5) + ANGLE90))
 
         #control points for B back
         #b/w b5 & b6 top of yoke
@@ -159,7 +131,32 @@ class Design(designBase):
         b13.addOutpoint(left(b13, length))
         b17.addInpoint(right(b17, length))
 
-        #control points for Shirt Front C
+        #Shirt Front C
+        c1 = C.addPoint('c1', (a1.x + CD.bust/2.0 + 12*CM, a1.y + CD.neck/5.0 - 2.5*CM)) #neck center line
+        c2 = C.addPoint('c2', (c1.x, b2.y)) #undearm center line at underarm
+        c3 = C.addPoint('c3', (c1.x, b4.y)) #center line reference point
+        c5 = C.addPoint('c5', onLineAtLength(c3, b10, distance(c3, b10)/2.0)) #hem curve reference point
+        c6 = C.addPoint('c6', up(c5, 4*CM)) #hem curve
+        c4 = C.addPoint('c4', up(c3, distance(c5, c6))) #hem center line
+        c7 = C.addPoint('c7', b10) #side seam reference point
+        c8 = C.addPoint('c8', b8) #underarm side
+        c9 = C.addPoint('b9', b9) #waist side reference point
+        c10 = C.addPoint('c10', right(c9, 2*CM)) #waist side
+        c11 = C.addPoint('c11', b11) #hem side reference point
+        c12 = C.addPoint('c12', right(c11, 1*CM)) #hem side
+        c13 = C.addPoint('c13', left(c2, CD.across_chest/2.0 + 4.5*CM)) #armscye curve reference point
+        c14 = C.addPoint('c14', polar(c13, 1.75*CM, angleOfDegree(225))) #armscye curve 1
+        c15 = C.addPoint('c15', up(c13, 3*CM)) #armscye curve 2
+        c16 = C.addPoint('c16', (c1.x - CD.neck/5.0 - 1*CM, a1.y - 4.5*CM)) #front neck point
+        c17 = C.addPoint('c17', leftmostP(onCircleAtY(c16, distance(a7, a5) + 0.5*CM, a5.y))) #front shoulder point
+        c18 = C.addPoint('c18', (c1.x + 1.5*CM, c1.y)) #front neck placket foldline
+        c19 = C.addPoint('c19', (c18.x + 3.5*CM, c1.y)) #front neck placket side
+        c20 = C.addPoint('c20', (c18.x, c6.y)) #front hem placket foldline
+        c21 = C.addPoint('c21', (c19.x, c6.y)) #front hem placket side
+        c22 = C.addPoint('c22', (c1.x, c16.y)) #front shoulder height
+        c23 = C.addPoint('c23', (c1.x, a1.y)) #front shoulder height
+
+        #Shirt Front C control points
         #b/w c6 & c12 hem
         length = distance(c6, c12)/3.0
         c6.addOutpoint(left(c6,length))
@@ -185,7 +182,7 @@ class Design(designBase):
         c16.addOutpoint(polar(c16, length, angleOfLine(c17, c16) + ANGLE90))
         c1.addInpoint(left(c1, distance(c16, c1)/3.0))
 
-        # D - sleeve, based on A,B,C points
+        # Shirt sleeve D
         #get front & back armcye length
         back_armscye = points2List(b16, b16.outpoint, b14.inpoint, b14, b14.outpoint, b8.inpoint, b8, b8.outpoint, c17.inpoint, c17)
         front_armscye = points2List(a5, a5.outpoint, a3.inpoint, a3)
@@ -224,7 +221,7 @@ class Design(designBase):
         d24 = D.addPoint('d24', midPoint(d2, d4)) #middle of sleeve - label reference point
         d25 = D.addPoint('d25', down(d21, SEAM_ALLOWANCE)) #extend slashline out to cuttingline
 
-        # control points for sleeve
+        #Shirt Sleeve D control points
         cArray = points2List(d5, d9, d10, d11, d1, d14, d13, d12, d7)
         C1, C2 = controlPoints('sleeve_cap', cArray)
         d5.addOutpoint(C1[0])
@@ -262,7 +259,7 @@ class Design(designBase):
         d21.addOutpoint(C1[1])
         d15.addInpoint(C2[1])
 
-        # E - cuff
+        # Shirt Sleeve Cuff E
         e1 = E.addPoint('e1', (0.0, 0.0))
         e2 = E.addPoint('e2', right(e1, CUFF_WIDTH))
         e3 = E.addPoint('e3', left(e1, 3*CM)) #3CM cuff width ease & overlap
@@ -272,13 +269,13 @@ class Design(designBase):
         e7 = E.addPoint('e7', down(e3, 0.7*CUFF_HEIGHT)) #cuff curve #1
         e8 = E.addPoint('e8', down(e4, 0.7*CUFF_HEIGHT)) #cuff curve point #2
         print 'e8', e8.x,  e8.y
-        # control points for cuff
+        #Shirt Sleeve Cuff E control points
         e8.addOutpoint(down(e8, distance(e8, e6)/3.0))
         e6.addInpoint(right(e6, distance(e8, e6)/3.0))
         e5.addOutpoint(left(e5, distance(e5, e7)/3.0))
         e7.addInpoint(down(e7, distance(e5, e7)/3.0))
 
-        # F & G - collar stand & collar -  G is drawn from points on F
+        # F & G - collar stand & collar G is drawn from points on F
         f1 = F.addPoint('f1', (0.0, 0.0))
         curve1 = points2List(a1, a1.outpoint, a7.inpoint,  a7)
         curve2 = points2List(c16, c16.outpoint, c1.inpoint, c1)
