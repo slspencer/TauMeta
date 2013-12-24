@@ -417,7 +417,11 @@ def angleOfLine(p1, p2):
     """
     p1 = dPnt(p1)
     p2 = dPnt(p2)
-    return math.atan2(p2.y - p1.y, p2.x - p1.x)
+    angle = math.atan2(p2.y - p1.y, p2.x - p1.x)
+    #get the actual angle, don't return negative angles
+    if angle < 0:
+        angle = 2*pi + angle
+    return angle
 
 def angleOfVector(p1, v, p2):
     """
@@ -430,7 +434,14 @@ def angleOfVector(p1, v, p2):
     #return math.acos((L1**2+L2**2-L3**2)/(2*L1*L2))
     p1 = dPnt(p1)
     p2 = dPnt(p2)
-    return abs(angleOfLine(v, p1) - angleOfLine(v, p2))
+    angle1 = angleOfLine(v, p1)
+    angle2 = angleOfLine(v, p2)
+    #get the absolute angle
+    angle = abs(angle1 - angle2)
+    #get the smallest angle of the vector, should not be greater than a straight line
+    if angle > pi:
+        angle = 2*pi - angle
+    return angle
 
 def angleOfChord(chord_width, radius):
     """
@@ -1115,7 +1126,7 @@ def intersectLineRay(P1, P2, R1, angle):
     Returns point where they intersect.
     '''
     #define a line R1-R2 by finding point R2 along ray 1 inch (arbitary) from R1
-    R2 = polar(R1, angle, 1*IN)
+    R2 = polar(R1, 1*IN,  angle)
     return intersectLines(P1, P2, R1, R2)
 
 # TODO Darts need reworking
