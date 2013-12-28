@@ -59,7 +59,7 @@ class Design(designBase):
         a4 = A.addPoint('a4', left(a3, CD.bust_distance/2.0)) #bust point
         a5 = A.addPoint('a5', leftmostP(intersectCircles(a2, CD.front_shoulder_balance, a1, CD.front_shoulder_width))) #front shoulder point
         a6 = A.addPoint('a6', highestP(intersectCircles(a5, CD.shoulder, a4, CD.bust_balance))) #front neck point
-        a7 = A.addPoint('a7', lowestP(onCircleAtX(a6, CD.front_armfold_balance, a1.x - CD.front_armfold_distance/2.0))) #front underarm point
+        a7 = A.addPoint('a7', lowestP(onCircleAtX(a6, CD.front_underarm_balance, a1.x - CD.across_chest/2.0))) #front underarm point
         a8 = A.addPoint('a8', (a1.x, a7.y)) #front undearm center
         a9 = A.addPoint('a9', left(a8, CD.front_underarm/2.0)) #front underarm side
         #TODO: create function onCircleAtTangentOfPoint()
