@@ -158,105 +158,73 @@ class Design(designBase):
         back_armscye = points2List(b10, b10.outpoint, b7.inpoint, b7, b7.outpoint, b5.inpoint, b5)
         front_armscye = points2List(a11, a11.outpoint, a7.inpoint, a7, a7.outpoint, a5.inpoint, a5)
         ARMSCYE_LENGTH = curveLength(back_armscye) + curveLength(front_armscye)
+        #ARMSCYE_LENGTH = distance(a5, a11) + distance(b5, b10)
+        ARMSCYE_WIDTH = distance(a7, a9) + distance(b7, b9)
+        HALF_ARMSCYE_WIDTH = ARMSCYE_WIDTH/2.0
+        CAP_HEIGHT = ARMSCYE_LENGTH/3.0
+        BICEP_WIDTH = 1.15 * CD.bicep #15% ease in bicep
+        SLEEVE_LENGTH = CD.oversleeve_length
+        CURVE_OFFSET = CAP_HEIGHT/25.0
+        WRIST_WIDTH = 1.15 * CD.wrist #15% ease in wrist
 
+        c1 = C.addPoint('c1', (0,0)) #top of sleeve cap - A
+        c2 = C.addPoint('c2', down(c1, SLEEVE_LENGTH)) #bottom of sleeve, mid-cuff - B
+        c3 = C.addPoint('c3', down(c1, CAP_HEIGHT)) #bicep line - H
+        c4 = C.addPoint('c4', midPoint(c3, c2))  #temporary elbow line - C
+        c5 = C.addPoint('c5', up(c4, SLEEVE_LENGTH/20.0)) #elbow line
+        c6 = C.addPoint('c6', right(c2, BICEP_WIDTH/2.0)) #back wrist reference - D
+        c7 = C.addPoint('c7', left(c2, BICEP_WIDTH/2.0)) #font wrist reference - E
+        #c8 = C.addPoint('c8', right(c1, BICEP_WIDTH/8.0)) # F
+        #c9 = C.addPoint('c9', left(c1, BICEP_WIDTH/8.0)) #G
+        c10 = C.addPoint('c10', right(c3, BICEP_WIDTH/2.0)) #back underarm - J
+        #c11 = C.addPoint('c11', left(c10, HALF_ARMSCYE_WIDTH)) # on bicep line - K
+        c12 = C.addPoint('c12', left(c3, BICEP_WIDTH/2.0)) #front underarm - L
+        #TODO: reverse front & back armcap
+        #armcap
+        #c13 = C.addPoint('c13', up(c11, 3 * CURVE_OFFSET)) #on back armcap - M
+        #c14 = C.addPoint('c14', onLineAtLength(c13, c8, distance(c13, c8)/3.0)) #on back armcap - N
+        #c15 = C.addPoint('c15', polar(c14, 0.7 * CURVE_OFFSET, angleOfLine(c13, c8) + ANGLE90)) # on back armcap -N1
+        #wrist
+        c16 = C.addPoint('c16', left(c6, WRIST_WIDTH/4.0)) #temporary back wrist
+        c17 = C.addPoint('c17', right(c7, WRIST_WIDTH/4.0)) #temporary front wrist
 
-        c1 = C.addPoint('c1', (0.0, 0.0)) #middle bicep line
-        c5 = C.addPoint('c5', left(c1, 0.65 * CD.bicep)) #back bicep line
-        c7 = C.addPoint('c7', right(c1, 0.45 * CD.bicep)) #front bicep line
-        c2 = C.addPoint('c2', highestP(intersectCircles(c5, curveLength(back_armscye), c7, curveLength(front_armscye))))
-        c3 = C.addPoint('c3', down(c2, CD.oversleeve_length + 6*CM)) #wrist line
-        c4 = C.addPoint('c4', midPoint(c1, c3)) #middle elbow line
+        #c18 = C.addPoint('c18', onLineAtLength(c9, c12, distance(c9, c12)/4.0)) #on front armcap - P
+        #c19 = C.addPoint('c19', polar(c18, 0.2 * CURVE_OFFSET, angleOfLine(c9, c12) + ANGLE90)) # on front armcap - P1
+        c20 = C.addPoint('c20', polar(c10, distance(a10, a7), angleOfLine(c10, c16) + angleOfVector(a10, a11, a7)))
+        c21 = C.addPoint('c21', polar(c12, distance(b10, b7), angleOfLine(c12, c17) - angleOfVector(b11, b10, b7)))
 
+        #elbow
+        c26 = C.addPoint('c26', onLineAtY(c10, c16, c5.y)) #back elbow
+        c27 = C.addPoint('c27', onLineAtY(c12, c17, c5.y)) #front elbow 1
+        c28 = C.addPoint('c28', polar(c26, distance(c26, c27), angleOfLine(c26, c27) - angleOfDegree(5))) #front elbow 2
+        c29 = C.addPoint('c29', polar(c26, distance(c26, c17), angleOfLine(c26, c17) - angleOfDegree(5))) #front wrist
+        c30 = C.addPoint('c30', polar(c26, distance(c26, c16), angleOfLine(c26, c16) - angleOfDegree(5))) #back wrist
+        c31 = C.addPoint('c31', midPoint(c5, c27)) # elbow dart point
+        #elbow dart
+        cD1 = C.addPoint('cD1', dPnt(c31)) #elbow dart point
+        cD1.i = C.addPoint('cD1.i', dPnt(c27)) #elbow dart inside
+        cD1.o = C.addPoint('cD1.o', onLineAtLength(c31, c28, distance(c31, c27))) #elbow dart outside
+        foldDart2(cD1, c12) #elbow dart folds up towards c12 back underarm point
 
-        #c2 = C.addPoint('c2', down(c1, 1.05 *CD.bicep_length)) #bicep line
+        #Sleeve C control points
+        #b/w c1 sleeve cap to c15 front armcap to c10 front underarm
+        #c1.addOutpoint((c8))
+        #c15.addInpoint(polar(c15, distance(c1, c15)/3.0, angleOfLine(c15, c1.outpoint)))
+        #c15.addOutpoint(polar(c15, distance(c15, c10)/3.0, angleOfLine(c15.inpoint, c15)))
+        #c10.addInpoint(polar(c10, distance(c15, c10)/3.0, angleOfLine(c26, c10) - ANGLE90))
 
-        #c5 = C.addPoint('c5', left(c2, ARMSCYE_LENGTH/2.0 - 0.5*CM)) #back bicep line
-        c6 = C.addPoint('c6', (c5.x, c3.y)) #back wrist line
-        #c7 = C.addPoint('c7', right(c2, ARMSCYE_LENGTH/2.0 - 0.5*CM)) #front bicep line
-        c8 = C.addPoint('c8', (c7.x, c3.y)) #front wrist line
-        #back armscye points
-        c9 = C.addPoint('c9', onLineAtLength(c5, c2, distance(c5, c2)/4.0)) #back armscye point 1
-        c10 = C.addPoint('c10', polar(midPoint(c5, c2), 1*CM, angleOfLine(c5, c2) - ANGLE90)) #back armscye point 2
-        pnt = onLineAtLength(c5, c2, 0.75*distance(c5, c2))
-        c11 = C.addPoint('c11', polar(pnt, 2*CM, angleOfLine(c5, c2) - ANGLE90)) #back armcye point 3
-        #front armscye points
-        pnt = onLineAtLength(c7, c2, distance(c7, c2)/4.0)
-        c12 = C.addPoint('c12', polar(pnt, 1*CM, angleOfLine(c7, c2) - ANGLE90)) #front armscye point 1
-        c13 = C.addPoint('c13', midPoint(c7, c2)) #front armscye point 2
-        pnt = onLineAtLength(c7, c2, 0.75*distance(c7, c2))
-        c14 = C.addPoint('c14', polar(pnt, 1*CM, angleOfLine(c7, c2) + ANGLE90)) #front armscye point 3
-        #c15 = C.addPoint('c15', onLineAtLength(c6, c3, distance(c6, c3)/3.0)) #back wrist point
-        #c16 = C.addPoint('c16', onLineAtLength(c8, c3, distance(c8, c3)/3.0)) #front wrist point
-        c15 = C.addPoint('c15', onLineAtLength(c3, c6, 0.7 * CD.wrist)) #back wrist point
-        c16 = C.addPoint('c16', onLineAtLength(c3, c8, 0.7 * CD.wrist)) #front wrist point
-        c17 = C.addPoint('c17', midPoint(c6,c15)) #wristline reference point
-        c18 = C.addPoint('c18', midPoint(c8,c16)) #wristline reference point
-        #c19 = C.addPoint('c19', midPoint(c3,c15)) #slashline reference point
-        #c20 = C.addPoint('c20', (c19.x, c19.y - 15*CM)) #top of slashline
-        #c21 = C.addPoint('c21', (c19.x, c19.y + 1*CM)) #bottom of slashline
-        #c22 = C.addPoint('c22', onLineAtY(c5, c17, c4.y)) #back elbow
-        #c23 = C.addPoint('c23', onLineAtY(c7, c18, c4.y)) #front elbow
-        c22 = C.addPoint('c22', left(c4, 0.65 * CD.elbow)) #back elbow
-        c23 = C.addPoint('c23', right(c4, 0.45 * CD.elbow)) #front elbow
-        c24 = C.addPoint('c24', midPoint(c1, c4)) #middle of sleeve - label reference point
-        #c25 = C.addPoint('c25', down(c21, SEAM_ALLOWANCE)) #extend slashline out to cuttingline
+        #b/w c1 sleeve cap to c20 front armcap to c10 front underarm
+        c1.addOutpoint(right(c1, abs(c10.x - c1.x)/3.0))
+        c10.addInpoint(polar(c10, distance(c20, c10)/3.0, angleOfLine(c26, c10) - ANGLE90))
+        c20.addOutpoint(polar(c20, distance(c20, c10)/3.0, angleOfLine(c20, c10.inpoint)))
+        c20.addInpoint(polar(c20, distance(c20, c1)/3.0, angleOfLine(c20.outpoint, c20)))
 
+        #b/w c12 back underarm to c9 back armcap to c1 sleeve cap
+        c1.addInpoint(left(c1, abs(c12.x - c1.x)/3.0))
+        c21.addOutpoint(polar(c21, distance(c21, c1)/3.0, angleOfLine(c21, c1.inpoint)))
+        c21.addInpoint(polar(c21, distance(c12, c21)/3.0, angleOfLine(c21.outpoint, c21)))
+        c12.addOutpoint(polar(c12, distance(c12, c21)/3.0, angleOfLine(cD1.i, c12) + ANGLE90))
 
-
-        #Shirt Sleeve C control points
-        cArray = points2List(c5, c9, c10, c11, c2, c14, c13, c12, c7)
-        C1, C2 = controlPoints('sleeve_cap', cArray)
-        c5.addOutpoint(C1[0])
-        c9.addInpoint(C2[0])
-        c9.addOutpoint(C1[1])
-        c10.addInpoint(C2[1])#
-        c10.addOutpoint(C1[2])
-        c11.addInpoint(C2[2])
-        c11.addOutpoint(C1[3])
-        c2.addInpoint(C2[3])
-        c2.addOutpoint(C1[4])
-        c14.addInpoint(C2[4])
-        c14.addOutpoint(C1[5])
-        c13.addInpoint(C2[5])
-        c13.addOutpoint(C1[6])
-        c12.addInpoint(C2[6])
-        c12.addOutpoint(C1[7])
-        c7.addInpoint(C2[7])
-        cArray = points2List(c15, c22, c5)
-        C1, C2 = controlPoints('sleeve_seam1', cArray)
-        c15.addOutpoint(C1[0])
-        c22.addInpoint(C2[0])
-        c22.addOutpoint(C1[1])
-        c5.addInpoint(C2[1])
-        cArray = points2List(c7, c23, c16)
-        C1, C2 = controlPoints('sleeve_seam2', cArray)
-        c7.addOutpoint(C1[0])
-        c23.addInpoint(C2[0])
-        c23.addOutpoint(C1[1])
-        c16.addInpoint(C2[1])
-
-        #elbow dart & lower sleeve control points
-        cD1 = C.addPoint('cD1',  midPoint(c22, c4)) #elbow dart point
-        cD1.i = C.addPoint('cD1.i', (c22)) #elbow dart inside leg
-        cD1.o = C.addPoint('cD1.o', onLineAtLength(c22, c22.inpoint, CD.oversleeve_length/20.0)) #elbow dart outside leg
-        cD1.i.addOutpoint(c22.outpoint)
-        cD1.o.addInpoint((c22.inpoint))
-        foldDart2(cD1, c22.outpoint) #creates cD1.m, cD1.oc, cD1.ic; dart folds up toward sleeve cap
-
-        c25 = C.addPoint('c25', polar(c15, CD.oversleeve_length/20.0, angleOfLine(c15.outpoint, c15))) #sleeve extended at back wrist to allow for elbow dart
-
-        #control points b/w c16 front wrist & c25 back wrist
-        c16.addOutpoint(polar(c16, distance(c16, c25)/3.0, angleOfLine(c16.inpoint, c16) + ANGLE90)) #handle is perpendicular to sleeve seam
-        c25.addInpoint(polar(c25, distance(c16, c25)/3.0, angleOfLine(c15, c25) - ANGLE90)) #handle is perpendicular to sleeve seam
-        #cArray = points2List(c3, c21, c15)
-        #C1, C2 = controlPoints('sleeve_placket', cArray)
-        #c3.addOutpoint(C1[0])
-        #c21.addInpoint(C2[0])
-        #c21.addOutpoint(C1[1])
-        #c15.addInpoint(C2[1])
-        #b/w c16 front wrist & c3 mid wrist
-        #c16.addOutpoint(polar(c16, distance(c16, c3)/6.0, angleOfLine(c16.inpoint, c16) + angleOfVector(c15.outpoint, c15, c15.inpoint))) #short control handle forms line with control handle c15-c15.inpoint at back wrist
-        #c3.addInpoint(polar(c3, distance(c16, c3)/6.0, angleOfLine(c3.outpoint, c3))) #short control handle forms line with control handle c3.oupoint-c3 at mid-wrist
 
         #Bodice (Long) Front D
         d1 = D.addPoint('d1', down(a2, CD.front_hip_height)) #front hip center
@@ -308,15 +276,16 @@ class Design(designBase):
         B.addCuttingLine(pth)
 
         # Shirt Sleeve C
-        Cg1 = dPnt((c1.x, c1.y))
-        Cg2 = dPnt((Cg1.x, c3.y - 8*CM))
-        C.addGrainLine(Cg1, Cg2)
-        C.setLetter((c10.x, c24.y), scaleby=15.0)
-        C.setLabelPosition((c10.x, c24.y + 2*CM))
-        C.addGridLine(['M', c2,'L', c3, 'M', c7, 'L', c8, 'M', c5, 'L', c6, 'M', c5, 'L', c2, 'L',  c7, 'M', c5, 'L', c17, 'M', c22, 'L', c15, 'M', c7, 'L', c18, 'M', c23, 'L', c16, 'M', c5, 'L', c7,  'M', c22, 'L', c23, 'M', c6, 'L', c8])
+        cG1 = dPnt((c3))
+        cG2 = down(cG1, SLEEVE_LENGTH/2.0)
+        C.addGrainLine(cG1, cG2)
+        C.setLetter((c21.x, c3.y), scaleby=15.0)
+        C.setLabelPosition((c21.x, c3.y + 2*CM))
+        C.addGridLine(['M', c1, 'L', c2, 'M', c10, 'L', c12, 'M', c26, 'L', c27, 'M', c6, 'L', c7, 'M', c16,  'L', c10,  'L', c6, 'M', c17, 'L', c12, 'L', c7])
         #TODO: change function def to addDartLine(cD1) -- only one parameter needed
         C.addDartLine(['M', cD1.ic, 'L', cD1, 'L', cD1.oc])
-        pth = (['M', c5, 'C', c9, 'C', c10, 'C', c11, 'C', c2, 'C', c14, 'C', c13, 'C', c12, 'C', c7, 'C', c23, 'C', c16, 'C', c25, 'L', c15, 'C', cD1.o, 'L', cD1.m, 'L', cD1.i, 'C', c5])
+        #pth = (['M', c10, 'L', c13, 'L', c15, 'L', c17, 'L', c1, 'L', c21, 'L', c21, 'L', c23, 'L', c12,  'L', cD1.i,  'L', cD1.m,  'L', cD1.o, 'L', c29,  'L', c30,  'L',  c26, 'L', c10])
+        pth = (['M', c1, 'C', c20, 'C', c10, 'L', c26, 'L', c30, 'L', c29, 'L', cD1.o, 'L', cD1.m, 'L', cD1.i,  'L', c12,  'C', c21,  'C', c1])
         C.addSeamLine(pth)
         C.addCuttingLine(pth)
 
