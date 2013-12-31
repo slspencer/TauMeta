@@ -316,7 +316,7 @@ def updatePoint(p1, p2):
     p2 = dPnt(p2)
     p1.x = p2.x
     p1.y = p2.y
-	#TODO: why does .xy = return 'cannot set attribute' error?
+    #TODO: why does .xy = return 'cannot set attribute' error?
     #p1.xy = '(' + str(p2.x) + ', ' + str(p2.y) + ')'
     return
 
@@ -747,12 +747,10 @@ def onCurveAtX(curve, x):
         i = 0
         if ((xmin <= x <= xmax)):
             while (i < len(interpolatedPoints) - 1):
-                print 'interpolatedPoints[',i,'] =', interpolatedPoints[i][0], interpolatedPoints[i][1]
                 #if (x >= interpolatedPoints[i][0]) and (x <= interpolatedPoints[i + 1][0]):
                 if ((interpolatedPoints[i][0] <= x <= interpolatedPoints[i + 1][0])) or ((interpolatedPoints[i][0] >= x >= interpolatedPoints[i + 1][0])):
                     pnt = dPnt(onLineAtX(interpolatedPoints[i], interpolatedPoints[i + 1], x))
                     intersect_points.append(pnt)
-                    print 'intersect point =', pnt.x, pnt.y
                 i += 1
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return intersect_points # return array of intersection points
