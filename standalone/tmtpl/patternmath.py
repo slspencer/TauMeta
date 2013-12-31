@@ -950,6 +950,38 @@ def splitCurveAtLength(curve, length):
     new_curve.append(curve3)
     return new_curve
 
+def splitCurveAtPoint(curve, split_pnt):
+    split_pnt = dPnt(split_pnt)
+    length = curveLengthAtPoint(curve, split_pnt)
+    interpolated_points = interpolateCurve(curve[0], curve[1], curve[2], curve[3])
+    # find tangent at split point
+    pnt1 = dPnt(interpolatedCurvePointAtLength(interpolated_points, length - 10)) # arbitrary 10px - good enough for this application?
+    pnt2 = dPnt(interpolatedCurvePointAtLength(interpolated_points, length + 10))
+    forward_tangent_angle = angleOfLine(pnt1,  pnt2)
+    backward_tangent_angle = angleOfLine(pnt2,  pnt1)
+    # b/w curve[0] and split_pnt
+    length = distance(curve[0], split_pnt) / 3.0
+    p0 = dPnt(curve[0])
+    c1 = polar(curve[0], length, angleOfLine(curve[0], curve[1])) # preserve angle b/w P0 & original 1st control point
+    c2 = polar(split_pnt, length, backward_tangent_angle)
+    p1 = dPnt(split_pnt)
+    #split_pnt.addInpoint(polar(split_pnt, length, backward_tangent_angle))
+    # b/w split_pnt and curve[3]
+    length = distance(split_pnt, curve[3])/3.0
+    c3 = polar(split_pnt, length, forward_tangent_angle)
+    c4 = polar(curve[3], length, angleOfLine(curve[3], curve[2])) # preserve angle b/w original 2nd control point & P1
+    p2 = dPnt(curve[3])
+    new_curve = []
+    new_curve.append(p0)
+    new_curve.append(c1)
+    new_curve.append(c2)
+    new_curve.append(p1)
+    new_curve.append(c3)
+    new_curve.append(c4)
+    new_curve.append(p2)
+    return new_curve
+
+
 # --- intersections-circles---
 
 # TODO test this after changes - No current pattern uses this
