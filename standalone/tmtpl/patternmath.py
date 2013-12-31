@@ -311,8 +311,13 @@ def transformBoundingBox(xmin, ymin, xmax, ymax, transform):
 # -spc- TODO need this?
 def updatePoint(p1, p2):
     '''Accepts p1 and p2 of class Point. Updates p1 with x & y values from p2'''
-    #p2 might not have p2.coords,  so create p1.coords with p2.x & p2.y
-    p1.x, p1.y, p1.xy = p2.x, p2.y, str(p2.x) + ', ' + str(p2.y)
+    #p2 might not have p2.xy,  so create p1.xy with p2.x & p2.y
+    p1 = dPnt(p1)
+    p2 = dPnt(p2)
+    p1.x = p2.x
+    p1.y = p2.y
+	#TODO: why does .xy = return 'cannot set attribute' error?
+    #p1.xy = '(' + str(p2.x) + ', ' + str(p2.y) + ')'
     return
 
 def right(p1, n):
