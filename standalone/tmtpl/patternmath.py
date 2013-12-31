@@ -572,7 +572,7 @@ def rightmostP(pnts):
         i += 1
     return right_pnt
 
-# ---lines---
+#---lines---#
 
 def onLineAtLength(p1, p2, length, rotation=0):
     """
@@ -730,7 +730,7 @@ def onCurveAtX(curve, x):
     '''
     intersect_points = []
     xlist, ylist = [], []
-    pnt = dPnt()
+    pnt = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4): # for each bezier curve in curveArray
         interpolatedPoints=interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
@@ -848,24 +848,28 @@ def interpolatedCurveLengthAtPoint(pnt, interpolatedPoints, found=0):
         i = i + 1
     return segmentLength, found
 
-def curvePointAtLength(length, curve):
-    p1 = dPnt()
+def curvePointAtLength(curve, length, n=100):
+    '''
+    Accepts an array of curve points and length
+    Returns point found on curve at length
+    '''
+    p1 = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4) and (p1.x == ""): # for each curve,  find pnt
         interpolated_points = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)
-        p1 = interpolatedCurvePointAtlength(length,  interpolated_points)
+        p1 = dPnt(interpolatedCurvePointAtLength(interpolated_points, length))
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return p1
 
-def interpolatedCurvePointAtLength(length, interpolatedPoints):
-    p1 = dPnt()
+def interpolatedCurvePointAtLength(interpolatedPoints, length):
+    p1 = dPnt(("",""))
     i = 1
     segmentLength = 0
     while (i <  len(interpolatedPoints)) and (p1.x == ''):
-        segmentLength += distance(interpolatedPoints[i - 1],  interpolatedPoints[i]) #length from previous point to current point
+        segmentLength += distance(interpolatedPoints[i - 1], interpolatedPoints[i]) #length from previous point to current point
         if segmentLength >= length:
-            p1.x,  p1.y = interpolatedPoints[i].x,  interpolatedPoints[i].y
-            i = i + 1
+            p1 = dPnt((interpolatedPoints[i][0], interpolatedPoints[i][1]))
+        i += 1
     return p1
 
 def interpolateCurveList(curve, t=100):
@@ -1051,7 +1055,7 @@ def intersectLineCircle(C, r, P1, P2):
     P1 = dPnt(P1)
     P2 = dPnt(P2)
 
-    P, p1, p2 = dPnt(), dPnt(), dPnt()
+    P, p1, p2 = dPnt(("","")), dPnt(("","")), dPnt(("",""))
 
     if P1.x == P2.x: #vertical line
         if abs(P1.x - C.x) > r:
@@ -1365,7 +1369,7 @@ def connectObjects(connector_pnts, old_pnts):
         i = 0
         for o in old_pnts:
             # translate all points in old_pnts[]
-            t_pnts.append(dPnt())
+            t_pnts.append(dPnt(("","")))
             t_pnts[i].x, t_pnts[i].y = o.x + dx, o.y + dy
             i = i + 1
         angle1 = angleOfLine(connector_pnts[0], connector_pnts[1])
@@ -1378,15 +1382,15 @@ def connectObjects(connector_pnts, old_pnts):
                 length = distance(connector_pnts[0], t_pnts[i])
                 translated_angle = angleOfLine(connector_pnts[0], t_pnts[i])
                 r_angle = translated_angle - rotation_angle
-                r_pnts.append(dPnt())
+                r_pnts.append(dPnt(("","")))
                 r_pnts[i] = polar(connector_pnts[0], length, r_angle)
                 i = i + 1
         return r_pnts
 
-# ----Slash and spread with slash line, pivot point, and angle
 def slashAndSpread(pivot, angle, *args):
         """
-        Accepts pivot point, angle of rotation, and the points to be rotated
+        Accepts pivot point, angle of rotation, and the points to be rotated.
+        Accepts positive & negative angles.
         """
         if (angle == 0.0):
             print "Angle = 0 -- Slash and Spread not possible"
@@ -1398,8 +1402,10 @@ def slashAndSpread(pivot, angle, *args):
             while (i < len(list)):
                 pnt = list[i]
                 length = distance(pivot, pnt)
-                rotated_pnt = polar(pivot, length, angleOfLine(pivot, pnt) + angle) # angle > 0=spread clockwise. angle < 0=spread counterclockwise.
-                updatePoint(pnt, rotated_pnt)
+                rotated_pnt = dPnt(polar(pivot, length, angleOfLine(pivot, pnt) + angle)) # if angle > 0 spread clockwise. if angle < 0 spread counterclockwise
+                pnt.x = rotated_pnt.x
+                pnt.y = rotated_pnt.y
+                #pnt.xy = "(" + str(rotated_pnt.x) + ', ' + str(rotated_pnt.y) + ')'
                 i = i + 1
         return
 
