@@ -22,8 +22,8 @@ class Design(designBase):
         #
         # This group is all mandatory
         #
-        self.setInfo('patternNumber', 'Blocks_W_Sp')
-        self.setInfo('patternTitle', 'Block Patterns - Womens - Spencer')
+        self.setInfo('patternNumber', 'Block_W_All_Spencer')
+        self.setInfo('patternTitle', 'Blocks Women All - Spencer')
         self.setInfo('companyName', 'Seamly Patterns')
         self.setInfo('designerName', 'S.L.Spencer')
         self.setInfo('patternmakerName', 'S.L.Spencer')
