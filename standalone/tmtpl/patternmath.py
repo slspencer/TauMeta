@@ -605,9 +605,9 @@ def onLineAtX(p1, p2, x):
         print  'infinite values of y on vertical line'
         return None
     else:
-        m = (p1.y - p2.y)/(p1.x - p2.x)
+        m = (p2.y - p1.y)/(p2.x - p1.x)
         b = p2.y - (m * p2.x)
-        return (x, (x * m) - b)
+        return (x, (m * x) + b)
 
 def onLineAtY(p1, p2, y):
     #on line p1-p2, find x given y
