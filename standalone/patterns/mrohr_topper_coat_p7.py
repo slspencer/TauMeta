@@ -55,6 +55,8 @@ class Design(designBase):
         B = bodice.addPiece('Back', 'B', fabric = 2, interfacing = 0, lining = 0)
         C = bodice.addPiece('Sleeve', 'C', fabric = 2, interfacing = 0, lining = 0)
         D = bodice.addPiece('Welt', 'D', fabric = 2, interfacing = 0, lining = 0)
+        E = bodice.addPiece('Pocket', 'E', fabric = 2, interfacing = 0, lining = 0)
+        F = bodice.addPiece('Facing', 'F', fabric = 2, interfacing = 0, lining = 0)
 
         #---Bodice Front A---#
         a1 = A.addPoint('a1', (0.0, 0.0)) #front neck center
@@ -250,13 +252,14 @@ class Design(designBase):
         WELT_HEIGHT = 0.15 * CD.front_waist_length
         a43 = A.addPoint('a43', onLineAtLength(a35, a4, a2.y + WELT_HEIGHT)) #pocket corner point
         a44 = A.addPoint('a44', onLineAtLength(a40, a39, 0.5 * LOWER_LENGTH)) #side split point
-        #facing
-        a45 = A.addPoint('a45', (a38.x, a42.y)) #extend center hem out for facing
+        #collar
+        a45 = A.addPoint('a45', (a38.x, a42.y)) #extend center hem out for collar
         #welt
         a46 = A.addPoint('a46', onLineAtLength(a43, a4, WELT_HEIGHT)) #welt top left
         a47 = A.addPoint('a47', intersectLineRay(a44, a40, a46, angleOfLine(a43, a44))) #welt top rright
         #pocket
-        a48 = A.addPoint('a48', ((a47.x - a46.x)/2.0, a42.y - abs(a42.y - a43.y)/2.0)) #bottom of pocket curve
+        a48 = A.addPoint('a48', (a20.x, a41.y)) #bottom of pocket curve
+
         #adjust control points
         #b/w a39 underarm & a26 armscye curve # a25 shoulder tip
         a39.addOutpoint(polar(a39, distance(a39, a26)/3.0, angleOfLine(a40, a39) + ANGLE90))
@@ -264,6 +267,20 @@ class Design(designBase):
         #b/w a42 hem center & a41 hem side
         a42.addOutpoint(left(a42, distance(a42, a41)/3.33))
         a41.addInpoint(polar(a41, distance(a42, a41)/3.33, angleOfLine(a40, a41) - ANGLE90))
+        #b/w a44 pocket outside & a48 pocket bottom & a43 pocket inside
+        a44.addOutpoint(down(a44, 0.7 * distance(a44, a48)))
+        a48.addInpoint(left(a48, 0.7 * abs(a44.x - a48.x)))
+        a48.addOutpoint(right(a48, 0.7 * abs(a48.x - a43.x)))
+        a43.addInpoint(down(a43, 0.7 * abs(a48.y - a43.y)))
+
+        #facing
+        hem_curve = points2List(a42, a42.outpoint, a41.inpoint, a41)
+        a50 = A.addPoint('a50', leftmostP(onCurveAtX(hem_curve, a35.x))) #facing hem
+        new_curve = splitCurveAtPoint(hem_curve, a50)
+        (a42.outpoint.x, a42.outpoint.y) = new_curve[1]
+        a50.addInpoint(new_curve[2])
+        a50.addOutpoint(new_curve[4])
+        (a41.inpoint.x, a41.inpoint.y) = new_curve[5]
 
         #Adjust Back B
         #lower underarm
@@ -344,15 +361,15 @@ class Design(designBase):
         #---------------------------------------------#
 
         #draw Bodice Front A
-        pnt1 = dPnt(midPoint(a7, a8))
-        A.setLabelPosition((pnt1))
-        A.setLetter(up(pnt1, 0.5*IN), scaleby=10.0)
-        aG1 = dPnt(left(a8, distance(a8, pnt1)/4.0))
-        aG2 = dPnt(down(aG1, distance(a1, a17)/2.0))
+        pnt1 = dPnt((a43.x, a40.y))
+        A.setLabelPosition(pnt1)
+        A.setLetter((a43.x, a44.y), scaleby=10.0)
+        aG1 = dPnt(a8)
+        aG2 = dPnt(a17)
         A.addGrainLine(aG1, aG2)
-        A.addGridLine(['M', a1, 'L', a2, 'L', a5, 'M', a8, 'L', a9, 'M', a1, 'L', a5, 'M', a3, 'L', a4, 'M', a2, 'L', a12, 'M', a4, 'L', a6, 'L', a7, 'M', a11, 'L', a15, 'M', a4, 'L', a10, 'M', a14, 'L', a4, 'L', a19, 'M', a17, 'L', a20, 'M', a18, 'L', aD1.o, 'L', a16, 'M', a21, 'L', a16, 'M', a1, 'L', a17, 'L', a19, 'L', a22, 'L', a16, 'L', aD2.o, 'L', aD2.m, 'L', aD2.i, 'L', a11, 'C', a7, 'C', a5, 'L', a6, 'C', a1, 'M', aD1.i, 'L', aD1, 'L', aD1.o, 'L', aD1.d, 'L', aD1.i, 'M', aD2.ic, 'L', aD2, 'L', aD2.oc, 'M', a23, 'L', a17, 'L', a19, 'L', a31, 'L', a30, 'L', a29, 'L', a28, 'L', a27, 'C', a26, 'C', a25, 'L', a24, 'C', a34, 'L', a4, 'L', a35, 'C', a23, 'M', a39, 'C', a26, 'C', a25, 'L', a24, 'C', a34, 'L', a4])
+        A.addGridLine(['M', a1, 'L', a2, 'L', a5, 'M', a8, 'L', a9, 'M', a1, 'L', a5, 'M', a3, 'L', a4, 'M', a2, 'L', a12, 'M', a4, 'L', a6, 'L', a7, 'M', a11, 'L', a15, 'M', a4, 'L', a10, 'M', a14, 'L', a4, 'L', a19, 'M', a17, 'L', a20, 'M', a18, 'L', aD1.o, 'L', a16, 'M', a21, 'L', a16, 'M', a1, 'L', a17, 'L', a19, 'L', a22, 'L', a16, 'L', aD2.o, 'L', aD2.m, 'L', aD2.i, 'L', a11, 'C', a7, 'C', a5, 'L', a6, 'C', a1, 'M', aD1.i, 'L', aD1, 'L', aD1.o, 'L', aD1.d, 'L', aD1.i, 'M', aD2.ic, 'L', aD2, 'L', aD2.oc, 'M', a23, 'L', a17, 'L', a19, 'L', a31, 'L', a30, 'L', a29, 'L', a28, 'L', a27, 'C', a26, 'C', a25, 'L', a24, 'C', a34, 'L', a4, 'L', a35, 'C', a23, 'M', a39, 'C', a26, 'C', a25, 'L', a24, 'C', a34, 'L', a4, 'M', a44, 'C', a48, 'C', a43, 'M', a35, 'L', a50])
         #pth = (['M', a23, 'L', a17, 'L', a19, 'L', a31, 'L', a30, 'L', a29, 'L', a28, 'L', a27, 'C', a26, 'C', a25, 'L', a24, 'C', a34, 'L', a4, 'L', a35, 'C', a23])
-        pth = (['M', a37, 'L', a45, 'L', a42, 'C', a41, 'L', a44, 'L', a43 , 'L', a35, 'C', a49, 'C', a32, 'L', a33, 'C', a36, 'C', a37])
+        pth = (['M', a37, 'L', a45, 'L', a42, 'C', a50, 'C', a41, 'L', a44, 'L', a43 , 'L', a35, 'C', a49, 'C', a32, 'L', a33, 'C', a36, 'C', a37])
         A.addDartLine(['M', a35, 'L', a43, 'L', a44])
         A.addSeamLine(pth)
         A.addCuttingLine(pth)
@@ -361,7 +378,7 @@ class Design(designBase):
         pnt1 = dPnt((distance(b3, b6)/2.0, distance(b1, b8)/2.0))
         B.setLabelPosition((pnt1))
         B.setLetter(up(pnt1, 0.5*IN), scaleby=10.0)
-        bG1 = dPnt((distance(b3, b6)/4.0, distance(b1, b8)/4.0))
+        bG1 = dPnt((distance(b3, b6)/4.0, b8.y))
         bG2 = dPnt(down(bG1, distance(b1, b13)/2.0))
         B.addGrainLine(bG1, bG2)
         B.addGridLine(['M', b6, 'L', b3, 'L', b2, 'L', b14, 'M', bD1.o, 'L', b11, 'M', b1, 'L', b5, 'M', b2, 'L', b5, 'M', b6, 'L', b7, 'M', b8, 'L', b9, 'M',  bD1, 'L', b15, 'L', b16, 'M', b17, 'L', b11, 'M', b1, 'L', b13, 'L', b15, 'L', b18, 'L', b11, 'L', b10, 'C', b7, 'C', b5, 'L', b6, 'C', b1, 'M', b18, 'L', b25, 'L', b24, 'L', b23])
@@ -386,11 +403,27 @@ class Design(designBase):
         D.setLetter((a47.x + distance(a46, a47)/4.0, a47.y), scaleby=5.0)
         D.setLabelPosition((a47.x + distance(a46, a47)/2.0, a46.y + abs(a46.y - a44.y)/3.0))
         dG1 = dPnt((a47.x + 0.75 * distance(a46, a47), a46.y + distance(a46, a43)/2.0))
-        dG2 = down(dG1, 0.75 * distance(a46, a43))
+        dG2 = down(dG1, 0.7 * distance(a46, a43))
         D.addGrainLine(dG1, dG2)
         pth =(['M', a46, 'L', a43, 'L', a44, 'L', a47, 'L', a46])
         D.addSeamLine(pth)
         D.addCuttingLine(pth)
+
+        #draw Pocket E
+        E.setLetter((a44.x + distance(a44, a43)/4.0, a44.y + distance(a44, a48)/2.0), scaleby=5.0)
+        E.setLabelPosition((a44.x + distance(a44, a43)/2.0, a44.y + abs(a44.y - a48.y)/3.0))
+        eG1 = dPnt((a44.x + 0.75 * distance(a44, a43), a44.y + distance(a44, a48)/4.0))
+        eG2 = down(eG1, 0.5 * distance(a44, a48)/2.0)
+        E.addGrainLine(eG1, eG2)
+        pth =(['M', a44, 'C', a48, 'C', a43, 'L', a44])
+        E.addSeamLine(pth)
+        E.addCuttingLine(pth)
+
+        #draw Facing F
+        pth =(['M', a35, 'C', a49, 'C', a32, 'L', a33, 'C', a36, 'C', a37, 'L', a45, 'L', a42, 'C', a50, 'L', a35])
+        F.addSeamLine(pth)
+        F.addCuttingLine(pth)
+
 
         # call draw once for the entire pattern
         self.draw()
