@@ -733,24 +733,27 @@ def onCurveAtX(curve, x):
     pnt = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4): # for each bezier curve in curveArray
-        interpolatedPoints=interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
+        interpolatedPoints = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
         # get min & max for x & y for this bezier curve from its interpolated points
         i = 0
         while (i < len(interpolatedPoints)):
-            xlist.append(interpolatedPoints[i].x)
-            ylist.append(interpolatedPoints[i].y)
-            i = i+1
-        xmin, ymin, xmax, ymax=min(xlist), min(ylist), max(xlist), max(ylist)
+            xlist.append(interpolatedPoints[i][0])
+            ylist.append(interpolatedPoints[i][1])
+            i += 1
+        xmin, ymin, xmax, ymax = min(xlist), min(ylist), max(xlist), max(ylist)
         #print 'xmin, xmax =', xmin, xmax, '...pattern.onCurveAtX()'
         #print 'ymin, ymax =', ymin, ymax, '...pattern.onCurveAtX()'
         #print 'x =', x, '...pattern.onCurveAtX()'
         i = 0
-        if ((x >= xmin) and (x <= xmax)):
+        if ((xmin <= x <= xmax)):
             while (i < len(interpolatedPoints) - 1):
-                if (x >= interpolatedPoints[i].x) and (x <= interpolatedPoints[i + 1].x):
-                    pnt = onLineAtX(interpolatedPoints[i], interpolatedPoints[i + 1], x)
+                print 'interpolatedPoints[',i,'] =', interpolatedPoints[i][0], interpolatedPoints[i][1]
+                #if (x >= interpolatedPoints[i][0]) and (x <= interpolatedPoints[i + 1][0]):
+                if ((interpolatedPoints[i][0] <= x <= interpolatedPoints[i + 1][0])) or ((interpolatedPoints[i][0] >= x >= interpolatedPoints[i + 1][0])):
+                    pnt = dPnt(onLineAtX(interpolatedPoints[i], interpolatedPoints[i + 1], x))
                     intersect_points.append(pnt)
-                i = i + 1
+                    print 'intersect point =', pnt.x, pnt.y
+                i += 1
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return intersect_points # return array of intersection points
 
