@@ -825,21 +825,21 @@ def curveLength(curve, n = 100):
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return curveLength
 
-def curveLengthAtPoint(pnt, curve, n=100):
+def curveLengthAtPoint(curve, pnt, n=100):
     found = 0
     curve_length = 0.0
     j = 0
     while (j <= len(curve) - 4) and (found == 0): # for each curve, get segmentLength & add to curveLength
         interpolated_points = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #interpolate this curve
         # add up lengths between the interpolated points
-        current_curve_length, found = interpolatedCurveLengthAtPoint(pnt, interpolated_points, found)
-        curve_length = curve_length+current_curve_length
+        current_curve_length, found = interpolatedCurveLengthAtPoint(interpolated_points, pnt, found)
+        curve_length += current_curve_length
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     if curve_length == 0.0:
         print 'Point not found in curveLengthAtPoint'
     return curve_length
 
-def interpolatedCurveLengthAtPoint(pnt, interpolatedPoints, found=0):
+def interpolatedCurveLengthAtPoint(interpolatedPoints, pnt, found=0):
     # add up lengths between the interpolated points
     segment_length = 0.0
     i = 1
@@ -849,7 +849,7 @@ def interpolatedCurveLengthAtPoint(pnt, interpolatedPoints, found=0):
         if (pnt == interpolatedPoints[i]) or (distance(pnt, interpolatedPoints[i]) <= current_length):
             found = 1
         i = i + 1
-    return segmentLength, found
+    return segment_length, found
 
 def curvePointAtLength(curve, length, n=100):
     '''
