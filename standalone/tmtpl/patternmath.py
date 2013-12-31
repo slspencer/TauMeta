@@ -590,6 +590,13 @@ def onLineAtLength(p1, p2, length, rotation=0):
     y = (length * math.sin(angle)) + p1.y
     return (x,y)
 
+def extendLine(p1, p2, length, rotation=0):
+    """
+    Accepts two directed points of a line, and a length to extend the line
+    Finds point along line at length from p2 in direction p1->p2
+    """
+    return onLineAtLength(p2, p1, -length)
+
 def onLineAtX(p1, p2, x):
     #on line p1-p2, given x find y
     p1 = dPnt(p1)
