@@ -919,15 +919,15 @@ def interpolateCurve(P0, C1, C2, P1, t=100):
             i = i + 1
     return interpolatedPoints
 
-def splitCurveAtLength(length,  curve):
+def splitCurveAtLength(curve, length):
     '''Accepts a point on a curve, and a curve list with points P0 C1 C2 P1.
     Returns curve list with P0, split.c1, split.c2, split_pnt, new.c11, new.c12, P1'''
     # find split point
     interpolated_points = interpolateCurve(curve[0], curve[1], curve[2], curve[3])
-    split_pnt = interpolatedCurvePointAtLength(length, interpolated_points) # split neck curve at this point
+    split_pnt = interpolatedCurvePointAtLength(interpolated_points, length) # split neck curve at this point
     # find tangent at split point
-    pnt1 = interpolatedCurvePointAtLength(length - 0.25*CM,  interpolated_points) # arbitrary .25cm - good enough for this application?
-    pnt2 = interpolatedCurvePointAtLength(length + 0.25*CM,  interpolated_points)
+    pnt1 = interpolatedCurvePointAtLength(interpolated_points, length - 0.25*CM) # arbitrary .25cm - good enough for this application?
+    pnt2 = interpolatedCurvePointAtLength(interpolated_points, length + 0.25*CM)
     forward_tangent_angle = angleOfLine(pnt1,  pnt2)
     backward_tangent_angle = angleOfLine(pnt2,  pnt1)
     # neck control points
