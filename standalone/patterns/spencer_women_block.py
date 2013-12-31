@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # patternName: Block Patterns - Women's - Spencer
-# patternNumber: WoBl_Sp
+# patternNumber: Blocks_W_Sp
 
 from tmtpl.designbase import *
 from tmtpl.document import *
@@ -22,7 +22,7 @@ class Design(designBase):
         #
         # This group is all mandatory
         #
-        self.setInfo('patternNumber', 'BL_W_Sp')
+        self.setInfo('patternNumber', 'Blocks_W_Sp')
         self.setInfo('patternTitle', 'Block Patterns - Womens - Spencer')
         self.setInfo('companyName', 'Seamly Patterns')
         self.setInfo('designerName', 'S.L.Spencer')
@@ -52,13 +52,14 @@ class Design(designBase):
         bodice = self.addPattern('bodice')
         #
         #create pattern pieces
-        A = bodice.addPiece('Front', 'A', fabric = 2, interfacing = 0, lining = 0)
+        A = bodice.addPiece('Front_Waist_Bust_Darts', 'A', fabric = 2, interfacing = 0, lining = 0)
         B = bodice.addPiece('Back', 'B', fabric = 2, interfacing = 0, lining = 0)
         C = bodice.addPiece('Sleeve', 'C', fabric = 2, interfacing = 0, lining = 0)
         D = bodice.addPiece('Front_Long', 'D', fabric = 2, interfacing = 0, lining = 0)
         E = bodice.addPiece('Back_Long', 'E', fabric = 2, interfacing = 0, lining = 0)
+        F = bodice.addPiece('Front_Waist_Dart', 'F', fabric = 2, interfacing = 0, lining = 0)
 
-        #Bodice Front A
+        #Bodice Front (Waist  Bust Darts) A
         a1 = A.addPoint('a1', (0.0, 0.0)) #front neck center
         a2 = A.addPoint('a2', down(a1, CD.front_waist_length)) #front waist center
         a3 = A.addPoint('a3', up(a2, CD.bust_length)) #bust center
@@ -68,7 +69,6 @@ class Design(designBase):
         a7 = A.addPoint('a7', lowestP(onCircleAtX(a6, CD.front_underarm_balance, a1.x - CD.across_chest/2.0))) #front underarm point
         a8 = A.addPoint('a8', (a1.x, a7.y)) #front undearm center
         a9 = A.addPoint('a9', left(a8, CD.front_underarm/2.0)) #front underarm side
-        #TODO: create function onCircleAtTangentOfPoint()
         a10 = A.addPoint('a10', leftmostP(onCircleTangentFromOutsidePoint(a4, CD.front_bust/2.0 - distance(a3, a4), a9))) #bust side is where line from bust point is perpendicular to line through a9
         a11 = A.addPoint('a11', onLineAtLength(a9, a10, 0.13 * CD.side)) #adjusted front underarm side on line a9-10
         a12 = A.addPoint('a12', left(a2, CD.front_waist/2.0)) #temporary front waist side 1 - on waist line
@@ -88,8 +88,7 @@ class Design(designBase):
         aD2 = A.addPoint('aD2', (a4)) #bust dart point
         aD2.i = A.addPoint('aD2.i', intersectLineRay(a9, a10, a4, ANGLE180 + bustDartAngle/2.0)) #bust dart inside leg
         aD2.o = A.addPoint('aD2.o', polar(a4, distance(a4, aD2.i), ANGLE180 - bustDartAngle/2.0)) #bust dart outside leg
-        #TODO: create function pivot(pivot_point, rotation_angle, point_to_pivot)
-
+        #TODO: create function pivot(pivot_point, rotation_angle, point_to_pivot) for slash_and_spread
         #finalize front waist side
         remainingSideSegment = distance(a11, a15) - distance(a11, aD2.i)
         remainingWaistSegment = distance(a2, a12) - distance(a2, aD1.i)
@@ -158,13 +157,9 @@ class Design(designBase):
         back_armscye = points2List(b10, b10.outpoint, b7.inpoint, b7, b7.outpoint, b5.inpoint, b5)
         front_armscye = points2List(a11, a11.outpoint, a7.inpoint, a7, a7.outpoint, a5.inpoint, a5)
         ARMSCYE_LENGTH = curveLength(back_armscye) + curveLength(front_armscye)
-        #ARMSCYE_LENGTH = distance(a5, a11) + distance(b5, b10)
-        ARMSCYE_WIDTH = distance(a7, a9) + distance(b7, b9)
-        HALF_ARMSCYE_WIDTH = ARMSCYE_WIDTH/2.0
         CAP_HEIGHT = ARMSCYE_LENGTH/3.0
         BICEP_WIDTH = 1.15 * CD.bicep #15% ease in bicep
         SLEEVE_LENGTH = CD.oversleeve_length
-        CURVE_OFFSET = CAP_HEIGHT/25.0
         WRIST_WIDTH = 1.15 * CD.wrist #15% ease in wrist
 
         c1 = C.addPoint('c1', (0,0)) #top of sleeve cap - A
@@ -174,25 +169,13 @@ class Design(designBase):
         c5 = C.addPoint('c5', up(c4, SLEEVE_LENGTH/20.0)) #elbow line
         c6 = C.addPoint('c6', right(c2, BICEP_WIDTH/2.0)) #back wrist reference - D
         c7 = C.addPoint('c7', left(c2, BICEP_WIDTH/2.0)) #font wrist reference - E
-        #c8 = C.addPoint('c8', right(c1, BICEP_WIDTH/8.0)) # F
-        #c9 = C.addPoint('c9', left(c1, BICEP_WIDTH/8.0)) #G
         c10 = C.addPoint('c10', right(c3, BICEP_WIDTH/2.0)) #back underarm - J
-        #c11 = C.addPoint('c11', left(c10, HALF_ARMSCYE_WIDTH)) # on bicep line - K
         c12 = C.addPoint('c12', left(c3, BICEP_WIDTH/2.0)) #front underarm - L
-        #TODO: reverse front & back armcap
-        #armcap
-        #c13 = C.addPoint('c13', up(c11, 3 * CURVE_OFFSET)) #on back armcap - M
-        #c14 = C.addPoint('c14', onLineAtLength(c13, c8, distance(c13, c8)/3.0)) #on back armcap - N
-        #c15 = C.addPoint('c15', polar(c14, 0.7 * CURVE_OFFSET, angleOfLine(c13, c8) + ANGLE90)) # on back armcap -N1
         #wrist
         c16 = C.addPoint('c16', left(c6, WRIST_WIDTH/4.0)) #temporary back wrist
         c17 = C.addPoint('c17', right(c7, WRIST_WIDTH/4.0)) #temporary front wrist
-
-        #c18 = C.addPoint('c18', onLineAtLength(c9, c12, distance(c9, c12)/4.0)) #on front armcap - P
-        #c19 = C.addPoint('c19', polar(c18, 0.2 * CURVE_OFFSET, angleOfLine(c9, c12) + ANGLE90)) # on front armcap - P1
         c20 = C.addPoint('c20', polar(c10, distance(a10, a7), angleOfLine(c10, c16) + angleOfVector(a10, a11, a7)))
         c21 = C.addPoint('c21', polar(c12, distance(b10, b7), angleOfLine(c12, c17) - angleOfVector(b11, b10, b7)))
-
         #elbow
         c26 = C.addPoint('c26', onLineAtY(c10, c16, c5.y)) #back elbow
         c27 = C.addPoint('c27', onLineAtY(c12, c17, c5.y)) #front elbow 1
@@ -207,38 +190,29 @@ class Design(designBase):
         foldDart2(cD1, c12) #elbow dart folds up towards c12 back underarm point
 
         #Sleeve C control points
-        #b/w c1 sleeve cap to c15 front armcap to c10 front underarm
-        #c1.addOutpoint((c8))
-        #c15.addInpoint(polar(c15, distance(c1, c15)/3.0, angleOfLine(c15, c1.outpoint)))
-        #c15.addOutpoint(polar(c15, distance(c15, c10)/3.0, angleOfLine(c15.inpoint, c15)))
-        #c10.addInpoint(polar(c10, distance(c15, c10)/3.0, angleOfLine(c26, c10) - ANGLE90))
-
         #b/w c1 sleeve cap to c20 front armcap to c10 front underarm
         c1.addOutpoint(right(c1, abs(c10.x - c1.x)/3.0))
         c10.addInpoint(polar(c10, distance(c20, c10)/3.0, angleOfLine(c26, c10) - ANGLE90))
         c20.addOutpoint(polar(c20, distance(c20, c10)/3.0, angleOfLine(c20, c10.inpoint)))
         c20.addInpoint(polar(c20, distance(c20, c1)/3.0, angleOfLine(c20.outpoint, c20)))
-
         #b/w c12 back underarm to c9 back armcap to c1 sleeve cap
         c1.addInpoint(left(c1, abs(c12.x - c1.x)/3.0))
         c21.addOutpoint(polar(c21, distance(c21, c1)/3.0, angleOfLine(c21, c1.inpoint)))
         c21.addInpoint(polar(c21, distance(c12, c21)/3.0, angleOfLine(c21.outpoint, c21)))
         c12.addOutpoint(polar(c12, distance(c12, c21)/3.0, angleOfLine(cD1.i, c12) + ANGLE90))
 
-
         #Bodice (Long) Front D
         d1 = D.addPoint('d1', down(a2, CD.front_hip_height)) #front hip center
         d2 = D.addPoint('d2', left(aD1.o, distance(aD1.o, a16))) #front waist side
         d3 = D.addPoint('d3', (aD1.x, d1.y)) #reflect waist dart point on hip line for 'fish dart'
         d4 = D.addPoint('d4', left(d1, CD.front_hip/2.0)) #temporary front hip side
-        #d5 = D.addPoint('d5', polar(aD1.o, distance(aD1.o, d4), angleOfLine(aD1.o, d4) + angleOfVector(d2, aD1.o, a16))) #final front hip side
         d5 = D.addPoint('d5', leftmostP(intersectCircles(d3, distance(d3, d4), a16, CD.side_hip_height))) #front hip side
         dD1 = D.addPoint('dD1', aD1) #front waist dart point at bust
         dD1.i = D.addPoint('dD1.i', (aD1.i)) #front waist dart inside at waist
         dD1.o = D.addPoint('dD1.o', (aD1.o)) #front waist dart outside at waist
         dD1.d = D.addPoint('dD1.d', up(d3, distance(d3, a13)/7.0)) #front waist dart point at hip
 
-        #Bodice (Long) Back E
+        #Bodice Back (Long) E
         e1 = E.addPoint('e1', down(b2, CD.back_hip_height)) #back hip center
         e2 = E.addPoint('e2', right(bD1.o, distance(bD1.o, b11))) #back waist side
         e3 = E.addPoint('e3', (bD1.x, e1.y)) # back waist dart at hip line
@@ -249,7 +223,27 @@ class Design(designBase):
         eD1.o = E.addPoint('eD1.o', (bD1.o)) #back waist dart outside at waist
         eD1.d = E.addPoint('eD1.d', up(e3, distance(e3, b12)/7.0)) # back waist dart point at hip
 
-        #draw Bodice Front A
+        #Bodice Front (Waist Dart) F
+        #---dart---
+        #front waist dart
+        totalDartAngle = abs(angleOfVector(a12, a4, a15))
+        frontWaistDartAngle = totalDartAngle
+        fD1 = F.addPoint('fD1', (a4)) #front waist dart point
+        fD1.i = F.addPoint('fD1.i', onRayAtY(a4, ANGLE90 - frontWaistDartAngle/3.0, a2.y)) #front waist dart inside leg
+        fD1.o = F.addPoint('fD1.o', onRayAtY(a4, ANGLE90 + 2 * frontWaistDartAngle/3.0, a2.y)) #front waist dart outside leg
+        f16 = F.addPoint('f16', a15) #front waist side created after all darts defined
+        #create curve at dart base
+        ##adjustDartLength(f16, fD1, a2, extension=0.25) #smooth waistline curve from f16 to a2 at dart
+        foldDart2(fD1, a2) #creates fD1.m, fD1.oc, fD1.ic; dart folds in toward waist center a2
+        #adjust fD1 away from a4 bust point
+        (fD1.x, fD1.y) = down(a4, distance(fD1, fD1.i)/7.0)
+
+        #Bodice Front F control points
+        #b/w fD1.o waist dart outside leg & f16 front waist side - short control handles
+        fD1.o.addOutpoint(polar(fD1.o, distance(fD1.o, f16)/6.0, angleOfLine(fD1.o, fD1) - (angleOfLine(fD1.i, fD1) - ANGLE180))) #control handle forms line with a2,fD1.i
+        f16.addInpoint(polar(f16, distance(fD1.o, f16)/6.0, angleOfLine(f16, fD1.o.outpoint))) #f16 control handle points to fD1.o control handle
+
+        #draw Bodice Front (Waist & Bust Darts) A
         pnt1 = dPnt(midPoint(a7, a8))
         A.setLabelPosition((pnt1))
         A.setLetter(up(pnt1, 0.5*IN), scaleby=10.0)
@@ -315,6 +309,18 @@ class Design(designBase):
         E.addSeamLine(pth)
         E.addCuttingLine(pth)
 
+        #draw Bodice Front (Waist Dart) F
+        pnt1 = dPnt(midPoint(a7, a8))
+        F.setLabelPosition((pnt1))
+        F.setLetter(up(pnt1, 0.5*IN), scaleby=10.0)
+        fG1 = dPnt(left(a8, distance(a8, pnt1)/4.0))
+        fG2 = dPnt(down(fG1, distance(a1, a2)/2.0))
+        F.addGrainLine(fG1, fG2)
+        F.addGridLine(['M', a1, 'L', a2, 'L', a5, 'M', a8, 'L', a9, 'M', a1, 'L', a5, 'M', a3, 'L', a4, 'M', a2, 'L', a12, 'M', a4, 'L', a6, 'L', a7, 'M', a11, 'L', a15, 'M', a4, 'L', a10, 'M', a14, 'L', a4, 'L', a13])
+        F.addDartLine(['M', fD1.ic, 'L', fD1, 'L', fD1.oc])
+        pth = (['M', a1, 'L', a2, 'L', fD1.i, 'L', fD1.m, 'L', fD1.o, 'C', f16, 'L', a11, 'C', a7, 'C', a5, 'L', a6, 'C', a1])
+        F.addSeamLine(pth)
+        F.addCuttingLine(pth)
 
         # call draw once for the entire pattern
         self.draw()
