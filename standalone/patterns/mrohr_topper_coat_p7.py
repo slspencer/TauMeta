@@ -47,18 +47,19 @@ class Design(designBase):
         #get client data
         CD = self.CD #client data is prefaced with CD
         #
-        #create pattern called 'bodice'
-        bodice = self.addPattern('bodice')
+        #create pattern called 'coat'
+        coat = self.addPattern('coat')
         #
         #create pattern pieces
-        A = bodice.addPiece('Front', 'A', fabric = 2, interfacing = 0, lining = 0)
-        B = bodice.addPiece('Back', 'B', fabric = 2, interfacing = 0, lining = 0)
-        C = bodice.addPiece('Sleeve', 'C', fabric = 2, interfacing = 0, lining = 0)
-        D = bodice.addPiece('Welt', 'D', fabric = 2, interfacing = 0, lining = 0)
-        E = bodice.addPiece('Pocket', 'E', fabric = 2, interfacing = 0, lining = 0)
-        F = bodice.addPiece('Facing', 'F', fabric = 2, interfacing = 0, lining = 0)
+        A = coat.addPiece('Lower Front', 'A', fabric = 2, interfacing = 0, lining = 0)
+        B = coat.addPiece('Back', 'B', fabric = 2, interfacing = 0, lining = 0)
+        C = coat.addPiece('Sleeve', 'C', fabric = 2, interfacing = 0, lining = 0)
+        D = coat.addPiece('Welt', 'D', fabric = 2, interfacing = 0, lining = 0)
+        E = coat.addPiece('Pocket', 'E', fabric = 2, interfacing = 0, lining = 0)
+        F = coat.addPiece('Facing', 'F', fabric = 2, interfacing = 0, lining = 0)
+        G = coat.addPiece('Upper Front', 'G', fabric = 2, interfacing = 0, lining = 0)
 
-        #---Bodice Front A---#
+        #---Bodice Lower Front A---#
         a1 = A.addPoint('a1', (0.0, 0.0)) #front neck center
         a2 = A.addPoint('a2', down(a1, CD.front_waist_length)) #front waist center
         a3 = A.addPoint('a3', up(a2, CD.bust_length)) #bust center
@@ -103,7 +104,7 @@ class Design(designBase):
         (aD1.x, aD1.y) = down(aD1, distance(aD1, aD1.i)/7.0)
         (aD2.x, aD2.y) = left(aD2, distance(aD2, aD2.i)/7.0)
 
-        #Bodice Front A hip extension
+        #Bodice Lower Front A hip extension
         a17 = A.addPoint('a17', down(a2, CD.front_hip_height)) #front hip center
         a18 = A.addPoint('a18', left(aD1.o, distance(aD1.o, a16))) #front waist side
         a19 = A.addPoint('a19', (aD1.x, a17.y)) #reflect waist dart point on hip line for 'fish dart'
@@ -123,7 +124,7 @@ class Design(designBase):
         a30 = A.addPoint('a30', onLineAtLength(a16, aD1.o, -distance(a10, a27))) #new waist side
         a31 = A.addPoint('a31', onLineAtLength(a22, a19, -distance(a10, a27))) #new hip side
 
-        #Bodice Front A control points
+        #Bodice Lower Front A control points
         #b/w a6 front neck point & a1 front neck center
         a6.addOutpoint(down(a6, abs(a1.y - a6.y)/2.0))
         a1.addInpoint(left(a1, 0.75 * abs(a1.x - a6.x)))
@@ -205,7 +206,7 @@ class Design(designBase):
         b22.addOutpoint(polar(b22, distance(b22, b21)/3.0, angleOfLine(b22, b20)))
         b21.addInpoint(polar(b21, distance(b22, b21)/6.0, angleOfLine(b20, b21) + ANGLE90)) #short control handle, perpendicular to shoulder seam
 
-        #Adjust Front A
+        #Adjust Lower Front A
         #extend front collar
         back_neck_curve = points2List(b19, b19.inpoint, b20.outpoint, b20)
         a32 = A.addPoint('a32', polar(a24, curveLength(back_neck_curve), angleOfLine(a24.outpoint, a24))) #front neck extension point 1
@@ -360,7 +361,7 @@ class Design(designBase):
         #---all points defined, draw pattern pieces---#
         #---------------------------------------------#
 
-        #draw Bodice Front A
+        #draw Lower Front A
         pnt1 = dPnt((a43.x, a40.y))
         A.setLabelPosition(pnt1)
         A.setLetter((a43.x, a44.y), scaleby=10.0)
@@ -410,19 +411,36 @@ class Design(designBase):
         D.addCuttingLine(pth)
 
         #draw Pocket E
-        E.setLetter((a44.x + distance(a44, a43)/4.0, a44.y + distance(a44, a48)/2.0), scaleby=5.0)
+        E.setLetter((a44.x + distance(a44, a43)/3.0, a44.y + distance(a44, a48)/4.0), scaleby=10.0)
         E.setLabelPosition((a44.x + distance(a44, a43)/2.0, a44.y + abs(a44.y - a48.y)/3.0))
-        eG1 = dPnt((a44.x + 0.75 * distance(a44, a43), a44.y + distance(a44, a48)/4.0))
-        eG2 = down(eG1, 0.5 * distance(a44, a48)/2.0)
+        eG1 = dPnt((a44.x + 0.75 * distance(a44, a43), a43.y + abs(a44.y - a43.y)/4.0))
+        eG2 = down(eG1, 0.75 * distance(a44, a48))
         E.addGrainLine(eG1, eG2)
         pth =(['M', a44, 'C', a48, 'C', a43, 'L', a44])
         E.addSeamLine(pth)
         E.addCuttingLine(pth)
 
         #draw Facing F
+        F.setLetter((a23.x, a8.y), scaleby=8.0)
+        F.setLabelPosition((a23.x - 25, a8.y + 50))
+        fG1 = dPnt(onLineAtLength(a35, a37, distance(a35, a37)/4.0))
+        fG2 = down(fG1, 0.75 * distance(a35, a50))
+        F.addGrainLine(fG1, fG2)
         pth =(['M', a35, 'C', a49, 'C', a32, 'L', a33, 'C', a36, 'C', a37, 'L', a45, 'L', a42, 'C', a50, 'L', a35])
         F.addSeamLine(pth)
         F.addCuttingLine(pth)
+
+        #draw UpperFront G
+        pnt1 = dPnt(midPoint(a26, a4))
+        G.setLetter((pnt1.x, pnt1.y), scaleby=10.0)
+        G.setLabelPosition((pnt1.x, pnt1.y + 50))
+        gG1 = dPnt((pnt1.x - 50, a7.y))
+        gG2 = down(gG1, 0.75 * distance(a7, a43))
+        G.addGrainLine(gG1, gG2)
+        pth =(['M', a34, 'L', a4, 'L', a43, 'L', a44, 'L', a39, 'C', a26, 'C', a25, 'L', a24, 'C', a34])
+        G.addSeamLine(pth)
+        G.addCuttingLine(pth)
+
 
 
         # call draw once for the entire pattern
