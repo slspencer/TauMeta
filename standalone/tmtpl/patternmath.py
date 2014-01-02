@@ -754,6 +754,39 @@ def onCurveAtX(curve, x):
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return intersect_points[0] # returns 1st found intersection
 
+def onCurveAtY(curve, y):
+    '''
+    Accepts an array 'curve' of bezier curves, returns list of points. Each bezier curve consists of  P0, P1, P2, P3 [eg knot1, controlpoint1, controlpoint2, knot2].
+    P3 of one curve is P0 of the next curve. Minimum of one bezier curve in curveArray.
+    Accepts value of y to find on curve.
+    Returns 1st intersection found
+    '''
+    intersect_points = []
+    xlist, ylist = [], []
+    pnt = dPnt(("",""))
+    j = 0
+    while (j <= len(curve) - 4): # for each bezier curve in curveArray
+        interpolatedPoints = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
+        # get min & max for x & y for this bezier curve from its interpolated points
+        i = 0
+        while (i < len(interpolatedPoints)):
+            xlist.append(interpolatedPoints[i][0])
+            ylist.append(interpolatedPoints[i][1])
+            i += 1
+        xmin, ymin, xmax, ymax = min(xlist), min(ylist), max(xlist), max(ylist)
+        #print 'xmin, xmax =', xmin, xmax, '...pattern.onCurveAtX()'
+        #print 'ymin, ymax =', ymin, ymax, '...pattern.onCurveAtX()'
+        #print 'x =', x, '...pattern.onCurveAtX()'
+        i = 0
+        if ((ymin <= y <= ymax)):
+            while (i < len(interpolatedPoints) - 1):
+                if ((interpolatedPoints[i][1] <= y <= interpolatedPoints[i + 1][1])) or ((interpolatedPoints[i][1] >= y >= interpolatedPoints[i + 1][1])):
+                    pnt = dPnt(onLineAtY(interpolatedPoints[i], interpolatedPoints[i + 1], y))
+                    intersect_points.append(pnt)
+                i += 1
+        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+    return intersect_points[0] # returns 1st found intersection
+
 def tangentOfCurveAtLine(P1, P2, curve):
     '''
     Accepts P1 & P2 of class Point,  and curve as 4-element array containing bezier curve points P0 C1 C2 P1 of type Point.
@@ -948,23 +981,25 @@ def splitCurveAtLength(curve, length):
     return new_curve
 
 def splitCurveAtPoint(curve, split_pnt):
+    #FIXME: Replace this function. This is not mathematically accurate. It's good enough for now...
     split_pnt = dPnt(split_pnt)
     length = curveLengthAtPoint(curve, split_pnt)
     interpolated_points = interpolateCurve(curve[0], curve[1], curve[2], curve[3])
     # find tangent at split point
-    pnt1 = dPnt(interpolatedCurvePointAtLength(interpolated_points, length - 10)) # arbitrary 10px - good enough for this application?
-    pnt2 = dPnt(interpolatedCurvePointAtLength(interpolated_points, length + 10))
-    forward_tangent_angle = angleOfLine(pnt1,  pnt2)
-    backward_tangent_angle = angleOfLine(pnt2,  pnt1)
+    pnt1 = dPnt(interpolatedCurvePointAtLength(interpolated_points, length - 5)) # arbitrary 5px - good enough for this application?
+    pnt2 = dPnt(interpolatedCurvePointAtLength(interpolated_points, length + 5))
+    forward_tangent_angle = angleOfLine(pnt1, pnt2)
+    backward_tangent_angle = angleOfLine(pnt2, pnt1)
+
     # b/w curve[0] and split_pnt
-    length = distance(curve[0], split_pnt) / 3.0
+    length = distance(curve[0], split_pnt) / 3.33
     p0 = dPnt(curve[0])
     c1 = polar(curve[0], length, angleOfLine(curve[0], curve[1])) # preserve angle b/w P0 & original 1st control point
     c2 = polar(split_pnt, length, backward_tangent_angle)
     p1 = dPnt(split_pnt)
-    #split_pnt.addInpoint(polar(split_pnt, length, backward_tangent_angle))
+
     # b/w split_pnt and curve[3]
-    length = distance(split_pnt, curve[3])/3.0
+    length = distance(split_pnt, curve[3])/3.33
     c3 = polar(split_pnt, length, forward_tangent_angle)
     c4 = polar(curve[3], length, angleOfLine(curve[3], curve[2])) # preserve angle b/w original 2nd control point & P1
     p2 = dPnt(curve[3])
