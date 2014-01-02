@@ -725,7 +725,7 @@ def onCurveAtX(curve, x):
     Accepts an array 'curve' of bezier curves, returns list of points. Each bezier curve consists of  P0, P1, P2, P3 [eg knot1, controlpoint1, controlpoint2, knot2].
     P3 of one curve is P0 of the next curve. Minimum of one bezier curve in curveArray.
     Accepts value of x to find on curve.
-    Returns array 'intersections' which contains y values of each intersection found in order from 1st to last bezier curve in curveArray.
+    Returns 1st intersection found
     '''
     intersect_points = []
     xlist, ylist = [], []
@@ -752,7 +752,7 @@ def onCurveAtX(curve, x):
                     intersect_points.append(pnt)
                 i += 1
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
-    return intersect_points # return array of intersection points
+    return intersect_points[0] # returns 1st found intersection
 
 def tangentOfCurveAtLine(P1, P2, curve):
     '''
