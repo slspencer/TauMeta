@@ -355,9 +355,9 @@ def symmetricPoint(p1, p2, type='vertical'):
     dx = p2.x - p1.x
     dy = p2.y - p1.y
     if (type == 'vertical'):
-        return (p2.x+dx, p1.y)
+        return (p2.x + dx, p1.y)
     elif (type == 'horizontal'):
-        return (p1.x, p2.y+dy)
+        return (p1.x, p2.y + dy)
 
 def polar(p1, distance, angle):
     '''
@@ -618,10 +618,6 @@ def onLineAtY(p1, p2, y):
     p2 = dPnt(p2)
     if (p1.y == p2.y): #if horizontal line
         raise ValueError('Points form a horizontal line, infinite answers possible')
-        #if (p1.y != y): #if y is not on horizontal line
-        #    print 'y =', y, ' -- not on horizontal line p1.y =',  p1.y,  'in onLineAtY -- no intersection'
-        #else:
-        #    p3.y = y
     elif (p1.x == p2.x):# if vertical line
         return(p1.x, y)
     else:
