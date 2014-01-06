@@ -1212,6 +1212,34 @@ def intersectLineRay(P1, P2, R1, angle):
     R2 = polar(R1, 1*IN,  angle)
     return intersectLines(P1, P2, R1, R2)
 
+#---adjust Curves---#
+def adjustCurves(curve, P0, C1, C2, P1):
+    '''
+    Accepts 2 curves, adjusts control handle length until curve2 matches curve1
+    Returns new curve
+    '''
+    #check sleeve cap length
+    orig_length = curveLength(curve, n=200)
+    new_curve = points2List(P0, C1, C2, P1)
+    new_curve_length = curveLength(new_curve, n=200)
+    diff = new_curve_length - orig_length
+    length1 = distance(P0, C1)
+    length2 = distance(P1, C2)
+    angle1 = angleOfLine(P0, C1)
+    angle2 = angleOfLine(P1, C2)
+    if diff > 1:
+        length1 = length1/2.0 #reduce handle length by 50%
+        length2 = length2/2.0 #reduce handle length by 50%
+        updatePoint(C1, polar(P0, length1, angle1))
+        updatePoint(C2, polar(P1, length2, angle2))
+        adjustCurves(curve, P0, C1, C2, P1)
+    elif diff < -1:
+        length1 = 1.5 * length1 #increase handle length by 50%
+        length2 = 1.5 * length2 #increase handle length by 50%
+        updatePoint(C1, polar(P0, length1, angle1))
+        updatePoint(C2, polar(P1, length2, angle2))
+        adjustCurves(curve, P0, C1, C2, P1)
+
 # TODO Darts need reworking
 #---darts---
 def waistDart(parent, dart_width, dart_length, length, waist_curve, dart_angle=ANGLE90):
