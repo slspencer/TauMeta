@@ -58,10 +58,12 @@ class Design(designBase):
         #---Bodice Front A---#
         a1 = A.addPoint('a1', (0.0, 0.0)) #front neck center
         a2 = A.addPoint('a2', down(a1, CD.front_waist_length)) #front waist center
+        a23 = A.addPoint('a23', up(a2, CD.front_shoulder_height)) #front shoulder height
         a3 = A.addPoint('a3', up(a2, CD.bust_length)) #bust center
         a4 = A.addPoint('a4', left(a3, CD.bust_distance/2.0)) #bust point
         a5 = A.addPoint('a5', leftmostP(intersectCircles(a2, CD.front_shoulder_balance, a1, CD.front_shoulder_width))) #front shoulder point
-        a6 = A.addPoint('a6', highestP(intersectCircles(a5, CD.shoulder, a4, CD.bust_balance))) #front neck point
+        #a6 = A.addPoint('a6', highestP(intersectCircles(a5, CD.shoulder, a4, CD.bust_balance))) #front neck point
+        a6 = A.addPoint('a6', rightmostP(onCircleAtY(a5, CD.shoulder, a23.y))) #front neck point
         a7 = A.addPoint('a7', lowestP(onCircleAtX(a6, CD.front_underarm_balance, a1.x - CD.across_chest/2.0))) #front underarm point
         a8 = A.addPoint('a8', (a1.x, a7.y)) #front undearm center
         a9 = A.addPoint('a9', left(a8, CD.front_underarm/2.0)) #front underarm side
@@ -105,8 +107,9 @@ class Design(designBase):
         a18 = A.addPoint('a18', left(aD1.o, distance(aD1.o, a16))) #front waist side
         a19 = A.addPoint('a19', (aD1.x, a17.y)) #lower waist dart point on hip line
         a20 = A.addPoint('a20', left(a17, CD.front_hip/2.0)) #temporary front hip side
-        a21 = A.addPoint('a21', polar(aD1.o, distance(aD1.o, a20), angleOfLine(aD1.o, a20) + angleOfVector(a18, aD1.o, a16))) #final front hip side
-        a22 = A.addPoint('a22', onLineAtLength(a16, a21, CD.side_hip_height)) #front hip side
+        #a21 = A.addPoint('a21', polar(19, distance(aD1.o, a20), angleOfLine(aD1.o, a20) + angleOfVector(a18, aD1.o, a16))) #final front hip side
+        #a22 = A.addPoint('a22', onLineAtLength(a16, a21, CD.side_hip_height)) #front hip side
+        a21 = A.addPoint('a21', leftmostP(intersectCircles(a19, CD.front_hip/2.0 - distance(a17, a19), a16, CD.side_hip_height)))
         aD1.d = A.addPoint('aD1.d', up(a19, distance(a19, a13)/7.0)) #front waist dart point at hip
 
         #Bodice Front A control points
@@ -134,8 +137,10 @@ class Design(designBase):
         b8 = B.addPoint('b8', (b1.x, b7.y)) #back undearm center
         b9 = B.addPoint('b9', right(b8, CD.back_underarm/2.0)) #back underarm side reference point
         b10 = B.addPoint('b10', down(b9, distance(a9, a11))) #adjusted back underarm side
-        bD1 = B.addPoint('bD1', intersectLines(b2, b5, b8, b9)) #back waist dart point is at underarm height
-        b12 = B.addPoint('b12', dPnt((bD1.x, b2.y))) # below dart point at waist
+        b18 = B.addPoint('b18', intersectLines(b2, b5, b8, b9)) #dart reference point
+        b12 = B.addPoint('b12', dPnt((b18.x, b2.y))) # below dart point at waist
+        #bD1 = B.addPoint('bD1', intersectLines(b2, b5, b8, b9)) #back waist dart point is at underarm height
+        bD1 = B.addPoint('bD1', (b18.x, b10.y)) #back waist dart point is at underarm height
         bD1.i = B.addPoint('bD1.i', left(b12, distance(b2, b12)/5.0)) #dart inside leg
         bD1.o = B.addPoint('bD1.o', right(b12, distance(b12, bD1.i))) #dart outside leg
         b11 = B.addPoint('b11',  rightmostP(intersectCircles(b10, distance(a11, aD2.i) + distance(aD2.o, a16), bD1.o, CD.back_waist/2.0 - distance(b2, bD1.i)))) #back waist side
@@ -149,8 +154,7 @@ class Design(designBase):
         b14 = B.addPoint('b14', right(bD1.o, distance(bD1.o, b11))) #back waist side
         b15 = B.addPoint('b15', (bD1.x, b13.y)) # back waist dart at hip line
         b16 = B.addPoint('b16', right(b13, CD.back_hip/2.0)) #temporary back hip side
-        b17 = B.addPoint('b17', polar(bD1.o, distance(bD1.o, b16), angleOfLine(bD1.o, b16) - angleOfVector(b14, bD1.o, b11))) #temporary back waist side
-        b18 = B.addPoint('b18', onLineAtLength(b11, b17, CD.side_hip_height)) #back hip side
+        b17 = B.addPoint('b17', rightmostP(intersectCircles(b15, CD.back_hip/2.0 - distance(b13, b15), b14, CD.side_hip_height)))
         bD1.d = B.addPoint('bD1.d', up(b15, distance(b15, b12)/7.0)) # back waist dart point at hip
 
         #Bodice Back B control points
@@ -235,7 +239,7 @@ class Design(designBase):
         A.addGrainLine(aG1, aG2)
         A.addGridLine(['M', a1, 'L', a2, 'L', a5, 'M', a8, 'L', a9, 'M', a1, 'L', a5, 'M', a3, 'L', a4, 'M', a2, 'L', a12, 'M', a4, 'L', a6, 'L', a7, 'M', a11, 'L', a15, 'M', a4, 'L', a10, 'M', a14, 'L', a4, 'L', a19, 'M', a17, 'L', a20, 'M', a18, 'L', aD1.o, 'L', a16, 'M', a21, 'L', a16])
         A.addDartLine(['M', aD1.i, 'L', aD1, 'L', aD1.o, 'L', aD1.d, 'L', aD1.i, 'M', aD2.ic, 'L', aD2, 'L', aD2.oc])
-        pth = (['M', a1, 'L', a17, 'L', a19, 'L', a22, 'L', a16, 'L', aD2.o, 'L', aD2.m, 'L', aD2.i, 'L', a11, 'C', a7, 'C', a5, 'L', a6, 'C', a1])
+        pth = (['M', a1, 'L', a17, 'L', a19, 'L', a21, 'L', a16, 'L', aD2.o, 'L', aD2.m, 'L', aD2.i, 'L', a11, 'C', a7, 'C', a5, 'L', a6, 'C', a1])
         A.addSeamLine(pth)
         A.addCuttingLine(pth)
 
@@ -248,7 +252,7 @@ class Design(designBase):
         B.addGrainLine(bG1, bG2)
         B.addGridLine(['M', b6, 'L', b3, 'L', b2, 'L', b14, 'M', bD1.o, 'L', b11, 'M', b1, 'L', b5, 'M', b2, 'L', b5, 'M', b6, 'L', b7, 'M', b8, 'L', b9, 'M',  bD1, 'L', b15, 'L', b16, 'M', b17, 'L', b11])
         B.addDartLine(['M', bD1.i, 'L', bD1, 'L', bD1.o, 'L', bD1.d, 'L', bD1.i])
-        pth = (['M', b1, 'L', b13, 'L', b15, 'L', b18, 'L', b11, 'L', b10, 'C', b7, 'C', b5, 'L', b6, 'C', b1])
+        pth = (['M', b1, 'L', b13, 'L', b15, 'L', b17, 'L', b11, 'L', b10, 'C', b7, 'C', b5, 'L', b6, 'C', b1])
         B.addSeamLine(pth)
         B.addCuttingLine(pth)
 
