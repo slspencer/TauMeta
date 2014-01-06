@@ -835,6 +835,7 @@ def tangentOfCurveAtLine(P1, P2, curve):
     return interpolated_points[num], tangent_angle
 
 def curveLength(curve, n = 100):
+    #FIXME: this length should be calculated with math formulas
     '''
     Accepts curve array with a minimum of four Point objects P0, P1, P2, P3 (knot1, controlpoint1, controlpoint2, knot2).
     Each curve after the first will use P3 from the previous curve as it's P0, and use it's own P1, P2, P3
