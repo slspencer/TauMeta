@@ -1213,7 +1213,6 @@ def onRayAtY(P, angle, y):
     #solve for x
     #(P.y - y)/(P.x - x) = m
     x = P.x - (P.y - y)/m
-
     return (x, y)
 
 def intersectLineRay(P1, P2, R1, angle):
