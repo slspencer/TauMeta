@@ -1191,6 +1191,18 @@ def onCircleTangentFromOutsidePoint(C, r, P):
 
 #---vectors and rays---
 
+def onRayAtX(P, angle, x):
+    '''
+    Accepts point P and angle of line.
+    Returns point along ray at x
+    '''
+    #convert degrees to slope
+    m = slopeOfAngle(angle)
+    #solve for y
+    #(P.y - y)/(P.x - x) = m
+    y = P.y - m * (P.x - x)
+    return (x, y)
+
 def onRayAtY(P, angle, y):
     '''
     Accepts point P and angle of line.
