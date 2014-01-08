@@ -1368,6 +1368,13 @@ def foldDart(parent, dart, inside_pnt):
     return
 
 def foldDart2(dart, inside_pnt):
+    '''
+	Accepts dart, and the nearest point in the direction dart will be folded
+    Returns dart.m, dart.oc, dart.ic, dart.angle
+	dart.m = middle dart leg at seamline (to be included in seamline path)
+	dart.oc = inside dart leg at cuttingline (to be included in dartline path)
+	dart.oc = outside dart leg at cuttingline (to be included in dartline path)
+    '''
     DART_LENGTH = distance(dart, dart.o)
     DART_HALF_ANGLE = abs(angleOfVector(dart.o, dart, dart.i)) / 2.0
     O_ANGLE = angleOfLine(dart, dart.o)
