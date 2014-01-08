@@ -1513,14 +1513,10 @@ def slashAndSpread(pivot, angle, *args):
             for arg in args:
                 list.append(arg)
             i = 0
-            while (i < len(list)):
-                pnt = list[i]
+            for pnt in list:
                 length = distance(pivot, pnt)
-                rotated_pnt = dPnt(polar(pivot, length, angleOfLine(pivot, pnt) + angle)) # if angle > 0 spread clockwise. if angle < 0 spread counterclockwise
-                pnt.x = rotated_pnt.x
-                pnt.y = rotated_pnt.y
-                #pnt.xy = "(" + str(rotated_pnt.x) + ', ' + str(rotated_pnt.y) + ')'
-                i = i + 1
+                rotated_pnt = polar(pivot, length, angleOfLine(pivot, pnt) + angle) # if angle > 0 spread clockwise. if angle < 0 spread counterclockwise
+                updatePoint(pnt, rotated_pnt)
         return
 
 #---append points,  lines and curves to paths---
