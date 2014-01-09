@@ -68,7 +68,7 @@ class Design(designBase):
         t_FUS = A.addPoint('t_FUS', left(FUC, CD.front_underarm/2.0)) #temp front underarm side
         FBS = A.addPoint('FBS', leftmostP(onCircleTangentFromOutsidePoint(FBP, CD.front_bust/2.0 - distance(FBC, FBP), t_FUS))) #bust side is where line from bust point is perpendicular to line through t_FUS
         FUS = A.addPoint('FUS', onLineAtLength(t_FUS, FBS, 0.13 * CD.side)) #adjusted front underarm side on line t_FUS-10
-        t1_FWS = A.addPoint('t1_FWS', left(FWC, CD.front_waist/2.0)) #temporary front waist side 1 - on waist line
+        t1_FWS = A.addPoint('t1_FWS', left(FWC, 0.53 * CD.front_waist)) #temporary front waist side 1 - on waist line - 3% ease
         t2_FWS = A.addPoint('t2_FWS', onLineAtLength(t_FUS, FBS, CD.side)) #temporary front waist side 2 - on side seam
         #front waist dart
         totalDartAngle = abs(angleOfVector(t1_FWS, FBP, t2_FWS))
@@ -110,7 +110,7 @@ class Design(designBase):
         BNC = B.addPoint('BNC', (0.0, 0.0)) #back neck center
         BWC = B.addPoint('BWC', down(BNC, CD.back_waist_length)) #back waist center
         BSH = B.addPoint('BSH', up(BWC, CD.back_shoulder_height)) #shoulder height reference point
-        t_BWS = B.addPoint('t_BWS', right(BWC, CD.back_waist/2.0)) #back waist side reference point
+        t_BWS = B.addPoint('t_BWS', right(BWC, 0.53 * CD.back_waist)) #back waist side reference point - 3% ease
         BST = B.addPoint('BST', rightmostP(intersectCircles(BWC, CD.back_shoulder_balance, BNC, CD.back_shoulder_width))) #back shoulder point
         BNS = B.addPoint('BNS', leftmostP(onCircleAtY(BST, 1.04 * CD.shoulder, BSH.y))) #back neck point - 4% ease in back shoulder seam
         BAS = B.addPoint('BAS', lowestP(onCircleAtX(BNS, CD.back_underarm_balance, BNC.x + CD.across_back/2.0))) #back underarm point
@@ -121,7 +121,7 @@ class Design(designBase):
         BD1 = B.addPoint('BD1', (B_APEX.x, BUS.y)) #back waist dart point is at underarm height
         BD1.i = B.addPoint('BD1.i', right(BWC, 0.8 * distance(BUC, B_APEX))) #dart inside leg
         BD1.o = B.addPoint('BD1.o', right(BD1.i, 0.4 * distance(BUC, B_APEX))) #dart outside leg
-        BWS = B.addPoint('BWS', right(BD1.o, CD.back_waist/2.0 - distance(BWC, BD1.i)))
+        BWS = B.addPoint('BWS', right(BD1.o, distance(BWC, t_BWS) - distance(BWC, BD1.i))) #back waist side
         updatePoint(BUS, onLineAtLength(BWS, t_BUS, distance(FUS, t2_FWS)))
         # back shoulder dart
         t_BD2 = B.addPoint('t_BD2', onLineAtLength(BNS, BST, distance(BNS, BST)/3.0)) # dart is 1/3 from BNS to BST
@@ -169,9 +169,9 @@ class Design(designBase):
 
         ARMSCYE_LENGTH = back_armscye_curve_length + front_armscye_curve_length
         SLEEVE_LENGTH = CD.oversleeve_length
-        BICEP_WIDTH = 1.08 * CD.bicep #8% ease in bicep
-        WRIST_WIDTH = 1.25 * CD.wrist #20% ease in wrist - to allow for hand
-        ELBOW_WIDTH = 1.05 * CD.elbow #5% ease in elbow - there is already ease in elbow measurement
+        BICEP_WIDTH = 1.15 * CD.bicep #15% ease in bicep
+        WRIST_WIDTH = 1.25 * CD.wrist #25% ease in wrist - to allow for hand
+        ELBOW_WIDTH = 1.03 * CD.elbow #3% ease in elbow - there is already ease in elbow measurement
 
         SBB = C.addPoint('SBB', (-BICEP_WIDTH/2.0, 0.0)) #sleeve bicep back
         SBF = C.addPoint('SBF', (BICEP_WIDTH/2.0, 0.0)) #sleeve bicep front
@@ -180,13 +180,12 @@ class Design(designBase):
         SCM = C.addPoint('SCM', highestP(intersectCircles(SBB, 0.9 * distance(BUS, BAS) + distance(BAS, BST), SBF, 0.9 * distance(FUS, FAS) + distance(FAS, FST)))) #sleeve cap middle
 
         SWM = C.addPoint('SWM', down(SBM, CD.undersleeve_length)) #sleeve wrist middle
-        SEM = C.addPoint('SEM', midPoint(SBM, SWM)) #sleeve elbow middle
         SCB = C.addPoint('SCB', onLineAtLength(SBB, SCM, distance(BUS, BAS))) #sleeve cap back
         SCF = C.addPoint('SCF', onLineAtLength(SBF, SCM, distance(FUS, FAS))) #sleeve cap front
         SWB = C.addPoint('SWB', left(SWM, WRIST_WIDTH/2.0)) #sleeve wrist back
         SWF = C.addPoint('SWF', right(SWM, WRIST_WIDTH/2.0)) #wleeve wrist front
-        SEB = C.addPoint('SEB', left(SEM, ELBOW_WIDTH/2.0)) #sleve elbow back
-        SEF = C.addPoint('SEF', right(SEM, ELBOW_WIDTH/2.0)) #sleeve elbow front
+        SEF = C.addPoint('SEF', midPoint(SBF, SWF)) #sleeve elbow front
+        SEB = C.addPoint('SEB', left(SEF, ELBOW_WIDTH)) #sleve elbow back
 
         #cap control points
         SCM.addInpoint(left(SCM, abs(SCM.x - SBB.x)/2.0))
@@ -239,8 +238,8 @@ class Design(designBase):
         B.addCuttingLine(pth)
 
         #draw Shirt Sleeve C
-        C.setLetter((SCB.outpoint.x, SEM.y), scaleby=12.0)
-        C.setLabelPosition((SCB.outpoint.x, SEM.y + 2*CM))
+        C.setLetter((SCB.outpoint.x, SEF.y), scaleby=12.0)
+        C.setLabelPosition((SCB.outpoint.x, SEF.y + 2*CM))
         cG1 = dPnt((SCM.outpoint.x, SBB.y))
         cG2 = down(cG1, 0.75 * CD.undersleeve_length)
         C.addGrainLine(cG1, cG2)
