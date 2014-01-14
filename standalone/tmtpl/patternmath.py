@@ -1328,52 +1328,14 @@ def neckDart(parent, dart_width, dart_length, length, neck_curve):
     slashAndSpread(dart_apex, rotation_angle, curve1[0], curve1[1], curve1[2], curve1[3])
     return dart_apex, curve1, curve2
 
-def foldDart(parent, dart, inside_pnt):
-    DART_LENGTH = distance(dart, dart.o)
-    DART_HALF_ANGLE = abs(angleOfVector(dart.o, dart, dart.i)) / 2.0
-    O_ANGLE = angleOfLine(dart, dart.o)
-    I_ANGLE = angleOfLine(dart, dart.i)
-    # determine which direction the dart will be folded
-    if I_ANGLE <= O_ANGLE:
-        FOLD_ANGLE = I_ANGLE - DART_HALF_ANGLE
-    else:
-        FOLD_ANGLE = I_ANGLE + DART_HALF_ANGLE
-    # find intersection of fold & armscye b/w bd2.i & inside_pnt
-    # TODO:use intersectLineCurve()
-    temp_pnt = dPnt(polar(dart, DART_LENGTH, FOLD_ANGLE))
-    fold_pnt = dPnt(intersectLines(dart.i, inside_pnt, dart, temp_pnt))
-    # dart midpoint at seamline
-    temp_pnt = dPnt(midPoint(dart.i, dart.o))
-    mid_pnt = dPnt(onLineAtLength(dart, temp_pnt, distance(dart, fold_pnt)))
-    if hasattr(dart, 'm'):
-        updatePoint(dart.m, mid_pnt)
-    else:
-        dart.m = dPnt(parent, dart.name+'.m', mid_pnt)
-    # dart outside leg at cuttingline
-    #temp_pnt=onLineAtLength(dart.o, dart, -SEAM_ALLOWANCE)
-    temp_pnt = dPnt(polar(dart, distance(dart, dart.o) + SEAM_ALLOWANCE, angleOfLine(dart, dart.o)))
-    if hasattr(dart, 'oc'):
-        updatePoint(dart.oc, temp_pnt)
-    else:
-        dart.oc = dPnt(parent, dart.name + '.oc', temp_pnt)
-    # dart inside leg at cuttingline
-    temp_pnt = dPnt(onLineAtLength(dart.i, dart, -SEAM_ALLOWANCE))
-    if hasattr(dart, 'ic'):
-        updatePoint(dart.ic, temp_pnt)
-    else:
-        dart.ic = dPnt(parent, dart.name + '.ic', temp_pnt)
-    #create or update dart.angles
-    dart.angle = angleOfVector(dart.i, dart, dart.o)
-
-    return
 
 def foldDart2(dart, inside_pnt):
     '''
-	Accepts dart, and the nearest point in the direction dart will be folded
+    Accepts dart, and the nearest point in the direction dart will be folded
     Returns dart.m, dart.oc, dart.ic, dart.angle
-	dart.m = middle dart leg at seamline (to be included in seamline path)
-	dart.oc = inside dart leg at cuttingline (to be included in dartline path)
-	dart.oc = outside dart leg at cuttingline (to be included in dartline path)
+    dart.m = middle dart leg at seamline (to be included in seamline path)
+    dart.oc = inside dart leg at cuttingline (to be included in dartline path)
+    dart.oc = outside dart leg at cuttingline (to be included in dartline path)
     '''
     DART_LENGTH = distance(dart, dart.o)
     DART_HALF_ANGLE = abs(angleOfVector(dart.o, dart, dart.i)) / 2.0
