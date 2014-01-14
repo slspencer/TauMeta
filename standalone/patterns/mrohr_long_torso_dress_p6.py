@@ -52,8 +52,8 @@ class Design(designBase):
         dress = self.addPattern('dress')
         #
         #create pattern pieces
-        A = dress.addPiece('Bodice Front', 'A', fabric = 2, interfacing = 0, lining = 0)
-        B = dress.addPiece('Bodice Back', 'B', fabric = 2, interfacing = 0, lining = 0)
+        A = dress.addPiece('Bodice Front', 'A', fabric = 2, interfacing = 0, lining = 2)
+        B = dress.addPiece('Bodice Back', 'B', fabric = 2, interfacing = 0, lining = 2)
         C = dress.addPiece('Skirt Front', 'C', fabric = 2, interfacing = 0, lining = 0)
         D = dress.addPiece('Skirt Back', 'D', fabric = 2, interfacing = 0, lining = 0)
 
@@ -100,9 +100,10 @@ class Design(designBase):
         a2 = A.addPoint('a2', midPoint(FWC, FHC)) #new front hip center
         a3 = A.addPoint('a3', midPoint(FWS, FHS)) #new front hip side
         a4 = A.addPoint('a4', midPoint(FD2.i, FUS)) #new front underarm
-        a5 = A.addPoint('a5', onLineAtLength(FNS, FST, distance(FNS, FST)/3.0)) #new front neck side
+        a5 = A.addPoint('a5', onLineAtLength(FNS, FST, distance(FNS, FST)/4.0)) #new front neck side
         a6 = A.addPoint('a6', polar(a5, 2 * distance(a5, FST), angleOfLine(FNS, FST) + angleOfDegree(6))) #new shoulder tip
         a7 = A.addPoint('a7', onRayAtY(a5, angleOfLine(FST, FNS) + ANGLE90, a1.y)) #neck corner
+
         #front lower waist dart FD3
         FD3 = A.addPoint('FD3', up(FHM, distance(FWC, FHC)/7.0)) #lower waist dart point
         FD3.i = A.addPoint('FD3.i', onLineAtY(FD1.i, FD3, a2.y)) #lower waist dart inside
@@ -150,10 +151,13 @@ class Design(designBase):
         t_BHS = B.addPoint('t_BHS', right(BHC, CD.back_hip/2.0)) #temporary back hip side
         BHS = B.addPoint('BHS', rightmostP(intersectCircles(BHM, CD.back_hip/2.0 - distance(BHC, BHM), BWS, CD.side_hip_height)))
         #back shoulder extension
-        b18 = B.addPoint('b18', onLineAtLength(BNS, BST, distance(BNS, BST)/3.0)) #move neck point 1/3 down shoulder seam
+        b17 = B.addPoint('b17', down(BNC, distance(BNC, BUC)/8.0)) #new back neck center
+        b18 = B.addPoint('b18', onLineAtLength(BNS, BST, distance(FNS, a5))) #new back neck side
         b19 = B.addPoint('b19', down(BWC, 0.66 * distance(BNS, b18))) #new back neck center
         b20 = B.addPoint('b20', onLineAtLength(t_BUS, BUS, distance(FUS, a4))) #new back underarm
         b21 = B.addPoint('b21', polar(b18, distance(a5, a6), angleOfLine(BNS, BST) - angleOfDegree(6))) #new shoulder tip
+        b24 = B.addPoint('b24', onRayAtY(b18, angleOfLine(b18, b21) + ANGLE180 - angleOfVector(a6, a5, a7), b17.y)) #back neck corner
+
         #shorten hip extension
         b22 = B.addPoint('b22', midPoint(BWC, BHC)) #new back hip center
         b23 = B.addPoint('b23', midPoint(BWS, BHS)) #new back hip side
@@ -173,6 +177,7 @@ class Design(designBase):
         #b/w BAS underarm curve & BST shoulder point
         BAS.addOutpoint(polar(BAS, distance(BAS, BST)/3.0, angleOfLine(BAS, BNS)))
         BST.addInpoint(polar(BST, distance(BAS, BST)/6.0, angleOfLine(BNS, BST) + ANGLE90)) #short control handle, perpendicular to shoulder seam
+
 
         #---Skirt Front C---#
         c1 = C.addPoint('c1', (0, 0)) #front skirt waist center
@@ -195,7 +200,7 @@ class Design(designBase):
         A.setLabelPosition((pnt1))
         A.setLetter(up(pnt1, 0.5*IN), scaleby=10.0)
         aG1 = dPnt(left(FUC, distance(FUC, pnt1)/4.0))
-        aG2 = dPnt(down(aG1, distance(FNC, a2)/2.0))
+        aG2 = dPnt(down(aG1, 0.75 * distance(FNC, a2)))
         A.addGrainLine(aG1, aG2)
         A.addGridLine(['M', FNS, 'L', FSH, 'L', FWC, 'L', FST, 'M', FUC, 'L', t_FUS, 'M', FNC, 'L', FST, 'M', FBC, 'L', FBP, 'M', FWC, 'L', t1_FWS, 'M', FBP, 'L', FNS, 'L', FAS, 'M', FUS, 'L', t2_FWS, 'M', FBP, 'L', FBS, 'M', FBP, 'L', FHM, 'M', FHC, 'L', t_FHS, 'M', FWS, 'L', FD1.o, 'L', FWS, 'M', FHS, 'L', FWS, 'M', FUS, 'C', FAS, 'C', FST, 'L', FNS, 'C', FNC])
         A.addDartLine(['M', FD3.ic, 'L', FD1.i, 'L', FD1, 'L', FD1.o,  'L', FD3.oc, 'M', FD2.ic, 'L', FD2, 'L', FD2.oc])
@@ -204,21 +209,21 @@ class Design(designBase):
         A.addCuttingLine(pth)
 
         #draw Bodice Back B
-        pnt1 = dPnt((distance(BSH, BNS)/2.0, distance(BNC, BUC)/2.0))
+        pnt1 = dPnt((distance(b17, b24)/2.0, 0.75 * distance(b17, BUC)))
         B.setLabelPosition((pnt1))
         B.setLetter(up(pnt1, 0.5*IN), scaleby=10.0)
-        bG1 = dPnt((distance(BSH, BNS)/4.0, distance(BNC, BUC)/4.0))
-        bG2 = dPnt(down(bG1, distance(BNC, b22)/2.0))
+        bG1 = dPnt((distance(BSH, BNS)/3.0, distance(BNC, BUC)/4.0))
+        bG2 = dPnt(down(bG1, 0.75 * distance(b17, b22)))
         B.addGrainLine(bG1, bG2)
-        B.addGridLine(['M', BNS, 'L', BSH, 'L', BWC, 'L', BWS, 'M', BD1.o, 'L', BWS, 'M', BNC, 'L', BST, 'M', BWC, 'L', BST, 'M', BNS, 'L', BAS, 'M', BUC, 'L', t_BUS, 'M',  BD1, 'L', BHM, 'L', t_BHS, 'M', BHS, 'L', BWS])
-        B.addDartLine(['M', BD2.ic, 'L', BD2, 'L', BD2.oc, 'M', BD3.ic, 'L', BD1.i, 'L', BD1, 'L', BD1.o, 'L', BD3.oc])
-        pth = (['M', BNC, 'L', b22, 'L', BD3.i, 'L', BD3.m, 'L', BD3.o, 'L', b23, 'L', BWS, 'L', BUS, 'C', BAS, 'C', BST, 'L', BD2.o, 'L', BD2.m, 'L', BD2.i, 'L', BNS, 'C', BNC])
+        B.addGridLine(['M', BNS, 'L', BSH, 'L', BHC, 'L', BHM, 'L', t_BHS, 'M', BWC, 'L', t_BWS, 'M', BD1.o, 'L', BWS, 'M', BHS, 'L', BWS, 'L', BUS, 'C', BAS, 'C', BST, 'L', BD2.o, 'L', BD2.m, 'L', BD2.i, 'L', BNS, 'C', BNC, 'M', BWC, 'L', BST, 'L', BNC, 'M', BNS, 'L', BAS, 'M', BUC, 'L', t_BUS, 'M',  BD1, 'L', BHM, 'M', BD2.ic, 'L', BD2, 'L', BD2.oc])
+        B.addDartLine(['M', BD3.ic, 'L', BD1.i, 'L', BD1, 'L', BD1.o, 'L', BD3.oc])
+        pth = (['M', b17, 'L', b22, 'L', BD3.i, 'L', BD3.m, 'L', BD3.o, 'L', b23, 'L', BWS, 'L', b20, 'L', b21, 'L', b18, 'L', b24, 'L', b17])
         B.addSeamLine(pth)
         B.addCuttingLine(pth)
 
         #draw Skirt Front C
         pnt1 = dPnt((abs(c1.x - c2.x)/2.0, abs(c1.y - c4.y)/3.0))
-        C.setLetter((pnt1.x, pnt1.y), scaleby=10.0, rotate=math.pi/2.0)
+        C.setLetter((pnt1.x, pnt1.y), scaleby=10.0)
         C.setLabelPosition((pnt1.x, pnt1.y + 3*CM))
         cG1 = dPnt((abs(c1.x - c2.x)/8.0, abs(c1.y - c4.y)/8.0 ))
         cG2 = dPnt(right(cG1, 0.75 * distance(c1, c2)))
@@ -228,14 +233,16 @@ class Design(designBase):
         C.addCuttingLine(pth)
 
         #draw Skirt Back D
-        D.setLetter(((d3.x - d1.x)/3.0, (d2.y - d1.y)/3.0), scaleby=10.0)
-        D.setLabelPosition(((d3.x - d1.x)/3.0, (d2.y - d1.y)/2.0))
-        dG1 = dPnt(((d3.x - d1.x)/4.0, (d2.y - d1.y)/4.0))
-        dG2 = dPnt(down(dG1, 0.75 * distance(d1, d2)))
+        pnt1 = dPnt((abs(d1.x - d2.x)/2.0, abs(c1.y - c4.y)/3.0))
+        D.setLetter((pnt1.x, pnt1.y), scaleby=10.0)
+        D.setLabelPosition((pnt1.x, pnt1.y + 3*CM))
+        dG1 = dPnt((abs(d1.x - d2.x)/8.0, abs(d1.y - d4.y)/8.0))
+        dG2 = dPnt(right(dG1, 0.75 * distance(d1, d2)))
         D.addGrainLine(dG1, dG2)
         pth = (['M', d1, 'L', d2, 'L', d3, 'L', d4, 'L', d1])
         D.addSeamLine(pth)
         D.addCuttingLine(pth)
+
 
 
 
