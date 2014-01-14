@@ -99,9 +99,9 @@ class Design(designBase):
 
         #create curve at dart base
         ##adjustDartLength(a16, aD1, a2, extension=0.25) #smooth waistline curve from a16 to a2 at dart
-        foldDart2(aD1, a2) #creates aD1.m,aD1.oc,aD1.ic; dart folds in toward waist center a2
+        foldDart(aD1, a2) #creates aD1.m,aD1.oc,aD1.ic; dart folds in toward waist center a2
         #do not call adjustDartLength(a12,aD2,a11) -- bust dart aD2 is not on a curve
-        foldDart2(aD2, a11) #creates aD2.m,aD2.oc,aD2.ic; dart folds up toward underarm side a11
+        foldDart(aD2, a11) #creates aD2.m,aD2.oc,aD2.ic; dart folds up toward underarm side a11
         #adjust aD1 & aD2 away from a4 bust point
         (aD1.x, aD1.y) = down(aD1, distance(aD1, aD1.i)/7.0)
         (aD2.x, aD2.y) = left(aD2, distance(aD2, aD2.i)/7.0)
@@ -167,7 +167,7 @@ class Design(designBase):
 
         #create curve at dart base
         ##adjustDartLength(a16, aD1, a2, extension=0.25) #smooth waistline curve from a16 to a2 at dart
-        foldDart2(bD1, b2) #creates bD1.m, bD1.oc, bD1.ic; dart folds toward waist center b2
+        foldDart(bD1, b2) #creates bD1.m, bD1.oc, bD1.ic; dart folds toward waist center b2
 
         b13 = B.addPoint('b13', down(b2, CD.back_hip_height)) #back hip center
         b14 = B.addPoint('b14', right(bD1.o, distance(bD1.o, b11))) #back waist side
