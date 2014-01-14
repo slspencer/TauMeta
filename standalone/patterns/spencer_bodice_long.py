@@ -86,7 +86,7 @@ class Design(designBase):
         FD2.i = A.addPoint('FD2.i', intersectLineRay(t_FUS, FBS, FBP, ANGLE180 + bustDartAngle/2.0)) #bust dart inside leg
         remainingSideSegment = distance(FUS, t2_FWS) - distance(FUS, FD2.i)
         FD2.o = A.addPoint('FD2.o', leftmostP(intersectCircles(FWS, remainingSideSegment, FBP, distance(FBP, FD2.i))))
-        foldDart2(FD2, FUS) #creates FD2.m,FD2.oc,FD2.ic; dart folds up toward underarm side FUS
+        foldDart(FD2, FUS) #creates FD2.m,FD2.oc,FD2.ic; dart folds up toward underarm side FUS
         updatePoint(FD2, left(FD2, distance(FD2, FD2.i)/7.0))
         #hip extension
         FHC = A.addPoint('FHC', down(FWC, CD.front_hip_height)) #front hip center
@@ -130,7 +130,7 @@ class Design(designBase):
         BD2.o = B.addPoint('BD2.o', (t_BD2))
         slashAndSpread(BD2, angleOfDegree(-8), BD2.i, BNS)
         ##adjustDartLength(BNS, BD2, BST, extension=1.0) #smooth shoulder seam from BNS to BST - no curve so extend dart maximum length (1)
-        foldDart2(BD2, BNS) # dart folds in towards BNS BNS, creates BD2.m on seam line
+        foldDart(BD2, BNS) # dart folds in towards BNS BNS, creates BD2.m on seam line
 
         #back hip extension
         BHC = B.addPoint('BHC', down(BWC, CD.back_hip_height)) #back hip center

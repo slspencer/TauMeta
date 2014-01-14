@@ -94,9 +94,9 @@ class Design(designBase):
 
         #create curve at dart base
         ##adjustDartLength(a16, aD1, a2, extension=0.25) #smooth waistline curve from a16 to a2 at dart
-        foldDart2(aD1, a2) #creates aD1.m,aD1.oc,aD1.ic; dart folds in toward waist center a2
+        foldDart(aD1, a2) #creates aD1.m,aD1.oc,aD1.ic; dart folds in toward waist center a2
         #do not call adjustDartLength(a12,aD2,a11) -- bust dart aD2 is not on a curve
-        foldDart2(aD2, a11) #creates aD2.m,aD2.oc,aD2.ic; dart folds up toward underarm side a11
+        foldDart(aD2, a11) #creates aD2.m,aD2.oc,aD2.ic; dart folds up toward underarm side a11
         #adjust aD1 & aD2 away from a4 bust point
         (aD1.x, aD1.y) = down(aD1, distance(aD1, aD1.i)/7.0)
         (aD2.x, aD2.y) = left(aD2, distance(aD2, aD2.i)/7.0)
@@ -134,7 +134,7 @@ class Design(designBase):
         b11 = B.addPoint('b11',  rightmostP(intersectCircles(b10, distance(a11, aD2.i) + distance(aD2.o, a16), bD1.o, CD.back_waist/2.0 - distance(b2, bD1.i)))) #back waist side
         #create curve at dart base
         ##adjustDartLength(a16, aD1, a2, extension=0.25) #smooth waistline curve from a16 to a2 at dart
-        foldDart2(bD1, b2) #creates bD1.m, bD1.oc, bD1.ic; dart folds toward waist center b2
+        foldDart(bD1, b2) #creates bD1.m, bD1.oc, bD1.ic; dart folds toward waist center b2
 
         #Bodice Back B control points
         #b/w b6 back neck point & b1 back neck center
@@ -231,7 +231,7 @@ class Design(designBase):
         cD1.o = C.addPoint('cD1.o', onLineAtLength(c22, c22.inpoint, CD.oversleeve_length/20.0)) #elbow dart outside leg
         cD1.i.addOutpoint(c22.outpoint)
         cD1.o.addInpoint((c22.inpoint))
-        foldDart2(cD1, c22.outpoint) #creates cD1.m, cD1.oc, cD1.ic; dart folds up toward sleeve cap
+        foldDart(cD1, c22.outpoint) #creates cD1.m, cD1.oc, cD1.ic; dart folds up toward sleeve cap
 
         c25 = C.addPoint('c25', polar(c15, CD.oversleeve_length/20.0, angleOfLine(c15.outpoint, c15))) #sleeve extended at back wrist to allow for elbow dart
 
