@@ -628,6 +628,7 @@ class PatternPiece(pBase):
         return child_group_dict
 
     def setLetter(self, xy=None, style='default_letter_text_style', text=None, scaleby=None):
+        #TODO: Implement rotate transform
         if xy is None:
             x = None
             y = None
