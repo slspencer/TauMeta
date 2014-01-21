@@ -1224,6 +1224,14 @@ def intersectLineRay(P1, P2, R1, angle):
     R2 = polar(R1, 1*IN,  angle)
     return intersectLines(P1, P2, R1, R2)
 
+def intersectRayCircle(P1, angle, C, r):
+    '''
+    Accepts a point and angle for the ray, and center and radius for circle.
+    Returns (x, y) of intersection
+    '''
+    P2 = polar(P1, 1*IN, angle)
+    return intersectLineCircle(P1, P2, C, r)
+
 #---adjust Curves---#
 def adjustCurves(curve, P0, C1, C2, P1):
     '''
@@ -1391,7 +1399,7 @@ def foldReverseDart(dart, inside_pnt):
 
     return
 
-def adjustDartLength(p1, dart, p2, extension=1/3.0):
+def extendDart(p1, dart, p2, extension=1/3.0):
     """
     Finds optimum leg length to smooth the curve from p1 to p2
     Accepts p1 of class Point or coords,  dart of class Dart,  and p2 of class Point or coords
