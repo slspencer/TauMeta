@@ -177,33 +177,32 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.""")
         a3.addInpoint(polar(a3, distance(a3, a4)/3.0, angleOfLine(a3.outpoint, a3)))
         a6.addInpoint(polar(a6, distance(a3, a6)/6.0, angleOfLine(a5, a6) + ANGLE90)) #short control handle
 
-
         #sleeve C
         c1 = C.addPoint('c1', (0, 0)) #A
-        c2 = C.addPoint('c2', down(c1, CD.oversleeve_length)) #B
+        c2 = C.addPoint('c2', down(c1, CD.undersleeve_length)) #B
         c3 = C.addPoint('c3', up(c2, CD.elbow_length)) #C
-        c4 = C.addPoint('c4', right(c2, 1*IN)) #D
-        c5 = C.addPoint('c5', right(c3, 0.5*IN)) #E
-        c6 = C.addPoint('c6', left(c1, 1*IN)) #F
-        c7 = C.addPoint('c7', right(c4, 1*IN)) #G
-        c8 = C.addPoint('c8', right(c7, CD.hand + 2*IN)) #H
-        c9 = C.addPoint('c9', right(c8, 1*IN)) #I
-        c10 = C.addPoint('c10', right(c5, 1*IN)) #J
+        c4 = C.addPoint('c4', right(c2, 0.15 * CD.wrist)) #D
+        c5 = C.addPoint('c5', right(c3, 0.1 * CD.wrist)) #E
+        c6 = C.addPoint('c6', left(c1, 0.15 * CD.wrist)) #F
+        c7 = C.addPoint('c7', right(c4, 0.15 * CD.wrist)) #G
+        c8 = C.addPoint('c8', right(c7, CD.hand + 0.25 * CD.wrist)) #H
+        c9 = C.addPoint('c9', right(c8, 0.15 * CD.wrist)) #I
+        c10 = C.addPoint('c10', right(c5, 0.15 * CD.wrist)) #J
         c11 = C.addPoint('c11', right(c10, CD.elbow)) #K
-        c12 = C.addPoint('c12', right(c11, 0.5*IN)) #L
+        c12 = C.addPoint('c12', right(c11, 0.1 * CD.wrist)) #L
         c13 = C.addPoint('c13', right(c1, CD.arm_scye)) #M
-        c14 = C.addPoint('c14', right(c13, 2*IN)) #N
-        c15 = C.addPoint('c15', up(c1, 2.5*IN)) #O
-        c16 = C.addPoint('c16', right(c1, 1.5*IN)) #P
-        c17 = C.addPoint('c17', left(c13, 3*IN)) #Q
+        c14 = C.addPoint('c14', right(c13, 0.25 * CD.wrist)) #N
+        c15 = C.addPoint('c15', up(c1, 0.3 * CD.wrist)) #O
+        c16 = C.addPoint('c16', right(c1, 0.15 * CD.wrist)) #P
+        c17 = C.addPoint('c17', left(c13, 0.25 * CD.wrist)) #Q
         c18 = C.addPoint('c18', (c16.x, c15.y)) #R
         c19 = C.addPoint('c19', (c17.x, c15.y)) #S
         c20 = C.addPoint('c20', midPoint(c16, c17)) #T
         c21 = C.addPoint('c21', up(c20, distance(c20, c18))) #U - above T
-        c22 = C.addPoint('c22', down(midPoint(c7, c8), 0.75*IN)) #V - was U
+        c22 = C.addPoint('c22', down(midPoint(c7, c8), 0.08 * CD.wrist)) #V - was U
         c23 = C.addPoint('c23', right(c4, distance(c4, c8)*3/5.0)) #W
         c24 = C.addPoint('c24', up(c23, distance(c4, c3)/3.0)) #X - was V
-        c25 = C.addPoint('c25', down(c23, 0.75*IN)) #Y - new point
+        c25 = C.addPoint('c25', down(c23, 0.08 * CD.wrist)) #Y - new point
         c26 = C.addPoint('c26', down(c25, SEAM_ALLOWANCE))
         # sleeve C control points
         # sleevecap c6 to c18 to c21 to c19 to c13 to c14
@@ -215,15 +214,11 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.""")
         c6.addOutpoint(polar(c6, length1, angle))
         c18.addInpoint(polar(c18, length1, angleOfLine(c21.inpoint, c18)))
         length1 = distance(c21, c19)/3.0
-        length2 = distance(c19, c13)/3.0
-        length3 = distance(c13, c14)/3.0
+        length2 = distance(c19, c14)/3.0
         c21.addOutpoint(right(c21, length1))
         c19.addInpoint(polar(c19, length1, angleOfLine(c19, c21.outpoint)))
         c19.addOutpoint(polar(c19, length2, angleOfLine(c19.inpoint, c19)))
-        angle1 = angleOfLine(c19.outpoint, c13)/2.0
-        c13.addInpoint(polar(c13, length2, angle1 + ANGLE180))
-        c13.addOutpoint(polar(c13, length3, angle1))
-        c14.addInpoint(polar(c14, length3, angleOfLine(c14, c13.outpoint)))
+        c14.addInpoint(left(c14, length2))
         # c14 to c12
         length = distance(c14, c12)/3.0
         c12.addInpoint(polar(c12, length, angleOfLine(c9, c12)))
@@ -243,18 +238,18 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.""")
 
         #cuff D
         d1 = D.addPoint('d1', (0, 0))
-        d2 = D.addPoint('d2', right(d1, CD.hand + 2*IN))
-        d3 = D.addPoint('d3', down(d2, 3*IN))
-        d4 = D.addPoint('d4', up(d3, 0.75*IN))
-        d5 = D.addPoint('d5', left(d3, 1*IN))
-        d6 = D.addPoint('d6', down(d1, 3*IN))
-        d7 = D.addPoint('d7', right(d6, 1*IN))
-        d8 = D.addPoint('d8', up(d6, 0.75*IN))
+        d2 = D.addPoint('d2', right(d1, CD.hand + 0.25 * CD.wrist))
+        d3 = D.addPoint('d3', down(d2, 0.35 * CD.wrist))
+        d4 = D.addPoint('d4', up(d3, 0.08 * CD.wrist))
+        d5 = D.addPoint('d5', left(d3, 0.15 * CD.wrist))
+        d6 = D.addPoint('d6', down(d1, 0.35 * CD.wrist))
+        d7 = D.addPoint('d7', right(d6, 0.15 * CD.wrist))
+        d8 = D.addPoint('d8', up(d6, 0.08 * CD.wrist))
         length1 = 0.7*distance(d1, d6)
-        length2 = 0.75*IN
-        d9 = D.addPoint('d9', (d1.x + 0.5*IN, d1.y + length1))
+        length2 = 0.075 * CD.wrist
+        d9 = D.addPoint('d9', (d1.x + 0.1 * CD.wrist, d1.y + length1))
         d10 = D.addPoint('d10', right(d9, length2))
-        d11 = D.addPoint('d11', (d2.x - 0.5*IN, d2.y + length1))
+        d11 = D.addPoint('d11', (d2.x - 0.1 * CD.wrist, d2.y + length1))
         d12 = D.addPoint('d12', left(d11, length2))
         #cuff D control points
         length = distance(d4, d5)/3.0
@@ -298,7 +293,7 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.""")
         C.addGridLine(['M', c15, 'L', c2, 'M', c15, 'L', c19, 'M', c2, 'L', c9, 'M', c3, 'L', c12, 'M', c6, 'L', c14, 'M', c18, 'L', c16, 'M', c19, 'L', c17])
         mpth = C.addMarkingLine(['M', c24, 'L', c26])
         mpth.name = 'SleeveSlash'
-        pathparts = (['M', c6, 'C', c18, 'C', c21, 'C', c19, 'C', c13, 'C', c14, 'C', c12, 'L', c9, 'C', c25, 'L', c22, 'C', c4, 'L', c5, 'C', c6])
+        pathparts = (['M', c6, 'C', c18, 'C', c21, 'C', c19, 'C', c14, 'C', c12, 'L', c9, 'C', c25, 'L', c22, 'C', c4, 'L', c5, 'C', c6])
         C.addSeamLine(pathparts)
         C.addCuttingLine(pathparts)
 
