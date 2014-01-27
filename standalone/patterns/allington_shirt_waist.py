@@ -90,6 +90,8 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.""")
         #pattern points
         # x, y coordinates are always passed as a two-item list like this: (23.6, 67.0)
         # points are always in the 'reference' group, and always have style='point_style'
+
+        #---Back B---#
         BNC = B.addPoint('BNC', (0.0, 0.0))
         BWC = B.addPoint('BWC', down(BNC, CD.back_waist_length))
         BSH = B.addPoint('BSH', up(BWC, CD.back_shoulder_height))
@@ -99,29 +101,39 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.""")
         BUC = B.addPoint('BUC', (BNC.x, BAS.y))
         BUS = B.addPoint('BUS', left(BUC, CD.bust/4.0))
         BWS = B.addPoint('BWS', left(BWC, CD.waist/4.0))
-        b1 = B.addPoint('b1', BNC) #B
-        b2 = B.addPoint('b2', BWC) #A
-        b3 = B.addPoint('b3', BUC) #C
-        b4 = B.addPoint('b4', left(BUC, 1.05 * distance(BUC, BAS))) #E
-        #b5  = B.addPoint('b5', up(b4, CD.arm_scye/3.0)) #F
-        #b6  = B.addPoint('b6', up(b1, 0.5*IN)) #G
-        #b7  = B.addPoint('b7', left(b6, 1.5*IN)) #H
-        b5 = B.addPoint('b5', BST) #F
-        b6 = B.addPoint('b6', BSH) #G
-        b7 = B.addPoint('b7', BNS) #H
-        #b8  = B.addPoint('b8', onLineAtLength(b5, b7, -0.5*IN)) #I
-        b8 = B.addPoint('b8', left(b5, 0.1 * CD.shoulder)) #I
-        b9 = B.addPoint('b9', midPoint(BUS, b4)) #T on back bodice B
-        b10 = B.addPoint('b10', down(b9, CD.side)) #U
-        b11 = B.addPoint('b11', right(b10, 1*IN)) #V
-        #b12 = B.addPoint('b12', up(b4, distance(b5, b4)/3.0)) #Z - new point at back armscye - 1/3 up from
 
+        b1 = B.addPoint('b1', BNC) #B
+        b2 = B.addPoint('b2', down(b1, 1.05 * distance(b1, BWC))) #A
+        b3 = B.addPoint('b3', left(BUC, 1.05 * distance(BUC, BAS))) #E
+        b4 = B.addPoint('b4', left(BUC, 1.1 * distance(BUC, BUS)))
+        b5 = B.addPoint('b5', onLineAtLength(BNS, BST, 0.05 * CD.shoulder)) #H
+        b6 = B.addPoint('b6', left(BST, 0.2 * CD.shoulder)) #I
+        b7 = B.addPoint('b7', midPoint(b4, b3)) #T on back bodice B
+        b8 = B.addPoint('b8', (b7.x, b2.y)) #U
+        b9 = B.addPoint('b9', right(b8, 0.1 * CD.back_waist/2.0)) #V - back waist side
+        b10 = B.addPoint('b10', down(b7, 0.12 * CD.side))
+
+        #Back B control points
+        #back neck control points from b5 to b1
+        length = distance(b5, b1)/3.0
+        b1.addInpoint(left(b1, length*2)) #long control point handle
+        b5.addOutpoint(polar(b5, length/2.0, angleOfLine(b5, b1.inpoint))) #short control point handle
+        #back side control points from b9 back waist side to b10 back underarm
+        length = distance(b9, b10)/3.0
+        b9.addOutpoint(up(b9, length))
+        b10.addInpoint(down(b10, length))
+        #back armscye points from b10 to b3 to b6
+        b10.addOutpoint(right(b10, distance(b10, b3)/3.0))
+        b3.addOutpoint(polar(b3, distance(b3, b6)/3.0, (angleOfLine(b10, b3) + angleOfLine(b3, BNS))/2.0))
+        b3.addInpoint(polar(b3, distance(b3, b10)/3.0, angleOfLine(b3.outpoint, b3)))
+        b6.addInpoint(polar(b6, distance(b3, b6)/6.0, angleOfLine(b5, b6) - ANGLE90)) #short control handle
+
+        #---Front A---#
         FBC = A.addPoint('FBC', left(BUC, CD.bust/2.0))
         FBP = A.addPoint('FBP', right(FBC, CD.bust_distance/2.0))
         FWC = A.addPoint('FWC', down(FBC, CD.bust_length))
         FNC = A.addPoint('FNC', up(FWC, CD.front_waist_length)) #front neck center
         FSH = A.addPoint('FSH', up(FWC, CD.front_shoulder_height))
-        FSW = A.addPoint('FSW', right(FSH, CD.front_shoulder_width))
         FUW = A.addPoint('FUW', right(FSH, CD.front_underarm/2.0))
         FST = A.addPoint('FST', rightmostP(intersectCircles(FWC, CD.front_shoulder_balance, FNC, CD.front_shoulder_width)))
         FNS = A.addPoint('FNS', leftmostP(onCircleAtY(FST, CD.shoulder, FSH.y)))
@@ -130,107 +142,41 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.""")
         FUS = A.addPoint('FUS', right(FUC, CD.front_underarm/2.0))
         FBS = A.addPoint('FBS', rightmostP(onCircleTangentFromOutsidePoint(FBP, CD.front_bust/2.0 - distance(FBC, FBP), FUS))) #bust side is where line from bust point is perpendicular to line through FUS
 
-        #a1 = A.addPoint('a1', left(b3, CD.bust/2.0)) #D
-        #a2 = A.addPoint('a2', left(b4, CD.arm_scye/4.0)) #J
-        #a2 = A.addPoint('a2', FAS) #J
-        #a4 = A.addPoint('a4', up(a2, 2.5*IN)) #L
-        #a5 = A.addPoint('a5', up(b5, 1.5*IN)) #M
-        #a6 = A.addPoint('a6', left(a5, 2*IN)) #N
-        #a6 = A.addPoint('a6', onLineAtLength(a8, a5, distance(b7, b8))) #N
-        #a8 = A.addPoint('a8', (a7.x, b3.y - (CD.bust_balance - distance(b1, b7)))) #P
-        #a11 = A.addPoint('a11', left(a10, (CD.neck/6.0) + 0.25*IN)) #S
-        #a11 = A.addPoint('a11', left(a4, CD.across_chest/2.0 + 0.25*IN)) #S
-        #a12 = A.addPoint('a12', b9) #T on front bodice A
-        #a15 = A.addPoint('a15', down(a8, distance(a8, a14))) #Y - new point at front waist
-        #a16 = A.addPoint('a16', down(a12, distance(b9, b13))) #front underarm point
-        a1 = A.addPoint('a1', FUC) #D
-        a3 = A.addPoint('a3', right(FUC, 1.1 * distance(FUC, FUS))) #K
-        a4 = A.addPoint('a4', right(FUC, 1.05 * distance(FUC, FAS))) #L
-        a5 = A.addPoint('a5', FST) #M
-        a8 = A.addPoint('a8', FNS) #P
-        a6 = A.addPoint('a6', right(a5, distance(b5, b8))) #N
-        a7 = A.addPoint('a7', left(a6, distance(b7, b8))) #O
-        a9 = A.addPoint('a9', down(a8, CD.neck/4.0)) #Q
-        a10 = A.addPoint('a10', up(a9, 0.5*IN)) #R
-        a11 = A.addPoint('a11', down(FNC, distance(FNC, FUC)/4.0)) #S
-        a12 = A.addPoint('a12', right(FUS, distance(BUS, b9))) #T on front bodice A
-        a19 = A.addPoint('a19', down(a12, distance(b9, b10)))
-        a13 = A.addPoint('a13', left(a19, distance(b10, b11))) #W
-        a14 = A.addPoint('a14', onLineAtLength(a11, a1, CD.front_waist_length)) #X
-        a15 = A.addPoint('a15', (a8.x, a14.y)) #Y - new point at front waist
-        a20 = A.addPoint('a20', down(FUS, 0.13 * CD.side))
+        a1 = A.addPoint('a1', down(FNC, distance(FNC, FUC)/4.0)) #S
+        a2 = A.addPoint('a2', extendLine(a1, FWC, distance(BWC, b2))) #X
+        a3 = A.addPoint('a3', right(FUC, 1.05 * distance(FUC, FAS))) #L - front armscye + 5% ease
+        a4 = A.addPoint('a4', right(FUS, 1.2 * distance(BUS, b7))) #K - front underarm side + 10% ease
+        a5 = A.addPoint('a5', onLineAtLength(FNS, FST, 0.05 * CD.shoulder)) #P
+        a6 = A.addPoint('a6', right(FST, 0.1 * CD.shoulder)) #N
+        a7 = A.addPoint('a7', polar(a4, distance(b4, b7), angleOfLine(FBP, FBS))) #T
+        a8 = A.addPoint('a8', down(a4, distance(b10, b8)))
+        a9 = A.addPoint('a9', left(a8, distance(b8, b9))) #W - front waist side
+        #a10 = A.addPoint('a10', down(a7, distance(b7, b10))) #lowered front undearm point
+        a11 = A.addPoint('a11', onLineAtX(FBP, FBS, FUS.x))
+        a12 = A.addPoint('a12', a9) #copy a9
 
-        #temporary armscye curve from a3 to b12 to find top point of side seam
-        a17 = A.addPoint('a17', right(a12, distance(b9, b4)))
-        a18 = A.addPoint('a18', up(a17, distance(b4, BAS)))
-        #length = distance(a3, b12)/3.0
-        #temp_b12_c1 = right(a3, length) #don't create an svg controlpoint circle for this point
-        #temp_b12_c2 = down(b12, length) #or for this point
-        length = distance(a3, a18)/3.0
-        t_a3out = right(a3, length)
-        t_a18in = down(a18, length)
+        #front control points - path runs counterclockwise from front neck center a1
+        #b/w a9 front waist side to a4 front underarm side
+        length = distance(a9, a4)/3.0
+        a9.addOutpoint(up(a9, length))
+        a4.addInpoint(down(a4, length))
+        #rotate side seam
+        slashAndSpread(a4, -angleOfVector(a11, FUS, FBS), a9, a9.outpoint, a4.inpoint)
 
+        #b/w a5 front neck side to a1 front neck center
+        length = distance(a5, a1)/3.0
+        a1.addInpoint(right(a1, 0.7 * abs(a1.x - a5.x)))
+        a5.addOutpoint(polar(a5, length, angleOfLine(a5, a6) + ANGLE90))
+        #b/w a2 front waist center to a9 front waist side
+        length = distance(a2, a9)/3.0
+        a2.addOutpoint(right(a2, 2 * length)) #control handle line is perpendicular to line a2-a1
+        a9.addInpoint(polar(a9, length/2.0, angleOfLine(a4, a9) + ANGLE90))
+        #b/w a4 to a3 to a6 armscye
+        a4.addOutpoint(polar(a4, distance(a4, a3)/3.0, angleOfLine(a9, a4) - ANGLE90))
+        a3.addOutpoint(polar(a3, distance(a3, a6)/3.0, (angleOfLine(a4, a3) + angleOfLine(a3, FNS))/2.0))
+        a3.addInpoint(polar(a3, distance(a3, a4)/3.0, angleOfLine(a3.outpoint, a3)))
+        a6.addInpoint(polar(a6, distance(a3, a6)/6.0, angleOfLine(a5, a6) + ANGLE90)) #short control handle
 
-        #find top point of side seam with intersection of side and armscye curve, save to two points a16 and b13
-        #curve1 = points2List(a3, temp_b12_c1, temp_b12_c2, b12)
-        #intersections = intersectLineCurve(b10, b9, curve1) #this line is directional from b10 to b9
-        #b13 = B.addPoint('b13', intersections[0]) # AA on bodice back B -use 1st intersection found, in this case there's only one intersection
-        #a16 = A.addPoint('a16', b13) #AA on bodice back A
-        #curve1 = points2List(a3, t_a3out, t_a18in, a18)
-        #a16 = A.addPoint('a16', onCurveAtX(curve1, a12.x))
-        a20.addOutpoint(right(a20, distance(a20, a18)/3.0))
-        a18.addInpoint(polar(a18, distance(a20, a18)/3.0, angleOfLine(BNS, BAS)))
-        curve1 = points2List(a20, a20.outpoint, a18.inpoint, a18)
-        a21 = A.addPoint('a21', onCurveAtX(curve1, a12.x)) #new front underarm side
-        curve2 = splitCurveAtPoint(curve1, a21)
-        a21.addOutpoint(curve2[2])
-        b12 = B.addPoint('b12', polar(BAS, distance(a18, a21), angleOfLine(a18, a21)))
-        b12.addOutpoint(polar(b12, distance(b12, BAS)/3.0, angleOfLine(a21.outpoint, a21)))
-
-
-
-        #front control points - path runs counterclockwise from front neck center a11
-        #b/w a8 front neck side to a11 front neck center
-        length = distance(a8, a11)/3.0
-        a11.addInpoint(right(a11, 1.5*length))
-        a8.addOutpoint(polar(a8, length, angleOfLine(a8, a11.inpoint)))
-        #b/w a14 front waist center to a15 front waist middle
-        length = distance(a14, a15)/3.0
-        a14.addOutpoint(polar(a14, length, angleOfLine(a14, a11) + ANGLE90)) #control handle line is perpendicular to line a14-a11
-        a15.addInpoint(left(a15, length))
-        #b/w a13 front waist side to a21 front underarm side
-        length = distance(a13, a21)/3.0
-        a13.addOutpoint(up(a13, length))
-        a21.addInpoint(down(a21, length))
-        #b/w a15 front waist middle to a13 front waist side
-        length = distance(a15, a13)/3.0
-        a15.addOutpoint(right(a15, 2*length))
-        a13.addInpoint(polar(a13, length/3.0, angleOfLine(a13.outpoint, a13) + ANGLE90))
-        #b/w a21 to a4 to a6
-        length1 = distance(a21, a4)/3.0
-        length2 = distance(a4, a6)/3.0
-        angle1 = angleOfLine(a21, a4)
-        angle2 = angleOfLine(a4, a6)
-        angle3 = (angle1 + angle2)/2.0
-        a4.addInpoint(polar(a4, length1, angleOfLine(FNS, a4)))
-        a4.addOutpoint(polar(a4, length2, angleOfLine(a4, FNS)))
-        a6.addInpoint(polar(a6, length2/2.0, angleOfLine(a8, a6) + ANGLE90))
-
-        slashAndSpread(a21, -angleOfVector(a20, FUS, FBS), a13.inpoint, a13, a13.outpoint, a21.inpoint)
-
-        #back control points
-        #back neck control points from b7 to b1
-        length = distance(b7, b1)/3.0
-        b7.addOutpoint(down(b7, length/2.0)) #short control point handle
-        b1.addInpoint(left(b1, length*2)) #long control point handle
-        #back side control points from b11 to b12
-        length = distance(b11, b12)/3.0
-        b11.addOutpoint(up(b11, length))
-        b12.addInpoint(down(b12, length))
-        #back armscye points from b12 to BAS to b8
-        BAS.addInpoint(polar(BAS, distance(b12, BAS)/3.0, angleOfLine(BNS, BAS)))
-        BAS.addOutpoint(polar(BAS, distance(BAS, b8)/3.0, angleOfLine(BAS, BNS)))
-        b8.addInpoint(polar(b8, distance(BAS, b8)/6.0, angleOfLine(b7, b8) - ANGLE90)) #short control handle
 
         #sleeve C
         c1 = C.addPoint('c1', (0, 0)) #A
@@ -319,29 +265,29 @@ It was taken from Sara May Allington's 'Dressmaking',  1917.""")
 
         #all points are defined,  now create marks, labels, grainlines, seamlines, cuttinglines, darts, etc.
         #Bodice Front A
-        pnt1 = down(a8, distance(a8, a15)/3.0)
+        pnt1 = down(a5, distance(a5, a2)/3.0)
         A.setLabelPosition(pnt1)
         A.setLetter(up(pnt1, 0.5*IN), scaleby = 10.0)
-        aG1 = down(a11, CD.front_waist_length/3.0)
-        aG2 = down(aG1, CD.front_waist_length/2.0)
+        aG1 = dPnt((FNC.x + (a5.x - a1.x)/2.0, FUC.y))
+        aG2 = down(aG1, 0.75 * CD.front_waist_length)
         A.addGrainLine(aG1, aG2)
-        A.addGridLine(['M', FNS, 'L',FSH, 'L', FWC, 'M', FUC, 'L', FUS, 'M', a8, 'L', a15, 'M', a11, 'L', a10, 'M', a7, 'L', a5])
-        pathparts = (['M', a11, 'L', a14, 'C', a15, 'C', a13, 'C', a21, 'C', a4, 'C', a6, 'L', a8, 'C', a11])
+        A.addGridLine(['M', FUW, 'L', FNS, 'L',FSH, 'L', FWC, 'M', FUC, 'L', FUS, 'M', FNS, 'L', FAS, 'M', FWC, 'L', FST, 'L', FNC, 'M', FBC, 'L', FBP, 'L', FBS])
+        pathparts = (['M', a1, 'L', a2, 'C', a9, 'C', a4, 'C', a3, 'C', a6, 'L', a5, 'C', a1])
         A.addSeamLine(pathparts)
         A.addCuttingLine(pathparts)
 
         #Bodice Back B
-        pnt1 = down(midPoint(b7, b8), distance(b1, b2)/4.0)
+        pnt1 = dPnt((BNC.x - abs(BNC.x - BST.x)/2.0, BNC.y + abs(BUC.y - BNC.y)/2.0))
         B.setLabelPosition(pnt1)
         pnt2 = up(pnt1, 0.5*IN)
         B.setLetter(pnt2, scaleby = 10.0)
-        bG1 = down(b7, CD.back_waist_length/3.0)
-        bG2 = down(bG1, CD.back_waist_length/2.0)
+        bG1 = dPnt((BNC.x - abs(BNS.x - BNC.x)/2.0, abs(BUC.y - BNC.y)/2.0))
+        bG2 = down(bG1, 0.75 * CD.back_waist_length)
         B.addGrainLine(bG1, bG2)
-        B.addGridLine(['M', BNS, 'L', b4, 'M', b3, 'L', b9, 'M', b9, 'L', b10, 'M', b7, 'L', b6, 'L', b1, 'M', b11, 'L', b10])
-        pathparts = (['M', b1, 'L', b2, 'L', b11, 'C', b12, 'C', BAS, 'C', b8, 'L', b7, 'C', b1])
-        B.addSeamLine(pathparts)
-        B.addCuttingLine(pathparts)
+        B.addGridLine(['M', BNS, 'L', BAS, 'M', BUC, 'L', b4, 'M', b7, 'L', b8, 'M', BNS, 'L', BSH, 'L', b1, 'M', b9, 'L', b8, 'M', BNC, 'L', BST, 'L', BWC, 'M', BNS, 'L', BST])
+        pth = (['M', b1, 'L', b2, 'L', b9, 'C', b10, 'C', b3, 'C', b6, 'L', b5, 'C', b1])
+        B.addSeamLine(pth)
+        B.addCuttingLine(pth)
 
         #Bodice Sleeve C
         C.setLetter((c21.x, c6.y), scaleby=12.0)
