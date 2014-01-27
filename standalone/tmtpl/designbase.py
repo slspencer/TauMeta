@@ -40,8 +40,10 @@ class designBase(object):
         # -spc- TODO, do we really need both of these?
         self.cfg['clientdata'] = ClientData
         # TODO printer stuff needs work
-        self.printer = '36" wide carriage plotter'
-        self.cfg['paper_width'] = 36.0 * IN
+        #self.printer = '36" wide carriage plotter'
+        self.printer = '44" wide carriage plotter'
+        #self.cfg['paper_width'] = 36.0 * IN
+        self.cfg['paper_width'] = 44.0 * IN
         self.cfg['border'] = 2.5 * CM
 
         # create the document into which all objects go
@@ -56,7 +58,7 @@ class designBase(object):
         self.doc.add(TitleBlock('notes', 'titleblock', 0.0, 0.0, stylename='titleblock_text_style'))
         self.doc.add(TestGrid('notes', 'testgrid', self.cfg['paper_width'] / 3.0, 0.0, stylename='cuttingline_style'))
 
-        
+
     # ClientData is the name and measurements to draw the pattern for
     #
     @property
