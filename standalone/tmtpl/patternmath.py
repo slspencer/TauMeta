@@ -1352,23 +1352,21 @@ def foldDart(dart, inside_pnt):
     dart.oc = inside dart leg at cuttingline (to be included in dartline path)
     dart.oc = outside dart leg at cuttingline (to be included in dartline path)
     '''
-    DART_LENGTH = distance(dart, dart.o)
-    DART_HALF_ANGLE = abs(angleOfVector(dart.o, dart, dart.i)) / 2.0
-    O_ANGLE = angleOfLine(dart, dart.o)
-    I_ANGLE = angleOfLine(dart, dart.i)
+    mid_pnt = midPoint(dart.i, dart.o)
+    dart_length = distance(dart, dart.o)
+    i_angle = angleOfLine(dart, dart.i)
+    dart_half_angle = abs(angleOfVector(dart.i, dart, dart.o)/2.0)
+
     #determine which direction the dart will be folded
-    if I_ANGLE <= O_ANGLE:
-        FOLD_ANGLE = I_ANGLE - DART_HALF_ANGLE
-    else:
-        FOLD_ANGLE = I_ANGLE + DART_HALF_ANGLE
-    #TODO:find intersection of fold & armscye b/w bd2.i & inside_pnt
-    #TODO:use intersectLineCurve()
-    temp_pnt = dPnt(polar(dart, DART_LENGTH, FOLD_ANGLE))
-    fold_pnt = dPnt(intersectLines(dart.i, inside_pnt, dart, temp_pnt))
-    temp_pnt = dPnt(midPoint(dart.i, dart.o))
-    dart.m = dPnt(onLineAtLength(dart, temp_pnt, distance(dart, fold_pnt))) #dart midpoint at seamline
+    if ((dart.i.x > dart.x) and (dart.i.y < dart.y)) or ((dart.i.x < dart.x) and (dart.i.y > dart.y)):
+        #x & y vectors not the same sign
+        dart_half_angle = -dart_half_angle
+
+    fold_angle = i_angle + dart_half_angle
+    fold_pnt = intersectLineRay(dart.i, inside_pnt, dart, fold_angle)
+    dart.m = dPnt(onLineAtLength(dart, mid_pnt, distance(dart, fold_pnt))) #dart midpoint at seamline
     dart.oc = dPnt(polar(dart, distance(dart, dart.o) + SEAM_ALLOWANCE, angleOfLine(dart, dart.o))) #dart outside leg at cuttingline
-    dart.ic = dPnt(onLineAtLength(dart.i, dart, -SEAM_ALLOWANCE)) #dart inside leg at cuttingline
+    dart.ic = dPnt(extendLine(dart, dart.i, SEAM_ALLOWANCE)) #dart inside leg at cuttingline
     #create or update dart.angles
     dart.angle = angleOfVector(dart.i, dart, dart.o)
 
