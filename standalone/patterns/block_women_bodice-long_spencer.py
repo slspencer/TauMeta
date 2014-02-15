@@ -60,7 +60,7 @@ class Design(designBase):
         a2 = A.addPoint('a2', down(a1, CD.front_waist_length)) #front waist center
         a3 = A.addPoint('a3', up(a2, CD.bust_length)) #bust center
         a4 = A.addPoint('a4', left(a3, CD.bust_distance/2.0)) #bust point
-        a5 = A.addPoint('a5', leftmostP(intersectCircles(a2, CD.front_shoulder_balance, a1, CD.front_shoulder_width))) #front shoulder point
+        a5 = A.addPoint('a5', highestP(onCircleAtX(a2, CD.front_shoulder_balance, a1.x - CD.front_shoulder_width/2.0))) #front shoulder tip
         a6 = A.addPoint('a6', highestP(intersectCircles(a5, CD.shoulder, a4, CD.bust_balance))) #front neck point
         a7 = A.addPoint('a7', lowestP(onCircleAtX(a6, CD.front_underarm_balance, a1.x - CD.across_chest/2.0))) #front underarm point
         a8 = A.addPoint('a8', (a1.x, a7.y)) #front undearm center
@@ -128,8 +128,7 @@ class Design(designBase):
         b2 = B.addPoint('b2', down(b1, CD.back_waist_length)) #back waist center
         b3 = B.addPoint('b3', up(b2, CD.back_shoulder_height)) #shoulder height reference point
         b4 = B.addPoint('b4', right(b2, CD.back_waist/2.0)) #back waist side reference point
-        b5 = B.addPoint('b5', rightmostP(intersectCircles(b2, CD.back_shoulder_balance, b1, CD.back_shoulder_width))) #back shoulder point
-
+        b5 = B.addPoint('b5', highestP(onCircleAtX(b2, CD.back_shoulder_balance, b1.x + CD.back_shoulder_width/2.0))) #back shoulder tip
         b6 = B.addPoint('b6', leftmostP(onCircleAtY(b5, CD.shoulder, b3.y))) #back neck point
         b7 = B.addPoint('b7', lowestP(onCircleAtX(b6, CD.back_underarm_balance, b1.x + CD.across_back/2.0))) #back underarm point
         b8 = B.addPoint('b8', (b1.x, b7.y)) #back undearm center
