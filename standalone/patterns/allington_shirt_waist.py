@@ -82,12 +82,14 @@ It was adapted from Sara May Allington's 'Dressmaking',  1917.""")
         bodice = self.addPattern('bodice')
 
         #create pattern pieces,  assign an id lettercd ..
-        A = bodice.addPiece('front', 'A', fabric = 2, interfacing = 0, lining = 0)
-        B = bodice.addPiece('back', 'B', fabric = 2, interfacing = 0, lining = 0)
-        C = bodice.addPiece('sleeve', 'C', fabric = 2, interfacing = 0, lining = 0)
-        D = bodice.addPiece('cuff', 'D', fabric = 2, interfacing = 0, lining = 0)
-        E = bodice.addPiece('waistband_front', 'E', fabric = 2, interfacing = 1, lining = 0)
-        F = bodice.addPiece('waistband_back', 'F', fabric = 4, interfacing = 2, lining = 0)
+        A = bodice.addPiece('Bodice Front', 'A', fabric = 2, interfacing = 0, lining = 0)
+        B = bodice.addPiece('Bodice Back', 'B', fabric = 2, interfacing = 0, lining = 0)
+        C = bodice.addPiece('Sleeve', 'C', fabric = 2, interfacing = 0, lining = 0)
+        D = bodice.addPiece('Cuff', 'D', fabric = 2, interfacing = 1, lining = 0)
+        E = bodice.addPiece('Waistband Front', 'E', fabric = 2, interfacing = 1, lining = 0)
+        F = bodice.addPiece('Waistband Back', 'F', fabric = 4, interfacing = 1, lining = 0)
+        G = bodice.addPiece('Sleeve Under Placket', 'G', fabric = 2, interfacing = 0, lining = 0)
+        H = bodice.addPiece('Sleeve Over Placket', 'H', fabric = 2, interfacing = 0, lining = 0)
 
         #pattern points
         # x, y coordinates are always passed as a two-item list like this: (23.6, 67.0)
@@ -106,16 +108,28 @@ It was adapted from Sara May Allington's 'Dressmaking',  1917.""")
         BUC = B.addPoint('BUC', (BNC.x, BAS.y)) #back underarm center
         BUS = B.addPoint('BUS', left(BUC, CD.back_bust/2.0)) #back underarm side
 
-        b1 = B.addPoint('b1', BNC) #B
-        b2 = B.addPoint('b2', down(b1, 1.05 * distance(b1, BWC))) #A
-        b3 = B.addPoint('b3', left(BUC, 1.05 * distance(BUC, BAS))) #E
-        b4 = B.addPoint('b4', left(BUC, 1.1 * distance(BUC, BUS)))
-        b5 = B.addPoint('b5', onLineAtLength(BNS, BST, 0.05 * CD.shoulder)) #H
-        b6 = B.addPoint('b6', left(BST, 0.2 * CD.shoulder)) #I
-        b7 = B.addPoint('b7', midPoint(b4, b3)) #T on back bodice B
-        b8 = B.addPoint('b8', (b7.x, b2.y)) #U
-        b9 = B.addPoint('b9', right(b8, 0.1 * CD.back_waist/2.0)) #V - back waist side
-        b10 = B.addPoint('b10', down(b7, 0.12 * CD.side))
+        b1 = B.addPoint('b1', BNC) #B - new back neck center
+        b2 = B.addPoint('b2', down(b1, 1.05 * distance(b1, BWC))) #A - new back waist center
+        #b3 = B.addPoint('b3', left(BUC, 1.05 * distance(BUC, BAS))) #E - new back armscye
+        b3 = B.addPoint('b3', BAS) #E - back armscye
+        b4 = B.addPoint('b4', left(BUC, 1.05 * distance(BUC, BUS))) #new back underarm side 1
+        b5 = B.addPoint('b5', onLineAtLength(BNS, BST, 0.05 * CD.shoulder)) #H - new back neck side
+        #b6 = B.addPoint('b6', left(BST, 0.2 * CD.shoulder)) #I - new back shoulder tip
+        b6 = B.addPoint('b6', extendLine(BNS, BST, 0.1 * CD.shoulder)) #back shoulder tip
+        b7 = B.addPoint('b7', midPoint(b4, b3)) #T on back bodice B - temp back underarm side 2
+        #b8 = B.addPoint('b8', (b7.x, b2.y)) #U - temp back waist side
+        b8 = B.addPoint('b8', left(BWC, 1.05 * CD.back_waist/2.0)) #U - temp back waist side
+        #b9 = B.addPoint('b9', right(b8, 0.1 * CD.back_waist/2.0)) #V - new back waist side
+        b9 = B.addPoint('b9', (b8.x, b2.y)) #V - new back waist side
+        #b10 = B.addPoint('b10', down(b7, 0.12 * CD.side)) # new lowered back underarm side
+        b10 = B.addPoint('b10', down(b4, 0.12 * CD.side)) # new lowered back underarm side
+        #back shoulder dart
+        pnt1 = midPoint(BST, BNS)
+        bD1 = B.addPoint('bD1', polar(pnt1, distance(BST, BAS)/3.0, angleOfLine(BNS, BST) - ANGLE90))
+        bD1.i = B.addPoint('bD1.i', onLineAtLength(pnt1, BNS, 0.05 * CD.shoulder))
+        bD1.o = B.addPoint('bD1.o', onLineAtLength(pnt1, BST, 0.05 * CD.shoulder))
+        extendDart(b6, bD1, b5)
+        foldDart(bD1, b5) #creates bD1.m for seamline, bD1.ic & bD1.oc for dartline
 
         #Back B control points
         #back neck control points from b5 to b1
@@ -128,9 +142,11 @@ It was adapted from Sara May Allington's 'Dressmaking',  1917.""")
         b10.addInpoint(down(b10, length))
         #back armscye points from b10 to b3 to b6
         b10.addOutpoint(right(b10, distance(b10, b3)/3.0))
-        b3.addOutpoint(polar(b3, distance(b3, b6)/3.0, (angleOfLine(b10, b3) + angleOfLine(b3, BNS))/2.0))
+        b3.addOutpoint(polar(b3, distance(b3, b6)/3.0, angleOfLine(b3, BNS)))
         b3.addInpoint(polar(b3, distance(b3, b10)/3.0, angleOfLine(b3.outpoint, b3)))
         b6.addInpoint(polar(b6, distance(b3, b6)/6.0, angleOfLine(b5, b6) - ANGLE90)) #short control handle
+
+
 
         #---Front A---#
         FBC = A.addPoint('FBC', left(BUC, CD.bust/2.0)) #front bust center
@@ -148,38 +164,59 @@ It was adapted from Sara May Allington's 'Dressmaking',  1917.""")
         FUS = A.addPoint('FUS', right(FUC, CD.front_underarm/2.0))
         FBS = A.addPoint('FBS', rightmostP(onCircleTangentFromOutsidePoint(FBP, CD.front_bust/2.0 - distance(FBC, FBP), FUS))) #bust side is where line from bust point is perpendicular to line through FUS
 
-        a1 = A.addPoint('a1', down(FNC, distance(FNC, FUC)/4.0)) #S
-        a2 = A.addPoint('a2', extendLine(a1, FWC, distance(BWC, b2))) #X
-        a3 = A.addPoint('a3', right(FUC, 1.05 * distance(FUC, FAS))) #L - front armscye + 5% ease
-        a4 = A.addPoint('a4', right(FUS, 1.2 * distance(BUS, b7))) #K - front underarm side + 10% ease
-        a5 = A.addPoint('a5', onLineAtLength(FNS, FST, 0.05 * CD.shoulder)) #P
-        a6 = A.addPoint('a6', right(FST, 0.1 * CD.shoulder)) #N
-        a7 = A.addPoint('a7', polar(a4, distance(b4, b7), angleOfLine(FBP, FBS))) #T
-        a8 = A.addPoint('a8', down(a4, distance(b10, b8)))
-        a9 = A.addPoint('a9', left(a8, distance(b8, b9))) #W - front waist side
-        a10 = A.addPoint('a10', down(FBP, distance(FBC, a2))) #front waist under bust point
-        a11 = A.addPoint('a11', onLineAtX(FBP, FBS, FUS.x))
-        a12 = A.addPoint('a12', a9) #copy a9
+        a1 = A.addPoint('a1', (FNC.x - 0.05*CD.front_underarm/2.0, FNC.y + distance(FNC, FUC)/4.0)) #S - new front neck center
+        a2 = A.addPoint('a2', (a1.x,  FWC.y + distance(BWC, b2))) #X - new front waist center
+        #a3 = A.addPoint('a3', right(FUC, 1.1 * distance(FUC, FAS))) #L - front armscye + 10% ease
+        a3 = A.addPoint('a3', FAS) #a3 = front armscye
+        a4 = A.addPoint('a4', right(FUC, 1.05 * CD.front_underarm/2.0)) #K - temp front underarm side
+        a5 = A.addPoint('a5', onLineAtLength(FNS, FST, 0.05 * CD.shoulder)) #P - new front neck side
+        #a6 = A.addPoint('a6', right(FST, 0.05 * CD.shoulder)) #N - new front shoulder tip
+        a6 = A.addPoint('a6', FST) #N - new front shoulder tip
+        #a7 = A.addPoint('a7', polar(a4, distance(b4, b7), angleOfLine(FBP, FBS))) #T ---IS THIS NEEDED ?????
+        a7 = A.addPoint('a7', extendLine(FBP, FBS, 0.05 * CD.front_bust/2.0)) #new front bust side
+        #a8 = A.addPoint('a8', down(a4, distance(BUC, b2))) # temp front waist side 1
+        #a8 = A.addPoint('a8', down(a4, distance(BUC, b2))) # temp front waist side 1
+        a8 = A.addPoint('a8', onLineAtLength(a4, a7, distance(BUC, b2))) # temp front waist side 1
+        #a9 = A.addPoint('a9', left(a8, distance(b8, b9))) #W - temp front waist side 2
+        #a9 = A.addPoint('a9', left(a8, abs(b4.x - b9.x))) #W - temp front waist side 2
+        a9 = A.addPoint('a9', polar(a8, abs(b4.x - b9.x), angleOfLine(a4, a8) + ANGLE90)) #W - temp front waist side 2
+        a10 = A.addPoint('a10', onLineAtLength(a4, a8, distance(b4, b10))) #new lowered front underarm side
+        #a11 = A.addPoint('a11', onLineAtX(FBP, FBS, FUS.x)) #calculation point on bust line
+        #a12 = A.addPoint('a12', a9) #copy a9 (temp front waist) as marker for comparison
+        #a13 = A.addPoint('a13', down(FBP, distance(FBC, a2))) #front waist under bust point
+
+        #rotate side seam
+        #b/w a9 front waist side to a4 front underarm side
+        length = distance(a9, a10)/3.0
+        a10.addInpoint(extendLine(a4, a10, length))
+        #a9.addOutpoint(up(a9, length))
+        a9.addOutpoint(polar(a9, length, angleOfLine(a10.inpoint, a10)))
+        #a10.addInpoint(down(a10, length))
+        #slashAndSpread(a4, -angleOfVector(a11, FUS, a7), a9, a9.outpoint, a4.inpoint)
+        slashAndSpread(a4, -angleOfVector(FBS, a4, a7), a9, a9.outpoint, a10.inpoint, a10)
+
+        #create curved front waistline
+        a11 = A.addPoint('a11', down(FNS, distance(FNS, a9)))
+        a12 = A.addPoint('a12', (a2.x, a11.y)) #new lowered front waist center
+        a13 = A.addPoint('a13', polar(FNS, distance(FNS, a9), (angleOfLine(FNS, a9) + angleOfLine(FNS, a11))/2.0))
 
         #front control points - path runs counterclockwise from front neck center a1
-        #b/w a9 front waist side to a4 front underarm side
-        length = distance(a9, a4)/3.0
-        a9.addOutpoint(up(a9, length))
-        a4.addInpoint(down(a4, length))
-        #rotate side seam
-        slashAndSpread(a4, -angleOfVector(a11, FUS, FBS), a9, a9.outpoint, a4.inpoint)
         #b/w a5 front neck side to a1 front neck center
         length = distance(a5, a1)/3.0
         a1.addInpoint(right(a1, 0.7 * abs(a1.x - a5.x)))
         a5.addOutpoint(polar(a5, length, angleOfLine(a5, a6) + ANGLE90))
-        #b/w a10 front waist center to a9 front waist side
-        length = distance(a10, a9)/3.0
-        a10.addOutpoint(right(a10, 2 * length)) #control handle line is perpendicular to line a2-a1
-        a9.addInpoint(polar(a9, length/2.0, angleOfLine(a4, a9) + ANGLE90))
-        #b/w a4 to a3 to a6 armscye
-        a4.addOutpoint(polar(a4, distance(a4, a3)/3.0, angleOfLine(a9, a4) - ANGLE90))
-        a3.addOutpoint(polar(a3, distance(a3, a6)/3.0, (angleOfLine(a4, a3) + angleOfLine(a3, FNS))/2.0))
-        a3.addInpoint(polar(a3, distance(a3, a4)/3.0, angleOfLine(a3.outpoint, a3)))
+        #b/w a11 to a13 on front waistline
+        length = distance(a11, a13)/3.0
+        a11.addOutpoint(right(a11, length))
+        a13.addInpoint(polar(a13, length, angleOfLine(FNS, a13) + ANGLE90))
+        #b/w a13 on waistline & a9 front waist side
+        length = distance(a13, a9)/3.0
+        a13.addOutpoint(polar(a13, length, angleOfLine(a13.inpoint, a13)))
+        a9.addInpoint(polar(a9, length, angleOfLine(a9.outpoint, a9) + ANGLE90))
+        #b/w a10 to a3 to a6 armscye
+        a10.addOutpoint(polar(a10, distance(a10, a3)/3.0, angleOfLine(a10.inpoint, a10) - ANGLE90))
+        a3.addInpoint(polar(a3, distance(a3, a10)/3.0, angleOfLine(FNS, a3)))
+        a3.addOutpoint(polar(a3, distance(a3, a6)/3.0, angleOfLine(a3, FNS)))
         a6.addInpoint(polar(a6, distance(a3, a6)/6.0, angleOfLine(a5, a6) + ANGLE90)) #short control handle
 
         #sleeve C
@@ -238,27 +275,55 @@ It was adapted from Sara May Allington's 'Dressmaking',  1917.""")
         c5.addOutpoint(polar(c5, length, angleOfLine(c4, c5)))
         c6.addInpoint(polar(c6, length, angleOfLine(c6, c5.outpoint)))
 
-        #add points for sleeve cuff opening
-        c23 = C.addPoint('c23', right(c4, 0.75 * distance(c4, c8))) #W
-        c24 = C.addPoint('c24', up(c23, distance(c4, c3)/3.0)) #X - was V
-        c25 = C.addPoint('c25', onCurveAtX(points2List(c22, c22.inpoint, c9, c9.outpoint), c23.x)) #Y - new point
-        c26 = C.addPoint('c26', down(c25, SEAM_ALLOWANCE))
+        #sleeve dart
+        back_curve_length = distance(c4, c5) + curveLength(points2List(c5, c5.outpoint, c6.inpoint, c6))
+        front_curve_length = distance(c9, c12) + curveLength(points2List(c14, c14.outpoint, c12.inpoint, c12))
+        dart_width = front_curve_length - back_curve_length
+        pnt1 = onLineAtLength(c9, c12, distance(c4, c5))
+        pnt2 = extendLine(c9, pnt1, dart_width)
+        pnt3 = midPoint(pnt1, pnt2)
+        pnt4 = polar(pnt3, distance(c12, c5)/5.0, angleOfLine(pnt1, pnt2) - ANGLE90)
+        cD1 = C.addPoint('cD1', pnt4)
+        cD1.o = C.addPoint('cD1.o', pnt1)
+        cD1.i = C.addPoint('cD1.i', pnt2)
+        extendDart(c9, cD1, c12.inpoint, extension=1/5.0)
+        foldDart(cD1, c12.inpoint) #fold dart towards c12.inpoint - adds cD1.ic, cD1.oc, cD1.m
+        #control points b/w c14 & cD1.i
+        length = distance(c14, cD1.i)/3.0
+        cD1.i.addInpoint(polar(cD1.i, length/2.0, angleOfLine(cD1, cD1.i) - ANGLE90))
+        length = distance(cD1.o, c9)/3.0
+        cD1.o.addOutpoint(polar(cD1.o, length/2.0, angleOfLine(cD1, cD1.o) + ANGLE90))
+        c9.addInpoint(onLineAtLength(c9, cD1.o, length))
 
-        #cuff D
+
+        #add points for sleeve cuff opening
+        c23 = C.addPoint('c23', right(c4, 0.25 * distance(c4, c8))) #W
+        c24 = C.addPoint('c24', up(c23, distance(c4, c3)/3.0)) #X - was V
+        c25 = C.addPoint('c25', onCurveAtX(points2List(c22, c22.outpoint, c4.inpoint, c4), c23.x)) #Y - slash at wristline
+        c26 = C.addPoint('c26', down(c25, SEAM_ALLOWANCE))
+        c27 = C.addPoint('c27', cD1.m)
+
+        #---cuff D---
         d1 = D.addPoint('d1', (0, 0))
-        d2 = D.addPoint('d2', right(d1, CD.hand + 0.25 * CD.wrist))
-        d3 = D.addPoint('d3', down(d2, 0.35 * CD.wrist))
-        d4 = D.addPoint('d4', up(d3, 0.08 * CD.wrist))
-        d5 = D.addPoint('d5', left(d3, 0.15 * CD.wrist))
-        d6 = D.addPoint('d6', down(d1, 0.35 * CD.wrist))
-        d7 = D.addPoint('d7', right(d6, 0.15 * CD.wrist))
-        d8 = D.addPoint('d8', up(d6, 0.08 * CD.wrist))
-        length1 = 0.7*distance(d1, d6)
-        length2 = 0.075 * CD.wrist
-        d9 = D.addPoint('d9', (d1.x + 0.1 * CD.wrist, d1.y + length1))
-        d10 = D.addPoint('d10', right(d9, length2))
-        d11 = D.addPoint('d11', (d2.x - 0.1 * CD.wrist, d2.y + length1))
-        d12 = D.addPoint('d12', left(d11, length2))
+        d2 = D.addPoint('d2', right(d1, CD.hand + 0.25 * CD.wrist)) # cuff width
+        d3 = D.addPoint('d3', down(d2, 0.35 * CD.wrist)) #cuff height
+        d4 = D.addPoint('d4', up(d3, distance(d2, d3)/3.0)) #start cuff curved corner 1
+        d5 = D.addPoint('d5', left(d3, distance(d3, d4))) #end cuff curved corner 1
+        d6 = D.addPoint('d6', down(d1, distance(d2, d3))) #cuff height
+        d7 = D.addPoint('d7', right(d6, distance(d3, d5))) #end cuff curved corner 2
+        d8 = D.addPoint('d8', up(d6, distance(d3, d4))) #start cuff curved corner 2
+        #buttonhole
+        buttonhole_startx = 0.1 * CD.wrist #place buttonhole at 10% cuff width
+        buttonhole_starty = 0.55*distance(d1, d6) #place buttonhole at 70% cuff height
+        buttonhole_width = 0.08 * CD.wrist #buttonhole length is 8% cuff width
+        d9 = D.addPoint('d9', (d1.x + buttonhole_startx, d1.y + buttonhole_starty))
+        d10 = D.addPoint('d10', right(d9, buttonhole_width))
+        #button
+        pnt1 = (d2.x - buttonhole_startx, d9.y)
+        d11 = D.addPoint('d11', polar(pnt1, buttonhole_width/3.0, ANGLE45))
+        d12 = D.addPoint('d12', polar(pnt1, buttonhole_width/3.0, ANGLE225))
+        d13 = D.addPoint('d13', polar(pnt1, buttonhole_width/3.0, ANGLE135))
+        d14 = D.addPoint('d14', polar(pnt1, buttonhole_width/3.0, ANGLE315))
         #cuff D control points
         length = distance(d4, d5)/3.0
         d4.addOutpoint(down(d4, length))
@@ -266,17 +331,54 @@ It was adapted from Sara May Allington's 'Dressmaking',  1917.""")
         d7.addOutpoint(left(d7, length))
         d8.addInpoint(down(d8, length))
 
-        #---waistband-front E---#
+        #---waistband-front E---
         e1 = E.addPoint('e1', (0, 0))
-        e2 = E.addPoint('e2', down(e1, CD.bust_length/4.0))
-        e3 = E.addPoint('e3', right(e2, CD.front_waist/2.0))
-        e4 = E.addPoint('e4', up(e3, distance(e1, e2)))
+        e2 = E.addPoint('e2', right(e1, 1.1 * CD.front_waist/2.0 + 2.5 * buttonhole_width)) #waistband width (incl.10% ease)
+        e3 = E.addPoint('e3', down(e2, CD.bust_length/4.0)) #waistband height
+        e4 = E.addPoint('e4', down(e1, distance(e2, e3)))
+        #waist centerfront line
+        e5 = E.addPoint('e5', left(e2, 2.5 * buttonhole_width))
+        e6 = E.addPoint('e6', down(e5, distance(e1, e4)))
+        #buttonhole1
+        buttonhole_startx = 0.75 * buttonhole_width
+        buttonhole_starty = 0.5 * distance(e1, e4)
+        e7 = E.addPoint('e7', (e5.x + buttonhole_startx, e1.y + buttonhole_starty))
+        e8 = E.addPoint('e8', right(e7, buttonhole_width))
+        #button1
+        pnt1 = e8
+        e9 = E.addPoint('e9', polar(pnt1, buttonhole_width/3.0, ANGLE45))
+        e10 = E.addPoint('e10', polar(pnt1, buttonhole_width/3.0, ANGLE225))
+        e11 = E.addPoint('e11', polar(pnt1, buttonhole_width/3.0, ANGLE135))
+        e12 = E.addPoint('e12', polar(pnt1, buttonhole_width/3.0, ANGLE315))
+        #buttonhole2
+        e13 = E.addPoint('e13', (e5.x - 0.75*buttonhole_width, e7.y))
+        e14 = E.addPoint('e14', left(e13, buttonhole_width))
+        #button2
+        pnt2 = e14
+        e15 = E.addPoint('e15', polar(pnt2, buttonhole_width/3.0, ANGLE45))
+        e16 = E.addPoint('e16', polar(pnt2, buttonhole_width/3.0, ANGLE225))
+        e17 = E.addPoint('e17', polar(pnt2, buttonhole_width/3.0, ANGLE135))
+        e18 = E.addPoint('e18', polar(pnt2, buttonhole_width/3.0, ANGLE315))
 
-        #---waistband-back F---#
+        #---Waistband-Back F---#
         f1 = F.addPoint('f1', (0, 0))
-        f2 = F.addPoint('f2', down(f1, distance(e1, e2)))
-        f3 = F.addPoint('f3', right(f2, 1.1 * CD.back_waist))
-        f4 = F.addPoint('f4', up(f3, distance(f1, f2)))
+        f2 = F.addPoint('f2', right(f1, 1.05 * CD.back_waist)) #back waistband width
+        f3 = F.addPoint('f3', down(f2, distance(e1, e4))) #back waistband height
+        f4 = F.addPoint('f4', left(f3, distance(f1, f2)))
+
+        #---Sleeve Underplacket G---#
+        g1 = G.addPoint('g1', (0, 0))
+        g2 = G.addPoint('g2', right(g1, distance(c4, c7))) #2 * placket width
+        g3 = G.addPoint('g3', down(g2, distance(c24, c26))) #placket height
+        g4 = G.addPoint('g4', left(g3, distance(g1, g2)))
+
+        #---Sleeve Over Placket H---#
+        h1 = H.addPoint('h1', g1)
+        h2 = H.addPoint('h2', right(g1, 2 * distance(g1, g2))) #overplacket width = 2*underplacket width
+        h3 = H.addPoint('h3', down(h2, distance(g1, g4))) #overplacket height
+        h4 = H.addPoint('h4', left(h3, distance(h1, h2)))
+        h5 = H.addPoint('h5', midPoint(h1, h2))
+        h6 = H.addPoint('h6', up(h5, 0.2 * distance(h1, h4))) #overplacket point
 
         #all points are defined,  now create marks, labels, grainlines, seamlines, cuttinglines, darts, etc.
         #Bodice Front A
@@ -287,7 +389,7 @@ It was adapted from Sara May Allington's 'Dressmaking',  1917.""")
         aG2 = down(aG1, 0.75 * CD.front_waist_length)
         A.addGrainLine(aG1, aG2)
         A.addGridLine(['M', FUC, 'L', FUS, 'L', FUW, 'L', FSH, 'L', FWC, 'L', FWS, 'M', FBP, 'L', FNS, 'L', FAS, 'M', FWC, 'L', FST, 'L', FNS, 'M', FBC, 'L', FBP, 'L', FBS])
-        pathparts = (['M', a1, 'L', a2, 'L', a10, 'C', a9, 'C', a4, 'C', a3, 'C', a6, 'L', a5, 'C', a1])
+        pathparts = (['M', a1, 'L', a12, 'L', a11, 'C', a13, 'C', a9, 'C', a10, 'C', a3, 'C', a6, 'L', a5, 'C', a1])
         A.addSeamLine(pathparts)
         A.addCuttingLine(pathparts)
 
@@ -300,7 +402,8 @@ It was adapted from Sara May Allington's 'Dressmaking',  1917.""")
         bG2 = down(bG1, 0.75 * CD.back_waist_length)
         B.addGrainLine(bG1, bG2)
         B.addGridLine(['M', BST, 'L', BSW, 'L', BSH, 'L', BWC, 'L', BWS, 'M', BWC, 'L', BST, 'L', BNS, 'L',BAS, 'M', BUC, 'L', b4, 'M', b7, 'L', b8, 'L', b9])
-        pth = (['M', b1, 'L', b2, 'L', b9, 'C', b10, 'C', b3, 'C', b6, 'L', b5, 'C', b1])
+        B.addDartLine(['M', bD1.oc, 'L', bD1, 'L', bD1.ic])
+        pth = (['M', b1, 'L', b2, 'L', b9, 'C', b10, 'C', b3, 'C', b6, 'L', bD1.o, 'L', bD1.m, 'L', bD1.i, 'L', b5, 'C', b1])
         B.addSeamLine(pth)
         B.addCuttingLine(pth)
 
@@ -311,47 +414,77 @@ It was adapted from Sara May Allington's 'Dressmaking',  1917.""")
         cG2 = dPnt((cG1.x, c9.y*0.75))
         C.addGrainLine(cG1, cG2)
         C.addGridLine(['M', c15, 'L', c2, 'M', c15, 'L', c19, 'M', c2, 'L', c9, 'M', c3, 'L', c12, 'M', c6, 'L', c14, 'M', c18, 'L', c16, 'M', c19, 'L', c17])
+        C.addDartLine(['M', cD1.ic, 'L', cD1, 'L', cD1.oc])
         mpth = C.addMarkingLine(['M', c24, 'L', c26])
         mpth.name = 'SleeveSlash'
-        pathparts = (['M', c6, 'C', c18, 'C', c21, 'C', c19, 'C', c14, 'C', c12, 'L', c9, 'C', c22, 'C', c4, 'L', c5, 'C', c6])
+        pathparts = (['M', c6, 'C', c18, 'C', c21, 'C', c19, 'C', c14, 'C', cD1.i, 'L', cD1.m, 'L', cD1.o, 'C', c9, 'C', c22, 'C', c4, 'L', c5, 'C', c6])
         C.addSeamLine(pathparts)
         C.addCuttingLine(pathparts)
 
         #Bodice Cuff D
-        D.setLetter((d2.x/10.0, d6.y/2.0), scaleby=5)
-        D.setLabelPosition((d2.x/4.0, d6.y/5.0))
-        dG1 = (d2.x/4.0, d6.y*0.75)
-        dG2 = right(dG1, distance(d1, d2)/2.0)
+        D.setLetter((0.3 * d2.x, 0.6 * d6.y), scaleby=4)
+        D.setLabelPosition((0.5 * d2.x, 0.2 * d6.y))
+        dG1 = (0.25 * d2.x, 0.75 * d6.y)
+        dG2 = right(dG1, 0.5 * distance(d1, d2))
         D.addGrainLine(dG1, dG2)
         D.addGridLine(['M', d1, 'L', d2, 'L', d4, 'L', d5, 'L', d7, 'L', d8, 'L', d1])
-        # buttonholes
-        mpth = D.addMarkingLine(['M', d9, 'L', d10, 'M', d11, 'L', d12])
-        mpth.name = 'CuffButtonHoles'
+        # buttonholes & buttons
+        mpth = D.addMarkingLine(['M', d9, 'L', d10, 'M', d11, 'L', d12, 'M', d11, 'L', d12, 'M', d13, 'L', d14])
+        mpth.name = 'Cuff D Button & Buttonhole'
+        #seamline & cuttingline
         pathparts = (['M', d1, 'L', d2, 'L', d4, 'C', d5, 'L', d7, 'C', d8, 'L', d1])
         D.addSeamLine(pathparts)
         D.addCuttingLine(pathparts)
 
         #Waistband Front E
-        pnt1 = dPnt((e1.x + distance(e1, e4)/4.0, e1.y + 0.75 * distance(e1, e2)))
-        E.setLetter((pnt1.x, pnt1.y), scaleby=5)
-        E.setLabelPosition((pnt1.x + distance(e1, e4)/4.0, e1.y + distance(e1, e2)/4.0))
-        eG1 = dPnt((e1.x + 0.75 * distance(e1, e4), e1.y + distance(e1, e2)/5.0))
-        eG2 = down(eG1, 0.75 * distance(e1, e2))
+        #letter & label
+        pnt1 = dPnt((0.15 * distance(e1, e2), 0.75 * distance(e1, e4)))
+        E.setLetter((pnt1.x, pnt1.y), scaleby=4)
+        E.setLabelPosition((0.25 * distance(e1, e2), 0.25 * distance(e1, e4)))
+        #grainline
+        eG1 = dPnt((0.5 * distance(e1, e2), 0.1 * distance(e1, e4)))
+        eG2 = down(eG1, 0.75 * distance(e1, e4))
         E.addGrainLine(eG1, eG2)
+        #center fold line, buttons, buttonholes
+        mpth = E.addMarkingLine(['M', e5, 'L', e6, 'M', e7, 'L', e8, 'M', e9, 'L', e10, 'M', e11, 'L', e12, 'M', e13, 'L', e14, 'M', e15, 'L', e16, 'M', e17, 'L', e18])
+        mpth.name = 'Waistband E Center Line, Buttons, Buttonholes'
+        #seamline & cuttingline
         pathparts = (['M', e1, 'L', e2, 'L', e3, 'L', e4, 'L', e1])
         E.addSeamLine(pathparts)
         E.addCuttingLine(pathparts)
 
         #Waistband Back F
-        pnt1 = dPnt((f1.x + distance(f1, f4)/4.0, f1.y + 0.75 * distance(f1, f2)))
-        F.setLetter((pnt1.x, pnt1.y), scaleby=5)
-        F.setLabelPosition((pnt1.x + distance(f1, f4)/4.0, f1.y + distance(f1, f2)/4.0))
-        fG1 = dPnt((f1.x + 0.75 * distance(f1, f4), f1.y + distance(f1, f2)/5.0))
-        fG2 = down(fG1, 0.75 * distance(f1, f2))
+        pnt1 = dPnt((0.25 * distance(f1, f2), 0.75 * distance(f1, f4)))
+        F.setLetter((pnt1.x, pnt1.y), scaleby=4)
+        F.setLabelPosition((0.4 * distance(f1, f2), 0.25 * distance(f1, f4)))
+        fG1 = dPnt((0.75 * distance(f1, f2), 0.15 * distance(f1, f4)))
+        fG2 = down(fG1, 0.75 * distance(f1, f4))
         F.addGrainLine(fG1, fG2)
         pathparts = (['M', f1, 'L', f2, 'L', f3, 'L', f4, 'L', f1])
         F.addSeamLine(pathparts)
         F.addCuttingLine(pathparts)
+
+        #Sleeve Placket G
+        pnt1 = dPnt((0.2 * distance(g1, g2), 0.4 * distance(g1, g4)))
+        G.setLetter((pnt1.x, pnt1.y), scaleby=2)
+        G.setLabelPosition((0.1 * distance(g1, g2), 0.5 * distance(g1, g4)))
+        gG1 = dPnt((0.8 * distance(g1, g2), 0.15 * distance(g1, g4)))
+        gG2 = down(gG1, 0.75 * distance(g1, g4))
+        G.addGrainLine(gG1, gG2)
+        pathparts = (['M', g1, 'L', g2, 'L', g3, 'L', g4, 'L', g1])
+        G.addSeamLine(pathparts)
+        G.addCuttingLine(pathparts)
+
+        #Sleeve Placket H
+        pnt1 = dPnt((0.2 * distance(h1, h2), 0.4 * distance(h1, h4)))
+        H.setLetter((pnt1.x, pnt1.y), scaleby=2)
+        H.setLabelPosition((0.1 * distance(h1, h2), 0.5 * distance(h1, h4)))
+        hG1 = dPnt((0.8 * distance(h1, h2), 0.15 * distance(h1, h4)))
+        hG2 = down(hG1, 0.75 * distance(h1, h4))
+        H.addGrainLine(hG1, hG2)
+        pathparts = (['M', h1, 'L', h6, 'L', h2, 'L', h3, 'L', h4, 'L', h1])
+        H.addSeamLine(pathparts)
+        H.addCuttingLine(pathparts)
 
         #call draw() to generate svg file
         self.draw()
