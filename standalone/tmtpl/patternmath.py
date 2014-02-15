@@ -1413,20 +1413,20 @@ def extendDart(p1, dart, p2, extension=1/3.0):
     Default extension is 1/3 distance from orig dart length to the line
     drawn between p1 & p2 after the dart is created
     """
-    #TODO: define class Dart
+    
     #rotate point 'p1' to p1_new where it would lie if dart were closed
     rotation_angle = angleOfVector(dart.i, dart, dart.o)
-    p1_new = dPnt(polar(dart, distance(dart, p1), angleOfLine(dart, p1) + rotation_angle))
-    ######slashAndSpread(dart, rotation_angle, p1_new)
-    #find intersection of dart leg and line p1_new to p2
+    p1_new = rotatePoint(dart, rotation_angle, p1)
+
+    #find intersection of dart inside leg and line p1_new to p2
     p3 = intersectLines(dart, dart.i, p1_new, p2)
+
     #new dart length at 1/3 distance from dart.i to p3
     new_dart_length = distance(dart, dart.i) + distance(dart.i, p3) * extension
+
     #update dart.i & dart.o
-    p4 = dPnt(onLineAtLength(dart, dart.i, new_dart_length))
-    p5 = dPnt(onLineAtLength(dart, dart.o, new_dart_length))
-    (dart.i.x, dart.i.y) = (p4.x, p4.y)
-    (dart.o.x, dart.o.y) = (p5.x, p5.y)
+    updatePoint(dart.i, onLineAtLength(dart, dart.i, new_dart_length))
+    updatePoint(dart.o, onLineAtLength(dart, dart.o, new_dart_length))
     return
 
 # ---control points---
