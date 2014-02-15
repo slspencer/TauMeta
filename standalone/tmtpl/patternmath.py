@@ -1381,24 +1381,25 @@ def foldReverseDart(dart, inside_pnt):
     dart.oc = inside dart leg at cuttingline (to be included in dartline path)
     dart.oc = outside dart leg at cuttingline (to be included in dartline path)
     '''
-    DART_LENGTH = distance(dart, dart.o)
-    DART_HALF_ANGLE = abs(angleOfVector(dart.o, dart, dart.i)) / 2.0
-    O_ANGLE = angleOfLine(dart, dart.o)
-    I_ANGLE = angleOfLine(dart, dart.i)
+	mid_pnt1 = midPoint(dart.i, dart.o)
+    dart_length = distance(dart, dart.o)
+    dart_half_angle = abs(angleOfVector(dart.i, dart, dart.o)/2.0)
+    o_angle = angleOfLine(dart, dart.o)
+    i_angle = angleOfLine(dart, dart.i)
+
     #determine which direction the dart will be folded
-    if I_ANGLE <= O_ANGLE:
-        FOLD_ANGLE = I_ANGLE - DART_HALF_ANGLE
-    else:
-        FOLD_ANGLE = I_ANGLE + DART_HALF_ANGLE
-    #TODO:find intersection of fold & armscye b/w bd2.i & inside_pnt
-    #TODO:use intersectLineCurve()
-    temp_pnt = dPnt(polar(dart, DART_LENGTH, FOLD_ANGLE))
-    fold_pnt = dPnt(intersectLines(dart.i, inside_pnt, dart, temp_pnt))
-    mid_pnt1 = dPnt(midPoint(dart.i, dart.o))
-    mid_pnt2 = dPnt(onLineAtLength(dart, mid_pnt1, distance(dart, fold_pnt)))
-    dart.m = dPnt(extendLine(dart, mid_pnt1, -distance(mid_pnt1, mid_pnt2))) #dart midpoint at seamline
-    dart.oc = dPnt(extendLine(dart, dart.o, -SEAM_ALLOWANCE)) #dart outside leg at cuttingline
-    dart.ic = dPnt(extendLine(dart, dart.i, -SEAM_ALLOWANCE)) #dart inside leg at cuttingline
+	if ((dart.i.x > dart.x) and (dart.i.y < dart.y)) or ((dart.i.x < dart.x) and (dart.i.y > dart.y)):
+        #x & y vectors not the same sign
+        dart_half_angle = -dart_half_angle
+
+	fold_angle = i_angle + dart_half_angle
+    temp_pnt = polar(dart, dart_length, fold_angle)
+    fold_pnt = intersectLineRay(dart.i, inside_pnt, dart, fold_angle)
+
+    mid_pnt2 = onLineAtLength(dart, mid_pnt1, distance(dart, fold_pnt))
+    dart.m = dPnt(extendLine(dart, mid_pnt1, -distance(mid_pnt1, mid_pnt2))) #dart midpoint at seamline moves 'in' instead of 'out'
+    dart.oc = dPnt(extendLine(dart, dart.o, -SEAM_ALLOWANCE)) #dart outside leg at cuttingline moves 'in' instead of 'out'
+    dart.ic = dPnt(extendLine(dart, dart.i, -SEAM_ALLOWANCE)) #dart inside leg at cuttingline moves 'in' instead of 'out'
     #create or update dart.angles
     dart.angle = angleOfVector(dart.i, dart, dart.o)
 
