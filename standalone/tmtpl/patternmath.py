@@ -379,10 +379,10 @@ def midPoint(p1, p2, n=0.5):
     return((p1.x + p2.x) * n, (p1.y + p2.y) * n)
 
 def rotatePoint(pivot, rotation_angle, pnt):
-	'''
-	Accepts pivot point, rotation angle, and single point to rotate.
-	Returns point after rotatation.
-	'''
+    '''
+    Accepts pivot point, rotation angle, and single point to rotate.
+    Returns point after rotatation.
+    '''
     return polar(pivot, distance(pivot, pnt), angleOfLine(pivot, pnt) + rotation_angle)
 
 # ---length---
@@ -1381,18 +1381,18 @@ def foldReverseDart(dart, inside_pnt):
     dart.oc = inside dart leg at cuttingline (to be included in dartline path)
     dart.oc = outside dart leg at cuttingline (to be included in dartline path)
     '''
-	mid_pnt1 = midPoint(dart.i, dart.o)
+    mid_pnt1 = midPoint(dart.i, dart.o)
     dart_length = distance(dart, dart.o)
     dart_half_angle = abs(angleOfVector(dart.i, dart, dart.o)/2.0)
     o_angle = angleOfLine(dart, dart.o)
     i_angle = angleOfLine(dart, dart.i)
 
     #determine which direction the dart will be folded
-	if ((dart.i.x > dart.x) and (dart.i.y < dart.y)) or ((dart.i.x < dart.x) and (dart.i.y > dart.y)):
+    if ((dart.i.x > dart.x) and (dart.i.y < dart.y)) or ((dart.i.x < dart.x) and (dart.i.y > dart.y)):
         #x & y vectors not the same sign
         dart_half_angle = -dart_half_angle
 
-	fold_angle = i_angle + dart_half_angle
+    fold_angle = i_angle + dart_half_angle
     temp_pnt = polar(dart, dart_length, fold_angle)
     fold_pnt = intersectLineRay(dart.i, inside_pnt, dart, fold_angle)
 
@@ -1413,7 +1413,7 @@ def extendDart(p1, dart, p2, extension=1/3.0):
     Default extension is 1/3 distance from orig dart length to the line
     drawn between p1 & p2 after the dart is created
     """
-    
+
     #rotate point 'p1' to p1_new where it would lie if dart were closed
     rotation_angle = angleOfVector(dart.i, dart, dart.o)
     p1_new = rotatePoint(dart, rotation_angle, p1)
