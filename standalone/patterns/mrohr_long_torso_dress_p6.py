@@ -63,7 +63,8 @@ class Design(designBase):
         FSH = A.addPoint('FSH', up(FWC, CD.front_shoulder_height)) #front shoulder height
         FBC = A.addPoint('FBC', up(FWC, CD.bust_length)) #bust center
         FBP = A.addPoint('FBP', left(FBC, CD.bust_distance/2.0)) #bust point
-        FST = A.addPoint('FST', leftmostP(intersectCircles(FWC, CD.front_shoulder_balance, FNC, CD.front_shoulder_width))) #front shoulder point
+        #FST = A.addPoint('FST', leftmostP(intersectCircles(FWC, CD.front_shoulder_balance, FNC, CD.front_shoulder_width))) #front shoulder point
+        FST = A.addPoint('FST', highestP(onCircleAtX(FWC, CD.front_shoulder_balance, FNC.x - CD.front_shoulder_width/2.0))) #front shoulder point
         FNS = A.addPoint('FNS', highestP(intersectCircles(FST, CD.shoulder, FBP, CD.bust_balance))) #front neck point
         FAS = A.addPoint('FAS', lowestP(onCircleAtX(FNS, CD.front_underarm_balance, FNC.x - CD.across_chest/2.0))) #front underarm point
         FUC = A.addPoint('FUC', (FNC.x, FAS.y)) #front undearm center
@@ -126,7 +127,8 @@ class Design(designBase):
         BWC = B.addPoint('BWC', down(BNC, CD.back_waist_length)) #back waist center
         BSH = B.addPoint('BSH', up(BWC, CD.back_shoulder_height)) #back shoulder height reference point
         t_BWS = B.addPoint('t_BWS', right(BWC, 0.55 * CD.back_waist)) #back waist side reference point - 5% ease
-        BST = B.addPoint('BST', rightmostP(intersectCircles(BWC, CD.back_shoulder_balance, BNC, CD.back_shoulder_width))) #back shoulder point
+        #BST = B.addPoint('BST', rightmostP(intersectCircles(BWC, CD.back_shoulder_balance, BNC, CD.back_shoulder_width))) #back shoulder point
+        BST = B.addPoint('BST', highestP(onCircleAtX(BWC, CD.back_shoulder_balance, BNC.x + CD.back_shoulder_width/2.0))) #back shoulder point
         BNS = B.addPoint('BNS', leftmostP(onCircleAtY(BST, 1.04 * CD.shoulder, BSH.y))) #back neck point - 4% ease in back shoulder seam
         BAS = B.addPoint('BAS', lowestP(onCircleAtX(BNS, CD.back_underarm_balance, BNC.x + CD.across_back/2.0))) #back underarm point
         BUC = B.addPoint('BUC', (BNC.x, BAS.y)) #back undearm center
