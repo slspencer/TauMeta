@@ -48,8 +48,8 @@ class Design(designBase):
         #get client data
         CD = self.CD #client data is prefaced with CD
         #
-        #create pattern called 'dress'
-        dress = self.addPattern('dress')
+        #create pattern called 'bodice'
+        bodice = self.addPattern('bodice')
         #
         #create pattern pieces
         A = bodice.addPiece('Front', 'A', fabric = 2, interfacing = 0, lining = 0)
@@ -57,13 +57,13 @@ class Design(designBase):
 
         #---Front A---#
         FNC = A.addPoint('FNC', (0.0, 0.0)) #front neck center
-        FWC = A.addPoint('FWC', down(FNC, CD.f_center_waist_length)) #front waist center
-        FSH = A.addPoint('FSH', up(FWC, CD.f_full_waist_length)) #front shoulder height
-        FSW = A.addPoint('FSW', left(FSH, CD.f_shoulder_width/2.0)) #front shoulder width
-        FAW = A.addPoint('FAW', left(FSH, CD.f_across_width)) #front acrosschest width
-        FFW = A.addPoint('FFW', left(FSH, CD.f_full_width)) #full front width
-        FBC = A.addPoint('FBC', down(FSH, CD.neck_to_bust_point)) #bust center
-        FBP = A.addPoint('FBP', left(FBC, CD.bust_point_to_bust_point/2.0)) #bust point
+        FWC = A.addPoint('FWC', down(FNC, CD.front_waist_length)) #front waist center
+        FSH = A.addPoint('FSH', up(FWC, CD.front_full_length)) #front shoulder height
+        FSW = A.addPoint('FSW', left(FSH, CD.front_shoulder_width/2.0)) #front shoulder width
+        FAW = A.addPoint('FAW', left(FSH, CD.across_chest/2.0)) #front acrosschest width
+        FBW = A.addPoint('FBW', left(FSH, CD.bust/2.0)) #full front (bust) width
+        FBP = A.addPoint('FBP', lowestP(onCircleAtX(FSH, CD.neck_to_bust_point, FNC.x - CD.bust_distance/2.0))) #bust center
+        FBC = A.addPoint('FBC', (FNC.x, FBP.y)) #bust point
         FUC = A.addPoint('FUC', up(FBC, 2.0*IN)) #front underarm center
         FFS = A.addPoint('FFS', right(FUC, 0.5 * (CD.bust_width - CD.f_full_width)/2.0)) # front fullbust side determines slope of line from bust point to side seam
         FBS = A.addPoint('FBS', polar(FBP, CD.bust_width/2.0 - distance(FBC, FBP), angleOfLine(FFC2, FBC) + ANGLE90)) #bust side
@@ -217,7 +217,7 @@ class Design(designBase):
         aG1 = dPnt(left(FUC, distance(FUC, pnt1)/4.0))
         aG2 = dPnt(down(aG1, 0.75 * distance(FNC, FWC)))
         A.addGrainLine(aG1, aG2)
-        A.addGridLine(['M', FFW, 'L', FSH, 'L', FWC, 'L', FST, 'L', FNS, 'M', FUC, 'L', FUS2, 'M', FNC, 'L', FST, 'M', FBC, 'L', FBP, 'L', FBS, 'M', FWC, 'L', t1_FWS, 'M', FBP, 'L', FNS, 'M', FUS2, 'L', t2_FWS])
+        A.addGridLine(['M', FBW, 'L', FSH, 'L', FSH, 'L', FWC, 'L', FWS, 'M', FUS, 'L', FUS2, 'M', FAC, 'L', FAS, 'M', FBC, 'L', FBP, 'L', FBS, 'M', FWC, 'L', t1_FWS, 'M', FBP, 'L', FNS, 'M', FUS2, 'L', t2_FWS])
         A.addDartLine(['M', FD1.ic, 'L', FD1, 'L', FD1.oc])
         pth = (['M', FNC, 'L', FWC, 'L', FD1.i, 'L', FD1.m, 'L', FD1.o,  'L', FWS, 'L', FUS2, 'C', FCS, 'L', FST, 'L', FNS, 'C', FNC])
         A.addSeamLine(pth)
