@@ -469,6 +469,15 @@ def angleOfChord(chord_width, radius):
     angle = 2 * asin(d_div_2r) # angle-usage:could be the rotation angle used in slashAndSpread to create a dart
     return angle
 
+def bisectVector(p1, v, p2):
+    """
+    Returns the bisecting angle for acute angles, specify p1 & p2 in clockwise direction
+    """
+    angle1 = angleOfLine(v, p1)
+    vector_angle = angleOfVector(p1, v, p2)
+    return angle1 + 0.5 * vector_angle
+
+
 #---slope---
 def slopeOfLine(p1, p2):
     """ Accepts two point objects and returns the slope """
@@ -1083,9 +1092,13 @@ def onCircleAtX(C, r, x):
     r as the radius,  and x to find the points on the circle
     Returns an array P which holds objects of class dPnt for each intersection
     """
+    #print 'C ', C.x, C.y
+    #print 'r ', r
+    #print 'x ', x
     C = dPnt(C)
     P = []
     if abs(x - C.x) > r:
+        print 'abs(x - C.x) > r ...', abs(x - C.x), ' > ', r
         print 'x is outside radius of circle in intersections.onCircleAtX()'
     else:
         translated_x = x - C.x # center of translated circle is (0, 0) as translated_x is the difference b/w C.x & x
@@ -1174,11 +1187,12 @@ def intersectLineCircle(C, r, P1, P2):
     P.p2 = p2
     return P
 
-def intersectChordCircle(C, r, P, chord_length):
-    ''' Accepts center of circle, radius of circle, a point on the circle, and chord length.  Returns a list of two points on the circle at chord_length distance away from original point'''
+def intersectChordCircle(C, P, chord_length):
+    ''' Accepts center of circle, a point on the circle, and chord length.  Returns a list of two points on the circle at chord_length distance away from original point'''
     C = dPnt(C)
     P = dPnt(P)
     d = chord_length
+    r = distance(C, P)
     # point on circle given chordlength & starting point=2*asin(d/2r)
     d_div_2r = d / (2.0 * r)
     angle = 2 * asin(d_div_2r)
@@ -1192,6 +1206,9 @@ def onCircleTangentFromOutsidePoint(C, r, P):
   Accepts C center of circle, r radius, and P point outside of circle.
   Returns two points where lines to point P are tangent to circle
   '''
+  #print 'C =', C.x,  C.y
+  #print 'P =', P.x, P.y
+  #print 'r =', r
   d = distance(C, P)
   l = sqrt(d*d - r*r)
   return intersectCircles(C, r, P, l)
@@ -1405,7 +1422,7 @@ def foldReverseDart(dart, inside_pnt):
 
     return
 
-def extendDart(p1, dart, p2, extension=1/3.0):
+def extendDart(p1, dart, p2, extension=1/4.0):
     """
     Finds optimum leg length to smooth the curve from p1 to p2
     Accepts p1 of class Point or coords,  dart of class Dart,  and p2 of class Point or coords
