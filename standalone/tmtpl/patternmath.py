@@ -1425,10 +1425,11 @@ def foldReverseDart(dart, inside_pnt):
 def extendDart(p1, dart, p2, extension=1/4.0):
     """
     Finds optimum leg length to smooth the curve from p1 to p2
-    Accepts p1 of class Point or coords,  dart of class Dart,  and p2 of class Point or coords
+    Accepts dart and two points p1 & p2 nearest points on both sides of dart, 0 < extension <=1
     dart.i & dart.o are updated to new longer point on dart legs
-    Default extension is 1/3 distance from orig dart length to the line
+    Default extension is 1/4 distance from orig dart length to the line
     drawn between p1 & p2 after the dart is created
+    Max extension = 1 creates straight line from p1 to p2 when dart is folded
     """
 
     #rotate point 'p1' to p1_new where it would lie if dart were closed
