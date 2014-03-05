@@ -1132,7 +1132,7 @@ def onCircleAtY(C, r, y):
         P.append(dPnt((x2, y)))
     return P
 
-def intersectLineCircle(C, r, P1, P2):
+def intersectLineCircle(P1, P2, C, r):
     """
     Finds intersection of a line segment and a circle.
     Accepts circle center point object C, radius r, and two line point objects P1 & P2
@@ -1143,13 +1143,20 @@ def intersectLineCircle(C, r, P1, P2):
     P1 = dPnt(P1)
     P2 = dPnt(P2)
 
-    P, p1, p2 = dPnt(("","")), dPnt(("","")), dPnt(("",""))
+    #print('C =', C.x, C.y)
+    #print('P1 =', P1.x, P1.y)
+    #print('P2 =', P2.x, P2.y)
+    #print('r =', r, 'pts', ', ', r / CM, 'cm')
+
+    p1, p2 = dPnt(("","")), dPnt(("",""))
+    P = []
 
     if P1.x == P2.x: #vertical line
         if abs(P1.x - C.x) > r:
             print 'no intersections for vertical line P1', P1.name, P1.x, P1.y, ',  P2', P2.name, P2.x, P2.y, ', and Circle', C.name, C.x, C.y, ',  radius', r
             return None
         else:
+            #print('Vertical line')
             p1.x = P1.x
             p2.x = P1.x
             p1.y = C.y + sqrt(r**2 - (P1.x - C.x)**2)
@@ -1159,6 +1166,7 @@ def intersectLineCircle(C, r, P1, P2):
             print 'no intersections for horizontal line P1', P1.name, P1.x, P1.y, ',  P2', P2.name, P2.x, P2.y, ', and Circle', C.name, C.x, C.y, ',  radius', r
             return None
         else:
+            #print('Horizontal line')
             p1.y = P1.y
             p2.y = P1.y
             p1.x = C.x + sqrt(r**2 - (P1.y - C.y)**2)
@@ -1173,18 +1181,20 @@ def intersectLineCircle(C, r, P1, P2):
             return None
         elif i == 0.0:
             # one intersection
+            #print('one intersection')
             mu = -b/(2.0 * a)
             p1.x, p1.y = P1.x + mu * (P2.x - P1.x), P1.y + mu * (P2.y - P1.y)
         elif i > 0.0:
             # two intersections
+			#print('two intersections')
             # first intersection
             mu1 = (-b + math.sqrt(i)) / (2.0*a)
             p1.x, p1.y = P1.x + mu1 * (P2.x - P1.x), P1.y + mu1 * (P2.y - P1.y)
             # second intersection
             mu2 = (-b - math.sqrt(i)) / (2.0*a)
             p2.x, p2.y = P1.x + mu2 * (P2.x - P1.x), P1.y + mu2 * (P2.y - P1.y)
-    P.p1 = p1
-    P.p2 = p2
+    P.append(p1)
+    P.append(p2)
     return P
 
 def intersectChordCircle(C, P, chord_length):
@@ -1202,16 +1212,15 @@ def intersectChordCircle(C, P, chord_length):
     return P
 
 def onCircleTangentFromOutsidePoint(C, r, P):
-  '''
-  Accepts C center of circle, r radius, and P point outside of circle.
-  Returns two points where lines to point P are tangent to circle
-  '''
-  #print 'C =', C.x,  C.y
-  #print 'P =', P.x, P.y
-  #print 'r =', r
-  d = distance(C, P)
-  l = sqrt(d*d - r*r)
-  return intersectCircles(C, r, P, l)
+    '''
+    Accepts C center of circle, r radius, and P point outside of circle.
+    Returns two points where lines to point P are tangent to circle
+    '''
+    d = distance(C, P)
+    if r > d:
+      print('Circles do not intersect - onCircleTangentFromOutsidePoint( C =', C.x, C.y, 'r =', r, 'P =', P.x, P.y)
+    l = sqrt(d*d - r*r)
+    return intersectCircles(C, r, P, l)
 
 #---vectors and rays---
 
@@ -1245,15 +1254,26 @@ def intersectLineRay(P1, P2, R1, angle):
     Returns point where they intersect.
     '''
     #define a line R1-R2 by finding point R2 along ray 1 inch (arbitary) from R1
-    R2 = polar(R1, 1*IN,  angle)
-    return intersectLines(P1, P2, R1, R2)
+    P1 = dPnt(P1)
+    P2 = dPnt(P2)
+    R1 = dPnt(R1)
+    R2 = dPnt(polar(R1, 1 * IN,  angle))
+    pnt = dPnt(intersectLines(P1, P2, R1, R2))
+
+    return pnt
 
 def intersectRayCircle(P1, angle, C, r):
     '''
     Accepts a point and angle for the ray, and center and radius for circle.
     Returns (x, y) of intersection
     '''
-    P2 = polar(P1, 1*IN, angle)
+    #print('P1 =', P1.x, P1.y)
+    #print('angle = ', angle)
+    #print('C =', C.x, C.y)
+    #print('r =', r, 'pts', r * 90 / 2.54, 'cm')
+    P1 = dPnt(P1)
+    C = dPnt(C)
+    P2 = dPnt(polar(P1, 1.0 * IN, angle))
     return intersectLineCircle(P1, P2, C, r)
 
 #---adjust Curves---#
@@ -1370,13 +1390,21 @@ def foldDart(dart, inside_pnt):
     dart.oc = outside dart leg at cuttingline (to be included in dartline path)
     '''
     mid_pnt = midPoint(dart.i, dart.o)
-    dart_length = distance(dart, dart.o)
+    dart_length = distance(dart, dart.i)
     i_angle = angleOfLine(dart, dart.i)
-    dart_half_angle = abs(angleOfVector(dart.i, dart, dart.o)/2.0)
+    c_angle = angleOfLine(dart, inside_pnt)
+    dart_angle = abs(angleOfVector(dart.i, dart, dart.o))
+    dart_half_angle = dart_angle/2.0
+
 
     #determine which direction the dart will be folded
-    if ((dart.i.x > dart.x) and (dart.i.y < dart.y)) or ((dart.i.x < dart.x) and (dart.i.y > dart.y)):
+    #if ((dart.i.x > dart.x) and (dart.i.y > dart.y)) or ((dart.i.x < dart.x) and (dart.i.y > dart.y)):
         #x & y vectors not the same sign
+        #dart_half_angle = -dart_half_angle
+    if i_angle > c_angle:
+        dart_half_angle = -dart_half_angle
+    elif dart_angle < c_angle:
+        #dart straddles 0 angle
         dart_half_angle = -dart_half_angle
 
     fold_angle = i_angle + dart_half_angle
@@ -1422,7 +1450,32 @@ def foldReverseDart(dart, inside_pnt):
 
     return
 
-def extendDart(p1, dart, p2, extension=1/4.0):
+def extendDart(p1, dart, p2, extension=0.25):
+    """
+    Finds optimum leg length to smooth the curve from p1 to p2
+    Accepts dart and two points p1 & p2 nearest points on both sides of dart, 0 < extension <=1
+    dart.i & dart.o are updated to new longer point on dart legs
+    Default extension is 1/4 distance from orig dart length to the line
+    drawn between p1 & p2 after the dart is created
+    Max extension = 1 creates straight line from p1 to p2 when dart is folded
+    """
+
+    #rotate point 'p1' to p1_new where it would lie if dart were closed
+    rotation_angle = angleOfVector(dart.i, dart, dart.o)
+    p1_new = rotatePoint(dart, rotation_angle, p1)
+
+    #find intersection of dart inside leg and line p1_new to p2
+    p3 = intersectLines(dart, dart.i, p1_new, p2)
+
+    #new dart length at extension distance from dart.i to p3
+    new_dart_length = distance(dart, dart.i) + distance(dart.i, p3) * extension
+
+    #update dart.i & dart.o
+    updatePoint(dart.i, onLineAtLength(dart, dart.i, new_dart_length))
+    updatePoint(dart.o, onLineAtLength(dart, dart.o, new_dart_length))
+    return
+
+def extendReverseDart(p1, dart, p2, extension=0.25):
     """
     Finds optimum leg length to smooth the curve from p1 to p2
     Accepts dart and two points p1 & p2 nearest points on both sides of dart, 0 < extension <=1
@@ -1440,7 +1493,7 @@ def extendDart(p1, dart, p2, extension=1/4.0):
     p3 = intersectLines(dart, dart.i, p1_new, p2)
 
     #new dart length at 1/3 distance from dart.i to p3
-    new_dart_length = distance(dart, dart.i) + distance(dart.i, p3) * extension
+    new_dart_length = distance(dart, dart.i) - distance(dart.i, p3) * extension
 
     #update dart.i & dart.o
     updatePoint(dart.i, onLineAtLength(dart, dart.i, new_dart_length))
