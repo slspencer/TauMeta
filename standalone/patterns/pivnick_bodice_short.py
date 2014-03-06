@@ -53,7 +53,7 @@ class Design(designBase):
         #
         #create pattern pieces
         A = bodice.addPiece('Front', 'A', fabric = 2, interfacing = 0, lining = 0)
-
+        B = bodice.addPiece('Back', 'B', fabric = 2, interfacing = 0, lining = 0)
 
         #---new measurements---
         #90px / 1 in
@@ -87,11 +87,13 @@ class Design(designBase):
         FAP2 = A.addPoint('FAP2', onLineAtY(FSP, FAP1, FUS1.y)) #front armscye point 2 - at FUS1 height
         FUS2 = A.addPoint('FUS2', extendLine(FAP2, FUS1, 0.06 * CD.front_bust / 2.0)) # front underarm side 2 - includes 6% bust ease
         FUS = A.addPoint('FUS', onLineAtLength(FWS, FUS2, CD.side)) #front undearm side
-        FWM = A.addPoint('FDM', onRayAtX(FWC, angleOfLine(FWC, FNC) + ANGLE90, FBP.x)) #front waist middle point - under FBP
-        FD1 = A.addPoint('FD1', FBP) #front waist dart
-        dart_width = CD.front_waist / 2.0 - distance(FWC, FWM) - distance(FWM, FWS)
-        FD1.i = A.addPoint('FD1.i', onLineAtLength(FWM, FWC, dart_width / 2.0)) #waist dart inside leg
-        FD1.o = A.addPoint('FD1.o', onLineAtLength(FWM, FWS, dart_width / 2.0)) #waist dart outside leg
+        FD1 = A.addPoint('FD1', onRayAtX(FWC, angleOfLine(FWC, FNC) + ANGLE90, FBP.x)) #front waist middle point - under FBP
+        dart_width = distance(FWC, FD1) + distance(FD1, FWS) - CD.front_waist / 2.0
+        FD1.i = A.addPoint('FD1.i', onLineAtLength(FD1, FWC, dart_width / 2.0)) #waist dart inside leg
+        FD1.o = A.addPoint('FD1.o', onLineAtLength(FD1, FWS, dart_width / 2.0)) #waist dart outside leg
+        updatePoint(FD1, FBP) #move front waist dart point up to bustline
+        extendDart(FWS, FD1, FWC)
+        foldDart(FD1, FWC)
 
 
         #---front control handles
@@ -105,18 +107,74 @@ class Design(designBase):
         FNC.addInpoint(polar(FNC, 0.5 * abs(FNS.x - FNC.x), angleOfLine(FWC, FNC) + ANGLE90))
         FNS.addOutpoint(polar(FNS, 0.5 * abs(FNS.y - FNC.y), angleOfLine(FNS, FSP) + ANGLE90))
 
+        #---Back B---#
+        BSH = B.addPoint('BSH', (0.0, 0.0)) #back shoulder height
+        BSW = B.addPoint('BSW', left(BSH, CD.back_shoulder_width / 2.0)) #back shoulder width
+        BUW = B.addPoint('BUW', left(BSH, CD.back_underarm / 2.0)) #back undearm width
+        BWC = B.addPoint('BWC', down(BSH, CD.back_shoulder_height)) #back waist center
+        BNC = B.addPoint('BNC', up(BWC, CD.back_waist_length)) #back neck center
+        BSP1 = B.addPoint('BSP1', highestP(onCircleAtX(BWC, BACK_WAIST_BALANCE, BSW.x))) #back shoulder point 1
+        BNS = B.addPoint('BNS', rightmostP(onCircleAtY(BSP1, CD.shoulder, BSH.y))) #back neck side
+        BSP = B.addPoint('BSP', extendLine(BNS, BSP1, 0.07 * CD.shoulder)) #BSP - incl. 7% ease for shoulder dart
+        BAP = B.addPoint('BAP', down(BSW, distance(FSW, FAP))) #back armscye point
+        BWS1 = B.addPoint('BWS1', lowestP(onCircleAtX(BNC, BACK_WAIST_BALANCE, BUW.x))) #back waist side
+        #back waist dart
+        dart_width = (distance(BWS1, BWC) - CD.back_waist / 2.0) / 2.0
+        BWS2 = B.addPoint('BWS2', onLineAtLength(BWS1, BWC, dart_width)) #back waist side 2
+        BD1 = B.addPoint('BD1', midPoint(BWS2, BWC)) #back waist dart point - on waist line, will be updated later
+        BD1.i = B.addPoint('BD1.i', onLineAtLength(BD1, BWC, dart_width / 2.0)) #back waist dart inside leg
+        BD1.o = B.addPoint('BD1.o', onLineAtLength(BD1, BWS2, dart_width / 2.0)) #back waist dart outside leg
+        foldDart(BD1, BWC)
+        BWS = B.addPoint('BWS', onLineAtLength(BAP, BWS2, distance(BAP, BWS1))) #back waist side
+        BUS = B.addPoint('BUS', highestP(onCircleAtX(BWS, CD.side, BUW.x))) #back underarm side
+        BUC = B.addPoint('BUC', (BNC.x, BUS.y)) #back underarm center
+        updatePoint(BD1, (BD1.x, BUC.y)) #move BD1 dart point up to underarm line
+        extendDart(BWS, BD1, BWC, extension=0.5)
+        foldDart(BD1, BWC)
+        #back shoulder dart
+        BD2 = B.addPoint('BD2', midPoint(BNS, BSP))
+        BD2.i = B.addPoint('BD2.i', onLineAtLength(BD2, BNS, 0.035 * CD.shoulder)) #back shoulder dart inside leg
+        BD2.o = B.addPoint('BD2.o', onLineAtLength(BD2, BSP, 0.035 * CD.shoulder)) #back shoulder dart outside leg
+        updatePoint(BD2, polar(BD2, distance(BSP, BAP) / 2.0, angleOfLine(BD2.o, BD2.i) + ANGLE90)) #move BD2 dart point
+        extendDart(BSP, BD2, BNS)
+        foldDart(BD2, BNS)
+
+        #---back control handles
+        #b/w BUS back underarm side & BAP back armscye point
+        BUS.addOutpoint(polar(BUS, 0.5 * abs(BUS.x - BAP.x), angleOfLine(BWS, BUS) + ANGLE90))
+        BAP.addInpoint(polar(BAP, 0.5 * abs(BUS.y - BAP.y), angleOfLine(BSP, BUS)))
+        #b/w BAP back armscye point & BSP back shoulder point
+        BAP.addOutpoint(polar(BAP, 0.33 * distance(BAP, BSP), angleOfLine(BUS, BSP)))
+        BSP.addInpoint(polar(BSP, 0.33 * distance(BAP, BSP), angleOfLine(BSP, BNS) + ANGLE90))
+        #b/w BNS back neck side & bNC back neck center
+        BNC.addInpoint(polar(BNC, 0.5 * abs(BNS.x - BNC.x), angleOfLine(BNC, BWC) + ANGLE90))
+        BNS.addOutpoint(polar(BNS, 0.5 * abs(BNS.y - BNC.y), angleOfLine(BSP, BNS) + ANGLE90))
+
         #draw Front A
         pnt1 = dPnt((FNS.x, FUC.y))
         A.setLabelPosition((pnt1.x, pnt1.y))
         A.setLetter(up(pnt1, 0.5 * IN), scaleby=10.0)
-        #aG1 = dPnt(left(FUC, distance(FUC, pnt1)/4.0))
-        #aG2 = dPnt(down(aG1, 0.75 * distance(FNC, FWC)))
-        #A.addGrainLine(aG1, aG2)
-        A.addGridLine(['M', FAP1, 'L', FSW, 'L', FSH, 'L', FWC, 'M', FBC1, 'L', FUC1, 'L', FUC,  'M', FBC, 'L', FBP, 'M', FBC1, 'L', FBS, 'M', FWC, 'L', FSP, 'M', FNC, 'L', FWS, 'M', FAP2, 'L', FUS1, 'M', FBP, 'L', FWM, 'M', FD1.i, 'L', FD1, 'L', FD1.o, 'M', FWS, 'L', FUS1])
-        pth = (['M', FNC, 'L', FWC, 'L', FWM, 'L', FWS, 'L', FUS, 'C', FAP, 'C', FSP, 'L', FNS, 'C', FNC])
+        #AG1 = dPnt(left(FUC, distance(FUC, pnt1)/4.0))
+        #AG2 = dPnt(down(AG1, 0.75 * distance(FNC, FWC)))
+        #A.addGrainLine(AG1, AG2)
+        A.addDartLine(['M', FD1.ic, 'L', FD1, 'L', FD1.oc])
+        A.addGridLine(['M', FAP1, 'L', FSW, 'L', FSH, 'L', FWC, 'M', FBC1, 'L', FUC1, 'L', FUC,  'M', FBC, 'L', FBP, 'M', FBC1, 'L', FBS, 'M', FWC, 'L', FSP, 'M', FNC, 'L', FWS, 'M', FAP2, 'L', FUS1, 'M', FBP, 'L', FD1.m, 'M', FWS, 'L', FUS1])
+        pth = (['M', FNC, 'L', FWC, 'L', FD1.i, 'L', FD1.m, 'L', FD1.o, 'L', FWS, 'L', FUS, 'C', FAP, 'C', FSP, 'L', FNS, 'C', FNC])
         A.addSeamLine(pth)
         A.addCuttingLine(pth)
 
+        #draw Back B
+        pnt1 = dPnt((BSH.x - abs(BSH.x - BSP.x) / 2.0, BSH.y - abs(BSH.y - BWC.y) / 2.0 ))
+        B.setLabelPosition((pnt1.x, pnt1.y))
+        B.setLetter(up(pnt1, 0.5 * IN), scaleby=10.0)
+        #BG1 = dPnt(left(FUC, distance(FUC, pnt1)/4.0))
+        #BG2 = dPnt(down(BG1, 0.75 * distance(FNC, FWC)))
+        #B.addGrainLine(BG1, BG2)
+        B.addDartLine(['M', BD1.ic, 'L', BD1, 'L', BD1.oc, 'M', BD2.ic, 'L', BD2, 'L', BD2.oc])
+        B.addGridLine(['M', BUW, 'L', BSH, 'L', BWC, 'L', BSP1, 'L', BSW, 'M', BSP1, 'L', BAP, 'L', BWS1, 'M', BUS, 'L', BUC, 'M', BUW, 'L', BWS1])
+        pth = (['M', BNC, 'L', BWC, 'L', BD1.i, 'L', BD1.m, 'L', BD1.o, 'L', BWS, 'L', BUS, 'C', BAP, 'C', BSP, 'L', BD2.o, 'L', BD2.m, 'L', BD2.i, 'L', BNS, 'C', BNC])
+        B.addSeamLine(pth)
+        B.addCuttingLine(pth)
 
         # call draw once for the entire pattern
         self.draw()
