@@ -1039,11 +1039,22 @@ def intersectCircles(C1, r1, C2, r2):
     Accepts C1, r1, C2, r2 where C1 & C2 are point objects for the center of each circle,  and r1 & r2 are the radius of each circle
     Returns an array P which holds objects of class Point for each intersection
     """
+    print('C1 =', C1.x, C1.y)
+    try:
+        print('C1.id =', C1.id)
+    except:
+        print('no id for C1')
+    print('C2 =', C1.x, C1.y)
+    try:
+        print('C2.id =', C2.id)
+    except:
+        print('no id for C2')
     C1 = dPnt(C1)
     C2 = dPnt(C2)
     x0, y0 = C1.x, C1.y
     x1, y1 = C2.x, C2.y
     d = distanceXY(x0, y0, x1, y1) # distance b/w circle centers
+    print('distance =', d)
     dx, dy = (x1 - x0), (y1 - y0) # negate y b/c canvas increases top to bottom
     P = []
     if (d == 0):
@@ -1070,19 +1081,24 @@ def intersectCircles(C1, r1, C2, r2):
         # TODO:possible kluge -check if this is acceptable using a small margin of error between r1 & r2 (2*CM)?:
         #r2=d-r1
     else:
+        print("A")
         #intersections=2 or intersections=1
         a = ((r1 * r1) - (r2 * r2) + (d * d)) / (2.0 * d)
         x2 = x0 + (dx * a / d)
         y2 = y0 + (dy * a / d)
+        print("B")
         h = math.sqrt((r1 * r1) - (a * a))
         rx = -dy * (h / d)
         ry = dx * (h / d)
+        print("C")
         X1 = x2 + rx
         Y1 = y2 + ry
         X2 = x2 - rx
         Y2 = y2 - ry
+        print("D")
         P.append(dPnt((X1, Y1)))
         P.append(dPnt((X2, Y2)))
+        print("E")
     return P
 
 def onCircleAtX(C, r, x):
@@ -1216,6 +1232,10 @@ def onCircleTangentFromOutsidePoint(C, r, P):
     Accepts C center of circle, r radius, and P point outside of circle.
     Returns two points where lines to point P are tangent to circle
     '''
+    print('C:', C.x, C.y)
+    print('P:', P.x, P.y)
+    dPnt(C)
+    dPnt(P)
     d = distance(C, P)
     if r > d:
       print('Circles do not intersect - onCircleTangentFromOutsidePoint( C =', C.x, C.y, 'r =', r, 'P =', P.x, P.y)
@@ -1259,6 +1279,20 @@ def intersectLineRay(P1, P2, R1, angle):
     R1 = dPnt(R1)
     R2 = dPnt(polar(R1, 1 * IN,  angle))
     pnt = dPnt(intersectLines(P1, P2, R1, R2))
+
+    return pnt
+
+def intersectRays(R11, angle1, R21, angle2):
+    '''
+    Accepts two points defining a line, and a point and angle defining a ray.
+    Returns point where they intersect.
+    '''
+    #define a line R1-R2 by finding point R2 along ray 1 inch (arbitary) from R1
+    R11 = dPnt(R11)
+    R21 = dPnt(R21)
+    R12 = dPnt(polar(R11, 1 * IN,  angle1))
+    R22 = dPnt(polar(R21, 1 * IN,  angle2))
+    pnt = dPnt(intersectLines(R11, R12, R21, R22))
 
     return pnt
 
