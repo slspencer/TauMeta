@@ -593,6 +593,15 @@ def rightmostP(pnts):
 
 #---lines---#
 
+
+
+def extendLine(p1, p2, length, rotation=0):
+    """
+    Accepts two directed points of a line, and a length to extend the line
+    Finds point along line at length from p2 in direction p1->p2
+    """
+    return onLineAtLength(p2, p1, -length)
+
 def onLineAtLength(p1, p2, length, rotation=0):
     """
     Accepts points p1 and p2, distance,  and an optional rotation angle.
@@ -601,20 +610,11 @@ def onLineAtLength(p1, p2, length, rotation=0):
     from p1 in opposite direction from p2.
     The result is optionally rotated about the first point by the rotation angle in degrees
     """
-    p1 = dPnt(p1)
-    p2 = dPnt(p2)
     lineangle = angleOfLine(p1, p2)
-    angle = lineangle + (rotation * (math.pi/180))
+    angle = lineangle + rotation * (math.pi/180)
     x = (length * math.cos(angle)) + p1.x
     y = (length * math.sin(angle)) + p1.y
-    return (x,y)
-
-def extendLine(p1, p2, length, rotation=0):
-    """
-    Accepts two directed points of a line, and a length to extend the line
-    Finds point along line at length from p2 in direction p1->p2
-    """
-    return onLineAtLength(p2, p1, -length)
+    return dPnt((x, y))
 
 def onLineAtX(p1, p2, x):
     #on line p1-p2, given x find y
