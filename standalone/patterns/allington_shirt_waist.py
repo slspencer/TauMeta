@@ -117,11 +117,11 @@ class Design(designBase):
         b7 = B.addPoint('b7', BST) #back shoulder point
         b8 = B.addPoint('b8', left(BWC, 1.1 * CD.back_waist/2.0)) #U - temp back waist side
         b9 = B.addPoint('b9', (b8.x, b2.y)) #V - new back waist side
-        b10 = B.addPoint('b10', up(b6))
+        #b10 = B.addPoint('b10', up(b6))
 
         #back shoulder dart
         dart_width = 0.1 * CD.shoulder
-        pnt1 = midPoint(BST, BNS)
+        pnt1 = dPnt(midPoint(BST, BNS))
         bD1 = B.addPoint('bD1', polar(pnt1, distance(BST, BAP)/3.0, angleOfLine(BNS, BST) - ANGLE90))
         bD1.i = B.addPoint('bD1.i', onLineAtLength(pnt1, BNS, dart_width/2.0))
         bD1.o = B.addPoint('bD1.o', onLineAtLength(pnt1, BST, dart_width/2.0))
@@ -390,7 +390,7 @@ class Design(designBase):
         aG1 = dPnt((FNC.x + (a7.x - a1.x)/2.0, FUC.y))
         aG2 = down(aG1, 0.75 * CD.front_waist_length)
         A.addGrainLine(aG1, aG2)
-        A.addGridLine(['M', FUW, 'L', FSH, 'L', FWC, 'L', FWS, 'L', FUS, 'L', FAP, 'L', FST, 'L', FNS, 'L', FNC, 'M', FUW, 'L', FUS, 'L', FUC, 'M', FSW, 'L', FST, 'M', FWW, 'L', FWS, 'M', FWC, 'L', FST, 'M', FBP, 'L', FNS, 'L', FAP, 'M', FBC, 'L', FBP, 'L', FBS])
+        A.addGridLine(['M', FUW, 'L', FSH, 'L', FWC, 'L', FWS, 'L', FUS, 'L', FAP, 'L', FST, 'L', FNS, 'L', FNC, 'M', FUW, 'L', FUS, 'L', FUC, 'M', FSW, 'L', FST, 'M', FWW, 'L', FWS, 'M', FWC, 'L', FST, 'M', FBP, 'L', FNS, 'L', FAP, 'M', FBC, 'L', FBP, 'L', FBS, 'M', FUS, 'L', a12])
         pathparts = (['M', a1, 'L', a3, 'L', a4, 'C', a12, 'C', a10, 'C', a5, 'C', a8, 'L', a7, 'C', a1])
         A.addSeamLine(pathparts)
         A.addCuttingLine(pathparts)
