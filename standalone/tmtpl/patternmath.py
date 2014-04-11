@@ -610,6 +610,8 @@ def onLineAtLength(p1, p2, length, rotation=0):
     from p1 in opposite direction from p2.
     The result is optionally rotated about the first point by the rotation angle in degrees
     """
+    p1 = dPnt(p1)
+    p2 = dPnt(p2)
     lineangle = angleOfLine(p1, p2)
     angle = lineangle + rotation * (math.pi/180)
     x = (length * math.cos(angle)) + p1.x
