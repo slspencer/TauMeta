@@ -53,6 +53,7 @@ class Design(designBase):
         #
         #create pattern pieces
         A = jeans.addPiece('Front', 'A', fabric = 2, interfacing = 0, lining = 0)
+        B = jeans.addPiece('Front Pocket', 'B', fabric = 0, interfacing = 0, lining = 1)
 
         #---new measurements---
         #90px / 1 in - Inkscape default
@@ -103,8 +104,11 @@ class Design(designBase):
 
 
 
+
+
+
         #draw Jeans Front A
-        pnt1 = FHM
+        pnt1 = dPnt((FHM.x, FPoc3.y))
         A.setLabelPosition((pnt1.x, pnt1.y))
         A.setLetter(up(pnt1, 0.5 * IN), scaleby=10.0)
         AG1 = dPnt(down(FHM, 2 * IN))
@@ -116,6 +120,18 @@ class Design(designBase):
         pth = (['M', FWC, 'L', FWM, 'L', FWS, 'L', FPoc1, 'L', FHS, 'L', FKS, 'L', FHemS, 'L', FHemC, 'L', FKC, 'L', FCP, 'L', FLY1, 'L', FLY2, 'L', FLY3, 'L', FWC, 'M', FHM1, 'L', p6])
         A.addSeamLine(pth)
         A.addCuttingLine(pth)
+
+        #draw Jeans Front Pocket B
+        pnt1 = dPnt((FWM.x + 0.25 * (FPoc4.x + FWM.x), FPoc1.y))
+        B.setLabelPosition((pnt1.x, pnt1.y))
+        B.setLetter(up(pnt1, 0.5 * IN), scaleby=10.0)
+        BG1 = p6
+        BG2 = dPnt(down(BG1, 0.6 * distance(FWC, FHM)))
+        B.addGrainLine(BG1, BG2)
+        B.addGridLine(['M', FPoc4, 'L', FPoc3]) #extra seamline for pocket
+        pth = (['M', FPoc1, 'L', FPoc2, 'L', FLY1, 'L', FWC, 'L', FWM, 'L', FPoc1]) #pocket
+        B.addSeamLine(pth)
+        B.addCuttingLine(pth)
 
         # call draw once for the entire pattern
         self.draw()
