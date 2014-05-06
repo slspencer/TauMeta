@@ -28,6 +28,7 @@
 
 import math
 import re
+import numpy
 from math import sin, cos, sqrt, asin
 from constants import *
 
@@ -146,7 +147,7 @@ def scaleAboutPointTransform(x, y, scale):
     """
     sx = scale
     sy = scale
-    return "matrix(%f, 0, 0, %f, %f, %f)" % (sx, sy, x-(sx*x), y-(sy*y))
+    return "matrix(%f, 0, 0, %f, %f, %f)" % (sx, sy, x - (sx * x), y - (sy * y))
 
 # ---bounding box---
 
@@ -855,9 +856,8 @@ def tangentOfCurveAtLine(P1, P2, curve):
 def curveLength(curve, n = 100):
     #FIXME: this length should be calculated with math formulas
     '''
-    Accepts curve array with a minimum of four Point objects P0, P1, P2, P3 (knot1, controlpoint1, controlpoint2, knot2).
-    Each curve after the first will use P3 from the previous curve as it's P0, and use it's own P1, P2, P3
-    n is the number to subdivide each curve for calculating the interpolated points and curve length.
+    Accepts curve array with a minimum of four Point objects P0, C1, C2, P1 (knot1, controlpoint1, controlpoint2, knot2).
+    n is the number to subdivide each curve for calculating the knots/interpolatedPoints and curve length.
     Adapted from http://www.planetclegg.com/projects/WarpingTextToSplines.html
     '''
     curveLength = 0.0
@@ -900,7 +900,7 @@ def interpolatedCurveLengthAtPoint(interpolatedPoints, pnt, found=0):
         i = i + 1
     return segment_length, found
 
-def curvePointAtLength(curve, length, n=100):
+def onCurveAtLength(curve, length, n=100):
     '''
     Accepts an array of curve points and length
     Returns point found on curve at length
