@@ -58,6 +58,7 @@ class Design(designBase):
         D = jeans.addPiece('Front Waist Corner', 'D', fabric = 2, interfacing = 0, lining = 0)
         E = jeans.addPiece('Fly', 'E', fabric = 2, interfacing = 2, lining = 2)
         F = jeans.addPiece('Front Waistband', 'F', fabric = 2, interfacing = 2, lining = 2)
+        G = jeans.addPiece('Back Waistband', 'G', fabric = 2, interfacing = 2, lining = 2)
 
         #---new measurements---
         #90px / 1 in - Inkscape default
@@ -106,7 +107,7 @@ class Design(designBase):
         pnt2 = onLineAtY(FHS, FWS, pnt1.y) #side point to calc waistline side
         w2 = A.addPoint('w2', midPoint(pnt1, pnt2)) #front waistline side
 
-        pnt1 = dPnt((FHS.x, w1.y - waistband_width)) #side point to calc waistline side
+        pnt1 = dPnt((w2.x, w2.y - waistband_width)) #side point to calc waistline side
         pnt2 = onLineAtY(w2, FWS, pnt1.y) #side point to calc waistline side
         w3 = A.addPoint('w3', midPoint(pnt1, pnt2)) #front waistline side
         w4 = A.addPoint('w4', up(w1, waistband_width)) #front waistline center
@@ -123,8 +124,6 @@ class Design(designBase):
         FPoc7 = B.addPoint('FPoc7', extendLine(FHS, FCS, distance(FPoc3, FPoc5)))
         FPoc8 = A.addPoint('FPoc8', (FPoc3.x, FWC.y))
         FPoc9 = A.addPoint('FPoc9', (FWM.x, FPoc4.y))
-
-
 
         #jeans Front control points
         #b/w FLY5 & FLY4
@@ -148,7 +147,7 @@ class Design(designBase):
         FP1.addInpoint(polar(FP1, 0.33 * distance(FHS, FP1), angleOfLine(FP1, FHS.outpoint)))
         #b/w FP1 & FWM
         FP1.addOutpoint(left(FP1, 0.5 * abs(FPoc9.x - FP1.x)))
-        FPoc9.addInpoint(down(FPoc9, 0.5 * abs(FPoc9.y - FP1.y)))
+        FPoc9.addInpoint(down(FPoc9, abs(FPoc9.y - FP1.y)))
 
         #b/w FHS & FP2 duplicate of FP1
         #FHS outpoint is same as above
@@ -199,6 +198,20 @@ class Design(designBase):
         updatePoint(BHS.outpoint, back_hip_curve_new[1])
         w6.addInpoint(back_hip_curve_new[2])
         w6.addOutpoint(back_hip_curve_new[4])
+        updatePoint(BWS.inpoint, back_hip_curve_new[5])
+        
+        w7 = C.addPoint('w7', intersectLineRay(BWC, BHC, w6, angleOfLine(BWS, BWC)))
+        w8 = C.addPoint('w8', polar(w6, waistband_width, angleOfLine(BWS, BWC) + ANGLE90))
+        w9 = C.addPoint('w9', polar(w7, waistband_width, angleOfLine(BWS, BWC) + ANGLE90))
+        
+        back_hip_curve_orig = points2List(w6, w6.outpoint, BWS.inpoint, BWS)
+        w10 = C.addPoint('w10', intersectLineCurve(w8, w9, back_hip_curve_orig))
+        w11 = C.addPoint('w11', intersectLines(w8, w9, BWC, BHC))
+        
+        back_hip_curve_new = splitCurveAtPoint(back_hip_curve_orig, w10)
+        updatePoint(w6.outpoint, back_hip_curve_new[1])
+        w10.addInpoint(back_hip_curve_new[2])
+        w10.addOutpoint(back_hip_curve_new[4])
         updatePoint(BWS.inpoint, back_hip_curve_new[5])
 
         #draw Jeans Front A
@@ -264,14 +277,28 @@ class Design(designBase):
 
         #draw Jeans Front Waistband F
         pnt1 = dPnt((w1.x + 0.5 * distance(w1, w2), w4.y + 0.75 * distance(w4, w1)))
+        pnt2 = dPnt((w1.x + 0.75 * distance(w1, w2), w4.y + 0.25 * distance(w4, w1)))
         F.setLetter((pnt1.x, pnt1.y), scaleby=6.0)
-        F.setLabelPosition(right(pnt1, 0.25 * distance(w1, w2)))
-        FG1 = dPnt((w1.x + 0.25 * distance(w1, w2), w4.y + 0.15 * distance(w1, w4)))
-        FG2 = dPnt(down(FG1, 0.5 * distance(w1, w4)))
+        F.setLabelPosition((pnt2.x, pnt2.y))
+        FG1 = dPnt((w1.x + 0.25 * distance(w1, w2), w1.y))
+        FG2 = dPnt(polar(FG1, 0.9 * distance(w1, w4), angleOfLine(w2, w1) + ANGLE45))
         F.addGrainLine(FG1, FG2)
         pth = (['M', w1, 'L', w2, 'L', w3, 'L', w4, 'L', w1])
         F.addSeamLine(pth)
         F.addCuttingLine(pth)
+        
+        #draw Jeans Front Waistband G
+        pnt1 = dPnt((w7.x + 0.5 * distance(w6, w7), w7.y))
+        pnt2 = dPnt((w7.x + 0.75 * distance(w6, w7), w7.y - 0.25 * abs(w7.y - w11.y)))
+        pnt3 = dPnt((w7.x + 0.25 * distance(w6, w7), w7.y))
+        G.setLetter((pnt1.x, pnt1.y), scaleby=6.0)
+        G.setLabelPosition((pnt2.x, pnt2.y))
+        GG1 = dPnt((pnt3.x, pnt3.y))
+        GG2 = dPnt(polar(GG1, 0.75 * distance(w7, w11), angleOfLine(w6, w7) + ANGLE45))
+        G.addGrainLine(GG1, GG2)
+        pth = (['M', w6, 'C', w10, 'L', w11, 'L', w7, 'L', w6])
+        G.addSeamLine(pth)
+        G.addCuttingLine(pth)        
 
         # call draw once for the entire pattern
         self.draw()
