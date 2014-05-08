@@ -736,7 +736,7 @@ def intersectLineCurve(P1, P2, curve, n=100):
         if intersections == 0:
             print 'no intersections found in intersectLineCurve(', P1.name, P2.name, ' and curve'
     #return points_found, tangents_found
-    return points_found
+    return points_found[0] #return only the 1st point found
 
 # TODO test this after changes, not used by any patterns
 def onCurveAtX(curve, x):
