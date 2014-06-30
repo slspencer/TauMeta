@@ -1110,9 +1110,9 @@ def onCircleAtX(C, r, x):
     r as the radius,  and x to find the points on the circle
     Returns an array P which holds objects of class dPnt for each intersection
     """
-    #print 'C ', C.x, C.y
-    #print 'r ', r
-    #print 'x ', x
+    #print('C ', C.x, C.y)
+    #print('r ', r)
+    #print('x ', x)
     C = dPnt(C)
     P = []
     if abs(x - C.x) > r:
