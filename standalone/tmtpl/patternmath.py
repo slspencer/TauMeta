@@ -379,10 +379,10 @@ def midPoint(p1, p2, n=0.5):
     p2 = dPnt(p2)
     return((p1.x + p2.x) * n, (p1.y + p2.y) * n)
 
-def rotate(pivot, rotation_angle, pnt):
+def rotate(pivot, pnt, rotation_angle):
     '''
-    Accepts pivot point, rotation angle, and single point to rotate.
-    Returns point after rotatation.
+    Accepts pivot point, single point to rotate, and rotation angle.
+    Returns new point after rotatation.
     '''
     return polar(pivot, distance(pivot, pnt), angleOfLine(pivot, pnt) + rotation_angle)
 
