@@ -51,15 +51,16 @@ class Design(designBase):
         coat = self.addPattern('coat')
         #
         #create pattern pieces
-        A = coat.addPiece('Lower Front', 'A', fabric = 2, interfacing = 0, lining = 0)
-        B = coat.addPiece('Back', 'B', fabric = 2, interfacing = 0, lining = 0)
-        C = coat.addPiece('Sleeve Back', 'C', fabric = 2, interfacing = 0, lining = 0)
+        A = coat.addPiece('Front Lower', 'A', fabric = 2, interfacing = 0, lining = 0)
+        B = coat.addPiece('Back', 'B', fabric = 2, interfacing = 0, lining = 2)
+        C = coat.addPiece('Sleeve Back', 'C', fabric = 2, interfacing = 0, lining = 2)
         D = coat.addPiece('Welt', 'D', fabric = 2, interfacing = 0, lining = 0)
-        E = coat.addPiece('Pocket', 'E', fabric = 2, interfacing = 0, lining = 0)
-        F = coat.addPiece('Front Facing', 'F', fabric = 2, interfacing = 0, lining = 0)
-        G = coat.addPiece('Upper Front', 'G', fabric = 2, interfacing = 0, lining = 0)
-        H = coat.addPiece('Sleeve Front', 'H', fabric = 2, interfacing = 0, lining = 0)
-        I = coat.addPiece('Sleeve Facing', 'I', fabric = 2, interfacing = 0, lining = 0)
+        E = coat.addPiece('Pocket', 'E', fabric = 4, interfacing = 0, lining = 0)
+        F = coat.addPiece('Front Facing', 'F', fabric = 4, interfacing = 0, lining = 0)
+        G = coat.addPiece('Front Upper', 'G', fabric = 2, interfacing = 0, lining = 0)
+        H = coat.addPiece('Sleeve Front', 'H', fabric = 2, interfacing = 0, lining = 2)
+        I = coat.addPiece('Sleeve Cuff', 'I', fabric = 2, interfacing = 0, lining = 2)
+        J = coat.addPiece('Front Lining', 'J', fabric = 0, interfacing = 0, lining = 2)
 
         #---Bodice Lower Front A---#
         FNC = A.addPoint('FNC', (0.0, 0.0)) #front neck center
@@ -379,9 +380,9 @@ class Design(designBase):
         c19.addOutpoint(down(c8, distance(c8, c20)/4.0))
         slashAndSpread(c13, angleOfDegree(-15), c19.outpoint, c19, c19.inpoint, c13.outpoint)
         #rotate c8 clockwise as c21
-        c21 = C.addPoint('c21', symmetricPoint(c19, c8))
-        c21.addOutpoint(symmetricPoint(c19.inpoint, c8))
-        c21.addInpoint(symmetricPoint(c19.outpoint, c8))
+        c21 = C.addPoint('c21', mirror(c19, c8))
+        c21.addOutpoint(mirror(c19.inpoint, c8))
+        c21.addInpoint(mirror(c19.outpoint, c8))
         slashAndSpread(c16, angleOfVector(c8, c16, c21), c16.inpoint)
 
         #smooth cap curves
@@ -443,6 +444,28 @@ class Design(designBase):
         #---Sleeve Facing I---#
         i1 = C.addPoint('i1', up(c2, distance(c7, c9)/4.0)) #top left facing point
         i2 = C.addPoint('i2', up(c4, distance(c7, c9)/4.0)) #top right facing point
+        
+        #---Front Lining J---#
+        j1 = J.addPoint('j1', onLineAtLength(a18, a26, 0.25 * distance(a18, a26))) #1/4 distance along Front Upper side seam
+        #close up dart at neck, replace with bust dart along side seam
+        angle1 = angleOfVector(a12, FBP, a13)
+        j2 = J.addPoint('j2', rotate(FBP, j1, angle1)) #rotated copy of j1 to create new dart along side seam
+        j3 = J.addPoint('j3', rotate(FBP, a18, angle1)) #rotated copy of a16 underarm point
+        j3.addOutpoint(rotate(FBP, a18.outpoint, angle1))
+        j4 = J.addPoint('j4', rotate(FBP, a4, angle1)) #rotate a4 armscye curve
+        j4.addInpoint(rotate(FBP, a4.inpoint, angle1))
+        j4.addOutpoint(rotate(FBP, a4.outpoint, angle1))        
+        j5 = J.addPoint('j5', rotate(FBP, a3, angle1)) #rotate a3 shoulder tip
+        j5.addInpoint(rotate(FBP, a3.inpoint, angle1))
+        j6 = J.addPoint('j6', rotate(FBP, a2, angle1)) #rotate a2 neck front side
+        j6.addOutpoint(rotate(FBP, a2.outpoint, angle1))
+        j7 = J.addPoint('j7', rotate(FBP, a12, angle1)) #rotate a12 neck front center
+        j7.addInpoint(rotate(FBP, a12.inpoint, angle1))
+        jD1 = J.addPoint('jD1', polar(FBP, 0.15 * distance(FBP, j1), angleOfLine(FBP, j1) + (0.5 * angle1))) #new dartpoint
+        jD1.i = J.addPoint('jD1.i', j2)
+        jD1.o = J.addPoint('jD1.o', j1)
+        foldDart(jD1, j3)
+         
 
         #---------------------------------------------#
         #---all points defined, draw pattern pieces---#
@@ -551,7 +574,18 @@ class Design(designBase):
         pth = (['M', i1, 'L', i2, 'L', c4, 'L', c2, 'L', i1])
         I.addSeamLine(pth)
         I.addCuttingLine(pth)
-
+        
+        #draw Front Lining J
+        pnt1 = dPnt(midPoint(a4, FBP))
+        J.setLetter((pnt1.x, pnt1.y), scaleby=10.0)
+        J.setLabelPosition((pnt1.x, pnt1.y + 50))
+        jG1 = dPnt((pnt1.x - 50, FAS.y))
+        jG2 = down(jG1, 0.75 * distance(FAS, a22))
+        J.addGrainLine(jG1, jG2)
+        J.addDartLine(['M', jD1.oc, 'L', jD1, 'L', jD1.ic])
+        pth =(['M', j7, 'L', a50, 'C', a20, 'L', jD1.o, 'L', jD1.m, 'L', jD1.i, 'L', j3, 'C', j4, 'C', j5, 'L', j6, 'C', j7])
+        J.addSeamLine(pth)
+        J.addCuttingLine(pth)        
 
 
         # call draw once for the entire pattern
