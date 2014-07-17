@@ -344,7 +344,7 @@ def down(p1, n):
     p1 = dPnt(p1)
     return (p1.x, p1.y + n)
 
-def symmetricPoint(p1, p2, type='vertical'):
+def mirror(p1, p2, type='vertical'):
     """
     Accepts p1 and p2 of class Point,  and optional type is either 'vertical' or 'horizontal with default 'vertical'.
     Returns coordinate pair of "mirror image" of p1 relative to p2
@@ -379,7 +379,7 @@ def midPoint(p1, p2, n=0.5):
     p2 = dPnt(p2)
     return((p1.x + p2.x) * n, (p1.y + p2.y) * n)
 
-def rotatePoint(pivot, rotation_angle, pnt):
+def rotate(pivot, rotation_angle, pnt):
     '''
     Accepts pivot point, rotation angle, and single point to rotate.
     Returns point after rotatation.
@@ -1498,7 +1498,7 @@ def extendDart(p1, dart, p2, extension=0.25):
 
     #rotate point 'p1' to p1_new where it would lie if dart were closed
     rotation_angle = angleOfVector(dart.i, dart, dart.o)
-    p1_new = rotatePoint(dart, rotation_angle, p1)
+    p1_new = rotate(dart, rotation_angle, p1)
 
     #find intersection of dart inside leg and line p1_new to p2
     p3 = intersectLines(dart, dart.i, p1_new, p2)
@@ -1523,7 +1523,7 @@ def extendReverseDart(p1, dart, p2, extension=0.25):
 
     #rotate point 'p1' to p1_new where it would lie if dart were closed
     rotation_angle = angleOfVector(dart.i, dart, dart.o)
-    p1_new = rotatePoint(dart, rotation_angle, p1)
+    p1_new = rotate(dart, rotation_angle, p1)
 
     #find intersection of dart inside leg and line p1_new to p2
     p3 = intersectLines(dart, dart.i, p1_new, p2)
