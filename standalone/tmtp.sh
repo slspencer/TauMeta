@@ -34,7 +34,7 @@ export PATTERN_BASE
 export CUSTOMER_BASE
 
 function PrintPatternMenu () {
-    ans="$(zenity  --list  --text 'Print This Pattern?' --radiolist  --column '' --column 'Choice' TRUE 'Yes, Print this Pattern' FALSE 'No, do not Print this Pattern')"
+    ans="$(zenity  --list  --text 'Print This Pattern?' --radiolist  --column '' --column 'Choice' FALSE 'Yes, Print this Pattern' TRUE 'No, do not Print this Pattern')"
     
     case $ans in
         "Yes, Print this Pattern")
@@ -47,20 +47,16 @@ function PrintPatternMenu () {
 
     if [ PRINTPATTERN == '1' ]; then 
         #run inkscape no gui (--z)  export to pdf (-A) 
+        
         inkscape --without-gui --file=$OUTPUT_BASE/$NAME/$OUTPUT_FILE.svg --export-area-snap \
          -A $OUTPUT_BASE/$NAME/$OUTPUT_FILE.pdf \
          | zenity --progress --title='Please wait, printing pattern...' \
          --text='* Tip: Check ink prior to printing *' --auto-close
-        inkscape --without-gui --export-area-snap --export-pdf=/dev/stdout \
-         --file=$OUTPUT_BASE/$NAME/$OUTPUT_FILE.svg | lpr -P SC-T7000-Series
+         
+        $OUTPUT_BASE/$NAME/$OUTPUT_FILE.pdf | lpr -P SC-T7000-Series
         wait
         wait
-        wait
-        wait
-        wait 
-        wait
-        wait 
-        echo "GOT TO HERE!"     
+        wait    
     fi
     
     }
@@ -117,7 +113,7 @@ function CustomerMenu () {
     }
 
 function RecordMenu () {
-    ans="$(zenity  --list  --text 'Select Measurements' --radiolist  --column '' --column 'Measurements' TRUE 'DressFormLg' FALSE 'Susan')"
+    ans="$(zenity  --list  --text 'Select Measurements' --radiolist  --column '' --column 'Measurements' FALSE 'DressFormLg' TRUE 'Susan')"
     case $ans in
         "DressFormLg")
           NAME="DressFormLg";
