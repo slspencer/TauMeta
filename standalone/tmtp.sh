@@ -141,7 +141,7 @@ function CreateMenu () {
     var1="$(zenity --list --radiolist\
  --text '*        Welcome to Tau Meta Tau Physica                               *'\
  --column='' --column='What do you want to do?'\
- FALSE 'Create a Pattern with Reference Points'\
+ TRUE 'Create a Pattern with Reference Points'\
  FALSE 'Exit' )"
     case $var1 in
         "Create a Pattern with Reference Points")
