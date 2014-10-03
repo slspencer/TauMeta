@@ -1000,6 +1000,7 @@ def splitCurveAtLength(curve, length):
     return new_curve
 
 def splitCurveAtPoint(curve, split_pnt):
+    '''Accepts array of [P0_orig, C1_orig, C2_orig, P1_orig] Returns array containing 7 elements - [P0_orig, C1_new, C2_new, split_pnt, C3_new, C4_new, P1_orig]'''
     #FIXME: Replace this function. This is not mathematically accurate. It's good enough for now...
     split_pnt = dPnt(split_pnt)
     length = curveLengthAtPoint(curve, split_pnt)
@@ -1498,7 +1499,7 @@ def extendDart(p1, dart, p2, extension=0.25):
 
     #rotate point 'p1' to p1_new where it would lie if dart were closed
     rotation_angle = angleOfVector(dart.i, dart, dart.o)
-    p1_new = rotate(dart, rotation_angle, p1)
+    p1_new = rotate(dart, p1, rotation_angle)
 
     #find intersection of dart inside leg and line p1_new to p2
     p3 = intersectLines(dart, dart.i, p1_new, p2)
@@ -1523,7 +1524,7 @@ def extendReverseDart(p1, dart, p2, extension=0.25):
 
     #rotate point 'p1' to p1_new where it would lie if dart were closed
     rotation_angle = angleOfVector(dart.i, dart, dart.o)
-    p1_new = rotate(dart, rotation_angle, p1)
+    p1_new = rotate(dart, p1, rotation_angle)
 
     #find intersection of dart inside leg and line p1_new to p2
     p3 = intersectLines(dart, dart.i, p1_new, p2)
