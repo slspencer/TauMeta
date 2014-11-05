@@ -1505,7 +1505,7 @@ def foldReverseDart(dart, inside_pnt):
 
     return
 
-def extendDart(p1, dart, p2, extension=0.25):
+def extendDart(p1, dart, p2, extension=0.15):
     """
     Finds optimum leg length to smooth the curve from p1 to p2
     Accepts dart and two points p1 & p2 nearest points on both sides of dart, 0 < extension <=1
