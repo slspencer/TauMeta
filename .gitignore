@@ -3,7 +3,7 @@
 *.odp
 *.odg
 *.ods
-*.svg
+standalone/output/*.svg
 *.pdf
 *.png
 *.pdf
