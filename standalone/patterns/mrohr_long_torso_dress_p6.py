@@ -96,22 +96,35 @@ class Design(designBase):
         FHC = A.addPoint('FHC', down(FWC, CD.front_hip_height)) #front hip center
         FHM = A.addPoint('FHM', (FD1.x, FHC.y)) #lower waist dart point on hip line
         FHS1 = A.addPoint('FHS1', left(FHC, CD.front_hip/2.0)) #temporary front hip side 1
-        FHS = A.addPoint('FHS', leftmostP(intersectCircles(FHM, CD.front_hip/2.0 - distance(FHC, FHM), FWS, CD.side_hip_height))) #front hip side
+        FHS = A.addPoint('FHS', leftmostP(intersectCircles(FHM, max(CD.front_hip, CD.front_waist)/2.0 - distance(FHC, FHM), FWS, CD.side_hip_height))) #front hip side
         #redesign neck, armscye & hip
         a1 = A.addPoint('a1', midPoint(FNC, FUC)) #new front neck center
         a2 = A.addPoint('a2', midPoint(FWC, FHC)) #new front hip center
-        a3 = A.addPoint('a3', midPoint(FWS, FHS)) #new front hip side
+        if (FWS.x < FHS.x):
+            a3 = A.addPoint('a3', dPnt(extendLine(FD2.o, FWS, CD.side_hip_height / 2.0)))
+        else:
+            a3 = A.addPoint('a3', dPnt(midPoint(FWS, FHS)))
         a4 = A.addPoint('a4', midPoint(FD2.i, FUS)) #new front underarm
         a5 = A.addPoint('a5', onLineAtLength(FNS, FSP, distance(FNS, FSP)/4.0)) #new front neck side
-        a6 = A.addPoint('a6', polar(a5, 1.25 * distance(a5, FSP), angleOfLine(FNS, FSP) + angleOfDegree(6))) #new shoulder tip
+        a6 = A.addPoint('a6', polar(a5, 1.25 * distance(a5, FSP), angleOfLine(FNS, FSP) + angleOfDegree(15))) #new shoulder tip
         a7 = A.addPoint('a7', onRayAtY(a5, angleOfLine(FSP, FNS) + ANGLE90, a1.y)) #neck corner
 
         #front lower waist dart FD3
         FD3 = A.addPoint('FD3', up(FHM, distance(FWC, FHC)/7.0)) #lower waist dart point
-        FD3.i = A.addPoint('FD3.i', onLineAtY(FD1.i, FD3, a2.y)) #lower waist dart inside
-        FD3.o = A.addPoint('FD3.o', onLineAtY(FD1.o, FD3, a2.y)) #lower waist dart outside
-        foldReverseDart(FD3, FWC) #creates FD3.m, FD3.oc, FD3.ic; dart folds towards FWC front waist center
-        extendReverseDart(a2, FD3, a3)
+        #FD3.i = A.addPoint('FD3.i', onLineAtY(FD1.i, FD3, a2.y)) #lower waist dart inside
+        dart_half_width = ((CD.front_hip / 2.0) - abs(FD1.x - a3.x)) / 2.0
+        FD3.i = A.addPoint('FD3.i', dPnt((FD1.x + dart_half_width , a2.y))) #lower waist dart inside
+        #FD3.o = A.addPoint('FD3.o', onLineAtY(FD1.o, FD3, a2.y)) #lower waist dart outside
+        FD3.o = A.addPoint('FD3.o', dPnt((FD1.x - dart_half_width , a2.y))) #lower waist dart outside
+        #foldReverseDart(FD3, FWC) #creates FD3.m, FD3.oc, FD3.ic; dart folds towards FWC front waist center
+        #extendReverseDart(a2, FD3, a3)        
+        FD3.ic = dPnt(extendLine(FD1.i, FD3.i, SEAM_ALLOWANCE))
+        FD3.oc = dPnt(extendLine(FD1.o, FD3.o, SEAM_ALLOWANCE))
+        angle_fold = ANGLE90 - angleOfLine(FD1.i, FD3.i)
+        angle_apex = A.addPoint('angle_apex', dPnt(onLineAtX(FD1.i, FD3.i, FD1.x)))
+        intersect_fold = A.addPoint('intersect_fold', dPnt(onRayAtY(angle_apex, ANGLE90 - (2 * angle_fold), a2.y)))
+        FD3.m = A.addPoint('FD3.m', dPnt(down(angle_apex, distance(angle_apex, intersect_fold))))
+
 
         #Bodice Front A control points
         #b/w FNS front neck point & FNC front neck center
@@ -160,8 +173,8 @@ class Design(designBase):
         b2 = B.addPoint('b2', onLineAtLength(BNS, BSP, distance(FNS, a5))) #new back neck side
         b3 = B.addPoint('b3', down(BWC, 0.66 * distance(BNS, b2))) #new back neck center
         b4 = B.addPoint('b4', onLineAtLength(BUS, BUS1, distance(FUS, a4))) #new back underarm
-        b5 = B.addPoint('b5', polar(b2, distance(a5, a6), angleOfLine(BNS, BSP) - angleOfDegree(6))) #new shoulder tip
-        b6 = B.addPoint('b6', onRayAtY(b2, angleOfLine(b2, b5) + ANGLE180 - angleOfVector(a6, a5, a7), b1.y)) #back neck corner
+        b5 = B.addPoint('b5', polar(b2, 1.05 * distance(a5, a6), angleOfLine(BNS, BSP) - angleOfDegree(15))) #new shoulder tip, with 0.05 fullness for ease in lieu of back shoulder dart 
+        b6 = B.addPoint('b6', (b2.x, b1.y)) #back neck corner
         #shorten hip extension
         b7 = B.addPoint('b7', midPoint(BWC, BHC)) #new back hip center
         b8 = B.addPoint('b8', midPoint(BWS, BHS)) #new back hip side
@@ -206,7 +219,7 @@ class Design(designBase):
         aG2 = dPnt(down(aG1, 0.75 * distance(FNC, a2)))
         A.addGrainLine(aG1, aG2)
         A.addGridLine(['M', FSP, 'L', FSW, 'L', FSH, 'L', FHC, 'M', FWC, 'L', FSP, 'M', FUC, 'L', FUS1, 'M', FBC, 'L', FBP, 'M', FWC, 'L', FWS1, 'M', FBP, 'L', FNS, 'L', FAP, 'M', FUS, 'L', FWS2, 'M', FBP, 'L', FBS, 'M', FBP, 'L', FHM, 'M', FHC, 'L', FHS1, 'M', FWS, 'L', FD1.o, 'L', FWS, 'M', FHS, 'L', FWS, 'M', FUS, 'C', FAP, 'C', FSP, 'L', FNS, 'C', FNC])
-        A.addDartLine(['M', FD3.ic, 'L', FD1.i, 'L', FD1, 'L', FD1.o,  'L', FD3.oc, 'M', FD2.ic, 'L', FD2, 'L', FD2.oc])
+        A.addDartLine(['M', FD3.i, 'L', FD1.i, 'L', FD1, 'L', FD1.o,  'L', FD3.o, 'M', FD2.i, 'L', FD2, 'L', FD2.oc])
         pth = (['M', a1, 'L', a2, 'L', FD3.i, 'L', FD3.m, 'L', FD3.o,  'L', a3, 'L', FWS, 'L', FD2.o, 'L', FD2.m, 'L', FD2.i, 'L', FUS, 'L', a6, 'L', a5, 'L', a7, 'L', a1])
         A.addSeamLine(pth)
         A.addCuttingLine(pth)
@@ -220,7 +233,7 @@ class Design(designBase):
         B.addGrainLine(bG1, bG2)
         B.addGridLine(['M', BSP, 'L', BSW, 'L', BSH, 'L', BHC, 'L', BHM, 'L', BHS1, 'M', BWC, 'L', BWS1, 'M', BD1.o, 'L', BWS, 'M', BHS, 'L', BWS, 'L', BUS, 'C', BAP, 'C', BSP, 'L', BD2.o, 'L', BD2.m, 'L', BD2.i, 'L', BNS, 'C', BNC, 'M', BWC, 'L', BSP, 'M', BNS, 'L', BAP, 'M', BUC, 'L', BUS1, 'M',  BD1, 'L', BHM, 'M', BD2.ic, 'L', BD2, 'L', BD2.oc])
         B.addDartLine(['M', BD3.ic, 'L', BD1.i, 'L', BD1, 'L', BD1.o, 'L', BD3.oc])
-        pth = (['M', b1, 'L', b7, 'L', BD3.i, 'L', BD3.m, 'L', BD3.o, 'L', b8, 'L', BWS, 'L', b4, 'L', b5, 'L', b2, 'L', b6, 'L', b1])
+        pth = (['M', b1, 'L', b7, 'L', BD3.i, 'L', BD3.m, 'L', BD3.o, 'L', b8, 'L', BWS, 'L', BUS, 'L', b5, 'L', b2, 'L', b6, 'L', b1])
         B.addSeamLine(pth)
         B.addCuttingLine(pth)
 
