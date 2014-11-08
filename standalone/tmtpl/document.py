@@ -244,7 +244,7 @@ class TitleBlock(pBase):
         svg_textgroup.addElement(self.generateText(x, y, 'client', self.cfg['clientdata'].customername, self.stylename))
         y = y + text_space
         i = datetime.datetime.now()
-        svg_textgroup.addElement(self.generateText(x, y, 'date', " %s/%s/%s %s:%s" % (i.year, i.month, i.day, i.hour, i.minute), self.stylename))
+        svg_textgroup.addElement(self.generateText(x, y, 'date', "%s/%s/%s %s:%s" % (i.year, i.month, i.day, i.hour, i.minute), self.stylename))
         y = y + text_space
 
         svg_dict[self.groupname].append(svg_textgroup)
