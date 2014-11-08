@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see < http://www.gnu.org/licenses/ > .
 
+import datetime
 import math
 import re
 from math import sin, cos, sqrt, asin
@@ -650,19 +651,21 @@ class PatternPiece(pBase):
         """
         text = []
         mi = self.cfg['metainfo']
+        i = datetime.datetime.now()
 
         text.append(mi['companyName'])
-
-        text.append('Designer:%s' % mi['designerName'])
-        text.append('Client:%s' % self.cfg['clientdata'].customername)
         text.append(mi['patternNumber'])
+        text.append(mi['patternTitle'])  
         text.append('Pattern Piece %s' % self.lettertext)
         if self.fabric > 0:
             text.append('Cut %d Fabric' % self.fabric)
+        if self.lining > 0:
+            text.append('Cut %d Lining' % self.lining)            
         if self.interfacing > 0:
-            text.append('Cut %d Interfacing' % self.interfacing)
-
-        #def __init__(group, name, headline, x, y, text, textstyledef='default_textblock_text_style', boxstyledef=None, transform=''):
+            text.append('Cut %d Interfacing' % self.interfacing) 
+        text.append(" ")                         
+        text.append(self.cfg['clientdata'].customername)
+        text.append("%s/%s/%s %s:%s" % (i.year, i.month, i.day, i.hour, i.minute))
         tb = TextBlock('pattern', 'info', 'Headline', self.labelx, self.labely, text, 'default_textblock_text_style', 'textblock_box_style')
         self.add(tb)
 
@@ -745,8 +748,8 @@ class Pattern(pBase):
             pp = index_by_letter[thisletter]
             #print 'pp=', pp
             info = parts[pp]
-            pp_width = info['xhi']-info['xlo']
-            pp_height = info['yhi']-info['ylo']
+            pp_width = info['xhi'] - info['xlo']
+            pp_height = info['yhi'] - info['ylo']
 
             if 'verbose' in self.cfg:
                 print '   Part letter:', thisletter
@@ -771,7 +774,8 @@ class Pattern(pBase):
                     print '     New max_height_this_row=pp_height:', pp_height
                 next_y = real_next_y
                 max_height_this_row = pp_height
-                next_x = 0
+                #next_x = 0
+                next_x = self.cfg['border']
             else:
                 if pp_height > max_height_this_row:
                     max_height_this_row = pp_height
