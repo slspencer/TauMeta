@@ -20,6 +20,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import datetime
 import json
 import pysvg.builders as PYB
 
@@ -241,6 +242,9 @@ class TitleBlock(pBase):
         svg_textgroup.addElement(self.generateText(x, y, 'pattern_name', meta_info['patternTitle'], self.stylename))
         y = y + text_space
         svg_textgroup.addElement(self.generateText(x, y, 'client', self.cfg['clientdata'].customername, self.stylename))
+        y = y + text_space
+        i = datetime.datetime.now()
+        svg_textgroup.addElement(self.generateText(x, y, 'date', " %s/%s/%s %s:%s" % (i.year, i.month, i.day, i.hour, i.minute), self.stylename))
         y = y + text_space
 
         svg_dict[self.groupname].append(svg_textgroup)
