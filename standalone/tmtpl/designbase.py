@@ -40,10 +40,10 @@ class designBase(object):
         # -spc- TODO, do we really need both of these?
         self.cfg['clientdata'] = ClientData
         # TODO printer stuff needs work
-        #self.printer = '36" wide carriage plotter'
-        self.printer = '44" wide carriage plotter'
-        #self.cfg['paper_width'] = 36.0 * IN
-        self.cfg['paper_width'] = 44.0 * IN
+        self.printer = '36" wide carriage plotter'
+        #self.printer = '44" wide carriage plotter'
+        self.cfg['paper_width'] = 36.0 * IN
+        #self.cfg['paper_width'] = 44.0 * IN
         self.cfg['border'] = 2.5 * CM
 
         # create the document into which all objects go
