@@ -107,15 +107,16 @@ class Design(designBase):
         FUC = A.addPoint('FUC', down(FNC, f_underarm_height)) #front underarm center
         FBC = A.addPoint('FBC', down(FNC, f_bust_height)) #bust center
         FBP = A.addPoint('FBP', right(FBC, 0.5 * CD.bust_distance)) #bust point
-        FAP = A.addPoint('FAP', right(FUC, CD.across_chest / 2.0)) #temp front armscye point 
+        FAP = A.addPoint('FAP', right(FUC, CD.across_chest / 2.0 + f_bust_ease / 2.0 )) #temp front armscye point 
         f1 = A.addPoint('f1', right(FUC, CD.front_underarm / 2.0)) #temp front underarm side               
         f2 = A.addPoint('f2', rightmostP(onCircleTangentFromOutsidePoint(FBP, (CD.front_bust - CD.bust_distance) / 2.0, f1))) #temp front bust side
         f3 = A.addPoint('f3', onLineAtLength(f1, f2, CD.side)) #temp front waist side
         f4 = A.addPoint('f4', (FBP.x, FWC.y)) #temp dart inside leg
         f5 = A.addPoint('f5', lowestP(intersectCircles(FBP, distance(FBP, f4), f3, CD.front_waist/2.0 - distance(FWC, f4)))) #temp dart outside leg
-        FBS = A.addPoint('FBS', extendLine(FBP, f2, f_bust_ease)) #front bust side, incl. ease 
-        f6 = A.addPoint('f6', polar(f3, f_waist_ease, angleOfLine(FBP, FBS))) #temp front waist side, incl. ease                       
-        f7 = A.addPoint('f7', onLineAtLength(f6, FBS, CD.side)) #temp front underarm side, incl. ease
+        
+        f6 = A.addPoint('f6', polar(f3, f_waist_ease, angleOfLine(FBP, f2))) #temp front waist side, incl. ease
+        f7 = A.addPoint('f7', polar(f1, f_bust_ease, angleOfLine(FBP, f2))) #temp front underarm side, incl. ease                                              
+        FBS = A.addPoint('FBS', intersectLines(f7, f6, FBP, f2)) #front bust side, incl. ease 
         FUS = A.addPoint('FUS', onLineAtLength(f7, FBS, 0.15 * CD.side)) #front underarm side        
         #rotate waist point
         total_dart_angle = angleOfVector(f5, FBP, f4)        
@@ -163,7 +164,7 @@ class Design(designBase):
         BSP = B.addPoint('BSP', highestP(onCircleAtX(BWC, CD.back_shoulder_balance, BSW.x))) #back shoulder point
         BNS = B.addPoint('BNS', rightmostP(onCircleAtY(BSP, CD.shoulder, BSH.y))) #back neck side
         BUC = B.addPoint('BUC', down(BNC, b_underarm_height)) #back underarm center         
-        BAP = B.addPoint('BAP', left(BUC, CD.across_back / 2.0)) #tmp back armscye point
+        BAP = B.addPoint('BAP', left(BUC, CD.across_back / 2.0 + b_bust_ease / 2.0)) #tmp back armscye point
         b1 = B.addPoint('b1', left(BUC, CD.back_underarm / 2.0)) #temp back underarm side               
         #back waist dart        
         BD1 = B.addPoint('BD1', intersectLines(BWC, BSP, BUC, BAP)) #back waist dart point
