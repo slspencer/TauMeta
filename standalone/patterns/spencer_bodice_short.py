@@ -136,7 +136,9 @@ class Design(designBase):
         extendDart(FWC, FD1, FWS)
         foldDart(FD1, FWC) #creates FD1.m for seamline, FD1.ic & FD1.oc for dartline
         extendDart(FUS, FD2, FWS)
-        foldDart(FD2, FUS) #creates FD2.m for seamline, FD2.ic & FD2.oc for dartline      
+        foldDart(FD2, FUS) #creates FD2.m for seamline, FD2.ic & FD2.oc for dartline
+        #sleevecap calculation point
+        f10 = A.addPoint('f10', intersectRays(FAP, angleOfLine(f1, f2), FUS, angleOfLine(FBS, FBP)))     
        
         #front control points
         #b/w FNS & FNC
@@ -154,8 +156,7 @@ class Design(designBase):
         #b/w FAP & FSP
         FAP.addOutpoint(polar(FAP, 0.33 * distance(FAP, FSP), angleOfLine(FAP, FNS)))
         FSP.addInpoint(polar(FSP, 0.15 * distance(FAP, FSP), angleOfLine(FSP, FNS) - ANGLE90))
-
-        
+                  
         #---Back B---#
         BNC = B.addPoint('BNC', (0.0, 0.0)) #back neck center
         BWC = B.addPoint('BWC', down(BNC, CD.back_waist_length)) #back waist center
@@ -211,28 +212,27 @@ class Design(designBase):
 
         #---Sleeve C---#
         #get front & back armcye length
-        back_armscye = points2List(BUS, BUS.outpoint, BAP.inpoint, BAP, BAP.outpoint, BSP.inpoint, BSP)
-        front_armscye = points2List(FUS, FUS.outpoint, FAP.inpoint, FAP, FAP.outpoint, FSP.inpoint, FSP)
-        sleevecap_girth = curveLength(back_armscye) + curveLength(front_armscye)
-        SCM = C.addPoint('SCM', (0.0, 0.0)) #sleeve cap midpoint - top of sleeve
-        #SUM = C.addPoint('SUM', (SCM.x, SCM.y + sleevecap_girth / 4.0 + 1.5 * CM)) #sleeve underarm midpoint
-        SUM = C.addPoint('SUM', down(SCM, sleevecap_girth / 3.0)) #sleeve underarm midpoint        
+        lower_back_curve_length = curveLength(points2List(BUS, BUS.outpoint, BAP.inpoint, BAP))
+        upper_back_curve_length = curveLength(points2List(BAP, BAP.outpoint, BSP.inpoint, BSP))
+        back_curve_length = lower_back_curve_length + upper_back_curve_length        
+        lower_front_curve_length = curveLength(points2List(FUS, FUS.outpoint, FAP.inpoint, FAP))
+        upper_front_curve_length = curveLength(points2List(FAP, FAP.outpoint, FSP.inpoint, FSP))
+        front_curve_length = lower_front_curve_length + upper_front_curve_length                           
+        sleevecap_length = front_curve_length + back_curve_length
+
+        SCM = C.addPoint('SCM', (0.0, 0.0)) #sleeve cap middle - top of sleeve
+        SUM = C.addPoint('SUM', down(SCM, sleevecap_length / 4.0)) #sleeve underarm midpoint
+        SUB = C.addPoint('SUB', rightmostP(onCircleAtY(SCM, distance(BSP, BAP) + distance(BAP, BUS), SUM.y))) #back underarm point
+        SUF = C.addPoint('SUF', leftmostP(onCircleAtY(SCM, distance(FSP, FAP) + distance(FAP, FUS), SUM.y))) #front underarm point
+        
+        S1 = C.addPoint('S1', onLineAtLength(SUB, SCM, distance(BUS, BAP))) #back sleeve cap point
+        S2 = C.addPoint('S2', onLineAtLength(SUF, SCM, distance(FUS, FAP))) #front sleeve cap point
+  
         SWM = C.addPoint('SWM', (SCM.x, SCM.y + CD.oversleeve_length + 6 * CM)) #sleeve wrist midpoint
         SEM = C.addPoint('SEM', midPoint(SUM, SWM)) #sleeve elbow midpoint
-        SUB = C.addPoint('SUB', (SUM.x + (sleevecap_girth / 2.0 - 0.5 * CM), SUM.y)) #sleeve underarm back
-        SUF = C.addPoint('SUF', (SUM.x - (sleevecap_girth / 2.0 - 0.5 * CM), SUM.y)) #sleeve underarm front
         SEB = C.addPoint('SEB', right(SEM, 0.65 * CD.elbow)) #sleeve elbow back
-        SEF = C.addPoint('SEF', left(SEM, 0.5 * CD.elbow)) #sleeve elbow front        
-
-        #back armscye points
-        s1 = C.addPoint('s1', onLineAtLength(SUB, SCM, distance(SUB, SCM) / 4.0)) #sleeve cap back 1
-        s2 = C.addPoint('s2', onLineAtLength(SUB, SCM, 0.75 * distance(SUB, SCM)))
-        s3 = C.addPoint('s3', polar(s2, 2 * CM, angleOfLine(SUB, SCM) + ANGLE90)) #sleeve cap back 3
-        #front armscye points
-        s4 = C.addPoint('s4', onLineAtLength(SUF, SCM, 0.75 *  distance(SUF, SCM)))
-        s5 = C.addPoint('s5', polar(s4, 1 * CM, angleOfLine(SUF, SCM) - ANGLE90)) #sleeve cap front 3       
-        s6 = C.addPoint('s6', onLineAtLength(SUF, SCM, distance(SUF, SCM) / 4.0))
-        s7 = C.addPoint('s7', polar(s6, 1 * CM, angleOfLine(SUF, SCM) + ANGLE90)) #sleeve cap front 1
+        SEF = C.addPoint('SEF', left(SEM, 0.5 * CD.elbow)) #sleeve elbow front
+        
         #wrist
         s8 = C.addPoint('s8', (SUF.x, SWM.y)) #sleeve wrist line 1
         s9 = C.addPoint('s9', onLineAtLength(SWM, s8, 0.7 * CD.wrist)) #sleeve wrist line 2        
@@ -247,24 +247,19 @@ class Design(designBase):
         foldDart(SD1, SEB) #creates SD1.m, SD1.oc, SD1.ic; dart folds up towards elbow                   
 
         #Sleeve C control points
-        cArray = points2List(SUB, s1, s3, SCM, s5, s7, SUF)
-        C1, C2 = controlPoints('sleeve_cap', cArray)
-        SUB.addOutpoint(C1[0])
-        s1.addInpoint(C2[0])
-        s1.addOutpoint(C1[1])
-        s3.addInpoint(C2[1])
-        s3.addOutpoint(C1[2])
-        #SCM.addInpoint(C2[2])
-        #SCM.addOutpoint(C1[3])
-        SCM.addInpoint(right(SCM, 0.33 * distance(SCM, s3)))
-        SCM.addOutpoint(left(SCM, 0.33 * distance(SCM, s4)))
-        s5.addInpoint(polar(s5, 0.33 * distance(s5, SCM.outpoint), angleOfLine(s5, SCM.outpoint)))
-        s5.addOutpoint(polar(s5, 0.33 * distance(s5, s7), angleOfLine(SCM.outpoint, s5)))
-        s7.addInpoint(C2[4])
-        s7.addOutpoint(C1[5])
-        SUF.addInpoint(C2[5])
-        SEF.addInpoint(extendLine(s9, SEF, 0.33*distance(SUF, SEF)))        
-        SUF.addOutpoint(polar(SUF, 0.33*distance(SUF, SEF), angleOfLine(SUF, SEF.inpoint)))
+        SCM.addInpoint(right(SCM, 0.33 * distance(SUM, SUB)))
+        SCM.addOutpoint(left(SCM, 0.33 * distance(SUM, SUF)))
+                
+        SUB.addOutpoint(polar(SUB, 0.165 * distance(SUB, S1), angleOfLine(SUB, SEB) + ANGLE90))
+        S1.addInpoint(polar(S1, 0.33 * distance(SUB, S1), angleOfLine(SCM.inpoint, S1)))
+        S1.addOutpoint(polar(S1, 0.33 * distance(S1, SCM.inpoint), angleOfLine(S1, SCM.inpoint)))
+        
+        S2.addInpoint(polar(S2, 0.33 * distance(S2, SCM.outpoint), angleOfLine(S2, SCM.outpoint)))
+        S2.addOutpoint(polar(S2, 0.33 * distance(S2, SUF), angleOfLine(SCM.outpoint, S2)))                
+        SUF.addInpoint(polar(SUF, 0.165 * distance(SUM, SUF), angleOfLine(SUF, SEF) - ANGLE90))
+                   
+        SEF.addInpoint(extendLine(s9, SEF, 0.33 * distance(SUF, SEF)))       
+        SUF.addOutpoint(polar(SUF, 0.33 * distance(SUF, SEF), angleOfLine(SUF, SEF.inpoint)))
  
         #extend sleeve wrist
         SWB = C.addPoint('SWB', extendLine(SD1.o, s11, distance(SEB, SD1.o))) #sleeve extended at back wrist to allow for elbow dart
@@ -310,11 +305,11 @@ class Design(designBase):
         Cg2 = dPnt((Cg1.x, SWM.y - 8.0 * CM))
         C.addGrainLine(Cg1, Cg2)
         pnt1 = dPnt(midPoint(SUM, SEM))
-        C.setLetter((s3.x, pnt1.y), scaleby=15.0)
-        C.setLabelPosition((s3.x, pnt1.y + 2.0 * CM))
-        C.addGridLine(['M', SCM,'L', SWM, 'M', SUB, 'L', SCM, 'L',  SUF, 'M', SUB, 'L', SUF, 'M', SEB, 'L', SEF, 'M', SUF, 'L', s8, 'L', s10, 'L', SUB, 'M', SEB, 'L', s11, 'M', SUF, 'L', s9, 'M', s2, 'L', s3, 'M', s4, 'L', s5, 'M', s6, 'L', s7])
+        C.setLetter((S2.x, pnt1.y), scaleby=15.0)
+        C.setLabelPosition((S2.x, pnt1.y + 2.0 * CM))
+        C.addGridLine(['M', SCM,'L', SWM,  'M', SUB, 'L', SUF, 'M', SEB, 'L', SEF, 'M', SUB, 'L', S1, 'L', SCM, 'L', S2, 'L', SUF,'M', SUF, 'L', s8, 'L', s10, 'L', SUB, 'M', SEB, 'L', s11, 'M', SUF, 'L', s9])       
         C.addDartLine(['M', SD1.ic, 'L', SD1, 'L', SD1.oc])
-        pth = (['M', SUB, 'C', s1, 'C', s3, 'C', SCM, 'C', s5, 'C', s7, 'C', SUF, 'C', SEF, 'L', SWF, 'C', SWB, 'L', SD1.o, 'L', SD1.m, 'L', SD1.i, 'L', SUB])
+        pth = (['M', SUB, 'C', S1, 'C', SCM, 'C', S2, 'C', SUF, 'C', SEF, 'L', SWF, 'C', SWB, 'L', SD1.o, 'L', SD1.m, 'L', SD1.i, 'L', SUB])
         C.addSeamLine(pth)
         C.addCuttingLine(pth)               
 
