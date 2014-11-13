@@ -183,11 +183,16 @@ class Design(designBase):
         
         #back shoulder dart
         dart_width = distance(BSP, BNS) - distance(FSP, FNS)
+        print("shoulder ease =",dart_width)
         pnt_m = midPoint(BSP, BNS) #midpoint of shoulder dart at shoulder seam
         BD2 = B.addPoint('BD2', intersectLineRay(BNS, BAP, pnt_m, angleOfLine(BSP, BNS) + ANGLE90)) #back shoulder dart point        
         BD2.i = B.addPoint('BD2.i', pnt_m) #back shoulder dart inside leg
-        BD2.o = B.addPoint('BD2.o', rotate(BD2, pnt_m, angleOfDegree(-8))) #back shoulder dart inside leg
+        BD2.o = B.addPoint('BD2.o', rotate(BD2, pnt_m, angleOfDegree(-9))) #back shoulder dart outside leg
+        updatePoint(BSP, rotate(BD2, BSP, angleOfDegree(-9)))
         extendDart(BSP, BD2, BNS, extension=1) #smooth shoulder seam at dart
+        print("dart_width=",distance(BD2.i, BD2.o))
+        print("front shoulder length =",distance(FNS, FSP))
+        print("back shoulder width =", distance(BNS, BD2.i) + distance(BD2.o, BSP))
         foldDart(BD2, BNS) #fold dart toward BNS
         
         #back control points
