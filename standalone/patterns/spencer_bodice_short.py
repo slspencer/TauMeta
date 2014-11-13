@@ -89,9 +89,10 @@ class Design(designBase):
         # points are always in the 'reference' group, and always have style='point_style'
 
         #---Front A---#
-        f_bust_ease = 0.083 * CD.bust/4.0
+        #f_bust_ease = 0.083 * CD.bust/4.0 #3" for 36" bust
+        f_bust_ease = 0.07 * CD.bust/4.0 #2.5" for 36" bust
         b_bust_ease = f_bust_ease
-        f_waist_ease = 0.0625 * CD.waist/4.0
+        f_waist_ease = 0.0625 * CD.waist/4.0 #1.5" for 24" waist
         b_waist_ease = f_waist_ease
         
         f_underarm_height = 9.0 * CM
