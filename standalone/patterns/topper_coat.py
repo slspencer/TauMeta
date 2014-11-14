@@ -22,12 +22,12 @@ class Design(designBase):
         #
         # This group is all mandatory
         #
-        self.setInfo('patternNumber', 'Coat_W_Topper')
+        self.setInfo('patternNumber', 'topper_coat')
         self.setInfo('patternTitle', 'Topper Coat')
-        self.setInfo('companyName', 'Seamly Patterns')
+        self.setInfo('companyName', 'Epic Mode')
         self.setInfo('designerName', 'S.L.Spencer')
         self.setInfo('patternmakerName', 'S.L.Spencer')
-        self.setInfo('description', """TTopper Coat""")
+        self.setInfo('description', """Topper Coat""")
         self.setInfo('category', 'Coat')
         self.setInfo('type', 'pattern')
         self.setInfo('gender', 'F') # 'M',  'F',  or ''
@@ -83,13 +83,13 @@ class Design(designBase):
         totalDartAngle = abs(angleOfVector(FWS1, FBP, FWS2))
         frontWaistDartAngle = totalDartAngle/2.0
         bustDartAngle = totalDartAngle/2.0
-        FD1 = A.addPoint('FD1', (FBP)) #front waist dart point
+        FD1 = A.addPoint('FD1', down(FBP, distance(FBC, FWC)/7.0)) #front waist dart point
         FD1.i = A.addPoint('FD1.i', onRayAtY(FBP, ANGLE90 - frontWaistDartAngle/2.0, FWC.y)) #front waist dart inside leg
         FD1.o = A.addPoint('FD1.o', onRayAtY(FBP, ANGLE90 + frontWaistDartAngle/2.0, FWC.y)) #front waist dart outside leg
         #FD1.m = A.addPoint('FD1.m', dPnt((FBP.x, FWC.y))) #below bust point at waist
         FD1.m = A.addPoint('FD1.m', midPoint(FD1.i, FD1.o)) #below bust point at waist
         #bust dart
-        FD2 = A.addPoint('FD2', (FBP)) #bust dart point
+        FD2 = A.addPoint('FD2', left(FBP, distance(FBP, FBS)/7.0)) #bust dart point
         FD2.i = A.addPoint('FD2.i', intersectLineRay(FUS1, FBS, FBP, ANGLE180 + bustDartAngle/2.0)) #bust dart inside leg
         FD2.o = A.addPoint('FD2.o', polar(FBP, distance(FBP, FD2.i), ANGLE180 - bustDartAngle/2.0)) #bust dart outside leg
         FD2.m = A.addPoint('FD2.m', intersectLines(FBC, FBP, FBS, FUS)) #intersect bust line & side seam
@@ -105,13 +105,10 @@ class Design(designBase):
         foldDart(FD1, FWC) #creates FD1.m,FD1.oc,FD1.ic; dart folds in toward waist center FWC
         #do not call adjustDartLength(FWS1,FD2,FUS) -- bust dart FD2 is not on a curve
         foldDart(FD2, FUS) #creates FD2.m,FD2.oc,FD2.ic; dart folds up toward underarm side FUS
-        #adjust FD1 & FD2 away from FBP bust point
-        (FD1.x, FD1.y) = down(FD1, distance(FD1, FD1.i)/7.0)
-        (FD2.x, FD2.y) = left(FD2, distance(FD2, FD2.i)/7.0)
 
         #Bodice Lower Front A hip extension
         FHC = A.addPoint('FHC', down(FWC, CD.front_hip_height)) #front hip center
-        FWS3 = A.addPoint('FWS3', left(FD1.o, distance(FD1.o, FWS))) #front waist side
+        #FWS3 = A.addPoint('FWS3', left(FD1.o, distance(FD1.o, FWS))) #front waist side
         FHM = A.addPoint('FHM', (FD1.x, FHC.y)) #reflect waist dart point on hip line for 'fish dart'
         FHS1 = A.addPoint('FHS1', left(FHC, CD.front_hip/2.0)) #front hip side 1
         FHS2 = A.addPoint('FHS2', polar(FD1.o, distance(FD1.o, FHS1), angleOfLine(FD1.o, FHS1) + angleOfVector(FWS2, FD1.o, FWS))) #front hip side 2
@@ -123,11 +120,9 @@ class Design(designBase):
         a2 = A.addPoint('a2', onLineAtLength(FNS, FSP, distance(FNC, a1))) #new front neck point
         a3 = A.addPoint('a3', left(FSP, distance(FNC, a1))) #new shoulder point
         a4 = A.addPoint('a4', left(FAS, distance(FNC, a1))) #new armscye curve
-        a5 = A.addPoint('a5', onLineAtLength(FBS, FBP, -0.05*CD.front_bust)) #new underarm point - out 0.5in & down 1in
+        a5 = A.addPoint('a5', extendLine(FBP, FBS, 0.05*CD.front_bust)) #new underarm point - out 0.5in & down 1in
         a6 = A.addPoint('a6', onLineAtLength(FD2.i, FBP, -distance(FBS, a5))) #new bust dart inside
         a7 = A.addPoint('a7', onLineAtLength(FD2.o, FBP, -distance(FBS, a5))) #new bust dart outside
-        a8 = A.addPoint('a8', onLineAtLength(FWS, FD1.o, -distance(FBS, a5))) #new waist side
-        a9 = A.addPoint('a9', onLineAtLength(FHS, FHM, -distance(FBS, a5))) #new hip side
 
         #Bodice Lower Front A control points
         #b/w FNS front neck point & FNC front neck center
@@ -144,7 +139,8 @@ class Design(designBase):
         FUS.addOutpoint(polar(FUS, distance(FUS, FAS)/3.0, angleOfLine(FD2.i, FUS) + ANGLE90)) #control handle is perpendicular to side seam at underarm
         #b/w a2 new neck point & a1 new front neck center
         a1.addInpoint(left(a1, 0.75 * abs(a1.x - a2.x)))
-        a2.addOutpoint(polar(a2, abs(a1.y - a2.y)/2.0, angleOfLine(a3, a2) + ANGLE90))
+        #a2.addOutpoint(polar(a2, abs(a1.y - a2.y)/2.0, angleOfLine(a3, a2) + ANGLE90))
+        a2.addOutpoint(polar(a2, distance(a2, a1)/3.0, angleOfLine(a3, a2) + ANGLE90))
         #b/w a5 new underarm & a4 armscye curve & a3 new shoulder tip
         a5.addOutpoint(polar(a5, distance(a5, a4)/3.0, angleOfLine(a6, a5) + ANGLE90))
         a4.addInpoint(polar(a4, distance(a5, a4)/3.0, angleOfLine(a2, a4)))
@@ -219,47 +215,56 @@ class Design(designBase):
         a11 = A.addPoint('a11', polar(a10, 0.13 * CD.front_waist_length, angleOfLine(a2, a10) + ANGLE90)) #front neck extension point 2
         front_neck_curve = points2List(a1, a1.inpoint, a2.outpoint, a2)
         curve_length = curveLength(front_neck_curve)
-        a12 = A.addPoint('a12', onCurveAtLength(front_neck_curve, curve_length/3.0)) #divide front neck curve 1/3rd along length
-        a13 = A.addPoint('a13', dPnt(a12)) #a13 won't rotate
+        a13 = A.addPoint('a13', onCurveAtLength(front_neck_curve, curve_length/3.0)) #divide front neck curve 1/3rd along length
         a14 = A.addPoint('a14', polar(a11, distance(a2, a10), angleOfLine(a10, a2))) #front neckextension point 3
         a15 = A.addPoint('a15', right(a1, 0.1 * CD.front_waist_length)) #right of a1 front neck center
         a16 = A.addPoint('a16', right(FHC, distance(a1, a15))) #right of FHC front hip center
         a17 = A.addPoint('a17', a2) #copy neck point to use in collar
+        a25 = A.addPoint('a25', left(a13, distance(a13, a1)/2.0)) #break point
+        a26 = A.addPoint('a26', a25) #break point
+        a27 = A.addPoint('a27', onLineAtLength(FBP, a13, distance(FBP, a25)/6.0))
+        a28 = A.addPoint('a28', a27) 
 
         #b/w a2 neck point, a12/a13 split point, a1 front neck center
-        (a1.inpoint.x, a1.inpoint.y) = left(a1, distance(a1, a12)/3.0) #adjust a1.inpoint
-        (a2.outpoint.x, a2.outpoint.y) = polar(a2, distance(a2, a12)/3.0, angleOfLine(a3, a2) + ANGLE90) #adjust a1.inpoint
+        (a1.inpoint.x, a1.inpoint.y) = left(a1, distance(a1, a13)/3.0) #adjust a1.inpoint
+        (a2.outpoint.x, a2.outpoint.y) = polar(a2, distance(a2, a13)/3.0, angleOfLine(a3, a2) + ANGLE90) #adjust a1.inpoint
         a17.addInpoint(a2.outpoint)
         a17.addOutpoint(polar(a17, distance(a17, a10)/3.0, angleOfLine(a17.inpoint, a17)))
-        a10.addInpoint(polar(a10, distance(a17, a10)/3.0, angleOfLine(a10, a11) + ANGLE90))
-        a12.addInpoint(polar(a12, distance(a12, a2)/3.0, angleOfLine(a1.inpoint, a2.outpoint)))
-        a13.addOutpoint(a12.inpoint)
+        a10.addInpoint(polar(a10, distance(a17, a10)/3.0, angleOfLine(a10, a11) + ANGLE90))        
+      
         #b/w a11 extended collar top corner & a14 extended collar top midpoint
         a11.addOutpoint(polar(a11, distance(a11, a14)/3.0, angleOfLine(a10, a11) + ANGLE90))
         a14.addInpoint(polar(a14, distance(a11, a14)/3.0, angleOfLine(a17, a17.outpoint)))
         #b/w a14 extended collar midpoint & a15 extended collar neck point
         a14.addOutpoint(polar(a14, distance(a14, a15)/3.0, angleOfLine(a17.outpoint, a17)))
         a15.addInpoint(up(a15, distance(a14, a15)/3.0))
-        #a13.addOutpoint(polar(a13, distance(a13, a1)/3.0, angleOfLine(a12.inpoint, a12)))
 
-        #close bust dart
+        a25.addInpoint(down(a25, distance(a25, a27) / 3.0))
+        a25.addOutpoint(up(a25, distance(a25, a17) / 3.0))
+        a26.addInpoint(a25.outpoint) # reverse direction       
+        a26.addOutpoint(a25.inpoint) # reverse direction
+        a27.addOutpoint(onLineAtLength(a27, a13, distance(a27, a25) / 3.0))
+        a28.addInpoint(a27.outpoint)  #reverse direction     
+
+        #rotate counterclockwise to close bust dart & open neck dart 
+        updatePoint(a2.outpoint, polar(a2, distance(a2, a26)/3.0, angleOfLine(a2, a2.outpoint)))
         pivot = FBP
-        angle = angleOfVector(a6, FBP, a7)
-        slashAndSpread(pivot, -angle, a6, a5, a5.outpoint, a4.inpoint, a4, a4.outpoint, a3.inpoint, a3, a2, a2.outpoint, a12.inpoint, a12) #rotate counterclockwise, so angle < 0
+        angle = angleOfVector(a6, FBP, a7)                
+        slashAndSpread(pivot, -angle, a6, a5, a5.outpoint, a4.inpoint, a4, a4.outpoint, a3.inpoint, a3, a2, a2.outpoint, a26, a26.inpoint, a26.outpoint, a28, a28.inpoint) #rotate counterclockwise, so angle < 0        
         #lower underarm
-        LOWER_LENGTH = 0.2 * distance(a5, a8) #20% side length
+        LOWER_LENGTH = 0.2 * CD.side #20% side length
         a18 = A.addPoint('a18', (a5.x - 0.07 * CD.front_underarm, a5.y + LOWER_LENGTH)) #new front underarm - out 7% front underarm, down 40% side length
         #extend side seam
-        a19 = A.addPoint('a19', left(a9, 2 * abs(a18.x - a5.x))) #extend side
+        a19 = A.addPoint('a19', left(FHS, 3 * abs(a18.x - a5.x))) #extend side
         #extend side seam hem
-        a20 = A.addPoint('a20', extendLine(a18, a19, 1.5 * LOWER_LENGTH)) #extend side hem 
+        a20 = A.addPoint('a20', extendLine(a18, a19, 1.5 * LOWER_LENGTH)) #extend side hem
         #extend front center line
         pnt = dPnt(intersectLines(a19, a20, FNC, FHC)) # find point where center line & side seam intersect
         a21 = A.addPoint('a21', onLineAtLength(pnt, FNC, distance(pnt, a20))) #new front hem center
         #create pocket line
         WELT_HEIGHT = 0.15 * CD.front_waist_length
         a22 = A.addPoint('a22', onLineAtLength(a13, FBP, FWC.y + WELT_HEIGHT)) #pocket center
-        a23 = A.addPoint('a23', onLineAtLength(a19, a18, distance(a9, a8)/3.0)) #pocket side
+        a23 = A.addPoint('a23', onLineAtLength(a19, a18, distance(FHS, FWS)/3.0)) #pocket side
         #front facing/collar
         a24 = A.addPoint('a24', (a16.x, a21.y)) #extend center hem out for facing/collar
 
@@ -273,7 +278,7 @@ class Design(designBase):
 
         #facing
         hem_curve1 = points2List(a21, a21.outpoint, a20.inpoint, a20)
-        a50 = A.addPoint('a50', onCurveAtX(hem_curve1, a13.x)) #facing hem
+        a50 = A.addPoint('a50', onCurveAtX(hem_curve1, a25.x)) #facing hem
         new_curve = splitCurveAtPoint(hem_curve1, a50)
         (a21.outpoint.x, a21.outpoint.y) = new_curve[1]
         a50.addInpoint(new_curve[2])
@@ -450,25 +455,20 @@ class Design(designBase):
         
         
         #---Front Lining J---#
-        j1 = J.addPoint('j1', onLineAtLength(a18, a23, 0.25 * distance(a18, a23))) #1/4 distance along Front Upper side seam
-        #close up dart at neck, replace with bust dart along side seam
-        angle1 = angleOfVector(a12, FBP, a13)
-        j2 = J.addPoint('j2', rotate(FBP, j1, angle1)) #rotated copy of j1 to create new dart along side seam
-        j3 = J.addPoint('j3', rotate(FBP, a18, angle1)) #rotated copy of a16 underarm point
-        j3.addOutpoint(rotate(FBP, a18.outpoint, angle1))
-        j4 = J.addPoint('j4', rotate(FBP, a4, angle1)) #rotate a4 armscye curve
-        j4.addInpoint(rotate(FBP, a4.inpoint, angle1))
-        j4.addOutpoint(rotate(FBP, a4.outpoint, angle1))        
+        angle1 = angleOfVector(a27, FBP, a28)               
+        jD1 = J.addPoint('jD1', onLineAtLength(FBP, a4, distance(FBP, a4)/5.0)) #new dartpoint
+        jD1.i = J.addPoint('jD1.i', rotate(FBP, a4, angle1))
+        jD1.i.addOutpoint(rotate(FBP, a4.outpoint, angle1)) 
+        jD1.o = J.addPoint('jD1.o', a4) #rotated copy of jD1.o to create new bust dart along side seam
+        jD1.o.addInpoint(a4.inpoint)       
         j5 = J.addPoint('j5', rotate(FBP, a3, angle1)) #rotate a3 shoulder tip
         j5.addInpoint(rotate(FBP, a3.inpoint, angle1))
         j6 = J.addPoint('j6', rotate(FBP, a2, angle1)) #rotate a2 neck front side
         j6.addOutpoint(rotate(FBP, a2.outpoint, angle1))
-        j7 = J.addPoint('j7', rotate(FBP, a12, angle1)) #rotate a12 neck front center
-        j7.addInpoint(rotate(FBP, a12.inpoint, angle1))
-        jD1 = J.addPoint('jD1', polar(FBP, 0.15 * distance(FBP, j1), angleOfLine(FBP, j1) + (0.5 * angle1))) #new dartpoint
-        jD1.i = J.addPoint('jD1.i', j2)
-        jD1.o = J.addPoint('jD1.o', j1)
-        foldDart(jD1, j3)
+        j7 = J.addPoint('j7', rotate(FBP, a26, angle1)) #rotate a26 facing curve break point
+        j7.addInpoint(rotate(FBP, a26.inpoint, angle1))        
+
+        foldDart(jD1, j5)
          
 
         #---------------------------------------------#
@@ -482,9 +482,8 @@ class Design(designBase):
         aG1 = dPnt(FAC)
         aG2 = dPnt(FHC)
         A.addGrainLine(aG1, aG2)
-        A.addGridLine(['M', FNC, 'L', FWC, 'L', FSP, 'M', FAC, 'L', FUS1, 'M', FNC, 'L', FSP, 'M', FBC, 'L', FBP, 'M', FWC, 'L', FWS3, 'M', FBP, 'L', FNS, 'L', FAS, 'M', FUS, 'L', FWS2, 'M', FBP, 'L', FBS, 'M', FD2.m, 'L', FBP, 'L', FHM, 'M', FHC, 'L', FHS1, 'M', FD1.o, 'L', FWS, 'M', FHS2, 'L', FWS, 'M', FNC, 'L', FHC, 'L', FHM, 'L', FHS, 'L', FWS, 'L', FD2.o, 'L', FD2.m, 'L', FD2.i, 'L', FUS, 'C', FAS, 'C', FSP, 'L', FNS, 'C', FNC, 'M', FD1.i, 'L', FD1, 'L', FD1.o, 'L', FD1.d, 'L', FD1.i, 'M', FD2.ic, 'L', FD2, 'L', FD2.oc, 'M', a1, 'L', FHC, 'L', FHM, 'L', a9, 'L', a8, 'L', a7, 'L', a6, 'L', a5, 'C', a4, 'C', a3, 'L', a2, 'C', a12, 'L', FBP, 'L', a13, 'C', a1, 'M', a18, 'C', a4, 'C', a3, 'L', a2, 'C', a12, 'L', FBP, 'M', a13, 'L', a50, 'M', a22, 'L', e1, 'L', a19])
-
-        pth = (['M', a15, 'L', a24, 'L', a21, 'C', a50, 'C', a20, 'L', a23, 'L', a22 , 'L', a13, 'C', a17, 'C', a10, 'L', a11, 'C', a14, 'C', a15])
+        A.addGridLine(['M', FNC, 'L', FWC, 'M', FAC, 'L', FUS1, 'M', FBC, 'L', FBP, 'M', FWC, 'L', FWS1, 'M', FUS, 'L', FWS2, 'M', FBP, 'L', FBS, 'M', FD2.m, 'L', FBP, 'L', FHM, 'M', FHC, 'L', FHS1, 'M', FD1.o, 'L', FWS, 'M', FHS2, 'L', FWS, 'M', FNC, 'L', FHC, 'L', FHM, 'L', FHS, 'L', FWS, 'L', FD2.o, 'L', FD2.m, 'L', FD2.i, 'L', FUS, 'C', FAS, 'C', FSP, 'L', FNS, 'C', FNC, 'M', FD1.i, 'L', FD1, 'L', FD1.o, 'L', FD1.d, 'L', FD1.i, 'M', FD2.ic, 'L', FD2, 'L', FD2.oc, 'M', FNC, 'L', FHC, 'L', FHM, 'M', a5, 'C', a4, 'C', a3, 'L', a2, 'C', a26, 'C', a28, 'L', FBP, 'M', a23, 'L', a18, 'C', a4, 'C', a3, 'L', a2, 'M', a25, 'L', a50, 'M', a22, 'L', e1, 'L', a19, 'M', d1, 'L', d2, 'L', d3, 'L', d4, 'L', d1])
+        pth = (['M', a15, 'L', a24, 'L', a21, 'C', a50, 'C', a20, 'L', a23, 'L', a22 , 'L', FBP, 'L', a27, 'C', a25, 'C', a17, 'C', a10, 'L', a11, 'C', a14, 'C', a15])
         A.addDartLine(['M', a13, 'L', a22, 'L', a23])
         A.addSeamLine(pth)
         A.addCuttingLine(pth)
@@ -496,7 +495,7 @@ class Design(designBase):
         bG1 = dPnt((distance(b3, b6)/4.0, b8.y))
         bG2 = dPnt(down(bG1, distance(b1, b13)/2.0))
         B.addGrainLine(bG1, bG2)
-        B.addGridLine(['M', b6, 'L', b3, 'L', b2, 'L', b14, 'M', bD1.o, 'L', b11, 'M', b1, 'L', b5, 'M', b2, 'L', b5, 'M', b6, 'L', b7, 'M', b8, 'L', b9, 'M',  bD1, 'L', b15, 'L', b16, 'M', b17, 'L', b11, 'M', b1, 'L', b13, 'L', b15, 'L', b18, 'L', b11, 'L', b10, 'C', b7, 'C', b5, 'L', b6, 'C', b1, 'M', b18, 'L', b25, 'L', b24, 'L', b23])
+        B.addGridLine(['M', b6, 'L', b3, 'L', b2, 'L', b14, 'M', bD1.o, 'L', b11, 'M', b1, 'L', b5, 'M', b8, 'L', b9, 'M',  bD1, 'L', b15, 'L', b16, 'M', b17, 'L', b11, 'M', b1, 'L', b13, 'L', b15, 'L', b18, 'L', b11, 'L', b10, 'C', b7, 'C', b5, 'L', b6, 'C', b1, 'M', b18, 'L', b25, 'L', b24, 'L', b23])
         pth = (['M', b19, 'L', b29, 'C', b31, 'C', b28, 'L', b26, 'C', b22, 'C', b21, 'L', b20, 'C', b19])
         B.addSeamLine(pth)
         B.addCuttingLine(pth)
@@ -508,7 +507,7 @@ class Design(designBase):
         cG1 = dPnt((c13.x, c11.y))
         cG2 = down(cG1, 0.75 * distance(c7, c9))
         C.addGrainLine(cG1, cG2)
-        C.addGridLine(['M', c1, 'L', c2, 'L', c4, 'L', c3, 'L', c1, 'M', c13, 'L', c16, 'M', c5, 'L', c6, 'M', c8, 'L', c9])
+        C.addGridLine(['M', c1, 'L', c2, 'L', c4, 'L', c3, 'L', c1, 'M', c13, 'L', c16, 'M', c5, 'L', c6, 'M', c8, 'L', c9, 'M', i1, 'L', i2, 'L', i3, 'L', i4, 'L', i1])
         pth = (['M', c19, 'C', c20, 'L', c9, 'L', c2, 'C', c17, 'C', c13, 'C', c19])
         C.addSeamLine(pth)
         C.addCuttingLine(pth)
@@ -542,7 +541,7 @@ class Design(designBase):
         fG1 = dPnt(onLineAtLength(a13, a15, distance(a13, a15)/4.0))
         fG2 = down(fG1, 0.75 * distance(a13, a50))
         F.addGrainLine(fG1, fG2)
-        pth =(['M', a13, 'C', a17, 'C', a10, 'L', a11, 'C', a14, 'C', a15, 'L', a24, 'L', a21, 'C', a50, 'L', a13])
+        pth =(['M', a25, 'C', a17, 'C', a10, 'L', a11, 'C', a14, 'C', a15, 'L', a24, 'L', a21, 'C', a50, 'L', a25])
         F.addSeamLine(pth)
         F.addCuttingLine(pth)
 
@@ -553,7 +552,9 @@ class Design(designBase):
         gG1 = dPnt((pnt1.x - 50, FAS.y))
         gG2 = down(gG1, 0.75 * distance(FAS, a22))
         G.addGrainLine(gG1, gG2)
-        pth =(['M', a12, 'L', FBP, 'L', a22, 'L', e1, 'L',  a19, 'L', a23, 'L', a18, 'C', a4, 'C', a3, 'L', a2, 'C', a12])
+        #pth =(['M', a12, 'L', FBP, 'L', a22, 'L', e1, 'L',  a19, 'L', a23, 'L', a18, 'C', a4, 'C', a3, 'L', a2, 'C', a12])
+        #pth =(['M', a12, 'L', FBP, 'L', a22, 'L', e1, 'L',  a19, 'L', a23, 'L', a18, 'C', a4, 'C', a3, 'L', a2, 'C', a12])
+        pth =(['M', a26, 'C', a28, 'L', FBP, 'L', a22, 'L', e1, 'L',  a19, 'L', a23, 'L', a18, 'C', a4, 'C', a3, 'L', a2, 'C', a26])
         G.addSeamLine(pth)
         G.addCuttingLine(pth)
 
@@ -584,14 +585,16 @@ class Design(designBase):
         I.addCuttingLine(pth)
         
         #draw Front Lining J
-        pnt1 = dPnt((jD1.x, j4.y))
+        pnt1 = dPnt((jD1.x, jD1.i.y))
         J.setLetter((pnt1.x, pnt1.y), scaleby=10.0)
         J.setLabelPosition((pnt1.x, pnt1.y + 100))
-        jG1 = dPnt((j6.x, j4.y))
-        jG2 = down(jG1, 0.75 * distance(j4, a19))
+        jG1 = dPnt((j6.x, jD1.o.y))
+        jG2 = down(jG1, 0.75 * distance(jD1.o, a19))
         J.addGrainLine(jG1, jG2)
         J.addDartLine(['M', jD1.oc, 'L', jD1, 'L', jD1.ic])
-        pth =(['M', j7, 'L', a50, 'C', a20, 'L', jD1.o, 'L', jD1.m, 'L', jD1.i, 'L', j3, 'C', j4, 'C', j5, 'L', j6, 'C', j7])
+        #pth =(['M', j7, 'L', a50, 'C', a20, 'L', jD1.o, 'L', jD1.m, 'L', jD1.i, 'L', j3, 'C', j4, 'C', j5, 'L', j6, 'C', j7])
+        #pth =(['M', j7, 'L', a50, 'C', a20, 'L', jD1.o, 'L', jD1.m, 'L', jD1.i, 'L', j3, 'C', j4, 'C', j5, 'L', j6, 'C', j7])
+        pth =(['M', j7, 'L', a50, 'C', a20, 'L', a18, 'C', jD1.o, 'L', jD1.m, 'L', jD1.i, 'C', j5, 'L', j6, 'C', j7])
         J.addSeamLine(pth)
         J.addCuttingLine(pth)        
 
