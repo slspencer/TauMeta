@@ -806,6 +806,43 @@ def onCurveAtY(curve, y):
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return intersect_points[0] # returns 1st found intersection
 
+def getMinMax(coords):
+    xList = []
+    yList = []
+    for coord in coords:
+         x, y = coord
+         xList.append(x)
+         yList.append(y)
+    minx = min(xList)
+    miny = min(yList)
+    maxx = max(xList)
+    maxy = max(yList)
+    return minx, miny, maxx, maxy  
+    
+def onCurveMinX(curve):
+    'Accepts array of one or more bezier curves, returns point with minimum x value'
+    coords = interpolateCurveList(curve)
+    minx, miny, maxx, maxy = getMinMax(coords)
+    return onCurveAtX(curve, minx)
+
+def onCurveMinY(curve):
+    'Accepts array of one or more bezier curves, returns point with minimum y value'
+    coords = interpolateCurveList(curve)
+    minx, miny, maxx, maxy = getMinMax(coords)
+    return onCurveAtY(curve, miny)
+    
+def onCurveMaxX(curve):
+    'Accepts array of one or more bezier curves, returns point with maximum x value'
+    coords = interpolateCurveList(curve)
+    minx, miny, maxx, maxy = getMinMax(coords)
+    return onCurveAtX(curve, maxx)
+
+def onCurveMaxY(curve):
+    'Accepts array of one or more bezier curves, returns point with maximum y value'
+    coords = interpolateCurveList(curve)
+    minx, miny, maxx, maxy = getMinMax(coords)
+    return onCurveAtX(curve, maxy)  
+
 def tangentOfCurveAtLine(P1, P2, curve):
     '''
     Accepts P1 & P2 of class Point,  and curve as 4-element array containing bezier curve points P0 C1 C2 P1 of type Point.
