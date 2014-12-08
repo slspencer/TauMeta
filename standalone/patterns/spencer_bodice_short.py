@@ -1,6 +1,6 @@
 # !/usr/bin/python
 #
-# new_bodice_short.py
+# spencer_bodice_short.py
 # Copyright (C) 2010, 2011, 2012 Susan Spencer, Steve Conklin <www.taumeta.org>
 
 '''
@@ -234,24 +234,37 @@ class Design(designBase):
         bodice_armscye_length = front_curve_length + back_curve_length
 
         SCM = C.addPoint('SCM', (0.0, 0.0)) #sleeve cap middle - top of sleeve
-        SUM = C.addPoint('SUM', down(SCM, bodice_armscye_length / 4.0)) #sleeve underarm midpoint
+        SWM = C.addPoint('SWM', down(SCM, CD.oversleeve_length)) #sleeve wrist midpoint
+        #SUM = C.addPoint('SUM', down(SCM, bodice_armscye_length / 4.0)) #sleeve underarm midpoint
+        SUM = C.addPoint('SUM', up(SWM, CD.undersleeve_length)) #sleeve underarm midpoint                
+                
+        SCF = C.addPoint('SCF', left(SCM, 1.05 * CD.bicep/2.0)) #front width of sleeve
+        SCB = C.addPoint('SCB', right(SCM, 1.05 * CD.bicep/2.0)) #front width of sleeve
+        SCF1 = C.addPoint('SCF1', left(SCM, 1.05 * CD.bicep/4.0)) #sleeve top width front
+        SCB1 = C.addPoint('SCB1', right(SCM, 1.05 * CD.bicep/4.0))  #sleeve top width back             
+
         print('bodice_armscye_length / 4.0 =', bodice_armscye_length / 4.0)
         print('oversleeve_length - undersleeve_length =', CD.oversleeve_length - CD.undersleeve_length)
-        SUB = C.addPoint('SUB', rightmostP(onCircleAtY(SCM, distance(BSP, BAP) + distance(BAP, BUS), SUM.y))) #back underarm point
-        SUF = C.addPoint('SUF', leftmostP(onCircleAtY(SCM, distance(FSP, FAP) + distance(FAP, FUS), SUM.y))) #front underarm point
+        #SUB = C.addPoint('SUB', rightmostP(onCircleAtY(SCM, distance(BSP, BAP) + distance(BAP, BUS), SUM.y))) #back underarm point
+        SUB = C.addPoint('SUB', right(SUM, 1.10 * CD.bicep / 2.0)) #back underarm point
+        #SUF = C.addPoint('SUF', leftmostP(onCircleAtY(SCM, distance(FSP, FAP) + distance(FAP, FUS), SUM.y))) #front underarm point
+        SUF = C.addPoint('SUF', left(SUM, 1.10 * CD.bicep / 2.0)) #front underarm point
         
-        s1 = C.addPoint('s1', onLineAtLength(SUB, SCM, distance(BUS, BAP))) #back sleeve cap point
-        s2 = C.addPoint('s2', onLineAtLength(SUF, SCM, distance(FUS, FAP))) #front sleeve cap point
+        #s1 = C.addPoint('s1', onLineAtLength(SCM, SUB, distance(BSP, BAP))) #back sleeve cap point
+        s1 = C.addPoint('s1', highestP(intersectCircles(SUB, distance(BUS, BAP), SCM, distance(BSP, BAP)))) #back sleeve cap point            
+        #s2 = C.addPoint('s2', onLineAtLength(SUF, SCM, distance(FUS, FAP))) #front sleeve cap point
+        s2 = C.addPoint('s2', highestP(intersectCircles(SUF, distance(FUS, FAP), SCM, distance(FSP, FAP)))) #front sleeve cap point
   
         #SWM = C.addPoint('SWM', (SCM.x, SCM.y + CD.oversleeve_length + 6 * CM)) #sleeve wrist midpoint
-        SWM = C.addPoint('SWM', down(SCM, CD.oversleeve_length)) #sleeve wrist midpoint
-        SEM = C.addPoint('SEM', midPoint(SUM, SWM)) #sleeve elbow midpoint
-        SEB = C.addPoint('SEB', right(SEM, 0.525 * CD.elbow)) #sleeve elbow back
+
+        #SEM = C.addPoint('SEM', midPoint(SUM, SWM)) #sleeve elbow midpoint
+        SEM = C.addPoint('SEM', down(SUM, 0.53 * distance(SUM, SWM))) #sleeve elbow midpoint
+        SEB = C.addPoint('SEB', right(SEM, 0.515 * CD.elbow)) #sleeve elbow back
         SEF = C.addPoint('SEF', left(SEM, 0.5 * CD.elbow)) #sleeve elbow front
         
         #wrist
         s3 = C.addPoint('s3', right(SWM, 0.5 * CD.wrist)) #back wrist reference point        
-        s4 = C.addPoint('s4', right(SWM, 0.33 * distance(SWM, s3))) #front wrist reference point
+        s4 = C.addPoint('s4', right(SWM, 0.33 * distance(SWM, s3))) #back wrist reference point
         s5 = C.addPoint('s5', left(SWM, 0.7 * CD.wrist)) #front wrist reference point
         s6 = C.addPoint('s6', left(SWM, 0.66 * distance(SWM, s5))) #front wrist reference point                
 
@@ -268,53 +281,61 @@ class Design(designBase):
         s1.addInpoint(polar(s1, 0.33 * distance(SUB, s1), angleOfLine(SCM.inpoint, s1)))
         SCM.addOutpoint(left(SCM, 0.33 * distance(SUM, s2)))                              
         s2.addInpoint(polar(s2, 0.33 * distance(s2, SCM.outpoint), angleOfLine(s2, SCM.outpoint)))
+        #s2.addInpoint(polar(s2, 0.33 * distance(s2, SCM), angleOfLine(SUF, SCM)))
         s2.addOutpoint(polar(s2, 0.33 * distance(s2, SUF), angleOfLine(SCM.outpoint, s2)))
+        #s2.addOutpoint(polar(s2, 0.33 * distance(s2, SUF), angleOfLine(s2.inpoint, s2)))
                 
-        #adjust back upper sleeve cap                
+        #adjust back upper sleeve cap 
+        SUB.addOutpoint(polar(SUB, 0.165 * distance(SUB, s1), angleOfLine(SUB, SEB) + ANGLE90))                       
         upper_b_sleevecap_length = curveLength(points2List(s1, s1.outpoint, SCM.inpoint, SCM))
         ub_diff = upper_back_curve_length - upper_b_sleevecap_length
-        print(" ub_diff=", ub_diff)        
-        updatePoint(s1, extendLine(SCM, s1, ub_diff))
-        updatePoint(s1.outpoint, polar(s1, 0.33 * distance(s1, SCM.inpoint), angleOfLine(s1, SCM.inpoint)))                
-        updatePoint(s1.inpoint, polar(s1, 0.33 * distance(s1, SUB), angleOfLine(SCM.inpoint, s1)))
-        SUB.addOutpoint(polar(SUB, 0.165 * distance(SUB, s1), angleOfLine(SUB, SEB) + ANGLE90))
-        upper_b_sleevecap_length = curveLength(points2List(s1, s1.outpoint, SCM.inpoint, SCM))
-        ub_diff_final = upper_back_curve_length - upper_b_sleevecap_length        
-        print(" ub_diff_final=", ub_diff_final)
+        while (abs(ub_diff) > 1.0):
+            print(" ub_diff=", ub_diff)        
+            updatePoint(s1, extendLine(SCM, s1, ub_diff))
+            updatePoint(s1.outpoint, polar(s1, 0.33 * distance(s1, SCM.inpoint), angleOfLine(s1, SCM.inpoint)))                
+            updatePoint(s1.inpoint, polar(s1, 0.33 * distance(s1, SUB), angleOfLine(SCM.inpoint, s1)))
+            updatePoint(SUB.outpoint, polar(SUB, 0.165 * distance(SUB, s1), angleOfLine(SUB, SEB) + ANGLE90))
+            upper_b_sleevecap_length = curveLength(points2List(s1, s1.outpoint, SCM.inpoint, SCM))
+            ub_diff = upper_back_curve_length - upper_b_sleevecap_length        
+        print(" ub_diff final=", ub_diff)
                  
         #adjust back lower sleeve cap    
         lower_b_sleevecap_length = curveLength(points2List(SUB, SUB.outpoint, s1.inpoint, s1))
         lb_diff = lower_back_curve_length - lower_b_sleevecap_length
-        print("lb_diff=", lb_diff)                
-        updatePoint(SUB, right(SUB, lb_diff))
-        updatePoint(SUB.outpoint, left(SUB, 0.165 * distance(SUB, s1)))
-        updatePoint(s1.inpoint, polar(s1, 0.33 * distance(s1, SUB), angleOfLine(SCM.inpoint, s1)))
-        lower_b_sleevecap_length = curveLength(points2List(SUB, SUB.outpoint, s1.inpoint, s1))        
-        lb_diff_final = lower_back_curve_length - lower_b_sleevecap_length        
-        print("lb_diff_final=", lb_diff_final)                        
+        while (abs(lb_diff) > 1.0):
+            print("lb_diff=", lb_diff)                
+            updatePoint(SUB, right(SUB, lb_diff))
+            updatePoint(SUB.outpoint, left(SUB, 0.165 * distance(SUB, s1)))
+            updatePoint(s1.inpoint, polar(s1, 0.33 * distance(s1, SUB), angleOfLine(SCM.inpoint, s1)))
+            lower_b_sleevecap_length = curveLength(points2List(SUB, SUB.outpoint, s1.inpoint, s1))        
+            lb_diff = lower_back_curve_length - lower_b_sleevecap_length        
+        print("lb_diff final=", lb_diff)                        
         
-        #adjust front upper sleeve cap              
+        #adjust front upper sleeve cap 
+        SUF.addInpoint(polar(SUF, 0.165 * distance(SUM, SUF), angleOfLine(SUF, SEF) - ANGLE90)) 
         upper_f_sleevecap_length = curveLength(points2List(SCM, SCM.outpoint, s2.inpoint, s2))
         uf_diff = upper_front_curve_length - upper_f_sleevecap_length
-        print("uf_diff=", uf_diff)         
-        updatePoint(s2, extendLine(SCM, s2, uf_diff))
-        updatePoint(s2.inpoint, polar(s2, 0.33 * distance(s2, SCM.outpoint), angleOfLine(s2, SCM.outpoint))) 
-        updatePoint(s2.outpoint, polar(s2, 0.33 * distance(s2, SUF), angleOfLine(SCM.outpoint, s2)))
-        SUF.addInpoint(polar(SUF, 0.165 * distance(SUM, SUF), angleOfLine(SUF, SEF) - ANGLE90))
-        upper_f_sleevecap_length = curveLength(points2List(SCM, SCM.outpoint, s2.inpoint, s2))
-        uf_diff_final = upper_front_curve_length - upper_f_sleevecap_length
-        print("uf_diff-final=", uf_diff_final)
+        while (abs(uf_diff) > 1.0):
+            print("uf_diff=", uf_diff)         
+            updatePoint(s2, extendLine(SCM, s2, uf_diff))
+            updatePoint(s2.inpoint, polar(s2, 0.33 * distance(s2, SCM.outpoint), angleOfLine(s2, SCM.outpoint))) 
+            updatePoint(s2.outpoint, polar(s2, 0.33 * distance(s2, SUF), angleOfLine(SCM.outpoint, s2)))
+            updatePoint(SUF.inpoint, polar(SUF, 0.165 * distance(SUM, SUF), angleOfLine(SUF, SEF) - ANGLE90))
+            upper_f_sleevecap_length = curveLength(points2List(SCM, SCM.outpoint, s2.inpoint, s2))
+            uf_diff = upper_front_curve_length - upper_f_sleevecap_length
+        print("uf_diff final=", uf_diff)
                  
-        #adjust front lower sleeve cap                
+        #adjust front lower sleeve cap
         lower_f_sleevecap_length = curveLength(points2List(s2, s2.outpoint, SUF.inpoint, SUF))
-        lf_diff = lower_front_curve_length - lower_f_sleevecap_length
-        print("lf_diff=", lf_diff)        
-        updatePoint(SUF, left(SUF, lf_diff))
-        updatePoint(SUF.inpoint, right(SUF, 0.165 * distance(SUF, s2)))
-        updatePoint(s2.outpoint, polar(s2, 0.33 * distance(s2, SUF), angleOfLine(SCM.outpoint, s2)))
-        lower_f_sleevecap_length = curveLength(points2List(s2, s2.outpoint, SUF.inpoint, SUF))            
-        lf_diff_final = lower_front_curve_length - lower_f_sleevecap_length 
-        print("lf_diff_final=", lf_diff_final)
+        lf_diff = lower_front_curve_length - lower_f_sleevecap_length                        
+        while (abs(lf_diff) > 1.0):
+            print("lf_diff=", lf_diff)        
+            updatePoint(SUF, left(SUF, lf_diff))
+            updatePoint(SUF.inpoint, right(SUF, 0.165 * distance(SUF, s2)))
+            updatePoint(s2.outpoint, polar(s2, 0.33 * distance(s2, SUF), angleOfLine(SCM.outpoint, s2)))
+            lower_f_sleevecap_length = curveLength(points2List(s2, s2.outpoint, SUF.inpoint, SUF))            
+            lf_diff = lower_front_curve_length - lower_f_sleevecap_length                    
+        print("lf_diff final=", lf_diff)
                               
         #b/w SEF elbow front & SUF underarm front       
         SEF.addInpoint(extendLine(s5, SEF, 0.33 * distance(SUF, SEF)))       
@@ -368,7 +389,7 @@ class Design(designBase):
         pnt1 = dPnt(midPoint(SUM, SEM))
         C.setLetter((s2.x, pnt1.y), scaleby=15.0)
         C.setLabelPosition((s2.x, pnt1.y + 2.0 * CM))
-        C.addGridLine(['M', SCM, 'L', SWM, 'M', SUB, 'L', SUF, 'M', SEB, 'L', SEF, 'M', SUB, 'L', s1, 'L', SCM, 'L', s2, 'L', SUF, 'M', SEB, 'L', s3, 'M', SUF, 'L', s5, 'L', s3])       
+        C.addGridLine(['M', SCM, 'L', SWM, 'M', SUB, 'L', SUF, 'M', SEB, 'L', SEF, 'M', SUB, 'L', s1, 'L', SCM, 'L', s2, 'L', SUF, 'M', SEB, 'L', s3, 'M', SUF, 'L', s5, 'L', s3, 'M', SUF, 'L', SCF, 'L', SCB, 'L', SUB])       
         C.addDartLine(['M', SD1.ic, 'L', SD1, 'L', SD1.oc])
         pth = (['M', SUB, 'C', s1, 'C', SCM, 'C', s2, 'C', SUF, 'C', SEF, 'L', SWF, 'C', SWB, 'L', SD1.o, 'L', SD1.m, 'L', SD1.i, 'L', SUB])
         C.addSeamLine(pth)
