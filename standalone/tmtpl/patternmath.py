@@ -1084,7 +1084,7 @@ def intersectCircles(C1, r1, C2, r2):
         print('C1.id =', C1.id)
     except:
         print('no id for C1')
-    print('C2 =', C1.x, C1.y)
+    print('C2 =', C2.x, C2.y)
     try:
         print('C2.id =', C2.id)
     except:
@@ -1468,39 +1468,42 @@ def foldDart(dart, fold_direction_pnt):
     dart.oc = inside dart leg at cuttingline (to be included in dartline path)
     dart.oc = outside dart leg at cuttingline (to be included in dartline path)
     '''
+    fold_direction_pnt_angle = angleOfLine(dart, fold_direction_pnt)    
     mid_pnt = midPoint(dart.i, dart.o)
     dart_length = distance(dart, dart.i)
     dart_angle = abs(angleOfVector(dart.i, dart, dart.o))
     dart_half_angle = dart_angle/2.0
     i_distance = distance(dart.i, fold_direction_pnt)
     o_distance = distance(dart.o, fold_direction_pnt)
+    
     if i_distance < o_distance:
         #dart.i is closest to fold_direction_point
-        close_angle = angleOfLine(dart, dart.i)
         close_pnt = dart.i
-        far_angle = angleOfLine(dart, dart.o)
         far_pnt = dart.o
     else:
         #dart.o is closest to fold_direction_point
-        close_angle = angleOfLine(dart, dart.o)
         close_pnt = dart.o
-        far_angle = angleOfLine(dart, dart.i)
         far_pnt = dart.i
-        
-    #add or subtract dart_half_angle to/from close_angle
-    fold_direction_pnt_angle = angleOfLine(dart, fold_direction_pnt)        
+
+    close_angle = angleOfLine(dart, close_pnt)
+    far_angle = angleOfLine(dart, far_pnt) 
+                   
+    #add or subtract dart_half_angle to/from close_angle        
     if (close_angle > fold_direction_pnt_angle):
-        if (far_angle > close_angle):
-            fold_angle = close_angle - dart_half_angle
-        else:
-            fold_angle = close_angle + dart_half_angle
+        fold_angle = close_angle - dart_half_angle
+        #if (far_angle > close_angle):
+            #fold_angle = close_angle - dart_half_angle
+        #else:
+            #fold_angle = close_angle + dart_half_angle
     else:
-        if (far_angle < close_angle):
-            fold_angle = close_angle + dart_half_angle
-        else:
-            fold_angle = close_angle - dart_half_angle
+        fold_angle = close_angle + dart_half_angle
+        #if (far_angle < close_angle):
+            #fold_angle = close_angle + dart_half_angle
+        #else:
+            #fold_angle = close_angle - dart_half_angle
 
     fold_pnt = intersectLineRay(close_pnt, fold_direction_pnt, dart, fold_angle)
+    
     dart.m = dPnt(onLineAtLength(dart, mid_pnt, distance(dart, fold_pnt))) #dart midpoint at seamline
     dart.oc = dPnt(extendLine(dart, dart.o, SEAM_ALLOWANCE)) #dart outside leg at cuttingline
     dart.ic = dPnt(extendLine(dart, dart.i, SEAM_ALLOWANCE)) #dart inside leg at cuttingline
