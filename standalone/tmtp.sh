@@ -113,14 +113,14 @@ function CustomerMenu () {
     }
 
 function RecordMenu () {
-    ans="$(zenity  --list  --text 'Select Measurements' --radiolist  --column '' --column 'Measurements' FALSE 'DressFormLg' TRUE 'Susan')"
+    ans="$(zenity  --list  --text 'Select Measurements' --radiolist  --column '' --column 'Measurements' TRUE 'DressFormLg' FALSE 'Susan')"
     case $ans in
         "DressFormLg")
           NAME="DressFormLg";
-          RECORD_NO="27";;
+          RECORD_NO="24";;
         "Susan")
           NAME="Susan";
-          RECORD_NO="24";;
+          RECORD_NO="27";;
     esac
     return;
     }
