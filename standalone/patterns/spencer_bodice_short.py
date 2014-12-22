@@ -110,11 +110,11 @@ class Design(designBase):
         FUC = A.addPoint('FUC', down(FNC, f_underarm_height)) #front underarm center
         FBC = A.addPoint('FBC', down(FNC, f_bust_height)) #bust center
         FBP = A.addPoint('FBP', right(FBC, 0.5 * CD.bust_distance)) #bust point
-        #FAP = A.addPoint('FAP', right(FUC, CD.across_chest / 2.0 + f_bust_ease / 2.0 )) #temp front armscye point
-        #FAP = A.addPoint('FAP', right(FUC, CD.across_chest / 2.0)) #temp front armscye point
+        #FAS = A.addPoint('FAS', right(FUC, CD.across_chest / 2.0 + f_bust_ease / 2.0 )) #temp front armscye point
+        #FAS = A.addPoint('FAS', right(FUC, CD.across_chest / 2.0)) #temp front armscye point
         f10 = A.addPoint('f10', right(FUC, CD.across_chest / 2.0)) #temp front armscye point
         FAC = A.addPoint('FAC', midPoint(FNC, FUC))  
-        FAP = A.addPoint('FAP', right(FAC, 0.95 * CD.across_chest / 2.0)) #front armscye point 
+        FAS = A.addPoint('FAS', right(FAC, 0.95 * CD.across_chest / 2.0)) #front armscye point 
         f1 = A.addPoint('f1', right(FUC, CD.front_underarm / 2.0)) #temp front underarm side               
         f2 = A.addPoint('f2', rightmostP(onCircleTangentFromOutsidePoint(FBP, (CD.front_bust - CD.bust_distance) / 2.0, f1))) #temp front bust side
         f3 = A.addPoint('f3', onLineAtLength(f1, f2, CD.side)) #temp front waist side
@@ -155,12 +155,12 @@ class Design(designBase):
         #b/w FD1.o & FWS
         FD1.o.addOutpoint(intersectLineRay(FWS, f9, FD1.o, angleOfLine(FD1.o, FD1) + ANGLE90))
         FWS.addInpoint(polar(FWS, 0.33 * distance(FD1.o, FWS), angleOfLine(FUS, FWS) + ANGLE90))        
-        #b/w FUS & FAP
-        FUS.addOutpoint(polar(FUS, 0.4 * distance(FUS, FAP), angleOfLine(FBS, FBP)))
-        FAP.addInpoint(down(FAP, 0.5 * distance(FUS, FAP)))
-        #b/w FAP & FSP
-        FAP.addOutpoint(up(FAP, 0.33 * distance(FAP, FSP)))
-        FSP.addInpoint(polar(FSP, 0.15 * distance(FAP, FSP), angleOfLine(FSP, FNS) - ANGLE90))
+        #b/w FUS & FAS
+        FUS.addOutpoint(polar(FUS, 0.4 * distance(FUS, FAS), angleOfLine(FBS, FBP)))
+        FAS.addInpoint(down(FAS, 0.5 * distance(FUS, FAS)))
+        #b/w FAS & FSP
+        FAS.addOutpoint(up(FAS, 0.33 * distance(FAS, FSP)))
+        FSP.addInpoint(polar(FSP, 0.15 * distance(FAS, FSP), angleOfLine(FSP, FNS) - ANGLE90))
                           
         #---Back B---#
         BNC = B.addPoint('BNC', (0.0, 0.0)) #back neck center
@@ -172,7 +172,7 @@ class Design(designBase):
         BUC = B.addPoint('BUC', down(BNC, b_underarm_height)) #back underarm center 
         b7 = B.addPoint('b7', left(BUC, CD.across_back / 2.0 + b_bust_ease / 2.0))
         BAC = B.addPoint('BAC', up(BUC, distance(BUC, BNC) / 3.0)) #back armscye center        
-        BAP = B.addPoint('BAP', up(b7, distance(b7, BSP) / 3.0)) #back armscye point
+        BAS = B.addPoint('BAS', up(b7, distance(b7, BSP) / 3.0)) #back armscye point
         b1 = B.addPoint('b1', left(BUC, CD.back_underarm / 2.0)) #temp back underarm side               
         #back waist dart        
         BD1 = B.addPoint('BD1', onLineAtY(BWC, BSP, BUC.y)) #back waist dart point
@@ -194,7 +194,7 @@ class Design(designBase):
         dart_width = distance(BSP, BNS) - distance(FSP, FNS)
         print("shoulder ease =",dart_width)
         pnt_m = midPoint(BSP, BNS) #midPoint of shoulder dart at shoulder seam
-        BD2 = B.addPoint('BD2', intersectLineRay(BNS, BAP, pnt_m, angleOfLine(BSP, BNS) + ANGLE90)) #back shoulder dart point        
+        BD2 = B.addPoint('BD2', intersectLineRay(BNS, BAS, pnt_m, angleOfLine(BSP, BNS) + ANGLE90)) #back shoulder dart point        
         BD2.i = B.addPoint('BD2.i', pnt_m) #back shoulder dart inside leg
         BD2.o = B.addPoint('BD2.o', rotate(BD2, pnt_m, angleOfDegree(-9))) #back shoulder dart outside leg
         updatePoint(BSP, rotate(BD2, BSP, angleOfDegree(-9)))
@@ -214,22 +214,22 @@ class Design(designBase):
         #b/w BD1.o & BWS
         BD1.o.addOutpoint(intersectLineRay(BWS, b4, BD1.o, angleOfLine(BD1, BD1.o) + ANGLE90))
         BWS.addInpoint(polar(BWS, 0.33 * distance(BD1.o, BWS), angleOfLine(BWS, b4)))                 
-        #b/w BUS & BAP
-        BUS.addOutpoint(polar(BUS, 0.33 * abs(BUS.x - BAP.x), angleOfLine(BWS, BUS) + ANGLE90))
-        #BAP.addInpoint(polar(BAP, 0.5 * abs(BUS.y - BAP.y), angleOfLine(BNS, BAP)))
-        #BAP.addInpoint(intersectLineRay(BUS, BUS.outpoint, BAP, angleOfLine(BNS, BAP)))
-        BAP.addInpoint(b7)
-        #b/w BAP & BSP
-        BAP.addOutpoint(up(BAP, 0.33 * distance(BAP, BSP)))
-        BSP.addInpoint(polar(BSP, 0.15 * distance(BAP, BSP), angleOfLine(BSP, BNS) + ANGLE90))
+        #b/w BUS & BAS
+        BUS.addOutpoint(polar(BUS, 0.33 * abs(BUS.x - BAS.x), angleOfLine(BWS, BUS) + ANGLE90))
+        #BAS.addInpoint(polar(BAS, 0.5 * abs(BUS.y - BAS.y), angleOfLine(BNS, BAS)))
+        #BAS.addInpoint(intersectLineRay(BUS, BUS.outpoint, BAS, angleOfLine(BNS, BAS)))
+        BAS.addInpoint(b7)
+        #b/w BAS & BSP
+        BAS.addOutpoint(up(BAS, 0.33 * distance(BAS, BSP)))
+        BSP.addInpoint(polar(BSP, 0.15 * distance(BAS, BSP), angleOfLine(BSP, BNS) + ANGLE90))
         
         #---Sleeve C---#
         #get front & back armcye length
-        bl_armscye_length = curveLength(points2List(BUS, BUS.outpoint, BAP.inpoint, BAP))
-        upper_back_curve_length = curveLength(points2List(BAP, BAP.outpoint, BSP.inpoint, BSP))
+        bl_armscye_length = curveLength(points2List(BUS, BUS.outpoint, BAS.inpoint, BAS))
+        upper_back_curve_length = curveLength(points2List(BAS, BAS.outpoint, BSP.inpoint, BSP))
         back_curve_length = bl_armscye_length + upper_back_curve_length        
-        fl_armscye_length = curveLength(points2List(FUS, FUS.outpoint, FAP.inpoint, FAP))
-        upper_front_curve_length = curveLength(points2List(FAP, FAP.outpoint, FSP.inpoint, FSP))
+        fl_armscye_length = curveLength(points2List(FUS, FUS.outpoint, FAS.inpoint, FAS))
+        upper_front_curve_length = curveLength(points2List(FAS, FAS.outpoint, FSP.inpoint, FSP))
         front_curve_length = fl_armscye_length + upper_front_curve_length                           
         bodice_armscye_length = front_curve_length + back_curve_length
         print('bodice_armscye_length / 3.0 =', bodice_armscye_length / 3.0)
@@ -246,8 +246,8 @@ class Design(designBase):
         SCF1 = C.addPoint('SCF1', midPoint(SCM1, SCF)) #sleeve cap midPoint front
         SCB = C.addPoint('SCB', right(SCM1, 1.05 * CD.bicep/2.0)) #front cap width back
         SCB1 = C.addPoint('SCB1', midPoint(SCM1, SCB))  #sleeve cap midPoint back        
-        s1 = C.addPoint('s1', highestP(intersectCircles(SUB, distance(BUS, BAP), SCM1, distance(BSP, BAP)))) #back sleeve cap point            
-        s2 = C.addPoint('s2', highestP(intersectCircles(SUF, distance(FUS, FAP), SCM1, distance(FSP, FAP)))) #front sleeve cap point 
+        s1 = C.addPoint('s1', highestP(intersectCircles(SUB, distance(BUS, BAS), SCM1, distance(BSP, BAS)))) #back sleeve cap point            
+        s2 = C.addPoint('s2', highestP(intersectCircles(SUF, distance(FUS, FAS), SCM1, distance(FSP, FAS)))) #front sleeve cap point 
 
         SEM = C.addPoint('SEM', down(SUM, 0.53 * distance(SUM, SWM))) #sleeve elbow midPoint, 3% lower than sleeve midlength
         SEB = C.addPoint('SEB', right(SEM, 0.55 * CD.elbow)) #sleeve elbow back plus 5% ease
@@ -262,10 +262,10 @@ class Design(designBase):
         #SCF1 = C.addPoint('SCF1', midPoint(SCM, SCF)) #sleeve cap midPoint front                
         #SCB = C.addPoint('SCB', right(SCM, 1.05 * CD.bicep/2.0)) #front cap width back
         #SCB1 = C.addPoint('SCB1', midPoint(SCM, SCF))  #sleeve cap midPoint back
-        #SUB = C.addPoint('SUB', rightmostP(onCircleAtY(SCM, distance(BSP, BAP) + distance(BAP, BUS), SUM.y))) #back underarm point
-        #SUF = C.addPoint('SUF', leftmostP(onCircleAtY(SCM, distance(FSP, FAP) + distance(FAP, FUS), SUM.y))) #front underarm point                
-        #s1 = C.addPoint('s1', onLineAtLength(SCM, SUB, distance(BSP, BAP))) #back sleeve cap point
-        #s2 = C.addPoint('s2', onLineAtLength(SUF, SCM, distance(FUS, FAP))) #front sleeve cap point        
+        #SUB = C.addPoint('SUB', rightmostP(onCircleAtY(SCM, distance(BSP, BAS) + distance(BAS, BUS), SUM.y))) #back underarm point
+        #SUF = C.addPoint('SUF', leftmostP(onCircleAtY(SCM, distance(FSP, FAS) + distance(FAS, FUS), SUM.y))) #front underarm point                
+        #s1 = C.addPoint('s1', onLineAtLength(SCM, SUB, distance(BSP, BAS))) #back sleeve cap point
+        #s2 = C.addPoint('s2', onLineAtLength(SUF, SCM, distance(FUS, FAS))) #front sleeve cap point        
         #SEM = C.addPoint('SEM', midPoint(SUM, SWM)) #sleeve elbow midPoint
       
         #wrist points
@@ -346,9 +346,9 @@ class Design(designBase):
         AG1 = dPnt((FNC.x + abs(FNS.x - FNC.x)/2.0, abs(FUC.y - FNC.y)/2.0))
         AG2 = down(AG1, 0.75 * CD.front_waist_length)
         A.addGrainLine(AG1, AG2)
-        A.addGridLine(['M', FWC, 'L', FSP, 'L', FSW, 'L', FSH, 'L', FNC, 'M', FBC, 'L', FBP, 'L', FBS, 'M', FUC, 'L', f1, 'L', f7, 'L', f6, 'L', f3, 'L', f1, 'M', FWC, 'L', f4, 'L', FBP, 'L', f5, 'L', f3, 'M', FBP, 'L', FD2])
+        A.addGridLine(['M', FWC, 'L', FSP, 'L', FSW, 'L', FSH, 'L', FNC, 'M', FBC, 'L', FBP, 'L', FBS, 'M', FUC, 'L', f1, 'L', f7, 'L', f6, 'L', f3, 'L', f1, 'M', FWC, 'L', f4, 'L', FBP, 'L', f5, 'L', f3, 'M', FBP, 'L', FD2, 'M', FAC, 'L', FAS])
         A.addDartLine(['M', FD1.ic, 'L', FD1, 'L', FD1.oc, 'M', FD2.ic, 'L', FD2, 'L', FD2.oc])
-        pth = (['M', FNC, 'L', FWC, 'C', FD1.i, 'L', FD1.m, 'L', FD1.o, 'C', FWS, 'L', FD2.o, 'L', FD2.m, 'L', FD2.i, 'L', FUS, 'C', FAP, 'C', FSP, 'L', FNS, 'C', FNC])
+        pth = (['M', FNC, 'L', FWC, 'C', FD1.i, 'L', FD1.m, 'L', FD1.o, 'C', FWS, 'L', FD2.o, 'L', FD2.m, 'L', FD2.i, 'L', FUS, 'C', FAS, 'C', FSP, 'L', FNS, 'C', FNC])
         A.addSeamLine(pth)
         A.addCuttingLine(pth)
         
@@ -360,9 +360,9 @@ class Design(designBase):
         BG1 = dPnt((BNC.x - abs(BNS.x - BNC.x)/2.0, abs(BUC.y - BNC.y)/3.0))
         BG2 = down(BG1, 0.75 * CD.back_waist_length)
         B.addGrainLine(BG1, BG2)
-        B.addGridLine(['M', BWC, 'L', BSP, 'L', BSW, 'L', BSH, 'L', BUC, 'L', b6, 'L', BUS, 'M', b1, 'L', b5, 'L', BWS])
+        B.addGridLine(['M', BWC, 'L', BSP, 'L', BSW, 'L', BSH, 'L', BUC, 'L', b6, 'L', BUS, 'M', b1, 'L', b5, 'L', BWS, 'M', BAC, 'L', BAS])
         B.addDartLine(['M', BD1.oc, 'L', BD1, 'L', BD1.ic, 'M', BD2.oc, 'L', BD2, 'L', BD2.ic])
-        pth = (['M', BNC, 'L', BWC, 'C', BD1.i, 'L', BD1.m, 'L', BD1.o, 'C', BWS, 'L', BUS, 'C', BAP, 'C', BSP, 'L', BD2.o, 'L', BD2.m, 'L', BD2.i, 'L', BNS, 'C', BNC])
+        pth = (['M', BNC, 'L', BWC, 'C', BD1.i, 'L', BD1.m, 'L', BD1.o, 'C', BWS, 'L', BUS, 'C', BAS, 'C', BSP, 'L', BD2.o, 'L', BD2.m, 'L', BD2.i, 'L', BNS, 'C', BNC])
         B.addSeamLine(pth)
         B.addCuttingLine(pth) 
         
