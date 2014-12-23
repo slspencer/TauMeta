@@ -285,9 +285,12 @@ class Design(designBase):
         SCM.addInpoint(right(SCM, 0.33 * distance(SUM, s1)))
         s1.addOutpoint(polar(s1, 0.33 * distance(s1, SCM.inpoint), angleOfLine(s1, SCM.inpoint)))
         s1.addInpoint(polar(s1, 0.33 * distance(SUB, s1), angleOfLine(SCM.inpoint, s1)))
-        SCM.addOutpoint(left(SCM, 0.33 * distance(SUM, s2)))                              
-        s2.addInpoint(polar(s2, 0.33 * distance(s2, SCM.outpoint), angleOfLine(s2, SCM.outpoint)))
-        s2.addOutpoint(polar(s2, 0.33 * distance(s2, SUF), angleOfLine(SCM.outpoint, s2)))                        
+        SCM.addOutpoint(left(SCM, distance(SUM, s2) / 3.0))
+        SUF.addInpoint(right(SUF, distance(SUF, s2) / 3.0))                                      
+        #s2.addInpoint(polar(s2, 0.33 * distance(s2, SCM.outpoint), angleOfLine(s2, SCM.outpoint)))
+        #s2.addOutpoint(polar(s2, 0.33 * distance(s2, SUF), angleOfLine(SCM.outpoint, s2)))                        
+        s2.addInpoint(polar(s2, distance(s2, SCM.outpoint) / 3.0, angleOfLine(SUF.inpoint, SCM.outpoint)))
+        s2.addOutpoint(polar(s2, distance(s2, SUF) / 3.0, angleOfLine(SCM.outpoint, SUF.inpoint)))                
                  
         #adjust back lower sleeve cap
         SUB.addOutpoint(left(SUB, distance(SUB, s1) / 3.0))                                   
@@ -302,18 +305,19 @@ class Design(designBase):
             bl_diff = bl_armscye_length - bl_sleevecap_length        
         print("bl_diff final=", bl_diff)                                
                  
-        #adjust front lower sleeve cap
-        SUF.addInpoint(right(SUF, distance(SUF, s2) / 3.0))         
+        #adjust front lower sleeve cap       
         fl_sleevecap_length = curveLength(points2List(s2, s2.outpoint, SUF.inpoint, SUF))
         fl_diff = fl_armscye_length - fl_sleevecap_length                        
         while (abs(fl_diff) > 1.0):
             print("fl_diff=", fl_diff)        
             updatePoint(SUF, left(SUF, fl_diff))
             updatePoint(SUF.inpoint, right(SUF, distance(SUF, s2) / 3.0))
-            updatePoint(s2.outpoint, polar(s2, distance(SUF, s2) / 3.0, angleOfLine(SCM.outpoint, s2)))
+            updatePoint(s2.inpoint, polar(s2, distance(SCM.outpoint, s2) / 3.0, angleOfLine(SUF.inpoint, SCM.outpoint)))            
+            #updatePoint(s2.outpoint, polar(s2, distance(SUF, s2) / 3.0, angleOfLine(SCM.outpoint, s2)))
+            updatePoint(s2.outpoint, polar(s2, distance(SUF.inpoint, s2) / 3.0, angleOfLine(SCM.outpoint, SUF.inpoint)))
             fl_sleevecap_length = curveLength(points2List(s2, s2.outpoint, SUF.inpoint, SUF))            
             fl_diff = fl_armscye_length - fl_sleevecap_length                 
-        print("fl_diff final=", fl_diff)                      
+        print("fl_diff final=", fl_diff)                     
  
         #front & back wrist
         SWB = C.addPoint('SWB', intersectLineRay(SD1.o, s3, s4, angleOfLine(SD1.o, s3) - ANGLE90)) #sleeve wrist back        
