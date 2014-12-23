@@ -372,6 +372,20 @@ def polar(p1, distance, angle):
     x = p1.x + (r * cos(angle))
     y = p1.y + (r * sin(angle))
     return (x, y)
+    
+def reflect(p1, angle1, p2):
+    """
+    Accepts p1 and p2 of class Point, and angle of axis to reflect p2
+    Returns coordinate pair of "mirror image" of p1 relative to p2 about axis
+    """
+    p1 = dPnt(p1)
+    p2 = dPnt(p2)
+    
+    length = distance(p1, p2)    
+    angle2 = angleOfLine(p1, p2)
+    angle3 = angle1 - angle2
+    mirror_angle = angle1 + angle3
+    return polar(p1, length, mirror_angle)    
 
 def midPoint(p1, p2, n=0.5):
     '''Accepts p1 & p2 of class Point or coordinate pairs, and n where 0 < n < 1. Returns coordinate pair of midpoint b/w p1 & p2'''
