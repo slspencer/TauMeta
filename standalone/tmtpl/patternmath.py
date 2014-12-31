@@ -360,7 +360,7 @@ def mirror(p1, p2, type='vertical'):
     elif (type == 'horizontal'):
         return (p1.x, p2.y + dy)
 
-def polar(p1, distance, angle):
+def polar(p1, length, angle):
     '''
     Adapted from http://www.teacherschoice.com.au/maths_library/coordinates/polar_-_rectangular_conversion.htm
     Accepts p1 as type Point, distance as float, angle as float. angle is in radians
@@ -368,7 +368,10 @@ def polar(p1, distance, angle):
     Angles start at position 3:00 and move clockwise due to y increasing downwards on Cairo Canvas
     '''
     p1 = dPnt(p1)
-    r = distance
+    # if length is negative, create point in opposite direction from angle
+    if (length < 0):
+        angle = angle + ANGLE180
+    r = length
     x = p1.x + (r * cos(angle))
     y = p1.y + (r * sin(angle))
     return (x, y)
@@ -904,7 +907,70 @@ def tangentOfCurveAtLine(P1, P2, curve):
         tangent_angle = None
     return interpolated_points[num], tangent_angle
 
-def curveLength(curve, n = 100):
+
+def curveLength(curve, steps=100.0):
+    '''
+    Accepts curve array with at least one cubic Bezier curve P0, C1, C2, P1
+    steps is the number to subdivide each curve for calculating the points
+    Adapted from Carlos M. Icaza www.carlosicaza.com/2012/08/12/an-more-efficient-way-of-calculating-the-length-of-a-bezier-curve-part-ii
+    '''
+    curveLength = 0.0
+    pnt = dPnt((0,0))
+    prevPnt = dPnt((0,0))
+    j = 0
+    inc = 5.0
+    # for each cubic Bezier curve, get length & add to curveLength
+    while (j <= len(curve) - 4): 
+        c = points2List(curve[j], curve[j + 1], curve[j + 2], curve[j + 3])
+        length = 0.0
+        t = 0.0
+        i = 0.0 
+        
+        while (i < steps):
+            ##print '  i', i         
+            t = i / steps
+            # calculate point            
+            t1 = 1.0 - t 
+            t1_3 = t1*t1*t1
+            t1_3a = (3*t)*(t1*t1) 
+            t1_3b = (3*(t*t))*t1 
+            t1_3c = (t * t * t) 
+            ##print '  ', t, t1, t1_3, t1_3a, t1_3b, t1_3c
+            
+            x = (t1_3 * c[0].x) + (t1_3a * c[1].x) + (t1_3b * c[2].x) + (t1_3c * c[3].x)
+            y = (t1_3 * c[0].y) + (t1_3a * c[1].y) + (t1_3b * c[2].y) + (t1_3c * c[3].y)
+            pnt = dPnt((x,y))
+            ##print '  x,y', pnt.x, pnt.y
+            
+            # get distance to point, add to length
+            if (i > 0):
+                # not on the 1st iteration
+                ##print '  prevx,prevy', prevPnt.x, prevPnt.y
+                dx = pnt.x - prevPnt.x
+                dy = pnt.y - prevPnt.y
+                ##print '  dx,dy', dx, dy
+                d_length = math.sqrt(dx*dx + dy*dy)
+                ##print '  d_length', d_length
+                length = length + d_length
+
+
+            ##print '  length', length
+            
+            prevPnt = pnt
+            i = i + inc            
+            
+        # add current length to curve length total   
+        curveLength += length
+        ##print 'curvelength', curveLength
+        
+        # skip j up to P1 to be used as P0 start of next curve
+        j += 3
+
+    return curveLength   
+    
+
+def curveLength_old(curve, n = 100):
+
     #FIXME: this length should be calculated with math formulas
     '''
     Accepts curve array with a minimum of four Point objects P0, C1, C2, P1 (knot1, controlpoint1, controlpoint2, knot2).
@@ -1093,22 +1159,22 @@ def intersectCircles(C1, r1, C2, r2):
     Accepts C1, r1, C2, r2 where C1 & C2 are point objects for the center of each circle,  and r1 & r2 are the radius of each circle
     Returns an array P which holds objects of class Point for each intersection
     """
-    print('C1 =', C1.x, C1.y)
-    try:
-        print('C1.id =', C1.id)
-    except:
-        print('no id for C1')
-    print('C2 =', C2.x, C2.y)
-    try:
-        print('C2.id =', C2.id)
-    except:
-        print('no id for C2')
+    ##print('C1 =', C1.x, C1.y)
+    ##try:
+        ##print('C1.id =', C1.id)
+    ##except:
+        ##print('no id for C1')
+    ##print('C2 =', C2.x, C2.y)
+    ##try:
+        ##print('C2.id =', C2.id)
+    ##except:
+        ##print('no id for C2')
     C1 = dPnt(C1)
     C2 = dPnt(C2)
     x0, y0 = C1.x, C1.y
     x1, y1 = C2.x, C2.y
     d = distanceXY(x0, y0, x1, y1) # distance b/w circle centers
-    print('distance =', d)
+    ##print('distance =', d)
     dx, dy = (x1 - x0), (y1 - y0) # negate y b/c canvas increases top to bottom
     P = []
     if (d == 0):
@@ -1135,24 +1201,24 @@ def intersectCircles(C1, r1, C2, r2):
         # TODO:possible kluge -check if this is acceptable using a small margin of error between r1 & r2 (2*CM)?:
         #r2=d-r1
     else:
-        print("A")
+        ##print("A")
         #intersections=2 or intersections=1
         a = ((r1 * r1) - (r2 * r2) + (d * d)) / (2.0 * d)
         x2 = x0 + (dx * a / d)
         y2 = y0 + (dy * a / d)
-        print("B")
+        ##print("B")
         h = math.sqrt((r1 * r1) - (a * a))
         rx = -dy * (h / d)
         ry = dx * (h / d)
-        print("C")
+        ##print("C")
         X1 = x2 + rx
         Y1 = y2 + ry
         X2 = x2 - rx
         Y2 = y2 - ry
-        print("D")
+        ##print("D")
         P.append(dPnt((X1, Y1)))
         P.append(dPnt((X2, Y2)))
-        print("E")
+        ##print("E")
     return P
 
 def onCircleAtX(C, r, x):
@@ -1286,12 +1352,12 @@ def onCircleTangentFromOutsidePoint(C, r, P):
     Accepts C center of circle, r radius, and P point outside of circle.
     Returns two points where lines to point P are tangent to circle
     '''
-    print('C:', C.x, C.y)
-    print('P:', P.x, P.y)
+    ##print('C:', C.x, C.y)
+    ##print('P:', P.x, P.y)
     dPnt(C)
     dPnt(P)
     d = distance(C, P)
-    print 'd*d - r*r = ', d*d, '-', r*r, '=', d*d - r*r    
+    ##print 'd*d - r*r = ', d*d, '-', r*r, '=', d*d - r*r    
     if r > d:
         print('Circles do not intersect - onCircleTangentFromOutsidePoint( C =', C.x, C.y, 'r =', r, 'P =', P.x, P.y)
     try:
