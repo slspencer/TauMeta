@@ -225,14 +225,16 @@ class Design(designBase):
         
         #---Sleeve C---#
         #get front & back armcye length
-        bl_armscye_length = curveLength(points2List(BUS, BUS.outpoint, BAS.inpoint, BAS))
-        upper_back_curve_length = curveLength(points2List(BAS, BAS.outpoint, BSP.inpoint, BSP))
-        back_curve_length = bl_armscye_length + upper_back_curve_length        
-        fl_armscye_length = curveLength(points2List(FUS, FUS.outpoint, FAS.inpoint, FAS))
-        upper_front_curve_length = curveLength(points2List(FAS, FAS.outpoint, FSP.inpoint, FSP))
-        front_curve_length = fl_armscye_length + upper_front_curve_length                           
-        bodice_armscye_length = front_curve_length + back_curve_length
-        print('bodice_armscye_length / 3.0 =', bodice_armscye_length / 3.0)
+        bl_armscye_length = curveLength(points2List(BUS, BUS.outpoint, BAS.inpoint, BAS)) #back lower armscye length
+        print 'bl_armscye_length', bl_armscye_length
+        bu_armscye_length = curveLength(points2List(BAS, BAS.outpoint, BSP.inpoint, BSP)) #back upper armscye length
+        b_armscye_length = bl_armscye_length + bu_armscye_length #back armscye length        
+        fl_armscye_length = curveLength(points2List(FUS, FUS.outpoint, FAS.inpoint, FAS)) #front lower armscye length
+        print 'fl_armscye_length', fl_armscye_length
+        fu_armscye_length = curveLength(points2List(FAS, FAS.outpoint, FSP.inpoint, FSP)) #front upper armscye length
+        f_armscye_length = fl_armscye_length + fu_armscye_length # front armscye length                        
+        armscye_length = f_armscye_length + b_armscye_length #total armscye length
+        print('armscye_length / 3.0 =', armscye_length / 3.0)
         print('oversleeve_length - undersleeve_length =', CD.oversleeve_length - CD.undersleeve_length)        
   
         #based on Hillhouse & Mansfield
@@ -294,10 +296,7 @@ class Design(designBase):
         foldDart(SD1, SUB) 
         
         #control points
-        SUB.addOutpoint(polar(SUB, distance(SUB, s4) / 3.0, angleOfLine(SUB2, SUB1)))
-        s4.addInpoint(polar(s4, distance(SUB, s4) / 3.0, angleOfLine(s6, s4)))
-        s4.addOutpoint(midPoint(s10, s6))
-        SCM.addInpoint(midPoint(s6, SCM))
+        #front sleeve cap
         SCM.addOutpoint(midPoint(SCM, s5))
         pnt1 = midPoint(SCM.outpoint, s5)
         pnt2 = midPoint(pnt1, s5)
@@ -309,7 +308,80 @@ class Design(designBase):
         angle3 = (angle1 + angle2) / 2.0
         s2.addInpoint(polar(s2, distance(s9, s2) / 3.0, angle3))
         s2.addOutpoint(polar(s2, distance(s2, SUF) / 3.0, angle3 + ANGLE180))        
-                           
+        #back sleeve cap      
+        SUB.addOutpoint(polar(SUB, distance(SUB, s4) / 3.0, angleOfLine(SUB2, SUB1)))
+        s4.addInpoint(polar(s4, distance(SUB, s4) / 3.0, angleOfLine(s6, s4)))
+        s4.addOutpoint(midPoint(s10, s6))
+        SCM.addInpoint(midPoint(s6, SCM))
+
+        ##adjust front upper sleeve cap      
+        #fu_sleevecap_length = curveLength(points2List(SCM, SCM.outpoint, s9.inpoint, s9, s9.outpoint, s2.inpoint, s2))
+        #fu_diff = fu_sleevecap_length - fu_armscye_length                    
+        #while (abs(fu_diff) > 2):
+        #    # armscye length cannot be greater than sleevecap length ( < 0)
+        #    # sleevecap length can be from 0 to 2 pixels longer than armscye length ( > 2)      
+        #    print("fu_diff=", fu_diff)
+        #    angle = angleOfLine(s2, s2.inpoint)
+        #    print 's2', s2.x, s2.y       
+        #    updatePoint(s2, polar(s2, fu_diff, angle))
+        #    print 's2 new', s2.x, s2.y
+        #    print 'SUF', SUF.x, SUF.y
+        #    length = distance(s2, SUF)
+        #    print 'distance(s2, SUF)', length
+        #    updatePoint(s2.outpoint, polar(s2, distance(s2, SUF) / 3.0, angle))            
+        #    fu_sleevecap_length = curveLength(points2List(SCM, SCM.outpoint, s9.inpoint, s9, s9.outpoint, s2.inpoint, s2))            
+        #    fu_diff = fu_armscye_length - fu_sleevecap_length            
+        #print("fu_diff final=", fu_diff)
+
+        #adjust front upper sleeve cap           
+        fu_sleevecap_length = curveLength(points2List(SCM, SCM.outpoint, s9.inpoint, s9, s9.outpoint, s2.inpoint, s2))
+        fu_diff = fu_sleevecap_length - fu_armscye_length                    
+        while (abs(fu_diff) > 2.0):
+            print 'fu_diff=', fu_diff
+            print '  s2', s2.x, s2.y
+            pnt = onLineAtLength(s2, s2.inpoint, fu_diff) #move s2 towards s2.inpoint if sleevecap is too big              
+            updatePoint(s2, pnt)
+            print '  s2 new', s2.x, s2.y
+            fu_sleevecap_length = curveLength(points2List(SCM, SCM.outpoint, s9.inpoint, s9, s9.outpoint, s2.inpoint, s2))
+            fu_diff = fu_sleevecap_length - fu_armscye_length                    
+            print '  fu_sleevecap_length new', fu_sleevecap_length               
+        print("fu_diff final=", fu_diff)
+
+        #adjust front lower sleeve cap           
+        fl_sleevecap_length = curveLength(points2List(s2, s2.outpoint, SUF.inpoint, SUF))
+        fl_diff = fl_sleevecap_length - fl_armscye_length                       
+        while (abs(fl_diff) > 2.0):
+            print 'fl_diff=', fl_diff
+            print '  SUF', SUF.x, SUF.y
+            pnt = onLineAtLength(SUF, SUF.inpoint, fl_diff) #move SUF towards SUF.inpoint if sleevecap is too big            
+            updatePoint(SUF, pnt)
+            print '  SUF new', SUF.x, SUF.y
+            #print 'SUF.inpoint', SUF.inpoint.x, SUF.inpoint.y           
+            #pnt = polar(SUF, distance(SUF, s2) / 3.0, angleOfLine(SUF, SUF.inpoint))
+            #updatePoint(SUF.inpoint, pnt)
+            #print 'SUF.inpointnew', SUF.inpoint.x, SUF.inpoint.y
+            fl_sleevecap_length = curveLength(points2List(s2, s2.outpoint, SUF.inpoint, SUF))           
+            fl_diff = fl_sleevecap_length - fl_armscye_length
+            print '  fl_sleevecap_length new', fl_sleevecap_length               
+        print("fl_diff final=", fl_diff)
+        
+        #adjust back upper sleeve cap           
+        bu_sleevecap_length = curveLength(points2List(s4, s4.outpoint, SCM.inpoint, SCM))
+        bu_diff = bu_sleevecap_length - bu_armscye_length                    
+        while (abs(bu_diff) > 2.0):
+            print 'bu_diff=', bu_diff
+            print '  s4', s4.x, s4.y
+            pnt = onLineAtLength(s4, s4.outpoint, bu_diff) #move s4 towards s4.outpoint if sleevecap is too big     
+            updatePoint(s4, pnt)
+            print '  s4 new', s4.x, s4.y
+            bu_sleevecap_length = curveLength(points2List(s4, s4.outpoint, SCM.inpoint, SCM))
+            bu_diff = bu_sleevecap_length - bu_armscye_length                    
+            print '  bu_sleevecap_length new', bu_sleevecap_length               
+        print("bu_diff final=", bu_diff)       
+        
+        #b_sleevecap_length = bu_sleevecap_length + bl_sleevecap_length
+        #print 'b_diff', b_sleevecap_length - b_armscye_length
+                          
         #Sleeve C
         Cg1 = dPnt((s8.x, s8.y))
         Cg2 = dPnt((Cg1.x, SWM.y - 8.0 * CM))
@@ -346,8 +418,14 @@ class Design(designBase):
         AG1 = dPnt((FNC.x + abs(FNS.x - FNC.x)/2.0, abs(FUC.y - FNC.y)/2.0))
         AG2 = down(AG1, 0.75 * CD.front_waist_length)
         A.addGrainLine(AG1, AG2)
-        A.addGridLine(['M', FWC, 'L', FSP, 'L', FSW, 'L', FSH, 'L', FNC, 'M', FBC, 'L', FBP, 'L', FBS, 'M', FUC, 'L', f1, 'L', f7, 'L', f6, 'L', f3, 'L', f1, 'M', FWC, 'L', f4, 'L', FBP, 'L', f5, 'L', f3, 'M', FBP, 'L', FD2, 'M', FAC, 'L', FAS])
-        A.addDartLine(['M', FD1.ic, 'L', FD1, 'L', FD1.oc, 'M', FD2.ic, 'L', FD2, 'L', FD2.oc])
+        A.addGridLine(['M', FWC, 'L', FSP, 'L', FSW, 'L', FSH, 'L', FNC, 
+                       'M', FBC, 'L', FBP, 'L', FBS, 
+                       'M', FUC, 'L', f1, 'L', f7, 'L', f6, 'L', f3, 'L', f1, 
+                       'M', FWC, 'L', f4, 'L', FBP, 'L', f5, 'L', f3, 
+                       'M', FBP, 'L', FD2, 
+                       'M', FAC, 'L', FAS])
+        A.addDartLine(['M', FD1.ic, 'L', FD1, 'L', FD1.oc, 
+                       'M', FD2.ic, 'L', FD2, 'L', FD2.oc])
         pth = (['M', FNC, 'L', FWC, 'C', FD1.i, 'L', FD1.m, 'L', FD1.o, 'C', FWS, 'L', FD2.o, 'L', FD2.m, 'L', FD2.i, 'L', FUS, 'C', FAS, 'C', FSP, 'L', FNS, 'C', FNC])
         A.addSeamLine(pth)
         A.addCuttingLine(pth)
@@ -360,8 +438,11 @@ class Design(designBase):
         BG1 = dPnt((BNC.x - abs(BNS.x - BNC.x)/2.0, abs(BUC.y - BNC.y)/3.0))
         BG2 = down(BG1, 0.75 * CD.back_waist_length)
         B.addGrainLine(BG1, BG2)
-        B.addGridLine(['M', BWC, 'L', BSP, 'L', BSW, 'L', BSH, 'L', BUC, 'L', b6, 'L', BUS, 'M', b1, 'L', b5, 'L', BWS, 'M', BAC, 'L', BAS])
-        B.addDartLine(['M', BD1.oc, 'L', BD1, 'L', BD1.ic, 'M', BD2.oc, 'L', BD2, 'L', BD2.ic])
+        B.addGridLine(['M', BWC, 'L', BSP, 'L', BSW, 'L', BSH, 'L', BUC, 'L', b6, 'L', BUS, 
+                       'M', b1, 'L', b5, 'L', BWS, 
+                       'M', BAC, 'L', BAS])
+        B.addDartLine(['M', BD1.oc, 'L', BD1, 'L', BD1.ic, 
+                       'M', BD2.oc, 'L', BD2, 'L', BD2.ic])
         pth = (['M', BNC, 'L', BWC, 'C', BD1.i, 'L', BD1.m, 'L', BD1.o, 'C', BWS, 'L', BUS, 'C', BAS, 'C', BSP, 'L', BD2.o, 'L', BD2.m, 'L', BD2.i, 'L', BNS, 'C', BNC])
         B.addSeamLine(pth)
         B.addCuttingLine(pth) 
