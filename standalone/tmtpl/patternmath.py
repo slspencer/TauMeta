@@ -724,7 +724,7 @@ def intersectLineCurve(P1, P2, curve):
     while (j <= len(curve) - 4): # for each bezier curve in curveArray
         intersection_estimate = intersectLines(P1, P2, curve[j], curve[j + 3]) # is there an intersection?
         if (intersection_estimate != None) or (intersection_estimate != ''):
-            curve = points2List(curve[0], curve[1], curve[2], curve[3])
+            curve = points2List(curve[j + 0], curve[j + 1], curve[j + 2], curve[j + 3])
             curve_points = generatePoints(curve)
             k = 0
             while (k < len(curve_points) - 1):
@@ -769,7 +769,7 @@ def onCurveAtX(curve, x):
     pnt = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4): # for each bezier curve in curveArray
-        curve = points2List(curve[0], curve[1], curve[2], curve[3])
+        curve = points2List(curve[j + 0], curve[j + 1], curve[j + 2], curve[j + 3])
         curve_points = generatePoints(curve)  #generate this bezier curve, n=100
         # get min & max for x & y for this bezier curve from its generated points
         i = 0
@@ -804,7 +804,7 @@ def onCurveAtY(curve, y):
     pnt = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4): # for each bezier curve in curveArray
-        curve = points2List(curve[0], curve[1], curve[2], curve[3])
+        curve = points2List(curve[j + 0], curve[j + 1], curve[j + 2], curve[j + 3])
         curve_points = generatePoints(curve)  #generate this bezier curve, n=100
         # get min & max for x & y for this bezier curve from its generated points
         i = 0
@@ -885,7 +885,7 @@ def tangentOfCurveAtLine(P1, P2, curve):
     while (j <= len(curve) -4) and (found  != 'true'): # for each bezier curve in curveArray until a point is found
         intersection_estimate = intersectLines(P1, P2, curve[j], curve[j + 3]) # is there an intersection?
         if (intersection_estimate != None) or (intersection_estimate != ''):
-            curve_points = generatePoints(points2List(curve[0], curve[1], curve[2], curve[3]))  #generate this bezier curve, n=100
+            curve_points = generatePoints(points2List(curve[j + 0], curve[j + 1], curve[j + 2], curve[j + 3]))  #generate this bezier curve, n=100
             k = 0
             while (k < len(curve_points) - 1) and (found  != 'true'):
                 pnt_on_line = polar(fixed_pnt, distance(fixed_pnt, curve_points[k]), angle)
@@ -976,27 +976,26 @@ def curveLengthAtPoint(curve, pnt):
     found = 0
     curve_length = 0.0
     j = 0
-    while (j <= len(curve) - 4) and (found == 0): # for each curve, get segmentLength & add to curveLength
-        curve_points = generatePoints(points2List(curve[0], curve[1], curve[2], curve[3]))  #generate this curve
+    while (j < len(curve) - 3) and (found == 0): # for each curve, get segmentLength & add to curveLength
+        curve_points = generatePoints(points2List(curve[j + 0], curve[j + 1], curve[j + 2], curve[j + 3]))  #generate this curve
+
         # add up lengths between the generated points
-        current_curve_length, found = generatedCurveLengthAtPoint(curve_points, pnt, found)
-        curve_length += current_curve_length
-        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
+        segment_length = 0.0
+        i = 1
+        while (i < len(curve_points)) and (found == 0):
+            current_length = distance(curve_points[i - 1], curve_points[i]) #length from previous point to current point
+            segment_length += current_length
+            if (pnt == curve_points[i]) or (distance(pnt, curve_points[i]) <= current_length):
+                found = 1
+            i += 1
+            
+        curve_length += segment_length
+        j += 3 # jump to start of next curve
+        
     if curve_length == 0.0:
         print 'Point not found in curveLengthAtPoint'
     return curve_length
 
-def generatedCurveLengthAtPoint(curve_points, pnt, found=0):
-    # add up lengths between the generated points
-    segment_length = 0.0
-    i = 1
-    while (i < len(curve_points)) and (found==0):
-        current_length = distance(curve_points[i - 1], curve_points[i]) #length from previous point to current point
-        segment_length = segment_length + current_length
-        if (pnt == curve_points[i]) or (distance(pnt, curve_points[i]) <= current_length):
-            found = 1
-        i = i + 1
-    return segment_length, found
 
 def onCurveAtLength(curve, length):
     '''
@@ -1006,20 +1005,9 @@ def onCurveAtLength(curve, length):
     p1 = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4) and (p1.x == ""): # for each curve,  find pnt
-        curve_points = generatePoints(points2List(curve[0], curve[1], curve[2], curve[3]))
+        curve_points = generatePoints(points2List(curve[j + 0], curve[j + 1], curve[j + 2], curve[j + 3]))
         p1 = dPnt(onGeneratedPointsAtLength(curve_points, length))
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
-    return p1
-
-def onGeneratedPointsAtLength(curve_points, length):
-    p1 = dPnt(("",""))
-    i = 1
-    segmentLength = 0
-    while (i <  len(curve_points)) and (p1.x == ''):
-        segmentLength += distance(curve_points[i - 1], curve_points[i]) #length from previous point to current point
-        if segmentLength >= length:
-            p1 = dPnt((curve_points[i][0], curve_points[i][1]))
-        i += 1
     return p1
 
 
@@ -1060,14 +1048,25 @@ def generatePoints(curve, steps=500):
         # jump to next bezier in curve
         j = j + 3
                         
-    return curve_points        
+    return curve_points
+    
+def onGeneratedPointsAtLength(curve_points, length):
+    p1 = dPnt(("",""))
+    i = 1
+    segmentLength = 0
+    while (i <  len(curve_points)) and (p1.x == ''):
+        segmentLength += distance(curve_points[i - 1], curve_points[i]) #length from previous point to current point
+        if segmentLength >= length:
+            p1 = dPnt((curve_points[i][0], curve_points[i][1]))
+        i += 1
+    return p1            
 
 
 def splitCurveAtLength(curve, length):
     '''Accepts a point on a curve, and a curve list with points P0 C1 C2 P1.
     Returns curve list with P0, split.c1, split.c2, split_pnt, new.c11, new.c12, P1'''
     # find split point
-    c = points2List(curve[0], curve[1], curve[2], curve[3])
+    curve = points2List(curve[0], curve[1], curve[2], curve[3])
     curve_points = generatePoints(curve)
     split_pnt = onGeneratedPointsAtLength(curve_points, length) # split neck curve at this point
     # find tangent at split point
