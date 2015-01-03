@@ -1098,7 +1098,6 @@ def splitCurveAtPoint(curve, split_pnt):
     #FIXME: Replace this function. This is not mathematically accurate. It's good enough for now...
     split_pnt = dPnt(split_pnt)
     length = curveLengthAtPoint(curve, split_pnt)
-    curve = points2List(curve[0], curve[1], curve[2], curve[3])
     curve_points = generatePoints(curve)
     # find tangent at split point
     pnt1 = dPnt(onGeneratedPointsAtLength(curve_points, length - 5)) # arbitrary 5px - good enough for this application?
@@ -1118,6 +1117,7 @@ def splitCurveAtPoint(curve, split_pnt):
     c3 = polar(split_pnt, length, forward_tangent_angle)
     c4 = polar(curve[3], length, angleOfLine(curve[3], curve[2])) # preserve angle b/w original 2nd control point & P1
     p2 = dPnt(curve[3])
+    
     new_curve = []
     new_curve.append(p0)
     new_curve.append(c1)
@@ -1219,7 +1219,7 @@ def onCircleAtX(C, r, x):
         translated_y1 = abs(math.sqrt(r**2 - translated_x**2))
         translated_y2 = -(translated_y1)
         y1 = translated_y1 + C.y # translate back to C.y
-        y2 = translated_y2 + C.y # translate back to C.y
+        y2 = translated_y2 + C.y # translate back to C.y       
         P.append(dPnt((x, y1)))
         P.append(dPnt((x, y2)))
     return P
@@ -1232,6 +1232,7 @@ def onCircleAtY(C, r, y):
     Based on paulbourke.net/geometry/sphereline/sphere_line_intersection.py, written in Python 3.2 by Campbell Barton
     """
     C = dPnt(C)
+    P = []    
     if abs(y - C.y) > r:
         print 'y is outside radius in onCircleAtY() -- no intersection'
         return
@@ -1241,7 +1242,6 @@ def onCircleAtY(C, r, y):
         translated_x2 = -translated_x1
         x1 = translated_x1 + C.x
         x2 = translated_x2 + C.x
-        P = []
         P.append(dPnt((x1, y)))
         P.append(dPnt((x2, y)))
     return P
@@ -1312,7 +1312,10 @@ def intersectLineCircle(P1, P2, C, r):
     return P
 
 def intersectChordCircle(C, P, chord_length):
-    ''' Accepts center of circle, a point on the circle, and chord length.  Returns a list of two points on the circle at chord_length distance away from original point'''
+    ''' 
+    Accepts center of circle, a point on the circle, and chord length.  
+    Returns a list of two points on the circle at chord_length distance away from original point
+    '''
     C = dPnt(C)
     P = dPnt(P)
     d = chord_length
