@@ -1023,14 +1023,46 @@ def generateCurvePointsList(curve, t=100):
     '''curve can have multiple cubic curves P0 C1 C2 P1 C1 C2 P3...'''
     curve_points = []
     j = 0
-    while (j <= len(curve) - 4): #generate each cubic curve
-        temp_list = generateCurvePoints(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], t)
-        for coords in temp_list:
-            curve_points.append(coords)
+    while (j <= len(curve) - 4): #generate points for each cubic curve
+        temp_curve_points = generatePoints(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], t)
+        #for coords in temp_curve_points:
+            #curve_points.append(coords)
+        curve_points.extend(temp_curve_points)
         j = j + 3
     return curve_points
 
-def generateCurvePoints(P0, C1, C2, P1, t=100):
+def generatePoints(P0, C1, C2, P1, steps=500):
+    '''
+    Accepts curve points P0, C1, C2, P1 & number of steps
+    steps is the number to subdivide each curve for calculating the points
+    Returns array of (x, y) coordinate pairs    
+    Adapted from Carlos M. Icaza www.carlosicaza.com/2012/08/12/an-more-efficient-way-of-calculating-the-length-of-a-bezier-curve-part-ii
+    '''
+        c = points2List(curve[0], curve[1], curve[2], curve[3])
+        length = 0.0
+        t = 0.0
+        i = 0.0
+        curve_points = [] 
+        
+        while (i < steps):
+            ##print '  i', i       
+            t = i / steps
+            # calculate point            
+            t1 = 1.0 - t 
+            t1_3 = t1*t1*t1
+            t1_3a = (3*t)*(t1*t1) 
+            t1_3b = (3*(t*t))*t1 
+            t1_3c = (t * t * t) 
+            ##print '  ', t, t1, t1_3, t1_3a, t1_3b, t1_3c       
+            x = (t1_3 * c[0].x) + (t1_3a * c[1].x) + (t1_3b * c[2].x) + (t1_3c * c[3].x)
+            y = (t1_3 * c[0].y) + (t1_3a * c[1].y) + (t1_3b * c[2].y) + (t1_3c * c[3].y)
+            curve_points.append((x, y))
+            ##print '  x, y', pnt.x, pnt.y                  
+            i += inc
+                        
+    return curve_points
+
+def generateCurvePoints_old(P0, C1, C2, P1, t=100):
     '''
     Accepts curve points P0, C1, C2, P1 & number of interpolations t
     Returns array of x, y coordinate pairs.
