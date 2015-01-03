@@ -908,7 +908,7 @@ def tangentOfCurveAtLine(P1, P2, curve):
     return interpolated_points[num], tangent_angle
 
 
-def curveLength(curve, steps=100.0):
+def curveLength(curve, steps=400.0):
     '''
     Accepts curve array with at least one cubic Bezier curve P0, C1, C2, P1
     steps is the number to subdivide each curve for calculating the points
@@ -918,7 +918,7 @@ def curveLength(curve, steps=100.0):
     pnt = dPnt((0,0))
     prevPnt = dPnt((0,0))
     j = 0
-    inc = 5.0
+    inc = 1.0
     # for each cubic Bezier curve, get length & add to curveLength
     while (j <= len(curve) - 4): 
         c = points2List(curve[j], curve[j + 1], curve[j + 2], curve[j + 3])
