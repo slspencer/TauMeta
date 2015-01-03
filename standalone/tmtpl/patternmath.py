@@ -696,7 +696,7 @@ def intersectLines(p1, p2, p3, p4):
     return (x, y)
 
 #---curves---
-def intersectLineCurve(P1, P2, curve, n=100):
+def intersectLineCurve(P1, P2, curve):
     '''
     Accepts two points of a line P1 & P2, and an array of connected bezier curves [P11, C11, C12, P12, C21, C22, P22, C31, C32, P32, ...], represented as x,y points
     Returns an array points_found[] of x, y coordinates where line intersected with the curve, and tangents_found[] of tangent angle at that point
@@ -724,7 +724,8 @@ def intersectLineCurve(P1, P2, curve, n=100):
     while (j <= len(curve) - 4): # for each bezier curve in curveArray
         intersection_estimate = intersectLines(P1, P2, curve[j], curve[j + 3]) # is there an intersection?
         if (intersection_estimate != None) or (intersection_estimate != ''):
-            curve_points = generateCurvePoints(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)
+            curve = points2List(curve[0], curve[1], curve[2], curve[3])
+            curve_points = generatePoints(curve)
             k = 0
             while (k < len(curve_points) - 1):
                 pnt_on_line = polar(fixed_pnt, distance(fixed_pnt, curve_points[k]), angle)
@@ -768,7 +769,8 @@ def onCurveAtX(curve, x):
     pnt = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4): # for each bezier curve in curveArray
-        curve_points = generateCurvePoints(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #generate this bezier curve, n=100
+        curve = points2List(curve[0], curve[1], curve[2], curve[3])
+        curve_points = generatePoints(curve)  #generate this bezier curve, n=100
         # get min & max for x & y for this bezier curve from its generated points
         i = 0
         while (i < len(curve_points)):
@@ -802,7 +804,8 @@ def onCurveAtY(curve, y):
     pnt = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4): # for each bezier curve in curveArray
-        curve_points = generateCurvePoints(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #generate this bezier curve, n=100
+        curve = points2List(curve[0], curve[1], curve[2], curve[3])
+        curve_points = generatePoints(curve)  #generate this bezier curve, n=100
         # get min & max for x & y for this bezier curve from its generated points
         i = 0
         while (i < len(curve_points)):
@@ -838,25 +841,25 @@ def getMinMax(coords):
     
 def onCurveMinX(curve):
     'Accepts array of one or more bezier curves, returns point with minimum x value'
-    coords = generateCurvePointsList(curve)
+    coords = generatePoints(curve)
     minx, miny, maxx, maxy = getMinMax(coords)
     return onCurveAtX(curve, minx)
 
 def onCurveMinY(curve):
     'Accepts array of one or more bezier curves, returns point with minimum y value'
-    coords = generateCurvePointsList(curve)
+    coords = generatePoints(curve)
     minx, miny, maxx, maxy = getMinMax(coords)
     return onCurveAtY(curve, miny)
     
 def onCurveMaxX(curve):
     'Accepts array of one or more bezier curves, returns point with maximum x value'
-    coords = generateCurvePointsList(curve)
+    coords = generatePoints(curve)
     minx, miny, maxx, maxy = getMinMax(coords)
     return onCurveAtX(curve, maxx)
 
 def onCurveMaxY(curve):
     'Accepts array of one or more bezier curves, returns point with maximum y value'
-    coords = generateCurvePointsList(curve)
+    coords = generatePoints(curve)
     minx, miny, maxx, maxy = getMinMax(coords)
     return onCurveAtX(curve, maxy)  
 
@@ -882,7 +885,7 @@ def tangentOfCurveAtLine(P1, P2, curve):
     while (j <= len(curve) -4) and (found  != 'true'): # for each bezier curve in curveArray until a point is found
         intersection_estimate = intersectLines(P1, P2, curve[j], curve[j + 3]) # is there an intersection?
         if (intersection_estimate != None) or (intersection_estimate != ''):
-            curve_points = generateCurvePoints(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], 100)  #generate this bezier curve, n=100
+            curve_points = generatePoints(points2List(curve[0], curve[1], curve[2], curve[3]))  #generate this bezier curve, n=100
             k = 0
             while (k < len(curve_points) - 1) and (found  != 'true'):
                 pnt_on_line = polar(fixed_pnt, distance(fixed_pnt, curve_points[k]), angle)
@@ -969,12 +972,12 @@ def curveLength(curve, steps=500.0):
     return curveLength   
     
     
-def curveLengthAtPoint(curve, pnt, n=100):
+def curveLengthAtPoint(curve, pnt):
     found = 0
     curve_length = 0.0
     j = 0
     while (j <= len(curve) - 4) and (found == 0): # for each curve, get segmentLength & add to curveLength
-        curve_points = generateCurvePoints(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #generate this curve
+        curve_points = generatePoints(points2List(curve[0], curve[1], curve[2], curve[3]))  #generate this curve
         # add up lengths between the generated points
         current_curve_length, found = generatedCurveLengthAtPoint(curve_points, pnt, found)
         curve_length += current_curve_length
@@ -995,7 +998,7 @@ def generatedCurveLengthAtPoint(curve_points, pnt, found=0):
         i = i + 1
     return segment_length, found
 
-def onCurveAtLength(curve, length, n=100):
+def onCurveAtLength(curve, length):
     '''
     Accepts an array of curve points and length
     Returns point found on curve at length
@@ -1003,12 +1006,12 @@ def onCurveAtLength(curve, length, n=100):
     p1 = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4) and (p1.x == ""): # for each curve,  find pnt
-        curve_points = generateCurvePoints(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)
-        p1 = dPnt(onGeneratedCurveAtLength(curve_points, length))
+        curve_points = generatePoints(points2List(curve[0], curve[1], curve[2], curve[3]))
+        p1 = dPnt(onGeneratedPointsAtLength(curve_points, length))
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return p1
 
-def onGeneratedCurveAtLength(curve_points, length):
+def onGeneratedPointsAtLength(curve_points, length):
     p1 = dPnt(("",""))
     i = 1
     segmentLength = 0
@@ -1019,94 +1022,59 @@ def onGeneratedCurveAtLength(curve_points, length):
         i += 1
     return p1
 
-def generateCurvePointsList(curve, t=100):
-    '''curve can have multiple cubic curves P0 C1 C2 P1 C1 C2 P3...'''
-    curve_points = []
-    j = 0
-    while (j <= len(curve) - 4): #generate points for each cubic curve
-        temp_curve_points = generatePoints(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], t)
-        #for coords in temp_curve_points:
-            #curve_points.append(coords)
-        curve_points.extend(temp_curve_points)
-        j = j + 3
-    return curve_points
 
-def generatePoints(P0, C1, C2, P1, steps=500):
+def generatePoints(curve, steps=500):
     '''
     Accepts curve points P0, C1, C2, P1 & number of steps
     steps is the number to subdivide each curve for calculating the points
     Returns array of (x, y) coordinate pairs    
     Adapted from Carlos M. Icaza www.carlosicaza.com/2012/08/12/an-more-efficient-way-of-calculating-the-length-of-a-bezier-curve-part-ii
     '''
-    c = points2List(curve[0], curve[1], curve[2], curve[3])
-    length = 0.0
-    t = 0.0
-    i = 0.0
-    curve_points = [] 
-    
-    while (i < steps):
-        ##print '  i', i       
-        t = i / steps
-        # calculate point            
-        t1 = 1.0 - t 
-        t1_3 = t1*t1*t1
-        t1_3a = (3*t)*(t1*t1) 
-        t1_3b = (3*(t*t))*t1 
-        t1_3c = (t * t * t) 
-        ##print '  ', t, t1, t1_3, t1_3a, t1_3b, t1_3c       
-        x = (t1_3 * c[0].x) + (t1_3a * c[1].x) + (t1_3b * c[2].x) + (t1_3c * c[3].x)
-        y = (t1_3 * c[0].y) + (t1_3a * c[1].y) + (t1_3b * c[2].y) + (t1_3c * c[3].y)
-        curve_points.append((x, y))
-        ##print '  x, y', pnt.x, pnt.y                  
-        i += inc
-                        
-    return curve_points
-
-def generateCurvePoints_old(P0, C1, C2, P1, t=100):
-    '''
-    Accepts curve points P0, C1, C2, P1 & number of interpolations t
-    Returns array of x, y coordinate pairs.
-    Adapted from http://www.planetclegg.com/projects/WarpingTextToSplines.htm
-    '''
-    P0 = dPnt(P0)
-    C1 = dPnt(C1)
-    C2 = dPnt(C2)
-    P1 = dPnt(P1)
-    # calculate coefficients for two knot points P0 & P1 ;     C1 & C2 are the controlpoints.
-    # x coefficients
-    A = P1.x - (3 * C2.x) + (3 * C1.x) - P0.x
-    B = (3 * C2.x) - (6 * C1.x) + (3 * P0.x)
-    C = (3 * C1.x) - (3 * P0.x)
-    D = P0.x
-    # y coefficients
-    E = P1.y - (3 * C2.y) + (3 * C1.y) - P0.y
-    F = (3 * C2.y) - (6 * C1.y) + (3 * P0.y)
-    G = (3 * C1.y) - (3 * P0.y)
-    H = P0.y
-    # calculate generated points
     curve_points = []
-    maxPoint = float(t)
-    i = 0
-    while (i <= t):
-            j = i/maxPoint # j can't be an integer, i/t is an integer..always 0.
-            x = A * (j ** 3) + B * (j ** 2) + (C * j) + D
-            y = E * (j ** 3) + F * (j ** 2) + (G * j) + H
-            curve_points.append((x, y))
-            i = i + 1
-    return curve_points
+    j = 0
+    while (j <= len(curve) - 4): #generate points for each cubic curve
+        c = points2List(curve[j + 0], curve[j + 1], curve[j + 2], curve[j + 3])
+        length = 0.0
+        t = 0.0
+        i = 0.0
+        c_points = [] 
+        
+        while (i < steps):
+            ##print '  i', i       
+            t = i / steps
+            # calculate point            
+            t1 = 1.0 - t 
+            t1_3 = t1*t1*t1
+            t1_3a = (3*t)*(t1*t1) 
+            t1_3b = (3*(t*t))*t1 
+            t1_3c = (t * t * t) 
+            ##print '  ', t, t1, t1_3, t1_3a, t1_3b, t1_3c       
+            x = (t1_3 * c[0].x) + (t1_3a * c[1].x) + (t1_3b * c[2].x) + (t1_3c * c[3].x)
+            y = (t1_3 * c[0].y) + (t1_3a * c[1].y) + (t1_3b * c[2].y) + (t1_3c * c[3].y)
+            c_points.append((x, y))
+            ##print '  x, y', pnt.x, pnt.y                  
+            i += inc
+            
+        # append points to curve_points[]   
+        curve_points.extend(c_points)
+        # jump to next bezier in curve
+        j = j + 3
+                        
+    return curve_points        
+
 
 def splitCurveAtLength(curve, length):
     '''Accepts a point on a curve, and a curve list with points P0 C1 C2 P1.
     Returns curve list with P0, split.c1, split.c2, split_pnt, new.c11, new.c12, P1'''
     # find split point
-    curve_points = generateCurvePoints(curve[0], curve[1], curve[2], curve[3])
-    split_pnt = onGeneratedCurveAtLength(curve_points, length) # split neck curve at this point
+    c = points2List(curve[0], curve[1], curve[2], curve[3])
+    curve_points = generatePoints(curve)
+    split_pnt = onGeneratedPointsAtLength(curve_points, length) # split neck curve at this point
     # find tangent at split point
-    pnt1 = onGeneratedCurveAtLength(curve_points, length - 0.25*CM) # arbitrary .25cm - good enough for this application?
-    pnt2 = onGeneratedCurveAtLength(curve_points, length + 0.25*CM)
+    pnt1 = onGeneratedPointsAtLength(curve_points, length - 0.25*CM) # arbitrary .25cm - good enough for this application?
+    pnt2 = onGeneratedPointsAtLength(curve_points, length + 0.25*CM)
     forward_tangent_angle = angleOfLine(pnt1,  pnt2)
     backward_tangent_angle = angleOfLine(pnt2,  pnt1)
-    # neck control points
     # b/w curve[0] and split_pnt
     length = distance(curve[0], split_pnt) / 3.0
     split_pnt.c1 = polar(curve[0], length, angleOfLine(curve[0], curve[1])) # preserve angle b/w P0 & original 1st control point
@@ -1131,10 +1099,11 @@ def splitCurveAtPoint(curve, split_pnt):
     #FIXME: Replace this function. This is not mathematically accurate. It's good enough for now...
     split_pnt = dPnt(split_pnt)
     length = curveLengthAtPoint(curve, split_pnt)
-    curve_points = generateCurvePoints(curve[0], curve[1], curve[2], curve[3])
+    curve = points2List(curve[0], curve[1], curve[2], curve[3])
+    curve_points = generatePoints(curve)
     # find tangent at split point
-    pnt1 = dPnt(onGeneratedCurveAtLength(curve_points, length - 5)) # arbitrary 5px - good enough for this application?
-    pnt2 = dPnt(onGeneratedCurveAtLength(curve_points, length + 5))
+    pnt1 = dPnt(onGeneratedPointsAtLength(curve_points, length - 5)) # arbitrary 5px - good enough for this application?
+    pnt2 = dPnt(onGeneratedPointsAtLength(curve_points, length + 5))
     forward_tangent_angle = angleOfLine(pnt1, pnt2)
     backward_tangent_angle = angleOfLine(pnt2, pnt1)
 
