@@ -724,26 +724,26 @@ def intersectLineCurve(P1, P2, curve, n=100):
     while (j <= len(curve) - 4): # for each bezier curve in curveArray
         intersection_estimate = intersectLines(P1, P2, curve[j], curve[j + 3]) # is there an intersection?
         if (intersection_estimate != None) or (intersection_estimate != ''):
-            interpolatedPoints = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)
+            curve_points = generateCurvePoints(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)
             k = 0
-            while (k < len(interpolatedPoints) - 1):
-                pnt_on_line = polar(fixed_pnt, distance(fixed_pnt, interpolatedPoints[k]), angle)
+            while (k < len(curve_points) - 1):
+                pnt_on_line = polar(fixed_pnt, distance(fixed_pnt, curve_points[k]), angle)
                 # TODO:improve margin of error
-                range = distance(interpolatedPoints[k], interpolatedPoints[k + 1])
-                length = distance(pnt_on_line, interpolatedPoints[k])
-                #print k, 'pntOnCurve', interpolatedPoints[k][0], interpolatedPoints[k][1], 'onLineAtLength', pnt_on_line.x, pnt_on_line.y, distance, range
+                range = distance(curve_points[k], curve_points[k + 1])
+                length = distance(pnt_on_line, curve_points[k])
+                #print k, 'pntOnCurve', curve_points[k][0], curve_points[k][1], 'onLineAtLength', pnt_on_line.x, pnt_on_line.y, distance, range
                 if (length <= range):
                     # its close enough!
                     #print 'its close enough!'
                     if k > 1:
-                        if (interpolatedPoints[k - 1] not in points_found) and (interpolatedPoints[k - 2] not in points_found):
-                            points_found.append(interpolatedPoints[k])
-                            #tangents_found.append(angleOfLine(interpolatedPoints[k-1], interpolatedPoints[k+1]))
+                        if (curve_points[k - 1] not in points_found) and (curve_points[k - 2] not in points_found):
+                            points_found.append(curve_points[k])
+                            #tangents_found.append(angleOfLine(curve_points[k-1], curve_points[k+1]))
                             intersections = intersections+1
                     elif k == 1:
                         if (curve[0] not in intersections):
-                            points_found.append(interpolatedPoints[1])
-                            #tangents_found.append(angleOfLine(curve[0], interpolatedPoints[2]))
+                            points_found.append(curve_points[1])
+                            #tangents_found.append(angleOfLine(curve[0], curve_points[2]))
                             intersections = intersections+1
                     else:
                         intersections.append(curve[0])
@@ -768,12 +768,12 @@ def onCurveAtX(curve, x):
     pnt = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4): # for each bezier curve in curveArray
-        interpolatedPoints = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
-        # get min & max for x & y for this bezier curve from its interpolated points
+        curve_points = generateCurvePoints(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #generate this bezier curve, n=100
+        # get min & max for x & y for this bezier curve from its generated points
         i = 0
-        while (i < len(interpolatedPoints)):
-            xlist.append(interpolatedPoints[i][0])
-            ylist.append(interpolatedPoints[i][1])
+        while (i < len(curve_points)):
+            xlist.append(curve_points[i][0])
+            ylist.append(curve_points[i][1])
             i += 1
         xmin, ymin, xmax, ymax = min(xlist), min(ylist), max(xlist), max(ylist)
         #print 'xmin, xmax =', xmin, xmax, '...pattern.onCurveAtX()'
@@ -781,10 +781,10 @@ def onCurveAtX(curve, x):
         #print 'x =', x, '...pattern.onCurveAtX()'
         i = 0
         if ((xmin <= x <= xmax)):
-            while (i < len(interpolatedPoints) - 1):
-                #if (x >= interpolatedPoints[i][0]) and (x <= interpolatedPoints[i + 1][0]):
-                if ((interpolatedPoints[i][0] <= x <= interpolatedPoints[i + 1][0])) or ((interpolatedPoints[i][0] >= x >= interpolatedPoints[i + 1][0])):
-                    pnt = dPnt(onLineAtX(interpolatedPoints[i], interpolatedPoints[i + 1], x))
+            while (i < len(curve_points) - 1):
+                #if (x >= curve_points[i][0]) and (x <= curve_points[i + 1][0]):
+                if ((curve_points[i][0] <= x <= curve_points[i + 1][0])) or ((curve_points[i][0] >= x >= curve_points[i + 1][0])):
+                    pnt = dPnt(onLineAtX(curve_points[i], curve_points[i + 1], x))
                     intersect_points.append(pnt)
                 i += 1
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
@@ -802,12 +802,12 @@ def onCurveAtY(curve, y):
     pnt = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4): # for each bezier curve in curveArray
-        interpolatedPoints = interpolateCurve(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #interpolate this bezier curve, n=100
-        # get min & max for x & y for this bezier curve from its interpolated points
+        curve_points = generateCurvePoints(curve[j], curve[j+1], curve[j+2], curve[j+3], 100)  #generate this bezier curve, n=100
+        # get min & max for x & y for this bezier curve from its generated points
         i = 0
-        while (i < len(interpolatedPoints)):
-            xlist.append(interpolatedPoints[i][0])
-            ylist.append(interpolatedPoints[i][1])
+        while (i < len(curve_points)):
+            xlist.append(curve_points[i][0])
+            ylist.append(curve_points[i][1])
             i += 1
         xmin, ymin, xmax, ymax = min(xlist), min(ylist), max(xlist), max(ylist)
         #print 'xmin, xmax =', xmin, xmax, '...pattern.onCurveAtX()'
@@ -815,9 +815,9 @@ def onCurveAtY(curve, y):
         #print 'x =', x, '...pattern.onCurveAtX()'
         i = 0
         if ((ymin <= y <= ymax)):
-            while (i < len(interpolatedPoints) - 1):
-                if ((interpolatedPoints[i][1] <= y <= interpolatedPoints[i + 1][1])) or ((interpolatedPoints[i][1] >= y >= interpolatedPoints[i + 1][1])):
-                    pnt = dPnt(onLineAtY(interpolatedPoints[i], interpolatedPoints[i + 1], y))
+            while (i < len(curve_points) - 1):
+                if ((curve_points[i][1] <= y <= curve_points[i + 1][1])) or ((curve_points[i][1] >= y >= curve_points[i + 1][1])):
+                    pnt = dPnt(onLineAtY(curve_points[i], curve_points[i + 1], y))
                     intersect_points.append(pnt)
                 i += 1
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
@@ -838,25 +838,25 @@ def getMinMax(coords):
     
 def onCurveMinX(curve):
     'Accepts array of one or more bezier curves, returns point with minimum x value'
-    coords = interpolateCurveList(curve)
+    coords = generateCurvePointsList(curve)
     minx, miny, maxx, maxy = getMinMax(coords)
     return onCurveAtX(curve, minx)
 
 def onCurveMinY(curve):
     'Accepts array of one or more bezier curves, returns point with minimum y value'
-    coords = interpolateCurveList(curve)
+    coords = generateCurvePointsList(curve)
     minx, miny, maxx, maxy = getMinMax(coords)
     return onCurveAtY(curve, miny)
     
 def onCurveMaxX(curve):
     'Accepts array of one or more bezier curves, returns point with maximum x value'
-    coords = interpolateCurveList(curve)
+    coords = generateCurvePointsList(curve)
     minx, miny, maxx, maxy = getMinMax(coords)
     return onCurveAtX(curve, maxx)
 
 def onCurveMaxY(curve):
     'Accepts array of one or more bezier curves, returns point with maximum y value'
-    coords = interpolateCurveList(curve)
+    coords = generateCurvePointsList(curve)
     minx, miny, maxx, maxy = getMinMax(coords)
     return onCurveAtX(curve, maxy)  
 
@@ -882,30 +882,30 @@ def tangentOfCurveAtLine(P1, P2, curve):
     while (j <= len(curve) -4) and (found  != 'true'): # for each bezier curve in curveArray until a point is found
         intersection_estimate = intersectLines(P1, P2, curve[j], curve[j + 3]) # is there an intersection?
         if (intersection_estimate != None) or (intersection_estimate != ''):
-            interpolated_points = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], 100)  #interpolate this bezier curve, n=100
+            curve_points = generateCurvePoints(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], 100)  #generate this bezier curve, n=100
             k = 0
-            while (k < len(interpolated_points) - 1) and (found  != 'true'):
-                pnt_on_line = polar(fixed_pnt, distance(fixed_pnt, interpolated_points[k]), angle)
-                range = distance(interpolated_points[k], interpolated_points[k + 1]) # TODO:improve margin of error
-                if (distance(pnt_on_line, interpolated_points[k]) < range):
+            while (k < len(curve_points) - 1) and (found  != 'true'):
+                pnt_on_line = polar(fixed_pnt, distance(fixed_pnt, curve_points[k]), angle)
+                range = distance(curve_points[k], curve_points[k + 1]) # TODO:improve margin of error
+                if (distance(pnt_on_line, curve_points[k]) < range):
                     # its close enough!
                     num = k
                     found = 'true'
                     if k > 1:
-                        if (interpolated_points[k - 1] not in intersections) and (interpolated_points[k - 2] not in intersections):
-                            intersections.append(interpolated_points[k])
+                        if (curve_points[k - 1] not in intersections) and (curve_points[k - 2] not in intersections):
+                            intersections.append(curve_points[k])
                     elif k == 1:
-                        if (interpolated_points[k - 1] not in intersections):
-                            intersections.append(interpolated_points[k])
+                        if (curve_points[k - 1] not in intersections):
+                            intersections.append(curve_points[k])
                     else:
-                        intersections.append(interpolated_points[k])
+                        intersections.append(curve_points[k])
                 k = k + 1
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     if (found == 'true'):
-        tangent_angle = angleOfLine(interpolated_points[num - 1], interpolated_points[num + 1])
+        tangent_angle = angleOfLine(curve_points[num - 1], curve_points[num + 1])
     else:
         tangent_angle = None
-    return interpolated_points[num], tangent_angle
+    return curve_points[num], tangent_angle
 
 
 def curveLength(curve, steps=500.0):
@@ -974,23 +974,23 @@ def curveLengthAtPoint(curve, pnt, n=100):
     curve_length = 0.0
     j = 0
     while (j <= len(curve) - 4) and (found == 0): # for each curve, get segmentLength & add to curveLength
-        interpolated_points = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #interpolate this curve
-        # add up lengths between the interpolated points
-        current_curve_length, found = interpolatedCurveLengthAtPoint(interpolated_points, pnt, found)
+        curve_points = generateCurvePoints(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #generate this curve
+        # add up lengths between the generated points
+        current_curve_length, found = generatedCurveLengthAtPoint(curve_points, pnt, found)
         curve_length += current_curve_length
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     if curve_length == 0.0:
         print 'Point not found in curveLengthAtPoint'
     return curve_length
 
-def interpolatedCurveLengthAtPoint(interpolatedPoints, pnt, found=0):
-    # add up lengths between the interpolated points
+def generatedCurveLengthAtPoint(curve_points, pnt, found=0):
+    # add up lengths between the generated points
     segment_length = 0.0
     i = 1
-    while (i < len(interpolatedPoints)) and (found==0):
-        current_length = distance(interpolatedPoints[i - 1], interpolatedPoints[i]) #length from previous point to current point
+    while (i < len(curve_points)) and (found==0):
+        current_length = distance(curve_points[i - 1], curve_points[i]) #length from previous point to current point
         segment_length = segment_length + current_length
-        if (pnt == interpolatedPoints[i]) or (distance(pnt, interpolatedPoints[i]) <= current_length):
+        if (pnt == curve_points[i]) or (distance(pnt, curve_points[i]) <= current_length):
             found = 1
         i = i + 1
     return segment_length, found
@@ -1003,34 +1003,34 @@ def onCurveAtLength(curve, length, n=100):
     p1 = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4) and (p1.x == ""): # for each curve,  find pnt
-        interpolated_points = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)
-        p1 = dPnt(interpolatedCurvePointAtLength(interpolated_points, length))
+        curve_points = generateCurvePoints(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)
+        p1 = dPnt(onGeneratedCurveAtLength(curve_points, length))
         j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
     return p1
 
-def interpolatedCurvePointAtLength(interpolatedPoints, length):
+def onGeneratedCurveAtLength(curve_points, length):
     p1 = dPnt(("",""))
     i = 1
     segmentLength = 0
-    while (i <  len(interpolatedPoints)) and (p1.x == ''):
-        segmentLength += distance(interpolatedPoints[i - 1], interpolatedPoints[i]) #length from previous point to current point
+    while (i <  len(curve_points)) and (p1.x == ''):
+        segmentLength += distance(curve_points[i - 1], curve_points[i]) #length from previous point to current point
         if segmentLength >= length:
-            p1 = dPnt((interpolatedPoints[i][0], interpolatedPoints[i][1]))
+            p1 = dPnt((curve_points[i][0], curve_points[i][1]))
         i += 1
     return p1
 
-def interpolateCurveList(curve, t=100):
+def generateCurvePointsList(curve, t=100):
     '''curve can have multiple cubic curves P0 C1 C2 P1 C1 C2 P3...'''
-    interpolatedPoints = []
+    curve_points = []
     j = 0
-    while (j <= len(curve) - 4): #interpolate each cubic curve
-        temp_list = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], t)
+    while (j <= len(curve) - 4): #generate each cubic curve
+        temp_list = generateCurvePoints(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], t)
         for coords in temp_list:
-            interpolatedPoints.append(coords)
+            curve_points.append(coords)
         j = j + 3
-    return interpolatedPoints
+    return curve_points
 
-def interpolateCurve(P0, C1, C2, P1, t=100):
+def generateCurvePoints(P0, C1, C2, P1, t=100):
     '''
     Accepts curve points P0, C1, C2, P1 & number of interpolations t
     Returns array of x, y coordinate pairs.
@@ -1051,27 +1051,27 @@ def interpolateCurve(P0, C1, C2, P1, t=100):
     F = (3 * C2.y) - (6 * C1.y) + (3 * P0.y)
     G = (3 * C1.y) - (3 * P0.y)
     H = P0.y
-    # calculate interpolated points
-    interpolatedPoints = []
+    # calculate generated points
+    curve_points = []
     maxPoint = float(t)
     i = 0
     while (i <= t):
             j = i/maxPoint # j can't be an integer, i/t is an integer..always 0.
             x = A * (j ** 3) + B * (j ** 2) + (C * j) + D
             y = E * (j ** 3) + F * (j ** 2) + (G * j) + H
-            interpolatedPoints.append((x, y))
+            curve_points.append((x, y))
             i = i + 1
-    return interpolatedPoints
+    return curve_points
 
 def splitCurveAtLength(curve, length):
     '''Accepts a point on a curve, and a curve list with points P0 C1 C2 P1.
     Returns curve list with P0, split.c1, split.c2, split_pnt, new.c11, new.c12, P1'''
     # find split point
-    interpolated_points = interpolateCurve(curve[0], curve[1], curve[2], curve[3])
-    split_pnt = interpolatedCurvePointAtLength(interpolated_points, length) # split neck curve at this point
+    curve_points = generateCurvePoints(curve[0], curve[1], curve[2], curve[3])
+    split_pnt = onGeneratedCurveAtLength(curve_points, length) # split neck curve at this point
     # find tangent at split point
-    pnt1 = interpolatedCurvePointAtLength(interpolated_points, length - 0.25*CM) # arbitrary .25cm - good enough for this application?
-    pnt2 = interpolatedCurvePointAtLength(interpolated_points, length + 0.25*CM)
+    pnt1 = onGeneratedCurveAtLength(curve_points, length - 0.25*CM) # arbitrary .25cm - good enough for this application?
+    pnt2 = onGeneratedCurveAtLength(curve_points, length + 0.25*CM)
     forward_tangent_angle = angleOfLine(pnt1,  pnt2)
     backward_tangent_angle = angleOfLine(pnt2,  pnt1)
     # neck control points
@@ -1099,10 +1099,10 @@ def splitCurveAtPoint(curve, split_pnt):
     #FIXME: Replace this function. This is not mathematically accurate. It's good enough for now...
     split_pnt = dPnt(split_pnt)
     length = curveLengthAtPoint(curve, split_pnt)
-    interpolated_points = interpolateCurve(curve[0], curve[1], curve[2], curve[3])
+    curve_points = generateCurvePoints(curve[0], curve[1], curve[2], curve[3])
     # find tangent at split point
-    pnt1 = dPnt(interpolatedCurvePointAtLength(interpolated_points, length - 5)) # arbitrary 5px - good enough for this application?
-    pnt2 = dPnt(interpolatedCurvePointAtLength(interpolated_points, length + 5))
+    pnt1 = dPnt(onGeneratedCurveAtLength(curve_points, length - 5)) # arbitrary 5px - good enough for this application?
+    pnt2 = dPnt(onGeneratedCurveAtLength(curve_points, length + 5))
     forward_tangent_angle = angleOfLine(pnt1, pnt2)
     backward_tangent_angle = angleOfLine(pnt2, pnt1)
 
