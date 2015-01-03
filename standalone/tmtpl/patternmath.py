@@ -908,7 +908,7 @@ def tangentOfCurveAtLine(P1, P2, curve):
     return interpolated_points[num], tangent_angle
 
 
-def curveLength(curve, steps=400.0):
+def curveLength(curve, steps=500.0):
     '''
     Accepts curve array with at least one cubic Bezier curve P0, C1, C2, P1
     steps is the number to subdivide each curve for calculating the points
@@ -968,29 +968,7 @@ def curveLength(curve, steps=400.0):
 
     return curveLength   
     
-
-def curveLength_old(curve, n = 100):
-
-    #FIXME: this length should be calculated with math formulas
-    '''
-    Accepts curve array with a minimum of four Point objects P0, C1, C2, P1 (knot1, controlpoint1, controlpoint2, knot2).
-    n is the number to subdivide each curve for calculating the knots/interpolatedPoints and curve length.
-    Adapted from http://www.planetclegg.com/projects/WarpingTextToSplines.html
-    '''
-    curveLength = 0.0
-    j = 0
-    while (j <= len(curve) - 4): # for each curve, get segmentLength & add to curveLength
-        interpolatedPoints = interpolateCurve(curve[j], curve[j + 1], curve[j + 2], curve[j + 3], n)  #interpolate this curve
-        # add up lengths between the interpolated points
-        segmentLength = 0.0
-        i = 1
-        while (i <= n):
-                segmentLength = segmentLength + distance(interpolatedPoints[i - 1], interpolatedPoints[i]) #length from previous point to current point
-                i = i + 1
-        curveLength = curveLength + segmentLength
-        j = j + 3 # skip j up to P3 of the current curve to be used as P0 start of next curve
-    return curveLength
-
+    
 def curveLengthAtPoint(curve, pnt, n=100):
     found = 0
     curve_length = 0.0
