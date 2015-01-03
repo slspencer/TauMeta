@@ -1038,27 +1038,27 @@ def generatePoints(P0, C1, C2, P1, steps=500):
     Returns array of (x, y) coordinate pairs    
     Adapted from Carlos M. Icaza www.carlosicaza.com/2012/08/12/an-more-efficient-way-of-calculating-the-length-of-a-bezier-curve-part-ii
     '''
-        c = points2List(curve[0], curve[1], curve[2], curve[3])
-        length = 0.0
-        t = 0.0
-        i = 0.0
-        curve_points = [] 
-        
-        while (i < steps):
-            ##print '  i', i       
-            t = i / steps
-            # calculate point            
-            t1 = 1.0 - t 
-            t1_3 = t1*t1*t1
-            t1_3a = (3*t)*(t1*t1) 
-            t1_3b = (3*(t*t))*t1 
-            t1_3c = (t * t * t) 
-            ##print '  ', t, t1, t1_3, t1_3a, t1_3b, t1_3c       
-            x = (t1_3 * c[0].x) + (t1_3a * c[1].x) + (t1_3b * c[2].x) + (t1_3c * c[3].x)
-            y = (t1_3 * c[0].y) + (t1_3a * c[1].y) + (t1_3b * c[2].y) + (t1_3c * c[3].y)
-            curve_points.append((x, y))
-            ##print '  x, y', pnt.x, pnt.y                  
-            i += inc
+    c = points2List(curve[0], curve[1], curve[2], curve[3])
+    length = 0.0
+    t = 0.0
+    i = 0.0
+    curve_points = [] 
+    
+    while (i < steps):
+        ##print '  i', i       
+        t = i / steps
+        # calculate point            
+        t1 = 1.0 - t 
+        t1_3 = t1*t1*t1
+        t1_3a = (3*t)*(t1*t1) 
+        t1_3b = (3*(t*t))*t1 
+        t1_3c = (t * t * t) 
+        ##print '  ', t, t1, t1_3, t1_3a, t1_3b, t1_3c       
+        x = (t1_3 * c[0].x) + (t1_3a * c[1].x) + (t1_3b * c[2].x) + (t1_3c * c[3].x)
+        y = (t1_3 * c[0].y) + (t1_3a * c[1].y) + (t1_3b * c[2].y) + (t1_3c * c[3].y)
+        curve_points.append((x, y))
+        ##print '  x, y', pnt.x, pnt.y                  
+        i += inc
                         
     return curve_points
 
