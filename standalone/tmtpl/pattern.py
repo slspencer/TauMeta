@@ -58,17 +58,6 @@ def pPoint(parent, id, p1, transform=''):
     parent.add(p2)
     return p2
 
-# -spc- TODO This must go. Create another way to generate a circle
-# also do away with special handling in the Point class which depends on
-# finding 'circle' in the id
-#def circle(parent, id, p1):
-#    """creates an unfilled circle """
-#    p2 = Point('reference', id+'_circle', p1.xy, 'circle_style', transform='', size=p1.size)
-#    parent.add(p2)
-#    p3 = Point('reference', id, p1.xy, 'point_style', transform='', size=5)
-#    parent.add(p3)
-#    return
-
 def extractMarkerId(markertext):
     # Regex -
     # < marker id=\"grainline_mk\"\nviewBox=
@@ -137,6 +126,7 @@ class Point(pBase):
         ipnt = dPnt(xy)
         self.x = ipnt.x
         self.y = ipnt.y
+        self.outset = None
         self.attrs = {}
         self.txtstyle = 'point_text_style'
         self.attrs['transform'] = transform
@@ -147,6 +137,17 @@ class Point(pBase):
     @property
     def xy(self):
         return (self.x, self.y)
+
+    @property
+    def outset(self):
+        return outset
+    @outset.settr
+    def outset(self, value):
+        self.outset = value
+
+    # You can add outsets directly, but this is for consistency with adding points
+    def addOutset(self, value):
+        self.outset = value
 
     def addInpoint(self, xy):
         """
