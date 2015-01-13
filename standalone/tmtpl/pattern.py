@@ -126,7 +126,6 @@ class Point(pBase):
         ipnt = dPnt(xy)
         self.x = ipnt.x
         self.y = ipnt.y
-        self.outset = None
         self.attrs = {}
         self.txtstyle = 'point_text_style'
         self.attrs['transform'] = transform
@@ -138,16 +137,14 @@ class Point(pBase):
     def xy(self):
         return (self.x, self.y)
 
-    @property
-    def outset(self):
-        return outset
-    @outset.settr
-    def outset(self, value):
-        self.outset = value
-
-    # You can add outsets directly, but this is for consistency with adding points
-    def addOutset(self, value):
-        self.outset = value
+    def addOutset(self, xy):
+        """
+        Add a point which will define the amount of outset to be used for seam allowance
+        """
+        pnt = Point('reference', 'outset', xy, 'controlpoint_style')
+        pnt.txtstyle = 'control_point_text_style'
+        self.add(pnt)
+        return pnt
 
     def addInpoint(self, xy):
         """
@@ -197,11 +194,13 @@ class Point(pBase):
         md[self.groupname].append(p)
 
         txtlabel = self.id + '.text'
-        # special handling for inpoints and outpoints
+        # special handling for inpoints, outpoints, and outsets
         if self.name == 'inpoint':
             txttxt = self.parent.name + '.in'
         elif self.name == 'outpoint':
             txttxt = self.parent.name + '.out'
+        elif self.name == 'outset':
+            txttxt = self.parent.name + '.outset'
         else:
             txttxt = self.name
         txt=self.generateText(self.x + 7, self.y - 7, txtlabel, txttxt, self.txtstyle)
