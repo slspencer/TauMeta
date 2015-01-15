@@ -58,17 +58,6 @@ def pPoint(parent, id, p1, transform=''):
     parent.add(p2)
     return p2
 
-# -spc- TODO This must go. Create another way to generate a circle
-# also do away with special handling in the Point class which depends on
-# finding 'circle' in the id
-#def circle(parent, id, p1):
-#    """creates an unfilled circle """
-#    p2 = Point('reference', id+'_circle', p1.xy, 'circle_style', transform='', size=p1.size)
-#    parent.add(p2)
-#    p3 = Point('reference', id, p1.xy, 'point_style', transform='', size=5)
-#    parent.add(p3)
-#    return
-
 def extractMarkerId(markertext):
     # Regex -
     # < marker id=\"grainline_mk\"\nviewBox=
@@ -307,6 +296,15 @@ class Point(pBase):
     def xy(self):
         return (self.x, self.y)
 
+    def addOutset(self, xy):
+        """
+        Add a point which will define the amount of outset to be used for seam allowance
+        """
+        pnt = Point('reference', 'outset', xy, 'controlpoint_style')
+        pnt.txtstyle = 'control_point_text_style'
+        self.add(pnt)
+        return pnt
+
     def addInpoint(self, xy):
         """
         Add a control point as a child of this point. These control points are
@@ -355,11 +353,13 @@ class Point(pBase):
         md[self.groupname].append(p)
 
         txtlabel = self.id + '.text'
-        # special handling for inpoints and outpoints
+        # special handling for inpoints, outpoints, and outsets
         if self.name == 'inpoint':
             txttxt = self.parent.name + '.in'
         elif self.name == 'outpoint':
             txttxt = self.parent.name + '.out'
+        elif self.name == 'outset':
+            txttxt = self.parent.name + '.outset'
         else:
             txttxt = self.name
         txt=self.generateText(self.x + 7, self.y - 7, txtlabel, txttxt, self.txtstyle)
