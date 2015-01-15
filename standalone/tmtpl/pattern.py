@@ -88,6 +88,131 @@ def extractMarkerId(markertext):
 #            getControlPoints(parent, name1, pnt1) # find & create control points SVG objects,  if any
 #        return
 
+def getOutsetLine(p1, p2):
+     '''
+     Accepts points of line p1 & p2, and outset width.
+     Returns outset line array [op1, op2]
+     '''
+    
+     d  = p2.outset   
+     angle1 = angleOfLine(p1, p2) - ANGLE90
+     
+     #outset each point by d
+     op1 = polar(p1, d, angle1)
+     op2 = polar(p2, d, angle1)
+     
+     return points2List(op1, op2)
+
+def getOutsetCurve(curve):
+     '''
+     Accepts curve array [P1, C1, C2, P2] and outset width.
+     Returns outset curve array [OP1, OC1, OC2, OP2]
+     '''
+     p1 = dPnt(curve[0])
+     c1 = dPnt(curve[1])
+     c2 = dPnt(curve[2])
+     p2 = dPnt(curve[3])
+     d = p2.outset
+     
+     angle1 = angleOfLine(p1, c1) - ANGLE90
+     angle2 = angleOfLine(c1, c2) - ANGLE90
+     angle3 = angleOfLine(c2, p2) - ANGLE90     
+
+     #outset each leg of control polygon by d
+     op1 = dPnt(polar(p1, d, angle1))
+     oc1_a = dPnt(polar(c1, d, angle1))
+     
+     oc1_b = dPnt(polar(c1, d, angle2))
+     oc2_a = dPnt(polar(c2, d, angle2))     
+
+     oc2_b = dPnt(polar(c2, d, angle3))
+     op2 = dPnt(polar(p2, d, angle3))     
+     
+     oc1 = dPnt(intersectLines(op1, oc1_a, oc1_b, oc2_a))
+     oc2 = dPnt(intersectLines(oc1_b, oc2_a, oc2_b, op2))
+
+     print '   getOutsetCurve()'
+     print '      op1 ', op1.x, op1.y
+     print '      oc1 ', oc1.x, oc1.y
+     print '      oc2 ', oc2.x, oc2.y
+     print '      op2 ', op2.x, op2.y               
+     
+     return points2List(op1, oc1, oc2, op2)
+     
+def createOutset(array):
+    '''
+    Accepts array of 'M', P1 [, ('L' , P2) | ('C', C1, C2, P2)]
+    Returns outset_array of 'M', oP1 [, ('L' , oP2) | ('C', oC1, oC2, oP2)]
+    '''
+    c = array
+    outset_array = []
+    
+    #Move c[0] is always 'M', add to outset_array
+    outset_array.append(c[0])
+    print '0', c[0]   
+      
+    i = 2
+    while i < len(c):
+        print '     '
+        p1 = c[i - 1]  #previous point
+        print '   ', (i - 1) , 'p1', p1.x, p1.y         
+        action = c[i]
+        print '   ', i, action
+        
+        p2 = c[i + 1]  #next point        
+        print '   ', i + 1, 'p2', p2.x, p2.y        
+                                                       
+        # Line
+        if action == 'L':
+                     
+            #get outset points
+            L_array = getOutsetLine(p1, p2)
+            op1 = dPnt(L_array[0])
+            op2 = dPnt(L_array[1])
+            print '   op1', op1.x, op1.y
+            print '   op2', op2.x, op2.y
+            
+            #append outset points to outset array
+            outset_array.append(op1)
+            outset_array.append(action)
+            outset_array.append(op2)
+            
+            i = i + 2
+                      
+        elif action == 'C':
+           
+            c1 = p1.outpoint
+            print '   ', i, 'c1', c1.x, c1.y
+            c2 = c[i + 1].inpoint
+            print '   ', i + 1, 'c2', c2.x, c2.y            
+            p2 = c[i + 1]
+            print '   ', i + 1, 'p2', p2.x, p2.y            
+
+            #get outset points
+            C_array = getOutsetCurve(points2List(p1, c1, c2, p2))
+            op1 = dPnt(C_array[0])
+            oc1 = dPnt(C_array[1])
+            oc2 = dPnt(C_array[2])
+            op2 = dPnt(C_array[3])
+            print '     op1', op1.x, op1.y
+            print '     oc1', oc1.x, oc1.y
+            print '     oc2', oc2.x, oc2.y
+            print '     op2', op2.x, op2.y
+            op1.addOutpoint(oc1)
+            op2.addInpoint(oc2)                    
+            
+            #append outset points to outset array
+            outset_array.append(op1)
+            outset_array.append(action)
+            outset_array.append(op2)
+            
+            i = i + 2
+            
+        else:
+            print 'Action is invalid'
+            
+    return outset_array                     
+
 def addToPath(p, tokens):
     """
     Accepts a path object and a string variable containing a pseudo svg path using M, L, C and point objects.
@@ -123,6 +248,40 @@ def addToPath(p, tokens):
             print 'Unknown command token ' + cmd
     return
 
+def addToOutsetPath(p, tokens):
+    """
+    Accepts a path object and a string variable containing a pseudo svg path using M, L, C and point objects.
+    Calls functions to add commands and points to the path object
+    """
+    i = 0
+    while (i < len(tokens)):
+        cmd = tokens[i]
+        if (cmd == 'M'):
+            pnt = tokens[i + 1]
+            moveP(p, pnt)
+            i = i + 2
+        elif (cmd == 'L'):
+            pnt = tokens[i + 1]
+            lineP(p, pnt)
+            i = i + 2
+        elif (cmd == 'C'):
+            # C uses the outpoint of the previous point and inpoint of the next point,
+            # which are sub-points of those points
+            if i < 2:
+                raise ValueError("'C' path definition must be preceded by at least one point")
+            pnt1 = tokens[i - 1]
+            pnt2 = tokens[i + 1]
+            try:
+                outpoint = pnt1.outpoint
+                inpoint = pnt2.inpoint
+            except:
+                print "Failure processing point", pnt2.name
+                raise ValueError("'C' path definition must be followed by a point with outpoint and inpoint defined")
+            i = i + 2
+            cubicCurveP(p, outpoint, inpoint, pnt2)
+        else:
+            print 'Unknown command token ' + cmd
+    return
 # ---- Pattern Classes ----------------------------------------
 
 class Point(pBase):
@@ -577,6 +736,14 @@ class PatternPiece(pBase):
         newpth = Path('pattern', 'centerline', self.name + ' CenterLine', pth, 'centerline_style')
         self.add(newpth)
         return newpth
+        
+    def addOutsetLine(self, pathList):
+        pth = PYB.path()
+        pth.extend(pathList)
+        #addToPath(pth, pathList)
+        newpth = Path('pattern', 'outsetline', self.name + ' OutsetLine', pth, 'cuttingline_style')
+        self.add(newpth)
+        return newpth        
 
     # TODO This may not be used, uncomment if used, delete if not
     #def addPatternLine(self, pathList):
@@ -721,7 +888,7 @@ class Pattern(pBase):
             print ' total paperwidth=', self.cfg['paper_width']
             print ' border width=', self.cfg['border']
             print ' available paperwidth=', pg_width
-            print ' pattern offset=', PATTERN_OFFSET
+            print ' pattern outset=', PATTERN_OFFSET
 
         next_x = SEAM_ALLOWANCE
         # -spc- FIX Leave room for the title block!
