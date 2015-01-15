@@ -100,6 +100,7 @@ class Design(designBase):
         f_underarm_height = 9.0 * CM
         f_bust_height = 18 * CM
         b_underarm_height = 18.0 * CM
+        f_undearm_height = 9.0 * CM
             
         FNC = A.addPoint('FNC', (0.0, 0.0)) #front neck center
         FWC = A.addPoint('FWC', down(FNC, CD.front_waist_length)) #front waist center
@@ -240,19 +241,19 @@ class Design(designBase):
         SWM = C.addPoint('SWM', down(SCM, CD.oversleeve_length)) #sleeve wrist middle                
         SUM = C.addPoint('SUM', up(SWM, CD.undersleeve_length)) #temp sleeve underarm middle
         SUM1 = C.addPoint('SUM1', down(SUM, 0.75*IN)) #sleeve underarm midPoint 
+        SUF1 = C.addPoint('SUF1', right(SUM1, (1.10 * CD.bicep) / 4.0)) #temp 1 front underarm point
+        SUB1 = C.addPoint('SUB1', left(SUM1, (1.10 * CD.bicep) / 4.0)) #temp 1 front underarm point         
         SEM1 = C.addPoint('SEM1', midPoint(SUM, SWM)) #temp sleeve elbow middle
         SEM = C.addPoint('SEM', up(SEM1, 1*IN)) #sleeve elbow middle
-        SEF1 = C.addPoint('SEF1', right(SEM, (CD.elbow) / 4.0)) #sleeve elbow front        
-        SEB1 = C.addPoint('SEB1', left(SEM, (CD.elbow) / 4.0)) #sleeve elbow back
-        SUF1 = C.addPoint('SUF1', right(SUM1, (CD.bicep + 2.0*IN) / 4.0)) #front underarm point
-        SUB1 = C.addPoint('SUB1', left(SUM1, (CD.bicep + 2.0*IN) / 4.0)) #front underarm point        
-        SCF = C.addPoint('SCF', onLineAtY(SUF1, SEF1, SCM.y))
-        SCB = C.addPoint('SCB', onLineAtY(SUB1, SEB1, SCM.y))
-        SWF1 = C.addPoint('SWF1', onLineAtY(SUF1, SEF1, SWM.y))
-        SWB1 = C.addPoint('SWB1', onLineAtY(SUB1, SEB1, SWM.y))
+        SEF1 = C.addPoint('SEF1', right(SEM, (1.10 * CD.elbow) / 4.0)) #temp sleeve elbow front        
+        SEB1 = C.addPoint('SEB1', left(SEM, (1.10 * CD.elbow) / 4.0)) #temp sleeve elbow back 
+        SCF = C.addPoint('SCF', onLineAtY(SUF1, SEF1, SCM.y)) #sleeve cap front
+        SCB = C.addPoint('SCB', onLineAtY(SUB1, SEB1, SCM.y)) #sleeve cap back
+        #SWF1 = C.addPoint('SWF1', onLineAtY(SUF1, SEF1, SWM.y)) #temp sleeve wrist front
+        #SWB1 = C.addPoint('SWB1', onLineAtY(SUB1, SEB1, SWM.y)) #temp sleeve wrist back
         s1 = C.addPoint('s1', midPoint(SUF1, SCF))
         s2 = C.addPoint('s2', onLineAtLength(s1, SCF, 0.75*IN))
-        s3 = C.addPoint('s3', midPoint(SUB1, SCB)) 
+        s3 = C.addPoint('s3', midPoint(SUB1, SCB))
         s4 = C.addPoint('s4', onLineAtLength(s3, SCB, 0.75*IN))
         s5 = C.addPoint('s5', midPoint(SCM, SCF))
         s6 = C.addPoint('s6', midPoint(SCM, SCB))
@@ -262,14 +263,14 @@ class Design(designBase):
         s10 = C.addPoint('s10', onLineAtLength(s4, s6, (distance(s4, s6) / 2.0) - (1/8.0)*IN)) 
         s11 = C.addPoint('s11', midPoint(s2, s7))
         s12 = C.addPoint('s12', midPoint(s4, s8))
-        SUF = C.addPoint('SUF', reflect(s2, angleOfLine(s2, s1), SUM))        
-        SUB = C.addPoint('SUB', reflect(s4, angleOfLine(s4, s3), SUM))
-        SUF2 = C.addPoint('SUF2', reflect(s2, angleOfLine(s2, s1), SUM1))        
-        SUB2 = C.addPoint('SUB2', reflect(s4, angleOfLine(s4, s3), SUM1))
-        SEF = C.addPoint('SEF', reflect(s2, angleOfLine(s2, s1), SEM))        
-        SEB = C.addPoint('SEB', reflect(s4, angleOfLine(s4, s3), SEM))
-        SWF2 = C.addPoint('SWF2', reflect(s2, angleOfLine(s2, s1), SWM))        
-        SWB2 = C.addPoint('SWB2', reflect(s4, angleOfLine(s4, s3), SWM))
+        SUF = C.addPoint('SUF', reflect(s2, angleOfLine(s2, s1), SUM)) #sleeve underarm front       
+        SUB = C.addPoint('SUB', reflect(s4, angleOfLine(s4, s3), SUM)) #sleeve underarm back
+        SUF2 = C.addPoint('SUF2', reflect(s2, angleOfLine(s2, s1), SUM1)) #temp 2 sleeve underarm front
+        SUB2 = C.addPoint('SUB2', reflect(s4, angleOfLine(s4, s3), SUM1)) #temp 2 sleeve underarm back
+        SEF = C.addPoint('SEF', reflect(s2, angleOfLine(s2, s1), SEM)) #sleeve elbow front       
+        SEB = C.addPoint('SEB', reflect(s4, angleOfLine(s4, s3), SEM)) #sleeve elbow back
+        SWF2 = C.addPoint('SWF2', reflect(s2, angleOfLine(s2, s1), SWM)) #temp 2 sleeve wrist front
+        SWB2 = C.addPoint('SWB2', reflect(s4, angleOfLine(s4, s3), SWM)) #temp 2 sleeve wrist back
         
         wrist_diff = distance(SWF2, SWF1) + distance(SWF1, SWM) + distance(SWM, SWB1) + distance(SWB1, SWB2) - (CD.wrist + 1.0*IN)
         SWF = C.addPoint('SWF', onLineAtLength(SWF2, SWF1, wrist_diff / 2.0))
@@ -354,7 +355,7 @@ class Design(designBase):
         Cg1 = dPnt((s8.x, s8.y))
         Cg2 = dPnt((Cg1.x, SWM.y - 8.0 * CM))
         C.addGrainLine(Cg1, Cg2)
-        pnt1 = dPnt(midPoint(SUM1, SEM))
+        pnt1 = dPnt(midPoint(SUM1, SEM))fel
         C.setLetter((SCM.x, pnt1.y), scaleby=15.0)
         C.setLabelPosition((SCM.x, pnt1.y + 2.0 * CM))
         C.addGridLine(['M', SEB1, 'L', SCB, 'L', SCF, 'L', SEF1,

@@ -344,21 +344,21 @@ def down(p1, n):
     p1 = dPnt(p1)
     return (p1.x, p1.y + n)
 
-def mirror(p1, p2, type='vertical'):
+def mirror(anchor, p1, type='vertical'):
     """
-    Accepts p1 and p2 of class Point,  and optional type is either 'vertical' or 'horizontal with default 'vertical'.
-    Returns coordinate pair of "mirror image" of p1 relative to p2
-    If type=='vertical': pnt is on opposite side of vertical line x=p2.x from p1
-    If type=='horizontal': pnt is on opposite side of horizontal line y=p2.y from p1
+    Accepts anchor and p1 of class Point,  and optional type is either 'vertical' or 'horizontal with default 'vertical'.
+    Returns coordinate pair of "mirror image" of p1 relative to anchor
+    If type=='vertical': new pnt is on opposite side of vertical line x=anchor.x from p1
+    If type=='horizontal': new pnt is on opposite side of horizontal line y=anchor.y from p1
     """
+    anchor = dPnt(anchor)
     p1 = dPnt(p1)
-    p2 = dPnt(p2)
-    dx = p2.x - p1.x
-    dy = p2.y - p1.y
+    dx = anchor.x - p1.x
+    dy = anchor.y - p1.y
     if (type == 'vertical'):
-        return (p2.x + dx, p1.y)
+        return dPnt((anchor.x + dx, p1.y))
     elif (type == 'horizontal'):
-        return (p1.x, p2.y + dy)
+        return dPnt((p1.x, anchor.y + dy))
 
 def polar(p1, length, angle):
     '''
