@@ -82,7 +82,9 @@ class Design(designBase):
         #create pattern pieces,  assign an id lettercd 
         A = tuxedo.addPiece('Tuxedo Back', 'A', fabric = 2, interfacing = 0, lining = 0)
         B = tuxedo.addPiece('Tuxedo Front', 'B', fabric = 2, interfacing = 0, lining = 0)
-        #C = bodice.addPiece('Tuxedo Sleeve', 'C', fabric = 2, interfacing = 0, lining = 0)
+        C = tuxedo.addPiece('Tuxedo UnderCollar', 'C', fabric = 0, interfacing = 1, lining = 1)
+        D = tuxedo.addPiece('Tuxedo Collar', 'D', fabric = 1, interfacing = 1, lining = 0)
+        E = tuxedo.addPiece('Pocket', 'E', fabric = 1, interfacing = 1, lining = 1)        
 
         # Tuxedo Back points
         scale = CD.bust / 2.0
@@ -100,7 +102,6 @@ class Design(designBase):
         BSH = A.addPoint('BSH', up(pD, CD.back_shoulder_height)) #back shoulder height
         BSW = A.addPoint('BSW', right(BSH, CD.back_shoulder_width / 2.0)) #back shoulder width
         p1 = A.addPoint('p1', right(pA, CD.back_shoulder_width / 2.0)) #back neck side ref point
-        #p2 = A.addPoint('p2', right(pB, CD.back_shoulder_width / 2.0)) #back shoulder side ref point
         p3 = A.addPoint('p3', right(pC, CD.back_shoulder_width / 2.0)) #back underarm side ref point
         p4 = A.addPoint('p4', right(pD, CD.back_shoulder_width / 2.0)) #back waist side ref point
         p5 = A.addPoint('p5', right(pE, CD.back_shoulder_width / 2.0)) #back hip side ref point
@@ -109,9 +110,7 @@ class Design(designBase):
         p8 = A.addPoint('p8', right(pD, 2.5*CM))
         p9 = A.addPoint('p9', right(pE, 1.75*CM))
         p10 = A.addPoint('p10', right(pF, 1.5*CM))
-        p11 = A.addPoint('p11', right(pA, (scale / 8.) + 2.*CM)) #back neck width ref point
-        #p12 = A.addPoint('p12', (p11.x, BSH.y)) #back
-        #p13 = A.addPoint('p13', right(p2, 1.*CM)) #back shoulder point        
+        p11 = A.addPoint('p11', right(pA, (scale / 8.) + 2.*CM)) #back neck width ref point       
         p2b = A.addPoint('p2b', highestP(onCircleAtX(p8, CD.back_shoulder_balance, BSW.x))) #back shoulder point ref
         p13b = A.addPoint('p13b', right(p2b, 1.*CM)) #back shoulder point
         p12b = A.addPoint('p12b', leftmostP(onCircleAtY(p2b, CD.shoulder + back_shoulder_ease, BSH.y))) #back neck point
@@ -165,7 +164,6 @@ class Design(designBase):
         pK = B.addPoint('pK', up(p32, 2.5*CM))
         pL = B.addPoint('pL', down(pK, 10.*CM))
         p36 = B.addPoint('p36', right(pK, 2.*CM))
-        #p37 = B.addPoint('p37', up(p31, 14.*CM))
         p37b = B.addPoint('p37b', up(p32, CD.front_waist_length))
         p38 = B.addPoint('p38', down(p27, 6.5*CM))
         p39 = B.addPoint('p39', polar(p38, 2.5*CM, ANGLE315))
@@ -179,11 +177,11 @@ class Design(designBase):
         p47 = B.addPoint('p47', left(p34, 5.*CM))
         p48 = B.addPoint('p48', onLineAtLength(p35, p24, distance(p35, p24) / 4.0))
         #lapel dart
-        #BD1 = B.addPoint('BD1', polar(p44, 9.*CM, angleOfLine(p41, p42) + ANGLE90))
-        BD1 = B.addPoint('BD1', intersectLineRay(p38, p31, p44, angleOfLine(p41, p42) + ANGLE90))              
-        BD1.i = B.addPoint('BD1.i', onLineAtLength(p44, p41, 0.75*CM))
-        BD1.o = B.addPoint('BD1.o', onLineAtLength(p44, p42, 0.75*CM))
-        extendDart(p41, BD1, p42)
+        BD1 = B.addPoint('BD1', intersectLineRay(p38, p31, p44, angleOfLine(p41, p42) + ANGLE90)) 
+        pnt1 =  onLineAtLength(p44, p41, 0.75*CM)            
+        BD1.i = B.addPoint('BD1.i', intersectLineRay(BD1, pnt1, p41, angleOfLine(BD1, pnt1) + ANGLE90))
+        pnt2 = onLineAtLength(p44, p42, 0.75*CM)
+        BD1.o = B.addPoint('BD1.o', intersectLineRay(BD1, pnt2, p42, angleOfLine(BD1, pnt2) - ANGLE90))
         foldDart(BD1, p41)
         #hip pocket
         pM = B.addPoint('pM', down(p25, distance(p31, p32) + distance(p32, p33)/3.0))
@@ -192,12 +190,21 @@ class Design(designBase):
         pV = B.addPoint('pV', polar(pM, 4.5*CM, angleOfLine(pN, pO) + ANGLE90))
         pW = B.addPoint('pW', polar(pN, 4.5*CM, angleOfLine(pN, pO) + ANGLE90))
         pX = B.addPoint('pX', polar(pO, 4.5*CM, angleOfLine(pN, pO) + ANGLE90))
+        pP = B.addPoint('pP', left(p25, 5.5*CM))
+        pQ = B.addPoint('pQ', left(pP, 1.*CM))
+        pR = B.addPoint('pR', onLineAtLength(pM, pN, 4.*CM))
+        pSa = B.addPoint('pSa', midPoint(pP, pQ))
+        pS = B.addPoint('pS', onLineAtY(pR, pSa, p22.y - (2.*CM)))
+        pT = B.addPoint('pT', polar(pS, 1.*CM, angleOfLine(pSa, pS) + ANGLE90))
+        pU = B.addPoint('pU', polar(pS, 1.*CM, angleOfLine(pSa, pS) - ANGLE90))
+        
         #control points
         p27.addOutpoint(polar(p27, distance(p27, p41) / 3.0, angleOfLine(p29, p27) + ANGLE90))
         p41.addInpoint(extendLine(p42, p41, distance(p27, p41) / 3.0))
         p43.addInpoint(polar(p43, distance(p42, p43)/3.0, angleOfLine(p36, p42)))
         p43.addOutpoint(polar(p43, distance(p43, p36)/3.0, angleOfLine(p42, p36)))        
-        p42.addOutpoint(polar(p42, distance(p42, p43)/3.0, angleOfLine(p42, p43.inpoint)))        
+        #p42.addOutpoint(polar(p42, distance(p42, p43)/3.0, angleOfLine(p42, p43.inpoint)))        
+        p42.addOutpoint(onLineAtLength(p43, p43.inpoint, 2 * distance(p42, p43)/3.0))
         p36.addInpoint(polar(p36, distance(p43, p36)/3.0, angleOfLine(p36, p43.outpoint)))
         p45.addOutpoint(extendLine(p36, p45, distance(p45, p33)))
         p48.addInpoint(p35)
@@ -217,7 +224,65 @@ class Design(designBase):
         p29.addInpoint(polar(p29, distance(pH, p29)/3.0, angleOfLine(p29, p27) + ANGLE90))
         pO.addOutpoint(pX)
         pV.addInpoint(pX)
-   
+        pP.addOutpoint(polar(pP, distance(pU, pP)/3.0, angleOfLine(pSa, pS)))        
+        pU.addInpoint(polar(pU, distance(pU, pP)/3.0, angleOfLine(pS, pSa)))
+        pU.addOutpoint(polar(pU, distance(pU, pR)/3.0, angleOfLine(pSa, pS)))
+        pR.addInpoint(polar(pR, distance(pU, pR)/3.0, angleOfLine(pR, pU.outpoint)))
+        pT.addInpoint(polar(pT, distance(pR, pT)/3.0, angleOfLine(pSa, pS)))
+        pR.addOutpoint(polar(pR, distance(pR, pT)/3.0, angleOfLine(pR, pT.inpoint)))
+        pT.addOutpoint(polar(pT, distance(pT, pQ)/3.0, angleOfLine(pS, pSa)))
+        pQ.addInpoint(polar(pQ, distance(pT, pQ)/3.0, angleOfLine(pSa, pS)))
+        pP.ic = dPnt(extendLine(pP.outpoint, pP, SEAM_ALLOWANCE))
+        pQ.oc = dPnt(extendLine(pQ.inpoint, pQ, SEAM_ALLOWANCE)) 
+        
+        #---Tuxedo Roll Collar C---#
+        p49 = C.addPoint('p49', p27)
+        p50 = C.addPoint('p50', p39)
+        p51 = C.addPoint('p51', p41)
+        p52 = C.addPoint('p52', BD1.o)
+        
+        rotate_angle = -angleOfVector(BD1.o, p36, BD1.i)
+        p53 = C.addPoint('p53', rotate(p36, p42, rotate_angle))
+        
+        pCB = C.addPoint('pCB', extendLine(p51, p49, curveLength(points2List(pA, pA.outpoint, p12b.inpoint, p12b))))
+        pCC = C.addPoint('pCC', polar(pCB, 3.*CM, angleOfLine(p49, pCB) - ANGLE90))
+        pCD = C.addPoint('pCD', extendLine(pCC, pCB, 4.5*CM))
+        pCE = C.addPoint('pCE', polar(pCD, 0.6*CM, angleOfLine(pCB, pCD) - ANGLE90))
+        pCF = C.addPoint('pCF', intersectLineRay(p27, p29, pCC, angleOfLine(pCB, p51)))
+        #control points 
+        pCE.addOutpoint(polar(pCE, distance(p53, pCE)/3.0, angleOfLine(pCB, pCE) + ANGLE90))
+        print 'A'
+        p53.addOutpoint(rotate(p36, p42.outpoint, rotate_angle)) 
+        print 'B'
+        p53.addInpoint(polar(p53, distance(p53, pCE)/3.0, angleOfLine(p53.outpoint, p53)))
+        print 'C'               
+        pCF.addInpoint(extendLine(pCC, pCF, distance(pCF, p51)/3.0))
+        print 'D'        
+        p51.addOutpoint(extendLine(p52, p51, distance(pCF, p51)/3.0))
+        print 'E'        
+        p51.addInpoint(polar(p51, distance(p51, pCB)/3.0, angleOfLine(p42.outpoint, p42)))
+        print 'F'        
+        pCB.addOutpoint(polar(pCB, distance(p41, pCB)/3.0, angleOfLine(pCC, pCB) + ANGLE90)) 
+        print 'G'        
+        
+        #---Tuxedo Collar D---#
+        p54 = D.addPoint('p54', rotate(p36, p43, rotate_angle))      
+        p55 = D.addPoint('p55', p36)
+        p56 = D.addPoint('p56', p45)
+        p57 = D.addPoint('p57', p48)
+        p58 = D.addPoint('p58', extendLine(pCB, pCC, distance(pCB, pCC)))
+        p59 = D.addPoint('p59', (p57.x, p55.y))
+        print 'H'
+        #control points
+        p54.addInpoint(rotate(p36, p43.inpoint, rotate_angle))
+        p54.addOutpoint(rotate(p36, p43.outpoint, rotate_angle))     
+        p55.addInpoint(rotate(p36, p36.inpoint, rotate_angle))      
+        p56.addOutpoint(p45.outpoint)
+        p57.addInpoint(p48.inpoint) 
+        p59.addOutpoint(up(p59, distance(p59, p58)/3.0))
+        p58.addInpoint(polar(p58, distance(p59, p58)/3.0, angleOfLine(p58, pCB) + ANGLE90))
+        print 
+ 
         #Tuxedo Back A
         pnt1 = dPnt((p12b.x, pD.y))
         A.setLabelPosition(pnt1)
@@ -240,25 +305,77 @@ class Design(designBase):
         B.setLabelPosition(pnt1)
         pnt2 = up(pnt1, 0.5*IN)
         B.setLetter(pnt2, scaleby = 10.0)
+        
         BG1 = dPnt((BD1.x, p31.y))
         BG2 = down(BG1, distance(p31, p33))
         B.addGrainLine(BG1, BG2)
-        path = (['M', FSH, 'L', p6, 'L', p34, 'L', p37b, 'L', p38, 'L', p27, 'L', FSH])
+        
+        path = (['M', FSH, 'L', p6, 'L', p34, 'L', p37b, 'L', p38, 'L', p27, 'L', FSH])   
         B.addGridLine(path)
-        path = (['M', pN, 'L', pM, 'L', pO, 'C', pV, 'L', pW, 'L', pN])
+        
+        path = (['M', pN, 'L', pM, 'L', pO, 'C', pV, 'L', pW, 'L', pN])               
         B.addFoldLine(path)
-        path = (['M', BD1.ic, 'L', BD1, 'L', BD1.oc])
-        B.addDartLine(path)    
-        #path = (['M', p27, 'L', p39, 'L', p41, 'L', BD1.i, 'L', BD1.m, 'L', BD1.o, 'L', p42,
-                       #'L', p43, 'L', p36, 'L', p45, 'L', p46, 'L', p47, 'L', p48, 'L', p24,
-                       #'L', p23, 'L', p22, 'L', p20, 'L', p21, 
-                       #'L', pJ, 'L', pI, 'L', p30, 'L', pH, 'L', p29, 'L', p27])
+        
+        path = (['M', BD1.ic, 'L', BD1, 'L', BD1.oc,
+                 'M', pP.ic, 'L', pP, 'C', pU, 'C', pR, 'C', pT, 'C', pQ, 'L', pQ.oc])
+        B.addDartLine(path) 
+           
         path = (['M', p27, 'C', p41, 'L', BD1.i, 'L', BD1.m, 'L', BD1.o, 'L', p42,
                        'C', p43, 'C', p36, 'L', p45, 'C', p48, 'L', p24,
                        'L', p23, 'C', p22, 'C', p20, 'C', p21, 
                        'C', pJ, 'C', pI, 'C', pH, 'C', p29, 'L', p27])                       
         B.addSeamLine(path)
-        B.addCuttingLine(path)        
+        B.addCuttingLine(path)
+  
+        #Tuxedo UnderCollar C      
+        pnt1 = dPnt((pCE.x, pCC.y))
+        C.setLabelPosition(pnt1) 
+        
+        pnt2 = dPnt((pCE.outpoint.x, pCF.y))             
+        C.setLetter((pnt1.x, pnt1.y), scaleby = 3.0)
+        
+        CG1 = dPnt((pCB.x, pCC.y))
+        CG2 = dPnt(polar(CG1, distance(pCB, p51) / 2.0, angleOfLine(pCB, p51)))
+        C.addGrainLine(CG1, CG2)
+        
+        C.addFoldLine(['M', pCB, 'C', p51])
+
+        path = (['M', pCE, 'C', p53, 'L', p51, 'C', pCF, 'L', pCC, 'L', pCB, 'L', pCE])        
+        C.addSeamLine(path)
+        C.addCuttingLine(path) 
+        
+        #Tuxedo Collar D
+        
+        pnt1 = dPnt((pCE.outpoint.x, pCF.y))
+        D.setLetter((pnt1.x, pnt1.y), scaleby = 3.0)
+                
+        pnt2 = down(pnt1, 0.25*IN)
+        pnt3 = dPnt((p58.inpoint.x, pnt2.y))
+        D.setLabelPosition(pnt3)
+        
+        DG1 = dPnt((pCB.x, pCC.y))
+        DG2 = dPnt(polar(DG1, distance(pCB, p51) / 2.0, angleOfLine(pCB, p51)))
+        D.addGrainLine(DG1, DG2)
+        
+        D.addFoldLine(['M', pCB, 'C', p51, 'L', p55])
+        
+        path = (['M', pCE, 'C', p53, 'C', p54, 'C', p55, 'L', p56, 'C', p57, 'L', p59, 'C', p58, 'L', pCB, 'L', pCE])
+        D.addSeamLine(path)
+        D.addCuttingLine(path) 
+        
+        #Tuxedo Collar E
+        pnt1 = dPnt(((pN.x + pR.x)/2.0, (pN.y + pW.y)/2.0))                 
+        E.setLetter((pnt1.x, pnt1.y), scaleby=2.0)
+        pnt2 = dPnt((pM.x, pO.y))
+        E.setLabelPosition(pnt2)
+        
+        EG1 = pR
+        EG2 = down(pR, 0.75 * distance(pN, pW))
+        E.addGrainLine(EG1, EG2)
+       
+        path = (['M', pN, 'L', pM, 'L', pO, 'C', pV, 'L', pW, 'L', pN])
+        E.addSeamLine(path)
+        E.addCuttingLine(path)
         
         #call draw() to generate svg file
         self.draw()
