@@ -179,7 +179,8 @@ class Design(designBase):
         p47 = B.addPoint('p47', left(p34, 5.*CM))
         p48 = B.addPoint('p48', onLineAtLength(p35, p24, distance(p35, p24) / 4.0))
         #lapel dart
-        BD1 = B.addPoint('BD1', polar(p44, 9.*CM, angleOfLine(p41, p42) + ANGLE90))        
+        #BD1 = B.addPoint('BD1', polar(p44, 9.*CM, angleOfLine(p41, p42) + ANGLE90))
+        BD1 = B.addPoint('BD1', intersectLineRay(p38, p31, p44, angleOfLine(p41, p42) + ANGLE90))              
         BD1.i = B.addPoint('BD1.i', onLineAtLength(p44, p41, 0.75*CM))
         BD1.o = B.addPoint('BD1.o', onLineAtLength(p44, p42, 0.75*CM))
         extendDart(p41, BD1, p42)
@@ -188,10 +189,34 @@ class Design(designBase):
         pM = B.addPoint('pM', down(p25, distance(p31, p32) + distance(p32, p33)/3.0))
         pN = B.addPoint('pN', polar(pM, 7.5*CM, angleOfLine(p35, p24)))
         pO = B.addPoint('pO', polar(pM, 7.5*CM, angleOfLine(pN, pM)))
-        pNb = B.addPoint('pNb', polar(pN, 4.5*CM, angleOfLine(pN, pO) + ANGLE90))
-        pOb = B.addPoint('pOb', polar(pO, 2.25*CM, angleOfLine(pN, pO) + ANGLE90))
-        pMb = B.addPoint('pMb', polar(pNb, 4.25*CM, angleOfLine(pN, pO)))
-
+        pV = B.addPoint('pV', polar(pM, 4.5*CM, angleOfLine(pN, pO) + ANGLE90))
+        pW = B.addPoint('pW', polar(pN, 4.5*CM, angleOfLine(pN, pO) + ANGLE90))
+        pX = B.addPoint('pX', polar(pO, 4.5*CM, angleOfLine(pN, pO) + ANGLE90))
+        #control points
+        p27.addOutpoint(polar(p27, distance(p27, p41) / 3.0, angleOfLine(p29, p27) + ANGLE90))
+        p41.addInpoint(extendLine(p42, p41, distance(p27, p41) / 3.0))
+        p43.addInpoint(polar(p43, distance(p42, p43)/3.0, angleOfLine(p36, p42)))
+        p43.addOutpoint(polar(p43, distance(p43, p36)/3.0, angleOfLine(p42, p36)))        
+        p42.addOutpoint(polar(p42, distance(p42, p43)/3.0, angleOfLine(p42, p43.inpoint)))        
+        p36.addInpoint(polar(p36, distance(p43, p36)/3.0, angleOfLine(p36, p43.outpoint)))
+        p45.addOutpoint(extendLine(p36, p45, distance(p45, p33)))
+        p48.addInpoint(p35)
+        p23.addOutpoint(extendLine(p24, p23, distance(p23, p22)/3.0))
+        p22.addInpoint(polar(p22, distance(p23, p22)/3.0, angleOfLine(p20, p23)))
+        p22.addOutpoint(polar(p22, distance(p22, p20)/3.0, angleOfLine(p23, p20)))
+        p20.addInpoint(polar(p20, distance(p22, p20)/3.0, angleOfLine(p21, p23)))
+        p20.addOutpoint(polar(p20, distance(p20, p21)/3.0, angleOfLine(p23, p21)))
+        p21.addInpoint(polar(p21, distance(p20, p21)/3.0, angleOfLine(p21, p20.outpoint)))
+        p21.addOutpoint(polar(p21, distance(p21, pJ)/3.0, angleOfLine(p14.inpoint, p14)))        
+        pJ.addInpoint(polar(pJ, distance(p21, pJ)/3.0, ANGLE225))
+        pJ.addOutpoint(polar(pJ, distance(pJ, pI)/3.0, ANGLE45))
+        pI.addInpoint(polar(pI, distance(pJ, pI)/3.0, angleOfLine(p30, pI))) 
+        pI.addOutpoint(polar(pI, distance(pI, pH)/3.0, angleOfLine(pI.inpoint, pI)))
+        pH.addInpoint(polar(pH, distance(pI, pH)/3.0, angleOfLine(p29, pI.outpoint)))
+        pH.addOutpoint(polar(pH, distance(pH, p29)/3.0, angleOfLine(pI.outpoint, p29)))
+        p29.addInpoint(polar(p29, distance(pH, p29)/3.0, angleOfLine(p29, p27) + ANGLE90))
+        pO.addOutpoint(pX)
+        pV.addInpoint(pX)
    
         #Tuxedo Back A
         pnt1 = dPnt((p12b.x, pD.y))
@@ -220,12 +245,18 @@ class Design(designBase):
         B.addGrainLine(BG1, BG2)
         path = (['M', FSH, 'L', p6, 'L', p34, 'L', p37b, 'L', p38, 'L', p27, 'L', FSH])
         B.addGridLine(path)
+        path = (['M', pN, 'L', pM, 'L', pO, 'C', pV, 'L', pW, 'L', pN])
+        B.addFoldLine(path)
         path = (['M', BD1.ic, 'L', BD1, 'L', BD1.oc])
         B.addDartLine(path)    
-        path = (['M', p27, 'L', p39, 'L', p41, 'L', BD1.i, 'L', BD1.m, 'L', BD1.o, 'L', p42,
-                       'L', p43, 'L', p36, 'L', p45, 'L', p46, 'L', p47, 'L', p48, 'L', p24,
-                       'L', p23, 'L', p22, 'L', p20, 'L', p21, 
-                       'L', pJ, 'L', pI, 'L', p30, 'L', pH, 'L', p29, 'L', p27])
+        #path = (['M', p27, 'L', p39, 'L', p41, 'L', BD1.i, 'L', BD1.m, 'L', BD1.o, 'L', p42,
+                       #'L', p43, 'L', p36, 'L', p45, 'L', p46, 'L', p47, 'L', p48, 'L', p24,
+                       #'L', p23, 'L', p22, 'L', p20, 'L', p21, 
+                       #'L', pJ, 'L', pI, 'L', p30, 'L', pH, 'L', p29, 'L', p27])
+        path = (['M', p27, 'C', p41, 'L', BD1.i, 'L', BD1.m, 'L', BD1.o, 'L', p42,
+                       'C', p43, 'C', p36, 'L', p45, 'C', p48, 'L', p24,
+                       'L', p23, 'C', p22, 'C', p20, 'C', p21, 
+                       'C', pJ, 'C', pI, 'C', pH, 'C', p29, 'L', p27])                       
         B.addSeamLine(path)
         B.addCuttingLine(path)        
         
