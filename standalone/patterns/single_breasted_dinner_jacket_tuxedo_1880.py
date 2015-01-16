@@ -84,7 +84,8 @@ class Design(designBase):
         B = tuxedo.addPiece('Tuxedo Front', 'B', fabric = 2, interfacing = 0, lining = 0)
         C = tuxedo.addPiece('Tuxedo UnderCollar', 'C', fabric = 0, interfacing = 1, lining = 1)
         D = tuxedo.addPiece('Tuxedo Collar', 'D', fabric = 1, interfacing = 1, lining = 0)
-        E = tuxedo.addPiece('Pocket', 'E', fabric = 1, interfacing = 1, lining = 1)        
+        E = tuxedo.addPiece('Pocket', 'E', fabric = 1, interfacing = 1, lining = 1)
+        F = tuxedo.addPiece('Sleeve', 'F', fabric = 2, interfacing = 0, lining = 0)        
 
         # Tuxedo Back points
         scale = CD.bust / 2.0
@@ -202,8 +203,7 @@ class Design(designBase):
         p27.addOutpoint(polar(p27, distance(p27, p41) / 3.0, angleOfLine(p29, p27) + ANGLE90))
         p41.addInpoint(extendLine(p42, p41, distance(p27, p41) / 3.0))
         p43.addInpoint(polar(p43, distance(p42, p43)/3.0, angleOfLine(p36, p42)))
-        p43.addOutpoint(polar(p43, distance(p43, p36)/3.0, angleOfLine(p42, p36)))        
-        #p42.addOutpoint(polar(p42, distance(p42, p43)/3.0, angleOfLine(p42, p43.inpoint)))        
+        p43.addOutpoint(polar(p43, distance(p43, p36)/3.0, angleOfLine(p42, p36)))               
         p42.addOutpoint(onLineAtLength(p43, p43.inpoint, 2 * distance(p42, p43)/3.0))
         p36.addInpoint(polar(p36, distance(p43, p36)/3.0, angleOfLine(p36, p43.outpoint)))
         p45.addOutpoint(extendLine(p36, p45, distance(p45, p33)))
@@ -265,7 +265,7 @@ class Design(designBase):
         pCB.addOutpoint(polar(pCB, distance(p41, pCB)/3.0, angleOfLine(pCC, pCB) + ANGLE90)) 
         print 'G'        
         
-        #---Tuxedo Collar D---#
+        #---Collar D---#
         p54 = D.addPoint('p54', rotate(p36, p43, rotate_angle))      
         p55 = D.addPoint('p55', p36)
         p56 = D.addPoint('p56', p45)
@@ -282,6 +282,52 @@ class Design(designBase):
         p59.addOutpoint(up(p59, distance(p59, p58)/3.0))
         p58.addInpoint(polar(p58, distance(p59, p58)/3.0, angleOfLine(p58, pCB) + ANGLE90))
         print 
+        
+        #---Pocket E---#
+        #no additional points
+        
+        #---UpperSleeve F---#
+        f1 = F.addPoint('f1', (0, 0))
+        f5 = F.addPoint('f5', down(f1, CD.oversleeve_length))
+        f6 = F.addPoint('f6', right(f1, (scale / 2.0) - 3.*CM)) 
+        f10 = F.addPoint('f10',(f6.x, f5.y))                     
+        
+        f2 = F.addPoint('f2', down(f1, (scale / 8.0) - 2.*CM))
+        f3 = F.addPoint('f3', down(f2, distance(p15, p3)))
+        f4 = F.addPoint('f4', down(f3, 0.45 * distance(f3, f5)))
+        f7 = F.addPoint('f7', (f6.x, f2.y))
+        f8 = F.addPoint('f8', (f6.x, f3.y))
+        f9 = F.addPoint('f9', (f6.x, f4.y))
+        f12 = F.addPoint('f12', midPoint(f3, f8))
+        f13 = F.addPoint('f13', (f12.x, f1.y))
+
+        f11 = F.addPoint('f11', up(f8, distance(p25, p30)))
+        f14 = F.addPoint('f14', polar(f1, 3.*CM, ANGLE45))
+        f15 = F.addPoint('f15', left(f7, 4.*CM))
+                                
+        f16 = F.addPoint('f16', right(f4, 1.*CM))
+        f20 = F.addPoint('f20', left(f9, 1.3*CM))
+        f17 = F.addPoint('f17', right(f5, 7.5*CM))
+        f18 = F.addPoint('f18', up(f10, 2.5*CM))
+        f19 = F.addPoint('f19', extendLine(f17, f18, 2.*CM))
+        #control points
+        f2.addOutpoint(f14)
+        f13.addOutpoint(polar(f13, distance(f13, f11) / 3.0, angleOfVector(f6, f3, f7)/2.0))      
+        f13.addInpoint(polar(f13, distance(f2, f13) / 2.0, angleOfLine(f13.outpoint, f13)))
+        f11.addInpoint(polar(f11, distance(f13, f11) / 2.0, ANGLE270 - angleOfVector(f7, f11, f15)/2.0))
+        
+        f20.addInpoint(polar(f20, distance(f11, f20)/3.0, angleOfLine(f19, f11)))
+        f11.addOutpoint(polar(f11, distance(f11, f20)/3.0, angleOfLine(f11, f20.inpoint)))
+        f20.addOutpoint(polar(f20, distance(f20, f19)/3.0, angleOfLine(f11, f19)))
+        f19.addInpoint(polar(f19, distance(f20, f19)/3.0, angleOfLine(f19, f20.outpoint)))
+        
+        f16.addInpoint(polar(f16, distance(f17, f16)/3.0, angleOfLine(f3, f17)))
+        f17.addOutpoint(polar(f17, distance(f17, f16)/3.0, angleOfLine(f17, f16.inpoint)))
+        f16.addOutpoint(polar(f16, distance(f16, f3)/3.0, angleOfLine(f17, f3)))
+        f3.addInpoint(down(f3, distance(f16, f3)/3.0))
+        
+          
+        #---UnderSleeve G---#
  
         #Tuxedo Back A
         pnt1 = dPnt((p12b.x, pD.y))
@@ -348,8 +394,8 @@ class Design(designBase):
         
         pnt1 = dPnt((pCE.outpoint.x, pCF.y))
         D.setLetter((pnt1.x, pnt1.y), scaleby = 3.0)
-                
-        pnt2 = down(pnt1, 0.25*IN)
+        
+        pnt2 = dPnt(down(pnt1, 0.25*IN))
         pnt3 = dPnt((p58.inpoint.x, pnt2.y))
         D.setLabelPosition(pnt3)
         
@@ -365,7 +411,7 @@ class Design(designBase):
         
         #Tuxedo Collar E
         pnt1 = dPnt(((pN.x + pR.x)/2.0, (pN.y + pW.y)/2.0))                 
-        E.setLetter((pnt1.x, pnt1.y), scaleby=2.0)
+        E.setLetter((pnt1.x, pnt1.y), scaleby=3.0)
         pnt2 = dPnt((pM.x, pO.y))
         E.setLabelPosition(pnt2)
         
@@ -376,6 +422,26 @@ class Design(designBase):
         path = (['M', pN, 'L', pM, 'L', pO, 'C', pV, 'L', pW, 'L', pN])
         E.addSeamLine(path)
         E.addCuttingLine(path)
+        
+        #Tuxedo Sleeve F
+        pnt1 = dPnt((f14.x, f3.y))                 
+        F.setLetter((pnt1.x, pnt1.y), scaleby=10.0)
+        pnt2 = dPnt(down(pnt1, 1.*CM))
+        F.setLabelPosition(pnt2)
+        
+        FG1 = f12
+        FG2 = down(FG1, 0.75 * distance(f3, f5))
+        F.addGrainLine(FG1, FG2)
+        
+        path = (['M', f1, 'L', f6, 'L', f10, 'L', f5, 'L', f1,
+                'M', f1, 'L', f14, 'M', f13, 'L', f12, 
+                'M', f2, 'L', f7, 'M', f3, 'L', f8, 'M', f4, 'L', f9])
+        F.addGridLine(path)
+       
+        path = (['M', f2, 'C', f13, 'C', f11, 'C', f20, 'C', f19,
+                'L', f17, 'C', f16, 'C', f3, 'L', f2])
+        F.addSeamLine(path)
+        F.addCuttingLine(path)        
         
         #call draw() to generate svg file
         self.draw()
