@@ -80,12 +80,13 @@ class Design(designBase):
         tuxedo = self.addPattern('tuxedo')
 
         #create pattern pieces,  assign an id lettercd 
-        A = tuxedo.addPiece('Tuxedo Back', 'A', fabric = 2, interfacing = 0, lining = 0)
-        B = tuxedo.addPiece('Tuxedo Front', 'B', fabric = 2, interfacing = 0, lining = 0)
-        C = tuxedo.addPiece('Tuxedo UnderCollar', 'C', fabric = 0, interfacing = 1, lining = 1)
-        D = tuxedo.addPiece('Tuxedo Collar', 'D', fabric = 1, interfacing = 1, lining = 0)
-        E = tuxedo.addPiece('Pocket', 'E', fabric = 1, interfacing = 1, lining = 1)
-        F = tuxedo.addPiece('Sleeve', 'F', fabric = 2, interfacing = 0, lining = 0)        
+        A = tuxedo.addPiece('Tuxedo Back', 'A', fabric=2, interfacing=0, lining=0)
+        B = tuxedo.addPiece('Tuxedo Front', 'B', fabric=2, interfacing=0, lining=0)
+        C = tuxedo.addPiece('Tuxedo UnderCollar', 'C', fabric=0, interfacing=1, lining=1)
+        D = tuxedo.addPiece('Tuxedo Collar', 'D', fabric=1, interfacing=1, lining=0)
+        E = tuxedo.addPiece('Tuxedo Pocket', 'E', fabric=1, interfacing=1, lining=1)
+        F = tuxedo.addPiece('Tuxedo UpperSleeve', 'F', fabric=2, interfacing=0, lining=0) 
+        G = tuxedo.addPiece('Tuxedo UnderSleeve', 'G', fabric=2, interfacing=0, lining=0)               
 
         # Tuxedo Back points
         scale = CD.bust / 2.0
@@ -310,6 +311,9 @@ class Design(designBase):
         f17 = F.addPoint('f17', right(f5, 7.5*CM))
         f18 = F.addPoint('f18', up(f10, 2.5*CM))
         f19 = F.addPoint('f19', extendLine(f17, f18, 2.*CM))
+        
+
+        
         #control points
         f2.addOutpoint(f14)
         f13.addOutpoint(polar(f13, distance(f13, f11) / 3.0, angleOfVector(f6, f3, f7)/2.0))      
@@ -326,8 +330,24 @@ class Design(designBase):
         f16.addOutpoint(polar(f16, distance(f16, f3)/3.0, angleOfLine(f17, f3)))
         f3.addInpoint(down(f3, distance(f16, f3)/3.0))
         
+
+        
+        
           
         #---UnderSleeve G---#
+        g11 = G.addPoint('g11', f11)        
+        g21 = G.addPoint('g21', up(f12, 2.*CM))
+        g22 = G.addPoint('g22', right(f2, 1.3*CM))
+        g23 = G.addPoint('g23', right(f3, 1.*CM))        
+
+        g21.addInpoint(polar(g21, distance(g21, g22)/3.0, angleOfLine(g11, g22)))
+        g22.addOutpoint(polar(g22, distance(g21, g22)/3.0, angleOfLine(g22, g21.inpoint)))
+
+        g21.addOutpoint(polar(g21, distance(g21, g11)/3.0, angleOfLine(g22, g11))) 
+        g11.addOutpoint(f11.outpoint)
+        g11.addInpoint(polar(g11, distance(g21, g11)/3.0, angleOfLine(g11, g21.outpoint))) 
+        g22.addInpoint(polar(g22, distance(g22, f16)/3.0, angleOfLine(g22, f16.outpoint)))
+                      
  
         #Tuxedo Back A
         pnt1 = dPnt((p12b.x, pD.y))
@@ -344,7 +364,7 @@ class Design(designBase):
                        'L', p16, 'C', p17, 'C', p18, 'L', p19, 
                        'L', p10, 'L', p9, 'C', p8, 'C', p7, 'C', pB, 'L', pA])
         A.addSeamLine(path)
-        A.addCuttingLine(path)
+        A.addCuttingLine(path)        
         
         #Tuxedo Front B
         pnt1 = dPnt(((p27.x + p28.x)/2.0, p25.y))
@@ -423,7 +443,7 @@ class Design(designBase):
         E.addSeamLine(path)
         E.addCuttingLine(path)
         
-        #Tuxedo Sleeve F
+        #Tuxedo UpperSleeve F
         pnt1 = dPnt((f14.x, f3.y))                 
         F.setLetter((pnt1.x, pnt1.y), scaleby=10.0)
         pnt2 = dPnt(down(pnt1, 1.*CM))
@@ -441,7 +461,27 @@ class Design(designBase):
         path = (['M', f2, 'C', f13, 'C', f11, 'C', f20, 'C', f19,
                 'L', f17, 'C', f16, 'C', f3, 'L', f2])
         F.addSeamLine(path)
-        F.addCuttingLine(path)        
+        F.addCuttingLine(path)
+        
+        #Tuxedo UnderSleeve G
+        pnt1 = dPnt((f14.x, f3.y))                 
+        G.setLetter((pnt1.x, pnt1.y), scaleby=10.0)
+        pnt2 = dPnt(down(pnt1, 1.*CM))
+        G.setLabelPosition(pnt2)
+        
+        GG1 = f12
+        GG2 = down(GG1, 0.75 * distance(f3, f5))
+        G.addGrainLine(GG1, GG2)
+        
+        path = (['M', f1, 'L', f6, 'L', f10, 'L', f5, 'L', f1,
+                'M', f1, 'L', f14, 'M', f13, 'L', f12, 
+                'M', f2, 'L', f7, 'M', f3, 'L', f8, 'M', f4, 'L', f9])
+        G.addGridLine(path)
+       
+        path = (['M', g22, 'C', g21, 'C', g11, 'C', f20, 'C', f19,
+                'L', f17, 'C', f16, 'C', g22])
+        G.addSeamLine(path)
+        G.addCuttingLine(path)                
         
         #call draw() to generate svg file
         self.draw()
