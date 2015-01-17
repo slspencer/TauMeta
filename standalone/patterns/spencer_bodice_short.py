@@ -249,8 +249,8 @@ class Design(designBase):
         SEB1 = C.addPoint('SEB1', left(SEM, (1.10 * CD.elbow) / 4.0)) #temp sleeve elbow back 
         SCF = C.addPoint('SCF', onLineAtY(SUF1, SEF1, SCM.y)) #sleeve cap front
         SCB = C.addPoint('SCB', onLineAtY(SUB1, SEB1, SCM.y)) #sleeve cap back
-        #SWF1 = C.addPoint('SWF1', onLineAtY(SUF1, SEF1, SWM.y)) #temp sleeve wrist front
-        #SWB1 = C.addPoint('SWB1', onLineAtY(SUB1, SEB1, SWM.y)) #temp sleeve wrist back
+        SWF1 = C.addPoint('SWF1', onLineAtY(SUF1, SEF1, SWM.y)) #temp sleeve wrist front
+        SWB1 = C.addPoint('SWB1', onLineAtY(SUB1, SEB1, SWM.y)) #temp sleeve wrist back
         s1 = C.addPoint('s1', midPoint(SUF1, SCF))
         s2 = C.addPoint('s2', onLineAtLength(s1, SCF, 0.75*IN))
         s3 = C.addPoint('s3', midPoint(SUB1, SCB))
@@ -355,7 +355,7 @@ class Design(designBase):
         Cg1 = dPnt((s8.x, s8.y))
         Cg2 = dPnt((Cg1.x, SWM.y - 8.0 * CM))
         C.addGrainLine(Cg1, Cg2)
-        pnt1 = dPnt(midPoint(SUM1, SEM))fel
+        pnt1 = dPnt(midPoint(SUM1, SEM))
         C.setLetter((SCM.x, pnt1.y), scaleby=15.0)
         C.setLabelPosition((SCM.x, pnt1.y + 2.0 * CM))
         C.addGridLine(['M', SEB1, 'L', SCB, 'L', SCF, 'L', SEF1,
