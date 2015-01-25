@@ -1019,7 +1019,8 @@ def generatePoints(curve, steps=500):
     Adapted from Carlos M. Icaza www.carlosicaza.com/2012/08/12/an-more-efficient-way-of-calculating-the-length-of-a-bezier-curve-part-ii
     '''
     curve_points = []
-    j = 0
+    inc = 1    
+    j = 0 
     while (j <= len(curve) - 4): #generate points for each cubic curve
         c = points2List(curve[j + 0], curve[j + 1], curve[j + 2], curve[j + 3])
         length = 0.0
