@@ -1,7 +1,7 @@
 # !/usr/bin/python
 #
-# single_breasted_dinner_tuxedo_tuxedo_1880.py
-# Copyright (C) 2010, 2011, 2012 Susan Spencer, Steve Conklin <www.taumeta.org>
+# Mens_1880_tuxedo_jacket.py
+# Copyright (C) 2010, 2011, 2012, 2013, 2014, 2015 Susan Spencer, Steve Conklin <www.taumeta.org>
 
 '''
 Licensing paragraph :
@@ -26,8 +26,11 @@ The output of this code is a pattern and is considered a
 visual artwork. The pattern is licensed under
 Attribution - NonCommercial 3.0 (CC BY - NC 3.0)
 <http : //creativecommons.org/licenses/by - nc/3.0/>
-Items made from the pattern may be sold;
-the pattern may not be sold.
+Any items made from this pattern may be sold commercially.
+
+All works derived from this code, regardless if written
+in Python or other programming language, must include an
+attribution statement and this licensing paragraph.
 
 End of Licensing paragraph.
 '''
