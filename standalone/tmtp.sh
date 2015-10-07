@@ -27,65 +27,78 @@ PATTERN_BASE=$TMTP_BASE/patterns
 CUSTOMER_BASE=$TMTP_BASE/customer
 OUTPUT_BASE=$TMTP_BASE/output
 PYTHONPATH=$PYTHONPATH:$TMTP_BASE:$PATTERN_BASE:$CUSTOMER_BASE
+PRINTER1='SC-T7000-Series-4'
 
-export PYTHONPATH
 export TMTP_BASE
 export PATTERN_BASE
 export CUSTOMER_BASE
+export OUTPUT_BASE
+export PYTHONPATH
+export CUSTOMER_FILE
+export CUSTOMER_DIR
+export CUSTOMER_NAME
+export PATTER
+export OUTPUT
 
-function PrintPatternMenu () {
-    ans="$(zenity  --list  --text 'Print This Pattern?' --radiolist  --column '' --column 'Choice' FALSE 'Yes, Print this Pattern' TRUE 'No, do not Print this Pattern')"
+function PrintPattern () {
+    ans="$(zenity --list --radiolist --title 'Tau Meta Tau Physica' --text='Print Pattern?'  --column ' ' --column 'Print ' FALSE 'Print to SC-T7000 Plotter' TRUE 'Do not Print')"
     
     case $ans in
-        "Yes, Print this Pattern")
+        "Print to SC-T7000 Plotter")
           PRINTPATTERN="1";;
         *)
           PRINTPATTERN="0";;
     esac
-    
-    echo PRINTPATTERN = $PRINTPATTERN
-
-    if [ PRINTPATTERN == '1' ]; then 
-        #run inkscape no gui (--z)  export to pdf (-A) 
         
-        inkscape --without-gui --file=$OUTPUT_BASE/$NAME/$OUTPUT_FILE.svg --export-area-snap \
-         -A $OUTPUT_BASE/$NAME/$OUTPUT_FILE.pdf \
-         | zenity --progress --title='Please wait, printing pattern...' \
-         --text='* Tip: Check ink prior to printing *' --auto-close
-         
-        $OUTPUT_BASE/$NAME/$OUTPUT_FILE.pdf | lpr -P SC-T7000-Series
-        wait
-        wait
-        wait    
-    fi
+    if [ $PRINTPATTERN == '1' ]; then 
+
+        #convert SVG to PDF with Inkscape no gui (--z) export to PDF (-A)
+           
+        inkscape --without-gui --file=$SVG --export-area-snap -A $PDF | zenity --info --title="Convert pattern" --text="* Converting $SVG to PDF *" 
+        wait   
+
+        #send file to hardcoded print queue $PRINTER1!!!!         
+        lpr -P $PRINTER1 $PDF | zenity --info --title="Print pattern" --text="* Sending $PDF to $PRINTER1 *"
+        (exec system-config-printer --show-jobs SC-T7000-Series-4)
+   
+    fi    
     
+    return;
+
     }
 
-function RunMkpattern () {
+function MakePattern () {
+    #set the client to database or .json file
+    
+    if [ $MEASUREMENTSOURCE == 'Database' ]; then 
+        CLIENT="--clientrecord=$RECORD_NO"
+    elif [ $MEASUREMENTSOURCE == 'JSON' ]; then
+        CLIENT="--client=$CUSTOMER_BASE/$CUSTOMER_DIR/$CUSTOMER_FILE"
+    fi
+    
+    PATTERN="--pattern=$PATTERN_BASE/$FILE.py"
+    SVG="$CUSTOMER_BASE/$CUSTOMER_DIR/$OUTPUT_FILE.svg"
+    PDF="$CUSTOMER_BASE/$CUSTOMER_DIR/$OUTPUT_FILE.pdf"
+    echo "SVG="$SVG
+    echo "PDF="$PDF 
+    
 
-    #Include this option to show additional debug messages, and run ./tmtp.sh from a terminal:   --debug=prints $FILE.svg
-
-    # run mkpattern script to generate the pattern
-    #$TMTP_BASE/mkpattern --client=$CUSTOMER_NAME --pattern=$PATTERN --styles=$TMTP_BASE/tmtp_styles.json $FILE.svg
-    #./mkpattern --pattern=./patterns/$FILE.py --clientrecord=24 ./output/$FILE.svg
-    $TMTP_BASE/mkpattern --pattern=$PATTERN_BASE/$FILE.py --clientrecord=$RECORD_NO $OUTPUT_BASE/$NAME/$OUTPUT_FILE.svg
+    #Include this option to show additional debug messages: --debug=prints
+    #run mkpattern script to generate the pattern
+    $TMTP_BASE/mkpattern $PATTERN $CLIENT $SVG
 
     #TODO: add if statement to run inkscape with reference layer visible or hidden.
 
     # run inkscape to outset the cutting lines and to view svg file.
-    inkscape --file=$OUTPUT_BASE/$NAME/$OUTPUT_FILE.svg --verb=ZoomPage \
+    inkscape --file=$SVG --verb=ZoomPage \
     --select=A.cuttingline --select=B.cuttingline --select=C.cuttingline \
     --select=D.cuttingline --select=E.cuttingline --select=F.cuttingline \
     --select=G.cuttingline --select=H.cuttingline --select=I.cuttingline \
     --select=J.cuttingline --select=K.cuttingline --select=S.cuttingline \
     --verb=SelectionOffset --verb=EditDeselect --verb=FileSave | zenity --progress \
     --title='Please wait, opening Inkscape...'\
-    --text='* Tip: Save pattern as PDF before printing *' --auto-close
+    --text="* Creating $SVG *" --auto-close
     
-    wait
-    wait
-    wait
-    PrintPatternMenu
 
     return;
     }
@@ -95,67 +108,87 @@ function GetFileName () {
     FILE=${PATTERN##*/}
     FILE=${FILE%%.*}
     #FILE="$CUSTOMER_DIR/$FILE-$D"
-    echo $FILE
-    OUTPUT_FILE=$NAME-$FILE-$D
-    echo $OUTPUT_FILE
-
+    OUTPUT_FILE=$CUSTOMER_NAME-$FILE-$D
     return;
 }
 
-function CustomerMenu () {
-    # Display menu and interact based on the user's input
-    CUSTOMER_NAME="$(zenity  --file-selection\
- --title '*        Select A Customer:                     *'\
- --filename=$CUSTOMER_BASE\
- --file-filter='*.json')"
-    CUSTOMER_DIR=${CUSTOMER_NAME%/*}
-    return;
-    }
-
-function RecordMenu () {
-    ans="$(zenity  --list  --text 'Select Measurements' --radiolist  --column '' --column 'Measurements' TRUE 'DressFormLg' FALSE 'Susan')"
-    case $ans in
+function GetDatabaseMeasurements () {
+    CUSTOMER_NAME="$(zenity --list --radiolist --title 'Tau Meta Tau Physica' --text='Select Measurements' --column ' ' --column 'Measurements' TRUE 'DressFormLg' FALSE 'Susan' )"
+    
+    case $CUSTOMER_NAME in
         "DressFormLg")
-          NAME="DressFormLg";
+          CUSTOMER_DIR="DressFormLg";
           RECORD_NO="24";;
         "Susan")
-          NAME="Susan";
+          CUSTOMER_DIR="Susan";
           RECORD_NO="27";;
     esac
+     
     return;
     }
 
-
-function PatternMenu () {
-
+function GetJSONMeasurements () {
     # Display menu and interact based on the user's input
-    #Display menu and interact based on the user's input
-    PATTERN="$(zenity  --file-selection\
- --title '*        Select A Pattern:                       *'\
- --filename=$PATTERN_BASE/ --file-filter='*.py')"
-    echo $PATTERN
+    CUSTOMER_FULL_FILE_PATH="$(zenity  --file-selection --title '*        Select A Customer:                     *' --filename=$CUSTOMER_BASE/ --file-filter='*.json')"
+    echo "CUSTOMER_FULL_FILE_PATH=$CUSTOMER_FULL_FILE_PATH"
+    
+    #file name
+    CUSTOMER_FILE=$(basename $CUSTOMER_FULL_FILE_PATH)
+    echo "CUSTOMER_FILE=$CUSTOMER_FILE"  
+       
+    #full path minus file name
+    CUSTOMER_PATH=$(dirname $CUSTOMER_FULL_FILE_PATH)
+    echo "CUSTOMER_PATH=$CUSTOMER_PATH"
+    
+    #last directory in path
+    CUSTOMER_DIR=$(basename $CUSTOMER_PATH)
+    echo "CUSTOMER_DIR=$CUSTOMER_DIR" 
+     
+    #file name minus extension
+    CUSTOMER_NAME=${CUSTOMER_FILE%.*}
+    echo "CUSTOMER_NAME=$CUSTOMER_NAME"
+    
     return;
     }
 
-function CreateMenu () {
-    var1="$(zenity --list --radiolist\
- --text '*        Welcome to Tau Meta Tau Physica                               *'\
- --column='' --column='What do you want to do?'\
- TRUE 'Create a Pattern with Reference Points'\
- FALSE 'Exit' )"
+function GetMeasurements () {
+    MEASUREMENTSOURCE="$(zenity --list --radiolist --title 'Tau Meta Tau Physica' --text='Select Measurement Source' --column ' ' --column 'Source' TRUE 'JSON' FALSE 'Database' )"
+    
+    case $MEASUREMENTSOURCE in
+        "JSON")
+          GetJSONMeasurements;;
+        "Database")
+          GetDatabaseMeasurements;;
+    esac
+    
+    return;
+    }
+
+function GetPattern () {
+    PATTERN="$(zenity  --file-selection --title 'Tau Meta Tau Physica - Select Pattern' --filename=$PATTERN_BASE/ --file-filter='*.py' )"
+    return;
+    }
+
+function MainMenu () {
+    var1="$(zenity --list --radiolist \
+    --title 'Tau Meta Tau Physica' \
+    --text='Main Menu' \
+    --column ' ' --column 'Main ' \
+    TRUE 'Create a Pattern' \
+    FALSE 'Exit' )"
+    
     case $var1 in
-        "Create a Pattern with Reference Points")
+        "Create a Pattern")
           CREATEPATTERN="1";;
         *)
           CREATEPATTERN="0";;
     esac
+   
     return;
     }
 
 #-------------
 # Main
-
-GETPATTERN="1"
 
 while true; do
 
@@ -163,18 +196,21 @@ while true; do
     RECORD_NO=""
     CUSTOMER_NAME=""
     CUSTOMER_DIR=""
+    MEASUREMENT_SOURCE=""
+    CLIENT=""
+    CREATEPATTERN="1"
 
-    CreateMenu
-    if [ $CREATEPATTERN == '1' ]; then
-        PatternMenu
-        #CustomerMenu
-        RecordMenu
-        GetFileName
-        RunMkpattern
-    else
-        break
+    MainMenu
+    if [ $CREATEPATTERN == '0' ]; then
+        break;
+    else        
+       GetPattern
+       GetMeasurements
+       GetFileName
+       MakePattern
+       PrintPattern      
     fi
-
+    
 done
 
 # to use this menu with the sample pattern:
