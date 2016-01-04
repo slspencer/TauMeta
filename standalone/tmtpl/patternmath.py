@@ -309,7 +309,57 @@ def transformBoundingBox(xmin, ymin, xmax, ymax, transform):
 
 #---functions to calculate points. These functions do not create SVG objects---
 
-# -spc- TODO need this?
+def outsetPath(path, outset_width, outset_angle, closed='true'):
+    #accepts array path[] which contains the path of a pattern ['M', p1, 'C', p2, 'L', p3]
+    #
+    #i = 0
+    #outset_path = []
+    #Parse path
+    #for i, item in path:
+    #    if item == 'M':
+    #       i = i + 2
+    #    elif item == 'C':
+    #       pnt1 = item[i - 1]
+    #       pnt2 = item[i + 1]
+    #       orig_curve = points2List(pnt1, pnt1.outpoint, pnt2.inpoint, pnt2)
+    #       split_curve = splitCurveAtLength(orig_curve, curveLength(orig_curve)/2.0)
+    #       curve1 = [split_curve[0], split_curve[1], split_curve[2], split_curve[3]]
+    #       curve2 = [split_curve[4], split_curve[5], split_curve[6], split_curve[7]]
+    #       for crv in curve1, curve2:
+    #           outset_crv = outsetCurve(crv, outset_angle, outset_width)
+    #           outset_path.append([item, outset_crv]) # append array ['C', [P1, C1, C2, P2]]  
+    #       i = i+2
+    #    elif item == 'L':
+    #       p1, p2 = outsetLine(item[i - 1], item[i + 1],  outset_width, outset_angle)
+    #       outset_path.append([item, [p1, p2]]) #append array ['L', [p1, p2]]
+    #
+    return
+    
+def outsetLine(pnt1, pnt2, outset_width, outset_angle):
+    angle1 = angleOfLine(pnt1, pnt2) + outset_angle
+    p1 = polar(pnt1, outset_width, angle1)
+    p2 = polar(pnt2, outset_width, angle1)
+    return [p1, p2]
+
+def outsetCurve(curve, outset_width, outset_angle):
+    #accepts array curve[] which contains cubic bezier [P1, C1, C2, P2], and the angle of outset (ANGLE90 or -ANGLE90)
+    outset_curve = []
+    #get angles
+    angle1 = angleOfLine(curve[0], curve[1]) + outset_angle
+    angle2 = angleOfLine(curve[2], curve[3]) + outset_angle 
+    #get initial outset curve points
+    p1 = polar(curve[0], outset_width, angle1)
+    c1_tmp = polar(curve[1], outset_width, angle1)
+    c2_tmp = polar(curve[2], outset_width, angle2)
+    p2 = polar(curve[3], outset_width, angle2)
+    #calculate intersection of control handles
+    c1 = intersectLines(p1, c1_tmp, c1_tmp, c2_tmp) #intersect line p1-c1_tmp with line c1_tmp-c2_tmp
+    c2 = intersectLines(c1_tmp, c2_tmp, c2_tmp, p2) #intersect line c1_tmp-c2_tmp with line c2_tmp-p2
+    for item in [p1, c1, c2, p2]:
+        outset_curve.append(item)  
+    return outset_curve
+    
+
 def updatePoint(p1, p2):
     '''Accepts p1 and p2 of class Point. Updates p1 with x & y values from p2'''
     #p2 might not have p2.xy,  so create p1.xy with p2.x & p2.y
@@ -769,7 +819,7 @@ def onCurveAtX(curve, x):
     pnt = dPnt(("",""))
     j = 0
     while (j <= len(curve) - 4): # for each bezier curve in curveArray
-        curve = points2List(curve[j + 0], curve[j + 1], curve[j + 2], curve[j + 3])
+        curve = points2List(curve[j + 0], curve[j + 1], curve[j + 2], curve[j + 3])          
         curve_points = generatePoints(curve)  #generate this bezier curve, n=100
         # get min & max for x & y for this bezier curve from its generated points
         i = 0
@@ -1128,6 +1178,16 @@ def splitCurveAtPoint(curve, split_pnt):
     new_curve.append(c4)
     new_curve.append(p2)
     return new_curve
+    
+def splitCurveAtX(curve, x):
+    pnt = onCurveAtX(curve, x)
+    new_curve = splitCurveAtPoint(curve, pnt)
+    return new_curve
+   
+def splitCurveAtY(curve, y):
+    pnt = onCurveAtY(curve, y)
+    new_curve = splitCurveAtPoint(curve, pnt)
+    return new_curve    
 
 
 # --- intersections-circles---

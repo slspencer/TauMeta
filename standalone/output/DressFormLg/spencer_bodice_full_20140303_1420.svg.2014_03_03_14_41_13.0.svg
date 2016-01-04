@@ -1,0 +1,2168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   patternNumber="W_Block_Bodice_1"
+   fitBoxtoViewport="True"
+   companyName="Seamly Patterns"
+   currentscale="0.5:1"
+   margin-right="88.5826771654"
+   client-name="DressFormLg"
+   designerName="S.L.Spencer"
+   height="3928.49"
+   width="2956.0159"
+   margin-top="88.5826771654"
+   version="1.1"
+   margin-bottom="88.5826771654"
+   margin-left="88.5826771654"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="ink_ext_XXXXXX.svgUGY3BX"
+   inkscape:export-filename="/home/susan/src/tmtp-private/standalone/output/spencer_bodice_full_20140303_1420.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.3722584"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:window-maximized="1"
+     inkscape:cx="1251.283"
+     inkscape:cy="3230.2571"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:current-layer="reference"
+     units="in"
+     fit-margin-top="1.5"
+     fit-margin-left="1.5"
+     fit-margin-right="1.5"
+     fit-margin-bottom="1.5" />
+  <metadata
+     id="metadata293">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs5">
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path8"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(0.4,0,0,0.4,4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path11"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+  </defs>
+  <g
+     transform="translate(81.749987,-228.20853)"
+     inkscape:groupmode="layer"
+     id="pattern"
+     inkscape:label="Label-pattern">
+    <g
+       transform="translate(1211.2339,757.71764)"
+       id="document.bodice.Front.pattern">
+      <g
+         transform="matrix(10,0,0,10,3029.5276,-2524.6009)"
+         id="A.letter">
+        <text
+           x="-336.61417"
+           y="280.5112"
+           id="A.letter.letterline"
+           style="font-size:24px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">A</text>
+      </g>
+      <line
+         id="A.grainline"
+         x1="-84.153542"
+         y1="325.5112"
+         x2="-84.153542"
+         y2="945.58997"
+         style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend)" />
+      <path
+         inkscape:connector-curvature="0"
+         id="A.dartline"
+         d="m -276.71699,1296.0205 -77.61372,-571.57733 -256.40944,524.53003 m -447.78725,-694.21231 610.93594,83.03439 -610.93594,83.03438"
+         style="fill:none;stroke:#008000;stroke-width:3;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="A.seamline"
+         d="m 0,0 0,1240.1575 -283.304,0 -155.86956,0 -149.80535,-43.0544 c -63.26255,-43.0634 -381.98479,-29.2014 -458.44099,-25.8762 l 44.7555,-456.98425 7.48699,-76.44737 -7.48699,-76.44738 51.34543,-148.75256 c 91.81964,31.69371 226.2827,-4.91797 278.09062,-87.08413 97.89399,-155.25758 -25.25222,-459.07073 -44.29134,-548.84572 l 450.60805,-95.56313 C -266.91164,-159.44882 -200.18373,0 0,0"
+         style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:24, 6;stroke-dashoffset:0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="A.cuttingline"
+         d="m -278.5625,-373.9375 c -168.64637,35.75789 -337.28744,71.5408 -505.9375,107.28125 8.13014,37.76442 15.77086,75.68642 27.43926,112.55677 29.46153,99.484749 59.67779,199.920587 64.59199,304.06823 1.49563,47.32153 -1.65126,97.16691 -24.75,139.53125 -18.1854,32.73858 -52.50767,53.2497 -86.90625,65.375 -44.78668,15.27704 -95.20324,18.46365 -139.84177,0.86524 -14.11524,-4.70508 -28.23049,-9.41016 -42.34573,-14.11524 -24.508,70.9904 -48.9686,141.99725 -73.5313,212.96875 2.5691,28.38841 6.0818,56.78577 7.9618,85.17802 -19.2424,196.79738 -38.5304,393.59033 -57.8055,590.38443 129.64364,-5.5475 259.67148,-11.811 389.28125,-3.375 32.46136,2.9365 65.75881,4.9789 96.875,15.5313 6.53405,2.7128 11.56328,8.2485 19.03125,8.8437 52.80436,14.992 105.50761,30.7123 158.375,45.25 167.45833,1e-4 334.91667,0 502.375,0 0,-450.76037 0,-901.52078 0,-1352.2812 -43.256982,-1.012827 -87.529194,3.00778 -129.349527,-10.555395 -41.582843,-12.223861 -77.026953,-41.743635 -98.182353,-79.372765 -30.90257,-54.04215 -39.73608,-117.77475 -39.37437,-179.10309 0,-21.14583 0,-42.29167 0,-63.4375 -22.63542,4.80208 -45.27083,9.60417 -67.90625,14.40625 z"
+         style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <g
+         id="A.info">
+        <text
+           x="-336.61417"
+           y="325.5112"
+           id="A.info.lineSeamly Patterns"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">Seamly Patterns</text>
+        <text
+           x="-336.61417"
+           y="339.91122"
+           id="A.info.lineDesigner:S.L.Spencer"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">Designer:S.L.Spencer</text>
+        <text
+           x="-336.61417"
+           y="354.31122"
+           id="A.info.lineClient:DressFormLg"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">Client:DressFormLg</text>
+        <text
+           x="-336.61417"
+           y="368.71121"
+           id="A.info.lineW_Block_Bodice_1"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">W_Block_Bodice_1</text>
+        <text
+           x="-336.61417"
+           y="383.11121"
+           id="A.info.linePattern Piece A"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">Pattern Piece A</text>
+        <text
+           x="-336.61417"
+           y="397.5112"
+           id="A.info.lineCut 2 Fabric"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">Cut 2 Fabric</text>
+      </g>
+    </g>
+    <g
+       transform="translate(1382.4839,580.55228)"
+       id="document.bodice.Back.pattern">
+      <g
+         transform="matrix(10,0,0,10,-1280.1194,-2403.7054)"
+         id="B.letter">
+        <text
+           x="142.23549"
+           y="267.07837"
+           id="B.letter.letterline"
+           style="font-size:24px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">B</text>
+      </g>
+      <line
+         id="B.grainline"
+         x1="71.117744"
+         y1="156.03918"
+         x2="71.117744"
+         y2="829.26752"
+         style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend)" />
+      <path
+         inkscape:connector-curvature="0"
+         id="B.dartline"
+         d="m 306.86108,1402.3797 84.28626,-778.22294 84.28627,778.22294"
+         style="fill:none;stroke:#008000;stroke-width:3;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="B.seamline"
+         d="m 0,0 0,1346.4567 312.91787,0 78.22947,0 78.22947,0 c 70.19639,-15.3859 289.17295,9.7441 430.95543,-13.8092 L 885.82677,716.28275 C 789.30425,718.5543 649.10721,712.9619 611.22047,624.15676 533.47535,441.92498 670.0455,129.05434 708.66142,37.829387 L 284.47098,-141.73228 C 256.8461,-76.472216 213.35323,0 0,0"
+         style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:24, 6;stroke-dashoffset:0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="B.cuttingline"
+         d="m 232.78125,-163.875 c -10.98857,27.28269 -26.4487,54.43051 -51.9375,70.5625 -35.97568,23.241769 -79.38646,30.50906 -121.28125,34.625 -38.514187,3.538127 -77.171074,2.158341 -115.8125,2.4375 0,486.32292 0,972.64583 0,1458.9688 177.27083,-1e-4 354.54167,0 531.8125,0 28.87484,-6.4832 58.83187,-4.9015 88.31243,-5.3486 108.99332,0.7464 218.64049,7.3784 327.06257,-6.4327 22.29321,-3.1712 44.54048,-6.9886 66.8125,-10.4375 -5.72998,-240.5404 -11.3649,-481.08308 -17.03125,-721.625 -69.85301,0.93391 -140.78521,6.30788 -209.15625,-11.25 -23.94054,-6.72207 -49.82336,-16.28916 -64.4375,-37.6875 -11.43993,-20.69166 -16.35764,-44.29822 -19.9375,-67.40625 -8.74301,-67.62098 1.49193,-136.1974 16.38596,-202.25451 C 688.05715,233.88718 728.92285,132.18513 772.16255,32.198677 775.58753,24.132451 779.01252,16.066226 782.4375,8 606.57548,-66.478563 430.70415,-140.93519 254.8125,-215.34375 c -7.34375,17.15625 -14.6875,34.3125 -22.03125,51.46875 z"
+         style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <g
+         id="B.info">
+        <text
+           x="142.23549"
+           y="312.07837"
+           id="B.info.lineSeamly Patterns"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">Seamly Patterns</text>
+        <text
+           x="142.23549"
+           y="326.47839"
+           id="B.info.lineDesigner:S.L.Spencer"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">Designer:S.L.Spencer</text>
+        <text
+           x="142.23549"
+           y="340.87839"
+           id="B.info.lineClient:DressFormLg"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">Client:DressFormLg</text>
+        <text
+           x="142.23549"
+           y="355.27838"
+           id="B.info.lineW_Block_Bodice_1"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">W_Block_Bodice_1</text>
+        <text
+           x="142.23549"
+           y="369.67838"
+           id="B.info.linePattern Piece B"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">Pattern Piece B</text>
+        <text
+           x="142.23549"
+           y="384.07837"
+           id="B.info.lineCut 2 Fabric"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none">Cut 2 Fabric</text>
+      </g>
+    </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3276-6"
+       y="1191.0795"
+       x="639.9364"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       xml:space="preserve"><tspan
+         y="1191.0795"
+         x="639.9364"
+         id="tspan3278-9"
+         sodipodi:role="line">20140302 1408</tspan><tspan
+         id="tspan3280-9"
+         y="1241.0795"
+         x="639.9364"
+         sodipodi:role="line">spencer_bodice_full</tspan></text>
+  </g>
+  <g
+     transform="translate(81.749987,-228.20853)"
+     inkscape:groupmode="layer"
+     id="notes"
+     inkscape:label="Label-notes">
+    <g
+       transform="translate(1211.2339,757.71764)"
+       id="document.bodice.Front.notes" />
+    <g
+       transform="translate(1382.4839,580.55228)"
+       id="document.bodice.Back.notes" />
+    <g
+       transform="translate(879.82307,2230.4533)"
+       id="document.bodice.Sleeve.notes" />
+  </g>
+  <g
+     transform="translate(81.749987,-228.20853)"
+     inkscape:groupmode="layer"
+     id="reference"
+     inkscape:label="Label-reference">
+    <g
+       transform="translate(1211.2339,757.71764)"
+       id="document.bodice.Front.reference">
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="0"
+         sodipodi:cx="-200.18373"
+         d="m -195.18373,0 c 0,2.7614237 -2.23858,5 -5,5 -2.76142,0 -5,-2.2385763 -5,-5 0,-2.7614237 2.23858,-5 5,-5 2.76142,0 5,2.2385763 5,5 z"
+         id="A.FNC.inpoint"
+         r="5"
+         cx="-200.18373"
+         cy="0"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="-193.18373"
+         y="-7"
+         id="A.FNC.inpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">FNC.in</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="0"
+         sodipodi:cx="0"
+         d="M 5,0 C 5,2.7614237 2.7614237,5 0,5 -2.7614237,5 -5,2.7614237 -5,0 c 0,-2.7614237 2.2385763,-5 5,-5 2.7614237,0 5,2.2385763 5,5 z"
+         id="A.FNC"
+         r="5"
+         cx="0"
+         cy="0"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="7"
+         y="-7"
+         id="A.FNC.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FNC</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1240.1575"
+         sodipodi:cx="0"
+         d="m 5,1240.1575 c 0,2.7614 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.2386 -5,-5 0,-2.7615 2.2385763,-5 5,-5 2.7614237,0 5,2.2385 5,5 z"
+         id="A.FWC"
+         r="5"
+         cx="0"
+         cy="1240.1575"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="7"
+         y="1233.1575"
+         id="A.FWC.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FWC</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="-318.89764"
+         sodipodi:cx="0"
+         d="m 5,-318.89764 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385763,-5 5,-5 2.7614237,0 5,2.23857 5,5 z"
+         id="A.FSH"
+         r="5"
+         cx="0"
+         cy="-318.89764"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="7"
+         y="-325.89764"
+         id="A.FSH.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FSH</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="-318.89764"
+         sodipodi:cx="-717.51971"
+         d="m -712.51971,-318.89764 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FSW"
+         r="5"
+         cx="-717.51971"
+         cy="-318.89764"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-710.51971"
+         y="-325.89764"
+         id="A.FSW.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FSW</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="-318.89764"
+         sodipodi:cx="-673.22833"
+         d="m -668.22833,-318.89764 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FAW"
+         r="5"
+         cx="-673.22833"
+         cy="-318.89764"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-666.22833"
+         y="-325.89764"
+         id="A.FAW.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FAW</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="637.79529"
+         sodipodi:cx="0"
+         d="m 5,637.79529 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385763,-5 5,-5 2.7614237,0 5,2.23857 5,5 z"
+         id="A.FBC"
+         r="5"
+         cx="0"
+         cy="637.79529"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="7"
+         y="630.79529"
+         id="A.FBC.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FBC</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="637.79529"
+         sodipodi:cx="-354.33072"
+         d="m -349.33072,637.79529 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FBP"
+         r="5"
+         cx="-354.33072"
+         cy="637.79529"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-347.33072"
+         y="630.79529"
+         id="A.FBP.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FBP</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="-133.55952"
+         sodipodi:cx="-698.48059"
+         d="m -693.48059,-133.55952 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FSP.inpoint"
+         r="5"
+         cx="-698.48059"
+         cy="-133.55952"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="-691.48059"
+         y="-140.55952"
+         id="A.FSP.inpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">FSP.in</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="-223.33452"
+         sodipodi:cx="-717.51971"
+         d="m -712.51971,-223.33452 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+         id="A.FSP"
+         r="5"
+         cx="-717.51971"
+         cy="-223.33452"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-710.51971"
+         y="-230.33452"
+         id="A.FSP.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FSP</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="-159.44882"
+         sodipodi:cx="-266.91162"
+         d="m -261.91162,-159.44882 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FNS.outpoint"
+         r="5"
+         cx="-266.91162"
+         cy="-159.44882"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="-259.91162"
+         y="-166.44882"
+         id="A.FNS.outpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">FNS.out</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="-318.89764"
+         sodipodi:cx="-266.91162"
+         d="m -261.91162,-318.89764 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FNS"
+         r="5"
+         cx="-266.91162"
+         cy="-318.89764"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-259.91162"
+         y="-325.89764"
+         id="A.FNS.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FNS</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="170.25363"
+         sodipodi:cx="-575.33435"
+         d="m -570.33435,170.25363 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+         id="A.FAP.outpoint"
+         r="5"
+         cx="-575.33435"
+         cy="170.25363"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="-568.33435"
+         y="163.25363"
+         id="A.FAP.outpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">FAP.out</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="407.67737"
+         sodipodi:cx="-725.03625"
+         d="m -720.03625,407.67737 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FAP.inpoint"
+         r="5"
+         cx="-725.03625"
+         cy="407.67737"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="-718.03625"
+         y="400.67737"
+         id="A.FAP.inpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">FAP.in</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="325.5112"
+         sodipodi:cx="-673.22833"
+         d="m -668.22833,325.5112 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+         id="A.FAP"
+         r="5"
+         cx="-673.22833"
+         cy="325.5112"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-666.22833"
+         y="318.5112"
+         id="A.FAP.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FAP</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="325.5112"
+         sodipodi:cx="0"
+         d="m 5,325.5112 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76142 2.2385763,-5 5,-5 2.7614237,0 5,2.23858 5,5 z"
+         id="A.FUC"
+         r="5"
+         cx="0"
+         cy="325.5112"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="7"
+         y="318.5112"
+         id="A.FUC.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FUC</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="325.5112"
+         sodipodi:cx="-921.25983"
+         d="m -916.25983,325.5112 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+         id="A.FUS1"
+         r="5"
+         cx="-921.25983"
+         cy="325.5112"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-914.25983"
+         y="318.5112"
+         id="A.FUS1.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FUS1</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="429.6936"
+         sodipodi:cx="-957.22083"
+         d="m -952.22083,429.6936 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+         id="A.FBS1"
+         r="5"
+         cx="-957.22083"
+         cy="429.6936"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-950.22083"
+         y="422.6936"
+         id="A.FBS1.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FBS1</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="444.28903"
+         sodipodi:cx="-859.49933"
+         d="m -854.49933,444.28903 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+         id="A.FUS.outpoint"
+         r="5"
+         cx="-859.49933"
+         cy="444.28903"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="-852.49933"
+         y="437.28903"
+         id="A.FUS.outpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">FUS.out</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="412.59534"
+         sodipodi:cx="-951.31897"
+         d="m -946.31897,412.59534 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FUS"
+         r="5"
+         cx="-951.31897"
+         cy="412.59534"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-944.31897"
+         y="405.59534"
+         id="A.FUS.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FUS</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1240.1575"
+         sodipodi:cx="-841.53546"
+         d="m -836.53546,1240.1575 c 0,2.7614 -2.23858,5 -5,5 -2.76143,0 -5,-2.2386 -5,-5 0,-2.7615 2.23857,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+         id="A.FWS1"
+         r="5"
+         cx="-841.53546"
+         cy="1240.1575"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-834.53546"
+         y="1233.1575"
+         id="A.FWS1.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FWS1</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1240.1575"
+         sodipodi:cx="-354.33072"
+         d="m -349.33072,1240.1575 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+         id="A.FWM"
+         r="5"
+         cx="-354.33072"
+         cy="1240.1575"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-347.33072"
+         y="1233.1575"
+         id="A.FWM.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FWM</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="637.79529"
+         sodipodi:cx="-1029.052"
+         d="m -1024.052,637.79529 c 0,2.76142 -2.2386,5 -5,5 -2.7614,0 -5,-2.23858 -5,-5 0,-2.76143 2.2386,-5 5,-5 2.7614,0 5,2.23857 5,5 z"
+         id="A.FBS"
+         r="5"
+         cx="-1029.052"
+         cy="637.79529"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-1022.052"
+         y="630.79529"
+         id="A.FBS.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FBS</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="995.38916"
+         sodipodi:cx="-1152.4839"
+         d="m -1147.4839,995.38916 c 0,2.76142 -2.2386,5.00004 -5,5.00004 -2.7614,0 -5,-2.23862 -5,-5.00004 0,-2.76142 2.2386,-5 5,-5 2.7614,0 5,2.23858 5,5 z"
+         id="A.FWS2"
+         r="5"
+         cx="-1152.4839"
+         cy="995.38916"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-1145.4839"
+         y="988.38916"
+         id="A.FWS2.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FWS2</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="724.44318"
+         sodipodi:cx="-354.33072"
+         d="m -349.33072,724.44318 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FD1"
+         r="5"
+         cx="-354.33072"
+         cy="724.44318"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-347.33072"
+         y="717.44318"
+         id="A.FD1.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FD1</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1240.1575"
+         sodipodi:cx="-283.30399"
+         d="m -278.30399,1240.1575 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z"
+         id="A.FD1.i"
+         r="5"
+         cx="-283.30399"
+         cy="1240.1575"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-276.30399"
+         y="1233.1575"
+         id="A.FD1.i.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FD1.i</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1154.0398"
+         sodipodi:cx="-652.24146"
+         d="m -647.24146,1154.0398 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+         id="A.FD1.o.outpoint"
+         r="5"
+         cx="-652.24146"
+         cy="1154.0398"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="-645.24146"
+         y="1147.0398"
+         id="A.FD1.o.outpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">FD1.o.out</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1197.1031"
+         sodipodi:cx="-588.97888"
+         d="m -583.97888,1197.1031 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+         id="A.FD1.o"
+         r="5"
+         cx="-588.97888"
+         cy="1197.1031"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-581.97888"
+         y="1190.1031"
+         id="A.FD1.o.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FD1.o</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="637.79529"
+         sodipodi:cx="-447.59146"
+         d="m -442.59146,637.79529 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FD2"
+         r="5"
+         cx="-447.59146"
+         cy="637.79529"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-440.59146"
+         y="630.79529"
+         id="A.FD2.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FD2</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="561.3479"
+         sodipodi:cx="-1002.6644"
+         d="m -997.66443,561.3479 c 0,2.76142 -2.23857,5 -4.99997,5 -2.7615,0 -5,-2.23858 -5,-5 0,-2.76142 2.2385,-5 5,-5 2.7614,0 4.99997,2.23858 4.99997,5 z"
+         id="A.FD2.i"
+         r="5"
+         cx="-1002.6644"
+         cy="561.3479"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-995.66443"
+         y="554.3479"
+         id="A.FD2.i.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FD2.i</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="714.24268"
+         sodipodi:cx="-1002.6644"
+         d="m -997.66443,714.24268 c 0,2.76142 -2.23857,5 -4.99997,5 -2.7615,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385,-5 5,-5 2.7614,0 4.99997,2.23857 4.99997,5 z"
+         id="A.FD2.o"
+         r="5"
+         cx="-1002.6644"
+         cy="714.24268"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-995.66443"
+         y="707.24268"
+         id="A.FD2.o.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FD2.o</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1167.9017"
+         sodipodi:cx="-970.96368"
+         d="m -965.96368,1167.9017 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+         id="A.FWS.inpoint"
+         r="5"
+         cx="-970.96368"
+         cy="1167.9017"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="-963.96368"
+         y="1160.9017"
+         id="A.FWS.inpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">FWS.in</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1171.2269"
+         sodipodi:cx="-1047.4199"
+         d="m -1042.4199,1171.2269 c 0,2.7615 -2.2386,5 -5,5 -2.7614,0 -5,-2.2385 -5,-5 0,-2.7614 2.2386,-5 5,-5 2.7614,0 5,2.2386 5,5 z"
+         id="A.FWS"
+         r="5"
+         cx="-1047.4199"
+         cy="1171.2269"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="-1040.4199"
+         y="1164.2269"
+         id="A.FWS.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">FWS</text>
+      <path
+         inkscape:connector-curvature="0"
+         id="A.gridline"
+         d="m -717.51969,-223.33451 0,-95.56313 717.51969,0 L 0,1240.1575 -717.51969,-223.33451 M 0,325.51121 l -921.25984,0 -30.05913,87.08413 M 0,637.79528 l -354.33071,0 M 0,1240.1575 l -841.53543,0 m 487.20472,-602.36222 87.41907,-956.69292 -406.31671,644.40885 m -278.09062,87.08413 -201.16493,582.7938 M -354.33071,637.79528 -957.22084,429.69361 m -71.83116,208.10167 674.72129,0 0,602.36222 m -318.89764,-1559.05514 0,644.40885"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0" />
+    </g>
+    <g
+       transform="translate(1382.4839,580.55228)"
+       id="document.bodice.Back.reference">
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="0"
+         sodipodi:cx="213.35323"
+         d="m 218.35323,0 c 0,2.7614237 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385763 -5,-5 0,-2.7614237 2.23857,-5 5,-5 2.76142,0 5,2.2385763 5,5 z"
+         id="B.BNC.inpoint"
+         r="5"
+         cx="213.35323"
+         cy="0"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="220.35323"
+         y="-7"
+         id="B.BNC.inpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">BNC.in</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="0"
+         sodipodi:cx="0"
+         d="M 5,0 C 5,2.7614237 2.7614237,5 0,5 -2.7614237,5 -5,2.7614237 -5,0 c 0,-2.7614237 2.2385763,-5 5,-5 2.7614237,0 5,2.2385763 5,5 z"
+         id="B.BNC"
+         r="5"
+         cx="0"
+         cy="0"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="7"
+         y="-7"
+         id="B.BNC.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BNC</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1346.4567"
+         sodipodi:cx="0"
+         d="m 5,1346.4567 c 0,2.7614 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.2386 -5,-5 0,-2.7615 2.2385763,-5 5,-5 2.7614237,0 5,2.2385 5,5 z"
+         id="B.BWC"
+         r="5"
+         cx="0"
+         cy="1346.4567"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="7"
+         y="1339.4567"
+         id="B.BWC.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BWC</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="-141.73228"
+         sodipodi:cx="0"
+         d="m 5,-141.73228 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385763,-5 5,-5 2.7614237,0 5,2.23857 5,5 z"
+         id="B.BSH"
+         r="5"
+         cx="0"
+         cy="-141.73228"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="7"
+         y="-148.73228"
+         id="B.BSH.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BSH</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="-141.73228"
+         sodipodi:cx="708.66144"
+         d="m 713.66144,-141.73228 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="B.BSW"
+         r="5"
+         cx="708.66144"
+         cy="-141.73228"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="715.66144"
+         y="-148.73228"
+         id="B.BSW.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BSW</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1346.4567"
+         sodipodi:cx="744.09448"
+         d="m 749.09448,1346.4567 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z"
+         id="B.BWS1"
+         r="5"
+         cx="744.09448"
+         cy="1346.4567"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="751.09448"
+         y="1339.4567"
+         id="B.BWS1.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BWS1</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="129.05434"
+         sodipodi:cx="670.04547"
+         d="m 675.04547,129.05434 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="B.BSP.inpoint"
+         r="5"
+         cx="670.04547"
+         cy="129.05434"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="677.04547"
+         y="122.05434"
+         id="B.BSP.inpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">BSP.in</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="37.829388"
+         sodipodi:cx="708.66144"
+         d="m 713.66144,37.829388 c 0,2.761423 -2.23858,5 -5,5 -2.76143,0 -5,-2.238577 -5,-5 0,-2.761424 2.23857,-5 5,-5 2.76142,0 5,2.238576 5,5 z"
+         id="B.BSP"
+         r="5"
+         cx="708.66144"
+         cy="37.829388"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="715.66144"
+         y="30.829388"
+         id="B.BSP.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BSP</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="-76.472214"
+         sodipodi:cx="256.8461"
+         d="m 261.8461,-76.472214 c 0,2.761424 -2.23858,5 -5,5 -2.76142,0 -5,-2.238576 -5,-5 0,-2.761423 2.23858,-5 5,-5 2.76142,0 5,2.238577 5,5 z"
+         id="B.BNS.outpoint"
+         r="5"
+         cx="256.8461"
+         cy="-76.472214"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="263.8461"
+         y="-83.472214"
+         id="B.BNS.outpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">BNS.out</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="-141.73228"
+         sodipodi:cx="284.47098"
+         d="m 289.47098,-141.73228 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="B.BNS"
+         r="5"
+         cx="284.47098"
+         cy="-141.73228"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="291.47098"
+         y="-148.73228"
+         id="B.BNS.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BNS</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="712.96191"
+         sodipodi:cx="649.10718"
+         d="m 654.10718,712.96191 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+         id="B.BAP.inpoint"
+         r="5"
+         cx="649.10718"
+         cy="712.96191"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="656.10718"
+         y="705.96191"
+         id="B.BAP.inpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">BAP.in</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="441.92499"
+         sodipodi:cx="533.47534"
+         d="m 538.47534,441.92499 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76143,0 5,2.23857 5,5 z"
+         id="B.BAP.outpoint"
+         r="5"
+         cx="533.47534"
+         cy="441.92499"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="540.47534"
+         y="434.92499"
+         id="B.BAP.outpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">BAP.out</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="624.15674"
+         sodipodi:cx="611.22046"
+         d="m 616.22046,624.15674 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="B.BAP"
+         r="5"
+         cx="611.22046"
+         cy="624.15674"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="618.22046"
+         y="617.15674"
+         id="B.BAP.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BAP</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="624.15674"
+         sodipodi:cx="0"
+         d="m 5,624.15674 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385763,-5 5,-5 2.7614237,0 5,2.23857 5,5 z"
+         id="B.BUC"
+         r="5"
+         cx="0"
+         cy="624.15674"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="7"
+         y="617.15674"
+         id="B.BUC.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BUC</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="624.15674"
+         sodipodi:cx="885.82678"
+         d="m 890.82678,624.15674 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76143,0 5,2.23857 5,5 z"
+         id="B.BUS1"
+         r="5"
+         cx="885.82678"
+         cy="624.15674"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="892.82678"
+         y="617.15674"
+         id="B.BUS1.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BUS1</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="718.55432"
+         sodipodi:cx="789.30426"
+         d="m 794.30426,718.55432 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+         id="B.BUS.outpoint"
+         r="5"
+         cx="789.30426"
+         cy="718.55432"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="796.30426"
+         y="711.55432"
+         id="B.BUS.outpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">BUS.out</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="716.28271"
+         sodipodi:cx="885.82678"
+         d="m 890.82678,716.28271 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+         id="B.BUS"
+         r="5"
+         cx="885.82678"
+         cy="716.28271"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="892.82678"
+         y="709.28271"
+         id="B.BUS.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BUS</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="624.15674"
+         sodipodi:cx="391.14734"
+         d="m 396.14734,624.15674 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="B.BD1"
+         r="5"
+         cx="391.14734"
+         cy="624.15674"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="398.14734"
+         y="617.15674"
+         id="B.BD1.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BD1</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1346.4567"
+         sodipodi:cx="391.14734"
+         d="m 396.14734,1346.4567 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+         id="B.BWM"
+         r="5"
+         cx="391.14734"
+         cy="1346.4567"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="398.14734"
+         y="1339.4567"
+         id="B.BWM.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BWM</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1346.4567"
+         sodipodi:cx="312.91788"
+         d="m 317.91788,1346.4567 c 0,2.7614 -2.23858,5 -5,5 -2.76143,0 -5,-2.2386 -5,-5 0,-2.7615 2.23857,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+         id="B.BD1.i"
+         r="5"
+         cx="312.91788"
+         cy="1346.4567"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="319.91788"
+         y="1339.4567"
+         id="B.BD1.i.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BD1.i</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1331.0708"
+         sodipodi:cx="539.57318"
+         d="m 544.57318,1331.0708 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+         id="B.BD1.o.outpoint"
+         r="5"
+         cx="539.57318"
+         cy="1331.0708"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="546.57318"
+         y="1324.0708"
+         id="B.BD1.o.outpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">BD1.o.out</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1346.4567"
+         sodipodi:cx="469.3768"
+         d="m 474.3768,1346.4567 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+         id="B.BD1.o"
+         r="5"
+         cx="469.3768"
+         cy="1346.4567"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="476.3768"
+         y="1339.4567"
+         id="B.BD1.o.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BD1.o</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1356.2008"
+         sodipodi:cx="758.54974"
+         d="m 763.54974,1356.2008 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+         id="B.BWS.inpoint"
+         r="5"
+         cx="758.54974"
+         cy="1356.2008"
+         style="fill:none;stroke:#808080;stroke-width:1" />
+      <text
+         x="765.54974"
+         y="1349.2008"
+         id="B.BWS.inpoint.text"
+         style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">BWS.in</text>
+      <circle
+         sodipodi:ry="5"
+         sodipodi:rx="5"
+         sodipodi:cy="1332.6475"
+         sodipodi:cx="900.33221"
+         d="m 905.33221,1332.6475 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z"
+         id="B.BWS"
+         r="5"
+         cx="900.33221"
+         cy="1332.6475"
+         style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+      <text
+         x="907.33221"
+         y="1325.6475"
+         id="B.BWS.text"
+         style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">BWS</text>
+      <path
+         inkscape:connector-curvature="0"
+         id="B.gridline"
+         d="m 708.66142,37.829387 0,-179.561667 -708.66142,0 0,1488.18898 744.09449,0 M 0,1346.4567 708.66142,37.829387 M 284.47098,-141.73228 611.22047,624.15676 m -611.22047,0 885.82677,0 m -494.67943,0 0,722.29994"
+         style="fill:none;stroke:#808080;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0" />
+    </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3276-5"
+       y="1021.8422"
+       x="1491.4954"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       xml:space="preserve"><tspan
+         y="1021.8422"
+         x="1491.4954"
+         id="tspan3278-1"
+         sodipodi:role="line">20140302 1408</tspan><tspan
+         id="tspan3280-3"
+         y="1071.8423"
+         x="1491.4954"
+         sodipodi:role="line">spencer_bodice_full</tspan></text>
+    <g
+       transform="matrix(0,-1,1,0,-2040.7812,3959.8967)"
+       id="g3453">
+      <g
+         id="document.bodice.Sleeve.pattern"
+         transform="translate(879.82307,2230.4533)">
+        <line
+           style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend)"
+           y2="2090.5513"
+           x2="0"
+           y1="500.6694"
+           x1="0"
+           id="C.grainline" />
+        <g
+           id="C.letter"
+           transform="matrix(15,0,0,15,6387.134,-13566.084)">
+          <text
+             style="font-size:24px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.letter.letterline"
+             y="969.00598"
+             x="-456.22385">C</text>
+        </g>
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#008000;stroke-width:3;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0"
+           d="m -747.19488,1437.3426 401.72244,0 -372.0633,122.24"
+           id="C.dartline" />
+        <path
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:24, 6;stroke-dashoffset:0"
+           d="m -877.32307,500.66941 c 74.52291,-39.14343 149.31964,-78.4307 219.33077,-125.16735 70.69692,-47.19447 134.51229,-103.96121 201.76844,-155.94181 67.25615,-51.98061 125.17457,-119.08059 201.76845,-155.941816 C -175.67456,25.704713 -87.258266,-5.4652165 0,0 84.835956,5.3135008 163.06668,52.261747 236.89309,94.392893 310.7195,136.52404 371.40539,198.3541 438.66154,250.33471 c 67.25614,51.9806 127.94203,113.81066 201.76844,155.94181 73.82641,42.13114 155.94655,68.45008 236.89309,94.39289 -105.59926,309.59756 -211.41077,619.81739 -292.6774,936.67319 -79.11179,308.4541 -133.5111,622.8964 -187.79528,936.6731 -251.41759,-43.4958 -517.28121,19.3451 -758.60195,102.2125 l -35.09883,-102.2125 c -106.28383,-309.5125 -212.79278,-619.6806 -267.24567,-831.9905 l -41.7745,-47.8724 14.92568,-56.8102 C -770.03369,1128.9781 -823.73835,814.47253 -877.32307,500.66941"
+           id="C.seamline" />
+        <path
+           style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4"
+           d="m -25,-56.84375 c -89.11615,1.232864 -174.78874,31.766809 -254.28125,69.96875 -70.65632,33.883283 -126.4483,90.13845 -185.125,140.625 -32.28733,26.76583 -65.93548,51.96631 -98.21943,78.78682 -55.22945,45.18409 -111.63511,89.25568 -173.08321,125.75226 -66.27551,40.23393 -135.39039,75.38957 -203.91611,111.58592 55.32125,323.95807 109.64425,648.5071 190.59375,967.2188 -6.28085,23.8619 -12.5641,47.7232 -18.8125,71.5937 17.54109,20.1242 35.10045,40.2324 52.65625,60.3437 42.00359,158.8334 93.42549,314.9438 145.18759,470.8423 56.7047,169.5857 115.31983,338.5296 173.28116,507.7203 99.73155,-34.6781 199.94745,-67.5097 302.83044,-91.2304 146.286111,-33.9516 298.23095,-51.8802 447.95081,-31.9884 29.56393,3.9622 59.09834,9.68 88.625,14.5312 C 505.92356,2074.0041 567.35141,1707.9548 665.84893,1350.5493 747.64272,1051.3119 849.07084,758.11118 949.0625,464.5 861.86816,436.01981 772.98488,411.45864 690.96875,369.6875 607.88889,328.17861 543.6383,259.50377 470.375,203.78125 400.4218,148.66736 336.5393,84.798222 257.93386,41.616242 188.39723,1.7496276 116.68898,-39.157505 36.46875,-52.34375 16.1447,-55.789253 -4.391811,-57.07657 -25,-56.84375 z"
+           id="C.cuttingline"
+           inkscape:connector-curvature="0" />
+        <g
+           id="C.info">
+          <text
+             style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.info.lineSeamly Patterns"
+             y="1039.8722"
+             x="-456.22385">Seamly Patterns</text>
+          <text
+             style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.info.lineDesigner:S.L.Spencer"
+             y="1054.2721"
+             x="-456.22385">Designer:S.L.Spencer</text>
+          <text
+             style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.info.lineClient:DressFormLg"
+             y="1068.6721"
+             x="-456.22385">Client:DressFormLg</text>
+          <text
+             style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.info.lineW_Block_Bodice_1"
+             y="1083.0721"
+             x="-456.22385">W_Block_Bodice_1</text>
+          <text
+             style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.info.linePattern Piece C"
+             y="1097.4722"
+             x="-456.22385">Pattern Piece C</text>
+          <text
+             style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.info.lineCut 2 Fabric"
+             y="1111.8722"
+             x="-456.22385">Cut 2 Fabric</text>
+        </g>
+      </g>
+      <g
+         id="g3328">
+        <g
+           transform="translate(879.82307,2230.4533)"
+           id="document.bodice.Sleeve.reference">
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="-5.4652166"
+             sodipodi:cx="-87.258263"
+             d="m -82.258263,-5.4652166 c 0,2.7614237 -2.238576,4.99999996 -5,4.99999996 -2.761423,0 -5,-2.23857626 -5,-4.99999996 0,-2.7614238 2.238577,-5.0000004 5,-5.0000004 2.761424,0 5,2.2385766 5,5.0000004 z"
+             id="C.SCM.inpoint"
+             r="5"
+             cx="-87.258263"
+             cy="-5.4652166"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-80.258263"
+             y="-12.465217"
+             id="C.SCM.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCM.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="5.3135009"
+             sodipodi:cx="84.835953"
+             d="m 89.835953,5.3135009 c 0,2.7614237 -2.238576,5.0000001 -5,5.0000001 -2.761424,0 -5,-2.2385764 -5,-5.0000001 0,-2.7614238 2.238576,-5.00000002 5,-5.00000002 2.761424,0 5,2.23857622 5,5.00000002 z"
+             id="C.SCM.outpoint"
+             r="5"
+             cx="84.835953"
+             cy="5.3135009"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="91.835953"
+             y="-1.6864991"
+             id="C.SCM.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCM.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="0"
+             sodipodi:cx="0"
+             d="M 5,0 C 5,2.7614237 2.7614237,5 0,5 -2.7614237,5 -5,2.7614237 -5,0 c 0,-2.7614237 2.2385763,-5 5,-5 2.7614237,0 5,2.2385763 5,5 z"
+             id="C.SCM"
+             r="5"
+             cx="0"
+             cy="0"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="7"
+             y="-7"
+             id="C.SCM.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SCM</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="500.6694"
+             sodipodi:cx="0"
+             d="m 5,500.6694 c 0,2.76143 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23857 -5,-5 0,-2.76142 2.2385763,-5 5,-5 2.7614237,0 5,2.23858 5,5 z"
+             id="C.SUM"
+             r="5"
+             cx="0"
+             cy="500.6694"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="7"
+             y="493.6694"
+             id="C.SUM.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SUM</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="2374.0159"
+             sodipodi:cx="0"
+             d="m 5,2374.0159 c 0,2.7614 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.2386 -5,-5 0,-2.7615 2.2385763,-5 5,-5 2.7614237,0 5,2.2385 5,5 z"
+             id="C.SWM"
+             r="5"
+             cx="0"
+             cy="2374.0159"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="7"
+             y="2367.0159"
+             id="C.SWM.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SWM</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="1437.3425"
+             sodipodi:cx="0"
+             d="m 5,1437.3425 c 0,2.7615 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.2385 -5,-5 0,-2.7614 2.2385763,-5 5,-5 2.7614237,0 5,2.2386 5,5 z"
+             id="C.SEM"
+             r="5"
+             cx="0"
+             cy="1437.3425"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="7"
+             y="1430.3425"
+             id="C.SEM.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SEM</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="461.52597"
+             sodipodi:cx="-802.80017"
+             d="m -797.80017,461.52597 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+             id="C.SUB.outpoint"
+             r="5"
+             cx="-802.80017"
+             cy="461.52597"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-795.80017"
+             y="454.52597"
+             id="C.SUB.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SUB.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="814.47253"
+             sodipodi:cx="-823.73834"
+             d="m -818.73834,814.47253 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+             id="C.SUB.inpoint"
+             r="5"
+             cx="-823.73834"
+             cy="814.47253"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-816.73834"
+             y="807.47253"
+             id="C.SUB.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SUB.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="500.6694"
+             sodipodi:cx="-877.32306"
+             d="m -872.32306,500.6694 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+             id="C.SUB"
+             r="5"
+             cx="-877.32306"
+             cy="500.6694"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="-870.32306"
+             y="493.6694"
+             id="C.SUB.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SUB</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="2374.0159"
+             sodipodi:cx="-877.32306"
+             d="m -872.32306,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+             id="C.SWB1"
+             r="5"
+             cx="-877.32306"
+             cy="2374.0159"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="-870.32306"
+             y="2367.0159"
+             id="C.SWB1.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SWB1</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="474.72659"
+             sodipodi:cx="796.37653"
+             d="m 801.37653,474.72659 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+             id="C.SUF.inpoint"
+             r="5"
+             cx="796.37653"
+             cy="474.72659"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="803.37653"
+             y="467.72659"
+             id="C.SUF.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SUF.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="810.26697"
+             sodipodi:cx="771.72382"
+             d="m 776.72382,810.26697 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+             id="C.SUF.outpoint"
+             r="5"
+             cx="771.72382"
+             cy="810.26697"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="778.72382"
+             y="803.26697"
+             id="C.SUF.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SUF.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="500.6694"
+             sodipodi:cx="877.32306"
+             d="m 882.32306,500.6694 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+             id="C.SUF"
+             r="5"
+             cx="877.32306"
+             cy="500.6694"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="884.32306"
+             y="493.6694"
+             id="C.SUF.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SUF</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="2374.0159"
+             sodipodi:cx="877.32306"
+             d="m 882.32306,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+             id="C.CWF1"
+             r="5"
+             cx="877.32306"
+             cy="2374.0159"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="884.32306"
+             y="2367.0159"
+             id="C.CWF1.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">CWF1</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="422.23871"
+             sodipodi:cx="-728.00342"
+             d="m -723.00342,422.23871 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76143,0 5,2.23857 5,5 z"
+             id="C.SCB1.inpoint"
+             r="5"
+             cx="-728.00342"
+             cy="422.23871"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-721.00342"
+             y="415.23871"
+             id="C.SCB1.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCB1.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="328.30759"
+             sodipodi:cx="-587.29541"
+             d="m -582.29541,328.30759 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+             id="C.SCB1.outpoint"
+             r="5"
+             cx="-587.29541"
+             cy="328.30759"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-580.29541"
+             y="321.30759"
+             id="C.SCB1.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCB1.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="375.50204"
+             sodipodi:cx="-657.99231"
+             d="m -652.99231,375.50204 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+             id="C.SCB1"
+             r="5"
+             cx="-657.99231"
+             cy="375.50204"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="-650.99231"
+             y="368.50204"
+             id="C.SCB1.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SCB1</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="271.54086"
+             sodipodi:cx="-523.47998"
+             d="m -518.47998,271.54086 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+             id="C.SCB2.inpoint"
+             r="5"
+             cx="-523.47998"
+             cy="271.54086"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-516.47998"
+             y="264.54086"
+             id="C.SCB2.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCB2.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="167.57964"
+             sodipodi:cx="-388.96771"
+             d="m -383.96771,167.57964 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+             id="C.SCB2.outpoint"
+             r="5"
+             cx="-388.96771"
+             cy="167.57964"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-381.96771"
+             y="160.57964"
+             id="C.SCB2.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCB2.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="219.56024"
+             sodipodi:cx="-456.22385"
+             d="m -451.22385,219.56024 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+             id="C.SCB2"
+             r="5"
+             cx="-456.22385"
+             cy="219.56024"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="-449.22385"
+             y="212.56024"
+             id="C.SCB2.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SCB2</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="100.47966"
+             sodipodi:cx="-331.04929"
+             d="m -326.04929,100.47966 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.761424 2.23858,-5 5,-5 2.76143,0 5,2.238576 5,5 z"
+             id="C.SCB3.inpoint"
+             r="5"
+             cx="-331.04929"
+             cy="100.47966"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-324.04929"
+             y="93.47966"
+             id="C.SCB3.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCB3.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="25.704712"
+             sodipodi:cx="-175.67456"
+             d="m -170.67456,25.704712 c 0,2.761424 -2.23858,5 -5,5 -2.76142,0 -5,-2.238576 -5,-5 0,-2.761424 2.23858,-5 5,-5 2.76142,0 5,2.238576 5,5 z"
+             id="C.SCB3.outpoint"
+             r="5"
+             cx="-175.67456"
+             cy="25.704712"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-168.67456"
+             y="18.704712"
+             id="C.SCB3.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCB3.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="63.618435"
+             sodipodi:cx="-254.45541"
+             d="m -249.45541,63.618435 c 0,2.761424 -2.23858,5 -5,5 -2.76143,0 -5,-2.238576 -5,-5 0,-2.761424 2.23857,-5 5,-5 2.76142,0 5,2.238576 5,5 z"
+             id="C.SCB3"
+             r="5"
+             cx="-254.45541"
+             cy="63.618435"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="-247.45541"
+             y="56.618435"
+             id="C.SCB3.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SCB3</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="364.14539"
+             sodipodi:cx="566.60358"
+             d="m 571.60358,364.14539 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+             id="C.SCF1.inpoint"
+             r="5"
+             cx="566.60358"
+             cy="364.14539"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="573.60358"
+             y="357.14539"
+             id="C.SCF1.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCF1.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="448.40765"
+             sodipodi:cx="714.25641"
+             d="m 719.25641,448.40765 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+             id="C.SCF1.outpoint"
+             r="5"
+             cx="714.25641"
+             cy="448.40765"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="721.25641"
+             y="441.40765"
+             id="C.SCF1.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCF1.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="406.27652"
+             sodipodi:cx="640.42999"
+             d="m 645.42999,406.27652 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+             id="C.SCF1"
+             r="5"
+             cx="640.42999"
+             cy="406.27652"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="647.42999"
+             y="399.27652"
+             id="C.SCF1.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SCF1</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="198.3541"
+             sodipodi:cx="371.4054"
+             d="m 376.4054,198.3541 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+             id="C.SCF2.inpoint"
+             r="5"
+             cx="371.4054"
+             cy="198.3541"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="378.4054"
+             y="191.3541"
+             id="C.SCF2.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCF2.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="302.31531"
+             sodipodi:cx="505.91769"
+             d="m 510.91769,302.31531 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76143,0 5,2.23857 5,5 z"
+             id="C.SCF2.outpoint"
+             r="5"
+             cx="505.91769"
+             cy="302.31531"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="512.91766"
+             y="295.31531"
+             id="C.SCF2.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCF2.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="250.3347"
+             sodipodi:cx="438.66153"
+             d="m 443.66153,250.3347 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+             id="C.SCF2"
+             r="5"
+             cx="438.66153"
+             cy="250.3347"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="445.66153"
+             y="243.3347"
+             id="C.SCF2.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SCF2</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="52.261745"
+             sodipodi:cx="163.06668"
+             d="m 168.06668,52.261745 c 0,2.761424 -2.23858,5 -5,5 -2.76142,0 -5,-2.238576 -5,-5 0,-2.761423 2.23858,-5 5,-5 2.76142,0 5,2.238577 5,5 z"
+             id="C.SCF3.inpoint"
+             r="5"
+             cx="163.06668"
+             cy="52.261745"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="170.06668"
+             y="45.261745"
+             id="C.SCF3.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCF3.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="136.52403"
+             sodipodi:cx="310.71951"
+             d="m 315.71951,136.52403 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+             id="C.SCF3.outpoint"
+             r="5"
+             cx="310.71951"
+             cy="136.52403"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="317.71951"
+             y="129.52403"
+             id="C.SCF3.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SCF3.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="94.392891"
+             sodipodi:cx="236.8931"
+             d="m 241.8931,94.392891 c 0,2.761424 -2.23858,5 -5,5 -2.76143,0 -5,-2.238576 -5,-5 0,-2.761424 2.23857,-5 5,-5 2.76142,0 5,2.238576 5,5 z"
+             id="C.SCF3"
+             r="5"
+             cx="236.8931"
+             cy="94.392891"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="243.8931"
+             y="87.392891"
+             id="C.SCF3.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SCF3</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="2064.5032"
+             sodipodi:cx="-503.13422"
+             d="m -498.13422,2064.5032 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+             id="C.SWB3.outpoint"
+             r="5"
+             cx="-503.13422"
+             cy="2064.5032"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-496.13422"
+             y="2057.5032"
+             id="C.SWB3.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SWB3.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="2374.0159"
+             sodipodi:cx="-396.8504"
+             d="m -391.8504,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76143,0 -5,-2.2386 -5,-5 0,-2.7615 2.23857,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+             id="C.SWB3"
+             r="5"
+             cx="-396.8504"
+             cy="2374.0159"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="-389.8504"
+             y="2367.0159"
+             id="C.SWB3.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SWB3</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="2060.239"
+             sodipodi:cx="451.13458"
+             d="m 456.13458,2060.239 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+             id="C.SWF.inpoint"
+             r="5"
+             cx="451.13458"
+             cy="2060.239"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="458.13458"
+             y="2053.239"
+             id="C.SWF.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SWF.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="2330.5198"
+             sodipodi:cx="145.4328"
+             d="m 150.4328,2330.5198 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+             id="C.SWF.outpoint"
+             r="5"
+             cx="145.4328"
+             cy="2330.5198"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="152.4328"
+             y="2323.5198"
+             id="C.SWF.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SWF.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="2374.0159"
+             sodipodi:cx="396.8504"
+             d="m 401.8504,2374.0159 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z"
+             id="C.SWF"
+             r="5"
+             cx="396.8504"
+             cy="2374.0159"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="403.8504"
+             y="2367.0159"
+             id="C.SWF.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SWF</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="2374.0159"
+             sodipodi:cx="-637.08673"
+             d="m -632.08673,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+             id="C.SWB2"
+             r="5"
+             cx="-637.08673"
+             cy="2374.0159"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="-630.08673"
+             y="2367.0159"
+             id="C.SWB2.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SWB2</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="2374.0159"
+             sodipodi:cx="637.08673"
+             d="m 642.08673,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+             id="C.SWF2"
+             r="5"
+             cx="637.08673"
+             cy="2374.0159"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="644.08673"
+             y="2367.0159"
+             id="C.SWF2.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SWF2</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="1754.3351"
+             sodipodi:cx="-609.64319"
+             d="m -604.64319,1754.3351 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+             id="C.SEB.inpoint"
+             r="5"
+             cx="-609.64319"
+             cy="1754.3351"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-602.64319"
+             y="1747.3351"
+             id="C.SEB.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SEB.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="1128.978"
+             sodipodi:cx="-770.03369"
+             d="m -765.03369,1128.978 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+             id="C.SEB.outpoint"
+             r="5"
+             cx="-770.03369"
+             cy="1128.978"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-763.03369"
+             y="1121.978"
+             id="C.SEB.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SEB.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="1437.3425"
+             sodipodi:cx="-690.94489"
+             d="m -685.94489,1437.3425 c 0,2.7615 -2.23857,5 -5,5 -2.76142,0 -5,-2.2385 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+             id="C.SEB"
+             r="5"
+             cx="-690.94489"
+             cy="1437.3425"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="-683.94489"
+             y="1430.3425"
+             id="C.SEB.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SEB</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="1120.4868"
+             sodipodi:cx="665.91229"
+             d="m 670.91229,1120.4868 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+             id="C.SEF.inpoint"
+             r="5"
+             cx="665.91229"
+             cy="1120.4868"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="672.91229"
+             y="1113.4868"
+             id="C.SEF.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SEF.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="1745.7968"
+             sodipodi:cx="505.53387"
+             d="m 510.53387,1745.7968 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z"
+             id="C.SEF.outpoint"
+             r="5"
+             cx="505.53387"
+             cy="1745.7968"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="512.53387"
+             y="1738.7968"
+             id="C.SEF.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SEF.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="1437.3425"
+             sodipodi:cx="584.64569"
+             d="m 589.64569,1437.3425 c 0,2.7615 -2.23858,5 -5,5 -2.76142,0 -5,-2.2385 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+             id="C.SEF"
+             r="5"
+             cx="584.64569"
+             cy="1437.3425"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="591.64569"
+             y="1430.3425"
+             id="C.SEF.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SEF</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="1437.3425"
+             sodipodi:cx="-345.47244"
+             d="m -340.47244,1437.3425 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+             id="C.SD1"
+             r="5"
+             cx="-345.47244"
+             cy="1437.3425"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="-338.47244"
+             y="1430.3425"
+             id="C.SD1.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SD1</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="1128.978"
+             sodipodi:cx="-770.03369"
+             d="m -765.03369,1128.978 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+             id="C.SD1.i.outpoint"
+             r="5"
+             cx="-770.03369"
+             cy="1128.978"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-763.03369"
+             y="1121.978"
+             id="C.SD1.i.outpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SD1.i.out</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="1437.3425"
+             sodipodi:cx="-690.94489"
+             d="m -685.94489,1437.3425 c 0,2.7615 -2.23857,5 -5,5 -2.76142,0 -5,-2.2385 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+             id="C.SD1.i"
+             r="5"
+             cx="-690.94489"
+             cy="1437.3425"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="-683.94489"
+             y="1430.3425"
+             id="C.SD1.i.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SD1.i</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="1754.3351"
+             sodipodi:cx="-609.64319"
+             d="m -604.64319,1754.3351 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+             id="C.SD1.o.inpoint"
+             r="5"
+             cx="-609.64319"
+             cy="1754.3351"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-602.64319"
+             y="1747.3351"
+             id="C.SD1.o.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SD1.o.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="1542.0253"
+             sodipodi:cx="-664.09607"
+             d="m -659.09607,1542.0253 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+             id="C.SD1.o"
+             r="5"
+             cx="-664.09607"
+             cy="1542.0253"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="-657.09607"
+             y="1535.0253"
+             id="C.SD1.o.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SD1.o</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="2393.3608"
+             sodipodi:cx="-120.43082"
+             d="m -115.43082,2393.3608 c 0,2.7615 -2.23857,5 -5,5 -2.76142,0 -5,-2.2385 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+             id="C.SWB.inpoint"
+             r="5"
+             cx="-120.43082"
+             cy="2393.3608"
+             style="fill:none;stroke:#808080;stroke-width:1" />
+          <text
+             x="-113.43082"
+             y="2386.3608"
+             id="C.SWB.inpoint.text"
+             style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none">SWB.in</text>
+          <circle
+             sodipodi:ry="5"
+             sodipodi:rx="5"
+             sodipodi:cy="2476.2283"
+             sodipodi:cx="-361.75156"
+             d="m -356.75156,2476.2283 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z"
+             id="C.SWB"
+             r="5"
+             cx="-361.75156"
+             cy="2476.2283"
+             style="fill:#ff0000;stroke:#ff0000;stroke-width:1" />
+          <text
+             x="-354.75156"
+             y="2469.2283"
+             id="C.SWB.text"
+             style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none">SWB</text>
+          <path
+             inkscape:connector-curvature="0"
+             id="C.gridline"
+             d="m 0,0 0,2374.0157 m 877.32307,-1873.34629 0,1873.34629 M -877.32307,500.66941 l 0,1873.34629 m 0,-1873.34629 L 0,0 877.32307,500.66941 m -1754.64614,0 240.23634,1873.34629 m -53.85815,-936.6731 294.09449,936.6731 M 877.32307,500.66941 637.08673,2374.0157 M 584.64567,1437.3426 396.85039,2374.0157 M -877.32307,500.66941 l 1754.64614,0 m -1568.26795,936.67319 1275.59055,0 m -1461.96874,936.6731 1754.64614,0"
+             style="fill:none;stroke:#808080;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0" />
+        </g>
+        <text
+           sodipodi:linespacing="125%"
+           id="text3276-2"
+           y="3463.6943"
+           x="263.85355"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+           xml:space="preserve"><tspan
+             y="3463.6943"
+             x="263.85355"
+             id="tspan3278-8"
+             sodipodi:role="line">20140302 1408</tspan><tspan
+             id="tspan3280-7"
+             y="3513.6943"
+             x="263.85355"
+             sodipodi:role="line">spencer_bodice_full</tspan></text>
+      </g>
+    </g>
+    <path
+       transform="translate(-81.749987,228.20853)"
+       inkscape:connector-curvature="0"
+       id="path7009"
+       d="m 1289.4269,524.9402 -2.6863,1246.446"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       id="text7309"
+       y="0"
+       x="0">
+      <textPath
+         id="textPath7311"
+         dy="-6.0"
+         startOffset="50%"
+         xlink:href="#path7009"
+         style="font-size:20;vertical-align:bottom;fill-opacity:1.0;font-style:normal;fill:#000000;font-weight:normal;stroke:none;text-anchor:middle;text-align:center">35.18 cm</textPath>
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" patternNumber="M-S-S-1" fitBoxtoViewport="True" companyName="Seamly Patterns" currentscale="0.5:1" margin-right="88.5826771654" client-name="DressFormLg" designerName="Winifred Aldrich" height="10421.0104799" width="3500.07447553" margin-top="88.5826771654" version="1.1" margin-bottom="88.5826771654" margin-left="88.5826771654" preserveAspectRatio="xMidYMid meet" id="svg2" inkscape:version="0.48.4 r9939" sodipodi:docname="DressFormLg-mens_shirt_classic-2015-11-10-1957.svg">
+  <metadata id="metadata513">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.02265" inkscape:document-units="pt" showgrid="false" inkscape:window-maximized="1" inkscape:cx="1750" inkscape:cy="5211" inkscape:current-layer="pattern" />
+  <defs id="defs5">
+    <marker style="overflow:visible" id="Arrow1Mstart" refX="0.0" refY="0.0" orient="auto" inkscape:stockid="Arrow1Mstart">
+      <path transform="scale(0.4) translate(10,0)" style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " id="path8" />
+    </marker>
+    <marker style="overflow:visible;" id="Arrow1Mend" refX="0.0" refY="0.0" orient="auto" inkscape:stockid="Arrow1Mend">
+      <path transform="scale(0.4) rotate(180) translate(10,0)" style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " id="path11" />
+    </marker>
+  </defs>
+  <g inkscape:label="Label-pattern" id="pattern" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.shirt.yoke.pattern" transform=" translate(666.738859, 1092.473880)">
+      <line style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " y2="88.5826771654" marker-end="url(#Arrow1Mend)" marker-start="url(#Arrow1Mstart)" transform="" x2="351.850393701" y1="-70.8661417323" x1="351.850393701" id="A.grainline" />
+      <g id="A.letter" transform="matrix(2.000000, 0, 0, 2.000000, -599.881890, -88.582677)">
+        <text style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.letter.letterline" y="88.5826771654" x="599.881889764">
+A</text>
+      </g>
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; " transform="" d="M 0.0  0.0 C 161.54985037  0.0  -607.988858937  0.0  -145.785768051  -462.203090886 C -27.8674578712  -580.121401066  165.593795776  -582.508117797  316.417322835  -653.653879701 L 654.005905512  62.0078740157 C 634.952261092  70.9957691788  641.781496063  102.948626132  641.781496063  124.015748031 L 0.0  124.015748031 L 0.0  0.0 " id="A.seamline" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="m 312.2,-662.8 c -114,53.3 -242.26,66.2 -356.35,119.5 c -45.54,21 -87.55,50 -121.55,87.1 c -47.1,49 -91.7,102.2 -119.8,164.7 c -18.2,40.7 -27.4,87.9 -13.3,131.2 c 14.2,44.9 50.8,78.75 90.6,101.68 c 59.7,34.11 127.27,51.256 194.64,62.558 c 7.092,0.14 2.05,10.652 3.56,15.562 c 0,38.17 0,76.33 0,114.5 c 220.7,0 441.3,0 662,0 c 0.7,-18.2 -3.6,-36.5 0.2,-54.44 c 1.2,-7.68 8.9,-10.02 15,-13 C 551.9,-177.9 436.5,-422.4 321.2,-666.9 c -3,1.4 -6,2.8 -9,4.1 z" id="A.cuttingline" inkscape:connector-curvature="0" />
+      <g id="A.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineSeamly Patterns" y="-35.4330708661" x="387.283464567">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineM-S-S-1" y="-21.0330708661" x="387.283464567">
+M-S-S-1</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineMens Shirt Classic" y="-6.63307086614" x="387.283464567">
+Mens Shirt Classic</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.linePattern Piece A" y="7.76692913386" x="387.283464567">
+Pattern Piece A</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineCut 2 Fabric" y="22.1669291339" x="387.283464567">
+Cut 2 Fabric</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.line " y="36.5669291339" x="387.283464567" />
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineDressFormLg" y="50.9669291339" x="387.283464567">
+DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.line2015/11/10 19:57" y="65.3669291339" x="387.283464567">
+2015/11/10 19:57</text>
+      </g>
+    </g>
+    <g id="document.shirt.back.pattern" transform=" translate(155.260827, 1385.239628)">
+      <line style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " y2="1967.42125984" marker-end="url(#Arrow1Mend)" marker-start="url(#Arrow1Mstart)" transform="" x2="316.417322835" y1="407.480314961" x1="316.417322835" id="B.grainline" />
+      <g id="B.letter" transform="matrix(2.000000, 0, 0, 2.000000, -288.801673, -779.527559)">
+        <text style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.letter.letterline" y="779.527559055" x="288.801673228">
+B</text>
+      </g>
+      <path style="stroke-linejoin:miter; stroke:darkgreen; stroke-width:6; stroke-miterlimit:4; fill:none; " transform="" d="M -64.1781496063  124.015748031 L 2127.83814392  2250.88582677 " id="B.foldline" />
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; " transform="" d="M -64.1781496063  124.015748031 L 288.801673228  124.015748031 C 413.512298762  124.015748031  532.198903876  188.496669192  641.781496063  248.031496063 L 647.717687882  674.600824463 C 647.717687882  830.680995782  919.206753625  293.243990035  1029.57210117  403.609337583 C 1118.37888644  492.416122852  878.581468189  779.527559055  1004.17322835  779.527559055 C 994.963542202  990.833467518  985.748031496  1202.27301402  985.748031496  1413.77952756 C 985.748031496  1554.33009143  1011.3992974  1694.09120528  1036.77165354  1832.33267717 C 821.682971779  1832.33267717  760.757973103  2250.88582677  545.669291339  2250.88582677 L 2127.83814392  2250.88582677 L -64.1781496063  124.015748031 " id="B.seamline" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="M -71.16,131.2 C 279.2,471.1 629.5,811 979.8,1151 c -2.6,97 -4.8,194 -3.8,290 c 3,129 25,256 49,381 c -46.2,3 -88.4,27 -121.6,58 c -52.3,49 -89.7,110 -129.1,169 c -34.7,52 -69.3,105 -116.7,146 c -30.8,27 -70.5,47 -112,46 c -6.8,3 -13.5,7 -20.2,10 c 9.4,4 17.7,12 28.3,10 c 533.3,0 1066.3,0 1599.3,0 C 1768,1888 1384,1515 1000,1143 c 4,-125 9,-249.1 14,-373.5 c -11,-0.2 -26.6,1.9 -33.9,-9.4 c -6.6,-14.3 -1.9,-30.8 1.2,-45.3 C 995,665.2 1018,618.6 1035,570.2 c 13,-37.7 26,-76.7 25,-117.1 c -1,-26.7 -13,-54.5 -38,-67.7 c -21,-12.2 -48.4,-6.5 -69.4,4.8 c -38.3,20.4 -68.9,52.2 -98.3,83.6 C 799.8,533 753,599 700,659.5 c -11.6,12 -22.5,25.8 -37.8,33.3 c -3.2,1.7 -2.9,-4.1 -3.6,-5.9 c -2,-21.7 -0.8,-43.7 -1.6,-65.5 C 655.2,494.9 653.5,368.5 651.7,242 C 565.6,195.4 478.4,147.1 382.3,125 c -37.8,-8.9 -76.6,-12 -115.5,-11 c -118.5,0 -237.09,0 -355.64,0 c 5.89,5.7 11.79,11.5 17.68,17.2 z" id="B.cuttingline" inkscape:connector-curvature="0" />
+      <g id="B.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.lineSeamly Patterns" y="513.779527559" x="422.716535433">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.lineM-S-S-1" y="528.179527559" x="422.716535433">
+M-S-S-1</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.lineMens Shirt Classic" y="542.579527559" x="422.716535433">
+Mens Shirt Classic</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.linePattern Piece B" y="556.979527559" x="422.716535433">
+Pattern Piece B</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.lineCut 2 Fabric" y="571.379527559" x="422.716535433">
+Cut 2 Fabric</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.line " y="585.779527559" x="422.716535433" />
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.lineDressFormLg" y="600.179527559" x="422.716535433">
+DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.line2015/11/10 19:57" y="614.579527559" x="422.716535433">
+2015/11/10 19:57</text>
+      </g>
+    </g>
+    <g id="document.shirt.front.pattern" transform=" translate(1245.533979, 4144.612011)">
+      <line style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " y2="1967.42125984" marker-end="url(#Arrow1Mend)" marker-start="url(#Arrow1Mstart)" transform="" x2="-351.850393701" y1="-53.7719899376" x1="-351.850393701" id="C.grainline" />
+      <g id="C.letter" transform="matrix(2.000000, 0, 0, 2.000000, 741.570664, -1413.779528)">
+        <text style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.letter.letterline" y="1413.77952756" x="-741.570664387">
+C</text>
+      </g>
+      <path style="stroke-linejoin:miter; stroke:darkgreen; stroke-width:6; stroke-miterlimit:4; fill:none; " transform="" d="M 110.551181102  316.417322835 L 36.8503937008  1985.13779528 " id="C.foldline" />
+      <path style="stroke-linejoin:miter; stroke:lightgreen; stroke-width:5; stroke-miterlimit:4; fill:none; " transform="" d="M 0.0  316.417322835 L 0.0  1985.13779528 " id="C.markingline" />
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; " transform="" d="M -316.417322835  -337.236556867 C -196.675552844  -126.855819125  -242.070539912  316.417322835  0.0  316.417322835 L 110.551181102  316.417322835 L 221.102362205  316.417322835 L 221.102362205  1985.13779528 L 545.669291339  1985.13779528 C 353.823486442  1985.13779528  1292.396986  1832.33267717  1100.5511811  1832.33267717 C 1062.05976456  1695.73551237  1022.5984252  1555.69631507  1022.5984252  1413.77952756 C 1022.5984252  1202.27301402  1013.38291449  990.833467518  1004.17322835  779.527559055 C 1638.94874627  779.527559055  -1154.45130162  779.527559055  -891.211945375  595.205377459 C -741.570664387  490.425424484  -972.68977678  141.38967304  -1017.87127591  62.0078740157 L -316.417322835  -337.236556867 " id="C.seamline" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="M -321.3,-345.9 C -558.1,-211.2 -794.9,-76.42 -1032,58.25 c 32.5,55.35 66.5,109.75 95.6,166.75 c 33.4,65.1 64.1,132.4 78.9,204.4 c 7.5,39.1 10.8,81.8 -6.6,119 c -8.2,18.1 -22.8,32.2 -39,43.3 c -11.4,8.7 -20.2,24.5 -13,38.6 c 9.6,18.1 30.2,25.9 48.1,33.2 c 51.7,18.4 106,27.3 160,35.9 c 137.8,20.7 276.8,31.7 415.8,41.6 c 167.6,11.5 335.41,19.5 503.3,26.1 c 0,408.9 0,818.9 0,1227.9 c 111.5,0 223.1,0 334.6,0 c 6.7,-3 13.4,-7 20.1,-10 c -2.8,-2 -13.4,-5 -12.3,-7 c 69.9,-19 141,-33 211.9,-47 c 103.4,-22 207.6,-42 310.6,-67 c 18,-5 37,-8 54,-17 c 9,-5 9,-18 0,-22 c -7,-3 -14,-2 -21,-3 c -36,-125 -71,-251 -76,-382 c 0,-62 0,-125 -2,-188 c -3,-154 -10,-308.4 -17,-462.5 c 29,-0.3 58,0.6 87,-0.5 c 10,-1.6 19,-3.2 29,-4.9 c -10,-4.6 -20,-11.4 -31,-14.8 C 936.3,766.6 773.8,764 611.3,759.7 C 484.6,756.5 357.8,752.6 231.1,747.8 c 0,-147.1 0,-294.3 0,-441.4 c -80,-0.1 -160.18,0.3 -240.161,-0.2 c -36.699,-1.3 -72.449,-17.3 -97.639,-44 c -36.8,-38.6 -56.4,-89.6 -72.2,-139.5 C -216.6,-1.916 -229.2,-133 -270.5,-256.7 c -11,-32.6 -24.5,-64.5 -42.2,-94.1 c -2.9,1.6 -5.7,3.3 -8.6,4.9 z" id="C.cuttingline" inkscape:connector-curvature="0" />
+      <g id="C.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.lineSeamly Patterns" y="52.5272226608" x="-635.31496063">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.lineM-S-S-1" y="66.9272226608" x="-635.31496063">
+M-S-S-1</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.lineMens Shirt Classic" y="81.3272226608" x="-635.31496063">
+Mens Shirt Classic</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.linePattern Piece C" y="95.7272226608" x="-635.31496063">
+Pattern Piece C</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.lineCut 2 Fabric" y="110.127222661" x="-635.31496063">
+Cut 2 Fabric</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.line " y="124.527222661" x="-635.31496063" />
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.lineDressFormLg" y="138.927222661" x="-635.31496063">
+DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.line2015/11/10 19:57" y="153.327222661" x="-635.31496063">
+2015/11/10 19:57</text>
+      </g>
+    </g>
+    <g id="document.shirt.sleeve.pattern" transform=" translate(1678.870899, 6572.364879)">
+      <line style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " y2="1730.31496063" marker-end="url(#Arrow1Mend)" marker-start="url(#Arrow1Mstart)" transform="" x2="0.0" y1="855.901985117" x1="0.0" id="D.grainline" />
+      <g id="D.letter" transform="matrix(2.000000, 0, 0, 2.000000, 1061.028617, -1145.371371)">
+        <text style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.letter.letterline" y="1145.37137073" x="-1061.02861698">
+D</text>
+      </g>
+      <path style="stroke-linejoin:miter; stroke:lightgreen; stroke-width:5; stroke-miterlimit:4; fill:none; " transform="" d="M -529.262740734  1482.28346457 L -529.262740734  2105.46259843 " id="D.markingline" />
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; " transform="" d="M -1587.7882222  855.901985117 C -1454.09879554  787.186215697  -1320.25482971  718.391013834  -1190.84116665  641.926488837 C -1061.02861698  565.22628026  -937.418537481  478.482763919  -810.707222896  396.760901459 C -683.995908311  315.039039  -566.003140037  217.874819402  -430.573279141  151.595314081 C -293.902578494  84.7085405821  -152.056468923  -5.61704044487  0.0  0.0 C 150.675941053  5.56604306913  281.036650761  111.240397018  413.760167346  182.78540518 C 546.483683931  254.330413342  667.182796516  346.229130099  793.894111101  427.950992558 C 920.605425686  509.672855018  1041.30453827  601.571571774  1174.02805486  673.116579936 C 1306.75157144  744.661588098  1447.59261904  800.409527055  1587.7882222  855.901985117 C 1563.15826116  1052.31929216  1537.76770354  1254.802152  1455.47253702  1434.84075634 C 1358.19937297  1647.64699313  1206.72591355  1832.71270346  1058.52548147  2013.77952756 L 0.0  2013.77952756 C -175.928995491  2031.4664598  -352.446907091  2049.21259843  -529.262740734  2049.21259843 C -706.078574376  2049.21259843  -882.596485977  2031.4664598  -1058.52548147  2013.77952756 C -1206.72591355  1832.71270346  -1358.19937297  1647.64699313  -1455.47253702  1434.84075634 C -1537.76770354  1254.802152  -1563.15826116  1052.31929216  -1587.7882222  855.901985117 " id="D.seamline" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="M -17.88,-10.22 C -108.2,-9.219 -194.2,23.55 -274.8,61.85 C -335.1,90.79 -394,122.8 -454.1,152.2 c -133.7,69.2 -250.5,165.7 -377.3,246.1 C -966.6,486.2 -1099,578.8 -1239,658.6 c -118,67.7 -239,129.6 -360,191.6 c 21,162.8 41,325.8 93,481.8 c 35,105 87,203 145,297 c 88,139 193,267 297,395 c 206.6,20 413.9,41 621.9,34 c 148.3,-5 296.1,-20 443.756,-34 c 354.044,0 708.044,0 1062.344,0 c 138,-169 278,-339 376,-535 c 34,-66 61,-135 82,-206 c 41,-142 58,-288 77,-433.5 C 1439,785.8 1277,722.8 1128,635.7 C 1009,565.8 898,482.4 781.6,408.1 C 657.4,326.6 537.8,236.8 406.2,167.2 C 312.9,115.5 225.2,51.9 124.3,15.39 C 78.8,-1.106 30.7,-10.98 -17.88,-10.22 z" id="D.cuttingline" inkscape:connector-curvature="0" />
+      <g id="D.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.lineSeamly Patterns" y="1139.36655205" x="106.299212598">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.lineM-S-S-1" y="1153.76655205" x="106.299212598">
+M-S-S-1</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.lineMens Shirt Classic" y="1168.16655205" x="106.299212598">
+Mens Shirt Classic</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.linePattern Piece D" y="1182.56655205" x="106.299212598">
+Pattern Piece D</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.lineCut 2 Fabric" y="1196.96655205" x="106.299212598">
+Cut 2 Fabric</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.line " y="1211.36655205" x="106.299212598" />
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.lineDressFormLg" y="1225.76655205" x="106.299212598">
+DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.line2015/11/10 19:57" y="1240.16655205" x="106.299212598">
+2015/11/10 19:57</text>
+      </g>
+    </g>
+    <g id="document.shirt.cuff.pattern" transform=" translate(261.161417, 8849.077477)">
+      <line style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " y2="70.8661417323" marker-end="url(#Arrow1Mend)" marker-start="url(#Arrow1Mstart)" transform="" x2="779.527559055" y1="70.8661417323" x1="70.8661417323" id="E.grainline" />
+      <g id="E.letter" transform="matrix(2.000000, 0, 0, 2.000000, -425.196850, -339.785709)">
+        <text style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.letter.letterline" y="339.785708771" x="425.196850394">
+E</text>
+      </g>
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; " transform="" d="M -170.078740157  0.0 L 1020.47244094  0.0 L 1020.47244094  252.165354331 C 1020.47244094  319.33519707  917.563543526  360.236220472  850.393700787  360.236220472 L 0.0  360.236220472 C -67.169842739  360.236220472  -170.078740157  319.33519707  -170.078740157  252.165354331 L -170.078740157  0.0 " id="E.seamline" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="m -180.1,0 c 0.1,85.89 -0.2,171.8 0.2,257.7 c 2.1,30.2 23.2,55.1 47.2,71.5 c 37.07,25.1 81.55,38.6 126.106,40.9 c 287.494,0.2 574.894,0.1 862.294,0 c 44.3,-2 88.5,-15.2 125.6,-39.8 c 24.7,-16.6 46.7,-41.9 48.7,-72.8 c 0,-89.2 0,-178.35 0,-267.5 c -403.4,0 -806.7,0 -1210.1,0 c 0,3.333 0,6.667 0,10 z" id="E.cuttingline" inkscape:connector-curvature="0" />
+      <g id="E.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.lineSeamly Patterns" y="106.299212598" x="177.165354331">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.lineM-S-S-1" y="120.699212598" x="177.165354331">
+M-S-S-1</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.lineMens Shirt Classic" y="135.099212598" x="177.165354331">
+Mens Shirt Classic</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.linePattern Piece E" y="149.499212598" x="177.165354331">
+Pattern Piece E</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.lineCut 2 Fabric" y="163.899212598" x="177.165354331">
+Cut 2 Fabric</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.lineCut 1 Interfacing" y="178.299212598" x="177.165354331">
+Cut 1 Interfacing</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.line " y="192.699212598" x="177.165354331" />
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.lineDressFormLg" y="207.099212598" x="177.165354331">
+DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.line2015/11/10 19:57" y="221.499212598" x="177.165354331">
+2015/11/10 19:57</text>
+      </g>
+    </g>
+    <g id="document.shirt.collarstand.pattern" transform=" translate(91.082677, 9770.327477)">
+      <line style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " y2="-35.4330708661" marker-end="url(#Arrow1Mend)" marker-start="url(#Arrow1Mstart)" transform="" x2="1451.86099065" y1="-35.4330708661" x1="70.8661417323" id="F.grainline" />
+      <g id="F.letter" transform="matrix(1.000000, 0, 0, 1.000000, 0.000000, 0.000000)">
+        <text style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.letter.letterline" y="-70.8661417323" x="761.36356619">
+F</text>
+      </g>
+      <path style="stroke-linejoin:miter; stroke:darkgreen; stroke-width:6; stroke-miterlimit:4; fill:none; " transform="" d="M 0.0  -177.165354331 L 0.0  -17.7165354331 " id="F.foldline" />
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; " transform="" d="M 0.0  -177.165354331 L 0.0  -17.7165354331 C 380.640796787  -9.58764425762  761.3205543  -1.45792104442  1142.04534929  0.0 C 1269.00017863  0.486151991741  1395.96367377  -4.90048341146  1522.72713238  -11.8855100823 C 1553.78397572  -13.5968303745  1584.47837671  -19.849831588  1614.95632958  -26.0587384288 L 1596.895751  -116.36163133 C 1594.40795388  -128.800616937  1548.44131188  -137.09328537  1522.72713238  -141.732283465 C 1272.70074191  -186.838601129  1015.42610933  -177.165354331  761.36356619  -177.165354331 L 0.0  -177.165354331 " id="F.seamline" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="m 952.2,-188 c -220.9,1.4 -441.9,0.6 -662.8,0.8 c -99.8,0 -199.6,0 -299.4,0 c 0,59.8 0,119.51 0,179.262 C 385.9,0.4565 781.8,9.197 1178,10 c 119,-0.715 238,-5.6 357,-12.705 c 31,-2.7 61,-9.475 92,-15.515 c -7,-34.25 -14,-68.7 -21,-102.78 c -6,-12.5 -21,-16 -33,-20.1 c -39,-10.4 -80,-15.9 -120,-21.9 c -166,-23.3 -334,-25.5 -500.8,-25 z" id="F.cuttingline" inkscape:connector-curvature="0" />
+      <g id="F.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.lineSeamly Patterns" y="-141.732283465" x="106.299212598">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.lineM-S-S-1" y="-127.332283465" x="106.299212598">
+M-S-S-1</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.lineMens Shirt Classic" y="-112.932283465" x="106.299212598">
+Mens Shirt Classic</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.linePattern Piece F" y="-98.5322834646" x="106.299212598">
+Pattern Piece F</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.lineCut 2 Fabric" y="-84.1322834646" x="106.299212598">
+Cut 2 Fabric</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.lineCut 1 Interfacing" y="-69.7322834646" x="106.299212598">
+Cut 1 Interfacing</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.line " y="-55.3322834646" x="106.299212598" />
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.lineDressFormLg" y="-40.9322834646" x="106.299212598">
+DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.line2015/11/10 19:57" y="-26.5322834646" x="106.299212598">
+2015/11/10 19:57</text>
+      </g>
+    </g>
+    <g id="document.shirt.collar.pattern" transform=" translate(88.582677, 10329.327409)">
+      <line style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " y2="-318.897637795" marker-end="url(#Arrow1Mend)" marker-start="url(#Arrow1Mstart)" transform="" x2="1487.29406151" y1="-318.897637795" x1="35.4330708661" id="G.grainline" />
+      <g id="G.letter" transform="matrix(1.000000, 0, 0, 1.000000, 0.000000, 0.000000)">
+        <text style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.letter.letterline" y="-212.598425197" x="761.36356619">
+G</text>
+      </g>
+      <path style="stroke-linejoin:miter; stroke:darkgreen; stroke-width:6; stroke-miterlimit:4; fill:none; " transform="" d="M 0.0  -354.330708661 L 0.0  -177.165354331 " id="G.foldline" />
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; " transform="" d="M 0.0  -177.165354331 L 0.0  -354.330708661 L 761.36356619  -354.330708661 C 1027.22493009  -354.330708661  1292.88892072  -372.060348191  1558.16020325  -389.763779528 L 1522.72713238  -141.732283465 C 1272.70074191  -186.838601129  1015.42610933  -177.165354331  761.36356619  -177.165354331 L 0.0  -177.165354331 " id="G.seamline" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="m 1557,-399.8 c -279,18.8 -558.5,37.2 -838.6,35.5 c -242.8,0 -485.6,0 -728.4,0 c 0,65.7 0,131.4 0,197.1 c 278.4,-0.1 556.7,0.2 835.1,-0.2 c 219.9,-0.9 441.9,-5.2 659.9,29.4 c 16,2.4 31,5.2 46,8 c 13,-90.2 26,-180.4 39,-270.6 c -4,0.3 -9,0.5 -13,0.8 z" id="G.cuttingline" inkscape:connector-curvature="0" />
+      <g id="G.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.lineSeamly Patterns" y="-283.464566929" x="70.8661417323">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.lineM-S-S-1" y="-269.064566929" x="70.8661417323">
+M-S-S-1</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.lineMens Shirt Classic" y="-254.664566929" x="70.8661417323">
+Mens Shirt Classic</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.linePattern Piece G" y="-240.264566929" x="70.8661417323">
+Pattern Piece G</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.lineCut 2 Fabric" y="-225.864566929" x="70.8661417323">
+Cut 2 Fabric</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.lineCut 1 Interfacing" y="-211.464566929" x="70.8661417323">
+Cut 1 Interfacing</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.line " y="-197.064566929" x="70.8661417323" />
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.lineDressFormLg" y="-182.664566929" x="70.8661417323">
+DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.line2015/11/10 19:57" y="-168.264566929" x="70.8661417323">
+2015/11/10 19:57</text>
+      </g>
+    </g>
+  </g>
+  <g inkscape:label="Label-notes" id="notes" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.titleblock">
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="company" y="0.0" x="0.0">
+Seamly Patterns</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="designer" y="44.0" x="0.0">
+Winifred Aldrich</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="pattern_number" y="88.0" x="0.0">
+M-S-S-1</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="pattern_name" y="132.0" x="0.0">
+Mens Shirt Classic</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="client" y="176.0" x="0.0">
+DressFormLg</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="date" y="220.0" x="0.0">
+2015/11/10 19:57</text>
+    </g>
+    <g id="document.testgrid">
+      <path style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " d="M 1080.0  0.0 L 1080.0  212.598425197 M 1115.43307087  0.0 L 1115.43307087  212.598425197 M 1150.86614173  0.0 L 1150.86614173  212.598425197 M 1186.2992126  0.0 L 1186.2992126  212.598425197 M 1221.73228346  0.0 L 1221.73228346  212.598425197 M 1257.16535433  0.0 L 1257.16535433  212.598425197 M 1292.5984252  0.0 L 1292.5984252  212.598425197 M 1080.0  0.0 L 1292.5984252  0.0 M 1080.0  35.4330708661 L 1292.5984252  35.4330708661 M 1080.0  70.8661417323 L 1292.5984252  70.8661417323 M 1080.0  106.299212598 L 1292.5984252  106.299212598 M 1080.0  141.732283465 L 1292.5984252  141.732283465 M 1080.0  177.165354331 L 1292.5984252  177.165354331 M 1080.0  212.598425197 L 1292.5984252  212.598425197 M 1469.76377953  0.0 L 1469.76377953  270.0 M 1559.76377953  0.0 L 1559.76377953  270.0 M 1649.76377953  0.0 L 1649.76377953  270.0 M 1739.76377953  0.0 L 1739.76377953  270.0 M 1469.76377953  0.0 L 1739.76377953  0.0 M 1469.76377953  90.0 L 1739.76377953  90.0 M 1469.76377953  180.0 L 1739.76377953  180.0 M 1469.76377953  270.0 L 1739.76377953  270.0 " id="testgrid" />
+    </g>
+    <g id="document.shirt.yoke.notes" transform=" translate(666.738859, 1092.473880)" />
+    <g id="document.shirt.back.notes" transform=" translate(155.260827, 1385.239628)" />
+    <g id="document.shirt.front.notes" transform=" translate(1245.533979, 4144.612011)" />
+    <g id="document.shirt.sleeve.notes" transform=" translate(1678.870899, 6572.364879)" />
+    <g id="document.shirt.cuff.notes" transform=" translate(261.161417, 8849.077477)" />
+    <g id="document.shirt.collarstand.notes" transform=" translate(91.082677, 9770.327477)" />
+    <g id="document.shirt.collar.notes" transform=" translate(88.582677, 10329.327409)" />
+  </g>
+  <g inkscape:label="Label-reference" id="reference" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.shirt.yoke.reference" transform=" translate(666.738859, 1092.473880)">
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="0.0" cx="161.54985037" r="5" id="A.a1.outpoint" d="m 166.5,0 c 0,2.761 -2.2,5 -5,5 c -2.7,0 -5,-2.239 -5,-5 c 0,-2.761 2.3,-5 5,-5 c 2.8,0 5,2.239 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a1.outpoint.text" y="-7.0" x="168.54985037">
+a1.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="0.0" r="5" id="A.a1" d="M 5,0 C 5,2.761 2.761,5 0,5 C -2.761,5 -5,2.761 -5,0 c 0,-2.761 2.239,-5 5,-5 c 2.761,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a1.text" y="-7.0" x="7.0">
+a1</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="124.015748031" cx="0.0" r="5" id="A.a2" d="m 5,124 c 0,2.8 -2.239,5 -5,5 c -2.761,0 -5,-2.2 -5,-5 c 0,-2.7 2.239,-5 5,-5 c 2.761,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a2.text" y="117.015748031" x="7.0">
+a2</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="102.948626132" cx="641.781496063" r="5" id="A.a3.inpoint" d="m 646.8,102.9 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-4.95 5,-4.95 c 2.7,0 5,2.25 5,4.95 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a3.inpoint.text" y="95.9486261315" x="648.781496063">
+a3.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="124.015748031" cx="641.781496063" r="5" id="A.a3" d="m 646.8,124 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.7,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a3.text" y="117.015748031" x="648.781496063">
+a3</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="641.781496063" r="5" id="A.a4" d="m 646.8,0 c 0,2.761 -2.3,5 -5,5 c -2.8,0 -5,-2.239 -5,-5 c 0,-2.761 2.2,-5 5,-5 c 2.7,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a4.text" y="-7.0" x="648.781496063">
+a4</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="70.9957691788" cx="634.952261092" r="5" id="A.a5.outpoint" d="m 640,71 c 0,2.76 -2.3,5 -5,5 c -2.8,0 -5,-2.24 -5,-5 c 0,-2.77 2.2,-5 5,-5 c 2.7,0 5,2.23 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a5.outpoint.text" y="63.9957691788" x="641.952261092">
+a5.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="62.0078740157" cx="654.005905512" r="5" id="A.a5" d="m 659,62.01 c 0,2.76 -2.2,5 -5,5 c -2.8,0 -5,-2.24 -5,-5 c 0,-2.76 2.2,-5 5,-5 c 2.8,0 5,2.24 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a5.text" y="55.0078740157" x="661.005905512">
+a5</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="316.417322835" r="5" id="A.a6" d="m 321.4,0 c 0,2.761 -2.2,5 -5,5 c -2.7,0 -5,-2.239 -5,-5 c 0,-2.761 2.3,-5 5,-5 c 2.8,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a6.text" y="-7.0" x="323.417322835">
+a6</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-582.508117797" cx="165.593795776" r="5" id="A.a7.inpoint" d="m 170.6,-582.5 c 0,2.8 -2.2,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a7.inpoint.text" y="-589.508117797" x="172.593795776">
+a7.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-653.653879701" cx="316.417322835" r="5" id="A.a7" d="m 321.4,-653.7 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.7 2.3,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a7.text" y="-660.653879701" x="323.417322835">
+a7</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-580.121401066" cx="-27.8674578712" r="5" id="A.a8.outpoint" d="m -22.87,-580.1 c 0,2.7 -2.24,5 -5,5 c -2.76,0 -5,-2.3 -5,-5 c 0,-2.8 2.24,-5 5,-5 c 2.76,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a8.outpoint.text" y="-587.121401066" x="-20.8674578712">
+a8.out</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="0.0" cx="-607.988858937" r="5" id="A.a8.inpoint" d="m -603,0 c 0,2.761 -2.2,5 -5,5 c -2.8,0 -5,-2.239 -5,-5 c 0,-2.761 2.2,-5 5,-5 c 2.8,0 5,2.239 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a8.inpoint.text" y="-7.0" x="-600.988858937">
+a8.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-462.203090886" cx="-145.785768051" r="5" id="A.a8" d="m -140.8,-462.2 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a8.text" y="-469.203090886" x="-138.785768051">
+a8</text>
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; " transform="" d="M 0.0  0.0 L 0.0  124.015748031 L 641.781496063  124.015748031 L 641.781496063  0.0 L 0.0  0.0 M 316.417322835  -653.653879701 L 316.417322835  0.0 L -145.785768051  -462.203090886 " id="A.gridline" />
+    </g>
+    <g id="document.shirt.back.reference" transform=" translate(155.260827, 1385.239628)">
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="124.015748031" cx="0.0" r="5" id="B.b1" d="m 5,124 c 0,2.8 -2.239,5 -5,5 c -2.761,0 -5,-2.2 -5,-5 c 0,-2.7 2.239,-5 5,-5 c 2.761,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b1.text" y="117.015748031" x="7.0">
+b1</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="779.527559055" cx="0.0" r="5" id="B.b2" d="m 5,779.5 c 0,2.8 -2.239,5 -5,5 c -2.761,0 -5,-2.2 -5,-5 c 0,-2.7 2.239,-5 5,-5 c 2.761,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b2.text" y="772.527559055" x="7.0">
+b2</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1413.77952756" cx="0.0" r="5" id="B.b3" d="m 5,1414 c 0,3 -2.239,5 -5,5 c -2.761,0 -5,-2 -5,-5 c 0,-3 2.239,-5 5,-5 c 2.761,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b3.text" y="1406.77952756" x="7.0">
+b3</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2250.88582677" cx="0.0" r="5" id="B.b4" d="m 5,2251 c 0,3 -2.239,5 -5,5 c -2.761,0 -5,-2 -5,-5 c 0,-3 2.239,-5 5,-5 c 2.761,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b4.text" y="2243.88582677" x="7.0">
+b4</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="779.527559055" cx="878.581468189" r="5" id="B.b8.inpoint" d="m 883.6,779.5 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.7,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b8.inpoint.text" y="772.527559055" x="885.581468189">
+b8.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="990.833467518" cx="994.963542202" r="5" id="B.b8.outpoint" d="m 1000,990.8 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.7,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b8.outpoint.text" y="983.833467518" x="1001.9635422">
+b8.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="779.527559055" cx="1004.17322835" r="5" id="B.b8" d="m 1009,779.5 c 0,2.8 -2,5 -5,5 c -3,0 -4.8,-2.2 -4.8,-5 c 0,-2.7 1.8,-5 4.8,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b8.text" y="772.527559055" x="1011.17322835">
+b8</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1413.77952756" cx="1004.17322835" r="5" id="B.b9" d="m 1009,1414 c 0,3 -2,5 -5,5 c -3,0 -4.8,-2 -4.8,-5 c 0,-3 1.8,-5 4.8,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b9.text" y="1406.77952756" x="1011.17322835">
+b9</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1202.27301402" cx="985.748031496" r="5" id="B.b12.inpoint" d="m 990.7,1202 c 0,3 -2.2,5 -5,5 c -2.7,0 -5,-2 -5,-5 c 0,-2 2.3,-5 5,-5 c 2.8,0 5,3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b12.inpoint.text" y="1195.27301402" x="992.748031496">
+b12.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1554.33009143" cx="985.748031496" r="5" id="B.b12.outpoint" d="m 990.7,1554 c 0,3 -2.2,5 -5,5 c -2.7,0 -5,-2 -5,-5 c 0,-2 2.3,-5 5,-5 c 2.8,0 5,3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b12.outpoint.text" y="1547.33009143" x="992.748031496">
+b12.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1413.77952756" cx="985.748031496" r="5" id="B.b12" d="m 990.7,1414 c 0,3 -2.2,5 -5,5 c -2.7,0 -5,-2 -5,-5 c 0,-3 2.3,-5 5,-5 c 2.8,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b12.text" y="1406.77952756" x="992.748031496">
+b12</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2250.88582677" cx="1091.33858268" r="5" id="B.b10" d="m 1096,2251 c 0,3 -2,5 -5,5 c -2,0 -5,-2 -5,-5 c 0,-3 3,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b10.text" y="2243.88582677" x="1098.33858268">
+b10</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1832.33267717" cx="1091.33858268" r="5" id="B.b11" d="m 1096,1832 c 0,3 -2,5 -5,5 c -2,0 -5,-2 -5,-5 c 0,-2 3,-5 5,-5 c 3,0 5,3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b11.text" y="1825.33267717" x="1098.33858268">
+b11</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1694.09120528" cx="1011.3992974" r="5" id="B.b13.inpoint" d="m 1016,1694 c 0,3 -2,5 -5,5 c -2,0 -5,-2 -5,-5 c 0,-3 3,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b13.inpoint.text" y="1687.09120528" x="1018.3992974">
+b13.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1832.33267717" cx="821.682971779" r="5" id="B.b13.outpoint" d="m 826.7,1832 c 0,3 -2.3,5 -5,5 c -2.8,0 -5,-2 -5,-5 c 0,-2 2.2,-5 5,-5 c 2.7,0 5,3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b13.outpoint.text" y="1825.33267717" x="828.682971779">
+b13.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1832.33267717" cx="1036.77165354" r="5" id="B.b13" d="m 1042,1832 c 0,3 -2,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-2 2,-5 5,-5 c 3,0 5,3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b13.text" y="1825.33267717" x="1043.77165354">
+b13</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="2250.88582677" cx="760.757973103" r="5" id="B.b17.inpoint" d="m 765.8,2251 c 0,3 -2.3,5 -5,5 c -2.8,0 -5,-2 -5,-5 c 0,-3 2.2,-5 5,-5 c 2.7,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b17.inpoint.text" y="2243.88582677" x="767.757973103">
+b17.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2250.88582677" cx="545.669291339" r="5" id="B.b17" d="m 550.7,2251 c 0,3 -2.3,5 -5,5 c -2.8,0 -5,-2 -5,-5 c 0,-3 2.2,-5 5,-5 c 2.7,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b17.text" y="2243.88582677" x="552.669291339">
+b17</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="124.015748031" cx="-64.1781496063" r="5" id="B.b19" d="m -59.18,124 c 0,2.8 -2.24,5 -5,5 c -2.76,0 -5,-2.2 -5,-5 c 0,-2.7 2.24,-5 5,-5 c 2.76,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b19.text" y="117.015748031" x="-57.1781496063">
+b19</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="124.015748031" cx="413.512298762" r="5" id="B.b5.outpoint" d="m 418.5,124 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.7 2.3,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b5.outpoint.text" y="117.015748031" x="420.512298762">
+b5.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="124.015748031" cx="288.801673228" r="5" id="B.b5" d="m 293.8,124 c 0,2.8 -2.2,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b5.text" y="117.015748031" x="295.801673228">
+b5</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2250.88582677" cx="2127.83814392" r="5" id="B.b18" d="m 2133,2251 c 0,3 -2,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-3 2,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b18.text" y="2243.88582677" x="2134.83814392">
+b18</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="188.496669192" cx="532.198903876" r="5" id="B.b6.inpoint" d="m 537.2,188.5 c 0,2.8 -2.2,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b6.inpoint.text" y="181.496669192" x="539.198903876">
+b6.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="248.031496063" cx="641.781496063" r="5" id="B.b6" d="m 646.8,248 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.7,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b6.text" y="241.031496063" x="648.781496063">
+b6</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="779.527559055" cx="653.653879701" r="5" id="B.b7" d="m 658.7,779.5 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.7,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b7.text" y="772.527559055" x="660.653879701">
+b7</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="293.243990035" cx="919.206753625" r="5" id="B.b14.inpoint" d="m 924.2,293.2 c 0,2.8 -2.2,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b14.inpoint.text" y="286.243990035" x="926.206753625">
+b14.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="492.416122852" cx="1118.37888644" r="5" id="B.b14.outpoint" d="m 1123,492.4 c 0,2.8 -2,5 -5,5 c -2,0 -5,-2.2 -5,-5 c 0,-2.7 3,-5 5,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b14.outpoint.text" y="485.416122852" x="1125.37888644">
+b14.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="403.609337583" cx="1029.57210117" r="5" id="B.b14" d="m 1035,403.6 c 0,2.8 -3,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.8 2,-5 5,-5 c 2,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b14.text" y="396.609337583" x="1036.57210117">
+b14</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="569.67408987" cx="641.781496063" r="5" id="B.b15" d="m 646.8,569.7 c 0,2.7 -2.3,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.7,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b15.text" y="562.67408987" x="648.781496063">
+b15</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="830.680995782" cx="647.717687882" r="5" id="B.b16.outpoint" d="m 652.7,830.7 c 0,2.7 -2.2,5 -5,5 c -2.7,0 -5,-2.3 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b16.outpoint.text" y="823.680995782" x="654.717687882">
+b16.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="674.600824463" cx="647.717687882" r="5" id="B.b16" d="m 652.7,674.6 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b16.text" y="667.600824463" x="654.717687882">
+b16</text>
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; " transform="" d="M 0.0  124.015748031 L 0.0  2250.88582677 M -64.1781496063  124.015748031 L 2127.83814392  2250.88582677 M 641.781496063  248.031496063 L 653.653879701  779.527559055 L 1029.57210117  403.609337583 M 1004.17322835  779.527559055 L 1091.33858268  2250.88582677 M -64.1781496063  124.015748031 L 641.781496063  124.015748031 M 0.0  779.527559055 L 1004.17322835  779.527559055 M 0.0  1413.77952756 L 1004.17322835  1413.77952756 M 2127.83814392  2250.88582677 L 1091.33858268  2250.88582677 " id="B.gridline" />
+    </g>
+    <g id="document.shirt.front.reference" transform=" translate(1245.533979, 4144.612011)">
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="0.0" r="5" id="C.c23" d="M 5,0 C 5,2.761 2.761,5 0,5 C -2.761,5 -5,2.761 -5,0 c 0,-2.761 2.239,-5 5,-5 c 2.761,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c23.text" y="-7.0" x="7.0">
+c23</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="316.417322835" cx="-242.070539912" r="5" id="C.c1.inpoint" d="m -237.1,316.4 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.7 2.3,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c1.inpoint.text" y="309.417322835" x="-235.070539912">
+c1.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="316.417322835" cx="0.0" r="5" id="C.c1" d="m 5,316.4 c 0,2.8 -2.239,5 -5,5 c -2.761,0 -5,-2.2 -5,-5 c 0,-2.7 2.239,-5 5,-5 c 2.761,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c1.text" y="309.417322835" x="7.0">
+c1</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="779.527559055" cx="0.0" r="5" id="C.c2" d="m 5,779.5 c 0,2.8 -2.239,5 -5,5 c -2.761,0 -5,-2.2 -5,-5 c 0,-2.7 2.239,-5 5,-5 c 2.761,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c2.text" y="772.527559055" x="7.0">
+c2</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2250.88582677" cx="0.0" r="5" id="C.c3" d="m 5,2251 c 0,3 -2.239,5 -5,5 c -2.761,0 -5,-2 -5,-5 c 0,-3 2.239,-5 5,-5 c 2.761,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c3.text" y="2243.88582677" x="7.0">
+c3</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="316.417322835" cx="-316.417322835" r="5" id="C.c24" d="m -311.4,316.4 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.7,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c24.text" y="309.417322835" x="-309.417322835">
+c24</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-126.855819125" cx="-196.675552844" r="5" id="C.c16.outpoint" d="m -191.7,-126.9 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.7 2.3,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c16.outpoint.text" y="-133.855819125" x="-189.675552844">
+c16.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-337.236556867" cx="-316.417322835" r="5" id="C.c16" d="m -311.4,-337.2 c 0,2.7 -2.3,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.7,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c16.text" y="-344.236556867" x="-309.417322835">
+c16</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-337.236556867" cx="0.0" r="5" id="C.c22" d="m 5,-337.2 c 0,2.7 -2.239,5 -5,5 c -2.761,0 -5,-2.3 -5,-5 c 0,-2.8 2.239,-5 5,-5 c 2.761,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c22.text" y="-344.236556867" x="7.0">
+c22</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="141.38967304" cx="-972.68977678" r="5" id="C.c17.inpoint" d="m -967.7,141.4 c 0,2.8 -2.2,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c17.inpoint.text" y="134.38967304" x="-965.68977678">
+c17.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="62.0078740157" cx="-1017.87127591" r="5" id="C.c17" d="m -1013,62.01 c 0,2.76 -2,5 -5,5 c -3,0 -5,-2.24 -5,-5 c 0,-2.76 2,-5 5,-5 c 3,0 5,2.24 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c17.text" y="55.0078740157" x="-1010.87127591">
+c17</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="990.833467518" cx="1013.38291449" r="5" id="C.c8.inpoint" d="m 1018,990.8 c 0,2.8 -2,5 -5,5 c -2,0 -5,-2.2 -5,-5 c 0,-2.7 3,-5 5,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c8.inpoint.text" y="983.833467518" x="1020.38291449">
+c8.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="779.527559055" cx="1638.94874627" r="5" id="C.c8.outpoint" d="m 1644,779.5 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.7 2,-5 5,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c8.outpoint.text" y="772.527559055" x="1645.94874627">
+c8.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="779.527559055" cx="1004.17322835" r="5" id="C.c8" d="m 1009,779.5 c 0,2.8 -2,5 -5,5 c -3,0 -4.8,-2.2 -4.8,-5 c 0,-2.7 1.8,-5 4.8,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c8.text" y="772.527559055" x="1011.17322835">
+c8</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1413.77952756" cx="1004.17322835" r="5" id="C.c9" d="m 1009,1414 c 0,3 -2,5 -5,5 c -3,0 -4.8,-2 -4.8,-5 c 0,-3 1.8,-5 4.8,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c9.text" y="1406.77952756" x="1011.17322835">
+c9</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1555.69631507" cx="1022.5984252" r="5" id="C.c10.inpoint" d="m 1028,1556 c 0,2 -3,5 -5,5 c -3,0 -5,-3 -5,-5 c 0,-3 2,-5 5,-5 c 2,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c10.inpoint.text" y="1548.69631507" x="1029.5984252">
+c10.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1202.27301402" cx="1022.5984252" r="5" id="C.c10.outpoint" d="m 1028,1202 c 0,3 -3,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-2 2,-5 5,-5 c 2,0 5,3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c10.outpoint.text" y="1195.27301402" x="1029.5984252">
+c10.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1413.77952756" cx="1022.5984252" r="5" id="C.c10" d="m 1028,1414 c 0,3 -3,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-3 2,-5 5,-5 c 2,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c10.text" y="1406.77952756" x="1029.5984252">
+c10</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2250.88582677" cx="1091.33858268" r="5" id="C.c7" d="m 1096,2251 c 0,3 -2,5 -5,5 c -2,0 -5,-2 -5,-5 c 0,-3 3,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c7.text" y="2243.88582677" x="1098.33858268">
+c7</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1832.33267717" cx="1091.33858268" r="5" id="C.c11" d="m 1096,1832 c 0,3 -2,5 -5,5 c -2,0 -5,-2 -5,-5 c 0,-2 3,-5 5,-5 c 3,0 5,3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c11.text" y="1825.33267717" x="1098.33858268">
+c11</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1832.33267717" cx="1292.396986" r="5" id="C.c12.inpoint" d="m 1297,1832 c 0,3 -2,5 -5,5 c -2,0 -5,-2 -5,-5 c 0,-2 3,-5 5,-5 c 3,0 5,3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c12.inpoint.text" y="1825.33267717" x="1299.396986">
+c12.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1695.73551237" cx="1062.05976456" r="5" id="C.c12.outpoint" d="m 1067,1696 c 0,2 -2,5 -5,5 c -3,0 -5,-3 -5,-5 c 0,-3 2,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c12.outpoint.text" y="1688.73551237" x="1069.05976456">
+c12.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1832.33267717" cx="1100.5511811" r="5" id="C.c12" d="m 1106,1832 c 0,3 -3,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-2 2,-5 5,-5 c 2,0 5,3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c12.text" y="1825.33267717" x="1107.5511811">
+c12</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2250.88582677" cx="545.669291339" r="5" id="C.c5" d="m 550.7,2251 c 0,3 -2.3,5 -5,5 c -2.8,0 -5,-2 -5,-5 c 0,-3 2.2,-5 5,-5 c 2.7,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c5.text" y="2243.88582677" x="552.669291339">
+c5</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1985.13779528" cx="353.823486442" r="5" id="C.c6.outpoint" d="m 358.8,1985 c 0,3 -2.2,5 -5,5 c -2.7,0 -5,-2 -5,-5 c 0,-3 2.3,-5 5,-5 c 2.8,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c6.outpoint.text" y="1978.13779528" x="360.823486442">
+c6.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1985.13779528" cx="545.669291339" r="5" id="C.c6" d="m 550.7,1985 c 0,3 -2.3,5 -5,5 c -2.8,0 -5,-2 -5,-5 c 0,-3 2.2,-5 5,-5 c 2.7,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c6.text" y="1978.13779528" x="552.669291339">
+c6</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1985.13779528" cx="0.0" r="5" id="C.c4" d="m 5,1985 c 0,3 -2.239,5 -5,5 c -2.761,0 -5,-2 -5,-5 c 0,-3 2.239,-5 5,-5 c 2.761,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c4.text" y="1978.13779528" x="7.0">
+c4</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="779.527559055" cx="-706.88976378" r="5" id="C.c13" d="m -701.9,779.5 c 0,2.8 -2.2,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c13.text" y="772.527559055" x="-699.88976378">
+c13</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="490.425424484" cx="-741.570664387" r="5" id="C.c14.outpoint" d="m -736.6,490.4 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.7 2.3,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c14.outpoint.text" y="483.425424484" x="-734.570664387">
+c14.out</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="779.527559055" cx="-1154.45130162" r="5" id="C.c14.inpoint" d="m -1149,779.5 c 0,2.8 -3,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.7 2,-5 5,-5 c 2,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c14.inpoint.text" y="772.527559055" x="-1147.45130162">
+c14.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="595.205377459" cx="-891.211945375" r="5" id="C.c14" d="m -886.2,595.2 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.7,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c14.text" y="588.205377459" x="-884.211945375">
+c14</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="584.024362261" cx="-706.88976378" r="5" id="C.c15" d="m -701.9,584 c 0,2.8 -2.2,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c15.text" y="577.024362261" x="-699.88976378">
+c15</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="316.417322835" cx="36.8503937008" r="5" id="C.c25" d="m 41.85,316.4 c 0,2.8 -2.24,5 -5,5 c -2.76,0 -5,-2.2 -5,-5 c 0,-2.7 2.24,-5 5,-5 c 2.76,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c25.text" y="309.417322835" x="43.8503937008">
+c25</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="316.417322835" cx="110.551181102" r="5" id="C.c18" d="m 115.6,316.4 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.7,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c18.text" y="309.417322835" x="117.551181102">
+c18</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="316.417322835" cx="221.102362205" r="5" id="C.c19" d="m 226.1,316.4 c 0,2.8 -2.2,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c19.text" y="309.417322835" x="228.102362205">
+c19</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1985.13779528" cx="36.8503937008" r="5" id="C.c20" d="m 41.85,1985 c 0,3 -2.24,5 -5,5 c -2.76,0 -5,-2 -5,-5 c 0,-3 2.24,-5 5,-5 c 2.76,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c20.text" y="1978.13779528" x="43.8503937008">
+c20</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1985.13779528" cx="221.102362205" r="5" id="C.c21" d="m 226.1,1985 c 0,3 -2.2,5 -5,5 c -2.8,0 -5,-2 -5,-5 c 0,-3 2.2,-5 5,-5 c 2.8,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="C.c21.text" y="1978.13779528" x="228.102362205">
+c21</text>
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; " transform="" d="M 1004.17322835  779.527559055 L 1091.33858268  2250.88582677 M -1017.87127591  62.0078740157 L -706.88976378  584.024362261 L -706.88976378  779.527559055 L -891.211945375  595.205377459 M 545.669291339  1985.13779528 L 545.669291339  2250.88582677 M 0.0  0.0 L 0.0  2250.88582677 M 110.551181102  316.417322835 L 36.8503937008  1985.13779528 M 221.102362205  316.417322835 L 221.102362205  1985.13779528 M 0.0  0.0 M -316.417322835  -337.236556867 L 0.0  -337.236556867 M 0.0  316.417322835 L 221.102362205  316.417322835 M 1004.17322835  779.527559055 L 0.0  779.527559055 M 1004.17322835  1413.77952756 L 1022.5984252  1413.77952756 M 1091.33858268  1832.33267717 L 1100.5511811  1832.33267717 M 1091.33858268  2250.88582677 L 0.0  2250.88582677 " id="C.gridline" />
+    </g>
+    <g id="document.shirt.sleeve.reference" transform=" translate(1678.870899, 6572.364879)">
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-5.61704044487" cx="-152.056468923" r="5" id="D.d1.inpoint" d="m -147.1,-5.617 c 0,2.761 -2.2,5 -5,5 c -2.7,0 -5,-2.239 -5,-5 c 0,-2.761 2.3,-5.003 5,-5.003 c 2.8,0 5,2.242 5,5.003 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d1.inpoint.text" y="-12.6170404449" x="-145.056468923">
+d1.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="5.56604306913" cx="150.675941053" r="5" id="D.d1.outpoint" d="m 155.7,5.566 c 0,2.761 -2.3,5.004 -5,5.004 c -2.8,0 -5,-2.243 -5,-5.004 c 0,-2.761 2.2,-5 5,-5 c 2.7,0 5,2.239 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d1.outpoint.text" y="-1.43395693087" x="157.675941053">
+d1.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="0.0" r="5" id="D.d1" d="M 5,0 C 5,2.761 2.761,5 0,5 C -2.761,5 -5,2.761 -5,0 c 0,-2.761 2.239,-5 5,-5 c 2.761,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d1.text" y="-7.0" x="7.0">
+d1</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="855.901985117" cx="0.0" r="5" id="D.d2" d="m 5,855.9 c 0,2.8 -2.239,5 -5,5 c -2.761,0 -5,-2.2 -5,-5 c 0,-2.8 2.239,-5 5,-5 c 2.761,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d2.text" y="848.901985117" x="7.0">
+d2</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="2031.4664598" cx="-175.928995491" r="5" id="D.d3.outpoint" d="m -170.9,2031 c 0,3 -2.3,5 -5,5 c -2.8,0 -5,-2 -5,-5 c 0,-2 2.2,-5 5,-5 c 2.7,0 5,3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d3.outpoint.text" y="2024.4664598" x="-168.928995491">
+d3.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2013.77952756" cx="0.0" r="5" id="D.d3" d="m 5,2014 c 0,3 -2.239,5 -5,5 c -2.761,0 -5,-2 -5,-5 c 0,-3 2.239,-5 5,-5 c 2.761,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d3.text" y="2006.77952756" x="7.0">
+d3</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1434.84075634" cx="0.0" r="5" id="D.d4" d="m 5,1435 c 0,3 -2.239,5 -5,5 c -2.761,0 -5,-2 -5,-5 c 0,-3 2.239,-5 5,-5 c 2.761,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d4.text" y="1427.84075634" x="7.0">
+d4</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="787.186215697" cx="-1454.09879554" r="5" id="D.d5.outpoint" d="m -1449,787.2 c 0,2.7 -2,5 -5,5 c -3,0 -5,-2.3 -5,-5 c 0,-2.8 2,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d5.outpoint.text" y="780.186215697" x="-1447.09879554">
+d5.out</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1052.31929216" cx="-1563.15826116" r="5" id="D.d5.inpoint" d="m -1558,1052 c 0,3 -2,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-2 2,-5 5,-5 c 3,0 5,3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d5.inpoint.text" y="1045.31929216" x="-1556.15826116">
+d5.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="855.901985117" cx="-1587.7882222" r="5" id="D.d5" d="m -1583,855.9 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.8 2,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d5.text" y="848.901985117" x="-1580.7882222">
+d5</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2013.77952756" cx="-1587.7882222" r="5" id="D.d6" d="m -1583,2014 c 0,3 -2,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-3 2,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d6.text" y="2006.77952756" x="-1580.7882222">
+d6</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="800.409527055" cx="1447.59261904" r="5" id="D.d7.inpoint" d="m 1453,800.4 c 0,2.8 -3,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.8 2,-5 5,-5 c 2,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d7.inpoint.text" y="793.409527055" x="1454.59261904">
+d7.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1052.31929216" cx="1563.15826116" r="5" id="D.d7.outpoint" d="m 1568,1052 c 0,3 -2,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-2 2,-5 5,-5 c 3,0 5,3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d7.outpoint.text" y="1045.31929216" x="1570.15826116">
+d7.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="855.901985117" cx="1587.7882222" r="5" id="D.d7" d="m 1593,855.9 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.8 2,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d7.text" y="848.901985117" x="1594.7882222">
+d7</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2013.77952756" cx="1587.7882222" r="5" id="D.d8" d="m 1593,2014 c 0,3 -2,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-3 2,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d8.text" y="2006.77952756" x="1594.7882222">
+d8</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="718.391013834" cx="-1320.25482971" r="5" id="D.d9.inpoint" d="m -1315,718.4 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.8 2,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d9.inpoint.text" y="711.391013834" x="-1313.25482971">
+d9.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="565.22628026" cx="-1061.02861698" r="5" id="D.d9.outpoint" d="m -1056,565.2 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.7 2,-5 5,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d9.outpoint.text" y="558.22628026" x="-1054.02861698">
+d9.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="641.926488837" cx="-1190.84116665" r="5" id="D.d9" d="m -1186,641.9 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.7 2,-5 5,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d9.text" y="634.926488837" x="-1183.84116665">
+d9</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="478.482763919" cx="-937.418537481" r="5" id="D.d10.inpoint" d="m -932.4,478.5 c 0,2.7 -2.3,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.7,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d10.inpoint.text" y="471.482763919" x="-930.418537481">
+d10.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="315.039039" cx="-683.995908311" r="5" id="D.d10.outpoint" d="m -679,315 c 0,2.8 -2.2,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d10.outpoint.text" y="308.039039" x="-676.995908311">
+d10.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="396.760901459" cx="-810.707222896" r="5" id="D.d10" d="m -805.7,396.8 c 0,2.7 -2.2,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d10.text" y="389.760901459" x="-803.707222896">
+d10</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="217.874819402" cx="-566.003140037" r="5" id="D.d11.inpoint" d="m -561,217.9 c 0,2.7 -2.2,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d11.inpoint.text" y="210.874819402" x="-559.003140037">
+d11.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="84.7085405821" cx="-293.902578494" r="5" id="D.d11.outpoint" d="m -288.9,84.71 c 0,2.76 -2.2,5 -5,5 c -2.8,0 -5,-2.24 -5,-5 c 0,-2.76 2.2,-5 5,-5 c 2.8,0 5,2.24 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d11.outpoint.text" y="77.7085405821" x="-286.902578494">
+d11.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="151.595314081" cx="-430.573279141" r="5" id="D.d11" d="m -425.6,151.6 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d11.text" y="144.595314081" x="-423.573279141">
+d11</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="601.571571774" cx="1041.30453827" r="5" id="D.d12.inpoint" d="m 1046,601.6 c 0,2.7 -2,5 -5,5 c -2,0 -5,-2.3 -5,-5 c 0,-2.8 3,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d12.inpoint.text" y="594.571571774" x="1048.30453827">
+d12.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="744.661588098" cx="1306.75157144" r="5" id="D.d12.outpoint" d="m 1312,744.7 c 0,2.7 -2,5 -5,5 c -3,0 -5,-2.3 -5,-5 c 0,-2.8 2,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d12.outpoint.text" y="737.661588098" x="1313.75157144">
+d12.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="673.116579936" cx="1174.02805486" r="5" id="D.d12" d="m 1179,673.1 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.7 2,-5 5,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d12.text" y="666.116579936" x="1181.02805486">
+d12</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="346.229130099" cx="667.182796516" r="5" id="D.d13.inpoint" d="m 672.2,346.2 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.7,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d13.inpoint.text" y="339.229130099" x="674.182796516">
+d13.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="509.672855018" cx="920.605425686" r="5" id="D.d13.outpoint" d="m 925.6,509.7 c 0,2.7 -2.2,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d13.outpoint.text" y="502.672855018" x="927.605425686">
+d13.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="427.950992558" cx="793.894111101" r="5" id="D.d13" d="m 798.9,428 c 0,2.7 -2.2,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d13.text" y="420.950992558" x="800.894111101">
+d13</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="111.240397018" cx="281.036650761" r="5" id="D.d14.inpoint" d="m 286,111.2 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.7 2.3,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d14.inpoint.text" y="104.240397018" x="288.036650761">
+d14.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="254.330413342" cx="546.483683931" r="5" id="D.d14.outpoint" d="m 551.5,254.3 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.7,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d14.outpoint.text" y="247.330413342" x="553.483683931">
+d14.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="182.78540518" cx="413.760167346" r="5" id="D.d14" d="m 418.8,182.8 c 0,2.7 -2.3,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.7,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d14.text" y="175.78540518" x="420.760167346">
+d14</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1832.71270346" cx="-1206.72591355" r="5" id="D.d15.outpoint" d="m -1202,1833 c 0,2 -2,5 -5,5 c -2,0 -5,-3 -5,-5 c 0,-3 3,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d15.outpoint.text" y="1825.71270346" x="-1199.72591355">
+d15.out</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="2031.4664598" cx="-882.596485977" r="5" id="D.d15.inpoint" d="m -877.6,2031 c 0,3 -2.2,5 -5,5 c -2.8,0 -5,-2 -5,-5 c 0,-2 2.2,-5 5,-5 c 2.8,0 5,3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d15.inpoint.text" y="2024.4664598" x="-875.596485977">
+d15.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2013.77952756" cx="-1058.52548147" r="5" id="D.d15" d="m -1054,2014 c 0,3 -2,5 -5,5 c -2,0 -5,-2 -5,-5 c 0,-3 3,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d15.text" y="2006.77952756" x="-1051.52548147">
+d15</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1832.71270346" cx="1206.72591355" r="5" id="D.d16.inpoint" d="m 1212,1833 c 0,2 -3,5 -5,5 c -3,0 -5,-3 -5,-5 c 0,-3 2,-5 5,-5 c 2,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d16.inpoint.text" y="1825.71270346" x="1213.72591355">
+d16.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2013.77952756" cx="1058.52548147" r="5" id="D.d16" d="m 1064,2014 c 0,3 -3,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-3 2,-5 5,-5 c 2,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d16.text" y="2006.77952756" x="1065.52548147">
+d16</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2013.77952756" cx="-1323.15685183" r="5" id="D.d17" d="m -1318,2014 c 0,3 -2,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-3 2,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d17.text" y="2006.77952756" x="-1316.15685183">
+d17</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2013.77952756" cx="1323.15685183" r="5" id="D.d18" d="m 1328,2014 c 0,3 -2,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-3 2,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d18.text" y="2006.77952756" x="1330.15685183">
+d18</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2013.77952756" cx="-529.262740734" r="5" id="D.d19" d="m -524.3,2014 c 0,3 -2.2,5 -5,5 c -2.7,0 -5,-2 -5,-5 c 0,-3 2.3,-5 5,-5 c 2.8,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d19.text" y="2006.77952756" x="-522.262740734">
+d19</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1482.28346457" cx="-529.262740734" r="5" id="D.d20" d="m -524.3,1482 c 0,3 -2.2,5 -5,5 c -2.7,0 -5,-2 -5,-5 c 0,-2 2.3,-5 5,-5 c 2.8,0 5,3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d20.text" y="1475.28346457" x="-522.262740734">
+d20</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="2049.21259843" cx="-352.446907091" r="5" id="D.d21.inpoint" d="m -347.4,2049 c 0,3 -2.3,5 -5,5 c -2.8,0 -5,-2 -5,-5 c 0,-3 2.2,-5 5,-5 c 2.7,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d21.inpoint.text" y="2042.21259843" x="-345.446907091">
+d21.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="2049.21259843" cx="-706.078574376" r="5" id="D.d21.outpoint" d="m -701.1,2049 c 0,3 -2.2,5 -5,5 c -2.7,0 -5,-2 -5,-5 c 0,-3 2.3,-5 5,-5 c 2.8,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d21.outpoint.text" y="2042.21259843" x="-699.078574376">
+d21.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2049.21259843" cx="-529.262740734" r="5" id="D.d21" d="m -524.3,2049 c 0,3 -2.2,5 -5,5 c -2.7,0 -5,-2 -5,-5 c 0,-3 2.3,-5 5,-5 c 2.8,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d21.text" y="2042.21259843" x="-522.262740734">
+d21</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1647.64699313" cx="-1358.19937297" r="5" id="D.d22.inpoint" d="m -1353,1648 c 0,2 -2,5 -5,5 c -3,0 -5,-3 -5,-5 c 0,-3 2,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d22.inpoint.text" y="1640.64699313" x="-1351.19937297">
+d22.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1254.802152" cx="-1537.76770354" r="5" id="D.d22.outpoint" d="m -1533,1255 c 0,3 -2,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-3 2,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d22.outpoint.text" y="1247.802152" x="-1530.76770354">
+d22.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1434.84075634" cx="-1455.47253702" r="5" id="D.d22" d="m -1450,1435 c 0,3 -3,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-3 2,-5 5,-5 c 2,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d22.text" y="1427.84075634" x="-1448.47253702">
+d22</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1254.802152" cx="1537.76770354" r="5" id="D.d23.inpoint" d="m 1543,1255 c 0,3 -2,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-3 2,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d23.inpoint.text" y="1247.802152" x="1544.76770354">
+d23.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1647.64699313" cx="1358.19937297" r="5" id="D.d23.outpoint" d="m 1363,1648 c 0,2 -2,5 -5,5 c -3,0 -5,-3 -5,-5 c 0,-3 2,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d23.outpoint.text" y="1640.64699313" x="1365.19937297">
+d23.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1434.84075634" cx="1455.47253702" r="5" id="D.d23" d="m 1460,1435 c 0,3 -2,5 -5,5 c -2,0 -5,-2 -5,-5 c 0,-3 3,-5 5,-5 c 3,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d23.text" y="1427.84075634" x="1462.47253702">
+d23</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1145.37137073" cx="0.0" r="5" id="D.d24" d="m 5,1145 c 0,3 -2.239,5 -5,5 c -2.761,0 -5,-2 -5,-5 c 0,-2 2.239,-5 5,-5 c 2.761,0 5,3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d24.text" y="1138.37137073" x="7.0">
+d24</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2105.46259843" cx="-529.262740734" r="5" id="D.d25" d="m -524.3,2105 c 0,3 -2.2,5 -5,5 c -2.7,0 -5,-2 -5,-5 c 0,-2 2.3,-5 5,-5 c 2.8,0 5,3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="D.d25.text" y="2098.46259843" x="-522.262740734">
+d25</text>
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; " transform="" d="M 0.0  0.0 L 0.0  2013.77952756 M 1587.7882222  855.901985117 L 1587.7882222  2013.77952756 M -1587.7882222  855.901985117 L -1587.7882222  2013.77952756 M -529.262740734  1482.28346457 L -529.262740734  2049.21259843 M -1587.7882222  855.901985117 L 0.0  0.0 L 1587.7882222  855.901985117 M -1587.7882222  855.901985117 L -1323.15685183  2013.77952756 M -1455.47253702  1434.84075634 L -1058.52548147  2013.77952756 M 1587.7882222  855.901985117 L 1323.15685183  2013.77952756 M 1455.47253702  1434.84075634 L 1058.52548147  2013.77952756 M -1587.7882222  855.901985117 L 1587.7882222  855.901985117 M -1455.47253702  1434.84075634 L 1455.47253702  1434.84075634 M -1587.7882222  2013.77952756 L 1587.7882222  2013.77952756 " id="D.gridline" />
+    </g>
+    <g id="document.shirt.cuff.reference" transform=" translate(261.161417, 8849.077477)">
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="0.0" r="5" id="E.e1" d="M 5,0 C 5,2.761 2.761,5 0,5 C -2.761,5 -5,2.761 -5,0 c 0,-2.761 2.239,-5 5,-5 c 2.761,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="E.e1.text" y="-7.0" x="7.0">
+e1</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="850.393700787" r="5" id="E.e2" d="m 855.4,0 c 0,2.761 -2.2,5 -5,5 c -2.8,0 -5,-2.239 -5,-5 c 0,-2.761 2.2,-5 5,-5 c 2.8,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="E.e2.text" y="-7.0" x="857.393700787">
+e2</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="-170.078740157" r="5" id="E.e3" d="m -165.1,0 c 0,2.761 -2.2,5 -5,5 c -2.7,0 -5,-2.239 -5,-5 c 0,-2.761 2.3,-5 5,-5 c 2.8,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="E.e3.text" y="-7.0" x="-163.078740157">
+e3</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="1020.47244094" r="5" id="E.e4" d="m 1025,0 c 0,2.761 -2,5 -5,5 c -2,0 -5,-2.239 -5,-5 c 0,-2.761 3,-5 5,-5 c 3,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="E.e4.text" y="-7.0" x="1027.47244094">
+e4</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="360.236220472" cx="-67.169842739" r="5" id="E.e5.outpoint" d="m -62.17,360.2 c 0,2.8 -2.24,5 -5,5 c -2.76,0 -5,-2.2 -5,-5 c 0,-2.7 2.24,-5 5,-5 c 2.76,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="E.e5.outpoint.text" y="353.236220472" x="-60.169842739">
+e5.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="360.236220472" cx="0.0" r="5" id="E.e5" d="m 5,360.2 c 0,2.8 -2.239,5 -5,5 c -2.761,0 -5,-2.2 -5,-5 c 0,-2.7 2.239,-5 5,-5 c 2.761,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="E.e5.text" y="353.236220472" x="7.0">
+e5</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="360.236220472" cx="917.563543526" r="5" id="E.e6.inpoint" d="m 922.6,360.2 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.7,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="E.e6.inpoint.text" y="353.236220472" x="924.563543526">
+e6.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="360.236220472" cx="850.393700787" r="5" id="E.e6" d="m 855.4,360.2 c 0,2.8 -2.2,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="E.e6.text" y="353.236220472" x="857.393700787">
+e6</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="319.33519707" cx="-170.078740157" r="5" id="E.e7.inpoint" d="m -165.1,319.3 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.7 2.3,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="E.e7.inpoint.text" y="312.33519707" x="-163.078740157">
+e7.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="252.165354331" cx="-170.078740157" r="5" id="E.e7" d="m -165.1,252.2 c 0,2.7 -2.2,5 -5,5 c -2.7,0 -5,-2.3 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="E.e7.text" y="245.165354331" x="-163.078740157">
+e7</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="319.33519707" cx="1020.47244094" r="5" id="E.e8.outpoint" d="m 1025,319.3 c 0,2.8 -2,5 -5,5 c -2,0 -5,-2.2 -5,-5 c 0,-2.7 3,-5 5,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="E.e8.outpoint.text" y="312.33519707" x="1027.47244094">
+e8.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="252.165354331" cx="1020.47244094" r="5" id="E.e8" d="m 1025,252.2 c 0,2.7 -2,5 -5,5 c -2,0 -5,-2.3 -5,-5 c 0,-2.8 3,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="E.e8.text" y="245.165354331" x="1027.47244094">
+e8</text>
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; " transform="" d="M -170.078740157  0.0 L -170.078740157  252.165354331 M 0.0  0.0 L 0.0  360.236220472 M 850.393700787  0.0 L 850.393700787  360.236220472 M 1020.47244094  0.0 L 1020.47244094  252.165354331 M -170.078740157  0.0 L 1020.47244094  0.0 M 0.0  360.236220472 L 850.393700787  360.236220472 " id="E.gridline" />
+    </g>
+    <g id="document.shirt.collarstand.reference" transform=" translate(91.082677, 9770.327477)">
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="0.0" r="5" id="F.f1" d="M 5,0 C 5,2.761 2.761,5 0,5 C -2.761,5 -5,2.761 -5,0 c 0,-2.761 2.239,-5 5,-5 c 2.761,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f1.text" y="-7.0" x="7.0">
+f1</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="1522.72713238" r="5" id="F.f2" d="m 1528,0 c 0,2.761 -3,5 -5,5 c -3,0 -5,-2.239 -5,-5 c 0,-2.761 2,-5 5,-5 c 2,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f2.text" y="-7.0" x="1529.72713238">
+f2</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="1620.16807726" r="5" id="F.f3" d="m 1625,0 c 0,2.761 -2,5 -5,5 c -3,0 -5,-2.239 -5,-5 c 0,-2.761 2,-5 5,-5 c 3,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f3.text" y="-7.0" x="1627.16807726">
+f3</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-1.45792104442" cx="761.3205543" r="5" id="F.f4.inpoint" d="m 766.3,-1.458 c 0,2.762 -2.2,5 -5,5 c -2.7,0 -5,-2.238 -5,-5 c 0,-2.761 2.3,-5 5,-5 c 2.8,0 5,2.239 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f4.inpoint.text" y="-8.45792104442" x="768.3205543">
+f4.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="0.486151991741" cx="1269.00017863" r="5" id="F.f4.outpoint" d="m 1274,0.4862 c 0,2.7618 -2,4.9998 -5,4.9998 c -3,0 -5,-2.238 -5,-4.9998 c 0,-2.7612 2,-5.0002 5,-5.0002 c 3,0 5,2.239 5,5.0002 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f4.outpoint.text" y="-6.51384800826" x="1276.00017863">
+f4.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="1142.04534929" r="5" id="F.f4" d="m 1147,0 c 0,2.761 -2,5 -5,5 c -3,0 -5,-2.239 -5,-5 c 0,-2.761 2,-5 5,-5 c 3,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f4.text" y="-7.0" x="1149.04534929">
+f4</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-354.330708661" cx="0.0" r="5" id="F.f5" d="m 5,-354.3 c 0,2.7 -2.239,5 -5,5 c -2.761,0 -5,-2.3 -5,-5 c 0,-2.8 2.239,-5 5,-5 c 2.761,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f5.text" y="-361.330708661" x="7.0">
+f5</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-177.165354331" cx="0.0" r="5" id="F.f6" d="m 5,-177.2 c 0,2.8 -2.239,5 -5,5 c -2.761,0 -5,-2.2 -5,-5 c 0,-2.7 2.239,-5 5,-5 c 2.761,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f6.text" y="-184.165354331" x="7.0">
+f6</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-177.165354331" cx="1522.72713238" r="5" id="F.f7" d="m 1528,-177.2 c 0,2.8 -3,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.7 2,-5 5,-5 c 2,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f7.text" y="-184.165354331" x="1529.72713238">
+f7</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-177.165354331" cx="1620.16807726" r="5" id="F.f8" d="m 1625,-177.2 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.7 2,-5 5,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f8.text" y="-184.165354331" x="1627.16807726">
+f8</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-177.165354331" cx="1584.7350064" r="5" id="F.f9" d="m 1590,-177.2 c 0,2.8 -3,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.7 2,-5 5,-5 c 2,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f9.text" y="-184.165354331" x="1591.7350064">
+f9</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-19.849831588" cx="1584.47837671" r="5" id="F.f10.inpoint" d="m 1589,-19.85 c 0,2.76 -2,5 -5,5 c -2,0 -5,-2.24 -5,-5 c 0,-2.76 3,-5 5,-5 c 3,0 5,2.24 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f10.inpoint.text" y="-26.849831588" x="1591.47837671">
+f10.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-26.0587384288" cx="1614.95632958" r="5" id="F.f10" d="m 1620,-26.06 c 0,2.76 -2,5 -5,5 c -3,0 -5,-2.24 -5,-5 c 0,-2.76 2,-5 5,-5 c 3,0 5,2.24 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f10.text" y="-33.0587384288" x="1621.95632958">
+f10</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-151.106615902" cx="1589.94675408" r="5" id="F.f11" d="m 1595,-151.1 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.8 2,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f11.text" y="-158.106615902" x="1596.94675408">
+f11</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-9.58764425762" cx="380.640796787" r="5" id="F.f12.outpoint" d="m 385.6,-9.588 c 0,2.762 -2.2,5 -5,5 c -2.7,0 -5,-2.238 -5,-5 c 0,-2.762 2.3,-5.002 5,-5.002 c 2.8,0 5,2.24 5,5.002 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f12.outpoint.text" y="-16.5876442576" x="387.640796787">
+f12.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-17.7165354331" cx="0.0" r="5" id="F.f12" d="m 5,-17.72 c 0,2.76 -2.239,5 -5,5 c -2.761,0 -5,-2.24 -5,-5 c 0,-2.76 2.239,-5 5,-5 c 2.761,0 5,2.24 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f12.text" y="-24.7165354331" x="7.0">
+f12</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-177.165354331" cx="1015.42610933" r="5" id="F.f13.inpoint" d="m 1020,-177.2 c 0,2.8 -2,5 -5,5 c -2,0 -5,-2.2 -5,-5 c 0,-2.7 3,-5 5,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f13.inpoint.text" y="-184.165354331" x="1022.42610933">
+f13.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-177.165354331" cx="761.36356619" r="5" id="F.f13" d="m 766.4,-177.2 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.7,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f13.text" y="-184.165354331" x="768.36356619">
+f13</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-137.09328537" cx="1548.44131188" r="5" id="F.f14.inpoint" d="m 1553,-137.1 c 0,2.8 -2,5 -5,5 c -2,0 -5,-2.2 -5,-5 c 0,-2.8 3,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f14.inpoint.text" y="-144.09328537" x="1555.44131188">
+f14.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-186.838601129" cx="1272.70074191" r="5" id="F.f14.outpoint" d="m 1278,-186.8 c 0,2.7 -3,5 -5,5 c -3,0 -5,-2.3 -5,-5 c 0,-2.8 2,-5 5,-5 c 2,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f14.outpoint.text" y="-193.838601129" x="1279.70074191">
+f14.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-141.732283465" cx="1522.72713238" r="5" id="F.f14" d="m 1528,-141.7 c 0,2.7 -3,5 -5,5 c -3,0 -5,-2.3 -5,-5 c 0,-2.8 2,-5 5,-5 c 2,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f14.text" y="-148.732283465" x="1529.72713238">
+f14</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-128.800616937" cx="1594.40795388" r="5" id="F.f15.outpoint" d="m 1599,-128.8 c 0,2.8 -2,5 -5,5 c -2,0 -5,-2.2 -5,-5 c 0,-2.8 3,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f15.outpoint.text" y="-135.800616937" x="1601.40795388">
+f15.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-116.36163133" cx="1596.895751" r="5" id="F.f15" d="m 1602,-116.4 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.7 2,-5 5,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f15.text" y="-123.36163133" x="1603.895751">
+f15</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-372.060348191" cx="1292.88892072" r="5" id="F.f16.inpoint" d="m 1298,-372.1 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.7 2,-5 5,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f16.inpoint.text" y="-379.060348191" x="1299.88892072">
+f16.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-389.763779528" cx="1558.16020325" r="5" id="F.f16" d="m 1563,-389.8 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.7 2,-5 5,-5 c 3,0 5,2.3 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f16.text" y="-396.763779528" x="1565.16020325">
+f16</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-354.330708661" cx="1027.22493009" r="5" id="F.f17.outpoint" d="m 1032,-354.3 c 0,2.7 -2,5 -5,5 c -3,0 -5,-2.3 -5,-5 c 0,-2.8 2,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f17.outpoint.text" y="-361.330708661" x="1034.22493009">
+f17.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-354.330708661" cx="761.36356619" r="5" id="F.f17" d="m 766.4,-354.3 c 0,2.7 -2.3,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.7,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f17.text" y="-361.330708661" x="768.36356619">
+f17</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-4.90048341146" cx="1395.96367377" r="5" id="F.f18.inpoint" d="m 1401,-4.9 c 0,2.761 -2,4.9995 -5,4.9995 c -3,0 -5,-2.2385 -5,-4.9995 c 0,-2.762 2,-5 5,-5 c 3,0 5,2.238 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f18.inpoint.text" y="-11.9004834115" x="1402.96367377">
+f18.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-13.5968303745" cx="1553.78397572" r="5" id="F.f18.outpoint" d="m 1559,-13.6 c 0,2.76 -2,5.003 -5,5.003 c -3,0 -5,-2.243 -5,-5.003 c 0,-2.76 2,-5 5,-5 c 3,0 5,2.24 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f18.outpoint.text" y="-20.5968303745" x="1560.78397572">
+f18.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-11.8855100823" cx="1522.72713238" r="5" id="F.f18" d="m 1528,-11.89 c 0,2.766 -3,5.004 -5,5.004 c -3,0 -5,-2.238 -5,-5.004 c 0,-2.76 2,-5 5,-5 c 2,0 5,2.24 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="F.f18.text" y="-18.8855100823" x="1529.72713238">
+f18</text>
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; " transform="" d="M 0.0  -354.330708661 L 0.0  0.0 M 1522.72713238  -177.165354331 L 1522.72713238  0.0 M 1620.16807726  -177.165354331 L 1620.16807726  0.0 M 0.0  -17.7165354331 L 1142.04534929  0.0 L 1522.72713238  -11.8855100823 L 1614.95632958  -26.0587384288 M 1620.16807726  0.0 L 1584.7350064  -177.165354331 M 1596.895751  -116.36163133 L 1522.72713238  -141.732283465 L 761.36356619  -177.165354331 M 761.36356619  -354.330708661 L 1558.16020325  -389.763779528 L 1522.72713238  -141.732283465 M 0.0  -354.330708661 L 761.36356619  -354.330708661 M 0.0  -177.165354331 L 1620.16807726  -177.165354331 M 0.0  0.0 L 1620.16807726  0.0 " id="F.gridline" />
+    </g>
+    <g id="document.shirt.collar.reference" transform=" translate(88.582677, 10329.327409)" />
+  </g>
+</svg>

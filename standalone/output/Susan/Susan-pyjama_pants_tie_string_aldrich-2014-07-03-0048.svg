@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" patternNumber="pyjama_pants_tie_waist_aldrich" fitBoxtoViewport="True" companyName="Seamly Patterns" currentscale="0.5:1" margin-right="88.5826771654" client-name="DressFormLg" designerName="Winifred. P. Aldrich" height="4711.60543307" width="894.527559331" margin-top="88.5826771654" version="1.1" margin-bottom="88.5826771654" margin-left="88.5826771654" preserveAspectRatio="xMidYMid meet" id="svg2" inkscape:version="0.48.4 r9939" sodipodi:docname="Susan-pyjama_pants_tie_string_aldrich-2014-07-03-0048.svg">
+  <metadata id="metadata64">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.18804631" inkscape:document-units="pt" showgrid="false" inkscape:window-maximized="1" inkscape:cx="447.26379" inkscape:cy="2355.8027" inkscape:window-width="1855" inkscape:window-height="1056" inkscape:window-x="65" inkscape:window-y="24" inkscape:current-layer="pattern" />
+  <defs id="defs5">
+    <marker style="overflow:visible" id="Arrow1Mstart" refX="0.0" refY="0.0" orient="auto" inkscape:stockid="Arrow1Mstart">
+      <path transform="scale(0.4) translate(10,0)" style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " id="path8" />
+    </marker>
+    <marker style="overflow:visible;" id="Arrow1Mend" refX="0.0" refY="0.0" orient="auto" inkscape:stockid="Arrow1Mend">
+      <path transform="scale(0.4) rotate(180) translate(10,0)" style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " id="path11" />
+    </marker>
+  </defs>
+  <g inkscape:label="Label-pattern" id="pattern" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.pants.Pants.pattern" transform=" translate(661.112205, 438.820000)">
+      <g id="A.letter" transform="matrix(10.000000, 0, 0, 10.000000, 2710.629921, -8131.889764)">
+        <text style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.letter.letterline" y="903.543307087" x="-301.181102362">
+A</text>
+      </g>
+      <line style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " y2="3614.17322835" marker-end="url(#Arrow1Mend)" marker-start="url(#Arrow1Mstart)" transform="" x2="-301.181102362" y1="1488.18897638" x1="-301.181102362" id="A.grainline" />
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; " transform="" d="M -602.362204724  0 L 0  0 L -88.5826771654  4039.37007874 L -460.62992126  4039.37007874 L -602.362204724  2409.4488189 L -578.74015748  1204.72440945 L -602.362204724  903.543307087 M -602.362204724  0 " id="A.seamline" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="M -658.625,0 C -658.56885,302.23721 -658.7373,604.4839 -658.54079,906.7152 -650.77821,1007.1857 -642.52603,1107.6435 -635.10169,1208.1246 -642.89544,1609.5281 -650.98313,2010.9431 -658.59319,2412.3393 -609.76059,2973.4317 -560.99613,3534.5304 -512.1875,4095.625 -352.64583,4095.625 -193.10417,4095.625 -33.5625,4095.625 -3.1882778,2711.6671 27.162765,1327.7087 57.5,-56.25 -181.20833,-56.25 -419.91667,-56.25 -658.625,-56.25 -658.625,-37.5 -658.625,-18.75 -658.625,0 z" id="A.cuttingline" inkscape:connector-curvature="0" />
+      <g id="A.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineSeamly Patterns" y="1204.72440945" x="-301.181102362">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineDesigner:Winifred. P. Aldrich" y="1219.12440945" x="-301.181102362">
+Designer:Winifred. P. Aldrich</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineClient:DressFormLg" y="1233.52440945" x="-301.181102362">
+Client:DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.linepyjama_pants_tie_waist_aldrich" y="1247.92440945" x="-301.181102362">
+pyjama_pants_tie_waist_aldrich</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.linePattern Piece A" y="1262.32440945" x="-301.181102362">
+Pattern Piece A</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineCut 2 Fabric" y="1276.72440945" x="-301.181102362">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+  </g>
+  <g inkscape:label="Label-notes" id="notes" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.titleblock">
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="company" y="0.0" x="0.0">
+Seamly Patterns</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="designer" y="44.0" x="0.0">
+Winifred. P. Aldrich</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="pattern_number" y="88.0" x="0.0">
+pyjama_pants_tie_waist_aldrich</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="pattern_name" y="132.0" x="0.0">
+pyjama_pants_tie_waist</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="client" y="176.0" x="0.0">
+DressFormLg</text>
+    </g>
+    <g id="document.testgrid">
+      <path style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " d="M 1320.0  0.0 L 1320.0  212.598425197 M 1355.43307087  0.0 L 1355.43307087  212.598425197 M 1390.86614173  0.0 L 1390.86614173  212.598425197 M 1426.2992126  0.0 L 1426.2992126  212.598425197 M 1461.73228346  0.0 L 1461.73228346  212.598425197 M 1497.16535433  0.0 L 1497.16535433  212.598425197 M 1532.5984252  0.0 L 1532.5984252  212.598425197 M 1320.0  0.0 L 1532.5984252  0.0 M 1320.0  35.4330708661 L 1532.5984252  35.4330708661 M 1320.0  70.8661417323 L 1532.5984252  70.8661417323 M 1320.0  106.299212598 L 1532.5984252  106.299212598 M 1320.0  141.732283465 L 1532.5984252  141.732283465 M 1320.0  177.165354331 L 1532.5984252  177.165354331 M 1320.0  212.598425197 L 1532.5984252  212.598425197 M 1709.76377953  0.0 L 1709.76377953  270.0 M 1799.76377953  0.0 L 1799.76377953  270.0 M 1889.76377953  0.0 L 1889.76377953  270.0 M 1979.76377953  0.0 L 1979.76377953  270.0 M 1709.76377953  0.0 L 1979.76377953  0.0 M 1709.76377953  90.0 L 1979.76377953  90.0 M 1709.76377953  180.0 L 1979.76377953  180.0 M 1709.76377953  270.0 L 1979.76377953  270.0 " id="testgrid" />
+    </g>
+    <g id="document.pants.Pants.notes" transform=" translate(661.112205, 438.820000)" />
+  </g>
+  <g inkscape:label="Label-reference" id="reference" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.pants.Pants.reference" transform=" translate(661.112205, 438.820000)">
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0" cx="0" r="5" id="A.a0" d="M 5,0 C 5,2.7614237 2.7614237,5 0,5 -2.7614237,5 -5,2.7614237 -5,0 -5,-2.7614237 -2.7614237,-5 0,-5 2.7614237,-5 5,-2.7614237 5,0 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a0.text" y="-7" x="7">
+a0</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1204.72440945" cx="0" r="5" id="A.a1" d="M 5,1204.7244 C 5,1207.4858 2.7614237,1209.7244 0,1209.7244 -2.7614237,1209.7244 -5,1207.4858 -5,1204.7244 -5,1201.9629 -2.7614237,1199.7244 0,1199.7244 2.7614237,1199.7244 5,1201.9629 5,1204.7244 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a1.text" y="1197.72440945" x="7">
+a1</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="4039.37007874" cx="0" r="5" id="A.a2" d="M 5,4039.3701 C 5,4042.1315 2.7614237,4044.3701 0,4044.3701 -2.7614237,4044.3701 -5,4042.1315 -5,4039.3701 -5,4036.6087 -2.7614237,4034.3701 0,4034.3701 2.7614237,4034.3701 5,4036.6087 5,4039.3701 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a2.text" y="4032.37007874" x="7">
+a2</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2409.4488189" cx="0" r="5" id="A.a3" d="M 5,2409.4487 C 5,2412.2102 2.7614237,2414.4487 0,2414.4487 -2.7614237,2414.4487 -5,2412.2102 -5,2409.4487 -5,2406.6873 -2.7614237,2404.4487 0,2404.4487 2.7614237,2404.4487 5,2406.6873 5,2409.4487 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a3.text" y="2402.4488189" x="7">
+a3</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1204.72440945" cx="-602.362204724" r="5" id="A.a4" d="M -597.36218,1204.7244 C -597.36218,1207.4858 -599.60076,1209.7244 -602.36218,1209.7244 -605.12361,1209.7244 -607.36218,1207.4858 -607.36218,1204.7244 -607.36218,1201.9629 -605.12361,1199.7244 -602.36218,1199.7244 -599.60076,1199.7244 -597.36218,1201.9629 -597.36218,1204.7244 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a4.text" y="1197.72440945" x="-595.362204724">
+a4</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0" cx="-602.362204724" r="5" id="A.a5" d="M -597.36218,0 C -597.36218,2.7614237 -599.60076,5 -602.36218,5 -605.12361,5 -607.36218,2.7614237 -607.36218,0 -607.36218,-2.7614237 -605.12361,-5 -602.36218,-5 -599.60076,-5 -597.36218,-2.7614237 -597.36218,0 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a5.text" y="-7" x="-595.362204724">
+a5</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2409.4488189" cx="-602.362204724" r="5" id="A.a6" d="M -597.36218,2409.4487 C -597.36218,2412.2102 -599.60076,2414.4487 -602.36218,2414.4487 -605.12361,2414.4487 -607.36218,2412.2102 -607.36218,2409.4487 -607.36218,2406.6873 -605.12361,2404.4487 -602.36218,2404.4487 -599.60076,2404.4487 -597.36218,2406.6873 -597.36218,2409.4487 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a6.text" y="2402.4488189" x="-595.362204724">
+a6</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="4039.37007874" cx="-602.362204724" r="5" id="A.a7" d="M -597.36218,4039.3701 C -597.36218,4042.1315 -599.60076,4044.3701 -602.36218,4044.3701 -605.12361,4044.3701 -607.36218,4042.1315 -607.36218,4039.3701 -607.36218,4036.6087 -605.12361,4034.3701 -602.36218,4034.3701 -599.60076,4034.3701 -597.36218,4036.6087 -597.36218,4039.3701 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a7.text" y="4032.37007874" x="-595.362204724">
+a7</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="903.543307087" cx="-602.362204724" r="5" id="A.a8" d="M -597.36218,903.54333 C -597.36218,906.30476 -599.60076,908.54333 -602.36218,908.54333 -605.12361,908.54333 -607.36218,906.30476 -607.36218,903.54333 -607.36218,900.78191 -605.12361,898.54333 -602.36218,898.54333 -599.60076,898.54333 -597.36218,900.78191 -597.36218,903.54333 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a8.text" y="896.543307087" x="-595.362204724">
+a8</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1204.72440945" cx="-578.74015748" r="5" id="A.a9" d="M -573.74017,1204.7244 C -573.74017,1207.4858 -575.97875,1209.7244 -578.74017,1209.7244 -581.5016,1209.7244 -583.74017,1207.4858 -583.74017,1204.7244 -583.74017,1201.9629 -581.5016,1199.7244 -578.74017,1199.7244 -575.97875,1199.7244 -573.74017,1201.9629 -573.74017,1204.7244 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a9.text" y="1197.72440945" x="-571.74015748">
+a9</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="4039.37007874" cx="-460.62992126" r="5" id="A.a10" d="M -455.62991,4039.3701 C -455.62991,4042.1315 -457.86849,4044.3701 -460.62991,4044.3701 -463.39134,4044.3701 -465.62991,4042.1315 -465.62991,4039.3701 -465.62991,4036.6087 -463.39134,4034.3701 -460.62991,4034.3701 -457.86849,4034.3701 -455.62991,4036.6087 -455.62991,4039.3701 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a10.text" y="4032.37007874" x="-453.62992126">
+a10</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="4039.37007874" cx="-88.5826771654" r="5" id="A.a18" d="M -83.58268,4039.3701 C -83.58268,4042.1315 -85.821256,4044.3701 -88.58268,4044.3701 -91.344103,4044.3701 -93.58268,4042.1315 -93.58268,4039.3701 -93.58268,4036.6087 -91.344103,4034.3701 -88.58268,4034.3701 -85.821256,4034.3701 -83.58268,4036.6087 -83.58268,4039.3701 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.a18.text" y="4032.37007874" x="-81.5826771654">
+a18</text>
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; " transform="" d="M -602.362204724  0 L 0  0 L 0  4039.37007874 L -602.362204724  4039.37007874 L -602.362204724  0 M -578.74015748  1204.72440945 L 0  1204.72440945 M -602.362204724  2409.4488189 L 0  2409.4488189 " id="A.gridline" />
+    </g>
+  </g>
+</svg>

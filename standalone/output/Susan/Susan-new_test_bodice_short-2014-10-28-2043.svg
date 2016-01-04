@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" patternNumber="MR_B1" fitBoxtoViewport="True" companyName="Epic Patterns" currentscale="0.5:1" margin-right="88.5826771654" client-name="DressFormLg" designerName="S.L.Spencer" height="2231.29047264" width="1511.07869017" margin-top="88.5826771654" version="1.1" margin-bottom="88.5826771654" margin-left="88.5826771654" preserveAspectRatio="xMidYMid meet" id="svg2" inkscape:version="0.48.4 r9939" sodipodi:docname="Susan-new_test_bodice_short-2014-10-28-2043.svg">
+  <metadata id="metadata99">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.9967" inkscape:document-units="pt" showgrid="false" inkscape:window-maximized="1" inkscape:cx="755.5" inkscape:cy="1792" inkscape:window-width="1855" inkscape:window-height="1056" inkscape:window-x="65" inkscape:window-y="24" inkscape:current-layer="pattern" />
+  <defs id="defs5">
+    <marker style="overflow:visible" id="Arrow1Mstart" refX="0.0" refY="0.0" orient="auto" inkscape:stockid="Arrow1Mstart">
+      <path transform="scale(0.4) translate(10,0)" style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " id="path8" />
+    </marker>
+    <marker style="overflow:visible;" id="Arrow1Mend" refX="0.0" refY="0.0" orient="auto" inkscape:stockid="Arrow1Mend">
+      <path transform="scale(0.4) rotate(180) translate(10,0)" style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " id="path11" />
+    </marker>
+  </defs>
+  <g inkscape:label="Label-pattern" id="pattern" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.bodice.Bodice Front.pattern" transform=" translate(58.750000, 757.717638)">
+      <g id="A.letter" transform="matrix(10.000000, 0, 0, 10.000000, -3228.838583, -1030.039370)">
+        <text style="font-size:24px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="A.letter.letterline" y="123.27832" x="358.55917">A</text>
+      </g>
+      <line style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " y2="1089.56692913" marker-end="url(#Arrow1Mend)" marker-start="url(#Arrow1Mstart)" transform="" x2="133.455818164" y1="159.448818898" x1="133.455818164" id="A.grainline" />
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:3; fill:none; " transform="" d="M 354.330708661  1240.15748031 L 354.330708661  710.078740157 L 695.658329837  1134.11742974 " id="A.dartline" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:24, 6;stroke-dashoffset:0" d="M 0,0 L 0,620.1 L 0,1240 l 354.3,0 l 189.3,-1 L 695.7,1134 C 836.8,1020 1047,1023 1219,967.3 L 1021,360.8 C 902.1,399.7 772.5,390.5 712.4,306.2 C 611,163.9 701,-145.6 717.5,-223.3 L 266.9,-318.9 C 216.3,-167.7 160.1,0 0,0" id="A.seamline" inkscape:connector-curvature="0" sodipodi:nodetypes="ccccccccsccc" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="m 213.6,-336.7 c -23.1,67.5 -44.6,136.5 -82.4,197.5 c -21.6,34.1 -51.28,66.42 -91.36,77.64 c -14.58,4.26 -28.06,4.33 -40.871,4.46 L 0.4101,1296 c 12.8699,0 7.6729,0 20.5399,0 c 25.73,0 51.47,0 77.2,0 c 51.45,0 102.95,0 154.35,0 c 103,0 205.9,0 308.8,-1 c 57,-39 114.4,-78 171.1,-118 c 59.4,-47 133,-71 205.6,-88 c 103,-25 210,-38 311,-72 c 14,-5 27,-9 41,-13 C 1212,765.8 1135,527.9 1058,290 c -43,13.6 -85.8,29.8 -130.7,34.3 c -44.8,5 -92.6,2.9 -133,-19 C 769,292 751.1,267.8 741,241.3 C 720.6,188.1 719.6,129.7 722.3,73.53 c 5.5,-94.73 27.1,-187.73 49.1,-279.83 c 4.4,-20.1 8.9,-40.2 13.3,-60.3 C 599.6,-305.9 414.6,-345.1 229.5,-384.3 c -5.3,15.8 -10.6,31.7 -15.9,47.6 z" id="A.cuttingline" inkscape:connector-curvature="0" sodipodi:nodetypes="cccccssscccccccccccccc" />
+      <g id="A.info" transform="">
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="A.info.lineEpic Patterns" y="281.85776" x="362.77325">Seamly Patterns</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="A.info.lineDesigner:S.L.Spencer" y="296.25775" x="362.77325">Designer:S.L.Spencer</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="A.info.lineClient:DressFormLg" y="310.65775" x="362.77325">Client:DressFormLg</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="A.info.lineMR_B1" y="325.05774" x="362.77325">MR_B1</text>
+      </g>
+    </g>
+    <text style="font-size:18px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;-inkscape-font-specification:Sans;font-family:Sans;font-stretch:normal;font-variant:normal;writing-mode:lr;line-height:125%" id="A.info.linePattern Piece A" y="1001.1771" x="418.59918" sodipodi:linespacing="125%">Pattern Piece A</text>
+    <text style="font-size:18px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;-inkscape-font-specification:Sans;font-family:Sans;font-stretch:normal;font-variant:normal;writing-mode:lr;line-height:125%" id="A.info.lineCut 2 Fabric" y="1015.577" x="418.59918" sodipodi:linespacing="125%">Cut 2 Fabric</text>
+  </g>
+  <g inkscape:label="Label-notes" id="notes" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.titleblock">
+      <text style="font-size:40px;font-style:normal;font-weight:normal;text-align:right;fill:#000000;fill-opacity:1;stroke:none" id="company" y="0" x="0">Seamly Patterns</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="designer" y="44.0" x="0.0">
+S.L.Spencer</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="pattern_number" y="88.0" x="0.0">
+MR_B1</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="pattern_name" y="132.0" x="0.0">
+New Bodice - Short</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="client" y="176.0" x="0.0">
+DressFormLg</text>
+    </g>
+    <g id="document.testgrid" transform="translate(-812.7,-29.1)">
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="m 1320,0 l 0,212.6 M 1355,0 l 0,212.6 M 1391,0 l 0,212.6 M 1426,0 l 0,212.6 M 1462,0 l 0,212.6 M 1497,0 l 0,212.6 M 1533,0 l 0,212.6 M 1320,0 l 213,0 m -213,35.43 l 213,0 m -213,35.44 l 213,0 m -213,35.43 l 213,0 m -213,35.4 l 213,0 m -213,35.5 l 213,0 m -213,35.4 l 213,0 M 1710,0 l 0,270 M 1800,0 l 0,270 M 1890,0 l 0,270 M 1980,0 l 0,270 M 1710,0 l 270,0 m -270,90 l 270,0 m -270,90 l 270,0 m -270,90 l 270,0" id="testgrid" inkscape:connector-curvature="0" />
+    </g>
+    <g id="document.bodice.Bodice Front.notes" transform=" translate(58.750000, 757.717638)" />
+  </g>
+  <g inkscape:label="Label-reference" id="reference" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.bodice.Bodice Front.reference" transform=" translate(58.750000, 757.717638)">
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="0.0" cx="160.146981797" r="5" id="A.FNC.inpoint" d="m 165.1,0 c 0,2.761 -2.2,5 -5,5 c -2.7,0 -5,-2.239 -5,-5 c 0,-2.761 2.3,-5 5,-5 c 2.8,0 5,2.239 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FNC.inpoint.text" y="-7.0" x="167.146981797">
+FNC.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="0.0" r="5" id="A.FNC" d="M 5,0 C 5,2.761 2.761,5 0,5 C -2.761,5 -5,2.761 -5,0 c 0,-2.761 2.239,-5 5,-5 c 2.761,0 5,2.239 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FNC.text" y="-7.0" x="7.0">
+FNC</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1240.15748031" cx="0.0" r="5" id="A.FWC" d="m 5,1240 c 0,3 -2.239,5 -5,5 c -2.761,0 -5,-2 -5,-5 c 0,-3 2.239,-5 5,-5 c 2.761,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FWC.text" y="1233.15748031" x="7.0">
+FWC</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-318.897637795" cx="0.0" r="5" id="A.FSH" d="m 5,-318.9 c 0,2.8 -2.239,5 -5,5 c -2.761,0 -5,-2.2 -5,-5 c 0,-2.8 2.239,-5 5,-5 c 2.761,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FSH.text" y="-325.897637795" x="7.0">
+FSH</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-318.897637795" cx="717.519685039" r="5" id="A.FSW" d="m 722.5,-318.9 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FSW.text" y="-325.897637795" x="724.519685039">
+FSW</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-145.635675105" cx="701.041631073" r="5" id="A.FSP.inpoint" d="m 706,-145.6 c 0,2.7 -2.2,5 -5,5 c -2.7,0 -5,-2.3 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FSP.inpoint.text" y="-152.635675105" x="708.041631073">
+FSP.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-223.334513127" cx="717.519685039" r="5" id="A.FSP" d="m 722.5,-223.3 c 0,2.7 -2.2,5 -5,5 c -2.7,0 -5,-2.3 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FSP.text" y="-230.334513127" x="724.519685039">
+FSP</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-167.697541306" cx="216.290922489" r="5" id="A.FNS.outpoint" d="m 221.3,-167.7 c 0,2.8 -2.2,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FNS.outpoint.text" y="-174.697541306" x="223.290922489">
+FNS.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-318.897637795" cx="266.911636328" r="5" id="A.FNS" d="m 271.9,-318.9 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FNS.text" y="-325.897637795" x="273.911636328">
+FNS</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="318.897637795" cx="0.0" r="5" id="A.FUC" d="m 5,318.9 c 0,2.8 -2.239,5 -5,5 c -2.761,0 -5,-2.2 -5,-5 c 0,-2.8 2.239,-5 5,-5 c 2.761,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FUC.text" y="311.897637795" x="7.0">
+FUC</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="637.795275591" cx="0.0" r="5" id="A.FBC" d="m 5,637.8 c 0,2.8 -2.239,5 -5,5 c -2.761,0 -5,-2.2 -5,-5 c 0,-2.8 2.239,-5 5,-5 c 2.761,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FBC.text" y="630.795275591" x="7.0">
+FBC</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="637.795275591" cx="354.330708661" r="5" id="A.FBP" d="m 359.3,637.8 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FBP.text" y="630.795275591" x="361.330708661">
+FBP</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="637.795275591" cx="992.125984252" r="5" id="A.t_fbs_1" d="m 997.1,637.8 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.t_fbs_1.text" y="630.795275591" x="999.125984252">
+t_fbs_1</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="318.897637795" cx="673.228346457" r="5" id="A.t_fap" d="m 678.2,318.9 c 0,2.8 -2.2,5 -5,5 c -2.7,0 -5,-2.2 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.t_fap.text" y="311.897637795" x="680.228346457">
+t_fap</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="318.897637795" cx="921.25984252" r="5" id="A.t_fus_1" d="m 926.3,318.9 c 0,2.8 -2.3,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.7,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.t_fus_1.text" y="311.897637795" x="928.25984252">
+t_fus_1</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="440.379318512" cx="960.803917844" r="5" id="A.t_fbs_2" d="m 965.8,440.4 c 0,2.7 -2.2,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.t_fbs_2.text" y="433.379318512" x="967.803917844">
+t_fbs_2</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="414.890724943" cx="1039.10634774" r="5" id="A.FBS" d="m 1044,414.9 c 0,2.8 -2,5 -5,5 c -3,0 -5,-2.2 -5,-5 c 0,-2.8 2,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FBS.text" y="407.890724943" x="1046.10634774">
+FBS</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="293.409044226" cx="999.562272416" r="5" id="A.t_fus_2" d="m 1005,293.4 c 0,2.8 -3,5 -5.4,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.4,0 5.4,2.2 5.4,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.t_fus_2.text" y="286.409044226" x="1006.56227242">
+t_fus_2</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="399.660629397" cx="902.099788999" r="5" id="A.FUS.outpoint" d="m 907.1,399.7 c 0,2.7 -2.2,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FUS.outpoint.text" y="392.660629397" x="909.099788999">
+FUS.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="360.794956357" cx="1021.49737876" r="5" id="A.FUS" d="m 1026,360.8 c 0,2.8 -2,5 -5,5 c -2,0 -5,-2.2 -5,-5 c 0,-2.8 3,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FUS.text" y="353.794956357" x="1028.49737876">
+FUS</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="390.511852707" cx="772.501075397" r="5" id="A.FAP.inpoint" d="m 777.5,390.5 c 0,2.8 -2.2,5 -5,5 c -2.8,0 -5,-2.2 -5,-5 c 0,-2.7 2.2,-5 5,-5 c 2.8,0 5,2.3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FAP.inpoint.text" y="383.511852707" x="779.501075397">
+FAP.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="163.854904413" cx="610.964810541" r="5" id="A.FAP.outpoint" d="m 616,163.9 c 0,2.7 -2.3,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.7,0 5,2.2 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FAP.outpoint.text" y="156.854904413" x="617.964810541">
+FAP.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="306.153341011" cx="712.379561405" r="5" id="A.FAP" d="m 717.4,306.2 c 0,2.7 -2.3,5 -5,5 c -2.8,0 -5,-2.3 -5,-5 c 0,-2.8 2.2,-5 5,-5 c 2.7,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FAP.text" y="299.153341011" x="719.379561405">
+FAP</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1023.36720001" cx="1046.57386556" r="5" id="A.FWS.inpoint" d="m 1052,1023 c 0,3 -3,5 -5,5 c -3,0 -5,-2 -5,-5 c 0,-2 2,-5 5,-5 c 2,0 5,3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FWS.inpoint.text" y="1016.36720001" x="1053.57386556">
+FWS.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="967.26816554" cx="1218.91333584" r="5" id="A.FWS" d="m 1224,967.3 c 0,2.7 -2,5 -5,5 c -3,0 -5,-2.3 -5,-5 c 0,-2.8 2,-5 5,-5 c 3,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FWS.text" y="960.26816554" x="1225.91333584">
+FWS</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="710.078740157" cx="354.330708661" r="5" id="A.FD1" d="m 359.3,710.1 c 0,2.7 -2.2,5 -5,5 c -2.7,0 -5,-2.3 -5,-5 c 0,-2.8 2.3,-5 5,-5 c 2.8,0 5,2.2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FD1.text" y="703.078740157" x="361.330708661">
+FD1</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1240.15748031" cx="354.330708661" r="5" id="A.FD1.i" d="m 359.3,1240 c 0,3 -2.2,5 -5,5 c -2.7,0 -5,-2 -5,-5 c 0,-3 2.3,-5 5,-5 c 2.8,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FD1.i.text" y="1233.15748031" x="361.330708661">
+FD1.i</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1020.47245099" cx="836.841946049" r="5" id="A.FD1.o.outpoint" d="m 841.8,1020 c 0,3 -2.2,5 -5,5 c -2.7,0 -5,-2 -5,-5 c 0,-2 2.3,-5 5,-5 c 2.8,0 5,3 5,5 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FD1.o.outpoint.text" y="1013.47245099" x="843.841946049">
+FD1.o.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1134.11742974" cx="695.658329837" r="5" id="A.FD1.o" d="m 700.7,1134 c 0,3 -2.3,5 -5,5 c -2.8,0 -5,-2 -5,-5 c 0,-3 2.2,-5 5,-5 c 2.7,0 5,2 5,5 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.FD1.o.text" y="1127.11742974" x="702.658329837">
+FD1.o</text>
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; " transform="" d="M 0.0  1240.15748031 L 717.519685039  -223.334513127 L 717.519685039  -318.897637795 L 0.0  -318.897637795 L 0.0  0.0 M 0.0  637.795275591 L 354.330708661  637.795275591 L 1039.10634774  414.890724943 M 0.0  318.897637795 L 921.25984252  318.897637795 L 999.562272416  293.409044226 L 1039.10634774  414.890724943 M 673.228346457  318.897637795 L 712.379561405  306.153341011 " id="A.gridline" />
+    </g>
+  </g>
+</svg>

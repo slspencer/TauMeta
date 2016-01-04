@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" patternNumber="C_KH_Xaldin" fitBoxtoViewport="True" companyName="Seamly Patterns" currentscale="0.5:1" margin-right="88.5826771654" client-name="DressFormLg" designerName="S.L.Spencer" height="6774.95268533" width="3855.63086044" margin-top="88.5826771654" version="1.1" margin-bottom="88.5826771654" margin-left="88.5826771654" preserveAspectRatio="xMidYMid meet" id="svg2" inkscape:version="0.48.4 r9939" sodipodi:docname="xalden_robe_new.svg">
+  <metadata id="metadata191">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.13077582" inkscape:document-units="pt" showgrid="false" inkscape:window-maximized="1" inkscape:cx="1927.8154" inkscape:cy="3387.4763" inkscape:window-width="1855" inkscape:window-height="1056" inkscape:window-x="65" inkscape:window-y="24" inkscape:current-layer="pattern" />
+  <defs id="defs5">
+    <marker style="overflow:visible" id="Arrow1Mstart" refX="0.0" refY="0.0" orient="auto" inkscape:stockid="Arrow1Mstart">
+      <path transform="scale(0.4) translate(10,0)" style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " id="path8" />
+    </marker>
+    <marker style="overflow:visible;" id="Arrow1Mend" refX="0.0" refY="0.0" orient="auto" inkscape:stockid="Arrow1Mend">
+      <path transform="scale(0.4) rotate(180) translate(10,0)" style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " id="path11" />
+    </marker>
+  </defs>
+  <g inkscape:label="Label-pattern" id="pattern" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.coat.Back.pattern" transform=" translate(56.250000, 436.320000)">
+      <g id="A.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineSeamly Patterns" y="0" x="0">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineDesigner:S.L.Spencer" y="14.4" x="0">
+Designer:S.L.Spencer</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineClient:DressFormLg" y="28.8" x="0">
+Client:DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineC_KH_Xaldin" y="43.2" x="0">
+C_KH_Xaldin</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.linePattern Piece A" y="57.6" x="0">
+Pattern Piece A</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineCut 2 Fabric" y="72.0" x="0">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+    <g id="document.coat.Lower Front.pattern" transform=" translate(1332.575805, 580.552283)">
+      <g id="B.letter" transform="matrix(10.000000, 0, 0, 10.000000, -2750.492126, -5374.410847)">
+        <text style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.letter.letterline" y="597.156760777" x="305.61023622">
+B</text>
+      </g>
+      <line style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " y2="3414.73317023" marker-end="url(#Arrow1Mend)" marker-start="url(#Arrow1Mstart)" transform="" x2="142.235487856" y1="624.156760777" x1="142.235487856" id="B.grainline" />
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; " transform="" d="M 0.0  0.0 L 0.0  1346.45669291 C 0.0  1466.16301341  -175.359679686  2000.9079271  -206.341955249  2116.53535364 L -1105.07580478  5470.65574256 C -136.925152575  5792.23504723  1333.44384253  5697.96856264  2289.63970111  5342.41488934 L 1100.33826308  1993.15144875 C 1028.37049934  1790.4786929  829.321411985  1437.75894607  829.321411985  1330.22336476 C 829.321411985  1236.80594815  914.933235803  902.499485672  930.118110236  716.282745029 C 839.518963684  708.894920179  680.212509315  706.532986307  641.781496063  624.156760777 C 556.034724943  440.360010223  777.481221333  171.022489735  819.867317637  -27.3135208934 L 284.470975712  -141.732283465 C 275.262684904  -119.978927485  142.235487856  0.0  0.0  0.0 " id="B.seamline" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="M 235.0625,-168.71875 C 210.19771,-141.72644 179.67218,-120.5794 148.25881,-101.93778 100.2038,-74.217634 45.595437,-54.323909 -10.530795,-56.154659 -25.77053,-56.009356 -41.010265,-55.864053 -56.25,-55.71875 -56.29167,412.71853 -56.16666,881.15759 -56.3125,1349.5938 -59.400016,1391.7432 -69.732813,1432.7831 -79.165927,1473.8309 -113.4084,1613.7364 -155.47762,1751.4356 -196.98859,1889.3132 -223.40137,1977.036 -251.58028,2064.3709 -274.40468,2153.1629 -573.98888,3271.2439 -873.57033,4389.3257 -1173.1562,5507.4062 -1089.6081,5535.6271 -1005.396,5561.8841 -919.9375,5583.6875 -665.02002,5649.6011 -403.32822,5687.3359 -140.9375,5707.25 224.77676,5734.3756 592.83912,5726.6928 957.65625,5690.5938 1279.1362,5658.2685 1598.6512,5603.8254 1911.0312,5520.875 2057.8418,5481.8514 2202.721,5435.8532 2344.7884,5381.952 2349.6714,5379.3916 2358.1102,5378.4938 2360.8529,5374.9326 1957.0881,4237.9417 1553.4376,3100.8842 1149.5938,1963.9375 1111.5698,1861.964 1063.975,1763.967 1018.2288,1665.3293 978.94242,1580.4655 938.06575,1496.0236 905.75,1408.1875 897.12497,1382.7655 887.40484,1357.1416 885.5625,1330.125 887.13573,1289.7103 895.23991,1249.8913 902.04018,1210.0803 928.82605,1063.2147 962.28109,917.54526 981.1875,769.3125 985.53578,734.53714 987.86937,699.56213 990.96875,664.65625 936.75367,659.82203 882.62556,657.37817 828.61473,651.3646 790.41021,646.33901 750.9254,640.68364 716.37584,622.38936 704.06115,615.94148 693.0485,605.76938 689.15625,591.9375 672.38112,548.40413 677.83671,500.13462 688.4375,455.75 708.70311,375.2155 745.81511,300.21799 780.89203,225.13848 815.97734,150.03459 853.07479,74.831705 872.75848,-6.1613412 877.57869,-27.584822 882.28383,-49.035428 887.0625,-70.46875 675.91534,-115.57713 464.77403,-160.71288 253.625,-205.8125 247.4375,-193.44792 241.25,-181.08333 235.0625,-168.71875 z" id="B.cuttingline" inkscape:connector-curvature="0" />
+      <g id="B.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.lineSeamly Patterns" y="716.282745029" x="305.61023622">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.lineDesigner:S.L.Spencer" y="730.682745029" x="305.61023622">
+Designer:S.L.Spencer</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.lineClient:DressFormLg" y="745.082745029" x="305.61023622">
+Client:DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.lineC_KH_Xaldin" y="759.482745029" x="305.61023622">
+C_KH_Xaldin</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.linePattern Piece B" y="773.882745029" x="305.61023622">
+Pattern Piece B</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="B.info.lineCut 2 Fabric" y="788.282745029" x="305.61023622">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+    <g id="document.coat.Upper Front.pattern" transform=" translate(0.000000, 6541.537331)">
+      <g id="C.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.lineSeamly Patterns" y="0" x="0">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.lineDesigner:S.L.Spencer" y="14.4" x="0">
+Designer:S.L.Spencer</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.lineClient:DressFormLg" y="28.8" x="0">
+Client:DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.lineC_KH_Xaldin" y="43.2" x="0">
+C_KH_Xaldin</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.linePattern Piece C" y="57.6" x="0">
+Pattern Piece C</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="C.info.lineCut 2 Fabric" y="72.0" x="0">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+    <g id="document.coat.Sleeve.pattern" transform=" translate(168.750000, 6541.537331)">
+      <g id="D.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.lineSeamly Patterns" y="0" x="0">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.lineDesigner:S.L.Spencer" y="14.4" x="0">
+Designer:S.L.Spencer</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.lineClient:DressFormLg" y="28.8" x="0">
+Client:DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.lineC_KH_Xaldin" y="43.2" x="0">
+C_KH_Xaldin</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.linePattern Piece D" y="57.6" x="0">
+Pattern Piece D</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="D.info.lineCut 2 Fabric" y="72.0" x="0">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+    <g id="document.coat.Pocket Welt.pattern" transform=" translate(337.500000, 6541.537331)">
+      <g id="E.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.lineSeamly Patterns" y="0" x="0">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.lineDesigner:S.L.Spencer" y="14.4" x="0">
+Designer:S.L.Spencer</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.lineClient:DressFormLg" y="28.8" x="0">
+Client:DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.lineC_KH_Xaldin" y="43.2" x="0">
+C_KH_Xaldin</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.linePattern Piece E" y="57.6" x="0">
+Pattern Piece E</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="E.info.lineCut 2 Fabric" y="72.0" x="0">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+    <g id="document.coat.Pocket.pattern" transform=" translate(506.250000, 6541.537331)">
+      <g id="F.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.lineSeamly Patterns" y="0" x="0">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.lineDesigner:S.L.Spencer" y="14.4" x="0">
+Designer:S.L.Spencer</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.lineClient:DressFormLg" y="28.8" x="0">
+Client:DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.lineC_KH_Xaldin" y="43.2" x="0">
+C_KH_Xaldin</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.linePattern Piece F" y="57.6" x="0">
+Pattern Piece F</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="F.info.lineCut 2 Fabric" y="72.0" x="0">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+    <g id="document.coat.Hood.pattern" transform=" translate(675.000000, 6541.537331)">
+      <g id="G.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.lineSeamly Patterns" y="0" x="0">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.lineDesigner:S.L.Spencer" y="14.4" x="0">
+Designer:S.L.Spencer</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.lineClient:DressFormLg" y="28.8" x="0">
+Client:DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.lineC_KH_Xaldin" y="43.2" x="0">
+C_KH_Xaldin</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.linePattern Piece G" y="57.6" x="0">
+Pattern Piece G</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="G.info.lineCut 2 Fabric" y="72.0" x="0">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+  </g>
+  <g inkscape:label="Label-notes" id="notes" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.titleblock">
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="company" y="0.0" x="0.0">
+Seamly Patterns</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="designer" y="44.0" x="0.0">
+S.L.Spencer</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="pattern_number" y="88.0" x="0.0">
+C_KH_Xaldin</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="pattern_name" y="132.0" x="0.0">
+Xaldin Robe</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="client" y="176.0" x="0.0">
+DressFormLg</text>
+    </g>
+    <g id="document.testgrid">
+      <path style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " d="M 1320.0  0.0 L 1320.0  212.598425197 M 1355.43307087  0.0 L 1355.43307087  212.598425197 M 1390.86614173  0.0 L 1390.86614173  212.598425197 M 1426.2992126  0.0 L 1426.2992126  212.598425197 M 1461.73228346  0.0 L 1461.73228346  212.598425197 M 1497.16535433  0.0 L 1497.16535433  212.598425197 M 1532.5984252  0.0 L 1532.5984252  212.598425197 M 1320.0  0.0 L 1532.5984252  0.0 M 1320.0  35.4330708661 L 1532.5984252  35.4330708661 M 1320.0  70.8661417323 L 1532.5984252  70.8661417323 M 1320.0  106.299212598 L 1532.5984252  106.299212598 M 1320.0  141.732283465 L 1532.5984252  141.732283465 M 1320.0  177.165354331 L 1532.5984252  177.165354331 M 1320.0  212.598425197 L 1532.5984252  212.598425197 M 1709.76377953  0.0 L 1709.76377953  270.0 M 1799.76377953  0.0 L 1799.76377953  270.0 M 1889.76377953  0.0 L 1889.76377953  270.0 M 1979.76377953  0.0 L 1979.76377953  270.0 M 1709.76377953  0.0 L 1979.76377953  0.0 M 1709.76377953  90.0 L 1979.76377953  90.0 M 1709.76377953  180.0 L 1979.76377953  180.0 M 1709.76377953  270.0 L 1979.76377953  270.0 " id="testgrid" />
+    </g>
+    <g id="document.coat.Back.notes" transform=" translate(56.250000, 436.320000)" />
+    <g id="document.coat.Lower Front.notes" transform=" translate(1332.575805, 580.552283)" />
+    <g id="document.coat.Upper Front.notes" transform=" translate(0.000000, 6541.537331)" />
+    <g id="document.coat.Sleeve.notes" transform=" translate(168.750000, 6541.537331)" />
+    <g id="document.coat.Pocket Welt.notes" transform=" translate(337.500000, 6541.537331)" />
+    <g id="document.coat.Pocket.notes" transform=" translate(506.250000, 6541.537331)" />
+    <g id="document.coat.Hood.notes" transform=" translate(675.000000, 6541.537331)" />
+  </g>
+  <g inkscape:label="Label-reference" id="reference" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.coat.Back.reference" transform=" translate(56.250000, 436.320000)" />
+    <g id="document.coat.Lower Front.reference" transform=" translate(1332.575805, 580.552283)">
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="0.0" cx="142.235487856" r="5" id="B.BNC.inpoint" d="M 147.23549,0 C 147.23549,2.7614237 144.99691,5 142.23549,5 139.47407,5 137.23549,2.7614237 137.23549,0 137.23549,-2.7614237 139.47407,-5 142.23549,-5 144.99691,-5 147.23549,-2.7614237 147.23549,0 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BNC.inpoint.text" y="-7.0" x="149.235487856">
+BNC.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0.0" cx="0.0" r="5" id="B.BNC" d="M 5,0 C 5,2.7614237 2.7614237,5 0,5 -2.7614237,5 -5,2.7614237 -5,0 -5,-2.7614237 -2.7614237,-5 0,-5 2.7614237,-5 5,-2.7614237 5,0 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BNC.text" y="-7.0" x="7.0">
+BNC</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1466.16301341" cx="0.0" r="5" id="B.BWC.outpoint" d="M 5,1466.163 C 5,1468.9244 2.7614237,1471.163 0,1471.163 -2.7614237,1471.163 -5,1468.9244 -5,1466.163 -5,1463.4015 -2.7614237,1461.163 0,1461.163 2.7614237,1461.163 5,1463.4015 5,1466.163 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BWC.outpoint.text" y="1459.16301341" x="7.0">
+BWC.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1346.45669291" cx="0.0" r="5" id="B.BWC" d="M 5,1346.4567 C 5,1349.2181 2.7614237,1351.4567 0,1351.4567 -2.7614237,1351.4567 -5,1349.2181 -5,1346.4567 -5,1343.6952 -2.7614237,1341.4567 0,1341.4567 2.7614237,1341.4567 5,1343.6952 5,1346.4567 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BWC.text" y="1339.45669291" x="7.0">
+BWC</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-141.732283465" cx="0.0" r="5" id="B.BSH" d="M 5,-141.73228 C 5,-138.97086 2.7614237,-136.73228 0,-136.73228 -2.7614237,-136.73228 -5,-138.97086 -5,-141.73228 -5,-144.49371 -2.7614237,-146.73228 0,-146.73228 2.7614237,-146.73228 5,-144.49371 5,-141.73228 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BSH.text" y="-148.732283465" x="7.0">
+BSH</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-141.732283465" cx="708.661417323" r="5" id="B.BSW" d="M 713.66144,-141.73228 C 713.66144,-138.97086 711.42286,-136.73228 708.66144,-136.73228 705.90001,-136.73228 703.66144,-138.97086 703.66144,-141.73228 703.66144,-144.49371 705.90001,-146.73228 708.66144,-146.73228 711.42286,-146.73228 713.66144,-144.49371 713.66144,-141.73228 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BSW.text" y="-148.732283465" x="715.661417323">
+BSW</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-141.732283465" cx="611.220472441" r="5" id="B.BAW" d="M 616.22046,-141.73228 C 616.22046,-138.97086 613.98188,-136.73228 611.22046,-136.73228 608.45904,-136.73228 606.22046,-138.97086 606.22046,-141.73228 606.22046,-144.49371 608.45904,-146.73228 611.22046,-146.73228 613.98188,-146.73228 616.22046,-144.49371 616.22046,-141.73228 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BAW.text" y="-148.732283465" x="618.220472441">
+BAW</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-141.732283465" cx="885.826771654" r="5" id="B.BUW" d="M 890.82678,-141.73228 C 890.82678,-138.97086 888.58821,-136.73228 885.82678,-136.73228 883.06536,-136.73228 880.82678,-138.97086 880.82678,-141.73228 880.82678,-144.49371 883.06536,-146.73228 885.82678,-146.73228 888.58821,-146.73228 890.82678,-144.49371 890.82678,-141.73228 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BUW.text" y="-148.732283465" x="892.826771654">
+BUW</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1346.45669291" cx="673.228346457" r="5" id="B.t1_BWS" d="M 678.22833,1346.4567 C 678.22833,1349.2181 675.98976,1351.4567 673.22833,1351.4567 670.46691,1351.4567 668.22833,1349.2181 668.22833,1346.4567 668.22833,1343.6952 670.46691,1341.4567 673.22833,1341.4567 675.98976,1341.4567 678.22833,1343.6952 678.22833,1346.4567 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.t1_BWS.text" y="1339.45669291" x="680.228346457">
+t1_BWS</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="37.8293872947" cx="708.661417323" r="5" id="B.BSP" d="M 713.66144,37.829388 C 713.66144,40.590811 711.42286,42.829388 708.66144,42.829388 705.90001,42.829388 703.66144,40.590811 703.66144,37.829388 703.66144,35.067964 705.90001,32.829388 708.66144,32.829388 711.42286,32.829388 713.66144,35.067964 713.66144,37.829388 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BSP.text" y="30.8293872947" x="715.661417323">
+BSP</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-119.978927485" cx="275.262684904" r="5" id="B.BNS.outpoint" d="M 280.2627,-119.97893 C 280.2627,-117.2175 278.02412,-114.97893 275.2627,-114.97893 272.50127,-114.97893 270.2627,-117.2175 270.2627,-119.97893 270.2627,-122.74035 272.50127,-124.97893 275.2627,-124.97893 278.02412,-124.97893 280.2627,-122.74035 280.2627,-119.97893 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BNS.outpoint.text" y="-126.978927485" x="282.262684904">
+BNS.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-141.732283465" cx="284.470975712" r="5" id="B.BNS" d="M 289.47098,-141.73228 C 289.47098,-138.97086 287.2324,-136.73228 284.47098,-136.73228 281.70955,-136.73228 279.47098,-138.97086 279.47098,-141.73228 279.47098,-144.49371 281.70955,-146.73228 284.47098,-146.73228 287.2324,-146.73228 289.47098,-144.49371 289.47098,-141.73228 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BNS.text" y="-148.732283465" x="291.470975712">
+BNS</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="624.156760777" cx="611.220472441" r="5" id="B.BAP" d="M 616.22046,624.15674 C 616.22046,626.91816 613.98188,629.15674 611.22046,629.15674 608.45904,629.15674 606.22046,626.91816 606.22046,624.15674 606.22046,621.39531 608.45904,619.15674 611.22046,619.15674 613.98188,619.15674 616.22046,621.39531 616.22046,624.15674 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BAP.text" y="617.156760777" x="618.220472441">
+BAP</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="624.156760777" cx="0.0" r="5" id="B.BUC" d="M 5,624.15674 C 5,626.91816 2.7614237,629.15674 0,629.15674 -2.7614237,629.15674 -5,626.91816 -5,624.15674 -5,621.39531 -2.7614237,619.15674 0,619.15674 2.7614237,619.15674 5,621.39531 5,624.15674 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BUC.text" y="617.156760777" x="7.0">
+BUC</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="624.156760777" cx="885.826771654" r="5" id="B.t1_BUS" d="M 890.82678,624.15674 C 890.82678,626.91816 888.58821,629.15674 885.82678,629.15674 883.06536,629.15674 880.82678,626.91816 880.82678,624.15674 880.82678,621.39531 883.06536,619.15674 885.82678,619.15674 888.58821,619.15674 890.82678,621.39531 890.82678,624.15674 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.t1_BUS.text" y="617.156760777" x="892.826771654">
+t1_BUS</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="716.282745029" cx="885.826771654" r="5" id="B.BUS" d="M 890.82678,716.28271 C 890.82678,719.04414 888.58821,721.28271 885.82678,721.28271 883.06536,721.28271 880.82678,719.04414 880.82678,716.28271 880.82678,713.52129 883.06536,711.28271 885.82678,711.28271 888.58821,711.28271 890.82678,713.52129 890.82678,716.28271 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BUS.text" y="709.282745029" x="892.826771654">
+BUS</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="624.156760777" cx="391.147343053" r="5" id="B.BD1" d="M 396.14734,624.15674 C 396.14734,626.91816 393.90876,629.15674 391.14734,629.15674 388.38592,629.15674 386.14734,626.91816 386.14734,624.15674 386.14734,621.39531 388.38592,619.15674 391.14734,619.15674 393.90876,619.15674 396.14734,621.39531 396.14734,624.15674 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BD1.text" y="617.156760777" x="398.147343053">
+BD1</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1346.45669291" cx="391.147343053" r="5" id="B.BD1.m" d="M 396.14734,1346.4567 C 396.14734,1349.2181 393.90876,1351.4567 391.14734,1351.4567 388.38592,1351.4567 386.14734,1349.2181 386.14734,1346.4567 386.14734,1343.6952 388.38592,1341.4567 391.14734,1341.4567 393.90876,1341.4567 396.14734,1343.6952 396.14734,1346.4567 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BD1.m.text" y="1339.45669291" x="398.147343053">
+BD1.m</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1346.45669291" cx="312.917874443" r="5" id="B.BD1.i" d="M 317.91788,1346.4567 C 317.91788,1349.2181 315.6793,1351.4567 312.91788,1351.4567 310.15645,1351.4567 307.91788,1349.2181 307.91788,1346.4567 307.91788,1343.6952 310.15645,1341.4567 312.91788,1341.4567 315.6793,1341.4567 317.91788,1343.6952 317.91788,1346.4567 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BD1.i.text" y="1339.45669291" x="319.917874443">
+BD1.i</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1346.45669291" cx="469.376811664" r="5" id="B.BD1.o" d="M 474.3768,1346.4567 C 474.3768,1349.2181 472.13822,1351.4567 469.3768,1351.4567 466.61538,1351.4567 464.3768,1349.2181 464.3768,1346.4567 464.3768,1343.6952 466.61538,1341.4567 469.3768,1341.4567 472.13822,1341.4567 474.3768,1343.6952 474.3768,1346.4567 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BD1.o.text" y="1339.45669291" x="476.376811664">
+BD1.o</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1437.75894607" cx="829.321411985" r="5" id="B.BWS.inpoint" d="M 834.32141,1437.7589 C 834.32141,1440.5203 832.08283,1442.7589 829.32141,1442.7589 826.55999,1442.7589 824.32141,1440.5203 824.32141,1437.7589 824.32141,1434.9975 826.55999,1432.7589 829.32141,1432.7589 832.08283,1432.7589 834.32141,1434.9975 834.32141,1437.7589 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BWS.inpoint.text" y="1430.75894607" x="836.321411985">
+BWS.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1236.80594815" cx="829.321411985" r="5" id="B.BWS.outpoint" d="M 834.32141,1236.8059 C 834.32141,1239.5673 832.08283,1241.8059 829.32141,1241.8059 826.55999,1241.8059 824.32141,1239.5673 824.32141,1236.8059 824.32141,1234.0445 826.55999,1231.8059 829.32141,1231.8059 832.08283,1231.8059 834.32141,1234.0445 834.32141,1236.8059 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BWS.outpoint.text" y="1229.80594815" x="836.321411985">
+BWS.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1330.22336476" cx="829.321411985" r="5" id="B.BWS" d="M 834.32141,1330.2234 C 834.32141,1332.9848 832.08283,1335.2234 829.32141,1335.2234 826.55999,1335.2234 824.32141,1332.9848 824.32141,1330.2234 824.32141,1327.462 826.55999,1325.2234 829.32141,1325.2234 832.08283,1325.2234 834.32141,1327.462 834.32141,1330.2234 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BWS.text" y="1323.22336476" x="836.321411985">
+BWS</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2143.7007874" cx="0.0" r="5" id="B.BHC" d="M 5,2143.7007 C 5,2146.4621 2.7614237,2148.7007 0,2148.7007 -2.7614237,2148.7007 -5,2146.4621 -5,2143.7007 -5,2140.9393 -2.7614237,2138.7007 0,2138.7007 2.7614237,2138.7007 5,2140.9393 5,2143.7007 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BHC.text" y="2136.7007874" x="7.0">
+BHC</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1346.45669291" cx="829.687283678" r="5" id="B.t2_BWS" d="M 834.68726,1346.4567 C 834.68726,1349.2181 832.44868,1351.4567 829.68726,1351.4567 826.92583,1351.4567 824.68726,1349.2181 824.68726,1346.4567 824.68726,1343.6952 826.92583,1341.4567 829.68726,1341.4567 832.44868,1341.4567 834.68726,1343.6952 834.68726,1346.4567 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.t2_BWS.text" y="1339.45669291" x="836.687283678">
+t2_BWS</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2143.7007874" cx="391.147343053" r="5" id="B.BHM" d="M 396.14734,2143.7007 C 396.14734,2146.4621 393.90876,2148.7007 391.14734,2148.7007 388.38592,2148.7007 386.14734,2146.4621 386.14734,2143.7007 386.14734,2140.9393 388.38592,2138.7007 391.14734,2138.7007 393.90876,2138.7007 396.14734,2140.9393 396.14734,2143.7007 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BHM.text" y="2136.7007874" x="398.147343053">
+BHM</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2143.7007874" cx="1062.99212598" r="5" id="B.t1_BHS" d="M 1067.9921,2143.7007 C 1067.9921,2146.4621 1065.7535,2148.7007 1062.9921,2148.7007 1060.2306,2148.7007 1057.9921,2146.4621 1057.9921,2143.7007 1057.9921,2140.9393 1060.2306,2138.7007 1062.9921,2138.7007 1065.7535,2138.7007 1067.9921,2140.9393 1067.9921,2143.7007 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.t1_BHS.text" y="2136.7007874" x="1069.99212598">
+t1_BHS</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2004.18827634" cx="1048.34721494" r="5" id="B.BHS" d="M 1053.3472,2004.1882 C 1053.3472,2006.9497 1051.1086,2009.1882 1048.3472,2009.1882 1045.5857,2009.1882 1043.3472,2006.9497 1043.3472,2004.1882 1043.3472,2001.4268 1045.5857,1999.1882 1048.3472,1999.1882 1051.1086,1999.1882 1053.3472,2001.4268 1053.3472,2004.1882 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BHS.text" y="1997.18827634" x="1055.34721494">
+BHS</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2029.8087739" cx="391.147343053" r="5" id="B.BD1.d" d="M 396.14734,2029.8087 C 396.14734,2032.5701 393.90876,2034.8087 391.14734,2034.8087 388.38592,2034.8087 386.14734,2032.5701 386.14734,2029.8087 386.14734,2027.0473 388.38592,2024.8087 391.14734,2024.8087 393.90876,2024.8087 396.14734,2027.0473 396.14734,2029.8087 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BD1.d.text" y="2022.8087739" x="398.147343053">
+BD1.d</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="37.8293872947" cx="754.724409449" r="5" id="B.b1" d="M 759.72443,37.829388 C 759.72443,40.590811 757.48585,42.829388 754.72443,42.829388 751.963,42.829388 749.72443,40.590811 749.72443,37.829388 749.72443,35.067964 751.963,32.829388 754.72443,32.829388 757.48585,32.829388 759.72443,35.067964 759.72443,37.829388 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b1.text" y="30.8293872947" x="761.724409449">
+b1</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="171.022489735" cx="777.481221333" r="5" id="B.b2.inpoint" d="M 782.4812,171.02249 C 782.4812,173.78392 780.24262,176.02249 777.4812,176.02249 774.71978,176.02249 772.4812,173.78392 772.4812,171.02249 772.4812,168.26107 774.71978,166.02249 777.4812,166.02249 780.24262,166.02249 782.4812,168.26107 782.4812,171.02249 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b2.inpoint.text" y="164.022489735" x="784.481221333">
+b2.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-27.3135208934" cx="819.867317637" r="5" id="B.b2" d="M 824.86731,-27.31352 C 824.86731,-24.552097 822.62873,-22.31352 819.86731,-22.31352 817.10589,-22.31352 814.86731,-24.552097 814.86731,-27.31352 814.86731,-30.074944 817.10589,-32.31352 819.86731,-32.31352 822.62873,-32.31352 824.86731,-30.074944 824.86731,-27.31352 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b2.text" y="-34.3135208934" x="826.867317637">
+b2</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="5792.23504723" cx="-136.925152575" r="5" id="B.BHemC.outpoint" d="M -131.92516,5792.2349 C -131.92516,5794.9963 -134.16373,5797.2349 -136.92516,5797.2349 -139.68658,5797.2349 -141.92516,5794.9963 -141.92516,5792.2349 -141.92516,5789.4734 -139.68658,5787.2349 -136.92516,5787.2349 -134.16373,5787.2349 -131.92516,5789.4734 -131.92516,5792.2349 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BHemC.outpoint.text" y="5785.23504723" x="-129.925152575">
+BHemC.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="5470.65574256" cx="-1105.07580478" r="5" id="B.BHemC" d="M -1100.0758,5470.6558 C -1100.0758,5473.4172 -1102.3144,5475.6558 -1105.0758,5475.6558 -1107.8372,5475.6558 -1110.0758,5473.4172 -1110.0758,5470.6558 -1110.0758,5467.8943 -1107.8372,5465.6558 -1105.0758,5465.6558 -1102.3144,5465.6558 -1100.0758,5467.8943 -1100.0758,5470.6558 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BHemC.text" y="5463.65574256" x="-1098.07580478">
+BHemC</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="5697.96856264" cx="1333.44384253" r="5" id="B.BHemS.inpoint" d="M 1338.4438,5697.9687 C 1338.4438,5700.7302 1336.2053,5702.9687 1333.4438,5702.9687 1330.6824,5702.9687 1328.4438,5700.7302 1328.4438,5697.9687 1328.4438,5695.2073 1330.6824,5692.9687 1333.4438,5692.9687 1336.2053,5692.9687 1338.4438,5695.2073 1338.4438,5697.9687 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BHemS.inpoint.text" y="5690.96856264" x="1340.44384253">
+BHemS.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="5342.41488934" cx="2289.63970111" r="5" id="B.BHemS" d="M 2294.6396,5342.415 C 2294.6396,5345.1765 2292.4011,5347.415 2289.6396,5347.415 2286.8782,5347.415 2284.6396,5345.1765 2284.6396,5342.415 2284.6396,5339.6536 2286.8782,5337.415 2289.6396,5337.415 2292.4011,5337.415 2294.6396,5339.6536 2294.6396,5342.415 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.BHemS.text" y="5335.41488934" x="2296.63970111">
+BHemS</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="902.499485672" cx="914.933235803" r="5" id="B.b3.inpoint" d="M 919.93323,902.49951 C 919.93323,905.26094 917.69465,907.49951 914.93323,907.49951 912.1718,907.49951 909.93323,905.26094 909.93323,902.49951 909.93323,899.73809 912.1718,897.49951 914.93323,897.49951 917.69465,897.49951 919.93323,899.73809 919.93323,902.49951 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b3.inpoint.text" y="895.499485672" x="921.933235803">
+b3.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="708.894920179" cx="839.518963684" r="5" id="B.b3.outpoint" d="M 844.51898,708.8949 C 844.51898,711.65632 842.28041,713.8949 839.51898,713.8949 836.75756,713.8949 834.51898,711.65632 834.51898,708.8949 834.51898,706.13347 836.75756,703.8949 839.51898,703.8949 842.28041,703.8949 844.51898,706.13347 844.51898,708.8949 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b3.outpoint.text" y="701.894920179" x="846.518963684">
+b3.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="716.282745029" cx="930.118110236" r="5" id="B.b3" d="M 935.1181,716.28271 C 935.1181,719.04414 932.87953,721.28271 930.1181,721.28271 927.35668,721.28271 925.1181,719.04414 925.1181,716.28271 925.1181,713.52129 927.35668,711.28271 930.1181,711.28271 932.87953,711.28271 935.1181,713.52129 935.1181,716.28271 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b3.text" y="709.282745029" x="937.118110236">
+b3</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1790.4786929" cx="1028.37049934" r="5" id="B.b4.outpoint" d="M 1033.3705,1790.4786 C 1033.3705,1793.2401 1031.1319,1795.4786 1028.3705,1795.4786 1025.6091,1795.4786 1023.3705,1793.2401 1023.3705,1790.4786 1023.3705,1787.7172 1025.6091,1785.4786 1028.3705,1785.4786 1031.1319,1785.4786 1033.3705,1787.7172 1033.3705,1790.4786 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b4.outpoint.text" y="1783.4786929" x="1035.37049934">
+b4.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1993.15144875" cx="1100.33826308" r="5" id="B.b4" d="M 1105.3383,1993.1515 C 1105.3383,1995.9129 1103.0997,1998.1515 1100.3383,1998.1515 1097.5768,1998.1515 1095.3383,1995.9129 1095.3383,1993.1515 1095.3383,1990.3901 1097.5768,1988.1515 1100.3383,1988.1515 1103.0997,1988.1515 1105.3383,1990.3901 1105.3383,1993.1515 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b4.text" y="1986.15144875" x="1107.33826308">
+b4</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="2000.9079271" cx="-175.359679686" r="5" id="B.b5.inpoint" d="M -170.35968,2000.908 C -170.35968,2003.6694 -172.59826,2005.908 -175.35968,2005.908 -178.1211,2005.908 -180.35968,2003.6694 -180.35968,2000.908 -180.35968,1998.1465 -178.1211,1995.908 -175.35968,1995.908 -172.59826,1995.908 -170.35968,1998.1465 -170.35968,2000.908 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b5.inpoint.text" y="1993.9079271" x="-168.359679686">
+b5.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2116.53535364" cx="-206.341955249" r="5" id="B.b5" d="M -201.34195,2116.5354 C -201.34195,2119.2968 -203.58053,2121.5354 -206.34195,2121.5354 -209.10337,2121.5354 -211.34195,2119.2968 -211.34195,2116.5354 -211.34195,2113.774 -209.10337,2111.5354 -206.34195,2111.5354 -203.58053,2111.5354 -201.34195,2113.774 -201.34195,2116.5354 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b5.text" y="2109.53535364" x="-199.341955249">
+b5</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="706.532986307" cx="680.212509315" r="5" id="B.b6.inpoint" d="M 685.21252,706.53296 C 685.21252,709.29438 682.97395,711.53296 680.21252,711.53296 677.4511,711.53296 675.21252,709.29438 675.21252,706.53296 675.21252,703.77154 677.4511,701.53296 680.21252,701.53296 682.97395,701.53296 685.21252,703.77154 685.21252,706.53296 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b6.inpoint.text" y="699.532986307" x="687.212509315">
+b6.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="440.360010223" cx="556.034724943" r="5" id="B.b6.outpoint" d="M 561.03473,440.36002 C 561.03473,443.12144 558.79615,445.36002 556.03473,445.36002 553.27331,445.36002 551.03473,443.12144 551.03473,440.36002 551.03473,437.59859 553.27331,435.36002 556.03473,435.36002 558.79615,435.36002 561.03473,437.59859 561.03473,440.36002 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b6.outpoint.text" y="433.360010223" x="563.034724943">
+b6.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="624.156760777" cx="641.781496063" r="5" id="B.b6" d="M 646.78149,624.15674 C 646.78149,626.91816 644.54292,629.15674 641.78149,629.15674 639.02007,629.15674 636.78149,626.91816 636.78149,624.15674 636.78149,621.39531 639.02007,619.15674 641.78149,619.15674 644.54292,619.15674 646.78149,621.39531 646.78149,624.15674 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="B.b6.text" y="617.156760777" x="648.781496063">
+b6</text>
+    </g>
+    <g id="document.coat.Upper Front.reference" transform=" translate(0.000000, 6541.537331)" />
+    <g id="document.coat.Sleeve.reference" transform=" translate(168.750000, 6541.537331)" />
+    <g id="document.coat.Pocket Welt.reference" transform=" translate(337.500000, 6541.537331)" />
+    <g id="document.coat.Pocket.reference" transform=" translate(506.250000, 6541.537331)" />
+    <g id="document.coat.Hood.reference" transform=" translate(675.000000, 6541.537331)" />
+  </g>
+</svg>

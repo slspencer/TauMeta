@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" patternNumber="HM_1" fitBoxtoViewport="True" companyName="Seamly Patterns" currentscale="0.5:1" margin-right="88.5826771654" client-name="DressFormLg" designerName="S.L.Spencer" height="3356.29047198" width="1036.25984252" margin-top="88.5826771654" version="1.1" margin-bottom="88.5826771654" margin-left="88.5826771654" preserveAspectRatio="xMidYMid meet" id="svg2" inkscape:version="0.48.4 r9939" sodipodi:docname="DressFormLg-single_breasted_dinner_jacket_tuxedo_1880-2015-01-14-1758.svg">
+  <metadata id="metadata113">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.26398191" inkscape:document-units="pt" showgrid="false" inkscape:window-maximized="1" inkscape:cx="518.12994" inkscape:cy="1678.1453" inkscape:window-width="1855" inkscape:window-height="1056" inkscape:window-x="65" inkscape:window-y="24" inkscape:current-layer="pattern" />
+  <defs id="defs5">
+    <marker style="overflow:visible" id="Arrow1Mstart" refX="0.0" refY="0.0" orient="auto" inkscape:stockid="Arrow1Mstart">
+      <path transform="scale(0.4) translate(10,0)" style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " id="path8" />
+    </marker>
+    <marker style="overflow:visible;" id="Arrow1Mend" refX="0.0" refY="0.0" orient="auto" inkscape:stockid="Arrow1Mend">
+      <path transform="scale(0.4) rotate(180) translate(10,0)" style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " id="path11" />
+    </marker>
+  </defs>
+  <g inkscape:label="Label-pattern" id="pattern" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.tuxedo.Tuxedo Back.pattern" transform=" translate(58.750000, 580.552283)">
+      <g id="A.letter" transform="matrix(10.000000, 0, 0, 10.000000, -2415.255185, -11713.110236)">
+        <text style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.letter.letterline" y="1301.45669291" x="268.361687201">
+A</text>
+      </g>
+      <line style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " y2="2143.7007874" marker-end="url(#Arrow1Mend)" marker-start="url(#Arrow1Mstart)" transform="" x2="134.1808436" y1="265.748031496" x1="134.1808436" id="A.grainline" />
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; " transform="" d="M 0  0 C 101.163253832  0  240.680978424  -44.4297537568  268.361687201  -141.732283465 L 744.094488189  -6.39540004341 C 727.043204438  53.5428427656  717.269583792  115.446324051  708.661417323  177.165354331 C 698.056460937  253.201014963  698.056460937  331.444654328  708.661417323  407.480314961 L 673.228346457  637.795275591 C 637.130178211  872.433369185  602.362204724  1109.05805619  602.362204724  1346.45669291 L 637.795275591  2143.7007874 L 655.511811024  2542.32283465 L 53.1496062992  2542.32283465 L 70.8661417323  2143.7007874 L 88.5826771654  1346.45669291 L 35.4330708661  637.795275591 L 0  265.748031496 L 0  0 " id="A.seamline" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="M 214.59375,-158.15625 C 205.7174,-126.88399 177.72554,-105.86 150.125,-91.28125 98.209234,-64.813468 38.970929,-54.570534 -19,-56.25 -31.416667,-56.25 -43.833333,-56.25 -56.25,-56.25 -56.125425,52.639984 -56.49973,161.55339 -56.062593,270.4287 -44.052235,397.99095 -31.469619,525.5046 -19.814743,653.097 -2.4891513,885.01335 15.095095,1116.9229 32.259035,1348.8435 26.247957,1615.3714 20.591462,1881.9111 14.358669,2148.4316 7.6841306,2298.4751 1.0418188,2448.52 -5.65625,2598.5625 234.33333,2598.5625 474.32292,2598.5625 714.3125,2598.5625 695.73582,2180.168 677.00894,1761.7748 658.625,1343.375 659.04724,1085.9291 700.53145,831.06403 739.45932,577.12692 747.99156,520.4507 757.28017,463.78453 765.34041,407.10202 753.48443,326.71445 754.37838,244.58115 767.27607,164.53295 775.62009,105.04237 786.66888,46.012952 803.90298,-11.57729 807.01865,-22.79111 810.13433,-34.00493 813.25,-45.21875 619.05446,-100.41965 424.87573,-155.67965 230.6875,-210.90625 225.32292,-193.32292 219.95833,-175.73958 214.59375,-158.15625 z" id="A.cuttingline" inkscape:connector-curvature="0" />
+      <g id="A.info" transform="">
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineSeamly Patterns" y="1346.45669291" x="268.361687201">
+Seamly Patterns</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineHM_1" y="1360.85669291" x="268.361687201">
+HM_1</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineSingle Breasted Tuxedo Jacket, circa 1880 to 1900" y="1375.25669291" x="268.361687201">
+Single Breasted Tuxedo Jacket, circa 1880 to 1900</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.linePattern Piece A" y="1389.65669291" x="268.361687201">
+Pattern Piece A</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineCut 2 Fabric" y="1404.05669291" x="268.361687201">
+Cut 2 Fabric</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.line " y="1418.45669291" x="268.361687201" />
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.lineDressFormLg" y="1432.85669291" x="268.361687201">
+DressFormLg</text>
+        <text style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="A.info.line2015/1/14 17:58" y="1447.25669291" x="268.361687201">
+2015/1/14 17:58</text>
+      </g>
+    </g>
+  </g>
+  <g inkscape:label="Label-notes" id="notes" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.titleblock">
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="company" y="0.0" x="0.0">
+Seamly Patterns</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="designer" y="44.0" x="0.0">
+S.L.Spencer</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="pattern_number" y="88.0" x="0.0">
+HM_1</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="pattern_name" y="132.0" x="0.0">
+Single Breasted Tuxedo Jacket, circa 1880 to 1900</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="client" y="176.0" x="0.0">
+DressFormLg</text>
+      <text style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; " transform="" id="date" y="220.0" x="0.0">
+2015/1/14 17:58</text>
+    </g>
+    <g id="document.testgrid">
+      <path style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " d="M 1080.0  0.0 L 1080.0  212.598425197 M 1115.43307087  0.0 L 1115.43307087  212.598425197 M 1150.86614173  0.0 L 1150.86614173  212.598425197 M 1186.2992126  0.0 L 1186.2992126  212.598425197 M 1221.73228346  0.0 L 1221.73228346  212.598425197 M 1257.16535433  0.0 L 1257.16535433  212.598425197 M 1292.5984252  0.0 L 1292.5984252  212.598425197 M 1080.0  0.0 L 1292.5984252  0.0 M 1080.0  35.4330708661 L 1292.5984252  35.4330708661 M 1080.0  70.8661417323 L 1292.5984252  70.8661417323 M 1080.0  106.299212598 L 1292.5984252  106.299212598 M 1080.0  141.732283465 L 1292.5984252  141.732283465 M 1080.0  177.165354331 L 1292.5984252  177.165354331 M 1080.0  212.598425197 L 1292.5984252  212.598425197 M 1469.76377953  0.0 L 1469.76377953  270.0 M 1559.76377953  0.0 L 1559.76377953  270.0 M 1649.76377953  0.0 L 1649.76377953  270.0 M 1739.76377953  0.0 L 1739.76377953  270.0 M 1469.76377953  0.0 L 1739.76377953  0.0 M 1469.76377953  90.0 L 1739.76377953  90.0 M 1469.76377953  180.0 L 1739.76377953  180.0 M 1469.76377953  270.0 L 1739.76377953  270.0 " id="testgrid" />
+    </g>
+    <g id="document.tuxedo.Tuxedo Back.notes" transform=" translate(58.750000, 580.552283)" />
+  </g>
+  <g inkscape:label="Label-reference" id="reference" inkscape:groupmode="layer" transform="translate(88.582677,88.582677)">
+    <g id="document.tuxedo.Tuxedo Back.reference" transform=" translate(58.750000, 580.552283)">
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="0" cx="101.163253832" r="5" id="A.pA.outpoint" d="M 106.16325,0 C 106.16325,2.7614237 103.92468,5 101.16325,5 98.40183,5 96.163254,2.7614237 96.163254,0 96.163254,-2.7614237 98.40183,-5 101.16325,-5 103.92468,-5 106.16325,-2.7614237 106.16325,0 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.pA.outpoint.text" y="-7" x="108.163253832">
+pA.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0" cx="0" r="5" id="A.pA" d="M 5,0 C 5,2.7614237 2.7614237,5 0,5 -2.7614237,5 -5,2.7614237 -5,0 -5,-2.7614237 -2.7614237,-5 0,-5 2.7614237,-5 5,-2.7614237 5,0 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.pA.text" y="-7" x="7">
+pA</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="265.748031496" cx="0" r="5" id="A.pB" d="M 5,265.74802 C 5,268.50944 2.7614237,270.74802 0,270.74802 -2.7614237,270.74802 -5,268.50944 -5,265.74802 -5,262.98659 -2.7614237,260.74802 0,260.74802 2.7614237,260.74802 5,262.98659 5,265.74802 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.pB.text" y="258.748031496" x="7">
+pB</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="637.795275591" cx="0" r="5" id="A.pC" d="M 5,637.79529 C 5,640.55671 2.7614237,642.79529 0,642.79529 -2.7614237,642.79529 -5,640.55671 -5,637.79529 -5,635.03386 -2.7614237,632.79529 0,632.79529 2.7614237,632.79529 5,635.03386 5,637.79529 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.pC.text" y="630.795275591" x="7">
+pC</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1346.45669291" cx="0" r="5" id="A.pD" d="M 5,1346.4567 C 5,1349.2181 2.7614237,1351.4567 0,1351.4567 -2.7614237,1351.4567 -5,1349.2181 -5,1346.4567 -5,1343.6952 -2.7614237,1341.4567 0,1341.4567 2.7614237,1341.4567 5,1343.6952 5,1346.4567 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.pD.text" y="1339.45669291" x="7">
+pD</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2143.7007874" cx="0" r="5" id="A.pE" d="M 5,2143.7007 C 5,2146.4621 2.7614237,2148.7007 0,2148.7007 -2.7614237,2148.7007 -5,2146.4621 -5,2143.7007 -5,2140.9393 -2.7614237,2138.7007 0,2138.7007 2.7614237,2138.7007 5,2140.9393 5,2143.7007 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.pE.text" y="2136.7007874" x="7">
+pE</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2542.32283465" cx="0" r="5" id="A.pF" d="M 5,2542.3228 C 5,2545.0842 2.7614237,2547.3228 0,2547.3228 -2.7614237,2547.3228 -5,2545.0842 -5,2542.3228 -5,2539.5613 -2.7614237,2537.3228 0,2537.3228 2.7614237,2537.3228 5,2539.5613 5,2542.3228 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.pF.text" y="2535.32283465" x="7">
+pF</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-141.732283465" cx="0" r="5" id="A.BSH" d="M 5,-141.73228 C 5,-138.97086 2.7614237,-136.73228 0,-136.73228 -2.7614237,-136.73228 -5,-138.97086 -5,-141.73228 -5,-144.49371 -2.7614237,-146.73228 0,-146.73228 2.7614237,-146.73228 5,-144.49371 5,-141.73228 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.BSH.text" y="-148.732283465" x="7">
+BSH</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-141.732283465" cx="708.661417323" r="5" id="A.BSW" d="M 713.66144,-141.73228 C 713.66144,-138.97086 711.42286,-136.73228 708.66144,-136.73228 705.90001,-136.73228 703.66144,-138.97086 703.66144,-141.73228 703.66144,-144.49371 705.90001,-146.73228 708.66144,-146.73228 711.42286,-146.73228 713.66144,-144.49371 713.66144,-141.73228 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.BSW.text" y="-148.732283465" x="715.661417323">
+BSW</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0" cx="708.661417323" r="5" id="A.p1" d="M 713.66144,0 C 713.66144,2.7614237 711.42286,5 708.66144,5 705.90001,5 703.66144,2.7614237 703.66144,0 703.66144,-2.7614237 705.90001,-5 708.66144,-5 711.42286,-5 713.66144,-2.7614237 713.66144,0 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p1.text" y="-7" x="715.661417323">
+p1</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="637.795275591" cx="708.661417323" r="5" id="A.p3" d="M 713.66144,637.79529 C 713.66144,640.55671 711.42286,642.79529 708.66144,642.79529 705.90001,642.79529 703.66144,640.55671 703.66144,637.79529 703.66144,635.03386 705.90001,632.79529 708.66144,632.79529 711.42286,632.79529 713.66144,635.03386 713.66144,637.79529 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p3.text" y="630.795275591" x="715.661417323">
+p3</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1346.45669291" cx="708.661417323" r="5" id="A.p4" d="M 713.66144,1346.4567 C 713.66144,1349.2181 711.42286,1351.4567 708.66144,1351.4567 705.90001,1351.4567 703.66144,1349.2181 703.66144,1346.4567 703.66144,1343.6952 705.90001,1341.4567 708.66144,1341.4567 711.42286,1341.4567 713.66144,1343.6952 713.66144,1346.4567 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p4.text" y="1339.45669291" x="715.661417323">
+p4</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2143.7007874" cx="708.661417323" r="5" id="A.p5" d="M 713.66144,2143.7007 C 713.66144,2146.4621 711.42286,2148.7007 708.66144,2148.7007 705.90001,2148.7007 703.66144,2146.4621 703.66144,2143.7007 703.66144,2140.9393 705.90001,2138.7007 708.66144,2138.7007 711.42286,2138.7007 713.66144,2140.9393 713.66144,2143.7007 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p5.text" y="2136.7007874" x="715.661417323">
+p5</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2542.32283465" cx="708.661417323" r="5" id="A.p6" d="M 713.66144,2542.3228 C 713.66144,2545.0842 711.42286,2547.3228 708.66144,2547.3228 705.90001,2547.3228 703.66144,2545.0842 703.66144,2542.3228 703.66144,2539.5613 705.90001,2537.3228 708.66144,2537.3228 711.42286,2537.3228 713.66144,2539.5613 713.66144,2542.3228 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p6.text" y="2535.32283465" x="715.661417323">
+p6</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="637.795275591" cx="35.4330708661" r="5" id="A.p7" d="M 40.433071,637.79529 C 40.433071,640.55671 38.194495,642.79529 35.433071,642.79529 32.671647,642.79529 30.433071,640.55671 30.433071,637.79529 30.433071,635.03386 32.671647,632.79529 35.433071,632.79529 38.194495,632.79529 40.433071,635.03386 40.433071,637.79529 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p7.text" y="630.795275591" x="42.4330708661">
+p7</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1346.45669291" cx="88.5826771654" r="5" id="A.p8" d="M 93.58268,1346.4567 C 93.58268,1349.2181 91.344103,1351.4567 88.58268,1351.4567 85.821256,1351.4567 83.58268,1349.2181 83.58268,1346.4567 83.58268,1343.6952 85.821256,1341.4567 88.58268,1341.4567 91.344103,1341.4567 93.58268,1343.6952 93.58268,1346.4567 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p8.text" y="1339.45669291" x="95.5826771654">
+p8</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2143.7007874" cx="70.8661417323" r="5" id="A.p9" d="M 75.866142,2143.7007 C 75.866142,2146.4621 73.627566,2148.7007 70.866142,2148.7007 68.104719,2148.7007 65.866142,2146.4621 65.866142,2143.7007 65.866142,2140.9393 68.104719,2138.7007 70.866142,2138.7007 73.627566,2138.7007 75.866142,2140.9393 75.866142,2143.7007 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p9.text" y="2136.7007874" x="77.8661417323">
+p9</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2542.32283465" cx="53.1496062992" r="5" id="A.p10" d="M 58.149605,2542.3228 C 58.149605,2545.0842 55.911029,2547.3228 53.149605,2547.3228 50.388181,2547.3228 48.149605,2545.0842 48.149605,2542.3228 48.149605,2539.5613 50.388181,2537.3228 53.149605,2537.3228 55.911029,2537.3228 58.149605,2539.5613 58.149605,2542.3228 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p10.text" y="2535.32283465" x="60.1496062992">
+p10</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="0" cx="301.181102362" r="5" id="A.p11" d="M 306.18109,0 C 306.18109,2.7614237 303.94252,5 301.18109,5 298.41967,5 296.18109,2.7614237 296.18109,0 296.18109,-2.7614237 298.41967,-5 301.18109,-5 303.94252,-5 306.18109,-2.7614237 306.18109,0 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p11.text" y="-7" x="308.181102362">
+p11</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-6.39540004341" cx="708.661417323" r="5" id="A.p2b" d="M 713.66144,-6.3954 C 713.66144,-3.6339763 711.42286,-1.3954 708.66144,-1.3954 705.90001,-1.3954 703.66144,-3.6339763 703.66144,-6.3954 703.66144,-9.1568238 705.90001,-11.3954 708.66144,-11.3954 711.42286,-11.3954 713.66144,-9.1568238 713.66144,-6.3954 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p2b.text" y="-13.3954000434" x="715.661417323">
+p2b</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="53.5428427656" cx="727.043204438" r="5" id="A.p13b.outpoint" d="M 732.04321,53.542843 C 732.04321,56.304267 729.80464,58.542843 727.04321,58.542843 724.28179,58.542843 722.04321,56.304267 722.04321,53.542843 722.04321,50.781419 724.28179,48.542843 727.04321,48.542843 729.80464,48.542843 732.04321,50.781419 732.04321,53.542843 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p13b.outpoint.text" y="46.5428427656" x="734.043204438">
+p13b.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-6.39540004341" cx="744.094488189" r="5" id="A.p13b" d="M 749.09448,-6.3954 C 749.09448,-3.6339763 746.85591,-1.3954 744.09448,-1.3954 741.33306,-1.3954 739.09448,-3.6339763 739.09448,-6.3954 739.09448,-9.1568238 741.33306,-11.3954 744.09448,-11.3954 746.85591,-11.3954 749.09448,-9.1568238 749.09448,-6.3954 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p13b.text" y="-13.3954000434" x="751.094488189">
+p13b</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="-44.4297537568" cx="240.680978424" r="5" id="A.p12b.inpoint" d="M 245.68098,-44.429752 C 245.68098,-41.668329 243.44241,-39.429752 240.68098,-39.429752 237.91956,-39.429752 235.68098,-41.668329 235.68098,-44.429752 235.68098,-47.191176 237.91956,-49.429752 240.68098,-49.429752 243.44241,-49.429752 245.68098,-47.191176 245.68098,-44.429752 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p12b.inpoint.text" y="-51.4297537568" x="247.680978424">
+p12b.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="-141.732283465" cx="268.361687201" r="5" id="A.p12b" d="M 273.36169,-141.73228 C 273.36169,-138.97086 271.12312,-136.73228 268.36169,-136.73228 265.60027,-136.73228 263.36169,-138.97086 263.36169,-141.73228 263.36169,-144.49371 265.60027,-146.73228 268.36169,-146.73228 271.12312,-146.73228 273.36169,-144.49371 273.36169,-141.73228 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p12b.text" y="-148.732283465" x="275.361687201">
+p12b</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="331.444654328" cx="698.056460937" r="5" id="A.p14.inpoint" d="M 703.05646,331.44464 C 703.05646,334.20606 700.81788,336.44464 698.05646,336.44464 695.29503,336.44464 693.05646,334.20606 693.05646,331.44464 693.05646,328.68322 695.29503,326.44464 698.05646,326.44464 700.81788,326.44464 703.05646,328.68322 703.05646,331.44464 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p14.inpoint.text" y="324.444654328" x="705.056460937">
+p14.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="407.480314961" cx="708.661417323" r="5" id="A.p14" d="M 713.66144,407.48032 C 713.66144,410.24174 711.42286,412.48032 708.66144,412.48032 705.90001,412.48032 703.66144,410.24174 703.66144,407.48032 703.66144,404.71889 705.90001,402.48032 708.66144,402.48032 711.42286,402.48032 713.66144,404.71889 713.66144,407.48032 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p14.text" y="400.480314961" x="715.661417323">
+p14</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="115.446324051" cx="717.269583792" r="5" id="A.p15.inpoint" d="M 722.26959,115.44633 C 722.26959,118.20775 720.03102,120.44633 717.26959,120.44633 714.50817,120.44633 712.26959,118.20775 712.26959,115.44633 712.26959,112.6849 714.50817,110.44633 717.26959,110.44633 720.03102,110.44633 722.26959,112.6849 722.26959,115.44633 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p15.inpoint.text" y="108.446324051" x="724.269583792">
+p15.in</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="253.201014963" cx="698.056460937" r="5" id="A.p15.outpoint" d="M 703.05646,253.20102 C 703.05646,255.96244 700.81788,258.20102 698.05646,258.20102 695.29503,258.20102 693.05646,255.96244 693.05646,253.20102 693.05646,250.4396 695.29503,248.20102 698.05646,248.20102 700.81788,248.20102 703.05646,250.4396 703.05646,253.20102 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p15.outpoint.text" y="246.201014963" x="705.056460937">
+p15.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="177.165354331" cx="708.661417323" r="5" id="A.p15" d="M 713.66144,177.16536 C 713.66144,179.92678 711.42286,182.16536 708.66144,182.16536 705.90001,182.16536 703.66144,179.92678 703.66144,177.16536 703.66144,174.40394 705.90001,172.16536 708.66144,172.16536 711.42286,172.16536 713.66144,174.40394 713.66144,177.16536 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p15.text" y="170.165354331" x="715.661417323">
+p15</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="872.433369185" cx="637.130178211" r="5" id="A.p16.outpoint" d="M 642.13019,872.43335 C 642.13019,875.19477 639.89161,877.43335 637.13019,877.43335 634.36876,877.43335 632.13019,875.19477 632.13019,872.43335 632.13019,869.67193 634.36876,867.43335 637.13019,867.43335 639.89161,867.43335 642.13019,869.67193 642.13019,872.43335 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p16.outpoint.text" y="865.433369185" x="644.130178211">
+p16.out</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="637.795275591" cx="673.228346457" r="5" id="A.p16" d="M 678.22833,637.79529 C 678.22833,640.55671 675.98976,642.79529 673.22833,642.79529 670.46691,642.79529 668.22833,640.55671 668.22833,637.79529 668.22833,635.03386 670.46691,632.79529 673.22833,632.79529 675.98976,632.79529 678.22833,635.03386 678.22833,637.79529 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p16.text" y="630.795275591" x="680.228346457">
+p16</text>
+      <circle style="stroke:gray; stroke-width:1; fill:none; " transform="" cy="1109.05805619" cx="602.362204724" r="5" id="A.p17.inpoint" d="M 607.36218,1109.0581 C 607.36218,1111.8195 605.12361,1114.0581 602.36218,1114.0581 599.60076,1114.0581 597.36218,1111.8195 597.36218,1109.0581 597.36218,1106.2967 599.60076,1104.0581 602.36218,1104.0581 605.12361,1104.0581 607.36218,1106.2967 607.36218,1109.0581 z" />
+      <text style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p17.inpoint.text" y="1102.05805619" x="609.362204724">
+p17.in</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="1346.45669291" cx="602.362204724" r="5" id="A.p17" d="M 607.36218,1346.4567 C 607.36218,1349.2181 605.12361,1351.4567 602.36218,1351.4567 599.60076,1351.4567 597.36218,1349.2181 597.36218,1346.4567 597.36218,1343.6952 599.60076,1341.4567 602.36218,1341.4567 605.12361,1341.4567 607.36218,1343.6952 607.36218,1346.4567 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p17.text" y="1339.45669291" x="609.362204724">
+p17</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2143.7007874" cx="637.795275591" r="5" id="A.p18" d="M 642.79529,2143.7007 C 642.79529,2146.4621 640.55671,2148.7007 637.79529,2148.7007 635.03386,2148.7007 632.79529,2146.4621 632.79529,2143.7007 632.79529,2140.9393 635.03386,2138.7007 637.79529,2138.7007 640.55671,2138.7007 642.79529,2140.9393 642.79529,2143.7007 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p18.text" y="2136.7007874" x="644.795275591">
+p18</text>
+      <circle style="stroke:red; stroke-width:1; fill:red; " transform="" cy="2542.32283465" cx="655.511811024" r="5" id="A.p19" d="M 660.51184,2542.3228 C 660.51184,2545.0842 658.27326,2547.3228 655.51184,2547.3228 652.75042,2547.3228 650.51184,2545.0842 650.51184,2542.3228 650.51184,2539.5613 652.75042,2537.3228 655.51184,2537.3228 658.27326,2537.3228 660.51184,2539.5613 660.51184,2542.3228 z" />
+      <text style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; " transform="" id="A.p19.text" y="2535.32283465" x="662.511811024">
+p19</text>
+      <path style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; " transform="" d="M 0  -141.732283465 L 708.661417323  -141.732283465 L 708.661417323  2542.32283465 L 0  2542.32283465 L 0  -141.732283465 " id="A.gridline" />
+    </g>
+  </g>
+</svg>

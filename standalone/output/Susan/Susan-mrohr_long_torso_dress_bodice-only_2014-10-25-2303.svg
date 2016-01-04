@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" patternNumber="D_Long_Torso_MRohr" fitBoxtoViewport="True" companyName="Seamly Patterns" currentscale="0.5:1" margin-right="88.5826771654" client-name="DressFormLg" designerName="M. Rohr" height="2850.1436" width="2616.5532" margin-top="88.5826771654" version="1.1" margin-bottom="88.5826771654" margin-left="88.5826771654" preserveAspectRatio="xMidYMid meet" id="svg2" inkscape:version="0.48.4 r9939" sodipodi:docname="Susan-mrohr_long_torso_dress_bodice-only_2014-10-25-2303.svg">
+  <metadata id="metadata272">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.37611873" inkscape:document-units="pt" showgrid="false" inkscape:window-maximized="1" inkscape:cx="1293.2263" inkscape:cy="1676.1725" inkscape:window-width="1855" inkscape:window-height="1056" inkscape:window-x="65" inkscape:window-y="24" inkscape:current-layer="notes" units="in" fit-margin-top="0.5" fit-margin-left="0.5" fit-margin-right="0.5" fit-margin-bottom="0.5" />
+  <defs id="defs5">
+    <marker style="overflow:visible" id="Arrow1Mstart" refX="0" refY="0" orient="auto" inkscape:stockid="Arrow1Mstart">
+      <path transform="matrix(0.4,0,0,0.4,4,0)" style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none" d="M 0,0 5,-5 -12.5,0 5,5 0,0 z" id="path8" inkscape:connector-curvature="0" />
+    </marker>
+    <marker style="overflow:visible" id="Arrow1Mend" refX="0" refY="0" orient="auto" inkscape:stockid="Arrow1Mend">
+      <path transform="matrix(-0.4,0,0,-0.4,-4,0)" style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none" d="M 0,0 5,-5 -12.5,0 5,5 0,0 z" id="path11" inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <g inkscape:label="Label-pattern" id="pattern" inkscape:groupmode="layer" transform="translate(42.363281,75.390625)">
+    <g id="document.dress.Bodice Front.pattern" transform="translate(1211.2339,757.71764)">
+      <g id="A.letter" transform="matrix(10,0,0,10,2542.3492,-4040.1138)">
+        <text style="font-size:24px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="A.letter.letterline" y="448.90152" x="-282.48325">A</text>
+      </g>
+      <line style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend)" y2="1514.7336" x2="-82.216209" y1="325.5112" x1="-82.216209" id="A.grainline" />
+      <path style="fill:none;stroke:#008000;stroke-width:3;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0" d="M -335.73583,1641.6146 -296.607,1240.1575 -354.33071,724.24123 -412.05442,1240.1575 -372.92559,1641.6146 M -1063.3496,568.95317 -448.06067,637.79528 -1044.0135,815.9308" id="A.dartline" inkscape:connector-curvature="0" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:24, 6;stroke-dashoffset:0" d="M 0,162.75561 0,1585.6299 -331.43361,1597.4744 -354.33071,1610.7879 -377.22781,1597.4744 -986.05556,1588.5078 -1050.8805,1240.1575 -990.11959,799.82145 -1047.5995,691.92164 -1007.4484,575.20772 -951.31897,412.59534 -809.05925,-250.06474 -379.56365,-295.00686 -282.48324,162.75561 0,162.75561" id="A.seamline" inkscape:connector-curvature="0" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="M -385.40625,-350.9375 C -542.10409,-334.54093 -698.80263,-318.15109 -855.5,-301.75 -905.68313,-68.394565 -955.54665,165.04937 -1005.92,398.35155 -1040.2657,497.79584 -1074.5385,597.25972 -1108.75,696.75 -1088.6127,734.56151 -1068.4793,772.37505 -1048.3438,810.1875 -1068.1785,953.95814 -1088.0022,1097.7303 -1107.8438,1241.5 -1082.885,1375.6894 -1057.9266,1509.8788 -1032.9375,1644.0625 -819.55236,1647.2269 -606.16663,1650.3514 -392.78125,1653.5 -379.97722,1660.9446 -367.17696,1668.3956 -354.375,1675.8438 -340.99646,1668.4386 -327.98587,1659.7664 -314.37564,1653.1518 -190.83375,1648.7369 -67.291976,1644.3187 56.25,1639.9062 56.25,1128.7708 56.25,617.63542 56.25,106.5 -41.46875,106.5 -139.1875,106.5 -236.90625,106.5 -269.61192,-47.740147 -302.34362,-201.97478 -335.03125,-356.21875 -351.82292,-354.45833 -368.61458,-352.69792 -385.40625,-350.9375 z" id="A.cuttingline" inkscape:connector-curvature="0" />
+      <g id="A.info">
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="A.info.lineSeamly Patterns" y="493.90152" x="-282.48325">Seamly Patterns</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="A.info.lineDesigner:M. Rohr" y="508.30154" x="-282.48325">Designer:M. Rohr</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="A.info.lineClient:DressFormLg" y="522.70154" x="-282.48325">Client:DressFormLg</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="A.info.lineD_Long_Torso_MRohr" y="537.1015" x="-282.48325">D_Long_Torso_MRohr</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="A.info.linePattern Piece A" y="551.50153" x="-282.48325">Pattern Piece A</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="A.info.lineCut 2 Fabric" y="565.90155" x="-282.48325">Cut 2 Fabric</text>
+      </g>
+    </g>
+    <g id="document.dress.Bodice Back.pattern" transform="translate(1382.4839,580.55228)">
+      <g id="B.letter" transform="matrix(10,0,0,10,-1531.3861,-3229.3501)">
+        <text style="font-size:24px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="B.letter.letterline" y="358.81668" x="170.15401">B</text>
+      </g>
+      <line style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend)" y2="1404.9559" x2="88.177155" y1="153.83493" x1="88.177155" id="B.grainline" />
+      <path style="fill:none;stroke:#008000;stroke-width:3;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0" d="M 369.40327,1800.9549 316.73764,1346.4567 395.92205,707.46569 475.10646,1346.4567 422.44082,1800.9549" id="B.dartline" inkscape:connector-curvature="0" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:24, 6;stroke-dashoffset:0" d="M 0,76.917463 0,1745.0787 365.06348,1763.503 395.92205,1745.0787 426.78062,1763.503 976.72786,1692.1389 898.92,1346.4567 886.3404,644.02037 786.37725,20.560599 371.29347,-98.56842 340.30802,76.917463 0,76.917463" id="B.seamline" inkscape:connector-curvature="0" />
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="M 315.875,-108.34375 C 308.28125,-65.34375 300.6875,-22.34375 293.09375,20.65625 176.64583,20.65625 60.197917,20.65625 -56.25,20.65625 -56.25,613.30208 -56.25,1205.9479 -56.25,1798.5938 88.917386,1805.8919 234.0818,1813.2494 379.25,1820.5312 384.8139,1817.2211 390.36573,1813.8906 395.9375,1810.5938 402.55749,1814.0698 408.82982,1819.2655 415.67925,1821.6531 625.50759,1794.4456 835.32923,1767.1864 1045.1562,1739.9688 1015.1003,1606.5785 985.09602,1473.1766 955.0625,1339.7812 950.86743,1106.2085 946.73293,872.63447 942.5,639.0625 907.09748,418.15399 871.65338,197.25213 836.25,-23.65625 666.41107,-72.376317 496.5779,-121.11651 326.75,-169.875 323.125,-149.36458 319.5,-128.85417 315.875,-108.34375 z" id="B.cuttingline" inkscape:connector-curvature="0" />
+      <g id="B.info">
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="B.info.lineSeamly Patterns" y="403.81668" x="170.15401">Seamly Patterns</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="B.info.lineDesigner:M. Rohr" y="418.21667" x="170.15401">Designer:M. Rohr</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="B.info.lineClient:DressFormLg" y="432.61667" x="170.15401">Client:DressFormLg</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="B.info.lineD_Long_Torso_MRohr" y="447.01669" x="170.15401">D_Long_Torso_MRohr</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="B.info.linePattern Piece B" y="461.41669" x="170.15401">Pattern Piece B</text>
+        <text style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none" id="B.info.lineCut 2 Fabric" y="475.81668" x="170.15401">Cut 2 Fabric</text>
+      </g>
+    </g>
+  </g>
+  <g inkscape:label="Label-notes" id="notes" inkscape:groupmode="layer" transform="translate(42.363281,75.390625)">
+    <g id="document.testgrid">
+      <path style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" d="M 1320,0 1320,212.59843 M 1355.4331,0 1355.4331,212.59843 M 1390.8661,0 1390.8661,212.59843 M 1426.2992,0 1426.2992,212.59843 M 1461.7323,0 1461.7323,212.59843 M 1497.1654,0 1497.1654,212.59843 M 1532.5984,0 1532.5984,212.59843 M 1320,0 1532.5984,0 M 1320,35.433071 1532.5984,35.433071 M 1320,70.866142 1532.5984,70.866142 M 1320,106.29921 1532.5984,106.29921 M 1320,141.73228 1532.5984,141.73228 M 1320,177.16535 1532.5984,177.16535 M 1320,212.59843 1532.5984,212.59843 M 1709.7638,0 1709.7638,270 M 1799.7638,0 1799.7638,270 M 1889.7638,0 1889.7638,270 M 1979.7638,0 1979.7638,270 M 1709.7638,0 1979.7638,0 M 1709.7638,90 1979.7638,90 M 1709.7638,180 1979.7638,180 M 1709.7638,270 1979.7638,270" id="testgrid" inkscape:connector-curvature="0" />
+    </g>
+    <g id="document.dress.Bodice Front.notes" transform="translate(1211.2339,757.71764)" />
+    <g id="document.dress.Bodice Back.notes" transform="translate(1382.4839,580.55228)" />
+    <g id="document.dress.Skirt Front.notes" transform="translate(2.5,2895.5031)" />
+    <g id="document.dress.Skirt Back.notes" transform="translate(2.5,5888.37)" />
+  </g>
+  <g inkscape:label="Label-reference" id="reference" inkscape:groupmode="layer" transform="translate(42.363281,75.390625)" />
+</svg>

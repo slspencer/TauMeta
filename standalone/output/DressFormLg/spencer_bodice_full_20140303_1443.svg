@@ -1,0 +1,2134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   patternNumber="W_Block_Bodice_1"
+   fitBoxtoViewport="True"
+   companyName="Seamly Patterns"
+   currentscale="0.5:1"
+   margin-right="88.5826771654"
+   client-name="DressFormLg"
+   designerName="S.L.Spencer"
+   height="4940.09687208"
+   width="2516.23150795"
+   margin-top="88.5826771654"
+   version="1.1"
+   margin-bottom="88.5826771654"
+   margin-left="88.5826771654"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="spencer_bodice_full.svg">
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.26401305"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:window-maximized="1"
+     inkscape:cx="1258.1157"
+     inkscape:cy="3742.698"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:current-layer="reference" />
+  <metadata
+     id="metadata293">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs5">
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         id="path8"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.4) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;">
+      <path
+         id="path11"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+  </defs>
+  <g
+     transform="translate(88.582677,88.582677)"
+     inkscape:groupmode="layer"
+     id="pattern"
+     inkscape:label="Label-pattern">
+    <g
+       transform=" translate(1211.233916, 757.717638)"
+       id="document.bodice.Front.pattern">
+      <g
+         transform="matrix(10.000000, 0, 0, 10.000000, 3029.527559, -2524.600916)"
+         id="A.letter">
+        <text
+           x="-336.614173228"
+           y="280.511212844"
+           id="A.letter.letterline"
+           transform=""
+           style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+A</text>
+      </g>
+      <line
+         id="A.grainline"
+         x1="-84.1535433071"
+         y1="325.511212844"
+         x2="-84.1535433071"
+         transform=""
+         marker-start="url(#Arrow1Mstart)"
+         marker-end="url(#Arrow1Mend)"
+         y2="945.589953002"
+         style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " />
+      <path
+         id="A.dartline"
+         d="M -276.71698758  1296.02047187 L -354.330708661  724.443169644 L -610.740154633  1248.97323227 M -1058.52739589  554.760889217 L -447.591455988  637.795275591 L -1058.52739589  720.829661964 "
+         transform=""
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:3; fill:none; " />
+      <path
+         id="A.seamline"
+         d="M 0.0  0.0 L 0.0  1240.15748031 L -283.303995598  1240.15748031 L -439.173563186  1240.15748031 L -588.978911223  1197.10309843 C -652.241457453  1154.03974328  -970.963700056  1167.90168466  -1047.41986416  1171.22693381 L -1002.66440434  714.242653947 L -995.177412503  637.795275591 L -1002.66440434  561.347897234 L -951.318972064  412.595342888 C -859.49932746  444.289046327  -725.036267033  407.677369736  -673.228346457  325.511212844 C -575.334359986  170.253627484  -698.480568839  -133.559518535  -717.519685039  -223.334513127 L -266.911636328  -318.897637795 C -266.911636328  -159.448818898  -200.183727246  0.0  0.0  0.0 "
+         transform=""
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; " />
+      <path
+         inkscape:connector-curvature="0"
+         id="A.cuttingline"
+         d="m -278.5625,-373.9375 c -168.64637,35.75789 -337.28744,71.5408 -505.9375,107.28125 8.13014,37.76442 15.77086,75.68642 27.43926,112.55677 29.46153,99.484749 59.67779,199.920587 64.59199,304.06823 1.49563,47.32153 -1.65126,97.16691 -24.75,139.53125 -18.1854,32.73858 -52.50767,53.2497 -86.90625,65.375 -44.78668,15.27704 -95.20324,18.46365 -139.84177,0.86524 -14.11524,-4.70508 -28.23049,-9.41016 -42.34573,-14.11524 -24.508,70.9904 -48.9686,141.99725 -73.5313,212.96875 2.5691,28.38841 6.0818,56.78577 7.9618,85.17802 -19.2424,196.79738 -38.5304,393.59033 -57.8055,590.38443 129.64364,-5.5475 259.67148,-11.811 389.28125,-3.375 32.46136,2.9365 65.75881,4.9789 96.875,15.5313 6.53405,2.7128 11.56328,8.2485 19.03125,8.8437 52.80436,14.992 105.50761,30.7123 158.375,45.25 167.45833,1e-4 334.91667,0 502.375,0 0,-450.76037 0,-901.52078 0,-1352.2812 -43.256982,-1.012827 -87.529194,3.00778 -129.349527,-10.555395 -41.582843,-12.223861 -77.026953,-41.743635 -98.182353,-79.372765 -30.90257,-54.04215 -39.73608,-117.77475 -39.37437,-179.10309 0,-21.14583 0,-42.29167 0,-63.4375 -22.63542,4.80208 -45.27083,9.60417 -67.90625,14.40625 z"
+         style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <g
+         transform=""
+         id="A.info">
+        <text
+           x="-336.614173228"
+           y="325.511212844"
+           id="A.info.lineSeamly Patterns"
+           transform=""
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+Seamly Patterns</text>
+        <text
+           x="-336.614173228"
+           y="339.911212844"
+           id="A.info.lineDesigner:S.L.Spencer"
+           transform=""
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+Designer:S.L.Spencer</text>
+        <text
+           x="-336.614173228"
+           y="354.311212844"
+           id="A.info.lineClient:DressFormLg"
+           transform=""
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+Client:DressFormLg</text>
+        <text
+           x="-336.614173228"
+           y="368.711212844"
+           id="A.info.lineW_Block_Bodice_1"
+           transform=""
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+W_Block_Bodice_1</text>
+        <text
+           x="-336.614173228"
+           y="383.111212844"
+           id="A.info.linePattern Piece A"
+           transform=""
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+Pattern Piece A</text>
+        <text
+           x="-336.614173228"
+           y="397.511212844"
+           id="A.info.lineCut 2 Fabric"
+           transform=""
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+    <g
+       transform=" translate(1382.483916, 580.552283)"
+       id="document.bodice.Back.pattern">
+      <g
+         transform="matrix(10.000000, 0, 0, 10.000000, -1280.119391, -2403.705423)"
+         id="B.letter">
+        <text
+           x="142.235487856"
+           y="267.078380389"
+           id="B.letter.letterline"
+           transform=""
+           style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+B</text>
+      </g>
+      <line
+         id="B.grainline"
+         x1="71.117743928"
+         y1="156.039190194"
+         x2="71.117743928"
+         transform=""
+         marker-start="url(#Arrow1Mstart)"
+         marker-end="url(#Arrow1Mend)"
+         y2="829.267536651"
+         style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " />
+      <path
+         id="B.dartline"
+         d="M 306.861078044  1402.37965526 L 391.147343053  624.156760777 L 475.433608062  1402.37965526 "
+         transform=""
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:3; fill:none; " />
+      <path
+         id="B.seamline"
+         d="M 0.0  0.0 L 0.0  1346.45669291 L 312.917874443  1346.45669291 L 391.147343053  1346.45669291 L 469.376811664  1346.45669291 C 539.573197573  1331.07082383  758.549758713  1356.2008394  900.332237309  1332.64751665 L 885.826771654  716.282745029 C 789.304248641  718.554296239  649.107206559  712.961900107  611.220472441  624.156760777 C 533.475345126  441.924984294  670.045495751  129.054339455  708.661417323  37.8293872947 L 284.470975712  -141.732283465 C 256.846103288  -76.4722155244  213.353231784  0.0  0.0  0.0 "
+         transform=""
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; " />
+      <path
+         inkscape:connector-curvature="0"
+         id="B.cuttingline"
+         d="m 232.78125,-163.875 c -10.98857,27.28269 -26.4487,54.43051 -51.9375,70.5625 -35.97568,23.241769 -79.38646,30.50906 -121.28125,34.625 -38.514187,3.538127 -77.171074,2.158341 -115.8125,2.4375 0,486.32292 0,972.64583 0,1458.9688 177.27083,-1e-4 354.54167,0 531.8125,0 28.87484,-6.4832 58.83187,-4.9015 88.31243,-5.3486 108.99332,0.7464 218.64049,7.3784 327.06257,-6.4327 22.29321,-3.1712 44.54048,-6.9886 66.8125,-10.4375 -5.72998,-240.5404 -11.3649,-481.08308 -17.03125,-721.625 -69.85301,0.93391 -140.78521,6.30788 -209.15625,-11.25 -23.94054,-6.72207 -49.82336,-16.28916 -64.4375,-37.6875 -11.43993,-20.69166 -16.35764,-44.29822 -19.9375,-67.40625 -8.74301,-67.62098 1.49193,-136.1974 16.38596,-202.25451 C 688.05715,233.88718 728.92285,132.18513 772.16255,32.198677 775.58753,24.132451 779.01252,16.066226 782.4375,8 606.57548,-66.478563 430.70415,-140.93519 254.8125,-215.34375 c -7.34375,17.15625 -14.6875,34.3125 -22.03125,51.46875 z"
+         style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4" />
+      <g
+         transform=""
+         id="B.info">
+        <text
+           x="142.235487856"
+           y="312.078380389"
+           id="B.info.lineSeamly Patterns"
+           transform=""
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+Seamly Patterns</text>
+        <text
+           x="142.235487856"
+           y="326.478380389"
+           id="B.info.lineDesigner:S.L.Spencer"
+           transform=""
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+Designer:S.L.Spencer</text>
+        <text
+           x="142.235487856"
+           y="340.878380389"
+           id="B.info.lineClient:DressFormLg"
+           transform=""
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+Client:DressFormLg</text>
+        <text
+           x="142.235487856"
+           y="355.278380389"
+           id="B.info.lineW_Block_Bodice_1"
+           transform=""
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+W_Block_Bodice_1</text>
+        <text
+           x="142.235487856"
+           y="369.678380389"
+           id="B.info.linePattern Piece B"
+           transform=""
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+Pattern Piece B</text>
+        <text
+           x="142.235487856"
+           y="384.078380389"
+           id="B.info.lineCut 2 Fabric"
+           transform=""
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+    <path
+       transform="translate(-88.582677,-88.582677)"
+       inkscape:connector-curvature="0"
+       id="path3276"
+       d="m 1297.7767,843.82192 5.3407,1244.37028"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       id="text3330"
+       y="0"
+       x="0">
+      <textPath
+         id="textPath3332"
+         dy="-6.0"
+         startOffset="50%"
+         xlink:href="#path3276"
+         style="font-size:20;vertical-align:bottom;fill-opacity:1.0;font-style:normal;fill:#000000;font-weight:normal;stroke:none;text-anchor:middle;text-align:center">35.12 cm</textPath>
+    </text>
+  </g>
+  <g
+     transform="translate(88.582677,88.582677)"
+     inkscape:groupmode="layer"
+     id="notes"
+     inkscape:label="Label-notes">
+    <g
+       id="document.titleblock">
+      <text
+         x="0.0"
+         y="0.0"
+         id="company"
+         transform=""
+         style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+Seamly Patterns</text>
+      <text
+         x="0.0"
+         y="44.0"
+         id="designer"
+         transform=""
+         style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+S.L.Spencer</text>
+      <text
+         x="0.0"
+         y="88.0"
+         id="pattern_number"
+         transform=""
+         style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+W_Block_Bodice_1</text>
+      <text
+         x="0.0"
+         y="132.0"
+         id="pattern_name"
+         transform=""
+         style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+Spencer Bodice Block</text>
+      <text
+         x="0.0"
+         y="176.0"
+         id="client"
+         transform=""
+         style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; ">
+DressFormLg</text>
+    </g>
+    <g
+       id="document.testgrid">
+      <path
+         id="testgrid"
+         d="M 1320.0  0.0 L 1320.0  212.598425197 M 1355.43307087  0.0 L 1355.43307087  212.598425197 M 1390.86614173  0.0 L 1390.86614173  212.598425197 M 1426.2992126  0.0 L 1426.2992126  212.598425197 M 1461.73228346  0.0 L 1461.73228346  212.598425197 M 1497.16535433  0.0 L 1497.16535433  212.598425197 M 1532.5984252  0.0 L 1532.5984252  212.598425197 M 1320.0  0.0 L 1532.5984252  0.0 M 1320.0  35.4330708661 L 1532.5984252  35.4330708661 M 1320.0  70.8661417323 L 1532.5984252  70.8661417323 M 1320.0  106.299212598 L 1532.5984252  106.299212598 M 1320.0  141.732283465 L 1532.5984252  141.732283465 M 1320.0  177.165354331 L 1532.5984252  177.165354331 M 1320.0  212.598425197 L 1532.5984252  212.598425197 M 1709.76377953  0.0 L 1709.76377953  270.0 M 1799.76377953  0.0 L 1799.76377953  270.0 M 1889.76377953  0.0 L 1889.76377953  270.0 M 1979.76377953  0.0 L 1979.76377953  270.0 M 1709.76377953  0.0 L 1979.76377953  0.0 M 1709.76377953  90.0 L 1979.76377953  90.0 M 1709.76377953  180.0 L 1979.76377953  180.0 M 1709.76377953  270.0 L 1979.76377953  270.0 "
+         style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; " />
+    </g>
+    <g
+       transform=" translate(1211.233916, 757.717638)"
+       id="document.bodice.Front.notes" />
+    <g
+       transform=" translate(1382.483916, 580.552283)"
+       id="document.bodice.Back.notes" />
+    <g
+       transform=" translate(879.823072, 2230.453326)"
+       id="document.bodice.Sleeve.notes" />
+  </g>
+  <g
+     transform="translate(88.582677,88.582677)"
+     inkscape:groupmode="layer"
+     id="reference"
+     inkscape:label="Label-reference">
+    <g
+       transform=" translate(1211.233916, 757.717638)"
+       id="document.bodice.Front.reference">
+      <circle
+         d="m -195.18373,0 c 0,2.7614237 -2.23858,5 -5,5 -2.76142,0 -5,-2.2385763 -5,-5 0,-2.7614237 2.23858,-5 5,-5 2.76142,0 5,2.2385763 5,5 z"
+         id="A.FNC.inpoint"
+         r="5"
+         cx="-200.183727246"
+         cy="0.0"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="-193.183727246"
+         y="-7.0"
+         id="A.FNC.inpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FNC.in</text>
+      <circle
+         d="M 5,0 C 5,2.7614237 2.7614237,5 0,5 -2.7614237,5 -5,2.7614237 -5,0 c 0,-2.7614237 2.2385763,-5 5,-5 2.7614237,0 5,2.2385763 5,5 z"
+         id="A.FNC"
+         r="5"
+         cx="0.0"
+         cy="0.0"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="7.0"
+         y="-7.0"
+         id="A.FNC.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FNC</text>
+      <circle
+         d="m 5,1240.1575 c 0,2.7614 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.2386 -5,-5 0,-2.7615 2.2385763,-5 5,-5 2.7614237,0 5,2.2385 5,5 z"
+         id="A.FWC"
+         r="5"
+         cx="0.0"
+         cy="1240.15748031"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="7.0"
+         y="1233.15748031"
+         id="A.FWC.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FWC</text>
+      <circle
+         d="m 5,-318.89764 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385763,-5 5,-5 2.7614237,0 5,2.23857 5,5 z"
+         id="A.FSH"
+         r="5"
+         cx="0.0"
+         cy="-318.897637795"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="7.0"
+         y="-325.897637795"
+         id="A.FSH.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FSH</text>
+      <circle
+         d="m -712.51971,-318.89764 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FSW"
+         r="5"
+         cx="-717.519685039"
+         cy="-318.897637795"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-710.519685039"
+         y="-325.897637795"
+         id="A.FSW.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FSW</text>
+      <circle
+         d="m -668.22833,-318.89764 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FAW"
+         r="5"
+         cx="-673.228346457"
+         cy="-318.897637795"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-666.228346457"
+         y="-325.897637795"
+         id="A.FAW.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FAW</text>
+      <circle
+         d="m 5,637.79529 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385763,-5 5,-5 2.7614237,0 5,2.23857 5,5 z"
+         id="A.FBC"
+         r="5"
+         cx="0.0"
+         cy="637.795275591"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="7.0"
+         y="630.795275591"
+         id="A.FBC.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FBC</text>
+      <circle
+         d="m -349.33072,637.79529 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FBP"
+         r="5"
+         cx="-354.330708661"
+         cy="637.795275591"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-347.330708661"
+         y="630.795275591"
+         id="A.FBP.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FBP</text>
+      <circle
+         d="m -693.48059,-133.55952 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FSP.inpoint"
+         r="5"
+         cx="-698.480568839"
+         cy="-133.559518535"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="-691.480568839"
+         y="-140.559518535"
+         id="A.FSP.inpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FSP.in</text>
+      <circle
+         d="m -712.51971,-223.33452 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+         id="A.FSP"
+         r="5"
+         cx="-717.519685039"
+         cy="-223.334513127"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-710.519685039"
+         y="-230.334513127"
+         id="A.FSP.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FSP</text>
+      <circle
+         d="m -261.91162,-159.44882 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FNS.outpoint"
+         r="5"
+         cx="-266.911636328"
+         cy="-159.448818898"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="-259.911636328"
+         y="-166.448818898"
+         id="A.FNS.outpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FNS.out</text>
+      <circle
+         d="m -261.91162,-318.89764 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FNS"
+         r="5"
+         cx="-266.911636328"
+         cy="-318.897637795"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-259.911636328"
+         y="-325.897637795"
+         id="A.FNS.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FNS</text>
+      <circle
+         d="m -570.33435,170.25363 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+         id="A.FAP.outpoint"
+         r="5"
+         cx="-575.334359986"
+         cy="170.253627484"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="-568.334359986"
+         y="163.253627484"
+         id="A.FAP.outpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FAP.out</text>
+      <circle
+         d="m -720.03625,407.67737 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FAP.inpoint"
+         r="5"
+         cx="-725.036267033"
+         cy="407.677369736"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="-718.036267033"
+         y="400.677369736"
+         id="A.FAP.inpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FAP.in</text>
+      <circle
+         d="m -668.22833,325.5112 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+         id="A.FAP"
+         r="5"
+         cx="-673.228346457"
+         cy="325.511212844"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-666.228346457"
+         y="318.511212844"
+         id="A.FAP.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FAP</text>
+      <circle
+         d="m 5,325.5112 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76142 2.2385763,-5 5,-5 2.7614237,0 5,2.23858 5,5 z"
+         id="A.FUC"
+         r="5"
+         cx="0.0"
+         cy="325.511212844"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="7.0"
+         y="318.511212844"
+         id="A.FUC.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FUC</text>
+      <circle
+         d="m -916.25983,325.5112 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+         id="A.FUS1"
+         r="5"
+         cx="-921.25984252"
+         cy="325.511212844"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-914.25984252"
+         y="318.511212844"
+         id="A.FUS1.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FUS1</text>
+      <circle
+         d="m -952.22083,429.6936 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+         id="A.FBS1"
+         r="5"
+         cx="-957.220839733"
+         cy="429.693609517"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-950.220839733"
+         y="422.693609517"
+         id="A.FBS1.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FBS1</text>
+      <circle
+         d="m -854.49933,444.28903 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+         id="A.FUS.outpoint"
+         r="5"
+         cx="-859.49932746"
+         cy="444.289046327"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="-852.49932746"
+         y="437.289046327"
+         id="A.FUS.outpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FUS.out</text>
+      <circle
+         d="m -946.31897,412.59534 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FUS"
+         r="5"
+         cx="-951.318972064"
+         cy="412.595342888"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-944.318972064"
+         y="405.595342888"
+         id="A.FUS.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FUS</text>
+      <circle
+         d="m -836.53546,1240.1575 c 0,2.7614 -2.23858,5 -5,5 -2.76143,0 -5,-2.2386 -5,-5 0,-2.7615 2.23857,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+         id="A.FWS1"
+         r="5"
+         cx="-841.535433071"
+         cy="1240.15748031"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-834.535433071"
+         y="1233.15748031"
+         id="A.FWS1.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FWS1</text>
+      <circle
+         d="m -349.33072,1240.1575 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+         id="A.FWM"
+         r="5"
+         cx="-354.330708661"
+         cy="1240.15748031"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-347.330708661"
+         y="1233.15748031"
+         id="A.FWM.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FWM</text>
+      <circle
+         d="m -1024.052,637.79529 c 0,2.76142 -2.2386,5 -5,5 -2.7614,0 -5,-2.23858 -5,-5 0,-2.76143 2.2386,-5 5,-5 2.7614,0 5,2.23857 5,5 z"
+         id="A.FBS"
+         r="5"
+         cx="-1029.05200961"
+         cy="637.795275591"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-1022.05200961"
+         y="630.795275591"
+         id="A.FBS.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FBS</text>
+      <circle
+         d="m -1147.4839,995.38916 c 0,2.76142 -2.2386,5.00004 -5,5.00004 -2.7614,0 -5,-2.23862 -5,-5.00004 0,-2.76142 2.2386,-5 5,-5 2.7614,0 5,2.23858 5,5 z"
+         id="A.FWS2"
+         r="5"
+         cx="-1152.48391593"
+         cy="995.389136257"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-1145.48391593"
+         y="988.389136257"
+         id="A.FWS2.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FWS2</text>
+      <circle
+         d="m -349.33072,724.44318 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FD1"
+         r="5"
+         cx="-354.330708661"
+         cy="724.443169644"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-347.330708661"
+         y="717.443169644"
+         id="A.FD1.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FD1</text>
+      <circle
+         d="m -278.30399,1240.1575 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z"
+         id="A.FD1.i"
+         r="5"
+         cx="-283.303995598"
+         cy="1240.15748031"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-276.303995598"
+         y="1233.15748031"
+         id="A.FD1.i.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FD1.i</text>
+      <circle
+         d="m -647.24146,1154.0398 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+         id="A.FD1.o.outpoint"
+         r="5"
+         cx="-652.241457453"
+         cy="1154.03974328"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="-645.241457453"
+         y="1147.03974328"
+         id="A.FD1.o.outpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FD1.o.out</text>
+      <circle
+         d="m -583.97888,1197.1031 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+         id="A.FD1.o"
+         r="5"
+         cx="-588.978911223"
+         cy="1197.10309843"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-581.978911223"
+         y="1190.10309843"
+         id="A.FD1.o.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FD1.o</text>
+      <circle
+         d="m -442.59146,637.79529 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="A.FD2"
+         r="5"
+         cx="-447.591455988"
+         cy="637.795275591"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-440.591455988"
+         y="630.795275591"
+         id="A.FD2.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FD2</text>
+      <circle
+         d="m -997.66443,561.3479 c 0,2.76142 -2.23857,5 -4.99997,5 -2.7615,0 -5,-2.23858 -5,-5 0,-2.76142 2.2385,-5 5,-5 2.7614,0 4.99997,2.23858 4.99997,5 z"
+         id="A.FD2.i"
+         r="5"
+         cx="-1002.66440434"
+         cy="561.347897234"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-995.664404335"
+         y="554.347897234"
+         id="A.FD2.i.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FD2.i</text>
+      <circle
+         d="m -997.66443,714.24268 c 0,2.76142 -2.23857,5 -4.99997,5 -2.7615,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385,-5 5,-5 2.7614,0 4.99997,2.23857 4.99997,5 z"
+         id="A.FD2.o"
+         r="5"
+         cx="-1002.66440434"
+         cy="714.242653947"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-995.664404335"
+         y="707.242653947"
+         id="A.FD2.o.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FD2.o</text>
+      <circle
+         d="m -965.96368,1167.9017 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+         id="A.FWS.inpoint"
+         r="5"
+         cx="-970.963700056"
+         cy="1167.90168466"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="-963.963700056"
+         y="1160.90168466"
+         id="A.FWS.inpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FWS.in</text>
+      <circle
+         d="m -1042.4199,1171.2269 c 0,2.7615 -2.2386,5 -5,5 -2.7614,0 -5,-2.2385 -5,-5 0,-2.7614 2.2386,-5 5,-5 2.7614,0 5,2.2386 5,5 z"
+         id="A.FWS"
+         r="5"
+         cx="-1047.41986416"
+         cy="1171.22693381"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="-1040.41986416"
+         y="1164.22693381"
+         id="A.FWS.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+FWS</text>
+      <path
+         id="A.gridline"
+         d="M -717.519685039  -223.334513127 L -717.519685039  -318.897637795 L 0.0  -318.897637795 L 0.0  1240.15748031 L -717.519685039  -223.334513127 M 0.0  325.511212844 L -921.25984252  325.511212844 L -951.318972064  412.595342888 M 0.0  637.795275591 L -354.330708661  637.795275591 M 0.0  1240.15748031 L -841.535433071  1240.15748031 M -354.330708661  637.795275591 L -266.911636328  -318.897637795 L -673.228346457  325.511212844 M -951.318972064  412.595342888 L -1152.48391593  995.389136257 M -354.330708661  637.795275591 L -957.220839733  429.693609517 M -1029.05200961  637.795275591 L -354.330708661  637.795275591 L -354.330708661  1240.15748031 M -673.228346457  -318.897637795 L -673.228346457  325.511212844 "
+         transform=""
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; " />
+    </g>
+    <g
+       transform=" translate(1382.483916, 580.552283)"
+       id="document.bodice.Back.reference">
+      <circle
+         d="m 218.35323,0 c 0,2.7614237 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385763 -5,-5 0,-2.7614237 2.23857,-5 5,-5 2.76142,0 5,2.2385763 5,5 z"
+         id="B.BNC.inpoint"
+         r="5"
+         cx="213.353231784"
+         cy="0.0"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="220.353231784"
+         y="-7.0"
+         id="B.BNC.inpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BNC.in</text>
+      <circle
+         d="M 5,0 C 5,2.7614237 2.7614237,5 0,5 -2.7614237,5 -5,2.7614237 -5,0 c 0,-2.7614237 2.2385763,-5 5,-5 2.7614237,0 5,2.2385763 5,5 z"
+         id="B.BNC"
+         r="5"
+         cx="0.0"
+         cy="0.0"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="7.0"
+         y="-7.0"
+         id="B.BNC.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BNC</text>
+      <circle
+         d="m 5,1346.4567 c 0,2.7614 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.2386 -5,-5 0,-2.7615 2.2385763,-5 5,-5 2.7614237,0 5,2.2385 5,5 z"
+         id="B.BWC"
+         r="5"
+         cx="0.0"
+         cy="1346.45669291"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="7.0"
+         y="1339.45669291"
+         id="B.BWC.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BWC</text>
+      <circle
+         d="m 5,-141.73228 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385763,-5 5,-5 2.7614237,0 5,2.23857 5,5 z"
+         id="B.BSH"
+         r="5"
+         cx="0.0"
+         cy="-141.732283465"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="7.0"
+         y="-148.732283465"
+         id="B.BSH.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BSH</text>
+      <circle
+         d="m 713.66144,-141.73228 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="B.BSW"
+         r="5"
+         cx="708.661417323"
+         cy="-141.732283465"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="715.661417323"
+         y="-148.732283465"
+         id="B.BSW.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BSW</text>
+      <circle
+         d="m 749.09448,1346.4567 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z"
+         id="B.BWS1"
+         r="5"
+         cx="744.094488189"
+         cy="1346.45669291"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="751.094488189"
+         y="1339.45669291"
+         id="B.BWS1.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BWS1</text>
+      <circle
+         d="m 675.04547,129.05434 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="B.BSP.inpoint"
+         r="5"
+         cx="670.045495751"
+         cy="129.054339455"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="677.045495751"
+         y="122.054339455"
+         id="B.BSP.inpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BSP.in</text>
+      <circle
+         d="m 713.66144,37.829388 c 0,2.761423 -2.23858,5 -5,5 -2.76143,0 -5,-2.238577 -5,-5 0,-2.761424 2.23857,-5 5,-5 2.76142,0 5,2.238576 5,5 z"
+         id="B.BSP"
+         r="5"
+         cx="708.661417323"
+         cy="37.8293872947"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="715.661417323"
+         y="30.8293872947"
+         id="B.BSP.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BSP</text>
+      <circle
+         d="m 261.8461,-76.472214 c 0,2.761424 -2.23858,5 -5,5 -2.76142,0 -5,-2.238576 -5,-5 0,-2.761423 2.23858,-5 5,-5 2.76142,0 5,2.238577 5,5 z"
+         id="B.BNS.outpoint"
+         r="5"
+         cx="256.846103288"
+         cy="-76.4722155244"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="263.846103288"
+         y="-83.4722155244"
+         id="B.BNS.outpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BNS.out</text>
+      <circle
+         d="m 289.47098,-141.73228 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="B.BNS"
+         r="5"
+         cx="284.470975712"
+         cy="-141.732283465"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="291.470975712"
+         y="-148.732283465"
+         id="B.BNS.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BNS</text>
+      <circle
+         d="m 654.10718,712.96191 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+         id="B.BAP.inpoint"
+         r="5"
+         cx="649.107206559"
+         cy="712.961900107"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="656.107206559"
+         y="705.961900107"
+         id="B.BAP.inpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BAP.in</text>
+      <circle
+         d="m 538.47534,441.92499 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76143,0 5,2.23857 5,5 z"
+         id="B.BAP.outpoint"
+         r="5"
+         cx="533.475345126"
+         cy="441.924984294"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="540.475345126"
+         y="434.924984294"
+         id="B.BAP.outpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BAP.out</text>
+      <circle
+         d="m 616.22046,624.15674 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="B.BAP"
+         r="5"
+         cx="611.220472441"
+         cy="624.156760777"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="618.220472441"
+         y="617.156760777"
+         id="B.BAP.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BAP</text>
+      <circle
+         d="m 5,624.15674 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385763,-5 5,-5 2.7614237,0 5,2.23857 5,5 z"
+         id="B.BUC"
+         r="5"
+         cx="0.0"
+         cy="624.156760777"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="7.0"
+         y="617.156760777"
+         id="B.BUC.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BUC</text>
+      <circle
+         d="m 890.82678,624.15674 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76143,0 5,2.23857 5,5 z"
+         id="B.BUS1"
+         r="5"
+         cx="885.826771654"
+         cy="624.156760777"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="892.826771654"
+         y="617.156760777"
+         id="B.BUS1.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BUS1</text>
+      <circle
+         d="m 794.30426,718.55432 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+         id="B.BUS.outpoint"
+         r="5"
+         cx="789.304248641"
+         cy="718.554296239"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="796.304248641"
+         y="711.554296239"
+         id="B.BUS.outpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BUS.out</text>
+      <circle
+         d="m 890.82678,716.28271 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+         id="B.BUS"
+         r="5"
+         cx="885.826771654"
+         cy="716.282745029"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="892.826771654"
+         y="709.282745029"
+         id="B.BUS.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BUS</text>
+      <circle
+         d="m 396.14734,624.15674 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+         id="B.BD1"
+         r="5"
+         cx="391.147343053"
+         cy="624.156760777"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="398.147343053"
+         y="617.156760777"
+         id="B.BD1.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BD1</text>
+      <circle
+         d="m 396.14734,1346.4567 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+         id="B.BWM"
+         r="5"
+         cx="391.147343053"
+         cy="1346.45669291"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="398.147343053"
+         y="1339.45669291"
+         id="B.BWM.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BWM</text>
+      <circle
+         d="m 317.91788,1346.4567 c 0,2.7614 -2.23858,5 -5,5 -2.76143,0 -5,-2.2386 -5,-5 0,-2.7615 2.23857,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+         id="B.BD1.i"
+         r="5"
+         cx="312.917874443"
+         cy="1346.45669291"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="319.917874443"
+         y="1339.45669291"
+         id="B.BD1.i.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BD1.i</text>
+      <circle
+         d="m 544.57318,1331.0708 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+         id="B.BD1.o.outpoint"
+         r="5"
+         cx="539.573197573"
+         cy="1331.07082383"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="546.573197573"
+         y="1324.07082383"
+         id="B.BD1.o.outpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BD1.o.out</text>
+      <circle
+         d="m 474.3768,1346.4567 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+         id="B.BD1.o"
+         r="5"
+         cx="469.376811664"
+         cy="1346.45669291"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="476.376811664"
+         y="1339.45669291"
+         id="B.BD1.o.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BD1.o</text>
+      <circle
+         d="m 763.54974,1356.2008 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+         id="B.BWS.inpoint"
+         r="5"
+         cx="758.549758713"
+         cy="1356.2008394"
+         transform=""
+         style="stroke:gray; stroke-width:1; fill:none; " />
+      <text
+         x="765.549758713"
+         y="1349.2008394"
+         id="B.BWS.inpoint.text"
+         transform=""
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BWS.in</text>
+      <circle
+         d="m 905.33221,1332.6475 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z"
+         id="B.BWS"
+         r="5"
+         cx="900.332237309"
+         cy="1332.64751665"
+         transform=""
+         style="stroke:red; stroke-width:1; fill:red; " />
+      <text
+         x="907.332237309"
+         y="1325.64751665"
+         id="B.BWS.text"
+         transform=""
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; ">
+BWS</text>
+      <path
+         id="B.gridline"
+         d="M 708.661417323  37.8293872947 L 708.661417323  -141.732283465 L 0.0  -141.732283465 L 0.0  1346.45669291 L 744.094488189  1346.45669291 M 0.0  1346.45669291 L 708.661417323  37.8293872947 M 284.470975712  -141.732283465 L 611.220472441  624.156760777 M 0.0  624.156760777 L 885.826771654  624.156760777 M 391.147343053  624.156760777 L 391.147343053  1346.45669291 "
+         transform=""
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; " />
+    </g>
+    <g
+       id="g3874"
+       transform="translate(344.67993,-79.541522)">
+      <g
+         id="document.bodice.Sleeve.pattern"
+         transform="translate(879.82307,2230.4533)">
+        <line
+           style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend)"
+           y2="2090.5513"
+           x2="0"
+           y1="500.6694"
+           x1="0"
+           id="C.grainline" />
+        <g
+           id="C.letter"
+           transform="matrix(15,0,0,15,6387.134,-13566.084)">
+          <text
+             style="font-size:24px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.letter.letterline"
+             y="969.00598"
+             x="-456.22385">C</text>
+        </g>
+        <path
+           style="fill:none;stroke:#008000;stroke-width:3;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0"
+           d="m -747.19488,1437.3426 401.72244,0 -372.0633,122.24"
+           id="C.dartline"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:24, 6;stroke-dashoffset:0"
+           d="m -877.32307,500.66941 c 74.52291,-39.14343 149.31964,-78.4307 219.33077,-125.16735 70.69692,-47.19447 134.51229,-103.96121 201.76844,-155.94181 67.25615,-51.98061 125.17457,-119.08059 201.76845,-155.941816 C -175.67456,25.704713 -87.258266,-5.4652165 0,0 84.835956,5.3135008 163.06668,52.261747 236.89309,94.392893 310.7195,136.52404 371.40539,198.3541 438.66154,250.33471 c 67.25614,51.9806 127.94203,113.81066 201.76844,155.94181 73.82641,42.13114 155.94655,68.45008 236.89309,94.39289 -105.59926,309.59756 -211.41077,619.81739 -292.6774,936.67319 -79.11179,308.4541 -133.5111,622.8964 -187.79528,936.6731 -251.41759,-43.4958 -517.28121,19.3451 -758.60195,102.2125 l -35.09883,-102.2125 c -106.28383,-309.5125 -212.79278,-619.6806 -267.24567,-831.9905 l -41.7745,-47.8724 14.92568,-56.8102 C -770.03369,1128.9781 -823.73835,814.47253 -877.32307,500.66941"
+           id="C.seamline"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4"
+           d="m -25,-56.84375 c -89.11615,1.232864 -174.78874,31.766809 -254.28125,69.96875 -70.65632,33.883283 -126.4483,90.13845 -185.125,140.625 -32.28733,26.76583 -65.93548,51.96631 -98.21943,78.78682 -55.22945,45.18409 -111.63511,89.25568 -173.08321,125.75226 -66.27551,40.23393 -135.39039,75.38957 -203.91611,111.58592 55.32125,323.95807 109.64425,648.5071 190.59375,967.2188 -6.28085,23.8619 -12.5641,47.7232 -18.8125,71.5937 17.54109,20.1242 35.10045,40.2324 52.65625,60.3437 42.00359,158.8334 93.42549,314.9438 145.18759,470.8423 56.7047,169.5857 115.31983,338.5296 173.28116,507.7203 99.73155,-34.6781 199.94745,-67.5097 302.83044,-91.2304 146.286111,-33.9516 298.23095,-51.8802 447.95081,-31.9884 29.56393,3.9622 59.09834,9.68 88.625,14.5312 C 505.92356,2074.0041 567.35141,1707.9548 665.84893,1350.5493 747.64272,1051.3119 849.07084,758.11118 949.0625,464.5 861.86816,436.01981 772.98488,411.45864 690.96875,369.6875 607.88889,328.17861 543.6383,259.50377 470.375,203.78125 400.4218,148.66736 336.5393,84.798222 257.93386,41.616242 188.39723,1.7496276 116.68898,-39.157505 36.46875,-52.34375 16.1447,-55.789253 -4.391811,-57.07657 -25,-56.84375 z"
+           id="C.cuttingline"
+           inkscape:connector-curvature="0" />
+        <g
+           id="C.info">
+          <text
+             style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.info.lineSeamly Patterns"
+             y="1039.8722"
+             x="-456.22385">Seamly Patterns</text>
+          <text
+             style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.info.lineDesigner:S.L.Spencer"
+             y="1054.2721"
+             x="-456.22385">Designer:S.L.Spencer</text>
+          <text
+             style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.info.lineClient:DressFormLg"
+             y="1068.6721"
+             x="-456.22385">Client:DressFormLg</text>
+          <text
+             style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.info.lineW_Block_Bodice_1"
+             y="1083.0721"
+             x="-456.22385">W_Block_Bodice_1</text>
+          <text
+             style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.info.linePattern Piece C"
+             y="1097.4722"
+             x="-456.22385">Pattern Piece C</text>
+          <text
+             style="font-size:12px;font-style:normal;font-weight:normal;text-align:right;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             id="C.info.lineCut 2 Fabric"
+             y="1111.8722"
+             x="-456.22385">Cut 2 Fabric</text>
+        </g>
+      </g>
+      <g
+         id="document.bodice.Sleeve.reference"
+         transform="translate(879.82307,2230.4533)">
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="-5.4652166"
+           cx="-87.258263"
+           r="5"
+           id="C.SCM.inpoint"
+           d="m -82.258263,-5.4652166 c 0,2.7614237 -2.238576,4.99999996 -5,4.99999996 -2.761423,0 -5,-2.23857626 -5,-4.99999996 0,-2.7614238 2.238577,-5.0000004 5,-5.0000004 2.761424,0 5,2.2385766 5,5.0000004 z"
+           sodipodi:cx="-87.258263"
+           sodipodi:cy="-5.4652166"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCM.inpoint.text"
+           y="-12.465217"
+           x="-80.258263">SCM.in</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="5.3135009"
+           cx="84.835953"
+           r="5"
+           id="C.SCM.outpoint"
+           d="m 89.835953,5.3135009 c 0,2.7614237 -2.238576,5.0000001 -5,5.0000001 -2.761424,0 -5,-2.2385764 -5,-5.0000001 0,-2.7614238 2.238576,-5.00000002 5,-5.00000002 2.761424,0 5,2.23857622 5,5.00000002 z"
+           sodipodi:cx="84.835953"
+           sodipodi:cy="5.3135009"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCM.outpoint.text"
+           y="-1.6864991"
+           x="91.835953">SCM.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="0"
+           cx="0"
+           r="5"
+           id="C.SCM"
+           d="M 5,0 C 5,2.7614237 2.7614237,5 0,5 -2.7614237,5 -5,2.7614237 -5,0 c 0,-2.7614237 2.2385763,-5 5,-5 2.7614237,0 5,2.2385763 5,5 z"
+           sodipodi:cx="0"
+           sodipodi:cy="0"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SCM.text"
+           y="-7"
+           x="7">SCM</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="500.6694"
+           cx="0"
+           r="5"
+           id="C.SUM"
+           d="m 5,500.6694 c 0,2.76143 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23857 -5,-5 0,-2.76142 2.2385763,-5 5,-5 2.7614237,0 5,2.23858 5,5 z"
+           sodipodi:cx="0"
+           sodipodi:cy="500.6694"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SUM.text"
+           y="493.6694"
+           x="7">SUM</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="2374.0159"
+           cx="0"
+           r="5"
+           id="C.SWM"
+           d="m 5,2374.0159 c 0,2.7614 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.2386 -5,-5 0,-2.7615 2.2385763,-5 5,-5 2.7614237,0 5,2.2385 5,5 z"
+           sodipodi:cx="0"
+           sodipodi:cy="2374.0159"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SWM.text"
+           y="2367.0159"
+           x="7">SWM</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="1437.3425"
+           cx="0"
+           r="5"
+           id="C.SEM"
+           d="m 5,1437.3425 c 0,2.7615 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.2385 -5,-5 0,-2.7614 2.2385763,-5 5,-5 2.7614237,0 5,2.2386 5,5 z"
+           sodipodi:cx="0"
+           sodipodi:cy="1437.3425"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SEM.text"
+           y="1430.3425"
+           x="7">SEM</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="461.52597"
+           cx="-802.80017"
+           r="5"
+           id="C.SUB.outpoint"
+           d="m -797.80017,461.52597 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           sodipodi:cx="-802.80017"
+           sodipodi:cy="461.52597"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SUB.outpoint.text"
+           y="454.52597"
+           x="-795.80017">SUB.out</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="814.47253"
+           cx="-823.73834"
+           r="5"
+           id="C.SUB.inpoint"
+           d="m -818.73834,814.47253 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           sodipodi:cx="-823.73834"
+           sodipodi:cy="814.47253"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SUB.inpoint.text"
+           y="807.47253"
+           x="-816.73834">SUB.in</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="500.6694"
+           cx="-877.32306"
+           r="5"
+           id="C.SUB"
+           d="m -872.32306,500.6694 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           sodipodi:cx="-877.32306"
+           sodipodi:cy="500.6694"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SUB.text"
+           y="493.6694"
+           x="-870.32306">SUB</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="2374.0159"
+           cx="-877.32306"
+           r="5"
+           id="C.SWB1"
+           d="m -872.32306,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+           sodipodi:cx="-877.32306"
+           sodipodi:cy="2374.0159"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SWB1.text"
+           y="2367.0159"
+           x="-870.32306">SWB1</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="474.72659"
+           cx="796.37653"
+           r="5"
+           id="C.SUF.inpoint"
+           d="m 801.37653,474.72659 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           sodipodi:cx="796.37653"
+           sodipodi:cy="474.72659"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SUF.inpoint.text"
+           y="467.72659"
+           x="803.37653">SUF.in</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="810.26697"
+           cx="771.72382"
+           r="5"
+           id="C.SUF.outpoint"
+           d="m 776.72382,810.26697 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+           sodipodi:cx="771.72382"
+           sodipodi:cy="810.26697"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SUF.outpoint.text"
+           y="803.26697"
+           x="778.72382">SUF.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="500.6694"
+           cx="877.32306"
+           r="5"
+           id="C.SUF"
+           d="m 882.32306,500.6694 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           sodipodi:cx="877.32306"
+           sodipodi:cy="500.6694"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SUF.text"
+           y="493.6694"
+           x="884.32306">SUF</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="2374.0159"
+           cx="877.32306"
+           r="5"
+           id="C.CWF1"
+           d="m 882.32306,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+           sodipodi:cx="877.32306"
+           sodipodi:cy="2374.0159"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.CWF1.text"
+           y="2367.0159"
+           x="884.32306">CWF1</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="422.23871"
+           cx="-728.00342"
+           r="5"
+           id="C.SCB1.inpoint"
+           d="m -723.00342,422.23871 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76143,0 5,2.23857 5,5 z"
+           sodipodi:cx="-728.00342"
+           sodipodi:cy="422.23871"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCB1.inpoint.text"
+           y="415.23871"
+           x="-721.00342">SCB1.in</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="328.30759"
+           cx="-587.29541"
+           r="5"
+           id="C.SCB1.outpoint"
+           d="m -582.29541,328.30759 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+           sodipodi:cx="-587.29541"
+           sodipodi:cy="328.30759"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCB1.outpoint.text"
+           y="321.30759"
+           x="-580.29541">SCB1.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="375.50204"
+           cx="-657.99231"
+           r="5"
+           id="C.SCB1"
+           d="m -652.99231,375.50204 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           sodipodi:cx="-657.99231"
+           sodipodi:cy="375.50204"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SCB1.text"
+           y="368.50204"
+           x="-650.99231">SCB1</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="271.54086"
+           cx="-523.47998"
+           r="5"
+           id="C.SCB2.inpoint"
+           d="m -518.47998,271.54086 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           sodipodi:cx="-523.47998"
+           sodipodi:cy="271.54086"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCB2.inpoint.text"
+           y="264.54086"
+           x="-516.47998">SCB2.in</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="167.57964"
+           cx="-388.96771"
+           r="5"
+           id="C.SCB2.outpoint"
+           d="m -383.96771,167.57964 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+           sodipodi:cx="-388.96771"
+           sodipodi:cy="167.57964"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCB2.outpoint.text"
+           y="160.57964"
+           x="-381.96771">SCB2.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="219.56024"
+           cx="-456.22385"
+           r="5"
+           id="C.SCB2"
+           d="m -451.22385,219.56024 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+           sodipodi:cx="-456.22385"
+           sodipodi:cy="219.56024"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SCB2.text"
+           y="212.56024"
+           x="-449.22385">SCB2</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="100.47966"
+           cx="-331.04929"
+           r="5"
+           id="C.SCB3.inpoint"
+           d="m -326.04929,100.47966 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.761424 2.23858,-5 5,-5 2.76143,0 5,2.238576 5,5 z"
+           sodipodi:cx="-331.04929"
+           sodipodi:cy="100.47966"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCB3.inpoint.text"
+           y="93.47966"
+           x="-324.04929">SCB3.in</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="25.704712"
+           cx="-175.67456"
+           r="5"
+           id="C.SCB3.outpoint"
+           d="m -170.67456,25.704712 c 0,2.761424 -2.23858,5 -5,5 -2.76142,0 -5,-2.238576 -5,-5 0,-2.761424 2.23858,-5 5,-5 2.76142,0 5,2.238576 5,5 z"
+           sodipodi:cx="-175.67456"
+           sodipodi:cy="25.704712"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCB3.outpoint.text"
+           y="18.704712"
+           x="-168.67456">SCB3.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="63.618435"
+           cx="-254.45541"
+           r="5"
+           id="C.SCB3"
+           d="m -249.45541,63.618435 c 0,2.761424 -2.23858,5 -5,5 -2.76143,0 -5,-2.238576 -5,-5 0,-2.761424 2.23857,-5 5,-5 2.76142,0 5,2.238576 5,5 z"
+           sodipodi:cx="-254.45541"
+           sodipodi:cy="63.618435"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SCB3.text"
+           y="56.618435"
+           x="-247.45541">SCB3</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="364.14539"
+           cx="566.60358"
+           r="5"
+           id="C.SCF1.inpoint"
+           d="m 571.60358,364.14539 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+           sodipodi:cx="566.60358"
+           sodipodi:cy="364.14539"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCF1.inpoint.text"
+           y="357.14539"
+           x="573.60358">SCF1.in</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="448.40765"
+           cx="714.25641"
+           r="5"
+           id="C.SCF1.outpoint"
+           d="m 719.25641,448.40765 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           sodipodi:cx="714.25641"
+           sodipodi:cy="448.40765"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCF1.outpoint.text"
+           y="441.40765"
+           x="721.25641">SCF1.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="406.27652"
+           cx="640.42999"
+           r="5"
+           id="C.SCF1"
+           d="m 645.42999,406.27652 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+           sodipodi:cx="640.42999"
+           sodipodi:cy="406.27652"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SCF1.text"
+           y="399.27652"
+           x="647.42999">SCF1</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="198.3541"
+           cx="371.4054"
+           r="5"
+           id="C.SCF2.inpoint"
+           d="m 376.4054,198.3541 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z"
+           sodipodi:cx="371.4054"
+           sodipodi:cy="198.3541"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCF2.inpoint.text"
+           y="191.3541"
+           x="378.4054">SCF2.in</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="302.31531"
+           cx="505.91769"
+           r="5"
+           id="C.SCF2.outpoint"
+           d="m 510.91769,302.31531 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76143,0 5,2.23857 5,5 z"
+           sodipodi:cx="505.91769"
+           sodipodi:cy="302.31531"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCF2.outpoint.text"
+           y="295.31531"
+           x="512.91766">SCF2.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="250.3347"
+           cx="438.66153"
+           r="5"
+           id="C.SCF2"
+           d="m 443.66153,250.3347 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           sodipodi:cx="438.66153"
+           sodipodi:cy="250.3347"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SCF2.text"
+           y="243.3347"
+           x="445.66153">SCF2</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="52.261745"
+           cx="163.06668"
+           r="5"
+           id="C.SCF3.inpoint"
+           d="m 168.06668,52.261745 c 0,2.761424 -2.23858,5 -5,5 -2.76142,0 -5,-2.238576 -5,-5 0,-2.761423 2.23858,-5 5,-5 2.76142,0 5,2.238577 5,5 z"
+           sodipodi:cx="163.06668"
+           sodipodi:cy="52.261745"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCF3.inpoint.text"
+           y="45.261745"
+           x="170.06668">SCF3.in</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="136.52403"
+           cx="310.71951"
+           r="5"
+           id="C.SCF3.outpoint"
+           d="m 315.71951,136.52403 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z"
+           sodipodi:cx="310.71951"
+           sodipodi:cy="136.52403"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SCF3.outpoint.text"
+           y="129.52403"
+           x="317.71951">SCF3.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="94.392891"
+           cx="236.8931"
+           r="5"
+           id="C.SCF3"
+           d="m 241.8931,94.392891 c 0,2.761424 -2.23858,5 -5,5 -2.76143,0 -5,-2.238576 -5,-5 0,-2.761424 2.23857,-5 5,-5 2.76142,0 5,2.238576 5,5 z"
+           sodipodi:cx="236.8931"
+           sodipodi:cy="94.392891"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SCF3.text"
+           y="87.392891"
+           x="243.8931">SCF3</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="2064.5032"
+           cx="-503.13422"
+           r="5"
+           id="C.SWB3.outpoint"
+           d="m -498.13422,2064.5032 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+           sodipodi:cx="-503.13422"
+           sodipodi:cy="2064.5032"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SWB3.outpoint.text"
+           y="2057.5032"
+           x="-496.13422">SWB3.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="2374.0159"
+           cx="-396.8504"
+           r="5"
+           id="C.SWB3"
+           d="m -391.8504,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76143,0 -5,-2.2386 -5,-5 0,-2.7615 2.23857,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+           sodipodi:cx="-396.8504"
+           sodipodi:cy="2374.0159"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SWB3.text"
+           y="2367.0159"
+           x="-389.8504">SWB3</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="2060.239"
+           cx="451.13458"
+           r="5"
+           id="C.SWF.inpoint"
+           d="m 456.13458,2060.239 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+           sodipodi:cx="451.13458"
+           sodipodi:cy="2060.239"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SWF.inpoint.text"
+           y="2053.239"
+           x="458.13458">SWF.in</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="2330.5198"
+           cx="145.4328"
+           r="5"
+           id="C.SWF.outpoint"
+           d="m 150.4328,2330.5198 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+           sodipodi:cx="145.4328"
+           sodipodi:cy="2330.5198"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SWF.outpoint.text"
+           y="2323.5198"
+           x="152.4328">SWF.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="2374.0159"
+           cx="396.8504"
+           r="5"
+           id="C.SWF"
+           d="m 401.8504,2374.0159 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z"
+           sodipodi:cx="396.8504"
+           sodipodi:cy="2374.0159"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SWF.text"
+           y="2367.0159"
+           x="403.8504">SWF</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="2374.0159"
+           cx="-637.08673"
+           r="5"
+           id="C.SWB2"
+           d="m -632.08673,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+           sodipodi:cx="-637.08673"
+           sodipodi:cy="2374.0159"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SWB2.text"
+           y="2367.0159"
+           x="-630.08673">SWB2</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="2374.0159"
+           cx="637.08673"
+           r="5"
+           id="C.SWF2"
+           d="m 642.08673,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+           sodipodi:cx="637.08673"
+           sodipodi:cy="2374.0159"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SWF2.text"
+           y="2367.0159"
+           x="644.08673">SWF2</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="1754.3351"
+           cx="-609.64319"
+           r="5"
+           id="C.SEB.inpoint"
+           d="m -604.64319,1754.3351 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+           sodipodi:cx="-609.64319"
+           sodipodi:cy="1754.3351"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SEB.inpoint.text"
+           y="1747.3351"
+           x="-602.64319">SEB.in</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="1128.978"
+           cx="-770.03369"
+           r="5"
+           id="C.SEB.outpoint"
+           d="m -765.03369,1128.978 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+           sodipodi:cx="-770.03369"
+           sodipodi:cy="1128.978"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SEB.outpoint.text"
+           y="1121.978"
+           x="-763.03369">SEB.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="1437.3425"
+           cx="-690.94489"
+           r="5"
+           id="C.SEB"
+           d="m -685.94489,1437.3425 c 0,2.7615 -2.23857,5 -5,5 -2.76142,0 -5,-2.2385 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+           sodipodi:cx="-690.94489"
+           sodipodi:cy="1437.3425"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SEB.text"
+           y="1430.3425"
+           x="-683.94489">SEB</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="1120.4868"
+           cx="665.91229"
+           r="5"
+           id="C.SEF.inpoint"
+           d="m 670.91229,1120.4868 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+           sodipodi:cx="665.91229"
+           sodipodi:cy="1120.4868"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SEF.inpoint.text"
+           y="1113.4868"
+           x="672.91229">SEF.in</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="1745.7968"
+           cx="505.53387"
+           r="5"
+           id="C.SEF.outpoint"
+           d="m 510.53387,1745.7968 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z"
+           sodipodi:cx="505.53387"
+           sodipodi:cy="1745.7968"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SEF.outpoint.text"
+           y="1738.7968"
+           x="512.53387">SEF.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="1437.3425"
+           cx="584.64569"
+           r="5"
+           id="C.SEF"
+           d="m 589.64569,1437.3425 c 0,2.7615 -2.23858,5 -5,5 -2.76142,0 -5,-2.2385 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+           sodipodi:cx="584.64569"
+           sodipodi:cy="1437.3425"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SEF.text"
+           y="1430.3425"
+           x="591.64569">SEF</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="1437.3425"
+           cx="-345.47244"
+           r="5"
+           id="C.SD1"
+           d="m -340.47244,1437.3425 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+           sodipodi:cx="-345.47244"
+           sodipodi:cy="1437.3425"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SD1.text"
+           y="1430.3425"
+           x="-338.47244">SD1</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="1128.978"
+           cx="-770.03369"
+           r="5"
+           id="C.SD1.i.outpoint"
+           d="m -765.03369,1128.978 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z"
+           sodipodi:cx="-770.03369"
+           sodipodi:cy="1128.978"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SD1.i.outpoint.text"
+           y="1121.978"
+           x="-763.03369">SD1.i.out</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="1437.3425"
+           cx="-690.94489"
+           r="5"
+           id="C.SD1.i"
+           d="m -685.94489,1437.3425 c 0,2.7615 -2.23857,5 -5,5 -2.76142,0 -5,-2.2385 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+           sodipodi:cx="-690.94489"
+           sodipodi:cy="1437.3425"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SD1.i.text"
+           y="1430.3425"
+           x="-683.94489">SD1.i</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="1754.3351"
+           cx="-609.64319"
+           r="5"
+           id="C.SD1.o.inpoint"
+           d="m -604.64319,1754.3351 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+           sodipodi:cx="-609.64319"
+           sodipodi:cy="1754.3351"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SD1.o.inpoint.text"
+           y="1747.3351"
+           x="-602.64319">SD1.o.in</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="1542.0253"
+           cx="-664.09607"
+           r="5"
+           id="C.SD1.o"
+           d="m -659.09607,1542.0253 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z"
+           sodipodi:cx="-664.09607"
+           sodipodi:cy="1542.0253"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SD1.o.text"
+           y="1535.0253"
+           x="-657.09607">SD1.o</text>
+        <circle
+           style="fill:none;stroke:#808080;stroke-width:1"
+           cy="2393.3608"
+           cx="-120.43082"
+           r="5"
+           id="C.SWB.inpoint"
+           d="m -115.43082,2393.3608 c 0,2.7615 -2.23857,5 -5,5 -2.76142,0 -5,-2.2385 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z"
+           sodipodi:cx="-120.43082"
+           sodipodi:cy="2393.3608"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:25px;font-style:italic;font-weight:normal;text-align:right;fill:#808080;fill-opacity:1;stroke:none"
+           id="C.SWB.inpoint.text"
+           y="2386.3608"
+           x="-113.43082">SWB.in</text>
+        <circle
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+           cy="2476.2283"
+           cx="-361.75156"
+           r="5"
+           id="C.SWB"
+           d="m -356.75156,2476.2283 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z"
+           sodipodi:cx="-361.75156"
+           sodipodi:cy="2476.2283"
+           sodipodi:rx="5"
+           sodipodi:ry="5" />
+        <text
+           style="font-size:30px;font-style:italic;font-weight:normal;text-align:right;fill:#00008b;fill-opacity:1;stroke:none"
+           id="C.SWB.text"
+           y="2469.2283"
+           x="-354.75156">SWB</text>
+        <path
+           style="fill:none;stroke:#808080;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0"
+           d="m 0,0 0,2374.0157 m 877.32307,-1873.34629 0,1873.34629 M -877.32307,500.66941 l 0,1873.34629 m 0,-1873.34629 L 0,0 877.32307,500.66941 m -1754.64614,0 240.23634,1873.34629 m -53.85815,-936.6731 294.09449,936.6731 M 877.32307,500.66941 637.08673,2374.0157 M 584.64567,1437.3426 396.85039,2374.0157 M -877.32307,500.66941 l 1754.64614,0 m -1568.26795,936.67319 1275.59055,0 m -1461.96874,936.6731 1754.64614,0"
+           id="C.gridline"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+</svg>

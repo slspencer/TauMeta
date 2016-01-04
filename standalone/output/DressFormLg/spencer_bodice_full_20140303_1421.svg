@@ -1,0 +1,2078 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   patternNumber="W_Block_Bodice_1"
+   fitBoxtoViewport="True"
+   companyName="Seamly Patterns"
+   currentscale="0.5:1"
+   margin-right="88.5826771654"
+   client-name="DressFormLg"
+   designerName="S.L.Spencer"
+   height="4940.09687208"
+   width="2516.23150795"
+   margin-top="88.5826771654"
+   version="1.1"
+   margin-bottom="88.5826771654"
+   margin-left="88.5826771654"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="spencer_bodice_full.svg">
+  <metadata
+     id="metadata293">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.1872433"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:window-maximized="1"
+     inkscape:cx="1258.1157"
+     inkscape:cy="2470.0483"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:current-layer="pattern" />
+  <defs
+     id="defs5">
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mstart">
+      <path
+         transform="scale(0.4) translate(10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path8" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Mend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         transform="scale(0.4) rotate(180) translate(10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path11" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Label-pattern"
+     id="pattern"
+     inkscape:groupmode="layer"
+     transform="translate(88.582677,88.582677)">
+    <g
+       id="document.bodice.Front.pattern"
+       transform=" translate(1211.233916, 757.717638)">
+      <g
+         id="A.letter"
+         transform="matrix(10.000000, 0, 0, 10.000000, 3029.527559, -2524.600916)">
+        <text
+           style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="A.letter.letterline"
+           y="280.511212844"
+           x="-336.614173228">
+A</text>
+      </g>
+      <line
+         style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; "
+         y2="945.589953002"
+         marker-end="url(#Arrow1Mend)"
+         marker-start="url(#Arrow1Mstart)"
+         transform=""
+         x2="-84.1535433071"
+         y1="325.511212844"
+         x1="-84.1535433071"
+         id="A.grainline" />
+      <path
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:3; fill:none; "
+         transform=""
+         d="M -276.71698758  1296.02047187 L -354.330708661  724.443169644 L -610.740154633  1248.97323227 M -1058.52739589  554.760889217 L -447.591455988  637.795275591 L -1058.52739589  720.829661964 "
+         id="A.dartline" />
+      <path
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; "
+         transform=""
+         d="M 0.0  0.0 L 0.0  1240.15748031 L -283.303995598  1240.15748031 L -439.173563186  1240.15748031 L -588.978911223  1197.10309843 C -652.241457453  1154.03974328  -970.963700056  1167.90168466  -1047.41986416  1171.22693381 L -1002.66440434  714.242653947 L -995.177412503  637.795275591 L -1002.66440434  561.347897234 L -951.318972064  412.595342888 C -859.49932746  444.289046327  -725.036267033  407.677369736  -673.228346457  325.511212844 C -575.334359986  170.253627484  -698.480568839  -133.559518535  -717.519685039  -223.334513127 L -266.911636328  -318.897637795 C -266.911636328  -159.448818898  -200.183727246  0.0  0.0  0.0 "
+         id="A.seamline" />
+      <path
+         style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4"
+         d="m -278.5625,-373.9375 c -168.64637,35.75789 -337.28744,71.5408 -505.9375,107.28125 8.13014,37.76442 15.77086,75.68642 27.43926,112.55677 29.46153,99.484749 59.67779,199.920587 64.59199,304.06823 1.49563,47.32153 -1.65126,97.16691 -24.75,139.53125 -18.1854,32.73858 -52.50767,53.2497 -86.90625,65.375 -44.78668,15.27704 -95.20324,18.46365 -139.84177,0.86524 -14.11524,-4.70508 -28.23049,-9.41016 -42.34573,-14.11524 -24.508,70.9904 -48.9686,141.99725 -73.5313,212.96875 2.5691,28.38841 6.0818,56.78577 7.9618,85.17802 -19.2424,196.79738 -38.5304,393.59033 -57.8055,590.38443 129.64364,-5.5475 259.67148,-11.811 389.28125,-3.375 32.46136,2.9365 65.75881,4.9789 96.875,15.5313 6.53405,2.7128 11.56328,8.2485 19.03125,8.8437 52.80436,14.992 105.50761,30.7123 158.375,45.25 167.45833,1e-4 334.91667,0 502.375,0 0,-450.76037 0,-901.52078 0,-1352.2812 -43.256982,-1.012827 -87.529194,3.00778 -129.349527,-10.555395 -41.582843,-12.223861 -77.026953,-41.743635 -98.182353,-79.372765 -30.90257,-54.04215 -39.73608,-117.77475 -39.37437,-179.10309 0,-21.14583 0,-42.29167 0,-63.4375 -22.63542,4.80208 -45.27083,9.60417 -67.90625,14.40625 z"
+         id="A.cuttingline"
+         inkscape:connector-curvature="0" />
+      <g
+         id="A.info"
+         transform="">
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="A.info.lineSeamly Patterns"
+           y="325.511212844"
+           x="-336.614173228">
+Seamly Patterns</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="A.info.lineDesigner:S.L.Spencer"
+           y="339.911212844"
+           x="-336.614173228">
+Designer:S.L.Spencer</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="A.info.lineClient:DressFormLg"
+           y="354.311212844"
+           x="-336.614173228">
+Client:DressFormLg</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="A.info.lineW_Block_Bodice_1"
+           y="368.711212844"
+           x="-336.614173228">
+W_Block_Bodice_1</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="A.info.linePattern Piece A"
+           y="383.111212844"
+           x="-336.614173228">
+Pattern Piece A</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="A.info.lineCut 2 Fabric"
+           y="397.511212844"
+           x="-336.614173228">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+    <g
+       id="document.bodice.Back.pattern"
+       transform=" translate(1382.483916, 580.552283)">
+      <g
+         id="B.letter"
+         transform="matrix(10.000000, 0, 0, 10.000000, -1280.119391, -2403.705423)">
+        <text
+           style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="B.letter.letterline"
+           y="267.078380389"
+           x="142.235487856">
+B</text>
+      </g>
+      <line
+         style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; "
+         y2="829.267536651"
+         marker-end="url(#Arrow1Mend)"
+         marker-start="url(#Arrow1Mstart)"
+         transform=""
+         x2="71.117743928"
+         y1="156.039190194"
+         x1="71.117743928"
+         id="B.grainline" />
+      <path
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:3; fill:none; "
+         transform=""
+         d="M 306.861078044  1402.37965526 L 391.147343053  624.156760777 L 475.433608062  1402.37965526 "
+         id="B.dartline" />
+      <path
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; "
+         transform=""
+         d="M 0.0  0.0 L 0.0  1346.45669291 L 312.917874443  1346.45669291 L 391.147343053  1346.45669291 L 469.376811664  1346.45669291 C 539.573197573  1331.07082383  758.549758713  1356.2008394  900.332237309  1332.64751665 L 885.826771654  716.282745029 C 789.304248641  718.554296239  649.107206559  712.961900107  611.220472441  624.156760777 C 533.475345126  441.924984294  670.045495751  129.054339455  708.661417323  37.8293872947 L 284.470975712  -141.732283465 C 256.846103288  -76.4722155244  213.353231784  0.0  0.0  0.0 "
+         id="B.seamline" />
+      <path
+         style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4"
+         d="m 232.78125,-163.875 c -10.98857,27.28269 -26.4487,54.43051 -51.9375,70.5625 -35.97568,23.241769 -79.38646,30.50906 -121.28125,34.625 -38.514187,3.538127 -77.171074,2.158341 -115.8125,2.4375 0,486.32292 0,972.64583 0,1458.9688 177.27083,-1e-4 354.54167,0 531.8125,0 28.87484,-6.4832 58.83187,-4.9015 88.31243,-5.3486 108.99332,0.7464 218.64049,7.3784 327.06257,-6.4327 22.29321,-3.1712 44.54048,-6.9886 66.8125,-10.4375 -5.72998,-240.5404 -11.3649,-481.08308 -17.03125,-721.625 -69.85301,0.93391 -140.78521,6.30788 -209.15625,-11.25 -23.94054,-6.72207 -49.82336,-16.28916 -64.4375,-37.6875 -11.43993,-20.69166 -16.35764,-44.29822 -19.9375,-67.40625 -8.74301,-67.62098 1.49193,-136.1974 16.38596,-202.25451 C 688.05715,233.88718 728.92285,132.18513 772.16255,32.198677 775.58753,24.132451 779.01252,16.066226 782.4375,8 606.57548,-66.478563 430.70415,-140.93519 254.8125,-215.34375 c -7.34375,17.15625 -14.6875,34.3125 -22.03125,51.46875 z"
+         id="B.cuttingline"
+         inkscape:connector-curvature="0" />
+      <g
+         id="B.info"
+         transform="">
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="B.info.lineSeamly Patterns"
+           y="312.078380389"
+           x="142.235487856">
+Seamly Patterns</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="B.info.lineDesigner:S.L.Spencer"
+           y="326.478380389"
+           x="142.235487856">
+Designer:S.L.Spencer</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="B.info.lineClient:DressFormLg"
+           y="340.878380389"
+           x="142.235487856">
+Client:DressFormLg</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="B.info.lineW_Block_Bodice_1"
+           y="355.278380389"
+           x="142.235487856">
+W_Block_Bodice_1</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="B.info.linePattern Piece B"
+           y="369.678380389"
+           x="142.235487856">
+Pattern Piece B</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="B.info.lineCut 2 Fabric"
+           y="384.078380389"
+           x="142.235487856">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+    <g
+       id="document.bodice.Sleeve.pattern"
+       transform=" translate(879.823072, 2230.453326)">
+      <line
+         style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; "
+         y2="2090.5511811"
+         marker-end="url(#Arrow1Mend)"
+         marker-start="url(#Arrow1Mstart)"
+         transform=""
+         x2="0.0"
+         y1="500.669410168"
+         x1="0.0"
+         id="C.grainline" />
+      <g
+         id="C.letter"
+         transform="matrix(15.000000, 0, 0, 15.000000, 6387.134016, -13566.083925)">
+        <text
+           style="font-size:24; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="C.letter.letterline"
+           y="969.005994634"
+           x="-456.223858314">
+C</text>
+      </g>
+      <path
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:3; fill:none; "
+         transform=""
+         d="M -747.19488189  1437.3425791 L -345.472440945  1437.3425791 L -717.535742634  1559.58262147 "
+         id="C.dartline" />
+      <path
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:green; stroke-dasharray:24,6; stroke-miterlimit:4; stroke-width:4; fill:none; "
+         transform=""
+         d="M -877.323072305  500.669410168 C -802.800163374  461.525975403  -728.003428533  422.238712561  -657.992304229  375.502057626 C -587.295380822  328.30759036  -523.480006952  271.540849666  -456.223858314  219.560245685 C -388.967709676  167.579641705  -331.049293595  100.479661115  -254.455412399  63.6184337441 C -175.674556187  25.704712596  -87.2582658838  -5.4652165342  0.0  0.0 C 84.8359559892  5.3135008434  163.066677337  52.2617469682  236.893090238  94.3928931431 C 310.719503139  136.524039318  371.405387514  198.354101104  438.661536153  250.334705084 C 505.917684791  302.315309065  566.603569167  364.14537085  640.429982068  406.276517025 C 714.256394968  448.4076632  796.376526333  474.726599702  877.323072305  500.669410168 C 771.72380914  810.266971206  665.912301525  1120.48679382  584.645669291  1437.3425791 C 505.533876685  1745.79671928  451.134569355  2060.23897929  396.850393701  2374.01574803 C 145.432796069  2330.51986691  -120.430820006  2393.36081098  -361.751555289  2476.22819175 L -396.850393701  2374.01574803 C -503.134218732  2064.50324062  -609.643172854  1754.33512762  -664.096059435  1542.02520823 L -705.870558211  1494.1527678 L -690.94488189  1437.3425791 C -770.033689124  1128.97805808  -823.738352793  814.472525331  -877.323072305  500.669410168 "
+         id="C.seamline" />
+      <path
+         style="fill:none;stroke:#008000;stroke-width:4;stroke-linejoin:miter;stroke-miterlimit:4"
+         d="m -25,-56.84375 c -89.11615,1.232864 -174.78874,31.766809 -254.28125,69.96875 -70.65632,33.883283 -126.4483,90.13845 -185.125,140.625 -32.28733,26.76583 -65.93548,51.96631 -98.21943,78.78682 -55.22945,45.18409 -111.63511,89.25568 -173.08321,125.75226 -66.27551,40.23393 -135.39039,75.38957 -203.91611,111.58592 55.32125,323.95807 109.64425,648.5071 190.59375,967.2188 -6.28085,23.8619 -12.5641,47.7232 -18.8125,71.5937 17.54109,20.1242 35.10045,40.2324 52.65625,60.3437 42.00359,158.8334 93.42549,314.9438 145.18759,470.8423 56.7047,169.5857 115.31983,338.5296 173.28116,507.7203 99.73155,-34.6781 199.94745,-67.5097 302.83044,-91.2304 146.286111,-33.9516 298.23095,-51.8802 447.95081,-31.9884 29.56393,3.9622 59.09834,9.68 88.625,14.5312 C 505.92356,2074.0041 567.35141,1707.9548 665.84893,1350.5493 747.64272,1051.3119 849.07084,758.11118 949.0625,464.5 861.86816,436.01981 772.98488,411.45864 690.96875,369.6875 607.88889,328.17861 543.6383,259.50377 470.375,203.78125 400.4218,148.66736 336.5393,84.798222 257.93386,41.616242 188.39723,1.7496276 116.68898,-39.157505 36.46875,-52.34375 16.1447,-55.789253 -4.391811,-57.07657 -25,-56.84375 z"
+         id="C.cuttingline"
+         inkscape:connector-curvature="0" />
+      <g
+         id="C.info"
+         transform="">
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="C.info.lineSeamly Patterns"
+           y="1039.87213637"
+           x="-456.223858314">
+Seamly Patterns</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="C.info.lineDesigner:S.L.Spencer"
+           y="1054.27213637"
+           x="-456.223858314">
+Designer:S.L.Spencer</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="C.info.lineClient:DressFormLg"
+           y="1068.67213637"
+           x="-456.223858314">
+Client:DressFormLg</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="C.info.lineW_Block_Bodice_1"
+           y="1083.07213637"
+           x="-456.223858314">
+W_Block_Bodice_1</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="C.info.linePattern Piece C"
+           y="1097.47213637"
+           x="-456.223858314">
+Pattern Piece C</text>
+        <text
+           style="font-size:12; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:start; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+           transform=""
+           id="C.info.lineCut 2 Fabric"
+           y="1111.87213637"
+           x="-456.223858314">
+Cut 2 Fabric</text>
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:label="Label-notes"
+     id="notes"
+     inkscape:groupmode="layer"
+     transform="translate(88.582677,88.582677)">
+    <g
+       id="document.titleblock">
+      <text
+         style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+         transform=""
+         id="company"
+         y="0.0"
+         x="0.0">
+Seamly Patterns</text>
+      <text
+         style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+         transform=""
+         id="designer"
+         y="44.0"
+         x="0.0">
+S.L.Spencer</text>
+      <text
+         style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+         transform=""
+         id="pattern_number"
+         y="88.0"
+         x="0.0">
+W_Block_Bodice_1</text>
+      <text
+         style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+         transform=""
+         id="pattern_name"
+         y="132.0"
+         x="0.0">
+Spencer Bodice Block</text>
+      <text
+         style="font-size:40; vertical-align:top; fill-opacity:1.0; fill:#000000; text-anchor:right; stroke:none; font-weight:normal; font-style:normal; text-align:right; "
+         transform=""
+         id="client"
+         y="176.0"
+         x="0.0">
+DressFormLg</text>
+    </g>
+    <g
+       id="document.testgrid">
+      <path
+         style="stroke-linejoin:miter; stroke:green; stroke-width:4; stroke-miterlimit:4; fill:none; "
+         d="M 1320.0  0.0 L 1320.0  212.598425197 M 1355.43307087  0.0 L 1355.43307087  212.598425197 M 1390.86614173  0.0 L 1390.86614173  212.598425197 M 1426.2992126  0.0 L 1426.2992126  212.598425197 M 1461.73228346  0.0 L 1461.73228346  212.598425197 M 1497.16535433  0.0 L 1497.16535433  212.598425197 M 1532.5984252  0.0 L 1532.5984252  212.598425197 M 1320.0  0.0 L 1532.5984252  0.0 M 1320.0  35.4330708661 L 1532.5984252  35.4330708661 M 1320.0  70.8661417323 L 1532.5984252  70.8661417323 M 1320.0  106.299212598 L 1532.5984252  106.299212598 M 1320.0  141.732283465 L 1532.5984252  141.732283465 M 1320.0  177.165354331 L 1532.5984252  177.165354331 M 1320.0  212.598425197 L 1532.5984252  212.598425197 M 1709.76377953  0.0 L 1709.76377953  270.0 M 1799.76377953  0.0 L 1799.76377953  270.0 M 1889.76377953  0.0 L 1889.76377953  270.0 M 1979.76377953  0.0 L 1979.76377953  270.0 M 1709.76377953  0.0 L 1979.76377953  0.0 M 1709.76377953  90.0 L 1979.76377953  90.0 M 1709.76377953  180.0 L 1979.76377953  180.0 M 1709.76377953  270.0 L 1979.76377953  270.0 "
+         id="testgrid" />
+    </g>
+    <g
+       id="document.bodice.Front.notes"
+       transform=" translate(1211.233916, 757.717638)" />
+    <g
+       id="document.bodice.Back.notes"
+       transform=" translate(1382.483916, 580.552283)" />
+    <g
+       id="document.bodice.Sleeve.notes"
+       transform=" translate(879.823072, 2230.453326)" />
+  </g>
+  <g
+     inkscape:label="Label-reference"
+     id="reference"
+     inkscape:groupmode="layer"
+     transform="translate(88.582677,88.582677)">
+    <g
+       id="document.bodice.Front.reference"
+       transform=" translate(1211.233916, 757.717638)">
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="0.0"
+         cx="-200.183727246"
+         r="5"
+         id="A.FNC.inpoint"
+         d="m -195.18373,0 c 0,2.7614237 -2.23858,5 -5,5 -2.76142,0 -5,-2.2385763 -5,-5 0,-2.7614237 2.23858,-5 5,-5 2.76142,0 5,2.2385763 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FNC.inpoint.text"
+         y="-7.0"
+         x="-193.183727246">
+FNC.in</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="0.0"
+         cx="0.0"
+         r="5"
+         id="A.FNC"
+         d="M 5,0 C 5,2.7614237 2.7614237,5 0,5 -2.7614237,5 -5,2.7614237 -5,0 c 0,-2.7614237 2.2385763,-5 5,-5 2.7614237,0 5,2.2385763 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FNC.text"
+         y="-7.0"
+         x="7.0">
+FNC</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1240.15748031"
+         cx="0.0"
+         r="5"
+         id="A.FWC"
+         d="m 5,1240.1575 c 0,2.7614 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.2386 -5,-5 0,-2.7615 2.2385763,-5 5,-5 2.7614237,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FWC.text"
+         y="1233.15748031"
+         x="7.0">
+FWC</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="-318.897637795"
+         cx="0.0"
+         r="5"
+         id="A.FSH"
+         d="m 5,-318.89764 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385763,-5 5,-5 2.7614237,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FSH.text"
+         y="-325.897637795"
+         x="7.0">
+FSH</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="-318.897637795"
+         cx="-717.519685039"
+         r="5"
+         id="A.FSW"
+         d="m -712.51971,-318.89764 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FSW.text"
+         y="-325.897637795"
+         x="-710.519685039">
+FSW</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="-318.897637795"
+         cx="-673.228346457"
+         r="5"
+         id="A.FAW"
+         d="m -668.22833,-318.89764 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FAW.text"
+         y="-325.897637795"
+         x="-666.228346457">
+FAW</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="637.795275591"
+         cx="0.0"
+         r="5"
+         id="A.FBC"
+         d="m 5,637.79529 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385763,-5 5,-5 2.7614237,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FBC.text"
+         y="630.795275591"
+         x="7.0">
+FBC</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="637.795275591"
+         cx="-354.330708661"
+         r="5"
+         id="A.FBP"
+         d="m -349.33072,637.79529 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FBP.text"
+         y="630.795275591"
+         x="-347.330708661">
+FBP</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="-133.559518535"
+         cx="-698.480568839"
+         r="5"
+         id="A.FSP.inpoint"
+         d="m -693.48059,-133.55952 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FSP.inpoint.text"
+         y="-140.559518535"
+         x="-691.480568839">
+FSP.in</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="-223.334513127"
+         cx="-717.519685039"
+         r="5"
+         id="A.FSP"
+         d="m -712.51971,-223.33452 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FSP.text"
+         y="-230.334513127"
+         x="-710.519685039">
+FSP</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="-159.448818898"
+         cx="-266.911636328"
+         r="5"
+         id="A.FNS.outpoint"
+         d="m -261.91162,-159.44882 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FNS.outpoint.text"
+         y="-166.448818898"
+         x="-259.911636328">
+FNS.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="-318.897637795"
+         cx="-266.911636328"
+         r="5"
+         id="A.FNS"
+         d="m -261.91162,-318.89764 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FNS.text"
+         y="-325.897637795"
+         x="-259.911636328">
+FNS</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="170.253627484"
+         cx="-575.334359986"
+         r="5"
+         id="A.FAP.outpoint"
+         d="m -570.33435,170.25363 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FAP.outpoint.text"
+         y="163.253627484"
+         x="-568.334359986">
+FAP.out</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="407.677369736"
+         cx="-725.036267033"
+         r="5"
+         id="A.FAP.inpoint"
+         d="m -720.03625,407.67737 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FAP.inpoint.text"
+         y="400.677369736"
+         x="-718.036267033">
+FAP.in</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="325.511212844"
+         cx="-673.228346457"
+         r="5"
+         id="A.FAP"
+         d="m -668.22833,325.5112 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FAP.text"
+         y="318.511212844"
+         x="-666.228346457">
+FAP</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="325.511212844"
+         cx="0.0"
+         r="5"
+         id="A.FUC"
+         d="m 5,325.5112 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76142 2.2385763,-5 5,-5 2.7614237,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FUC.text"
+         y="318.511212844"
+         x="7.0">
+FUC</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="325.511212844"
+         cx="-921.25984252"
+         r="5"
+         id="A.FUS1"
+         d="m -916.25983,325.5112 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FUS1.text"
+         y="318.511212844"
+         x="-914.25984252">
+FUS1</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="429.693609517"
+         cx="-957.220839733"
+         r="5"
+         id="A.FBS1"
+         d="m -952.22083,429.6936 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FBS1.text"
+         y="422.693609517"
+         x="-950.220839733">
+FBS1</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="444.289046327"
+         cx="-859.49932746"
+         r="5"
+         id="A.FUS.outpoint"
+         d="m -854.49933,444.28903 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FUS.outpoint.text"
+         y="437.289046327"
+         x="-852.49932746">
+FUS.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="412.595342888"
+         cx="-951.318972064"
+         r="5"
+         id="A.FUS"
+         d="m -946.31897,412.59534 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FUS.text"
+         y="405.595342888"
+         x="-944.318972064">
+FUS</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1240.15748031"
+         cx="-841.535433071"
+         r="5"
+         id="A.FWS1"
+         d="m -836.53546,1240.1575 c 0,2.7614 -2.23858,5 -5,5 -2.76143,0 -5,-2.2386 -5,-5 0,-2.7615 2.23857,-5 5,-5 2.76142,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FWS1.text"
+         y="1233.15748031"
+         x="-834.535433071">
+FWS1</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1240.15748031"
+         cx="-354.330708661"
+         r="5"
+         id="A.FWM"
+         d="m -349.33072,1240.1575 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FWM.text"
+         y="1233.15748031"
+         x="-347.330708661">
+FWM</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="637.795275591"
+         cx="-1029.05200961"
+         r="5"
+         id="A.FBS"
+         d="m -1024.052,637.79529 c 0,2.76142 -2.2386,5 -5,5 -2.7614,0 -5,-2.23858 -5,-5 0,-2.76143 2.2386,-5 5,-5 2.7614,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FBS.text"
+         y="630.795275591"
+         x="-1022.05200961">
+FBS</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="995.389136257"
+         cx="-1152.48391593"
+         r="5"
+         id="A.FWS2"
+         d="m -1147.4839,995.38916 c 0,2.76142 -2.2386,5.00004 -5,5.00004 -2.7614,0 -5,-2.23862 -5,-5.00004 0,-2.76142 2.2386,-5 5,-5 2.7614,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FWS2.text"
+         y="988.389136257"
+         x="-1145.48391593">
+FWS2</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="724.443169644"
+         cx="-354.330708661"
+         r="5"
+         id="A.FD1"
+         d="m -349.33072,724.44318 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FD1.text"
+         y="717.443169644"
+         x="-347.330708661">
+FD1</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1240.15748031"
+         cx="-283.303995598"
+         r="5"
+         id="A.FD1.i"
+         d="m -278.30399,1240.1575 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FD1.i.text"
+         y="1233.15748031"
+         x="-276.303995598">
+FD1.i</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="1154.03974328"
+         cx="-652.241457453"
+         r="5"
+         id="A.FD1.o.outpoint"
+         d="m -647.24146,1154.0398 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FD1.o.outpoint.text"
+         y="1147.03974328"
+         x="-645.241457453">
+FD1.o.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1197.10309843"
+         cx="-588.978911223"
+         r="5"
+         id="A.FD1.o"
+         d="m -583.97888,1197.1031 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FD1.o.text"
+         y="1190.10309843"
+         x="-581.978911223">
+FD1.o</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="637.795275591"
+         cx="-447.591455988"
+         r="5"
+         id="A.FD2"
+         d="m -442.59146,637.79529 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FD2.text"
+         y="630.795275591"
+         x="-440.591455988">
+FD2</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="561.347897234"
+         cx="-1002.66440434"
+         r="5"
+         id="A.FD2.i"
+         d="m -997.66443,561.3479 c 0,2.76142 -2.23857,5 -4.99997,5 -2.7615,0 -5,-2.23858 -5,-5 0,-2.76142 2.2385,-5 5,-5 2.7614,0 4.99997,2.23858 4.99997,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FD2.i.text"
+         y="554.347897234"
+         x="-995.664404335">
+FD2.i</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="714.242653947"
+         cx="-1002.66440434"
+         r="5"
+         id="A.FD2.o"
+         d="m -997.66443,714.24268 c 0,2.76142 -2.23857,5 -4.99997,5 -2.7615,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385,-5 5,-5 2.7614,0 4.99997,2.23857 4.99997,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FD2.o.text"
+         y="707.242653947"
+         x="-995.664404335">
+FD2.o</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="1167.90168466"
+         cx="-970.963700056"
+         r="5"
+         id="A.FWS.inpoint"
+         d="m -965.96368,1167.9017 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FWS.inpoint.text"
+         y="1160.90168466"
+         x="-963.963700056">
+FWS.in</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1171.22693381"
+         cx="-1047.41986416"
+         r="5"
+         id="A.FWS"
+         d="m -1042.4199,1171.2269 c 0,2.7615 -2.2386,5 -5,5 -2.7614,0 -5,-2.2385 -5,-5 0,-2.7614 2.2386,-5 5,-5 2.7614,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="A.FWS.text"
+         y="1164.22693381"
+         x="-1040.41986416">
+FWS</text>
+      <path
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; "
+         transform=""
+         d="M -717.519685039  -223.334513127 L -717.519685039  -318.897637795 L 0.0  -318.897637795 L 0.0  1240.15748031 L -717.519685039  -223.334513127 M 0.0  325.511212844 L -921.25984252  325.511212844 L -951.318972064  412.595342888 M 0.0  637.795275591 L -354.330708661  637.795275591 M 0.0  1240.15748031 L -841.535433071  1240.15748031 M -354.330708661  637.795275591 L -266.911636328  -318.897637795 L -673.228346457  325.511212844 M -951.318972064  412.595342888 L -1152.48391593  995.389136257 M -354.330708661  637.795275591 L -957.220839733  429.693609517 M -1029.05200961  637.795275591 L -354.330708661  637.795275591 L -354.330708661  1240.15748031 M -673.228346457  -318.897637795 L -673.228346457  325.511212844 "
+         id="A.gridline" />
+    </g>
+    <g
+       id="document.bodice.Back.reference"
+       transform=" translate(1382.483916, 580.552283)">
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="0.0"
+         cx="213.353231784"
+         r="5"
+         id="B.BNC.inpoint"
+         d="m 218.35323,0 c 0,2.7614237 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385763 -5,-5 0,-2.7614237 2.23857,-5 5,-5 2.76142,0 5,2.2385763 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BNC.inpoint.text"
+         y="-7.0"
+         x="220.353231784">
+BNC.in</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="0.0"
+         cx="0.0"
+         r="5"
+         id="B.BNC"
+         d="M 5,0 C 5,2.7614237 2.7614237,5 0,5 -2.7614237,5 -5,2.7614237 -5,0 c 0,-2.7614237 2.2385763,-5 5,-5 2.7614237,0 5,2.2385763 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BNC.text"
+         y="-7.0"
+         x="7.0">
+BNC</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1346.45669291"
+         cx="0.0"
+         r="5"
+         id="B.BWC"
+         d="m 5,1346.4567 c 0,2.7614 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.2386 -5,-5 0,-2.7615 2.2385763,-5 5,-5 2.7614237,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BWC.text"
+         y="1339.45669291"
+         x="7.0">
+BWC</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="-141.732283465"
+         cx="0.0"
+         r="5"
+         id="B.BSH"
+         d="m 5,-141.73228 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385763,-5 5,-5 2.7614237,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BSH.text"
+         y="-148.732283465"
+         x="7.0">
+BSH</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="-141.732283465"
+         cx="708.661417323"
+         r="5"
+         id="B.BSW"
+         d="m 713.66144,-141.73228 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BSW.text"
+         y="-148.732283465"
+         x="715.661417323">
+BSW</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1346.45669291"
+         cx="744.094488189"
+         r="5"
+         id="B.BWS1"
+         d="m 749.09448,1346.4567 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BWS1.text"
+         y="1339.45669291"
+         x="751.094488189">
+BWS1</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="129.054339455"
+         cx="670.045495751"
+         r="5"
+         id="B.BSP.inpoint"
+         d="m 675.04547,129.05434 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BSP.inpoint.text"
+         y="122.054339455"
+         x="677.045495751">
+BSP.in</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="37.8293872947"
+         cx="708.661417323"
+         r="5"
+         id="B.BSP"
+         d="m 713.66144,37.829388 c 0,2.761423 -2.23858,5 -5,5 -2.76143,0 -5,-2.238577 -5,-5 0,-2.761424 2.23857,-5 5,-5 2.76142,0 5,2.238576 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BSP.text"
+         y="30.8293872947"
+         x="715.661417323">
+BSP</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="-76.4722155244"
+         cx="256.846103288"
+         r="5"
+         id="B.BNS.outpoint"
+         d="m 261.8461,-76.472214 c 0,2.761424 -2.23858,5 -5,5 -2.76142,0 -5,-2.238576 -5,-5 0,-2.761423 2.23858,-5 5,-5 2.76142,0 5,2.238577 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BNS.outpoint.text"
+         y="-83.4722155244"
+         x="263.846103288">
+BNS.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="-141.732283465"
+         cx="284.470975712"
+         r="5"
+         id="B.BNS"
+         d="m 289.47098,-141.73228 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BNS.text"
+         y="-148.732283465"
+         x="291.470975712">
+BNS</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="712.961900107"
+         cx="649.107206559"
+         r="5"
+         id="B.BAP.inpoint"
+         d="m 654.10718,712.96191 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BAP.inpoint.text"
+         y="705.961900107"
+         x="656.107206559">
+BAP.in</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="441.924984294"
+         cx="533.475345126"
+         r="5"
+         id="B.BAP.outpoint"
+         d="m 538.47534,441.92499 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76143,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BAP.outpoint.text"
+         y="434.924984294"
+         x="540.475345126">
+BAP.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="624.156760777"
+         cx="611.220472441"
+         r="5"
+         id="B.BAP"
+         d="m 616.22046,624.15674 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BAP.text"
+         y="617.156760777"
+         x="618.220472441">
+BAP</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="624.156760777"
+         cx="0.0"
+         r="5"
+         id="B.BUC"
+         d="m 5,624.15674 c 0,2.76142 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23858 -5,-5 0,-2.76143 2.2385763,-5 5,-5 2.7614237,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BUC.text"
+         y="617.156760777"
+         x="7.0">
+BUC</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="624.156760777"
+         cx="885.826771654"
+         r="5"
+         id="B.BUS1"
+         d="m 890.82678,624.15674 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76143,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BUS1.text"
+         y="617.156760777"
+         x="892.826771654">
+BUS1</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="718.554296239"
+         cx="789.304248641"
+         r="5"
+         id="B.BUS.outpoint"
+         d="m 794.30426,718.55432 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BUS.outpoint.text"
+         y="711.554296239"
+         x="796.304248641">
+BUS.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="716.282745029"
+         cx="885.826771654"
+         r="5"
+         id="B.BUS"
+         d="m 890.82678,716.28271 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BUS.text"
+         y="709.282745029"
+         x="892.826771654">
+BUS</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="624.156760777"
+         cx="391.147343053"
+         r="5"
+         id="B.BD1"
+         d="m 396.14734,624.15674 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BD1.text"
+         y="617.156760777"
+         x="398.147343053">
+BD1</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1346.45669291"
+         cx="391.147343053"
+         r="5"
+         id="B.BWM"
+         d="m 396.14734,1346.4567 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BWM.text"
+         y="1339.45669291"
+         x="398.147343053">
+BWM</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1346.45669291"
+         cx="312.917874443"
+         r="5"
+         id="B.BD1.i"
+         d="m 317.91788,1346.4567 c 0,2.7614 -2.23858,5 -5,5 -2.76143,0 -5,-2.2386 -5,-5 0,-2.7615 2.23857,-5 5,-5 2.76142,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BD1.i.text"
+         y="1339.45669291"
+         x="319.917874443">
+BD1.i</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="1331.07082383"
+         cx="539.573197573"
+         r="5"
+         id="B.BD1.o.outpoint"
+         d="m 544.57318,1331.0708 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76142,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BD1.o.outpoint.text"
+         y="1324.07082383"
+         x="546.573197573">
+BD1.o.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1346.45669291"
+         cx="469.376811664"
+         r="5"
+         id="B.BD1.o"
+         d="m 474.3768,1346.4567 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BD1.o.text"
+         y="1339.45669291"
+         x="476.376811664">
+BD1.o</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="1356.2008394"
+         cx="758.549758713"
+         r="5"
+         id="B.BWS.inpoint"
+         d="m 763.54974,1356.2008 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BWS.inpoint.text"
+         y="1349.2008394"
+         x="765.549758713">
+BWS.in</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1332.64751665"
+         cx="900.332237309"
+         r="5"
+         id="B.BWS"
+         d="m 905.33221,1332.6475 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="B.BWS.text"
+         y="1325.64751665"
+         x="907.332237309">
+BWS</text>
+      <path
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; "
+         transform=""
+         d="M 708.661417323  37.8293872947 L 708.661417323  -141.732283465 L 0.0  -141.732283465 L 0.0  1346.45669291 L 744.094488189  1346.45669291 M 0.0  1346.45669291 L 708.661417323  37.8293872947 M 284.470975712  -141.732283465 L 611.220472441  624.156760777 M 0.0  624.156760777 L 885.826771654  624.156760777 M 391.147343053  624.156760777 L 391.147343053  1346.45669291 "
+         id="B.gridline" />
+    </g>
+    <g
+       id="document.bodice.Sleeve.reference"
+       transform=" translate(879.823072, 2230.453326)">
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="-5.4652165342"
+         cx="-87.2582658838"
+         r="5"
+         id="C.SCM.inpoint"
+         d="m -82.258263,-5.4652166 c 0,2.7614237 -2.238576,4.99999996 -5,4.99999996 -2.761423,0 -5,-2.23857626 -5,-4.99999996 0,-2.7614238 2.238577,-5.0000004 5,-5.0000004 2.761424,0 5,2.2385766 5,5.0000004 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCM.inpoint.text"
+         y="-12.4652165342"
+         x="-80.2582658838">
+SCM.in</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="5.3135008434"
+         cx="84.8359559892"
+         r="5"
+         id="C.SCM.outpoint"
+         d="m 89.835953,5.3135009 c 0,2.7614237 -2.238576,5.0000001 -5,5.0000001 -2.761424,0 -5,-2.2385764 -5,-5.0000001 0,-2.7614238 2.238576,-5.00000002 5,-5.00000002 2.761424,0 5,2.23857622 5,5.00000002 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCM.outpoint.text"
+         y="-1.6864991566"
+         x="91.8359559892">
+SCM.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="0.0"
+         cx="0.0"
+         r="5"
+         id="C.SCM"
+         d="M 5,0 C 5,2.7614237 2.7614237,5 0,5 -2.7614237,5 -5,2.7614237 -5,0 c 0,-2.7614237 2.2385763,-5 5,-5 2.7614237,0 5,2.2385763 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCM.text"
+         y="-7.0"
+         x="7.0">
+SCM</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="500.669410168"
+         cx="0.0"
+         r="5"
+         id="C.SUM"
+         d="m 5,500.6694 c 0,2.76143 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.23857 -5,-5 0,-2.76142 2.2385763,-5 5,-5 2.7614237,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SUM.text"
+         y="493.669410168"
+         x="7.0">
+SUM</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="2374.01574803"
+         cx="0.0"
+         r="5"
+         id="C.SWM"
+         d="m 5,2374.0159 c 0,2.7614 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.2386 -5,-5 0,-2.7615 2.2385763,-5 5,-5 2.7614237,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SWM.text"
+         y="2367.01574803"
+         x="7.0">
+SWM</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1437.3425791"
+         cx="0.0"
+         r="5"
+         id="C.SEM"
+         d="m 5,1437.3425 c 0,2.7615 -2.2385763,5 -5,5 -2.7614237,0 -5,-2.2385 -5,-5 0,-2.7614 2.2385763,-5 5,-5 2.7614237,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SEM.text"
+         y="1430.3425791"
+         x="7.0">
+SEM</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="461.525975403"
+         cx="-802.800163374"
+         r="5"
+         id="C.SUB.outpoint"
+         d="m -797.80017,461.52597 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SUB.outpoint.text"
+         y="454.525975403"
+         x="-795.800163374">
+SUB.out</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="814.472525331"
+         cx="-823.738352793"
+         r="5"
+         id="C.SUB.inpoint"
+         d="m -818.73834,814.47253 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SUB.inpoint.text"
+         y="807.472525331"
+         x="-816.738352793">
+SUB.in</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="500.669410168"
+         cx="-877.323072305"
+         r="5"
+         id="C.SUB"
+         d="m -872.32306,500.6694 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SUB.text"
+         y="493.669410168"
+         x="-870.323072305">
+SUB</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="2374.01574803"
+         cx="-877.323072305"
+         r="5"
+         id="C.SWB1"
+         d="m -872.32306,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SWB1.text"
+         y="2367.01574803"
+         x="-870.323072305">
+SWB1</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="474.726599702"
+         cx="796.376526333"
+         r="5"
+         id="C.SUF.inpoint"
+         d="m 801.37653,474.72659 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SUF.inpoint.text"
+         y="467.726599702"
+         x="803.376526333">
+SUF.in</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="810.266971206"
+         cx="771.72380914"
+         r="5"
+         id="C.SUF.outpoint"
+         d="m 776.72382,810.26697 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SUF.outpoint.text"
+         y="803.266971206"
+         x="778.72380914">
+SUF.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="500.669410168"
+         cx="877.323072305"
+         r="5"
+         id="C.SUF"
+         d="m 882.32306,500.6694 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SUF.text"
+         y="493.669410168"
+         x="884.323072305">
+SUF</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="2374.01574803"
+         cx="877.323072305"
+         r="5"
+         id="C.CWF1"
+         d="m 882.32306,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.CWF1.text"
+         y="2367.01574803"
+         x="884.323072305">
+CWF1</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="422.238712561"
+         cx="-728.003428533"
+         r="5"
+         id="C.SCB1.inpoint"
+         d="m -723.00342,422.23871 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76143,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCB1.inpoint.text"
+         y="415.238712561"
+         x="-721.003428533">
+SCB1.in</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="328.30759036"
+         cx="-587.295380822"
+         r="5"
+         id="C.SCB1.outpoint"
+         d="m -582.29541,328.30759 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCB1.outpoint.text"
+         y="321.30759036"
+         x="-580.295380822">
+SCB1.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="375.502057626"
+         cx="-657.992304229"
+         r="5"
+         id="C.SCB1"
+         d="m -652.99231,375.50204 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCB1.text"
+         y="368.502057626"
+         x="-650.992304229">
+SCB1</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="271.540849666"
+         cx="-523.480006952"
+         r="5"
+         id="C.SCB2.inpoint"
+         d="m -518.47998,271.54086 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCB2.inpoint.text"
+         y="264.540849666"
+         x="-516.480006952">
+SCB2.in</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="167.579641705"
+         cx="-388.967709676"
+         r="5"
+         id="C.SCB2.outpoint"
+         d="m -383.96771,167.57964 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCB2.outpoint.text"
+         y="160.579641705"
+         x="-381.967709676">
+SCB2.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="219.560245685"
+         cx="-456.223858314"
+         r="5"
+         id="C.SCB2"
+         d="m -451.22385,219.56024 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCB2.text"
+         y="212.560245685"
+         x="-449.223858314">
+SCB2</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="100.479661115"
+         cx="-331.049293595"
+         r="5"
+         id="C.SCB3.inpoint"
+         d="m -326.04929,100.47966 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.761424 2.23858,-5 5,-5 2.76143,0 5,2.238576 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCB3.inpoint.text"
+         y="93.4796611147"
+         x="-324.049293595">
+SCB3.in</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="25.704712596"
+         cx="-175.674556187"
+         r="5"
+         id="C.SCB3.outpoint"
+         d="m -170.67456,25.704712 c 0,2.761424 -2.23858,5 -5,5 -2.76142,0 -5,-2.238576 -5,-5 0,-2.761424 2.23858,-5 5,-5 2.76142,0 5,2.238576 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCB3.outpoint.text"
+         y="18.704712596"
+         x="-168.674556187">
+SCB3.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="63.6184337441"
+         cx="-254.455412399"
+         r="5"
+         id="C.SCB3"
+         d="m -249.45541,63.618435 c 0,2.761424 -2.23858,5 -5,5 -2.76143,0 -5,-2.238576 -5,-5 0,-2.761424 2.23857,-5 5,-5 2.76142,0 5,2.238576 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCB3.text"
+         y="56.6184337441"
+         x="-247.455412399">
+SCB3</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="364.14537085"
+         cx="566.603569167"
+         r="5"
+         id="C.SCF1.inpoint"
+         d="m 571.60358,364.14539 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCF1.inpoint.text"
+         y="357.14537085"
+         x="573.603569167">
+SCF1.in</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="448.4076632"
+         cx="714.256394968"
+         r="5"
+         id="C.SCF1.outpoint"
+         d="m 719.25641,448.40765 c 0,2.76143 -2.23858,5 -5,5 -2.76143,0 -5,-2.23857 -5,-5 0,-2.76142 2.23857,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCF1.outpoint.text"
+         y="441.4076632"
+         x="721.256394968">
+SCF1.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="406.276517025"
+         cx="640.429982068"
+         r="5"
+         id="C.SCF1"
+         d="m 645.42999,406.27652 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCF1.text"
+         y="399.276517025"
+         x="647.429982068">
+SCF1</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="198.354101104"
+         cx="371.405387514"
+         r="5"
+         id="C.SCF2.inpoint"
+         d="m 376.4054,198.3541 c 0,2.76142 -2.23858,5 -5,5 -2.76143,0 -5,-2.23858 -5,-5 0,-2.76143 2.23857,-5 5,-5 2.76142,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCF2.inpoint.text"
+         y="191.354101104"
+         x="378.405387514">
+SCF2.in</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="302.315309065"
+         cx="505.917684791"
+         r="5"
+         id="C.SCF2.outpoint"
+         d="m 510.91769,302.31531 c 0,2.76142 -2.23857,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76143 2.23858,-5 5,-5 2.76143,0 5,2.23857 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCF2.outpoint.text"
+         y="295.315309065"
+         x="512.917684791">
+SCF2.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="250.334705084"
+         cx="438.661536153"
+         r="5"
+         id="C.SCF2"
+         d="m 443.66153,250.3347 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCF2.text"
+         y="243.334705084"
+         x="445.661536153">
+SCF2</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="52.2617469682"
+         cx="163.066677337"
+         r="5"
+         id="C.SCF3.inpoint"
+         d="m 168.06668,52.261745 c 0,2.761424 -2.23858,5 -5,5 -2.76142,0 -5,-2.238576 -5,-5 0,-2.761423 2.23858,-5 5,-5 2.76142,0 5,2.238577 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCF3.inpoint.text"
+         y="45.2617469682"
+         x="170.066677337">
+SCF3.in</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="136.524039318"
+         cx="310.719503139"
+         r="5"
+         id="C.SCF3.outpoint"
+         d="m 315.71951,136.52403 c 0,2.76143 -2.23857,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76143,0 5,2.23858 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCF3.outpoint.text"
+         y="129.524039318"
+         x="317.719503139">
+SCF3.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="94.3928931431"
+         cx="236.893090238"
+         r="5"
+         id="C.SCF3"
+         d="m 241.8931,94.392891 c 0,2.761424 -2.23858,5 -5,5 -2.76143,0 -5,-2.238576 -5,-5 0,-2.761424 2.23857,-5 5,-5 2.76142,0 5,2.238576 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SCF3.text"
+         y="87.3928931431"
+         x="243.893090238">
+SCF3</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="2064.50324062"
+         cx="-503.134218732"
+         r="5"
+         id="C.SWB3.outpoint"
+         d="m -498.13422,2064.5032 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SWB3.outpoint.text"
+         y="2057.50324062"
+         x="-496.134218732">
+SWB3.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="2374.01574803"
+         cx="-396.850393701"
+         r="5"
+         id="C.SWB3"
+         d="m -391.8504,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76143,0 -5,-2.2386 -5,-5 0,-2.7615 2.23857,-5 5,-5 2.76142,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SWB3.text"
+         y="2367.01574803"
+         x="-389.850393701">
+SWB3</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="2060.23897929"
+         cx="451.134569355"
+         r="5"
+         id="C.SWF.inpoint"
+         d="m 456.13458,2060.239 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SWF.inpoint.text"
+         y="2053.23897929"
+         x="458.134569355">
+SWF.in</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="2330.51986691"
+         cx="145.432796069"
+         r="5"
+         id="C.SWF.outpoint"
+         d="m 150.4328,2330.5198 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76142,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SWF.outpoint.text"
+         y="2323.51986691"
+         x="152.432796069">
+SWF.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="2374.01574803"
+         cx="396.850393701"
+         r="5"
+         id="C.SWF"
+         d="m 401.8504,2374.0159 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SWF.text"
+         y="2367.01574803"
+         x="403.850393701">
+SWF</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="2374.01574803"
+         cx="-637.086733003"
+         r="5"
+         id="C.SWB2"
+         d="m -632.08673,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SWB2.text"
+         y="2367.01574803"
+         x="-630.086733003">
+SWB2</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="2374.01574803"
+         cx="637.086733003"
+         r="5"
+         id="C.SWF2"
+         d="m 642.08673,2374.0159 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SWF2.text"
+         y="2367.01574803"
+         x="644.086733003">
+SWF2</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="1754.33512762"
+         cx="-609.643172854"
+         r="5"
+         id="C.SEB.inpoint"
+         d="m -604.64319,1754.3351 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SEB.inpoint.text"
+         y="1747.33512762"
+         x="-602.643172854">
+SEB.in</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="1128.97805808"
+         cx="-770.033689124"
+         r="5"
+         id="C.SEB.outpoint"
+         d="m -765.03369,1128.978 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SEB.outpoint.text"
+         y="1121.97805808"
+         x="-763.033689124">
+SEB.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1437.3425791"
+         cx="-690.94488189"
+         r="5"
+         id="C.SEB"
+         d="m -685.94489,1437.3425 c 0,2.7615 -2.23857,5 -5,5 -2.76142,0 -5,-2.2385 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SEB.text"
+         y="1430.3425791"
+         x="-683.94488189">
+SEB</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="1120.48679382"
+         cx="665.912301525"
+         r="5"
+         id="C.SEF.inpoint"
+         d="m 670.91229,1120.4868 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SEF.inpoint.text"
+         y="1113.48679382"
+         x="672.912301525">
+SEF.in</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="1745.79671928"
+         cx="505.533876685"
+         r="5"
+         id="C.SEF.outpoint"
+         d="m 510.53387,1745.7968 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SEF.outpoint.text"
+         y="1738.79671928"
+         x="512.533876685">
+SEF.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1437.3425791"
+         cx="584.645669291"
+         r="5"
+         id="C.SEF"
+         d="m 589.64569,1437.3425 c 0,2.7615 -2.23858,5 -5,5 -2.76142,0 -5,-2.2385 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76142,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SEF.text"
+         y="1430.3425791"
+         x="591.645669291">
+SEF</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1437.3425791"
+         cx="-345.472440945"
+         r="5"
+         id="C.SD1"
+         d="m -340.47244,1437.3425 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SD1.text"
+         y="1430.3425791"
+         x="-338.472440945">
+SD1</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="1128.97805808"
+         cx="-770.033689124"
+         r="5"
+         id="C.SD1.i.outpoint"
+         d="m -765.03369,1128.978 c 0,2.7615 -2.23858,5 -5,5 -2.76143,0 -5,-2.2385 -5,-5 0,-2.7614 2.23857,-5 5,-5 2.76142,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SD1.i.outpoint.text"
+         y="1121.97805808"
+         x="-763.033689124">
+SD1.i.out</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1437.3425791"
+         cx="-690.94488189"
+         r="5"
+         id="C.SD1.i"
+         d="m -685.94489,1437.3425 c 0,2.7615 -2.23857,5 -5,5 -2.76142,0 -5,-2.2385 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SD1.i.text"
+         y="1430.3425791"
+         x="-683.94488189">
+SD1.i</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="1754.33512762"
+         cx="-609.643172854"
+         r="5"
+         id="C.SD1.o.inpoint"
+         d="m -604.64319,1754.3351 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SD1.o.inpoint.text"
+         y="1747.33512762"
+         x="-602.643172854">
+SD1.o.in</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="1542.02520823"
+         cx="-664.096059435"
+         r="5"
+         id="C.SD1.o"
+         d="m -659.09607,1542.0253 c 0,2.7614 -2.23858,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76142,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SD1.o.text"
+         y="1535.02520823"
+         x="-657.096059435">
+SD1.o</text>
+      <circle
+         style="stroke:gray; stroke-width:1; fill:none; "
+         transform=""
+         cy="2393.36081098"
+         cx="-120.430820006"
+         r="5"
+         id="C.SWB.inpoint"
+         d="m -115.43082,2393.3608 c 0,2.7615 -2.23857,5 -5,5 -2.76142,0 -5,-2.2385 -5,-5 0,-2.7614 2.23858,-5 5,-5 2.76143,0 5,2.2386 5,5 z" />
+      <text
+         style="font-size:25; vertical-align:top; fill-opacity:1.0; fill:gray; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SWB.inpoint.text"
+         y="2386.36081098"
+         x="-113.430820006">
+SWB.in</text>
+      <circle
+         style="stroke:red; stroke-width:1; fill:red; "
+         transform=""
+         cy="2476.22819175"
+         cx="-361.751555289"
+         r="5"
+         id="C.SWB"
+         d="m -356.75156,2476.2283 c 0,2.7614 -2.23857,5 -5,5 -2.76142,0 -5,-2.2386 -5,-5 0,-2.7615 2.23858,-5 5,-5 2.76143,0 5,2.2385 5,5 z" />
+      <text
+         style="font-size:30; vertical-align:top; fill-opacity:1.0; fill:darkblue; text-anchor:right; stroke:none; font-weight:normal; font-style:italic; text-align:right; "
+         transform=""
+         id="C.SWB.text"
+         y="2469.22819175"
+         x="-354.751555289">
+SWB</text>
+      <path
+         style="stroke-linejoin:miter; stroke-dashoffset:0; stroke:gray; stroke-miterlimit:4; stroke-dasharray:6,6; stroke-width:2; fill:none; "
+         transform=""
+         d="M 0.0  0.0 L 0.0  2374.01574803 M 877.323072305  500.669410168 L 877.323072305  2374.01574803 M -877.323072305  500.669410168 L -877.323072305  2374.01574803 M -877.323072305  500.669410168 L 0.0  0.0 L 877.323072305  500.669410168 M -877.323072305  500.669410168 L -637.086733003  2374.01574803 M -690.94488189  1437.3425791 L -396.850393701  2374.01574803 M 877.323072305  500.669410168 L 637.086733003  2374.01574803 M 584.645669291  1437.3425791 L 396.850393701  2374.01574803 M -877.323072305  500.669410168 L 877.323072305  500.669410168 M -690.94488189  1437.3425791 L 584.645669291  1437.3425791 M -877.323072305  2374.01574803 L 877.323072305  2374.01574803 "
+         id="C.gridline" />
+    </g>
+  </g>
+</svg>

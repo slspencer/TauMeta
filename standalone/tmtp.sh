@@ -37,7 +37,7 @@ export PYTHONPATH
 export CUSTOMER_FILE
 export CUSTOMER_DIR
 export CUSTOMER_NAME
-export PATTER
+export PATTERN
 export OUTPUT
 
 function PrintPattern () {
@@ -84,22 +84,21 @@ function MakePattern () {
     
 
     #Include this option to show additional debug messages: --debug=prints
-    #run mkpattern script to generate the pattern
+    # @@@ MAKE THE PATTERN WITH MKPATTERN @@@
     $TMTP_BASE/mkpattern $PATTERN $CLIENT $SVG
 
     #TODO: add if statement to run inkscape with reference layer visible or hidden.
 
     # run inkscape to outset the cutting lines and to view svg file.
-    inkscape --file=$SVG --verb=ZoomPage \
+    inkscape --file=$SVG \
     --select=A.cuttingline --select=B.cuttingline --select=C.cuttingline \
     --select=D.cuttingline --select=E.cuttingline --select=F.cuttingline \
     --select=G.cuttingline --select=H.cuttingline --select=I.cuttingline \
-    --select=J.cuttingline --select=K.cuttingline --select=S.cuttingline \
-    --verb=SelectionOffset --verb=EditDeselect --verb=FileSave | zenity --progress \
+    --select=J.cuttingline --select=K.cuttingline --verb=SelectionOffset \
+    --verb=EditDeselect --verb=FileSave --verb=ZoomPage | zenity --progress \
     --title='Please wait, opening Inkscape...'\
-    --text="* Creating $SVG *" --auto-close
+    --text="* Creating $CUSTOMER_DIR/$CUSTOMER_FILE *" --auto-close
     
-
     return;
     }
 
