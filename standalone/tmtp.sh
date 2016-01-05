@@ -75,16 +75,17 @@ function MakePattern () {
     elif [ $MEASUREMENTSOURCE == 'JSON' ]; then
         CLIENT="--client=$CUSTOMER_BASE/$CUSTOMER_DIR/$CUSTOMER_FILE"
     fi
-    
+
+    STYLES="--styles=tmtp_styles.json"   
     PATTERN="--pattern=$PATTERN_BASE/$FILE.py"
     SVG="$CUSTOMER_BASE/$CUSTOMER_DIR/$OUTPUT_FILE.svg"
     PDF="$CUSTOMER_BASE/$CUSTOMER_DIR/$OUTPUT_FILE.pdf"
-    echo "SVG="$SVG
-    echo "PDF="$PDF 
-    
 
     #Include this option to show additional debug messages: --debug=prints
     # @@@ MAKE THE PATTERN WITH MKPATTERN @@@
+    echo 'PATTERN='$PATTERN
+    echo 'CLIENT='$CLIENT
+    echo 'SVG='$SVG
     $TMTP_BASE/mkpattern $PATTERN $CLIENT $SVG
 
     #TODO: add if statement to run inkscape with reference layer visible or hidden.
@@ -94,8 +95,9 @@ function MakePattern () {
     --select=A.cuttingline --select=B.cuttingline --select=C.cuttingline \
     --select=D.cuttingline --select=E.cuttingline --select=F.cuttingline \
     --select=G.cuttingline --select=H.cuttingline --select=I.cuttingline \
-    --select=J.cuttingline --select=K.cuttingline --verb=SelectionOffset \
-    --verb=EditDeselect --verb=FileSave --verb=ZoomPage | zenity --progress \
+    --select=J.cuttingline --select=K.cuttingline --select=L.cuttingline \
+    --verb=SelectionOffset --verb=EditDeselect --verb=FileSave \
+    --verb=ZoomPage | zenity --progress \
     --title='Please wait, opening Inkscape...'\
     --text="* Creating $CUSTOMER_DIR/$CUSTOMER_FILE *" --auto-close
     

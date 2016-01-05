@@ -143,7 +143,7 @@ class Cmdline:
             opts, args = getopt(argv[1:], optsShort, optsLong)
 
             if len(args) != 1:
-                raise CmdlineError('You must supply an output file name\n\n')
+                raise CmdlineError('No command line arguments found - You must supply an output file name\n\n')
 
             self.cfg['args'] = args
 

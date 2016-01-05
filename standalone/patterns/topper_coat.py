@@ -84,15 +84,16 @@ class Design(designBase):
         #create pattern pieces
         A = coat.addPiece('Front', 'A', fabric = 2, interfacing = 0, lining = 0)
         B = coat.addPiece('Back', 'B', fabric = 2, interfacing = 0, lining = 2)
-        C = coat.addPiece('Sleeve Back', 'C', fabric = 2, interfacing = 0, lining = 2)
-        D = coat.addPiece('Back Lining', 'D', fabric = 0, interfacing = 0, lining = 2)        
+        C = coat.addPiece('Sleeve - Back', 'C', fabric = 2, interfacing = 0, lining = 2)
+        D = coat.addPiece('Lining - Back', 'D', fabric = 0, interfacing = 0, lining = 2)        
         E = coat.addPiece('Pocket', 'E', fabric = 2, interfacing = 0, lining = 0)
-        F = coat.addPiece('Front Facing', 'F', fabric = 2, interfacing = 2, lining = 0)
-        G = coat.addPiece('Front Upper', 'G', fabric = 2, interfacing = 0, lining = 0)
-        H = coat.addPiece('Sleeve Front', 'H', fabric = 2, interfacing = 0, lining = 2)
-        I = coat.addPiece('Sleeve Cuff', 'I', fabric = 2, interfacing = 2, lining = 0)
-        J = coat.addPiece('Front Lining', 'J', fabric = 0, interfacing = 0, lining = 2)
-        K = coat.addPiece('Front Lower', 'K', fabric = 2, interfacing = 0, lining = 0)
+        F = coat.addPiece('Lining - Facing', 'F', fabric = 2, interfacing = 2, lining = 0)
+        G = coat.addPiece('Front - Upper', 'G', fabric = 2, interfacing = 0, lining = 0)
+        H = coat.addPiece('Sleeve - Front', 'H', fabric = 2, interfacing = 0, lining = 2)
+        I = coat.addPiece('Sleeve - Outer Cuff', 'I', fabric = 2, interfacing = 2, lining = 0)
+        J = coat.addPiece('Lining - Front', 'J', fabric = 0, interfacing = 0, lining = 2)
+        K = coat.addPiece('Front - Lower', 'K', fabric = 2, interfacing = 0, lining = 0)
+        L = coat.addPiece('Sleeve - Inner Cuff', 'L', fabric = 2, interfacing = 0, lining = 0)
 
         #---Bodice Lower Front A---#
         FNC = A.addPoint('FNC', (0.0, 0.0)) #front neck center
@@ -591,7 +592,10 @@ class Design(designBase):
     
         #---Front Outer Pocket K---#
         
-         
+        #---------------------------------------------#
+        #---all points defined, create notches     ---#
+        #---------------------------------------------# 
+        notchA1 = A.addNotch('1', g5, angleOfLine(g5.inpoint, g5) - ANGLE90)    
 
         #---------------------------------------------#
         #---all points defined, draw pattern pieces---#
@@ -672,7 +676,7 @@ class Design(designBase):
         E.setLetter((pnt1.x, pnt1.y), scaleby=10.0)
         E.setLabelPosition((a12.x + distance(a12, a11) / 2.0, a12.y + abs(a12.y - a_h1.y) / 6.0))
         eG1 = dPnt((a12.x + 0.75 * distance(a12, a11), a11.y + abs(a11.y - a_h1.y) / 4.0))
-        eG2 = down(eG1, 0.6 * distance(a11, a_h4))
+        eG2 = down(eG1, 0.45 * distance(a11, a_h4))
         E.addGrainLine(eG1, eG2)
         pth =(['M', a11, 'L', a_p3, 'C', a_p2, 'L', a12, 'L', a11])
         E.addSeamLine(pth)
@@ -712,7 +716,7 @@ class Design(designBase):
         H.addSeamLine(pth)
         H.addCuttingLine(pth)
 
-        #draw Sleeve Facing I
+        #draw Sleeve - Outser Cuff I
         offsety = distance(i1, i8)/3.0
         offsetx = distance(i1, i2)/8.0
         pnt1 = dPnt((i8.x + offsetx, i8.y + 2 * offsety))
@@ -721,7 +725,7 @@ class Design(designBase):
         I.setLetter((pnt1.x, pnt1.y), scaleby=8.0)
         I.setLabelPosition(pnt2)
         iG1 = pnt3
-        iG2 = down(iG1, 0.7 * distance(i8, i6))
+        iG2 = down(iG1, 0.5 * distance(i8, i6))
         I.addGrainLine(iG1, iG2)
         pth = (['M', i3, 'L', i8])
         I.addFoldLine(pth)
@@ -744,8 +748,8 @@ class Design(designBase):
         
         #draw Lower Front K
         pnt1 = dPnt(midPoint(a12, FHS))
-        K.setLabelPosition(pnt1)
-        K.setLetter(up(pnt1, distance(pnt1, a12)/2.0), scaleby=5.0)
+        K.setLetter((pnt1.x, pnt1.y), scaleby=10.0)           
+        K.setLabelPosition(down(pnt1, distance(pnt1, a12)/2.0))
         kG1 = dPnt(right(a12, 0.75 * distance(a12, a11)))
         kG2 = dPnt(down(kG1, distance(a12, a_H2)))
         K.addGrainLine(kG1, kG2)
@@ -754,7 +758,20 @@ class Design(designBase):
         K.addSeamLine(pth)
         K.addCuttingLine(pth) 
                
-        
+        #draw Sleeve - Inner Cuff L
+        offsety = distance(i8, i6)/3.0
+        offsetx = distance(i8, i3)/8.0
+        pnt1 = dPnt((i8.x + offsetx, i8.y + 2 * offsety))
+        pnt2 = dPnt((i8.x + 2 * offsetx, i8.y + offsety))
+        pnt3 = dPnt((i8.x + 4 * offsetx, i8.y + offsety))
+        L.setLetter((pnt1.x, pnt1.y), scaleby=8.0)
+        L.setLabelPosition(pnt2)
+        lG1 = pnt3
+        lG2 = down(lG1, 0.5 * distance(i8, i6))
+        L.addGrainLine(lG1, lG2)
+        pth = (['M', i8, 'L', i3, 'L', i5, 'L', i7, 'L', i8])
+        L.addSeamLine(pth)
+        L.addCuttingLine(pth)      
 
 
         # call draw once for the entire pattern

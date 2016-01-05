@@ -97,6 +97,13 @@
         "stroke-miterlimit": "2.5",
         "stroke-width": "5"
     },
+    "notch_style": {
+        "fill": "none",
+        "stroke": "green",
+        "stroke-linejoin": "miter",
+        "stroke-miterlimit": "2",
+        "stroke-width": "4"
+    },    
     "placement_style": {
         "fill": "none",
         "stroke": "gray",
