@@ -75,8 +75,8 @@ function MakePattern () {
     elif [ $MEASUREMENTSOURCE == 'JSON' ]; then
         CLIENT="--client=$CUSTOMER_BASE/$CUSTOMER_DIR/$CUSTOMER_FILE"
     fi
-
-    STYLES="--styles=tmtp_styles.json"   
+_
+    STYLES="--styles=$TMTP_BASE/tmtp_styles.json"  
     PATTERN="--pattern=$PATTERN_BASE/$FILE.py"
     SVG="$CUSTOMER_BASE/$CUSTOMER_DIR/$OUTPUT_FILE.svg"
     PDF="$CUSTOMER_BASE/$CUSTOMER_DIR/$OUTPUT_FILE.pdf"
@@ -86,7 +86,7 @@ function MakePattern () {
     echo 'PATTERN='$PATTERN
     echo 'CLIENT='$CLIENT
     echo 'SVG='$SVG
-    $TMTP_BASE/mkpattern $PATTERN $CLIENT $SVG
+    $TMTP_BASE/mkpattern $PATTERN $STYLES $CLIENT $SVG
 
     #TODO: add if statement to run inkscape with reference layer visible or hidden.
 

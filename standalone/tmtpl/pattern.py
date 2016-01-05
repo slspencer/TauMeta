@@ -668,6 +668,8 @@ class Notch(pBase):
         self.angle = angle
         self.attrs = {}
         self.attrs['transform'] = transform
+        self.xend = 0.0
+        self.yend = 0.0
         
         # make some checks
         if self.sdef not in self.styledefs:
@@ -690,7 +692,7 @@ class Notch(pBase):
         #create style dictionary
         pstyle = PYB.StyleBuilder(self.styledefs[self.sdef])
         #find end of notch line
-        pnt = polar(dPnt((self.xstart, self.ystart)), self.length, self.angle)
+        pnt = dPnt(polar(dPnt((self.xstart, self.ystart)), self.length, self.angle))
         self.xend, self.yend = pnt.x, pnt.y
         #create the svg line object as n
         n = PYB.line(self.xstart, self.ystart, self.xend, self.yend)
@@ -759,7 +761,7 @@ class PatternPiece(pBase):
     def addNotch(self, number, pnt, angle, transform=''):
         notch = Notch(number, pnt.x, pnt.y, angle, transform)
         self.add(notch)
-        return notch       
+        return notch     
 
     def addGrainLine(self, p1, p2, transform=''):
         p1 = dPnt(p1)
