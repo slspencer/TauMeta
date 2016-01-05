@@ -591,11 +591,88 @@ class Design(designBase):
         j6.addInpoint(a4.outpoint)        
     
         #---Front Outer Pocket K---#
-        
+           
         #---------------------------------------------#
         #---all points defined, create notches     ---#
-        #---------------------------------------------# 
-        notchA1 = A.addNotch('1', g5, angleOfLine(g5.inpoint, g5) - ANGLE90)    
+        #---------------------------------------------#
+        #notch 1 - Front Upper G armscye & Front Lining J armscye to Sleeve Front H sleevecap 
+        notchG1 = G.addNotch('1', g5, angleOfLine(g5.inpoint, g5) - ANGLE90) 
+        notchJ1 = J.addNotch('1', g5, angleOfLine(g5.inpoint, g5) - ANGLE90)
+        new_curves = splitCurveAtLength(points2List(c18, c18.inpoint, c16.outpoint, c16, c16.inpoint, c21.outpoint, c21), curveLength(points2List(g4, g4.outpoint, g5.inpoint, g5)))
+        notchH1 = H.addNotch('1', new_curves[3], angleOfLine(new_curves[2], new_curves[3]) + ANGLE90) 
+        #notch 2 - Back B armscye & Back Lining D to Sleeve Back C sleevecap
+        notchB2 = B.addNotch('2', BAP, angleOfLine(BAP.inpoint, BAP) + ANGLE90)
+        notchD2 = D.addNotch('2', BAP, angleOfLine(BAP.inpoint, BAP) + ANGLE90)
+        new_curves = splitCurveAtLength(points2List(c17, c17.outpoint, c13.inpoint, c13, c13.outpoint, c19.inpoint, c19), curveLength(points2List(b4, b4.outpoint, BAP.inpoint, BAP)))
+        notchC2 = C.addNotch('2', new_curves[3], angleOfLine(new_curves[2], new_curves[3]) - ANGLE90)
+        #notch 3 = Front Upper G shoulder & Front Lining J to Back B shoulder & Back Lining D shoulder
+        length = 0.3 * distance(g1, g6)
+        notchG3 = G.addNotch('3', onLineAtLength(g1, g6, length), angleOfLine(g1, g6) + ANGLE90) #Front Upper G shoulder
+        notchJ3 = J.addNotch('3', onLineAtLength(j1, jD1.i, length), angleOfLine(j1, jD1.i) + ANGLE90) #Front Lining J shoulder
+        notchB3 = B.addNotch('3', onLineAtLength(b2, b3, length), angleOfLine(b2, b3) - ANGLE90) #Back B shoulder
+        notchD3 = D.addNotch('3', onLineAtLength(b2, b3, length), angleOfLine(b2, b3) - ANGLE90) #Back Lining D shoulder
+        #notch 4 - Front Upper G dart & Front A upper chest curve, Front Lining J & Front Facing F
+        notchG4 = G.addNotch('4', g2, angleOfLine(g2, g2.outpoint) - ANGLE90) #Front Upper G upper chest curve
+        notchA4 = A.addNotch('4', a4, angleOfLine(a4, a4.outpoint) - ANGLE90) #Front A upper chest curve
+        notchJ4 = J.addNotch('4', j6, angleOfLine(j6.inpoint, j6) - ANGLE90) #Front Lining J upper chest curve 
+        notchF4 = F.addNotch('4', a4, angleOfLine(a4, a4.outpoint) - ANGLE90) #Front Facing F upper chest curve        
+        #notch 5 - Front Upper G FBP & Front A FBP
+        angle = angleOfLine(FBP, FBP.outpoint)
+        notchG5 = G.addNotch('5', FBP, angle + ANGLE90) #Front Upper G FBP
+        notchA5 = A.addNotch('5', FBP, angle - ANGLE90) #Front A FBP
+        #notch 6 - Front A facing edge & Front Facing F edge
+        notchA6 = A.addNotch('6', a17, angleOfLine(a17, a17.inpoint) + ANGLE90)
+        notchF6 = F.addNotch('6', a17, angleOfLine(a17, a17.inpoint) + ANGLE90)
+        #notch 7 = Front A facing edge & Front Facing F edge
+        notchA7 = A.addNotch('7', a6, angleOfLine(a6, a6.inpoint) + ANGLE90)
+        notchF7 = F.addNotch('7', a6, angleOfLine(a6, a6.inpoint) + ANGLE90) 
+        #notch 8 = Front A facing edge & Front Facing F edge
+        pnt = onLineAtLength(a6, a7, distance(a6, a7)/2.0)
+        notchA8 = A.addNotch('8', pnt, angleOfLine(a6, a6.inpoint) + ANGLE90)
+        notchF7 = F.addNotch('8', pnt, angleOfLine(a6, a6.inpoint) + ANGLE90)               
+        #notch 9 = Front Upper G  & Front Lining J side to Back B  & Back Lining D side
+        length = distance(b4, b5)/2.0
+        pnt1 = onLineAtLength(b4, b5, length)
+        angle1 = angleOfLine(b4, b5) - ANGLE90
+        notchB9 = B.addNotch('9', pnt1, angle1)
+        notchD9 = D.addNotch('9', pnt1, angle1)
+        pnt2 = onLineAtLength(g4, g7, length)
+        angle2 = angleOfLine(g4, g7) + ANGLE90
+        notchG9 = G.addNotch('9', pnt2, angle2)
+        notchJ9 = J.addNotch('9', pnt2, angle2)
+        #notch 10 - Back B to Back B
+        curve = points2List(b7, b7.outpoint, b8.inpoint, b8) 
+        length = curveLength(curve)/2.0
+        new_curves = splitCurveAtLength(curve, length)
+        angle = angleOfLine(new_curves[2], new_curves[3]) + ANGLE90
+        notchB10 = B.addNotch('10', new_curves[3], angle)
+        #notch 11 - Sleeve Back C to Sleeve Front H at curve in center line
+        angle = angleOfLine(c7, c7.inpoint)
+        notchC11 = C.addNotch('11', c7, angle + ANGLE90)
+        notchH11 = H.addNotch('11', c7, angle - ANGLE90)
+        #notch 12 = Sleeve Back C to Sleeve Front H along underarm seam
+        curve1 = points2List(c17, c17.inpoint, c22.outpoint, c22) 
+        length = curveLength(curve1)/2.0
+        new_curves1 = splitCurveAtLength(curve1, length)
+        angle1 = angleOfLine(new_curves1[2], new_curves1[3])
+        curve2 = points2List(c18, c18.outpoint, c23.inpoint, c23)         
+        new_curves2 = splitCurveAtLength(curve2, length)
+        angle2 = angleOfLine(new_curves2[2], new_curves2[3])        
+        notchC12 = C.addNotch('12', new_curves1[3], angle1 + ANGLE90)
+        notchH12 = H.addNotch('12', new_curves2[3], angle2 - ANGLE90)
+        #notch 13 = Sleeve Back C to Cuff L at wrist
+        length = distance(c2, c9)/2.0
+        pnt = onLineAtLength(c2, c9, length)
+        angle = angleOfLine(c2, c9) 
+        notchC13 = C.addNotch('13', onLineAtLength(c2, c9, length), angleOfLine(c2, c9) + ANGLE90)
+        notchL13 = L.addNotch('13', onLineAtLength(i8, i3, length), angleOfLine(i8, i3) - ANGLE90)
+        #notch 14 = Sleeve Front H to Inner Cuff L at wrist
+        notchH14 = H.addNotch('14', onLineAtLength(c4, c9, length), angleOfLine(c4, c9) - ANGLE90)
+        notchL14 = L.addNotch('14', onLineAtLength(i3, i8, length), angleOfLine(i3, i8) + ANGLE90)
+        #notch 15 = Inner Cuff L to Outer Cuff I at cuff edge
+        notchL15 = L.addNotch('15', dPnt(midPoint(i4, i6)), angleOfLine(i4, i6) - ANGLE90)
+        notchI15 = I.addNotch('15', midPoint(i4, i6), angleOfLine(i4, i6) - ANGLE90)     
+        
 
         #---------------------------------------------#
         #---all points defined, draw pattern pieces---#

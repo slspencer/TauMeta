@@ -758,8 +758,9 @@ class PatternPiece(pBase):
         self.add(pnt)
         return pnt
        
-    def addNotch(self, number, pnt, angle, transform=''):
-        notch = Notch(number, pnt.x, pnt.y, angle, transform)
+    def addNotch(self, number, p1, angle, transform=''):
+        p1 = dPnt(p1)
+        notch = Notch(number, p1.x, p1.y, angle, transform)
         self.add(notch)
         return notch     
 
