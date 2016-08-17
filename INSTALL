@@ -1,77 +1,77 @@
-This application is not packaged and must be run from this source tree.
-Requires Inkscape & zenity applications and pySVG python library
+Tau Meta Tau Physica runs on Debian Linux, and has only been tested on Ubuntu
+It is not packaged and must be run from the 'standalone' directory using shell script 'tmtp.sh'.
+Requires Inkscape, zenity, pySVG.
 
-***** For Linux *****
+***** For Debian Linux / Ubuntu*****
 
 1. Get packaged software dependencies:
 
-sudo apt-get install inkscape
-sudo apt-get install zenity
+Install Inkscape:
+$sudo apt-get install inkscape
+Configure Inkscape:
+Inkscape creates seam allowances with its offset feature.
+Inkscape up through v0.91 uses 90pixels per inch, so for 5/8" seam allowances the outset should be 56.25pixels.
+Set menu File/Edit/Preferences/Behavior/Steps to 56.25 pixels.
+
+Install Zenity:
+$sudo apt-get install zenity
 
 2. == Get unpackaged pySVG python library ==
 
-From this page:
-
+Download the file pysvg-0.2.1.zip from this page:
 http://code.google.com/p/pysvg/downloads/list
 
-Download the file pysvg-0.2.1.zip
-
 Unzip it and install it:
-
 $ unzip pysvg-0.2.1.zip
 $ cd pysvg-0.2.1/
 $ sudo python setup.py install
 
 3. == Get the tmtp source code ==
 
-To get the source, do the following:
-
-$ git clone git@github.com:sconklin/tmtp.git
+$ mkdir tmtp
+$ git clone git@github.com:tusuzu/taumeta.git tmtp
 
 4. == Test it ==
 
-$ cd ../tmtp/standalone
-$ ./mkpattern --verbose --client=customer/SampleClient/SampleClient.json --pattern=patterns/SamplePattern.py --styles=tmtp_styles.json foo.svg
-
+$ cd tmtp/standalone
+$ ./mkpattern --verbose --client=./customer/SampleClient/SampleClient.json --pattern=./patterns/SamplePattern.py --styles=tmtp_styles.json ./customer/SampleClient/foo.svg
 If this completes without error, everything is probably good.
-You can look at the output file, foo.svg to see what it looks like
 
-$ inkscape --file=foo.svg --verb=ZoomPage --select=A.cuttingline --select=B.cuttingline --verb=SelectionOffset --verb=FileSave
+To view:
+Open foo.svg with Inkscape and create the seam allowances:
+$ inkscape --file=foo.svg --verb=ZoomPage --select=A.cuttingline --select=B.cuttingline --select=C.cuttingline --select=D.cuttingline --select=E.cuttingline --select=F.cuttingline --verb=SelectionOffset --verb=FileSave
 
-NOTE: To print: In inkscape, hide the reference layer, arrange pattern pieces for best use of space
-for plotter/printer size. Resize document to fit using appropriate border size, save as PDF, and print.
+To print: 
+In inkscape, hide the reference layer with menu Layer/Layers, then select Layer-reference, and click on the 'eye' to hide the layer.
+Resize document with menu File/Document Properties/Resize for your paper size.
+Rearrange pattern pieces if needed. Save as PDF, and print with menu File/Print.
+There is not an option to print to tiled PDF.
 
-5. == Update the tmtp.sh script ==
+5. == Test the script ==
 
-$ gedit tmtp.sh
-
-change TMTP_BASE to your tmtp/standalone directory, example:
-	TMTP_BASE=/home/susan/src/tmtp/standalone/
-
-6. == Test the script ==
-
+Change to the tmtp/standalone directory, mark tmtp.sh as executable, then run it
+$chmod +x tmtp.sh
 $ ./tmtp.sh
+Select pattern file -- tmtp/standalone/patterns/SamplePattern.py
+Select customer measurement file -- tmtp/standalone/customers/SampleCustomer/SampleCustomer.json
+The pattern will be saved to the tmtp/standalone/customers/SampleCustomer directory
 
 7. == Update launcher desktop file ==
 
 $ sudo gedit tmtp.desktop
+Update the icon and executable directory fields to match your own directories
 
-Edit directories for icon and executable to your tmtp/standalone directory
+8. == Add TMTP script to Ubuntu Launcher bar ==
 
-8. == Add TMTP script to desktop Launcher bar ==
-
-$ sudo cp tmtp.destop /usr/share/applications
+$ sudo cp tmtp.desktop /usr/share/applications
 $ sudo chmod +x /usr/share/applications/tmtp.desktop
 $ sudo update-desktop-database
 
 Click on Ubuntu logo at top of desktop Launcher bar
-type in tmtp.desktop to find file icon
-drag file icon to Launcher bar
-
-The Scissors icon should appear in Launcher
-
+Type in tmtp.desktop to find file icon
+Drag Scissors file icon to Launcher bar
 
 
 ***** For Windows *****
 
-...Need this...
+...mayber later, need this...

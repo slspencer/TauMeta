@@ -10,6 +10,7 @@ standalone/output/*.svg
 *.svg
 foo.*
 *.txt
+*.ods
 ../dhw_input.inx
 ../dm2svg.py
 standalone/BezierSpline/

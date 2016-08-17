@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Tau Meta Tau Physica
+Comment=Pattern Making Software
+Exec=/home/susan/src/tmtp/standalone/tmtp.sh
+Icon=/usr/share/icons/Humanity/actions/48/edit-cut.svg
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Categories=Applications;
