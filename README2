@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010, Susan Spencer
+# Copyright (C) 2010-2016, Susan Spencer and Steve Conklin
 # 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,24 +15,31 @@
 
 Patterns are saved to the customer's directory by default.
 
-If a pattern generates errors, the 'Failed to load the requested file..." error message will appear. Inkscape will continue to open and show a blank document. To see the errors, run ./tmtp.sh from a terminal. Error messages contain file & line number information.
+If a pattern generates errors, the 'Failed to load the requested file..." error message will appear. 
+Inkscape will continue to open and show a blank document. 
+To see the errors, run ./tmtp.sh from a terminal. 
+Error messages contain file & line number information.
 
-To print the value of a point add print statments:
+To print the value of a point add print statments into your pattern file:
 		print 'ad =', ad.x, ad.y, ad.name
 
-TMTP converts client data into pixels. Convert the measurement back to centimeters or inches when printing.
+TMTP converts client data into pixels, at 90 pixels per inch.
+Convert the measurement back to centimeters or inches when printing.
 	print 'waist circumference =', CD.waist_circumference*CM
 	print 'waist_circumference =', CD.waist_circumference*IN
 
 Python assumes that if a divisor is integer the result is integer.
+Add a decimal point . or .0 to indicate float.
     Correct: 3/5.0 or 3/5.
     Incorrect:  3/5, as python may return 0 integer value
 
-Pattern points have a 'name' attribute that is used as it's SVG id. To find a point in Inkscape you can look at the xml listing in the reference layer.
+Pattern points have a 'name' attribute that is used as it's SVG id. 
+To find a point in Inkscape you can look at the xml listing in the reference layer.
+Or use <Ctrl-F> and enter the point's name.
 
-Printing and plotting success depends on the linux/printer driver combination. Some linux distributions don't pass long document length to some plotter drivers, so pattern printout is truncated at 54".
-
-Hide the reference layer and save as PDF before printing or plotting.
+Printing and plotting success depends on the linux/printer driver combination. 
+Some linux distributions don't pass long document length to some plotter drivers, 
+so pattern printout may be truncated at 54".
 
 Printing from Inkscape:
 1. Hide the reference layer and save file as PDF.
@@ -42,9 +49,9 @@ Printing from Inkscape:
               Or select paper size for cut-sheet plotters.
       For Printers:
               Select paper size for your printer.
-      Input border amounts recommended for the printer or plotter.
       Click on Resize Document.
-      Rearrange pattern pieces if needed to fit on the paper size.  For plotters, the pieces can extend below bottom of page.
+      Rearrange pattern pieces if needed to fit on the paper size.  
+      For plotters, the pieces can extend below bottom of page, then enter top and bottom border widths.
       Resize again & rearrange until all pieces fit on paper.
       For plotters, write down final document width & height.
 2. Save as a PDF file. Files are saved to the customer's directory by default.
@@ -57,34 +64,35 @@ Printing from GIMP:
   Try printing from each of the drivers listed and record which driver worked best.
 
 Printing directly from Linux:
-  Right click on the PDF. Select 'Print'. The print dialog will appear. Select printer.  
-  Adjust paper size to match your notes and Print.
+  Right click on the PDF. Select 'Print'. The print dialog will appear. 
+  Select printer.  
+  Adjust paper size to match your notes, then print.
 
 Printing from Adobe v10+ (requires v10+ for extra long paper size, etc.)
   Right click on the PDF. Select 'Open with' and select Adobe 10.
-  Adjust paper size to match your notes and Print.
-
-Printing from a 3rd party printing utility:
-  Download a 3rd party linux printing utility - I have not done this and have no recommendations.  Please contact TMTP with your results.
+  Adjust paper size to match your notes, then print.
 
 If printing problems are unresolved:
- Write down the version of your operating system, the make & model of your printer or plotter, the paper size if it's unusual, and the printer driver version from your operating system.
-1. File a bug with your linux distribution.
-2. Contact the linux print working group.  They want to resolve problems with linux printing.
-3. Contact TMTP with problem & results so it can be included in documentation.
+ Write down the version of your operating system, 
+ the make & model of your printer or plotter, 
+ the paper size, 
+ and the printer driver version from your operating system.
+1. File a bug with your linux distribution
+2. Contact the linux print working group, they're interested
+3. Contact TMTP with problem & results to include in documentation
 
 
 Contributing to Tau Meta Tau Physica:
-  If you'd like to be a code contributor, find the source code at http://github.com/sconklin/tmtp.
-  If you'd like to be a software beta tester, please send us an email.
-  If you'd like to be a pattern beta tester, please send us an email.
-
-  Tau Meta Tau Physica will be used a teaching tool for students in early adolescence.
-  The code is written as simply as possible, which is why it is written in python.
-  The math functions use the lowest level of complexity required to get the job done.
-  The teaching code will eventually be on its own branch, and
-  lib2geom will be used for curve calculations in the public branch.
-  The code can be converted from python to C++ at that time.
+  To contribute code, fork http://github.com/tusuzu/taumeta. Add issues you find to the issues list.
+  To test the code, please send us an email. We'll help you get started.
+  To test the patterns, please send us an email. We'll send you patterns!
 
 If you have further questions please contact us at sew@sew-brilliant.org
+
+This project was a prototype. It has been superceded by
+Valentina open source pattern design software (valentina-project.org).
+Tau Meta still receives interest, so it is maintained.
+
+
+
 

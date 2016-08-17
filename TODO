@@ -1,8 +1,5 @@
 New notes:
 
-Consider doing away with dotted notation (and heirarchy) for measurements??
-i.e. front.highhip_width becomes front_highhip_width
-
 == Cruft that really needs fixing ==
 
 * Account for title block size during autolayout
