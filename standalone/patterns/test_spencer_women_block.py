@@ -69,7 +69,7 @@ class Design(designBase):
         a7 = A.addPoint('a7', lowestP(onCircleAtX(a6, CD.front_underarm_balance, a1.x - CD.across_chest/2.0))) #front underarm point
         a8 = A.addPoint('a8', (a1.x, a7.y)) #front undearm center
         a9 = A.addPoint('a9', left(a8, CD.front_underarm/2.0)) #front underarm side
-        a10 = A.addPoint('a10', leftmostP(onCircleTangentFromOutsidePoint(a4, CD.front_bust/2.0 - distance(a3, a4), a9))) #bust side is where line from bust point is perpendicular to line through a9
+        a10 = A.addPoint('a10', leftmostP(tangentPointOnCircle(a4, CD.front_bust/2.0 - distance(a3, a4), a9))) #bust side is where line from bust point is perpendicular to line through a9
         a11 = A.addPoint('a11', onLineAtLength(a9, a10, 0.13 * CD.side)) #adjusted front underarm side on line a9-10
         a12 = A.addPoint('a12', left(a2, CD.front_waist/2.0)) #temporary front waist side 1 - on waist line
         a13 = A.addPoint('a13', dPnt((a4.x, a2.y))) #below bust point at waist

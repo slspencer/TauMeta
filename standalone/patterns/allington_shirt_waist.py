@@ -161,7 +161,7 @@ class Design(designBase):
         FUS = A.addPoint('FUS', (FUW.x, FAP.y)) #front undearm side
         FBP = A.addPoint('FBP', lowestP(onCircleAtX(FNS, FNC.x + CD.bust_balance, CD.bust_distance/2.0))) #front bust center
         FBC = A.addPoint('FBC', (FNC.x, FBP.y)) #front bust point
-        FBS = A.addPoint('FBS', rightmostP(onCircleTangentFromOutsidePoint(FBP, CD.front_bust/2.0 - distance(FBC, FBP), FUS))) #bust side is where line from bust point is perpendicular to line through FUS
+        FBS = A.addPoint('FBS', rightmostP(tangentPointOnCircle(FBP, CD.front_bust/2.0 - distance(FBC, FBP), FUS))) #bust side is where line from bust point is perpendicular to line through FUS
 
         a1 = A.addPoint('a1', down(FNC, distance(FNC, FUC)/4.0)) #S - new front neck center
         a2 = A.addPoint('a2', down(a1,  FWC.y + distance(BWC, b2))) #X -front waist center

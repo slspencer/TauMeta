@@ -66,7 +66,7 @@ class Design(designBase):
         FAS = A.addPoint('FAS', lowestP(onCircleAtX(FNS, CD.front_underarm_balance, FNC.x - CD.across_chest/2.0))) #front underarm point
         FUC = A.addPoint('FUC', (FNC.x, FAS.y)) #front undearm center
         t_FUS = A.addPoint('t_FUS', left(FUC, CD.front_underarm/2.0)) #temp front underarm side
-        FBS = A.addPoint('FBS', leftmostP(onCircleTangentFromOutsidePoint(FBP, CD.front_bust/2.0 - distance(FBC, FBP), t_FUS))) #bust side is where line from bust point is perpendicular to line through t_FUS
+        FBS = A.addPoint('FBS', leftmostP(tangentPointOnCircle(FBP, CD.front_bust/2.0 - distance(FBC, FBP), t_FUS))) #bust side is where line from bust point is perpendicular to line through t_FUS
         FUS = A.addPoint('FUS', onLineAtLength(t_FUS, FBS, 0.13 * CD.side)) #adjusted front underarm side on line t_FUS-10
         t1_FWS = A.addPoint('t1_FWS', left(FWC, 0.53 * CD.front_waist)) #temporary front waist side 1 - on waist line - 3% ease
         t2_FWS = A.addPoint('t2_FWS', onLineAtLength(t_FUS, FBS, CD.side)) #temporary front waist side 2 - on side seam

@@ -39,14 +39,14 @@
         <m name="waist_arc_b" value="(waist_circ - waist_arc_f)"/>
         <m name="highhip_arc_b" value="(highhip_circ - highhip_arc_f)"/>
         <m name="hip_arc_b" value="(hip_circ - hip_arc_f)"/>
-        <m name="neck_front_to_waist_f" value="16.7"/>
         <m name="neck_front_to_highbust_f" value="2.9"/>
         <m name="neck_front_to_bust_f" value="7.2"/>
-        <m name="neck_side_to_waist_f" value="18.9"/>
-        <m name="neck_back_to_waist_b" value="7"/>
-        <m name="neck_back_to_highbust_b" value="5.2"/>
-        <m name="neck_back_to_bust_b" value="18"/>
-        <m name="neck_side_to_waist_b" value="17.5"/>
+        <m name="neck_front_to_waist_f" value="16.7"/>        
+        <m name="neck_side_to_waist_f" value="18.9"/> 
+        <m name="neck_back_to_highbust_b" value="7"/> 
+        <m name="neck_back_to_bust_b" value="9.1"/>
+        <m name="neck_back_to_waist_b" value="16.4"/>
+        <m name="neck_side_to_waist_b" value="17.4"/>       
         <m name="shoulder_length" value="3.8"/>
         <m name="armpit_to_waist_side" value="10.7"/>
         <m name="waist_to_highhip_f" value="2.5"/>

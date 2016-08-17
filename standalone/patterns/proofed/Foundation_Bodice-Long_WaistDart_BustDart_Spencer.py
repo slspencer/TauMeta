@@ -70,7 +70,7 @@ class Design(designBase):
         FAP = A.addPoint('FAP', lowestP(onCircleAtX(FNS, CD.front_underarm_balance, FAW.x))) #front across chest point
         FUC = A.addPoint('FUC', (FNC.x, FAP.y)) #front undearm center
         t1_FUS = A.addPoint('t1_FUS', left(FUC, CD.front_underarm/2.0)) #temp front underarm side
-        FBS = A.addPoint('FBS', leftmostP(onCircleTangentFromOutsidePoint(FBP, CD.front_bust/2.0 - distance(FBC, FBP), t1_FUS))) #bust side is where line from bust point is perpendicular to line through t1_FUS
+        FBS = A.addPoint('FBS', leftmostP(tangentPointOnCircle(FBP, CD.front_bust/2.0 - distance(FBC, FBP), t1_FUS))) #bust side is where line from bust point is perpendicular to line through t1_FUS
         FUS = A.addPoint('FUS', onLineAtLength(t1_FUS, FBS, 0.13 * CD.side)) #final front underarm side along line t1_FUS - FBS
         t1_FWS = A.addPoint('t1_FWS', left(FWC, CD.front_waist/2.0)) #temporary front waist side 1 - on waist line
 
@@ -202,7 +202,7 @@ class Design(designBase):
         SEB1 = C.addPoint('SEB1', midPoint(SEM, SEB)) #midpoint b/w SEM & SEB
 
         SWF1 = C.addPoint('SWF1', left(SWM, 0.5 * CD.wrist)) #sleeve wrist forward 1
-        SWM1 = C.addPoint('SWM1', rightmostP(onCircleTangentFromOutsidePoint(SWF1, 0.5 * CD.wrist, SEB1))) #sleeve wrist middle 1 - extend down wrist middle point
+        SWM1 = C.addPoint('SWM1', rightmostP(tangentPointOnCircle(SWF1, 0.5 * CD.wrist, SEB1))) #sleeve wrist middle 1 - extend down wrist middle point
         SWB = C.addPoint('SWB', extendLine(SWF1, SWM1, 0.25 * CD.wrist)) #sleeve wrist back
         SWF2 = C.addPoint('SWF2', midPoint(SWF1, SWM1)) #sleeve wrist front 2 - begin wrist curve
         SWF = C.addPoint('SWF', leftmostP(onCircleAtY(SWF1, 0.25 * CD.wrist, SWF2.y))) #sleeve wrist front

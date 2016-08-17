@@ -66,7 +66,7 @@ class Design(designBase):
         a7 = A.addPoint('a7', lowestP(onCircleAtX(a6, CD.front_underarm_balance, a1.x - CD.across_chest/2.0))) #front underarm point
         a8 = A.addPoint('a8', (a1.x, a7.y)) #front undearm center
         a9 = A.addPoint('a9', left(a8, CD.front_underarm/2.0)) #front underarm side
-        a10 = A.addPoint('a10', leftmostP(onCircleTangentFromOutsidePoint(a4, CD.front_bust/2.0 - distance(a3, a4), a9))) #bust side is where line from bust point is perpendicular to line through a9
+        a10 = A.addPoint('a10', leftmostP(tangentPointOnCircle(a4, CD.front_bust/2.0 - distance(a3, a4), a9))) #bust side is where line from bust point is perpendicular to line through a9
         a11 = A.addPoint('a11', onLineAtLength(a9, a10, 0.13 * CD.side)) #adjusted front underarm side on line a9-10
         a12 = A.addPoint('a12', left(a2, CD.front_waist/2.0)) #temporary front waist side 1 - on waist line
         a13 = A.addPoint('a13', dPnt((a4.x, a2.y))) #below bust point at waist
@@ -193,7 +193,7 @@ class Design(designBase):
         SEB1 = C.addPoint('SEB1', midPoint(SEM, SEB)) #midpoint b/w SEM & SEB
 
         SWF1 = C.addPoint('SWF1', left(SWM, 0.5 * CD.wrist)) #sleeve wrist forward 1
-        SWM1 = C.addPoint('SWM1', rightmostP(onCircleTangentFromOutsidePoint(SWF1, 0.5 * CD.wrist, SEB1))) #sleeve wrist middle 1 - extend down wrist middle point
+        SWM1 = C.addPoint('SWM1', rightmostP(tangentPointOnCircle(SWF1, 0.5 * CD.wrist, SEB1))) #sleeve wrist middle 1 - extend down wrist middle point
         SWB = C.addPoint('SWB', extendLine(SWF1, SWM1, 0.25 * CD.wrist)) #sleeve wrist back
         SWF2 = C.addPoint('SWF2', midPoint(SWF1, SWM1)) #sleeve wrist front 2 - begin wrist curve
         SWF = C.addPoint('SWF', leftmostP(onCircleAtY(SWF1, 0.25 * CD.wrist, SWF2.y))) #sleeve wrist front

@@ -25,6 +25,7 @@ def angleOfDegree(degree):
     return degree * pi/180.0
 
 # angle constants
+ANGLE0 = angleOfDegree(0)
 ANGLE30 = angleOfDegree(30)
 ANGLE45 = angleOfDegree(45)
 ANGLE60 = angleOfDegree(60)

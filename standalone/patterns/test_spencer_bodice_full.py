@@ -76,7 +76,7 @@ class Design(designBase):
         FBC = A.addPoint('FBC', down(FNC, front_bust_length)) #front bust center
         FBP = A.addPoint('FBP', left(FBC, CD.bust_distance / 2.0)) #front bust point
         FBS1 = A.addPoint('FBS1', left(FBC, CD.front_bust / 2.0)) #front bust side
-        FBS = A.addPoint('FBS', leftmostP(onCircleTangentFromOutsidePoint(FBP, distance(FBP, FBS1), FUS1)))
+        FBS = A.addPoint('FBS', leftmostP(tangentPointOnCircle(FBP, distance(FBP, FBS1), FUS1)))
 
         FSP = A.addPoint('FSP', highestP(onCircleAtX(FWC, CD.front_shoulder_balance, FSW.x))) #front shoulder point
         FNS = A.addPoint('FNS', rightmostP(onCircleAtY(FSP, CD.shoulder, FSH.y))) #front neck side

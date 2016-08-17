@@ -51,34 +51,34 @@ class Design(designBase):
         coat = self.addPattern('coat')
         #
         ## measurements required by this pattern
-        ##	CD.across_back
-        ##	CD.across_chest
-        ##	CD.back_hip
-        ##	CD.back_hip_height
-        ##	CD.back_shoulder_balance
-        ##	CD.back_shoulder_height
-        ##	CD.back_shoulder_width
-        ##	CD.back_underarm
-        ##	CD.back_underarm_balance
-        ##	CD.back_waist
-        ##	CD.back_waist_length
-        ##	CD.bicep
-        ##	CD.bust_balance
-        ##	CD.bust_distance
-        ##	CD.bust_length
-        ##	CD.front_bust
-        ##	CD.front_hip
-        ##	CD.front_hip_height
-        ##	CD.front_shoulder_balance
-        ##	CD.front_shoulder_width
-        ##	CD.front_underarm
-        ##	CD.front_underarm_balance
-        ##	CD.front_waist
-        ##	CD.front_waist_length
-        ##	CD.oversleeve_length
-        ##	CD.shoulder
-        ##	CD.side
-        ##	CD.wrist
+        ##	CD.across_back_b
+        ##	CD.across_chest_f
+        ##	CD.hip_arc_b
+        ##	CD.waist_to_hip_b
+        ##	CD.shoulder_tip_to_waist_back
+        ##	CD.neck_side_to_waist_b
+        ##	CD.shoulder_tip_to_shoulder_tip_b
+        ##	CD.highbust_arc_b
+        ##	CD.neck_side_to_armfold_b
+        ##	CD.waist_arc_b
+        ##	CD.neck_back_to_waist_b
+        ##	CD.arm_upper_circ
+        ##	CD.bustpoint_to_neck_side
+        ##	CD.bustpoint_to_bustpoint
+        ##	CD.bustpoint_to_waist
+        ##	CD.bust_arc_f
+        ##	CD.hip_arc_f
+        ##	CD.waist_to_hip_f
+        ##	CD.shoulder_tip_to_waist_front
+        ##	CD.shoulder_tip_to_shoulder_tip_f
+        ##	CD.highbust_arc_f
+        ##	CD.neck_side_to_armfold_f
+        ##	CD.waist_arc_f
+        ##	CD.neck_front_to_waist_f
+        ##	CD.arm_shoulder_tip_to_wrist
+        ##	CD.shoulder_length
+        ##	CD.armpit_to_waist_side
+        ##	CD.arm_wrist_circ
 
         #
         #create pattern pieces
@@ -96,21 +96,33 @@ class Design(designBase):
         L = coat.addPiece('Sleeve - Inner Cuff', 'L', fabric = 2, interfacing = 0, lining = 0)
 
         #---Bodice Lower Front A---#
-        FNC = A.addPoint('FNC', (0.0, 0.0)) #front neck center
-        FWC = A.addPoint('FWC', down(FNC, CD.front_waist_length)) #front waist center
-        FBC = A.addPoint('FBC', up(FWC, CD.bust_length)) #bust center
-        FBP = A.addPoint('FBP', left(FBC, CD.bust_distance/2.0)) #bust point
-        FSP = A.addPoint('FSP', highestP(onCircleAtX(FWC, CD.front_shoulder_balance, FNC.x - CD.front_shoulder_width/2.0))) #front shoulder tip
-        FNS = A.addPoint('FNS', highestP(intersectCircles(FSP, CD.shoulder, FBP, CD.bust_balance))) #front neck point
-        FAP = A.addPoint('FAP', lowestP(onCircleAtX(FNS, CD.front_underarm_balance, FNC.x - CD.across_chest/2.0))) #front underarm point
-        FUC = A.addPoint('FUC', (FNC.x, FAP.y)) #front undearm center
-        FUS1 = A.addPoint('FUS1', left(FUC, CD.front_underarm/2.0)) #front underarm side
-        FBS = A.addPoint('FBS', leftmostP(tangentOnCircleFromPoint(FBP, CD.front_bust/2.0 - distance(FBC, FBP), FUS1))) #line from FBP is perpendicular to line through FUS1
-        FUS = A.addPoint('FUS', onLineAtLength(FUS1, FBS, 0.13 * CD.side)) #adjusted front underarm side on line FUS1-10
-        FWS1 = A.addPoint('FWS1', left(FWC, CD.front_waist/2.0)) #temporary front waist side 1 - on waist line
-        FWS2 = A.addPoint('FWS2', onLineAtLength(FUS1, FBS, CD.side)) #temporary front waist side 2 - on side seam
-        FHC = A.addPoint('FHC', down(FWC, CD.front_hip_height)) #front hip center        
-        FHS = A.addPoint('FHS', left(FHC, CD.front_hip/2.0)) #front hip side 1        
+        FNC = A.addPoint('FNC', (0.0, 0.0)) #front neck centerr
+        FWC = A.addPoint('FWC', down(FNC, CD.neck_front_to_waist_f)) #front waist center
+        FBC = A.addPoint('FBC', up(FWC, CD.bustpoint_to_waist)) #bust center
+        FSC = A.addPoint('FSC', up(FWC, CD.neck_side_to_waist_f)) #front shoulder center
+        FBP = A.addPoint('FBP', left(FBC, CD.bustpoint_to_bustpoint/2.0)) #bust point
+        FSP = A.addPoint('FSP', highestP(onCircleAtX(FWC, CD.shoulder_tip_to_waist_front, FNC.x - CD.shoulder_tip_to_shoulder_tip_f/2.0))) #front shoulder tip
+        FNS = A.addPoint('FNS', rightmostP(onCircleAtY(FSP, CD.shoulder_length, FSC.y))) #front neck side
+        FWS1 = A.addPoint('FWS1', left(FWC, CD.waist_arc_f/2.0)) #temporary front waist side 1 - on waist line
+        print 'FSC', FSC.x, FSC.y
+        print 'FNS', FNS.x, FNS.y
+        print 'CD.neck_side_to_armfold_f', CD.neck_side_to_armfold_f*CM
+        print 'CD.armfold_to_armfold_f', CD.armfold_to_armfold_f/2.0*CM
+        FAP1 = A.addPoint('FAP1', lowestP(onCircleAtX(FNS, CD.neck_side_to_armfold_f, -CD.armfold_to_armfold_f/2.0))) #front underarm point
+        FUC = A.addPoint('FUC', (FNC.x, FAP1.y)) #front undearm center
+        FAP = A.addPoint('FAP', left(FUC, 1.05 * distance(FUC, FAP1))) #front underarm point
+        FUS1 = A.addPoint('FUS1', left(FUC, CD.highbust_arc_f/2.0)) #front underarm side
+        length1 = CD.bust_arc_f/2.0 - distance(FBC, FBP) #bustpoint to bustpoint_side
+        length2 = distance(FBP, FUS1) #bustpoint to temp underarm side
+        if length2 > length1:
+            FBS = A.addPoint('FBS', leftmostP(tangentOnCircleFromPoint(FBP, length1, FUS1))) #line from FBP is perpendicular to line through FUS1
+            FUS = A.addPoint('FUS', onLineAtLength(FUS1, FBS, 0.13 * CD.armpit_to_waist_side)) #adjusted front underarm side on line FUS1-FWS
+        else:
+            FBS = A.addPoint('FBS1', leftmostP(onCircleAtY(FBP, length1, FUC.y)))
+            FUS = A.addPoint('FUS', polar(FBS, 0.13 * CD.armpit_to_waist_side, angleOfLine(FBP, FBS) - ANGLE90)) #adjusted front underarm side on line FUS1-FWS
+        FWS2 = A.addPoint('FWS2', onLineAtLength(FUS1, FUS, CD.armpit_to_waist_side)) #temporary front waist side 2 - on side seam 
+        FHC = A.addPoint('FHC', down(FWC, CD.waist_to_hip_f)) #front hip center        
+        FHS = A.addPoint('FHS', left(FHC, CD.hip_arc_f/2.0)) #front hip side 1       
         #front waist dart
         totalDartAngle = abs(angleOfVector(FWS1, FBP, FWS2))
         bustDartAngle = totalDartAngle/2.0
@@ -125,7 +137,7 @@ class Design(designBase):
         FAP.addInpoint(polar(FAP, distance(FUS, FAP)/3.0, angleOfLine(FNS, FAP)))
         FUS.addOutpoint(polar(FUS, distance(FUS, FAP)/3.0, angleOfLine(FWS2, FUS) + ANGLE90)) #control handle is perpendicular to side seam at underarm                        
         #lower front coat points
-        a1 = A.addPoint('a1', down(FNC, 0.03*CD.front_waist_length)) #new front neck center        
+        a1 = A.addPoint('a1', down(FNC, 0.03*CD.neck_front_to_waist_f)) #new front neck center        
         a2 = A.addPoint('a2', onLineAtLength(FNS, FSP, distance(FNC, a1))) #new front neck point                            
         #control points
         #b/w a2 & a4 new         
@@ -145,8 +157,8 @@ class Design(designBase):
         a5.addOutpoint(onLineAtLength(a5, a3, distance(a5, a4) / 3.0)) 
 
         #extend front center line        
-        a6 = A.addPoint('a6', right(a1, 0.1 * CD.front_waist_length)) #right of a1 front neck center
-        a7 = A.addPoint('a7', right(FHC, 0.1 * CD.front_waist_length)) #right of FHC front hip center                        
+        a6 = A.addPoint('a6', right(a1, 0.1 * CD.neck_front_to_waist_f)) #right of a1 front neck center
+        a7 = A.addPoint('a7', right(FHC, 0.1 * CD.neck_front_to_waist_f)) #right of FHC front hip center                        
   
         #----Upper Front G coat points -------  
         #need these to create Front A side points     
@@ -160,15 +172,16 @@ class Design(designBase):
         FBP.addInpoint(a5)
         FBP.addOutpoint(a5.outpoint)        
         
-        LOWER_LENGTH = 0.2 * CD.side #20% side length        
-        pnt = onLineAtLength(FUS, FWS2, 0.2 * CD.side)
-        g4 = A.addPoint('g4', polar(pnt, 0.12 * CD.front_underarm, angleOfLine(FBP, FBS))) #new front underarm - out 7% front underarm, down 40% side length                        
+        LOWER_LENGTH = 0.2 * CD.armpit_to_waist_side #20% side length        
+        pnt = onLineAtLength(FUS, FWS2, 0.2 * CD.armpit_to_waist_side)
+        g4 = A.addPoint('g4', polar(pnt, 0.12 * CD.highbust_arc_f, angleOfLine(FBP, FBS))) #new front underarm - out 7% front underarm, down 40% side length                        
         g5 = A.addPoint('g5', left(FAP, distance(FNS, a2))) #new armscye curve        
         g6 = A.addPoint('g6', left(FSP, distance(FNS, a2))) #new shoulder point
         
         pivot = FBP          
         slashAndSpread(pivot, -bustDartAngle, g1, g1.outpoint, g2, g2.inpoint, g2.outpoint, g4, g5, g6) #rotate counterclockwise, so angle < 0
-        g7 = A.addPoint('g7', left(FHS, 0.3 * CD.front_hip)) #30% front hip ease at hip line        
+        g7 = A.addPoint('g7', left(FHS, 0.3 * CD.hip_arc_f)) #30% front hip ease at hip line
+    
         
         #control points       
         #b/w g4 underarm & g5 armscye point
@@ -181,11 +194,13 @@ class Design(designBase):
 
         #create front lower hem curve   
         #extend front side seam to front lower hem
-        a_H2 = A.addPoint('a_H2', extendLine(g4, g7, 0.3 * CD.side)) #extend coat side seam below hip line by 30% of side length
+        a_H2 = A.addPoint('a_H2', extendLine(g4, g7, 0.3 * CD.armpit_to_waist_side)) #extend coat side seam below hip line by 30% of side length
         
         #create pocket line
-        a11 = A.addPoint('a11', onLineAtLength(a3, FBP, FWC.y + (0.15 * CD.front_waist_length))) #pocket center
+        a11 = A.addPoint('a11', onLineAtLength(a3, FBP, FWC.y + (0.15 * CD.neck_front_to_waist_f))) #pocket center
         a12 = A.addPoint('a12', onLineAtLength(a_H2, g4, distance(FWC, FHC))) #pocket side 
+        g8 = A.addPoint('g8', midPoint(a12, g7)) #Notch along side seam on pocket 
+        g9 = A.addPoint('g9', down(a11, distance(a12, g8)))      
                  
         #extend front center line to front lower hem
         pnt = dPnt(intersectLines(g4, a_H2, FNC, FHC)) # find point where center line & side seam intersect
@@ -195,7 +210,7 @@ class Design(designBase):
         a_H2.addInpoint(polar(a_H2, distance(a_H1, a_H2)/3.33, angleOfLine(a_H2, g4) + ANGLE90))            
          
         #create front upper hem curve as offset to front lower hem curve
-        HEM_DEPTH = 0.2 * CD.side  #hem deth is 20% side length      
+        HEM_DEPTH = 0.2 * CD.armpit_to_waist_side  #hem deth is 20% side length      
         orig_curve = points2List(a_H1, a_H1.outpoint, a_H2.inpoint, a_H2)
         outset_curve = outsetCurve(orig_curve, HEM_DEPTH, ANGLE90) #returns outset_curve[p1, c1, c2, p2]
         a_h1 = A.addPoint('a_h1', outset_curve[0])
@@ -273,27 +288,27 @@ class Design(designBase):
 
                                                       
         #---Bodice Back B---#
-        backBustEase = 0.0825 * CD.back_underarm / 2.0
-        #backWaistEase = 0.0825 * CD.back_waist / 2.0
-        #backHipEase = 0.0625 * CD.back_hip / 2.0        
+        backBustEase = 0.0825 * CD.highbust_arc_b / 2.0
+        #backWaistEase = 0.0825 * CD.waist_arc_b / 2.0
+        #backHipEase = 0.0625 * CD.hip_arc_b / 2.0        
         BNC = B.addPoint('BNC', (0.0, 0.0)) #back neck center
-        BWC = B.addPoint('BWC', down(BNC, CD.back_waist_length)) #back waist center
-        BSH = B.addPoint('BSH', up(BWC, CD.back_shoulder_height)) #shoulder height reference point
-        BWS = B.addPoint('BWS', right(BWC, CD.back_waist/2.0)) #back waist side reference point
-        BSP = B.addPoint('BSP', highestP(onCircleAtX(BWC, CD.back_shoulder_balance, BNC.x + CD.back_shoulder_width/2.0))) #back shoulder point
-        BNS = B.addPoint('BNS', leftmostP(onCircleAtY(BSP, CD.shoulder, BSH.y))) #back neck side
-        BAP1 = B.addPoint('BAP1', lowestP(onCircleAtX(BNS, CD.back_underarm_balance, BNC.x + CD.across_back/2.0 + backBustEase/2.0))) #back underarm point      
+        BWC = B.addPoint('BWC', down(BNC, CD.neck_back_to_waist_b)) #back waist center
+        BSH = B.addPoint('BSH', up(BWC, CD.neck_side_to_waist_b)) #shoulder height reference point
+        BWS = B.addPoint('BWS', right(BWC, CD.waist_arc_b/2.0)) #back waist side reference point
+        BSP = B.addPoint('BSP', highestP(onCircleAtX(BWC, CD.shoulder_tip_to_waist_back, BNC.x + CD.shoulder_tip_to_shoulder_tip_b/2.0))) #back shoulder point
+        BNS = B.addPoint('BNS', leftmostP(onCircleAtY(BSP, CD.shoulder_length, BSH.y))) #back neck side
+        BAP1 = B.addPoint('BAP1', lowestP(onCircleAtX(BNS, CD.neck_side_to_armfold_b, BNC.x + CD.across_back_b/2.0 + backBustEase/2.0))) #back underarm point      
         BUC = B.addPoint('BUC', (BNC.x, BAP1.y)) #back undearm center
-        BUS1 = B.addPoint('BUS1', right(BUC, CD.back_underarm/2.0)) #back underarm side reference point
+        BUS1 = B.addPoint('BUS1', right(BUC, CD.highbust_arc_b/2.0)) #back underarm side reference point
         BUS = B.addPoint('BUS', down(BUS1, distance(FUS1, FUS))) #adjusted back underarm side        
-        BHC = B.addPoint('BHC', down(BWC, CD.back_hip_height)) #back hip center
-        BHS = B.addPoint('BHS', right(BHC, CD.back_hip/2.0)) #temporary back hip side        
+        BHC = B.addPoint('BHC', down(BWC, CD.waist_to_hip_b)) #back hip center
+        BHS = B.addPoint('BHS', right(BHC, CD.hip_arc_b/2.0)) #temporary back hip side        
 
         #adjust block to topper points
-        backBustEase = 0.0825*CD.back_underarm
-        backWaistEase = 0.0625*CD.back_waist
-        backHipEase = 0.0825*CD.back_hip
-        b1 = B.addPoint('b1', down(BNC, 0.03*CD.back_waist_length)) #new back neck center
+        backBustEase = 0.0825*CD.highbust_arc_b
+        backWaistEase = 0.0625*CD.waist_arc_b
+        backHipEase = 0.0825*CD.hip_arc_b
+        b1 = B.addPoint('b1', down(BNC, 0.03*CD.neck_back_to_waist_b)) #new back neck center
         b2 = B.addPoint('b2', onLineAtLength(BNS, BSP, distance(FNS, a2))) #new back neck side
         b3 = B.addPoint('b3', right(BSP, distance(FNS, a2))) #new shoulder point
         BAP = B.addPoint('BAP', right(BUC, 0.95 * distance(b1, b3))) #new armscye curve         
@@ -317,7 +332,7 @@ class Design(designBase):
         #extend front collar around back of neck
         back_neck_curve = points2List(b1, b1.inpoint, b2.outpoint, b2)
         a15 = A.addPoint('a15', polar(a2, curveLength(back_neck_curve), angleOfLine(a2, a2.outpoint))) #front neck extension point 1
-        a16 = A.addPoint('a16', polar(a15, 0.13 * CD.front_waist_length, angleOfLine(a2, a15) + ANGLE90)) #front neck extension point 2        
+        a16 = A.addPoint('a16', polar(a15, 0.13 * CD.neck_front_to_waist_f, angleOfLine(a2, a15) + ANGLE90)) #front neck extension point 2        
         a17 = A.addPoint('a17', polar(a16, distance(a2, a15), angleOfLine(a15, a2))) #front neckextension point 3
         
         #control points        
@@ -332,91 +347,111 @@ class Design(designBase):
         
         #Adjust Back B
         #lower underarm       
-        pnt = down(BUS, 0.2 * CD.side)        
-        b4 = B.addPoint('b4', right(pnt, 0.12 * CD.back_underarm))
+        pnt = down(BUS, 0.2 * CD.armpit_to_waist_side)        
+        b4 = B.addPoint('b4', right(pnt, 0.12 * CD.highbust_arc_b))
         #extend side seam
-        b5 = B.addPoint('b5', right(BHS, 0.4 * CD.back_hip/2.0)) #push out hem side
-        b_H2 = B.addPoint('b_H2', onLineAtLength(b4, b5, distance(g4, a_H2))) #make back side equal to front side length
+        b5 = B.addPoint('b5', right(BHS, 0.4 * CD.hip_arc_b/2.0)) #push out hem side
+        #b_H2 = B.addPoint('b_H2', onLineAtLength(b4, b5, distance(g4, a_H2))) #make back side equal to front side length
         #extend back center line
         b7 = B.addPoint('b7', down(b1, 1.5 * LOWER_LENGTH)) #begin back center line angle below back neck center
-        b8 = B.addPoint('b8', left(BHC, 0.2 * CD.back_hip/2.0)) #push out hem center
+        b8 = B.addPoint('b8', left(BHC, 0.2 * CD.hip_arc_b/2.0)) #push out hem center
         #control points b/w b7 flex point center & b8 hem center
-        b7.addOutpoint(down(b7, distance(b7, b8)/8.0))
-        b8.addInpoint(polar(b8, distance(b7, b8), angleOfLine(b8, b7.outpoint)))        
-        #new back hem center
-        pnt = dPnt(intersectLines(b5, b_H2, b8, b8.inpoint)) # find point where center & side seam intersect
-        b_H1 = B.addPoint('b_H1', onLineAtLength(pnt, b8, distance(pnt, b_H2))) #new back hem center
-                      
-               
-        #adjust control points
-        #b/w b4 underarm & BAP armscye curve & b3 shoulder point
-        b4.addOutpoint(polar(b4, distance(b4, BAP)/2.0, angleOfLine(b4, b5) + ANGLE90))
-        (BAP.inpoint.x, BAP.inpoint.y) = polar(BAP, distance(b4, BAP)/3.0, angleOfLine(BAP, BAP.inpoint))
-        (BAP.outpoint.x, BAP.outpoint.y) = polar(BAP, distance(BAP, b3)/3.0, angleOfLine(BAP, BAP.outpoint))
-        #create lower hem curve to Back B
-        b_H1.addOutpoint(polar(b_H1, distance(b_H1, b_H2)/3.0, angleOfLine(b8, b_H1) - ANGLE90))
-        b_H2.addInpoint(polar(b_H2, distance(b_H1, b_H2)/3.0, angleOfLine(b5, b_H2) + ANGLE90))
-        #split lower hem curve
-        orig_curve = points2List(b_H1, b_H1.outpoint, b_H2.inpoint, b_H2) 
-        new_curves = splitCurveAtLength(orig_curve, curveLength(orig_curve)/2.0)
-        updatePoint(b_H1.outpoint, new_curves[1])
-        updatePoint(b_H2.inpoint, new_curves[5])
-        b_H3 = B.addPoint('b_H3', new_curves[3])
-        b_H3.addInpoint(new_curves[2])
-        b_H3.addOutpoint(new_curves[4])
-        
-        #add upper hem curve to Back B        
-        #create 1st half of upper hem curve
-        first_curve = points2List(b_H1, b_H1.outpoint, b_H3.inpoint, b_H3)  
-        outset_curve1 = outsetCurve(first_curve, HEM_DEPTH, -ANGLE90)
-        b_h1 = B.addPoint('b_h1', outset_curve1[0])
-        b_h2 = B.addPoint('b_h2', outset_curve1[3])
-        b_h1.addOutpoint(outset_curve1[1])
-        b_h2.addInpoint(outset_curve1[2]) 
-        #create 2nd half of upper hem curve 
-        second_curve = points2List(b_H3, b_H3.outpoint, b_H2.inpoint, b_H2)               
-        outset_curve2 = outsetCurve(second_curve, HEM_DEPTH, -ANGLE90)
-        b_h2.addOutpoint(outset_curve2[1])        
-        b_h3 = B.addPoint('b_h3', outset_curve2[3])
-        b_h3.addInpoint(outset_curve2[2]) 
-        
-        #add lining hem curve to Back B
-        LINING_HEM_DEPTH = 0.75 * HEM_DEPTH
-        first_curve = points2List(b_h1, b_h1.outpoint, b_h2.inpoint, b_h2)
-        second_curve = points2List(b_h2, b_h2.outpoint, b_h3.inpoint, b_h3)
-        #create 1st half of back lining hem curve
-        outset_curve1 = outsetCurve(first_curve, LINING_HEM_DEPTH, -ANGLE90)
-        b_l1 = B.addPoint('b_l1', outset_curve1[0])
-        b_l2 = B.addPoint('b_l2', outset_curve1[3])
-        b_l1.addOutpoint(outset_curve1[1])
-        b_l2.addInpoint(outset_curve1[2])
-        #create 2nd half of back lining hem curve                
-        outset_curve2 = outsetCurve(second_curve, LINING_HEM_DEPTH, -ANGLE90)
-        b_l2.addOutpoint(outset_curve2[1])     
-        b_l3 = B.addPoint('b_l3', outset_curve2[3])
-        b_l3.addInpoint(outset_curve2[2])
-        
-        #split back upper hem curve at lining width (b_l1.x)
-        new_curves = splitCurveAtX(points2List(b_h1, b_h1.outpoint, b_h2.inpoint, b_h2), b_l1.x)
-        updatePoint(b_h1.outpoint, new_curves[1])
-        b_h4 = B.addPoint('b_h4', new_curves[3])        
-        b_h4.addInpoint(new_curves[2])
-        b_h4.addOutpoint(new_curves[4])
-        updatePoint(b_h2.inpoint, new_curves[5])
+        #b8.addInpoint(polar(b8, distance(b7, b8), angleOfLine(b8, b7.outpoint))) 
+        b7.addOutpoint(down(b7, distance(b7, b8)/8.0))                
+        b8.addInpoint(intersectLineRay(BNC, BWC, b8, angleOfLine(b8, b7.outpoint)))
         
         #create back tuck points for back lining
-        tuck_depth = abs(b1.x - b_l1.x)
+        #tuck_depth = abs(b1.x - b_l1.x)
+        tuck_depth = abs(BHC.x - b8.x)
         back_neck_curve = points2List(b1, b1.inpoint, b2.outpoint, b2)
         b10 = B.addPoint('b10', onCurveAtX(back_neck_curve, b1.x + tuck_depth/2.0)) #split back neck curve at tuck depth
         b11 = B.addPoint('b11', mirror(b1, b10, type='vertical'))
         b12 = B.addPoint('b12', mirror(b11, b1, type='vertical'))
-        b13 = B.addPoint('b13', midPoint(b1, b7)) #bottom of back lining tuck stitching      
-        #extend back neck curve for back lining tuck
+        b13 = B.addPoint('b13', midPoint(b1, b7)) #end of back lining tuck line     
+        #extend back neck curve to create back lining tuck
         new_back_neck_curve = splitCurveAtPoint(back_neck_curve, b10)
         b1.addOutpoint(mirror(b1, new_back_neck_curve[1], type='vertical'))
         b11.addInpoint(mirror(b1, new_back_neck_curve[2], type='vertical'))
         b11.addOutpoint(mirror(b11, b11.inpoint, type='vertical'))
-        b12.addInpoint(mirror(b11, b1.outpoint, type='vertical'))             
+        b12.addInpoint(mirror(b11, b1.outpoint, type='vertical'))                
+
+        #new back hem center
+        b_H2 = B.addPoint('b_H2', onLineAtLength(b4, b5, distance(g4, a_H2))) #make back side equal to front side length        
+        #pnt = dPnt(intersectLines(b5, b_H2, b8, b8.inpoint)) # find point where center & side seam intersect
+        pnt = dPnt(intersectLines(b4, b5, BNC, BHC)) # find point where center back line & side seam intersect
+        b_H = B.addPoint('b_H', down(pnt, distance(pnt, b_H2)))        
+        #b_H1 = B.addPoint('b_H1', onLineAtLength(pnt, b8, distance(pnt, b_H2))) #new back hem center
+        b_H1 = B.addPoint('b_H1', onLineAtLength(BUC, b8, distance(BUC, b_H))) #new back hem center 
+        b_H3 = B.addPoint('b_H3', polar(pnt, distance(pnt, b_H), angleOfLine(pnt, b_H2) + angleOfVector(b_H2, pnt, b_H)/2.0)) #midpoint b/w b_H & b_H2    
+                                    
+        #control points
+        #b/w b4 underarm & BAP armscye curve & b3 shoulder point
+        b4.addOutpoint(polar(b4, distance(b4, BAP)/2.0, angleOfLine(b4, b5) + ANGLE90))
+        updatePoint(BAP.inpoint, polar(BAP, distance(b4, BAP)/3.0, angleOfLine(BAP, BAP.inpoint)))
+        #(BAP.inpoint.x, BAP.inpoint.y) = polar(BAP, distance(b4, BAP)/3.0, angleOfLine(BAP, BAP.inpoint))
+        updatePoint(BAP.outpoint, polar(BAP, distance(BAP, b3)/3.0, angleOfLine(BAP, BAP.outpoint)))
+        #(BAP.outpoint.x, BAP.outpoint.y) = polar(BAP, distance(BAP, b3)/3.0, angleOfLine(BAP, BAP.outpoint))
+        #create lower hem curve to Back B
+        b_H1.addOutpoint(polar(b_H1, distance(b_H, b_H1)/3.0, angleOfLine(b8, b_H1) - ANGLE90))
+        b_H.addInpoint(left(b_H, distance(b_H, b_H1)/3.0))
+        b_H.addOutpoint(right(b_H, distance(b_H, b_H3)/3.0))            
+        b_H3.addInpoint(polar(b_H3, distance(b_H3, b_H)/3.0, angleOfLine(pnt, b_H3) + ANGLE90))
+        b_H3.addOutpoint(polar(b_H3, distance(b_H3, b_H2)/3.0, angleOfLine(pnt, b_H3) - ANGLE90))
+        b_H2.addInpoint(polar(b_H2, distance(b_H3, b_H2)/3.0, angleOfLine(b4, b5) + ANGLE90))       
+        
+        #add upper hem curve to Back B
+        first_curve = points2List(b_H1, b_H1.outpoint, b_H.inpoint, b_H)
+        second_curve = points2List(b_H, b_H.outpoint, b_H3.inpoint, b_H3)
+        third_curve = points2List(b_H3, b_H3.outpoint, b_H2.inpoint, b_H2)  
+        #create 1st third of upper hem curve 
+        outset_curve1 = outsetCurve(first_curve, HEM_DEPTH, -ANGLE90)
+        b_h1 = B.addPoint('b_h1', outset_curve1[0])
+        b_h1.addOutpoint(outset_curve1[1])     
+        b_h = B.addPoint('b_h', outset_curve1[3])        
+        b_h.addInpoint(outset_curve1[2])       
+        #create 2nd third of upper hem curve
+        outset_curve2 = outsetCurve(second_curve, HEM_DEPTH, -ANGLE90)
+        b_h.addOutpoint(outset_curve2[1])        
+        b_h3 = B.addPoint('b_h3', outset_curve2[3])
+        b_h3.addInpoint(outset_curve2[2])          
+        #create last third of upper hem curve                       
+        outset_curve3 = outsetCurve(third_curve, HEM_DEPTH, -ANGLE90)
+        b_h3.addOutpoint(outset_curve3[1])                
+        b_h2 = B.addPoint('b_h2', outset_curve3[3])        
+        b_h2.addInpoint(outset_curve3[2])
+        b_h4 = B.addPoint('b_h4', (b12.x, b_h.y))
+        
+        #add lining hem curve to Back B
+        LINING_HEM_DEPTH = 0.75 * HEM_DEPTH
+        #first_curve = points2List(b_h1, b_h1.outpoint, b_h.inpoint, b_h)
+        second_curve = points2List(b_h, b_h.outpoint, b_h3.inpoint, b_h3)
+        third_curve = points2List(b_h3, b_h3.outpoint, b_h2.inpoint, b_h2)
+        #create 1st half of back lining hem curve
+        #outset_curve1 = outsetCurve(first_curve, LINING_HEM_DEPTH, -ANGLE90)
+        #b_l1 = B.addPoint('b_l1', outset_curve1[0])
+        #b_l1.addOutpoint(outset_curve1[1])        
+        #b_l = B.addPoint('b_l', outset_curve1[3])
+        #b_l.addInpoint(outset_curve1[2])
+        #create 2nd half of back lining hem curve
+        b_l1 = B.addPoint('b_l1', up(b_h4, LINING_HEM_DEPTH))        
+        outset_curve2 = outsetCurve(second_curve, LINING_HEM_DEPTH, -ANGLE90)
+        b_l = B.addPoint('b_l', outset_curve2[0]) 
+        b_l.addOutpoint(outset_curve2[1])
+        b_l3 = B.addPoint('b_l3', outset_curve2[3]) 
+        b_l3.addInpoint(outset_curve2[2])
+        #create 3rd half of back lining hem curve                
+        outset_curve3 = outsetCurve(third_curve, LINING_HEM_DEPTH, -ANGLE90)
+        b_l3.addOutpoint(outset_curve3[1])
+        b_l2 = B.addPoint('b_l2', outset_curve3[3])  
+        b_l2.addInpoint(outset_curve3[2])
+        
+        #split back upper hem curve at lining width (b_l1.x)
+        new_curves = splitCurveAtX(points2List(b_h1, b_h1.outpoint, b_h.inpoint, b_h), b_l1.x)
+        updatePoint(b_h1.outpoint, new_curves[1])
+        #b_h4 = B.addPoint('b_h4', new_curves[3])
+           
+            
+            
 
         #---Shirt sleeve C---#
         #get front & back armcye length
@@ -427,10 +462,10 @@ class Design(designBase):
         ARMSCYE_LENGTH = BACK_ARMSCYE_LENGTH + FRONT_ARMSCYE_LENGTH
         
         CAP_HEIGHT = ARMSCYE_LENGTH/3.0 #proportional 
-        BICEP_CIRC = 1.2 * CD.bicep #20% ease in bicep
-        WRIST_CIRC = 1.15 * CD.wrist #15% ease in wrist        
-        OVERSLEEVE_LENGTH = CD.oversleeve_length #no ease
-        UNDERSLEEVE_LENGTH = CD.undersleeve_length #no ease
+        BICEP_CIRC = 1.2 * CD.arm_upper_circ #20% ease in bicep
+        WRIST_CIRC = 1.15 * CD.arm_wrist_circ #15% ease in wrist        
+        OVERSLEEVE_LENGTH = CD.arm_shoulder_tip_to_wrist #no ease
+        UNDERSLEEVE_LENGTH = CD.arm_armpit_to_wrist #no ease
 
         c1 = C.addPoint('c1', (0,0)) #left side, top line, sleevecap back  - A
         c2 = C.addPoint('c2', down(c1, OVERSLEEVE_LENGTH)) #left side, wrist line, wrist back - B
@@ -506,45 +541,52 @@ class Design(designBase):
         back_diff = back_cap_length - BACK_ARMSCYE_LENGTH
         front_diff = front_cap_length - FRONT_ARMSCYE_LENGTH
         if back_diff > 0.0:
-            print 'shorten back'
+            print 'shorten sleevecap back'
             back_curve = points2List(c17, c17.outpoint, c13.inpoint, c13)
             new_curve = splitCurveAtLength(back_curve, back_diff)
             updatePoint(c17, new_curve[3])
             updatePoint(c17.outpoint, new_curve[4])
             updatePoint(c13.inpoint, new_curve[5])
         elif back_diff < 0.0:
-            print 'lengthen back'
+            print 'lengthen sleevecap back'
             pnt1 = dPnt(extendLine(c17.outpoint, c17, back_diff))
             updatePoint(c17, pnt1)
         front_curve = points2List(c18, c18.inpoint, c16.outpoint, c16)
         if front_diff > 0.0:
-            print 'shorten front'
+            print 'shorten sleevecap front'
             front_curve = points2List(c18, c18.inpoint, c16.outpoint, c16)
             new_curve = splitCurveAtLength(front_curve, front_diff)
             updatePoint(c18, new_curve[3])
             updatePoint(c18.inpoint, new_curve[4])
             updatePoint(c16.outpoint, new_curve[5])
         elif front_diff < 0.0:
-            print 'lengthen front'
+            print 'lengthen sleevecap front'
             pnt1 = dPnt(extendLine(c18.inpoint, c18, front_diff))
             updatePoint(c18, pnt1)
 
         #check sleeve length
         back_curve = points2List(c22, c22.outpoint, c17.inpoint, c17)
-        back_sleeve_length = distance(c2, c22) + curveLength(back_curve)
+        back_sleeve_length = curveLength(back_curve)
+        print 'Curve Length Back Sleeve Seam', back_sleeve_length
         front_curve = points2List(c23, c23.inpoint, c18.outpoint, c18)
-        front_sleeve_length = distance(c4, c23) + curveLength(front_curve)
+        front_sleeve_length = curveLength(front_curve)
+        print 'Curve Length Front Sleeve Seam', front_sleeve_length
         diff = back_sleeve_length - front_sleeve_length
         if diff < 0.0:
             print 'lengthen sleeve back'
-            updatePoint(c2, down(c2, -diff))
-            updatePoint(c9, intersectLines(c7, c9, c2, c4))
-        elif diff > 0.0:
-            print 'lengthen sleeve front'
-            updatePoint(c4, down(c4, diff))
-            updatePoint(c9, intersectLines(c7, c9, c2, c4))
+            #updatePoint(c2, down(c2, -diff/2))
+            #print 'shorten sleeve front'
+            #updatePoint(c4, up(c4, -diff/2))
+            #updatePoint(c9, intersectLines(c7, c9, c2, c4))
+            updatePoint(c23.inpoint, up(c23, distance(c23.inpoint, c23)/2.0))
             
-        #create the sleeve lining curve
+        #elif diff > 0.0:
+            #if back sleeve longer this is good, sew in ease
+            #print 'lengthen sleeve front'
+            #updatePoint(c4, down(c4, diff))
+            #updatePoint(c9, intersectLines(c7, c9, c2, c4))
+            
+        #create the sleeve lining hem curve
         outset_line = outsetLine(c2, c4, LINING_HEM_DEPTH, -ANGLE90)
         c_l1 = C.addPoint('c_l1', outset_line[0])
         c_l2 = C.addPoint('c_l2', outset_line[1])
@@ -631,15 +673,15 @@ class Design(designBase):
         notchA8 = A.addNotch('8', pnt, angleOfLine(a6, a6.inpoint) + ANGLE90)
         notchF7 = F.addNotch('8', pnt, angleOfLine(a6, a6.inpoint) + ANGLE90)               
         #notch 9 = Front Upper G  & Front Lining J side to Back B  & Back Lining D side
-        length = distance(b4, b5)/2.0
-        pnt1 = onLineAtLength(b4, b5, length)
+        pnt1 = onLineAtLength(b4, b5, distance(g4, g8))
         angle1 = angleOfLine(b4, b5) - ANGLE90
-        notchB9 = B.addNotch('9', pnt1, angle1)
-        notchD9 = D.addNotch('9', pnt1, angle1)
-        pnt2 = onLineAtLength(g4, g7, length)
+        notchB9 = B.addNotch('9', pnt1, angle1) #notch on back side seam
+        notchD9 = D.addNotch('9', pnt1, angle1) #notch on back lining side seam
         angle2 = angleOfLine(g4, g7) + ANGLE90
-        notchG9 = G.addNotch('9', pnt2, angle2)
-        notchJ9 = J.addNotch('9', pnt2, angle2)
+        notchG9 = G.addNotch('9', g8, angle2) #notch on upper front side seam
+        notchJ9 = J.addNotch('9', g8, angle2) #notch on upper front lining side seam
+        notchE9 = E.addNotch('9', g8, angle2) #notch on pocket side seam
+        notchK9 = K.addNotch('9', g8, angle2) #notch on lower front side seam
         #notch 10 - Back B to Back B
         curve = points2List(b7, b7.outpoint, b8.inpoint, b8) 
         length = curveLength(curve)/2.0
@@ -671,7 +713,12 @@ class Design(designBase):
         notchL14 = L.addNotch('14', onLineAtLength(i3, i8, length), angleOfLine(i3, i8) + ANGLE90)
         #notch 15 = Inner Cuff L to Outer Cuff I at cuff edge
         notchL15 = L.addNotch('15', dPnt(midPoint(i4, i6)), angleOfLine(i4, i6) - ANGLE90)
-        notchI15 = I.addNotch('15', midPoint(i4, i6), angleOfLine(i4, i6) - ANGLE90)     
+        notchI15 = I.addNotch('15', midPoint(i4, i6), angleOfLine(i4, i6) - ANGLE90) 
+        #not 16 = on Front, UpperFront, LowerFront, Pocket
+        notchA16 = A.addNotch('16', g9, ANGLE180)   
+        notchG16 = G.addNotch('16', g9, ANGLE0)
+        notchK16 = K.addNotch('16', g9, ANGLE0)
+        notchE16 = E.addNotch('16', g9, ANGLE0)
         
 
         #---------------------------------------------#
@@ -711,9 +758,9 @@ class Design(designBase):
         B.addGridLine(['M', BNS, 'L', BSH, 'L', BWC, 'L', BWS, \
         'M', BUC, 'L', BUS1, \
         'M', BNC, 'L', BHC, 'L', BHS, 'L', BWS, 'L', BUS, 'C', BAP, 'C', BSP, 'L', BNS, 'C', BNC, \
-        'M', b_l1, 'C', b_l2, 'C', b_l3])
-        pth = (['M', b1, 'L', b7, 'C', b8, 'L', b_H1, 'C', b_H3, 'C', b_H2, 'L', b4, 'C', BAP, 'C', b3, 'L', b2, 'C', b1])
-        B.addFoldLine(['M', b_h1, 'C', b_h4, 'C', b_h2, 'C', b_h3])
+        'M', b_l1, 'L', b_l, 'C', b_l3, 'C', b_l2])
+        pth = (['M', b1, 'L', b7, 'C', b8, 'L', b_H1, 'C', b_H, 'C', b_H3, 'C', b_H2, 'L', b4, 'C', BAP, 'C', b3, 'L', b2, 'C', b1])
+        B.addFoldLine(['M', b_h1, 'C', b_h, 'C', b_h3, 'C', b_h2])
         B.addSeamLine(pth)
         B.addCuttingLine(pth)
 
@@ -730,8 +777,8 @@ class Design(designBase):
         'M', c8, 'L', c9, \
         'M', i1, 'L', i2, 'L', i3, 'L', i5, 'L', i7, 'L', i8, 'L', i1, \
         'M', c_l3, 'L', c_l4, 'L', c_l5])
-        pth = (['M', c19, 'C', c7, 'L', c9, 'L', c2, 'L', c22, 'C', c17, 'C', c13, 'C', c19])
         C.addFoldLine(['M', c_l3, 'L', c_l4])
+        pth = (['M', c19, 'C', c7, 'L', c9, 'L', c2, 'L', c22, 'C', c17, 'C', c13, 'C', c19])
         C.addSeamLine(pth)
         C.addCuttingLine(pth)
         
@@ -743,8 +790,8 @@ class Design(designBase):
         dG2 = dPnt(down(dG1, 0.5 * distance(BNC, BHC)))
         D.addGrainLine(dG1, dG2)
         D.addFoldLine(['M', b1, 'L', b13, \
-        'M', b_l1, 'C', b_l2, 'C', b_l3])
-        pth = (['M', b1, 'C', b11, 'C', b12, 'L', b_h4, 'C', b_h2, 'C', b_h3, 'L', b4, 'C', BAP, 'C', b3, 'L', b2, 'C', b1])
+        'M', b_l1, 'L', b_l, 'C', b_l3, 'C', b_l2])
+        pth = (['M', b1, 'C', b11, 'C', b12, 'L', b_h4, 'L', b_h, 'C', b_h3, 'C', b_h2, 'L', b4, 'C', BAP, 'C', b3, 'L', b2, 'C', b1])
         D.addSeamLine(pth)
         D.addCuttingLine(pth)        
 

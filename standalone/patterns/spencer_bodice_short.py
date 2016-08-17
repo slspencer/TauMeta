@@ -117,7 +117,7 @@ class Design(designBase):
         FAC = A.addPoint('FAC', midPoint(FNC, FUC))  
         FAS = A.addPoint('FAS', left(FAC, 0.95 * CD.across_chest / 2.0)) #front armscye point 
         f1 = A.addPoint('f1', left(FUC, CD.front_underarm / 2.0)) #temp front underarm side               
-        f2 = A.addPoint('f2', leftmostP(onCircleTangentFromOutsidePoint(FBP, (CD.front_bust - CD.bust_distance) / 2.0, f1))) #temp front bust side
+        f2 = A.addPoint('f2', leftmostP(tangentPointOnCircle(FBP, (CD.front_bust - CD.bust_distance) / 2.0, f1))) #temp front bust side
         f3 = A.addPoint('f3', onLineAtLength(f1, f2, CD.side)) #temp front waist side
         f4 = A.addPoint('f4', (FBP.x, FWC.y)) #temp dart inside leg
         f5 = A.addPoint('f5', lowestP(intersectCircles(FBP, distance(FBP, f4), f3, CD.front_waist/2.0 - distance(FWC, f4)))) #temp dart outside leg

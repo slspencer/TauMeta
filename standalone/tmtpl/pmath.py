@@ -1250,16 +1250,16 @@ def intersectCircles(C1, r1, C2, r2):
     Accepts C1, r1, C2, r2 where C1 & C2 are point objects for the center of each circle,  and r1 & r2 are the radius of each circle
     Returns an array P which holds objects of class Point for each intersection
     """
-    #print('C1 =', C1.x, C1.y)
-    #try:
-        #print('C1.id =', C1.id)
-    #except:
-        #print('no id for C1')
-    #print('C2 =', C2.x, C2.y)
-    #try:
-        #print('C2.id =', C2.id)
-    #except:
-        #print('no id for C2')
+    print('C1 =', C1.x, C1.y)
+    try:
+        print('C1.id =', C1.id)
+    except:
+        print('no id for C1')
+    print('C2 =', C2.x, C2.y)
+    try:
+        print('C2.id =', C2.id)
+    except:
+        print('no id for C2')
     C1 = dPnt(C1)
     C2 = dPnt(C2)
     x0, y0 = C1.x, C1.y
@@ -1319,9 +1319,9 @@ def onCircleAtX(C, r, x):
     r as the radius,  and x to find the points on the circle
     Returns an array P which holds objects of class dPnt for each intersection
     """
-    #print('C ', C.x, C.y)
-    #print('r ', r)
-    #print('x ', x)
+    print('C ', C.x, C.y)
+    print('r ', r)
+    print('x ', x)
     C = dPnt(C)
     P = []
     if abs(x - C.x) > r:
@@ -1441,8 +1441,8 @@ def intersectChordCircle(C, P, chord_length):
     P.append(polar(C, r, - angle))
     return P
 
-#def tangentOnCircleFromPoint(C, r, P):
-def tangentPointOnCircle(C, r, P):
+#def tangentPointOnCircle(C, r, P):
+def tangentOnCircleFromPoint(C, r, P):
     '''
     Accepts C center of circle, r radius, and P point outside of circle.
     Returns two points where lines to point P are tangent to circle

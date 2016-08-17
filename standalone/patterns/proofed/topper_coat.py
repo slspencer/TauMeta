@@ -74,7 +74,7 @@ class Design(designBase):
         FAC = A.addPoint('FAC', (FNC.x, FAS.y)) #front undearm center
         FUS1 = A.addPoint('FUS1', left(FAC, CD.front_underarm/2.0)) #front underarm side
         #TODO: create function onCircleAtTangentOfPoint()
-        FBS = A.addPoint('FBS', leftmostP(onCircleTangentFromOutsidePoint(FBP, CD.front_bust/2.0 - distance(FBC, FBP), FUS1))) #bust side is where line from bust point is perpendicular to line through FUS1
+        FBS = A.addPoint('FBS', leftmostP(tangentPointOnCircle(FBP, CD.front_bust/2.0 - distance(FBC, FBP), FUS1))) #bust side is where line from bust point is perpendicular to line through FUS1
         FUS = A.addPoint('FUS', onLineAtLength(FUS1, FBS, 0.13 * CD.side)) #adjusted front underarm side on line FUS1-10
         FWS1 = A.addPoint('FWS1', left(FWC, CD.front_waist/2.0)) #temporary front waist side 1 - on waist line
         FWS2 = A.addPoint('FWS2', onLineAtLength(FUS1, FBS, CD.side)) #temporary front waist side 2 - on side seam

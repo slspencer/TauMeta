@@ -879,13 +879,20 @@ class PatternPiece(pBase):
         return child_group_dict
 
     def setLetter(self, xy=None, style='default_letter_text_style', text=None, scaleby=None):
+    #def setLabelPosition(self, xy):
+        #p1 = dPnt(xy)
+        #self.labelx = p1.x
+        #self.labely = p1.y
         #TODO: Implement rotate transform
         if xy is None:
             x = None
             y = None
         else:
-            x = xy[0]
-            y = xy[1]
+            p1 = dPnt(xy)
+            #x = xy[0]
+            x = p1.x
+            #y = xy[1]
+            y = p1.y
         # text=None is a flag to get the letter from the pattern piece at draw time
         if scaleby is not None:
             tform = scaleAboutPointTransform(x, y, scaleby)

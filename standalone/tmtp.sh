@@ -19,15 +19,11 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses>.
 #
 
-# change the following two lines to match your installation
-cd /home/susan/src/tmtp-private/standalone
-
-TMTP_BASE=/home/susan/src/tmtp-private/standalone
+TMTP_BASE=$PWD
 PATTERN_BASE=$TMTP_BASE/patterns
 CUSTOMER_BASE=$TMTP_BASE/customer
 OUTPUT_BASE=$TMTP_BASE/output
 PYTHONPATH=$PYTHONPATH:$TMTP_BASE:$PATTERN_BASE:$CUSTOMER_BASE
-PRINTER1='SC-T7000-Series-4'
 
 export TMTP_BASE
 export PATTERN_BASE
@@ -41,56 +37,50 @@ export PATTERN
 export OUTPUT
 
 function PrintPattern () {
-    ans="$(zenity --list --radiolist --title 'Tau Meta Tau Physica' --text='Print Pattern?'  --column ' ' --column 'Print ' FALSE 'Print to SC-T7000 Plotter' TRUE 'Do not Print')"
-    
-    case $ans in
-        "Print to SC-T7000 Plotter")
-          PRINTPATTERN="1";;
-        *)
-          PRINTPATTERN="0";;
-    esac
-        
-    if [ $PRINTPATTERN == '1' ]; then 
 
-        #convert SVG to PDF with Inkscape no gui (--z) export to PDF (-A)
-           
-        inkscape --without-gui --file=$SVG --export-area-snap -A $PDF | zenity --info --title="Convert pattern" --text="* Converting $SVG to PDF *" 
+    (exec lpstat -v | awk '{print $3}') > PRINTER_LIST
+    lines=()
+    while read -r line || [[ -n $line ]]; do
+        #echo "${line%?}"
+        lines=("${lines[@]}" "FALSE" "${line%?}")
+    done < PRINTER_LIST
+    lines=("${lines[@]}" "TRUE" "Do not print")
+    myprinter="$(zenity --list --radiolist --title="Tau Meta Tau Physica" --text="Select a Printer" \
+    --width=800 --height=500 --column=Select --column=Printer "${lines[@]}")"
+    
+    if [ $myprinter != 'Do not print' ]; then 
+        #convert SVG to PDF with Inkscape no gui (--z) export to PDF (-A)          
+        inkscape --without-gui --file=$SVG --export-area-snap -A $PDF | \
+        zenity --progress --title="Please wait, converting SVG to PDF..." --text="* Converting $SVG to PDF *" --auto-close
         wait   
-
-        #send file to hardcoded print queue $PRINTER1!!!!         
-        lpr -P $PRINTER1 $PDF | zenity --info --title="Print pattern" --text="* Sending $PDF to $PRINTER1 *"
-        (exec system-config-printer --show-jobs SC-T7000-Series-4)
-   
-    fi    
-    
+        #send file to hardcoded print queue $PRINTER1 or $PRINTER2!!!!         
+        lpr -P $myprinter $PDF | \
+        zenity --progress --title="Please wait, printing pattern..." --text="* Sending $PDF to $myprinter *" --auto-close
+        wait
+        (exec system-config-printer --show-jobs $myprinter) 
+    fi       
     return;
-
+    
     }
 
 function MakePattern () {
-    #set the client to database or .json file
-    
-    if [ $MEASUREMENTSOURCE == 'Database' ]; then 
-        CLIENT="--clientrecord=$RECORD_NO"
-    elif [ $MEASUREMENTSOURCE == 'JSON' ]; then
-        CLIENT="--client=$CUSTOMER_BASE/$CUSTOMER_DIR/$CUSTOMER_FILE"
-    fi
-_
+
     STYLES="--styles=$TMTP_BASE/tmtp_styles.json"  
     PATTERN="--pattern=$PATTERN_BASE/$FILE.py"
     SVG="$CUSTOMER_BASE/$CUSTOMER_DIR/$OUTPUT_FILE.svg"
     PDF="$CUSTOMER_BASE/$CUSTOMER_DIR/$OUTPUT_FILE.pdf"
-
-    #Include this option to show additional debug messages: --debug=prints
-    # @@@ MAKE THE PATTERN WITH MKPATTERN @@@
+    CLIENT="--client=$CUSTOMER_BASE/$CUSTOMER_DIR/$CUSTOMER_FILE"   
     echo 'PATTERN='$PATTERN
     echo 'CLIENT='$CLIENT
     echo 'SVG='$SVG
+    
+    # @@@ GENERATE THE PATTERN WITH MKPATTERN @@@
+    #Include this option to show additional debug messages: --debug=prints
     $TMTP_BASE/mkpattern $PATTERN $STYLES $CLIENT $SVG
 
+    # run inkscape to outset the cutting lines and view svg file
     #TODO: add if statement to run inkscape with reference layer visible or hidden.
-
-    # run inkscape to outset the cutting lines and to view svg file.
+    # can't offset more pieces than A through L because Inkscape will crash.
     inkscape --file=$SVG \
     --select=A.cuttingline --select=B.cuttingline --select=C.cuttingline \
     --select=D.cuttingline --select=E.cuttingline --select=F.cuttingline \
@@ -99,7 +89,7 @@ _
     --verb=SelectionOffset --verb=EditDeselect --verb=FileSave \
     --verb=ZoomPage | zenity --progress \
     --title='Please wait, opening Inkscape...'\
-    --text="* Creating $CUSTOMER_DIR/$CUSTOMER_FILE *" --auto-close
+    --text="* Creating $CUSTOMER_DIR/$OUTPUT_FILE.svg *" --auto-close
     
     return;
     }
@@ -113,67 +103,50 @@ function GetFileName () {
     return;
 }
 
-function GetDatabaseMeasurements () {
-    CUSTOMER_NAME="$(zenity --list --radiolist --title 'Tau Meta Tau Physica' --text='Select Measurements' --column ' ' --column 'Measurements' TRUE 'DressFormLg' FALSE 'Susan' )"
+function GetMeasurements () {
     
-    case $CUSTOMER_NAME in
-        "DressFormLg")
-          CUSTOMER_DIR="DressFormLg";
-          RECORD_NO="24";;
-        "Susan")
-          CUSTOMER_DIR="Susan";
-          RECORD_NO="27";;
-    esac
-     
-    return;
-    }
-
-function GetJSONMeasurements () {
     # Display menu and interact based on the user's input
-    CUSTOMER_FULL_FILE_PATH="$(zenity  --file-selection --title '*        Select A Customer:                     *' --filename=$CUSTOMER_BASE/ --file-filter='*.json')"
-    echo "CUSTOMER_FULL_FILE_PATH=$CUSTOMER_FULL_FILE_PATH"
+    CUSTOMER_FULL_FILE_PATH="$(zenity  --file-selection \
+    --title 'Tau Meta Tau Physica'  \    
+    --text 'Select a Customer measurement file' \
+    --width=800 --height=500 \
+    --filename=$CUSTOMER_BASE/ \
+    --file-filter='*.json')"
+    #echo "CUSTOMER_FULL_FILE_PATH=$CUSTOMER_FULL_FILE_PATH"
     
     #file name
     CUSTOMER_FILE=$(basename $CUSTOMER_FULL_FILE_PATH)
-    echo "CUSTOMER_FILE=$CUSTOMER_FILE"  
+    #echo "CUSTOMER_FILE=$CUSTOMER_FILE"  
        
     #full path minus file name
     CUSTOMER_PATH=$(dirname $CUSTOMER_FULL_FILE_PATH)
-    echo "CUSTOMER_PATH=$CUSTOMER_PATH"
+    #echo "CUSTOMER_PATH=$CUSTOMER_PATH"
     
     #last directory in path
     CUSTOMER_DIR=$(basename $CUSTOMER_PATH)
-    echo "CUSTOMER_DIR=$CUSTOMER_DIR" 
+    #echo "CUSTOMER_DIR=$CUSTOMER_DIR" 
      
     #file name minus extension
     CUSTOMER_NAME=${CUSTOMER_FILE%.*}
-    echo "CUSTOMER_NAME=$CUSTOMER_NAME"
+    #echo "CUSTOMER_NAME=$CUSTOMER_NAME"
     
     return;
     }
 
-function GetMeasurements () {
-    MEASUREMENTSOURCE="$(zenity --list --radiolist --title 'Tau Meta Tau Physica' --text='Select Measurement Source' --column ' ' --column 'Source' TRUE 'JSON' FALSE 'Database' )"
-    
-    case $MEASUREMENTSOURCE in
-        "JSON")
-          GetJSONMeasurements;;
-        "Database")
-          GetDatabaseMeasurements;;
-    esac
-    
-    return;
-    }
 
 function GetPattern () {
-    PATTERN="$(zenity  --file-selection --title 'Tau Meta Tau Physica - Select Pattern' --filename=$PATTERN_BASE/ --file-filter='*.py' )"
+    PATTERN="$(zenity  --file-selection \
+    --title 'Tau Meta Tau Physica'  \
+    --text 'Select a Pattern file' \
+    --width=800 --height=500 --filename=$PATTERN_BASE/ \
+    --file-filter='*.py' )"
     return;
     }
 
 function MainMenu () {
     var1="$(zenity --list --radiolist \
     --title 'Tau Meta Tau Physica' \
-    --text='Main Menu' \
+    --text='Main Menu' --width=800 --height=500 \
     --column ' ' --column 'Main ' \
     TRUE 'Create a Pattern' \
     FALSE 'Exit' )"
@@ -214,14 +187,11 @@ while true; do
     
 done
 
-# to use this menu with the sample pattern:
-# Select generating a pattern with reference points ane grid lines, or without them.
-# Choose which pattern to generate -. The tmtp/standalone/patterns directory opens by default.
+# Choose a pattern file -. The tmtp/standalone/patterns directory opens by default.
 #       You may navigate to another directory if you have stored your patterns there.
-#       Click twice on the pattern name or click the Open button at the bottom of the dialog.
-# Choose which customer file to use. The tmtp/standalone/customers directory opens by default.
-#       Click on the customer's directory then click on the measurement file.
+# Choose a customer measurement file. The tmtp/standalone/customers directory opens by default.
+#       Choose a customer's directory then click on the measurement file.
 # The output file will be saved to the customer's directory. The pattern, date and time are used to create the file name.
 
-# This menu will always generate messages that it couldn't find some id's
-# because the inkscape command line calls more pattern piece id's than are in most pattern files.
+# Inkscape will generate messages that it couldn't find some id's
+# because more pattern piece id's (A through L) are called for offsets than are in most pattern files.
