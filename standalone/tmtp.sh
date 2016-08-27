@@ -19,7 +19,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses>.
 #
 
-TMTP_BASE=$PWD
+TMTP_BASE=/home/susan/src/tmtp2/standalone
 PATTERN_BASE=$TMTP_BASE/patterns
 CUSTOMER_BASE=$TMTP_BASE/customer
 OUTPUT_BASE=$TMTP_BASE/output
@@ -48,7 +48,7 @@ function PrintPattern () {
     myprinter="$(zenity --list --radiolist --title="Tau Meta Tau Physica" --text="Select a Printer" \
     --width=800 --height=500 --column=Select --column=Printer "${lines[@]}")"
     
-    if [ $myprinter != 'Do not print' ]; then 
+    if [ $lines != 'Do not print' ]; then 
         #convert SVG to PDF with Inkscape no gui (--z) export to PDF (-A)          
         inkscape --without-gui --file=$SVG --export-area-snap -A $PDF | \
         zenity --progress --title="Please wait, converting SVG to PDF..." --text="* Converting $SVG to PDF *" --auto-close
@@ -107,8 +107,7 @@ function GetMeasurements () {
     
     # Display menu and interact based on the user's input
     CUSTOMER_FULL_FILE_PATH="$(zenity  --file-selection \
-    --title 'Tau Meta Tau Physica'  \    
-    --text 'Select a Customer measurement file' \
+    --title='Tau Meta Tau Physica - Select a Customer measurement file' \
     --width=800 --height=500 \
     --filename=$CUSTOMER_BASE/ \
     --file-filter='*.json')"
@@ -136,8 +135,7 @@ function GetMeasurements () {
 
 function GetPattern () {
     PATTERN="$(zenity  --file-selection \
-    --title 'Tau Meta Tau Physica'  \
-    --text 'Select a Pattern file' \
+    --title='Tau Meta Tau Physica - Select a Pattern file' \
     --width=800 --height=500 --filename=$PATTERN_BASE/ \
     --file-filter='*.py' )"
     return;
@@ -145,7 +143,7 @@ function GetPattern () {
 
 function MainMenu () {
     var1="$(zenity --list --radiolist \
-    --title 'Tau Meta Tau Physica' \
+    --title='Tau Meta Tau Physica' \
     --text='Main Menu' --width=800 --height=500 \
     --column ' ' --column 'Main ' \
     TRUE 'Create a Pattern' \

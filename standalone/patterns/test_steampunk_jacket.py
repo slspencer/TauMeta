@@ -46,19 +46,19 @@ class Design(designBase):
         #
         # This group is all mandatory
         #
-        self.setInfo('patternNumber', 'MR_B1')
-        self.setInfo('patternTitle', 'Spencer Bodice Short')
-        self.setInfo('companyName', 'Next Patterns')
+        self.setInfo('patternNumber', 'Stp_J_1')
+        self.setInfo('patternTitle', 'Spencer Steampunk Jacket')
+        self.setInfo('companyName', 'Seamly Patterns')
         self.setInfo('designerName', 'S.L.Spencer')
         self.setInfo('patternmakerName', 'S.L.Spencer')
-        self.setInfo('description', """Women's bodice block pattern with minimum ease, includes long sleeve with elbow dart.""")
+        self.setInfo('description', """Steampunk Jacket """)
         self.setInfo('category', 'Shirt/TShirt/Blouse')
         self.setInfo('type', 'Block')
         #
         # The next group are all optional
         #
-        self.setInfo('gender', 'F') # 'M',  'F',  or ''
-        self.setInfo('yearstart', '1900')
+        self.setInfo('gender', '') # 'M',  'F',  or ''
+        self.setInfo('yearstart', '1850')
         self.setInfo('yearend', '')
         self.setInfo('culture', 'European')
         self.setInfo('wearer', '')
@@ -73,183 +73,147 @@ class Design(designBase):
         #create a pattern named 'bodice'
         bodice = self.addPattern('bodice')
 
-# measurement constants
-#in_to_pt         = ( 72 / 1    )             #convert inches to printer's points
-#cm_to_pt       = ( 72 / 2.54  )          #convert centimeters to printer's points
-#cm_to_in        = ( 1 / 2.54 )             #convert centimeters to inches
-#in_to_cm        = ( 2.54 / 1 )             #convert inches to centimeters
-
-# sewing constants
-#quarter_seam_allowance = ( in_to_pt * 1 / 4 )   # 1/4" seam allowance
-#seam_allowance              = ( in_to_pt * 5 / 8 )   # 5/8" seam allowance
-#hem_allowance               = ( in_to_pt * 2     )    # 2" seam allowance
-#pattern_offset                 = ( in_to_pt * 3     )    # 3" between patterns
-
+        # measurement constants
+        #in_to_pt         = ( 72 / 1    )         #convert inches to printer's points
+        #cm_to_pt       = ( 72 / 2.54  )          #convert centimeters to printer's points - 72pt per 2.54 cm
+        #cm_to_in        = ( 1 / 2.54 )           #convert centimeters to inches - 1in per 2.54cm
+        #in_to_cm        = ( 2.54 / 1 )           #convert inches to centimeters
+        
+        # sewing constants
+        #quarter_seam_allowance = ( in_to_pt * 1 / 4 )   # 1/4" seam allowance
+        #seam_allowance              = ( in_to_pt * 5 / 8 )   # 5/8" seam allowance
+        #hem_allowance               = ( in_to_pt * 2     )    # 2" seam allowance
+        #pattern_offset                 = ( in_to_pt * 3     )    # 3" between patterns
 
         #get client data
         CD = self.CD #client data is prefaced with CD
+        CM = CD.back_waist_length/44.5
+        JACKET_HEM_ALLOWANCE = 5*CM
+        SCALE = CD.bust/2.0
+        HALF_SCALE = SCALE/2.0
+        FOURTH_SCALE = SCALE/4.0
+        EIGHTH_SCALE = SCALE/8.0
 
         #create a pattern named 'bodice'
-        bodice = self.addPattern('bodice')
+        jacket = self.addPattern('jacket')
 
         #create pattern pieces,  assign an id lettercd 
-        A = bodice.addPiece('Jacket Back', 'A', fabric = 2, interfacing = 0, lining = 0)
-        B = bodice.addPiece('Jacket Front', 'B', fabric = 2, interfacing = 0, lining = 0)
-        C = bodice.addPiece('Jacket Sleeve', 'C', fabric = 2, interfacing = 0, lining = 0)
+        A = jacket.addPiece('Jacket Back', 'A', fabric = 2, interfacing = 0, lining = 0)
+        B = jacket.addPiece('Jacket Front', 'B', fabric = 2, interfacing = 0, lining = 0)
+        #C = jacket.addPiece('Jacket Sleeve', 'C', fabric = 2, interfacing = 0, lining = 0)
 
         # Jacket Back
+        # back center ref for top, shoulder, chest, waist, hip, hem, hem allowance
+        a0 = A.addPoint('a0', (0, 0)) # start back neck center - nape
+        a1 = A.addPoint('a1', down(a0, 0.168*CD.back_waist_length)) #back shoulder center ref
+        a2 = A.addPoint('a2', down(a0, 0.54*CD.back_waist_length)) #back chest center ref
+        a3 = A.addPoint('a3', down(a0, CD.back_waist_length)) #back waist center ref
+        a4 = A.addPoint('a4', down(a3, CD.back_hip_height)) #back hip center ref
+        a5 = A.addPoint('a5', down(a3, 1.5*CD.back_hip_height)) #back hem center ref
+        a6 = A.addPoint('a6', down(a5, HEM_ALLOWANCE)) #back hem allowance center ref
 
-        # reference back center seam points for nape, shoulder, chest, waist, hip, hem
-        a1 = A.addPoint('a1',   0,   0, 'corner',   reference_layer,  no_transform)   # start calculations from nape at 0,0
-           A.seam.center.shoulder = Point('jacket.back.seam.center.shoulder',  A.nape.x,    A.nape.y + back_shoulder_length, 'smooth', reference_layer,  no_transform)
-           A.seam.center.chest = Point( 'jacket.back.seam.center.chest',  A.nape.x + (1*cm_to_pt),  A.nape.y + back_chest_length,  'smooth', reference_layer, A.transform  )
-           A.seam.center.waist = Point( 'jacket.back.seam.center.waist', A.nape.x + (2.5*cm_to_pt),  A.nape.y + back_waist_length,    'symmetric', reference_layer, A.transform)
-           A.seam.center.hip =  Point( 'jacket.back.seam.center.hip', A.nape.x + (2*cm_to_pt),    A.seam.center.waist.y + back_hip_length, 'smooth', reference_layer,  A.transform )
-           A.seam.center.hem = Point( 'jacket.back.seam.center.hem', A.nape.x + (1.5*cm_to_pt),  back_jacket_length,   'smooth', reference_layer, A.transform )
-           A.seam.center.hem_allowance = Point( 'jacket.back.seam.center.hem_allowance', A.seam.center.hem.x +0, A.seam.center.hem.y + hem_allowance, 'corner', reference_layer ,  A.transform)
+        # back side ref points for top, shoulder, chest, waist, hip, hem, hem allowance
+        a7 = A.addPoint('a7', right(a0, CD.across_back/2)) #back top side ref
+        a8 = A.addPoint('a8', right(a1, CD.across_back/2)) #back shoulder side ref
+        a9 = A.addPoint('a9', right(a2, CD.across_back/2)) #back chest side ref
+        a10 = A.addPoint('a10', right(a3, CD.across_back/2)) #back waist side ref
+        a11 = A.addPoint('a11', right(a4, CD.across_back/2)) #back hip side ref
+        a12 = A.addPoint('a12', right(a5, CD.across_back/2)) #back hem side ref
+        a13 = A.addPoint('a13', right(a6, CD.across_back/2)) #back hem allowance side ref
+        
+        # back center seam
+        a14 = A.addPoint('a14', right(a2, 1.0*CM)) #back chest center
+        a15 = A.addPoint('a15', right(a3, 2.5*CM)) #back waist center
+        a16 = A.addPoint('a16', right(a4, 1.75*CM)) #back hip center
+        a17 = A.addPoint('a17', right(a5, 1.5*CM)) #back hem center
+        a18 = A.addPoint('a18', right(a6, 1.5*CM)) #back hem allowance center
+        
+        #back neck
+        a19 = A.addPoint('a19', right(a0, EIGHTH_SCALE + 2*CM)) #back neck ref point
+        a20 = A.addPoint('a20', up(a19, 2*CM)) #back neck side point
+        
+        #back shoulder
+        a21 = A.addPoint('a21', right(a8,1*CM)) #back shoulder point
+        a22 = A.addPoint('a22', down(a8, 3*distance(a21,a9)/11.0)) #back armhole/sleeve balance point        
+        a23 = A.addPoint('a23', up(a9, 4*distance(a21,a9)/11.0)) #back armhole midpoint
+        
+        #back side seam
+        a24 = A.addPoint('a24', left(a9, 1*CM)) #back chest side
+        a25 = A.addPoint('a25', left(a10, 3*CM)) #back waist side
+        a26 = A.addPoint('a26', left(a11, 2*CM)) #back hip side
+        a27 = A.addPoint('a27', left(a12, 2*CM)) #back hem side
+        a28 = A.addPoint('a28', left(a13, 2*CM)) #back hem allowance side
+        
+        # curve control points
+        #b/w a0 & a20
+        a0.addOutpoint(right(a0,distance(a0,a19)/2))
+        a20.addInpoint(polar(a20,distance(a20,a19)/2,angleOfLine(a20,a21)+angleOfDegree(100)))
+        #b/2 a20,a21
+        a20.addOutpoint(polar(a20,distance(a20,a21)/3.0,angleOfLine(a20,a21)+angleOfDegree(5)))
+        a21.addInpoint(polar(a21,distance(a20,a21)/3.0, angleOfLine(a21,a20)-angleOfDegree(5)))
+        # armhole
+        a23.addInpoint(polar(a23,distance(a22,a23)/3.0, angleOfDegree(265)))
+        a22.addOutpoint(polar(a22,distance(a22,a23)/3.0, angleOfLine(a21,a23.inpoint)))        
+        a22.addInpoint(polar(a22,distance(a22,a21)/3.0, angleOfLine(a23.inpoint,a21)))
+        a21.addOutpoint(polar(a21,distance(a22,a21)/3.0, angleOfLine(a21,a22.inpoint)))
+        #b/w a24, a25
+        a24.addOutpoint(polar(a24,distance(a24,a25)/3.0, angleOfLine(a23,a24)))
+        a25.addInpoint(up(a25,distance(a24,a25)/6.0))
+        #b/w a25,a25
+        a25.addOutpoint(down(a25,distance(a25,a26)/6.0))
+        a26.addInpoint(polar(a26,distance(a25,a26)/2.0, angleOfLine(a27,a26)))
+        #b/w a16,a15
+        a16.addOutpoint(polar(a16,distance(a16,a15)/2.0, angleOfLine(a17,a16)))
+        a15.addInpoint(down(a15,distance(a16,a15)/6.0))
+        #b/w a15,a14
+        a15.addOutpoint(up(a15,distance(a15,a14)/6.0))
+        a14.addInpoint(polar(a14,distance(a15,a14)/3.0, angleOfLine(a1,a15)))
+        #b/w a14, a0
+        a14.addOutpoint(polar(a14,distance(a14,a1)/3.0, angleOfLine(a15,a1)))
+        a0.addInpoint(down(a0,distance(a0,a14)/3.0))
+        
+        #Jacket Front
+        #grid ref points
+        b0 = B.addPoint('b0',a0)
+        b1 = B.addPoint('b1',a1)
+        b2 = B.addPoint('b2',a2)
+        b3 = B.addPoint('b3',a3)
+        b4 = B.addPoint('b4',a4)
+        b5 = B.addPoint('b5',a5)
+        b6 = B.addPoint('b6',a6)
+        
+        b7 = B.addPoint('b7', right(b0, 0.875*SCALE)) #front shoulder center
+        b8 = B.addPoint('b8', (b7.x, a2.y)) #front chest center
+        b9 = B.addPoint('b9', (b7.x, a3.y)) #front waist center
+        b10 = B.addPoint('b10', (b7.x, a4.y)) #front hip center
+        b11 = B.addPoint('b11', (b7.x, a5.y)) #front hem center
+        b12 = B.addPoint('b12', (b7.x, a6.y)) #front hem allowance center
 
-           # reference back side seam points for chest, waist, hip, hem
-           A.seam.side.chest = Point( 'jacket.back.seam.side.chest', A.nape.x + back_shoulder_width - (1*cm_to_pt),  A.nape.y + back_chest_length, 'smooth', reference_layer, A.transform )
-           A.seam.side.waist = Point( 'jacket.back.seam.side.waist', A.nape.x + back_shoulder_width - (3*cm_to_pt),  A.nape.y + back_waist_length, 'symmetric',  reference_layer, A.transform )
-           A.seam.side.hip = Point( 'jacket.back.seam.side.hip', A.nape.x + back_shoulder_width - (2*cm_to_pt),  A.seam.side.waist.y + back_hip_length, 'smooth', reference_layer, A.transform )
-           A.seam.side.hem = Point( 'jacket.back.seam.side.hem', A.nape.x + back_shoulder_width - (1.5*cm_to_pt),   back_jacket_length, 'smooth', reference_layer, A.transform )
-           A.seam.side.hem_allowance = Point( 'jacket.back.seam.side.hem_allowance', A.seam.side.hem.x, A.seam.side.hem.y + hem_allowance, 'corner',  reference_layer, A.transform )
+        #Create Pattern Piece A Jacket Back
+        pnt1 = dPnt(midPoint(a1, a8))
+        A.setLetter((pnt1.x, pnt1.y), scaleby=10.0)
+        A.setLabelPosition(down(pnt1, 2*CM))
+        Ag1 = dPnt(midPoint(a14, a24))
+        Ag2 = dPnt(midPoint(a16, a26))
+        A.addGrainLine(Ag1, Ag2)
+        A.addGridLine(['M', a0,'L',a7,'L',a13,'L',a6,'L',a0, 'M',a1,'L',a8,'M',a2,'L',a9,'M',a3,'L',a10,'M',a4,'L',a11,'M',a5,'L',a12,'M',a6,'L',a13])
+        pth = (['M',a0,'C',a20,'C',a21,'C',a22,'C',a23,'L',a24,'C',a25,'C',a26,'L',a27,'L',a28])
+        pth += (['L',a18,'L',a17,'L',a16,'C',a15,'C',a14,'C',a0])
+        A.addSeamLine(pth)
+        A.addCuttingLine(pth)
+        
+        #Create Pattern Piece B Jacket Front
+        pnt1 = dPnt(midPoint(b2, b8))
+        B.setLetter((pnt1.x, pnt1.y), scaleby=10.0)
+        B.setLabelPosition(down(pnt1, 2*CM))
+        Bg1 = dPnt(midPoint(b3, b9))
+        Bg2 = dPnt(midPoint(b4, b10))
+        B.addGrainLine(Bg1, Bg2)
+        B.addGridLine(['M', b0,'L',b7,'L',b11,'L',b5,'L',a0, 'M',b2,'L',b8,'M',b3,'L',b9,'M',b4,'L',b10,'M',b5,'L',b11])
+        pth = (['M',b0,'L',b7])
+        B.addSeamLine(pth)
+        B.addCuttingLine(pth)
 
-           # armscye points
-           A.balance = Point( 'jacket.back.balance', A.nape.x + back_shoulder_width,  A.nape.y + back_balance_length, 'smooth', reference_layer,  A.transform )
-           A.underarm = Point( 'jacket.back.underarm', A.nape.x + back_shoulder_width, A.nape.y + back_balance_length + abs(back_balance_length - back_chest_length)*(.48), 'smooth', reference_layer,  A.transform )
-
-           # diagonal shoulder line
-           A.seam.shoulder.high = Point( 'jacket.back.seam.shoulder.high', A.nape.x + back_neck_width, A.nape.y - back_neck_length, 'corner', reference_layer,  A.transform )
-           A.seam.shoulder.low   = Point( 'jacket.back.seam.shoulder.low', A.seam.center.shoulder.x + back_shoulder_width + (1*cm_to_pt), A.seam.center.shoulder.y, 'corner', reference_layer,  A.transform )
-
-           # Back Vertical Reference Grid
-           d = 'M '+ A.nape.coords   + ' v ' + str( A.height )
-           self.DrawPath( reference_layer, d , 'reference' , 'Jacket Back - Center', A.transform )
-           d = 'M '+ str(A.nape.x + back_shoulder_width) + ', ' + str(A.nape.y) + ' v ' + str( A.height)
-           self.DrawPath( reference_layer, d , 'reference' , 'Jacket Back - Shoulder Width',   A.transform )
-           d = 'M '+ str(A.nape.x + A.width) + ', ' + str(A.nape.y)       + ' v ' + str( A.height )
-           self.DrawPath( reference_layer, d , 'reference' , 'Jacket Back - Side',   A.transform )
-           d = 'M '+ A.seam.shoulder.high.coords  +' v '+ str(back_neck_length)
-           self.DrawPath( reference_layer, d, 'reference', 'Jacket Back - Neck',     A.transform )
-
-           # Back Horizontal Reference Grid
-           d = 'M '+ A.nape.coords  + ' h ' + str( A.width )   # top grid line
-           self.DrawPath( reference_layer, d, 'reference', 'Jacket Back - Top',  A.transform )
-           d = 'M ' + str(A.nape.x) + ', ' + str( A.seam.center.shoulder.y)   + ' h ' + str( A.width ) # shoulder grid line
-           self.DrawPath( reference_layer, d, 'reference', 'Jacket Back - Shoulder', A.transform )
-           d = 'M ' + str(A.nape.x) + ', ' + str( A.seam.center.chest.y)        + ' h ' + str( A.width ) # chest grid line
-           self.DrawPath( reference_layer, d, 'reference', 'Jacket Back - Chest',    A.transform )
-           d = 'M ' + str(A.nape.x) + ', ' + str( A.seam.center.waist.y)         + ' h ' + str( A.width) # waist
-           self.DrawPath( reference_layer, d, 'reference', 'Jacket Back - Waist',    A.transform )
-           d = 'M ' + str(A.nape.x) + ', ' + str( A.seam.center.hip.y )           + ' h ' + str( A.width ) #hip
-           self.DrawPath( reference_layer, d, 'reference', 'Jacket Back - Hip',      A.transform )
-           d = 'M ' + str(A.nape.x) + ', ' + str( A.seam.center.hem.y )         + ' h ' + str( A.width ) # hem
-           self.DrawPath( reference_layer, d, 'reference', 'Jacket Back - Hem',      A.transform )
-           d = 'M ' + str(A.nape.x) + ', ' + str( A.seam.center.hem_allowance.y )  + ' h ' + str( A.width )# hem allowance
-           self.DrawPath( reference_layer, d, 'reference', 'Jacket Back - Hem',      A.transform )
-           d = 'M ' + str(A.nape.x) + ', ' + str(A.nape.y + A.height)                + ' h ' + str( A.width )
-           self.DrawPath( reference_layer, d, 'reference', 'Jacket Back - End',      A.transform )
-
-           # Back Center Seam line clockwise from bottom left:
-           x1, y1 = self.PointwithSlope( A.seam.center.hip.x, A.seam.center.hip.y, A.seam.center.hem.x, A.seam.center.hem.y, abs( A.seam.center.hip.y - A.seam.center.waist.y )*(.3), 'normal' )
-           c1 = Point( 'c1', x1, y1, 'control', reference_layer, A.transform)
-           c2 = Point( 'c2', A.seam.center.waist.x,  A.seam.center.waist.y + abs( A.seam.center.waist.y -  A.seam.center.hip.y   ) * (.3), 'control', reference_layer, A.transform )
-           c3 = Point( 'c3', A.seam.center.waist.x,  A.seam.center.waist.y - abs( A.seam.center.waist.y - A.seam.center.chest.y ) * (.3), 'control', reference_layer,  A.transform )
-
-           x1, y1 = self.PointwithSlope( A.seam.center.chest.x, A.seam.center.chest.y, A.seam.center.shoulder.x, A.seam.center.shoulder.y, abs( A.seam.center.chest.y - A.seam.center.waist.y )*(.3), 'normal' )
-           c4 = Point( 'c4', x1, y1, 'control', reference_layer,  A.transform )
-           c5 = Point( 'c5', A.seam.center.chest.x - abs(A.seam.center.chest.x - A.seam.center.shoulder.x)*(.3), A.seam.center.chest.y - abs( A.seam.center.chest.y - A.seam.center.shoulder.y )*(.3), 'control', reference_layer,  A.transform )
-           c6 = Point( 'c6', A.seam.center.shoulder.x, A.seam.center.shoulder.y + abs( A.seam.center.shoulder.y - A.seam.center.chest.y )*(.3), 'control', reference_layer,  A.transform )
-
-           # Back Center Seam path
-           A.seam.center.path  = 'L '+ A.seam.center.hem_allowance.coords +' L '+  A.seam.center.hem.coords + ' L ' +  A.seam.center.hip.coords +' C '+ c1.coords +' '+ c2.coords +' '+ A.seam.center.waist.coords +' C '+ c3.coords +' '+ c4.coords +' '+ A.seam.center.chest.coords +' C '+ c5.coords +' '+ c6.coords + ' '+ A.seam.center.shoulder.coords +' L '+ A.nape.coords
-
-           # Back Neck seam line clockwise from A.nape to high point of shoulder:
-           x1, y1       = self.PointwithSlope( A.seam.shoulder.high.x, A.seam.shoulder.high.y, A.seam.shoulder.low.x, A.seam.shoulder.low.y, (abs( A.seam.shoulder.high.y - A.nape.y )*(.75)), 'perpendicular')
-           c1 = Point( 'c1_!', x1, y1, 'control', reference_layer,  A.transform) #c1 is perpendicular to shoulder line at A.seam.shoulder.high.
-
-           x1, y1       = self.PointwithSlope( A.nape.x, A.nape.y, A.seam.shoulder.high.x, A.nape.y, ( -(abs( A.seam.shoulder.high.x - A.nape.x ) ) * (.50) ), 'normal')
-           c2 = Point( 'c2_!', x1, y1, 'control', reference_layer, A.transform)
-
-           # Back Neck Seam path - starts with 'a1' from Back_Center_Seam
-           path 'M ' + a1 + ' C '+ c2.coords +' '+ c1.coords +' '+ A.seam.shoulder.high.coords
-
-           # Back Shoulder & Armhole seam lines clockwise from high point to low point of shoulder to top of side seam
-           c1   = Point( 'c1_@', A.seam.shoulder.high.x + (abs( A.seam.shoulder.low.x - A.seam.shoulder.high.x )*(.33)), A.seam.shoulder.high.y + (abs( A.seam.shoulder.low.y - A.seam.shoulder.high.y )*(.4)),  'control', reference_layer,  A.transform )
-           c2   = Point( 'c2_@', A.seam.shoulder.high.x + (abs( A.seam.shoulder.low.x - A.seam.shoulder.high.x )*(.6) ), A.seam.shoulder.high.y + (abs( A.seam.shoulder.low.y - A.seam.shoulder.high.y )*(.66)), 'control', reference_layer,   A.transform )
-
-           # Back Shoulder Seam path - starts with 'jacket.back.seam.shoulder.high.coords' from Back_Neck_Seam
-           A.seam.shoulder.path = ' C '+ c1.coords +' '+ c2.coords +' '+ A.seam.shoulder.low.coords
-           A.seam.armhole.path  = ' Q ' + A.balance.coords + ' ' + A.underarm.coords
-
-           # Back Side seam line clockwise from A.underarm. to hem
-           x1, y1 = self.PointwithSlope( A.seam.side.chest.x, A.seam.side.chest.y, A.underarm.x, A.underarm.y, abs(A.seam.center.chest.y - A.seam.side.waist.y) * (.3) , 'normal')
-           c1 = Point( 'c1_*' , x1, y1, 'control' , reference_layer,  A.transform)
-
-           c2 = Point( 'c2_*', A.seam.side.waist.x, A.seam.side.waist.y - (abs( A.seam.side.waist.y - A.seam.side.chest.y )*(.3)), 'control', reference_layer,  A.transform )
-           c3 = Point( 'c3_*', A.seam.side.waist.x, A.seam.side.waist.y + (abs( A.seam.side.waist.y - A.seam.side.hip.y )*(.3)),   'control', reference_layer,  A.transform )
-
-           x1, y1  = self.PointwithSlope( A.seam.side.hip.x, A.seam.side.hip.y, A.seam.side.hem.x, A.seam.side.hem.y, (abs(A.seam.side.waist.y - A.seam.side.hip.y)*(.3)), 'normal')
-           c4 = Point( 'c4_*', x1, y1, 'control', reference_layer,  A.transform )
-
-           # Back Side Seam path -- starts with 'jacket.back.underarm.' from Back_Shoulder_Armhole_Seam
-           A.seam.side.path  = ' L '+ A.seam.side.chest.coords +' C '+ c1.coords + ' '+ c2.coords +' '+ A.seam.side.waist.coords +' C '+ c3.coords +' '+ c4.coords +' '+ A.seam.side.hip.coords +' L '+ A.seam.side.hem.coords + ' ' + A.seam.side.hem_allowance.coords
-
-           # Back Hemline path
-           A.seam.hem.path = 'M ' +  A.seam.center.hem.coords + ' L ' + A.seam.side.hem.coords
-
-           # Grainline
-           g1 = Point( 'g1', (A.seam.shoulder.low.x)/2, A.underarm.y, 'grainline', reference_layer,  A.transform )
-           g2 = Point( 'g2', g1.x, g1.y + (60*cm_to_pt), 'grainline', reference_layer,  A.transform )
-           A.grainline = Generic()   #not in use at this time
-           A.grainline.path = 'M '+ g1.coords + ' L ' + g2.coords # not in use at this time
-
-           # Jacket Back Pattern path
-           A.path = A.seam.neck.path +' '+ A.seam.shoulder.path + ' '+ A.seam.armhole.path +' '+ A.seam.side.path + ' ' + A.seam.center.path +' z'
-
-           #Draw Jacket Back pattern piece on pattern layer
-           self.DrawPath( A.layer, A.seam.hem.path, 'hemline',  'jacket.back.seam.hem.path',  A.transform )
-           self.DrawPath( A.layer, A.path, 'seamline',  'jacket.back.path_Seamline',  A.transform )
-           self.DrawPath( A.layer, A.path, 'cuttingline', 'jacket.back.path_Cuttingline',  A.transform )
-           self.Grainline( A.layer, g1.x, g1.y, g2.x, g2.y, 'jacket.back.grainline.path',  A.transform )
-           #self.DrawGrainline( A.layer, A.grainline.path, 'jacket.back.grainline.path', A.transform ) # use this after creating markers for Arrows at each end of grainline
-
-           # Write description on pattern piece
-           x, y = A.nape.x + (5 * cm_to_pt) , A.nape.y + back_shoulder_length
-           font_size  = 50
-           spacing = (font_size * .20)
-           y = ( y+ font_size + spacing )
-           self.WriteText( A.layer,  x,  y,  font_size, 'company_name',   company_name,  A.transform )
-           y = ( y+ font_size + spacing )
-           self.WriteText( A.layer,  x,  y, font_size, 'pattern_number', pattern_number,  A.transform )
-           y = ( y+ font_size + spacing )
-           self.WriteText( A.layer, x,  y, font_size, 'jacket.back.letter', 'Pattern Piece '+ A.letter,  A.transform )
-           if A.fabric > 0:
-             y = ( y+ font_size + spacing )
-             self.WriteText( A.layer, x, y, font_size, 'jacket.back.fabric', 'Cut '+str(A.fabric)+ ' Fabric',  A.transform )
-           if A.interfacing > 0:
-             y = ( y+ font_size + spacing )
-             self.WriteText( A.interfacing, x,  y, font_size, 'jacket.back.interfacing', 'Cut '+str(A.interfacing)+ ' Interfacing',     A.transform )
-           if A.lining > 0:
-             y = ( y+ font_size + spacing )
-             self.WriteText( A.lining, x, y, font_size, 'jacket.back.lining', 'Cut '+str(A.fabric)+ ' Lining',     A.transform )
-
-           # document calculations
-           A.low.x,  A.low.y,  A.high.x,  A.high.y = self.NewBoundingBox( A.path, A.start.x, A.start.y )
-           layout.document_low.x  = min( layout.document_low.x ,  A.low.x  )
-           layout.document_low.y  = min( layout.document_low.y ,  A.low.y  )
-           layout.document_high.x = max( layout.document_high.x, A.high.x)
-           layout.document_high.y = max( layout.document_high.y, A.high.y )
-
-           # document calculations
-           layout.height = layout.document_high.y + border
-           layout.width  = layout.document_high.x + border
-           # reset document size
-           self.svg_svg( str( layout.width ), str( layout.height ), str( border ) )
-
-# my_effect is an instance of DrawJacket() - my_effect is an arbitrary name
-# my_effect.affect() is a built-in function which causes my_effect to evaluate itself - e.g. initialize, execute and thus draw the pattern
-
-my_effect = DrawJacket()
-my_effect.affect()
+        # call draw once for the entire pattern
+        self.draw()
+        return
